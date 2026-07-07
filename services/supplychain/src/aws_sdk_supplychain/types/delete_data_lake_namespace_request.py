@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DeleteDataLakeNamespaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_lake_namespace_name
     import aws_sdk_supplychain.types.uuid
 
 
-class DeleteDataLakeNamespaceRequest(TypedDict):
+class DeleteDataLakeNamespaceRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_supplychain.types.uuid.UUID"
     """<p>The AWS Supply Chain instance identifier.</p>"""
     name: "aws_sdk_supplychain.types.data_lake_namespace_name.DataLakeNamespaceName"

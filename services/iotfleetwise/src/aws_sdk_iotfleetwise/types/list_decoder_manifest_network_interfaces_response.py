@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ListDecoderManifestNetworkInterfacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.network_interfaces
     import aws_sdk_iotfleetwise.types.next_token
 
 
-class ListDecoderManifestNetworkInterfacesResponse(TypedDict):
+class ListDecoderManifestNetworkInterfacesResponse(TypedDict, closed=True):
     network_interfaces: NotRequired[
         "aws_sdk_iotfleetwise.types.network_interfaces.NetworkInterfaces"
     ]

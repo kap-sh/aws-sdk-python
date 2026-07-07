@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#SearchSchemaSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__list_of_search_schema_version_summary
     import aws_sdk_schemas.types.__string
 
 
-class SearchSchemaSummary(TypedDict):
+class SearchSchemaSummary(TypedDict, closed=True):
     registry_name: NotRequired["aws_sdk_schemas.types.__string.__string"]
     """<p>The name of the registry.</p>"""
     schema_arn: NotRequired["aws_sdk_schemas.types.__string.__string"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#StorageFlowNodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.storage_flow_node_service_configuration
 
 
-class StorageFlowNodeConfiguration(TypedDict):
+class StorageFlowNodeConfiguration(TypedDict, closed=True):
     service_configuration: "aws_sdk_bedrock_agent.types.storage_flow_node_service_configuration.StorageFlowNodeServiceConfiguration"
     """<p>Contains configurations for the service to use for storing the input into the node.</p>"""
 

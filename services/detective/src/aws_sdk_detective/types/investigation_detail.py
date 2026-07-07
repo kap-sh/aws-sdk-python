@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#InvestigationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.entity_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.timestamp
 
 
-class InvestigationDetail(TypedDict):
+class InvestigationDetail(TypedDict, closed=True):
     investigation_id: NotRequired[
         "aws_sdk_detective.types.investigation_id.InvestigationId"
     ]

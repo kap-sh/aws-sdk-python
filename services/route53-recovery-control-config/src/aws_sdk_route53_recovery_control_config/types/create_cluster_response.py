@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycontrolconfig#CreateClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.cluster
 
 
-class CreateClusterResponse(TypedDict):
+class CreateClusterResponse(TypedDict, closed=True):
     cluster: NotRequired[
         "aws_sdk_route53_recovery_control_config.types.cluster.Cluster"
     ]

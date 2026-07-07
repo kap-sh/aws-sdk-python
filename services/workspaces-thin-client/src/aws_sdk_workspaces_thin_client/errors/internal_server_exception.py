@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#InternalServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_thin_client.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.retry_after_seconds
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_workspaces_thin_client.types.exception_message.ExceptionMessage"
     ]

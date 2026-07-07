@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeReplicationTaskAssessmentResultsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.integer_optional
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeReplicationTaskAssessmentResultsMessage(TypedDict):
+class DescribeReplicationTaskAssessmentResultsMessage(TypedDict, closed=True):
     replication_task_arn: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

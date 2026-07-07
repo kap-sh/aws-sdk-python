@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#CreateTaskOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CreateTaskOutput(TypedDict):
+class CreateTaskOutput(TypedDict, closed=True):
     task_id: NotRequired["str"]
     """<p>The ID of the task that you created.</p>"""
     task_arn: NotRequired["str"]

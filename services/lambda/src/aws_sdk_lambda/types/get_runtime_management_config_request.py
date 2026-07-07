@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetRuntimeManagementConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.namespaced_function_name
     import aws_sdk_lambda.types.numeric_latest_published_or_alias_qualifier
 
 
-class GetRuntimeManagementConfigRequest(TypedDict):
+class GetRuntimeManagementConfigRequest(TypedDict, closed=True):
     function_name: (
         "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName"
     )

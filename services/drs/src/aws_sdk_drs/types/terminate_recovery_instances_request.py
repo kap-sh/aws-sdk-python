@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#TerminateRecoveryInstancesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.recovery_instances_for_termination_request
 
 
-class TerminateRecoveryInstancesRequest(TypedDict):
+class TerminateRecoveryInstancesRequest(TypedDict, closed=True):
     recovery_instance_i_ds: "aws_sdk_drs.types.recovery_instances_for_termination_request.RecoveryInstancesForTerminationRequest"
     """<p>The IDs of the Recovery Instances that should be terminated.</p>"""
 

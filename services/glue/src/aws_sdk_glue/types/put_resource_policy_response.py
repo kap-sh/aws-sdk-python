@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PutResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.hash_string
 
 
-class PutResourcePolicyResponse(TypedDict):
+class PutResourcePolicyResponse(TypedDict, closed=True):
     policy_hash: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>A hash of the policy that has just been set. This must be included in a subsequent call that overwrites or updates this policy.</p>"""
 

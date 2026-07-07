@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmailmessageflow#RawMessageContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmailmessageflow.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmailmessageflow.types.s3_reference
 
 
-class RawMessageContent(TypedDict):
+class RawMessageContent(TypedDict, closed=True):
     s3_reference: "aws_sdk_workmailmessageflow.types.s3_reference.S3Reference"
     """<p>The S3 reference of an email message.</p>"""
 

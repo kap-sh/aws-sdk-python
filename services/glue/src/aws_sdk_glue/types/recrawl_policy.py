@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#RecrawlPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.recrawl_behavior
 
 
-class RecrawlPolicy(TypedDict):
+class RecrawlPolicy(TypedDict, closed=True):
     recrawl_behavior: NotRequired["aws_sdk_glue.types.recrawl_behavior.RecrawlBehavior"]
     """<p>Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.</p> <p>A value of <code>CRAWL_EVERYTHING</code> specifies crawling the entire dataset again.</p> <p>A value of <code>CRAWL_NEW_FOLDERS_ONLY</code> specifies crawling only folders that were added since the last crawler run.</p> <p>A value of <code>CRAWL_EVENT_MODE</code> specifies crawling only the changes identified by Amazon S3 events.</p>"""
 

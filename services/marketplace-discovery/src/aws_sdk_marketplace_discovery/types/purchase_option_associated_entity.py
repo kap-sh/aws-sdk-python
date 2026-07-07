@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#PurchaseOptionAssociatedEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.product_information
 
 
-class PurchaseOptionAssociatedEntity(TypedDict):
+class PurchaseOptionAssociatedEntity(TypedDict, closed=True):
     product: (
         "aws_sdk_marketplace_discovery.types.product_information.ProductInformation"
     )

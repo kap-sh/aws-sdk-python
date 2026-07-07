@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ListNodesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_describe_node_summary
     import aws_sdk_medialive.types.__string
 
 
-class ListNodesResponse(TypedDict):
+class ListNodesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Token for the next result."""
     nodes: NotRequired[

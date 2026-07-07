@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#Segment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.segment_document
     import aws_sdk_xray.types.segment_id
 
 
-class Segment(TypedDict):
+class Segment(TypedDict, closed=True):
     id: NotRequired["aws_sdk_xray.types.segment_id.SegmentId"]
     """<p>The segment's ID.</p>"""
     document: NotRequired["aws_sdk_xray.types.segment_document.SegmentDocument"]

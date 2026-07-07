@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#PriceScheduleSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.long
 
 
-class PriceScheduleSpecification(TypedDict):
+class PriceScheduleSpecification(TypedDict, closed=True):
     term: NotRequired["aws_sdk_ec2.types.long.Long"]
     """<p>The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.</p>"""
     price: NotRequired["aws_sdk_ec2.types.double.Double"]

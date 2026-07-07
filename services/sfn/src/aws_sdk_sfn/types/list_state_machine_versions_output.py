@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ListStateMachineVersionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.state_machine_version_list
 
 
-class ListStateMachineVersionsOutput(TypedDict):
+class ListStateMachineVersionsOutput(TypedDict, closed=True):
     state_machine_versions: (
         "aws_sdk_sfn.types.state_machine_version_list.StateMachineVersionList"
     )

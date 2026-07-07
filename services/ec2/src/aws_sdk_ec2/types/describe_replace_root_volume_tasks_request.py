@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeReplaceRootVolumeTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.replace_root_volume_task_ids
 
 
-class DescribeReplaceRootVolumeTasksRequest(TypedDict):
+class DescribeReplaceRootVolumeTasksRequest(TypedDict, closed=True):
     replace_root_volume_task_ids: NotRequired[
         "aws_sdk_ec2.types.replace_root_volume_task_ids.ReplaceRootVolumeTaskIds"
     ]

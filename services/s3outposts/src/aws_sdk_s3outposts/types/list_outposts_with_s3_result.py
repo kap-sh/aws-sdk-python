@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3outposts#ListOutpostsWithS3Result``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.next_token
     import aws_sdk_s3outposts.types.outposts
 
 
-class ListOutpostsWithS3Result(TypedDict):
+class ListOutpostsWithS3Result(TypedDict, closed=True):
     outposts: NotRequired["aws_sdk_s3outposts.types.outposts.Outposts"]
     """<p>Returns the list of Outposts that have the following characteristics:</p> <ul> <li> <p>outposts that have S3 provisioned</p> </li> <li> <p>outposts that are <code>Active</code> (not pending any provisioning nor decommissioned)</p> </li> <li> <p>outposts to which the the calling Amazon Web Services account has access</p> </li> </ul>"""
     next_token: NotRequired["aws_sdk_s3outposts.types.next_token.NextToken"]

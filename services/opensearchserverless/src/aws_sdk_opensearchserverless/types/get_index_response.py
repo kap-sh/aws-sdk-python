@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#GetIndexResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.index_schema
 
 
-class GetIndexResponse(TypedDict):
+class GetIndexResponse(TypedDict, closed=True):
     index_schema: NotRequired[
         "aws_sdk_opensearchserverless.types.index_schema.IndexSchema"
     ]

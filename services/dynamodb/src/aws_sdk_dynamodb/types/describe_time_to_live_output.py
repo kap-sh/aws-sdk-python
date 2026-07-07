@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#DescribeTimeToLiveOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.time_to_live_description
 
 
-class DescribeTimeToLiveOutput(TypedDict):
+class DescribeTimeToLiveOutput(TypedDict, closed=True):
     time_to_live_description: NotRequired[
         "aws_sdk_dynamodb.types.time_to_live_description.TimeToLiveDescription"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#WhatsAppBusinessAccountEventDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.role_arn
 
 
-class WhatsAppBusinessAccountEventDestination(TypedDict):
+class WhatsAppBusinessAccountEventDestination(TypedDict, closed=True):
     event_destination_arn: (
         "aws_sdk_socialmessaging.types.event_destination_arn.EventDestinationArn"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeFeatureGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.feature_group_name_or_arn
     import aws_sdk_sagemaker.types.next_token
 
 
-class DescribeFeatureGroupRequest(TypedDict):
+class DescribeFeatureGroupRequest(TypedDict, closed=True):
     feature_group_name: NotRequired[
         "aws_sdk_sagemaker.types.feature_group_name_or_arn.FeatureGroupNameOrArn"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#GetApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.id
 
 
-class GetApplicationRequest(TypedDict):
+class GetApplicationRequest(TypedDict, closed=True):
     application_id: "aws_sdk_appconfig.types.id.Id"
     """<p>The ID of the application you want to get.</p>"""
 

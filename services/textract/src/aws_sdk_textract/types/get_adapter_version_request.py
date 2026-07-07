@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#GetAdapterVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.adapter_version
 
 
-class GetAdapterVersionRequest(TypedDict):
+class GetAdapterVersionRequest(TypedDict, closed=True):
     adapter_id: "aws_sdk_textract.types.adapter_id.AdapterId"
     """<p>A string specifying a unique ID for the adapter version you want to retrieve information for.</p>"""
     adapter_version: "aws_sdk_textract.types.adapter_version.AdapterVersion"

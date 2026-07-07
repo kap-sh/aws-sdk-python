@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#CreateIngestionDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.uuid
 
 
-class CreateIngestionDestinationRequest(TypedDict):
+class CreateIngestionDestinationRequest(TypedDict, closed=True):
     app_bundle_identifier: "aws_sdk_appfabric.types.identifier.Identifier"
     """<p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>"""
     ingestion_identifier: "aws_sdk_appfabric.types.identifier.Identifier"

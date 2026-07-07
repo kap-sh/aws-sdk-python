@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ResourceTag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class ResourceTag(TypedDict):
+class ResourceTag(TypedDict, closed=True):
     key: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The identifier or name of the tag.</p>"""
     value: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

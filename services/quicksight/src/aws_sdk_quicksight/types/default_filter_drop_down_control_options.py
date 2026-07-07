@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultFilterDropDownControlOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.commit_mode
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_control_list_type
 
 
-class DefaultFilterDropDownControlOptions(TypedDict):
+class DefaultFilterDropDownControlOptions(TypedDict, closed=True):
     display_options: NotRequired[
         "aws_sdk_quicksight.types.drop_down_control_display_options.DropDownControlDisplayOptions"
     ]

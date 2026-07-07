@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#UpdateCloudWatchAlarmTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.cloud_watch_alarm_template_treat_missing_data
 
 
-class UpdateCloudWatchAlarmTemplateRequest(TypedDict):
+class UpdateCloudWatchAlarmTemplateRequest(TypedDict, closed=True):
     comparison_operator: NotRequired[
         "aws_sdk_medialive.types.cloud_watch_alarm_template_comparison_operator.CloudWatchAlarmTemplateComparisonOperator"
     ]

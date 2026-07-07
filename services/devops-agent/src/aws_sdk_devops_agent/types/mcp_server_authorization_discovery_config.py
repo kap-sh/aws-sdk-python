@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#MCPServerAuthorizationDiscoveryConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class MCPServerAuthorizationDiscoveryConfig(TypedDict):
+class MCPServerAuthorizationDiscoveryConfig(TypedDict, closed=True):
     return_to_endpoint: "str"
     """<p>The endpoint to return to after OAuth flow completes (must be AWS console domain)</p>"""
 

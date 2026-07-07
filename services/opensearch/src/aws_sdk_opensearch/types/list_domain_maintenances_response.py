@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ListDomainMaintenancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_maintenance_list
     import aws_sdk_opensearch.types.next_token
 
 
-class ListDomainMaintenancesResponse(TypedDict):
+class ListDomainMaintenancesResponse(TypedDict, closed=True):
     domain_maintenances: NotRequired[
         "aws_sdk_opensearch.types.domain_maintenance_list.DomainMaintenanceList"
     ]

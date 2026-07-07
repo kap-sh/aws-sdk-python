@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#Mapping``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.related_control_mapping_details
 
 
-class _Mapping_Framework(TypedDict):
+class _Mapping_Framework(TypedDict, closed=True):
     Framework: (
         "aws_sdk_controlcatalog.types.framework_mapping_details.FrameworkMappingDetails"
     )
 
 
-class _Mapping_CommonControl(TypedDict):
+class _Mapping_CommonControl(TypedDict, closed=True):
     CommonControl: "aws_sdk_controlcatalog.types.common_control_mapping_details.CommonControlMappingDetails"
 
 
-class _Mapping_RelatedControl(TypedDict):
+class _Mapping_RelatedControl(TypedDict, closed=True):
     RelatedControl: "aws_sdk_controlcatalog.types.related_control_mapping_details.RelatedControlMappingDetails"
 
 

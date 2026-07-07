@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#MetricDatum``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.values
 
 
-class MetricDatum(TypedDict):
+class MetricDatum(TypedDict, closed=True):
     metric_name: NotRequired["aws_sdk_cloudwatch.types.metric_name.MetricName"]
     """<p>The name of the metric.</p>"""
     dimensions: NotRequired["aws_sdk_cloudwatch.types.dimensions.Dimensions"]

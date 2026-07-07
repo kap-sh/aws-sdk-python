@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#GetInternetEventOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_internetmonitor.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.internet_event_type
 
 
-class GetInternetEventOutput(TypedDict):
+class GetInternetEventOutput(TypedDict, closed=True):
     event_id: "aws_sdk_internetmonitor.types.internet_event_id.InternetEventId"
     """<p>The internally-generated identifier of an internet event.</p>"""
     event_arn: "aws_sdk_internetmonitor.types.arn.Arn"

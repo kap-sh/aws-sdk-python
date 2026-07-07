@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetSavingsPlansPurchaseRecommendationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.term_in_years
 
 
-class GetSavingsPlansPurchaseRecommendationRequest(TypedDict):
+class GetSavingsPlansPurchaseRecommendationRequest(TypedDict, closed=True):
     savings_plans_type: "aws_sdk_cost_explorer.types.supported_savings_plans_type.SupportedSavingsPlansType"
     """<p>The Savings Plans recommendation type that's requested.</p>"""
     term_in_years: "aws_sdk_cost_explorer.types.term_in_years.TermInYears"

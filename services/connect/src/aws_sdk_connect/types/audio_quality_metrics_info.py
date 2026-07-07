@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AudioQualityMetricsInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.audio_quality_score
     import aws_sdk_connect.types.potential_audio_quality_issues
 
 
-class AudioQualityMetricsInfo(TypedDict):
+class AudioQualityMetricsInfo(TypedDict, closed=True):
     quality_score: "aws_sdk_connect.types.audio_quality_score.AudioQualityScore"
     """<p>Number measuring the estimated quality of the media connection.</p>"""
     potential_quality_issues: NotRequired[

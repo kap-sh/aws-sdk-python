@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#DeviceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.string256
 
 
-class DeviceConfig(TypedDict):
+class DeviceConfig(TypedDict, closed=True):
     device: "aws_sdk_braket.types.string256.String256"
     """<p>The primary device ARN used to create and run an Amazon Braket hybrid job.</p>"""
 

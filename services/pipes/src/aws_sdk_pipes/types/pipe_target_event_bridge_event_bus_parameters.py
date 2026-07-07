@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeTargetEventBridgeEventBusParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.event_bridge_detail_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.json_path
 
 
-class PipeTargetEventBridgeEventBusParameters(TypedDict):
+class PipeTargetEventBridgeEventBusParameters(TypedDict, closed=True):
     endpoint_id: NotRequired[
         "aws_sdk_pipes.types.event_bridge_endpoint_id.EventBridgeEndpointId"
     ]

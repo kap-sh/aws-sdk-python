@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#CapabilityHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.capability_issue_list
 
 
-class CapabilityHealth(TypedDict):
+class CapabilityHealth(TypedDict, closed=True):
     issues: NotRequired["aws_sdk_eks.types.capability_issue_list.CapabilityIssueList"]
     """<p>A list of issues affecting the capability. If this list is empty, the capability is healthy.</p>"""
 

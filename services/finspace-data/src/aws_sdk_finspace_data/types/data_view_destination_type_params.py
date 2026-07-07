@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#DataViewDestinationTypeParams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_finspace_data.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.s3_destination_format_options
 
 
-class DataViewDestinationTypeParams(TypedDict):
+class DataViewDestinationTypeParams(TypedDict, closed=True):
     destination_type: (
         "aws_sdk_finspace_data.types.data_view_destination_type.DataViewDestinationType"
     )

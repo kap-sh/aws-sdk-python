@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteRegistryRecordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.record_identifier
     import aws_sdk_bedrock_agentcore_control.types.registry_identifier
 
 
-class DeleteRegistryRecordRequest(TypedDict):
+class DeleteRegistryRecordRequest(TypedDict, closed=True):
     registry_id: (
         "aws_sdk_bedrock_agentcore_control.types.registry_identifier.RegistryIdentifier"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListRecommenderSchemasResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.recommender_schema_summary_list
     import aws_sdk_customer_profiles.types.token
 
 
-class ListRecommenderSchemasResponse(TypedDict):
+class ListRecommenderSchemasResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_customer_profiles.types.token.token"]
     """<p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>"""
     recommender_schemas: NotRequired[

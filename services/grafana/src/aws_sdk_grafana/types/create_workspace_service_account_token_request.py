@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#CreateWorkspaceServiceAccountTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_id
 
 
-class CreateWorkspaceServiceAccountTokenRequest(TypedDict):
+class CreateWorkspaceServiceAccountTokenRequest(TypedDict, closed=True):
     name: "aws_sdk_grafana.types.service_account_token_name.ServiceAccountTokenName"
     """<p>A name for the token to create.</p>"""
     seconds_to_live: "int"

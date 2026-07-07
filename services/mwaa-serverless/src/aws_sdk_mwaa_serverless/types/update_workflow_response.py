@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#UpdateWorkflowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mwaa_serverless.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.workflow_version
 
 
-class UpdateWorkflowResponse(TypedDict):
+class UpdateWorkflowResponse(TypedDict, closed=True):
     workflow_arn: "aws_sdk_mwaa_serverless.types.workflow_arn.WorkflowArn"
     """<p>The Amazon Resource Name (ARN) of the updated workflow.</p>"""
     modified_at: NotRequired[

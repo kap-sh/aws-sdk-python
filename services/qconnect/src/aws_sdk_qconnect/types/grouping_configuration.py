@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GroupingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.grouping_criteria
     import aws_sdk_qconnect.types.grouping_values
 
 
-class GroupingConfiguration(TypedDict):
+class GroupingConfiguration(TypedDict, closed=True):
     criteria: NotRequired["aws_sdk_qconnect.types.grouping_criteria.GroupingCriteria"]
     r"""<p>The criteria used for grouping Amazon Q in Connect users.</p> <p>The following is the list of supported criteria values.</p> <ul> <li> <p> <code>RoutingProfileArn</code>: Grouping the users by their <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html\">Amazon Connect routing profile ARN</a>. User should have <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html\">SearchRoutingProfile</a> and <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html\">DescribeRoutingProfile</a> permissions when setting criteria to this value.</p> </li> </ul>"""
     values: NotRequired["aws_sdk_qconnect.types.grouping_values.GroupingValues"]

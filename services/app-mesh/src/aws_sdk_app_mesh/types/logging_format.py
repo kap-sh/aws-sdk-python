@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#LoggingFormat``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.text_format
 
 
-class _LoggingFormat_text(TypedDict):
+class _LoggingFormat_text(TypedDict, closed=True):
     text: "aws_sdk_app_mesh.types.text_format.TextFormat"
 
 
-class _LoggingFormat_json(TypedDict):
+class _LoggingFormat_json(TypedDict, closed=True):
     json: "aws_sdk_app_mesh.types.json_format.JsonFormat"
 
 

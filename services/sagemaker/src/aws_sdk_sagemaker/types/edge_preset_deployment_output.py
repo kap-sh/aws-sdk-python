@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EdgePresetDeploymentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.edge_preset_deployment_artifact
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class EdgePresetDeploymentOutput(TypedDict):
+class EdgePresetDeploymentOutput(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_sagemaker.types.edge_preset_deployment_type.EdgePresetDeploymentType"
     ]

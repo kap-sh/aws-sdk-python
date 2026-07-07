@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#NetworkSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.consent_popup_config
     import aws_sdk_wickr.types.read_receipt_config
 
 
-class NetworkSettings(TypedDict):
+class NetworkSettings(TypedDict, closed=True):
     enable_client_metrics: NotRequired["bool"]
     """<p>Allows Wickr clients to send anonymized performance and usage metrics to the Wickr backend server for service improvement and troubleshooting.</p>"""
     read_receipt_config: NotRequired[

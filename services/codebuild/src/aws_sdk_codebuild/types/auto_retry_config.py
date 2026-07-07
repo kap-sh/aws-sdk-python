@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#AutoRetryConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
     import aws_sdk_codebuild.types.wrapper_int
 
 
-class AutoRetryConfig(TypedDict):
+class AutoRetryConfig(TypedDict, closed=True):
     auto_retry_limit: NotRequired["aws_sdk_codebuild.types.wrapper_int.WrapperInt"]
     """<p>The maximum number of additional automatic retries after a failed build. For example, if the auto-retry limit is set to 2, CodeBuild will call the <code>RetryBuild</code> API to automatically retry your build for up to 2 additional times.</p>"""
     auto_retry_number: NotRequired["aws_sdk_codebuild.types.wrapper_int.WrapperInt"]

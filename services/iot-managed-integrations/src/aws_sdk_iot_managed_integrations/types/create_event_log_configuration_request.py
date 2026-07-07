@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CreateEventLogConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.smart_home_resource_type
 
 
-class CreateEventLogConfigurationRequest(TypedDict):
+class CreateEventLogConfigurationRequest(TypedDict, closed=True):
     resource_type: "aws_sdk_iot_managed_integrations.types.smart_home_resource_type.SmartHomeResourceType"
     """<p>The type of resource for the event log configuration.</p>"""
     resource_id: NotRequired[

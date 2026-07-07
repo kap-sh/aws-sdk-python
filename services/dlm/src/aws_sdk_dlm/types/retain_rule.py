@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#RetainRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.retention_interval_unit_values
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.standard_tier_retain_rule_interval
 
 
-class RetainRule(TypedDict):
+class RetainRule(TypedDict, closed=True):
     count: NotRequired[
         "aws_sdk_dlm.types.standard_tier_retain_rule_count.StandardTierRetainRuleCount"
     ]

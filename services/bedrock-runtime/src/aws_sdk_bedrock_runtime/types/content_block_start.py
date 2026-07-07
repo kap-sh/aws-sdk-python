@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ContentBlockStart``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.tool_use_block_start
 
 
-class _ContentBlockStart_toolUse(TypedDict):
+class _ContentBlockStart_toolUse(TypedDict, closed=True):
     toolUse: "aws_sdk_bedrock_runtime.types.tool_use_block_start.ToolUseBlockStart"
 
 
-class _ContentBlockStart_toolResult(TypedDict):
+class _ContentBlockStart_toolResult(TypedDict, closed=True):
     toolResult: (
         "aws_sdk_bedrock_runtime.types.tool_result_block_start.ToolResultBlockStart"
     )
 
 
-class _ContentBlockStart_image(TypedDict):
+class _ContentBlockStart_image(TypedDict, closed=True):
     image: "aws_sdk_bedrock_runtime.types.image_block_start.ImageBlockStart"
 
 

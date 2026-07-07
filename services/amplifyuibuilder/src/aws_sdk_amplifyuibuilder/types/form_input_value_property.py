@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FormInputValueProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.form_input_value_property_binding_properties
     import aws_sdk_amplifyuibuilder.types.form_input_value_property_list
 
 
-class FormInputValueProperty(TypedDict):
+class FormInputValueProperty(TypedDict, closed=True):
     value: NotRequired["str"]
     """<p>The value to assign to the input field.</p>"""
     binding_properties: NotRequired[

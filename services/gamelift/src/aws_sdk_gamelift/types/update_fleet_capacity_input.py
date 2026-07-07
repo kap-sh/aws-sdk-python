@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#UpdateFleetCapacityInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_id_or_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.whole_number
 
 
-class UpdateFleetCapacityInput(TypedDict):
+class UpdateFleetCapacityInput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id_or_arn.FleetIdOrArn"]
     """<p>A unique identifier for the fleet to update capacity settings for. You can use either the fleet ID or ARN value.</p>"""
     desired_instances: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]

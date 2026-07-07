@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataPrepSimpleAggregationFunction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_prep_simple_aggregation_function_type
 
 
-class DataPrepSimpleAggregationFunction(TypedDict):
+class DataPrepSimpleAggregationFunction(TypedDict, closed=True):
     input_column_name: NotRequired["aws_sdk_quicksight.types.column_name.ColumnName"]
     """<p>The name of the column on which to perform the aggregation function.</p>"""
     function_type: "aws_sdk_quicksight.types.data_prep_simple_aggregation_function_type.DataPrepSimpleAggregationFunctionType"

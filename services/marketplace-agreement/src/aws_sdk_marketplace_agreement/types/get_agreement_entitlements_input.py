@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#GetAgreementEntitlementsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.resource_id
 
 
-class GetAgreementEntitlementsInput(TypedDict):
+class GetAgreementEntitlementsInput(TypedDict, closed=True):
     agreement_id: "aws_sdk_marketplace_agreement.types.resource_id.ResourceId"
     """<p>The unique identifier of the agreement.</p>"""
     max_results: NotRequired[

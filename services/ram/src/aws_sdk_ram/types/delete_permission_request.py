@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ram#DeletePermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class DeletePermissionRequest(TypedDict):
+class DeletePermissionRequest(TypedDict, closed=True):
     permission_arn: "aws_sdk_ram.types.string.String"
     r"""<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the customer managed permission that you want to delete.</p>"""
     client_token: NotRequired["aws_sdk_ram.types.string.String"]

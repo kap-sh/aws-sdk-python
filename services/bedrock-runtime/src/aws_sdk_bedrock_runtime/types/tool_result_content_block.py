@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ToolResultContentBlock``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -11,27 +13,27 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.video_block
 
 
-class _ToolResultContentBlock_json(TypedDict):
+class _ToolResultContentBlock_json(TypedDict, closed=True):
     json: "object"
 
 
-class _ToolResultContentBlock_text(TypedDict):
+class _ToolResultContentBlock_text(TypedDict, closed=True):
     text: "str"
 
 
-class _ToolResultContentBlock_image(TypedDict):
+class _ToolResultContentBlock_image(TypedDict, closed=True):
     image: "aws_sdk_bedrock_runtime.types.image_block.ImageBlock"
 
 
-class _ToolResultContentBlock_document(TypedDict):
+class _ToolResultContentBlock_document(TypedDict, closed=True):
     document: "aws_sdk_bedrock_runtime.types.document_block.DocumentBlock"
 
 
-class _ToolResultContentBlock_video(TypedDict):
+class _ToolResultContentBlock_video(TypedDict, closed=True):
     video: "aws_sdk_bedrock_runtime.types.video_block.VideoBlock"
 
 
-class _ToolResultContentBlock_searchResult(TypedDict):
+class _ToolResultContentBlock_searchResult(TypedDict, closed=True):
     searchResult: "aws_sdk_bedrock_runtime.types.search_result_block.SearchResultBlock"
 
 

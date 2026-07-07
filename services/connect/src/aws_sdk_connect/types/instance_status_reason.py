@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#InstanceStatusReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.string
 
 
-class InstanceStatusReason(TypedDict):
+class InstanceStatusReason(TypedDict, closed=True):
     message: NotRequired["aws_sdk_connect.types.string.String"]
     """<p>The message.</p>"""
 

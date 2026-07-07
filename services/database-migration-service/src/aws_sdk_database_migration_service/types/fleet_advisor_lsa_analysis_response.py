@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#FleetAdvisorLsaAnalysisResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class FleetAdvisorLsaAnalysisResponse(TypedDict):
+class FleetAdvisorLsaAnalysisResponse(TypedDict, closed=True):
     lsa_analysis_id: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

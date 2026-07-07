@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#ImportTaskDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class ImportTaskDetails(TypedDict):
+class ImportTaskDetails(TypedDict, closed=True):
     status: "str"
     """<p>Status of the import task.</p>"""
     start_time: "datetime.datetime"

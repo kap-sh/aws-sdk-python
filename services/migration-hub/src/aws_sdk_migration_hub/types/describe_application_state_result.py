@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#DescribeApplicationStateResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.application_status
     import aws_sdk_migration_hub.types.update_date_time
 
 
-class DescribeApplicationStateResult(TypedDict):
+class DescribeApplicationStateResult(TypedDict, closed=True):
     application_status: NotRequired[
         "aws_sdk_migration_hub.types.application_status.ApplicationStatus"
     ]

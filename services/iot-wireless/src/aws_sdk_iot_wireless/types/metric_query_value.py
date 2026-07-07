@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#MetricQueryValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.avg
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.sum
 
 
-class MetricQueryValue(TypedDict):
+class MetricQueryValue(TypedDict, closed=True):
     min: NotRequired["aws_sdk_iot_wireless.types.min.Min"]
     """<p>The minimum of the values of all data points collected during the aggregation period.</p>"""
     max: NotRequired["aws_sdk_iot_wireless.types.max.Max"]

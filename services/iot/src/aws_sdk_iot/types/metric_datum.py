@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#MetricDatum``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.metric_value
     import aws_sdk_iot.types.timestamp
 
 
-class MetricDatum(TypedDict):
+class MetricDatum(TypedDict, closed=True):
     timestamp: NotRequired["aws_sdk_iot.types.timestamp.Timestamp"]
     """<p>The time the metric value was reported.</p>"""
     value: NotRequired["aws_sdk_iot.types.metric_value.MetricValue"]

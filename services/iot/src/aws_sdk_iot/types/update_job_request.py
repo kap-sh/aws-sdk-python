@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.abort_config
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timeout_config
 
 
-class UpdateJobRequest(TypedDict):
+class UpdateJobRequest(TypedDict, closed=True):
     job_id: "aws_sdk_iot.types.job_id.JobId"
     """<p>The ID of the job to be updated.</p>"""
     description: NotRequired["aws_sdk_iot.types.job_description.JobDescription"]

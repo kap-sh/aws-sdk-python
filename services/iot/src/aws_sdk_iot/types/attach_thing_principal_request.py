@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AttachThingPrincipalRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.principal
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_principal_type
 
 
-class AttachThingPrincipalRequest(TypedDict):
+class AttachThingPrincipalRequest(TypedDict, closed=True):
     thing_name: "aws_sdk_iot.types.thing_name.ThingName"
     """<p>The name of the thing.</p>"""
     principal: "aws_sdk_iot.types.principal.Principal"

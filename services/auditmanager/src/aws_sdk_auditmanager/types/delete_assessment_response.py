@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#DeleteAssessmentResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAssessmentResponse(TypedDict):
+class DeleteAssessmentResponse(TypedDict, closed=True):
     pass
 
 

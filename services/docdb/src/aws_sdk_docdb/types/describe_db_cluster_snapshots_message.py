@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#DescribeDBClusterSnapshotsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class DescribeDBClusterSnapshotsMessage(TypedDict):
+class DescribeDBClusterSnapshotsMessage(TypedDict, closed=True):
     db_cluster_identifier: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The ID of the cluster to retrieve the list of cluster snapshots for. This parameter can't be used with the <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not case sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If provided, must match the identifier of an existing <code>DBCluster</code>.</p> </li> </ul>"""
     db_cluster_snapshot_identifier: NotRequired["aws_sdk_docdb.types.string.String"]

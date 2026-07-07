@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#GuestUserHistoryCount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class GuestUserHistoryCount(TypedDict):
+class GuestUserHistoryCount(TypedDict, closed=True):
     month: "aws_sdk_wickr.types.generic_string.GenericString"
     """<p>The month and billing period in YYYY_MM format (e.g., '2024_01').</p>"""
     count: "aws_sdk_wickr.types.generic_string.GenericString"

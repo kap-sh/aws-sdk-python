@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ListManagedThingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.managed_thing_list_definition
     import aws_sdk_iot_managed_integrations.types.next_token
 
 
-class ListManagedThingsResponse(TypedDict):
+class ListManagedThingsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_iot_managed_integrations.types.managed_thing_list_definition.ManagedThingListDefinition"
     ]

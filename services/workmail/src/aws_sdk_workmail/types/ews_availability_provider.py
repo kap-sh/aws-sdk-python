@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#EwsAvailabilityProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.url
 
 
-class EwsAvailabilityProvider(TypedDict):
+class EwsAvailabilityProvider(TypedDict, closed=True):
     ews_endpoint: "aws_sdk_workmail.types.url.Url"
     """<p>The endpoint of the remote EWS server.</p>"""
     ews_username: "aws_sdk_workmail.types.external_user_name.ExternalUserName"

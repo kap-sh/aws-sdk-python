@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ServiceSyncBlockerSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.latest_sync_blockers
 
 
-class ServiceSyncBlockerSummary(TypedDict):
+class ServiceSyncBlockerSummary(TypedDict, closed=True):
     service_name: "str"
     """<p>The name of the service that you want to get the sync blocker summary for. If given a service instance name and a service name, it will return the blockers only applying to the instance that is blocked.</p> <p>If given only a service name, it will return the blockers that apply to all of the instances. In order to get the blockers for a single instance, you will need to make two distinct calls, one to get the sync blocker summary for the service and the other to get the sync blocker for the service instance.</p>"""
     service_instance_name: NotRequired["str"]

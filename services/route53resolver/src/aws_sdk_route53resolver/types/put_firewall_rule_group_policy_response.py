@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#PutFirewallRuleGroupPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.boolean
 
 
-class PutFirewallRuleGroupPolicyResponse(TypedDict):
+class PutFirewallRuleGroupPolicyResponse(TypedDict, closed=True):
     return_value: "aws_sdk_route53resolver.types.boolean.Boolean"
     """<p></p>"""
 

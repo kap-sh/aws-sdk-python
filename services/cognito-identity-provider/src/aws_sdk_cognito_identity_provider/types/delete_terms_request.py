@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#DeleteTermsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_pool_id_type
 
 
-class DeleteTermsRequest(TypedDict):
+class DeleteTermsRequest(TypedDict, closed=True):
     terms_id: "aws_sdk_cognito_identity_provider.types.terms_id_type.TermsIdType"
     """<p>The ID of the terms documents that you want to delete.</p>"""
     user_pool_id: (

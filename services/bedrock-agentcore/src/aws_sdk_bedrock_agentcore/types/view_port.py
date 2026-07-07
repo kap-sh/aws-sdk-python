@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ViewPort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.view_port_width
 
 
-class ViewPort(TypedDict):
+class ViewPort(TypedDict, closed=True):
     width: "aws_sdk_bedrock_agentcore.types.view_port_width.ViewPortWidth"
     """<p>The width of the viewport in pixels. This value determines the horizontal dimension of the visible area. Valid values range from 800 to 1920 pixels.</p>"""
     height: "aws_sdk_bedrock_agentcore.types.view_port_height.ViewPortHeight"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AncillarySourceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1_max4
 
 
-class AncillarySourceSettings(TypedDict):
+class AncillarySourceSettings(TypedDict, closed=True):
     source_ancillary_channel_number: NotRequired[
         "aws_sdk_medialive.types.__integer_min1_max4.__integerMin1Max4"
     ]

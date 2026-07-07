@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#Origin``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.vpc_origin_config
 
 
-class Origin(TypedDict):
+class Origin(TypedDict, closed=True):
     id: "aws_sdk_cloudfront.types.string.string"
     """<p>A unique identifier for the origin. This value must be unique within the distribution.</p> <p>Use this value to specify the <code>TargetOriginId</code> in a <code>CacheBehavior</code> or <code>DefaultCacheBehavior</code>.</p>"""
     domain_name: "aws_sdk_cloudfront.types.string.string"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#Logging``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.s3_logs
 
 
-class Logging(TypedDict):
+class Logging(TypedDict, closed=True):
     s3_logs: NotRequired["aws_sdk_imagebuilder.types.s3_logs.S3Logs"]
     """<p>The Amazon S3 logging configuration.</p>"""
 

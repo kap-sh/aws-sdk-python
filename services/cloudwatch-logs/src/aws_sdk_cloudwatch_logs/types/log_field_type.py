@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#LogFieldType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.data_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.log_fields_list
 
 
-class LogFieldType(TypedDict):
+class LogFieldType(TypedDict, closed=True):
     type: NotRequired["aws_sdk_cloudwatch_logs.types.data_type.DataType"]
     """<p>The data type of the log field.</p>"""
     element: NotRequired["aws_sdk_cloudwatch_logs.types.log_field_type.LogFieldType"]

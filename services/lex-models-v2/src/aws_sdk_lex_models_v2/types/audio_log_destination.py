@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AudioLogDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.s3_bucket_log_destination
 
 
-class AudioLogDestination(TypedDict):
+class AudioLogDestination(TypedDict, closed=True):
     s3_bucket: (
         "aws_sdk_lex_models_v2.types.s3_bucket_log_destination.S3BucketLogDestination"
     )

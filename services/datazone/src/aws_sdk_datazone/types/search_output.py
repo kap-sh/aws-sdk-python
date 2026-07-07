@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SearchOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.pagination_token
     import aws_sdk_datazone.types.search_inventory_result_items
 
 
-class SearchOutput(TypedDict):
+class SearchOutput(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_datazone.types.search_inventory_result_items.SearchInventoryResultItems"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#McpServerTargetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.target_resource_priority
 
 
-class McpServerTargetConfiguration(TypedDict):
+class McpServerTargetConfiguration(TypedDict, closed=True):
     endpoint: "str"
     """<p>The endpoint for the MCP server target configuration.</p>"""
     mcp_tool_schema: NotRequired[

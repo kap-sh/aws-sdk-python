@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AwsJobRateIncreaseCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.aws_job_rate_increase_criteria_number_of_things
 
 
-class AwsJobRateIncreaseCriteria(TypedDict):
+class AwsJobRateIncreaseCriteria(TypedDict, closed=True):
     number_of_notified_things: NotRequired[
         "aws_sdk_iot.types.aws_job_rate_increase_criteria_number_of_things.AwsJobRateIncreaseCriteriaNumberOfThings"
     ]

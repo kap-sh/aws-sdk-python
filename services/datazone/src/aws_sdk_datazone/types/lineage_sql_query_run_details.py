@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LineageSqlQueryRunDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.failed_query_processing_error_messages
 
 
-class LineageSqlQueryRunDetails(TypedDict):
+class LineageSqlQueryRunDetails(TypedDict, closed=True):
     query_start_time: NotRequired["datetime.datetime"]
     """<p>The query start time in the SQL query run details of a data lineage run.</p>"""
     query_end_time: NotRequired["datetime.datetime"]

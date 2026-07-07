@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#GetStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.cluster_id
     import aws_sdk_dsql.types.stream_id
 
 
-class GetStreamInput(TypedDict):
+class GetStreamInput(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     """<p>The ID of the cluster containing the stream to retrieve.</p>"""
     stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId"

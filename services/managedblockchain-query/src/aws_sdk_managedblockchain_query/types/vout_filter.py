@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#VoutFilter``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError
 
 
-class VoutFilter(TypedDict):
+class VoutFilter(TypedDict, closed=True):
     vout_spent: "bool"
     """<p>Specifies if the transaction output is spent or unspent.</p>"""
 

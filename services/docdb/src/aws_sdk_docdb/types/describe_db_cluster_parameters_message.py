@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#DescribeDBClusterParametersMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class DescribeDBClusterParametersMessage(TypedDict):
+class DescribeDBClusterParametersMessage(TypedDict, closed=True):
     db_cluster_parameter_group_name: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The name of a specific cluster parameter group to return parameter details for.</p> <p>Constraints:</p> <ul> <li> <p>If provided, must match the name of an existing <code>DBClusterParameterGroup</code>.</p> </li> </ul>"""
     source: NotRequired["aws_sdk_docdb.types.string.String"]

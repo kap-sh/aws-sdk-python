@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#DescribeStreamSummaryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_name
 
 
-class DescribeStreamSummaryInput(TypedDict):
+class DescribeStreamSummaryInput(TypedDict, closed=True):
     stream_name: NotRequired["aws_sdk_kinesis.types.stream_name.StreamName"]
     """<p>The name of the stream to describe.</p>"""
     stream_arn: NotRequired["aws_sdk_kinesis.types.stream_arn.StreamARN"]

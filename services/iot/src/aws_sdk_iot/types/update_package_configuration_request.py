@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdatePackageConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.client_token
     import aws_sdk_iot.types.version_update_by_jobs_config
 
 
-class UpdatePackageConfigurationRequest(TypedDict):
+class UpdatePackageConfigurationRequest(TypedDict, closed=True):
     version_update_by_jobs_config: NotRequired[
         "aws_sdk_iot.types.version_update_by_jobs_config.VersionUpdateByJobsConfig"
     ]

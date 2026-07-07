@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ColumnSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class ColumnSchema(TypedDict):
+class ColumnSchema(TypedDict, closed=True):
     name: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The name of the column schema.</p>"""
     data_type: NotRequired["aws_sdk_quicksight.types.string.String"]

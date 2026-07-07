@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ClusterMarkerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.cluster_marker
 
 
-class ClusterMarkerConfiguration(TypedDict):
+class ClusterMarkerConfiguration(TypedDict, closed=True):
     cluster_marker: NotRequired["aws_sdk_quicksight.types.cluster_marker.ClusterMarker"]
     """<p>The cluster marker that is a part of the cluster marker configuration.</p>"""
 

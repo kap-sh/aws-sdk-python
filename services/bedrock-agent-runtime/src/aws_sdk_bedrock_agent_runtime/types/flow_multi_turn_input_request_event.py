@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowMultiTurnInputRequestEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.node_type
 
 
-class FlowMultiTurnInputRequestEvent(TypedDict):
+class FlowMultiTurnInputRequestEvent(TypedDict, closed=True):
     node_name: "aws_sdk_bedrock_agent_runtime.types.node_name.NodeName"
     """<p>The name of the node in the flow that is requesting the input.</p>"""
     node_type: "aws_sdk_bedrock_agent_runtime.types.node_type.NodeType"

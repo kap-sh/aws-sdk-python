@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#DescribeUsersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.organization_user_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.size_type
 
 
-class DescribeUsersResponse(TypedDict):
+class DescribeUsersResponse(TypedDict, closed=True):
     users: NotRequired[
         "aws_sdk_workdocs.types.organization_user_list.OrganizationUserList"
     ]

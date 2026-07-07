@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmrecommendedactions#RecommendedAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_recommended_actions.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_recommended_actions.types.severity
 
 
-class RecommendedAction(TypedDict):
+class RecommendedAction(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The ID for the recommended action.</p>"""
     type: NotRequired["aws_sdk_bcm_recommended_actions.types.action_type.ActionType"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#EndpointDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.address_allocation_ids
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.vpc_id
 
 
-class EndpointDetails(TypedDict):
+class EndpointDetails(TypedDict, closed=True):
     address_allocation_ids: NotRequired[
         "aws_sdk_transfer.types.address_allocation_ids.AddressAllocationIds"
     ]

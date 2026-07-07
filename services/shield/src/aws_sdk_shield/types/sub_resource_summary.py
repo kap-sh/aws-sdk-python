@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#SubResourceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.summarized_counter_list
 
 
-class SubResourceSummary(TypedDict):
+class SubResourceSummary(TypedDict, closed=True):
     type: NotRequired["aws_sdk_shield.types.sub_resource_type.SubResourceType"]
     """<p>The <code>SubResource</code> type.</p>"""
     id: NotRequired["aws_sdk_shield.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#SOARecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.admin_email
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.serial_number
 
 
-class SOARecord(TypedDict):
+class SOARecord(TypedDict, closed=True):
     primary_name_server: NotRequired[
         "aws_sdk_sesv2.types.primary_name_server.PrimaryNameServer"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ListVolumesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.gateway_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.volume_infos
 
 
-class ListVolumesOutput(TypedDict):
+class ListVolumesOutput(TypedDict, closed=True):
     gateway_arn: NotRequired["aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"]
     marker: NotRequired["aws_sdk_storage_gateway.types.marker.Marker"]
     """<p>Use the marker in your next request to continue pagination of iSCSI volumes. If there are no more volumes to list, this field does not appear in the response body.</p>"""

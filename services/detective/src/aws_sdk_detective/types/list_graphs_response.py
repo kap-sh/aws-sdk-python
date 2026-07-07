@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#ListGraphsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.graph_list
     import aws_sdk_detective.types.pagination_token
 
 
-class ListGraphsResponse(TypedDict):
+class ListGraphsResponse(TypedDict, closed=True):
     graph_list: NotRequired["aws_sdk_detective.types.graph_list.GraphList"]
     """<p>A list of behavior graphs that the account is an administrator account for.</p>"""
     next_token: NotRequired["aws_sdk_detective.types.pagination_token.PaginationToken"]

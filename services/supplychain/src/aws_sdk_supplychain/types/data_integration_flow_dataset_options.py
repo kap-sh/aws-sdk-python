@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationFlowDatasetOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_flow_dedupe_strategy
     import aws_sdk_supplychain.types.data_integration_flow_load_type
 
 
-class DataIntegrationFlowDatasetOptions(TypedDict):
+class DataIntegrationFlowDatasetOptions(TypedDict, closed=True):
     load_type: NotRequired[
         "aws_sdk_supplychain.types.data_integration_flow_load_type.DataIntegrationFlowLoadType"
     ]

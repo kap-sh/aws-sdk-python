@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ContentDataDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.text_data
 
 
-class ContentDataDetails(TypedDict):
+class ContentDataDetails(TypedDict, closed=True):
     text_data: "aws_sdk_qconnect.types.text_data.TextData"
     """<p>Details about the content text data.</p>"""
     ranking_data: "aws_sdk_qconnect.types.ranking_data.RankingData"

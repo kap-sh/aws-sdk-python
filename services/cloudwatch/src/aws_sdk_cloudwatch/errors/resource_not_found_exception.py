@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#ResourceNotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 from aws_sdk_cloudwatch.errors import ServiceError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.resource_type
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     resource_type: NotRequired["aws_sdk_cloudwatch.types.resource_type.ResourceType"]
     resource_id: NotRequired["aws_sdk_cloudwatch.types.resource_id.ResourceId"]
     message: NotRequired["aws_sdk_cloudwatch.types.fault_description.FaultDescription"]

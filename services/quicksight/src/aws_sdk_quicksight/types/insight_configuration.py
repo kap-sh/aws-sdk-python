@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#InsightConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.computation_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_interaction_options
 
 
-class InsightConfiguration(TypedDict):
+class InsightConfiguration(TypedDict, closed=True):
     computations: NotRequired[
         "aws_sdk_quicksight.types.computation_list.ComputationList"
     ]

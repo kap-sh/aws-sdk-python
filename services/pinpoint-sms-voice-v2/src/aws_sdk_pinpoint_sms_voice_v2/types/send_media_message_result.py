@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#SendMediaMessageResult``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SendMediaMessageResult(TypedDict):
+class SendMediaMessageResult(TypedDict, closed=True):
     message_id: NotRequired["str"]
     """<p>The unique identifier for the message.</p>"""
 

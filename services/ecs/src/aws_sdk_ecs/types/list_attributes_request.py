@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ListAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.target_type
 
 
-class ListAttributesRequest(TypedDict):
+class ListAttributesRequest(TypedDict, closed=True):
     cluster: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The short name or full Amazon Resource Name (ARN) of the cluster to list attributes. If you do not specify a cluster, the default cluster is assumed.</p>"""
     target_type: "aws_sdk_ecs.types.target_type.TargetType"

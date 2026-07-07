@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rbin#UnlockRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rbin.types.rule_identifier
 
 
-class UnlockRuleRequest(TypedDict):
+class UnlockRuleRequest(TypedDict, closed=True):
     identifier: "aws_sdk_rbin.types.rule_identifier.RuleIdentifier"
     """<p>The unique ID of the retention rule.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ListWebhookItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.webhook_url
 
 
-class ListWebhookItem(TypedDict):
+class ListWebhookItem(TypedDict, closed=True):
     definition: "aws_sdk_codepipeline.types.webhook_definition.WebhookDefinition"
     """<p>The detail returned for each webhook, such as the webhook authentication type and filter rules.</p>"""
     url: "aws_sdk_codepipeline.types.webhook_url.WebhookUrl"

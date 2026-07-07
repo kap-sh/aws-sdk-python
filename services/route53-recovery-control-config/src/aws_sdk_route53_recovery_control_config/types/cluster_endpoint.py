@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycontrolconfig#ClusterEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.__string_min1_max32_pattern_s
     import aws_sdk_route53_recovery_control_config.types.__string_min1_max128_pattern_a_za_z09
 
 
-class ClusterEndpoint(TypedDict):
+class ClusterEndpoint(TypedDict, closed=True):
     endpoint: NotRequired[
         "aws_sdk_route53_recovery_control_config.types.__string_min1_max128_pattern_a_za_z09.__stringMin1Max128PatternAZaZ09"
     ]

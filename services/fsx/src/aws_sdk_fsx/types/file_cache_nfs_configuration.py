@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#FileCacheNFSConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.nfs_version
     import aws_sdk_fsx.types.repository_dns_ips
 
 
-class FileCacheNFSConfiguration(TypedDict):
+class FileCacheNFSConfiguration(TypedDict, closed=True):
     version: NotRequired["aws_sdk_fsx.types.nfs_version.NfsVersion"]
     """<p>The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is <code>NFS3</code>, which indicates that the data repository must support the NFSv3 protocol.</p>"""
     dns_ips: NotRequired["aws_sdk_fsx.types.repository_dns_ips.RepositoryDnsIps"]

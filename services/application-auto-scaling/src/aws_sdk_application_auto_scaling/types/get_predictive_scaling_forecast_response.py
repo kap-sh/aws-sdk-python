@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#GetPredictiveScalingForecastResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.capacity_forecast
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.timestamp_type
 
 
-class GetPredictiveScalingForecastResponse(TypedDict):
+class GetPredictiveScalingForecastResponse(TypedDict, closed=True):
     load_forecast: NotRequired[
         "aws_sdk_application_auto_scaling.types.load_forecasts.LoadForecasts"
     ]

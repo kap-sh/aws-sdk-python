@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#FederatedAuthenticationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class FederatedAuthenticationRequest(TypedDict):
+class FederatedAuthenticationRequest(TypedDict, closed=True):
     saml_provider_arn: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>"""
     self_service_saml_provider_arn: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DescribeTaskSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.failures
     import aws_sdk_ecs.types.task_sets
 
 
-class DescribeTaskSetsResponse(TypedDict):
+class DescribeTaskSetsResponse(TypedDict, closed=True):
     task_sets: NotRequired["aws_sdk_ecs.types.task_sets.TaskSets"]
     """<p>The list of task sets described.</p>"""
     failures: NotRequired["aws_sdk_ecs.types.failures.Failures"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#SCApplicationAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class SCApplicationAttributes(TypedDict):
+class SCApplicationAttributes(TypedDict, closed=True):
     s3_bucket_path: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

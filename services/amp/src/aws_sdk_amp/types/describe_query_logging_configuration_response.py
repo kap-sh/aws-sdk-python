@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#DescribeQueryLoggingConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.query_logging_configuration_metadata
 
 
-class DescribeQueryLoggingConfigurationResponse(TypedDict):
+class DescribeQueryLoggingConfigurationResponse(TypedDict, closed=True):
     query_logging_configuration: "aws_sdk_amp.types.query_logging_configuration_metadata.QueryLoggingConfigurationMetadata"
     """<p>The detailed information about the query logging configuration for the specified workspace.</p>"""
 

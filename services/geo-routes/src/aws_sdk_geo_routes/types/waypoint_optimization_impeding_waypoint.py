@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationImpedingWaypoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.waypoint_optimization_failed_constraint_list
 
 
-class WaypointOptimizationImpedingWaypoint(TypedDict):
+class WaypointOptimizationImpedingWaypoint(TypedDict, closed=True):
     failed_constraints: "aws_sdk_geo_routes.types.waypoint_optimization_failed_constraint_list.WaypointOptimizationFailedConstraintList"
     """<p>Failed constraints for an impeding waypoint.</p>"""
     id: "aws_sdk_geo_routes.types.waypoint_id.WaypointId"

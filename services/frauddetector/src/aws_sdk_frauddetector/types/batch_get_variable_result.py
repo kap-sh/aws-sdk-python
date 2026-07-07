@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#BatchGetVariableResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.batch_get_variable_error_list
     import aws_sdk_frauddetector.types.variable_list
 
 
-class BatchGetVariableResult(TypedDict):
+class BatchGetVariableResult(TypedDict, closed=True):
     variables: NotRequired["aws_sdk_frauddetector.types.variable_list.VariableList"]
     """<p>The returned variables.</p>"""
     errors: NotRequired[

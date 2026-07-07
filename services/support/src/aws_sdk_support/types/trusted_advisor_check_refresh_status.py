@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#TrustedAdvisorCheckRefreshStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_support.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.string
 
 
-class TrustedAdvisorCheckRefreshStatus(TypedDict):
+class TrustedAdvisorCheckRefreshStatus(TypedDict, closed=True):
     check_id: "aws_sdk_support.types.string.String"
     """<p>The unique identifier for the Trusted Advisor check.</p>"""
     status: "aws_sdk_support.types.string.String"

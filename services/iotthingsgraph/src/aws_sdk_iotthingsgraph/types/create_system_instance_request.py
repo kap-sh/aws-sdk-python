@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#CreateSystemInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotthingsgraph.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.tag_list
 
 
-class CreateSystemInstanceRequest(TypedDict):
+class CreateSystemInstanceRequest(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_iotthingsgraph.types.tag_list.TagList"]
     """<p>Metadata, consisting of key-value pairs, that can be used to categorize your system instances.</p>"""
     definition: "aws_sdk_iotthingsgraph.types.definition_document.DefinitionDocument"

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#DeleteIndexInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
 
-class DeleteIndexInput(TypedDict):
+class DeleteIndexInput(TypedDict, closed=True):
     arn: "str"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the index that you want to delete.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DescribeImportTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.next_token
 
 
-class DescribeImportTasksRequest(TypedDict):
+class DescribeImportTasksRequest(TypedDict, closed=True):
     import_id: NotRequired["aws_sdk_cloudwatch_logs.types.import_id.ImportId"]
     """<p>Optional filter to describe a specific import task by its ID.</p>"""
     import_status: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#DescribeRepositoryCreationTemplatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.prefix_list
 
 
-class DescribeRepositoryCreationTemplatesRequest(TypedDict):
+class DescribeRepositoryCreationTemplatesRequest(TypedDict, closed=True):
     prefixes: NotRequired["aws_sdk_ecr.types.prefix_list.PrefixList"]
     """<p>The repository namespace prefixes associated with the repository creation templates to describe. If this value is not specified, all repository creation templates are returned.</p>"""
     next_token: NotRequired["aws_sdk_ecr.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#PurchaseReservedNodesOfferingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_memorydb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.tag_list
 
 
-class PurchaseReservedNodesOfferingRequest(TypedDict):
+class PurchaseReservedNodesOfferingRequest(TypedDict, closed=True):
     reserved_nodes_offering_id: "aws_sdk_memorydb.types.string.String"
     """<p>The ID of the reserved node offering to purchase.</p>"""
     reservation_id: NotRequired["aws_sdk_memorydb.types.string.String"]

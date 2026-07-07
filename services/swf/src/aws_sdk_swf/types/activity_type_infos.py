@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ActivityTypeInfos``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.page_token
 
 
-class ActivityTypeInfos(TypedDict):
+class ActivityTypeInfos(TypedDict, closed=True):
     type_infos: "aws_sdk_swf.types.activity_type_info_list.ActivityTypeInfoList"
     """<p>List of activity type information.</p>"""
     next_page_token: NotRequired["aws_sdk_swf.types.page_token.PageToken"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#ReportOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.report_override
 
 
-class ReportOverrides(TypedDict):
+class ReportOverrides(TypedDict, closed=True):
     transferred: NotRequired["aws_sdk_datasync.types.report_override.ReportOverride"]
     """<p>Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer.</p>"""
     verified: NotRequired["aws_sdk_datasync.types.report_override.ReportOverride"]

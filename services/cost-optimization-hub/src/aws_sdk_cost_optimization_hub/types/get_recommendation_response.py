@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#GetRecommendationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.action_type
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.tag_list
 
 
-class GetRecommendationResponse(TypedDict):
+class GetRecommendationResponse(TypedDict, closed=True):
     recommendation_id: NotRequired["str"]
     """<p>The ID for the recommendation.</p>"""
     resource_id: NotRequired["str"]

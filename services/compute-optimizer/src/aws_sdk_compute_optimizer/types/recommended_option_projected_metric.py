@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#RecommendedOptionProjectedMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.projected_metrics
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.recommended_instance_type
 
 
-class RecommendedOptionProjectedMetric(TypedDict):
+class RecommendedOptionProjectedMetric(TypedDict, closed=True):
     recommended_instance_type: NotRequired[
         "aws_sdk_compute_optimizer.types.recommended_instance_type.RecommendedInstanceType"
     ]

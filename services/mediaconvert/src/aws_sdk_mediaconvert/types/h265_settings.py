@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#H265Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double_min0
@@ -53,7 +53,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.h265_write_mp4_packaging_type
 
 
-class H265Settings(TypedDict):
+class H265Settings(TypedDict, closed=True):
     adaptive_quantization: NotRequired[
         "aws_sdk_mediaconvert.types.h265_adaptive_quantization.H265AdaptiveQuantization"
     ]

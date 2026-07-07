@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#ContactDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.category_list
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class ContactDetails(TypedDict):
+class ContactDetails(TypedDict, closed=True):
     label: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     """<p>The contact's label.</p>"""
     value: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]

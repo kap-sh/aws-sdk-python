@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RowFilterExpression``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -19,35 +21,35 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.not_like_expression
 
 
-class _RowFilterExpression_equalTo(TypedDict):
+class _RowFilterExpression_equalTo(TypedDict, closed=True):
     equalTo: "aws_sdk_datazone.types.equal_to_expression.EqualToExpression"
 
 
-class _RowFilterExpression_notEqualTo(TypedDict):
+class _RowFilterExpression_notEqualTo(TypedDict, closed=True):
     notEqualTo: "aws_sdk_datazone.types.not_equal_to_expression.NotEqualToExpression"
 
 
-class _RowFilterExpression_greaterThan(TypedDict):
+class _RowFilterExpression_greaterThan(TypedDict, closed=True):
     greaterThan: "aws_sdk_datazone.types.greater_than_expression.GreaterThanExpression"
 
 
-class _RowFilterExpression_lessThan(TypedDict):
+class _RowFilterExpression_lessThan(TypedDict, closed=True):
     lessThan: "aws_sdk_datazone.types.less_than_expression.LessThanExpression"
 
 
-class _RowFilterExpression_greaterThanOrEqualTo(TypedDict):
+class _RowFilterExpression_greaterThanOrEqualTo(TypedDict, closed=True):
     greaterThanOrEqualTo: "aws_sdk_datazone.types.greater_than_or_equal_to_expression.GreaterThanOrEqualToExpression"
 
 
-class _RowFilterExpression_lessThanOrEqualTo(TypedDict):
+class _RowFilterExpression_lessThanOrEqualTo(TypedDict, closed=True):
     lessThanOrEqualTo: "aws_sdk_datazone.types.less_than_or_equal_to_expression.LessThanOrEqualToExpression"
 
 
-class _RowFilterExpression_isNull(TypedDict):
+class _RowFilterExpression_isNull(TypedDict, closed=True):
     isNull: "aws_sdk_datazone.types.is_null_expression.IsNullExpression"
 
 
-class _RowFilterExpression_isNotNull(TypedDict):
+class _RowFilterExpression_isNotNull(TypedDict, closed=True):
     isNotNull: "aws_sdk_datazone.types.is_not_null_expression.IsNotNullExpression"
 
 
@@ -56,18 +58,19 @@ _RowFilterExpression_in = TypedDict(
     {
         "in": "aws_sdk_datazone.types.in_expression.InExpression",
     },
+    closed=True,
 )
 
 
-class _RowFilterExpression_notIn(TypedDict):
+class _RowFilterExpression_notIn(TypedDict, closed=True):
     notIn: "aws_sdk_datazone.types.not_in_expression.NotInExpression"
 
 
-class _RowFilterExpression_like(TypedDict):
+class _RowFilterExpression_like(TypedDict, closed=True):
     like: "aws_sdk_datazone.types.like_expression.LikeExpression"
 
 
-class _RowFilterExpression_notLike(TypedDict):
+class _RowFilterExpression_notLike(TypedDict, closed=True):
     notLike: "aws_sdk_datazone.types.not_like_expression.NotLikeExpression"
 
 

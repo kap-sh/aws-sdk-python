@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.proton#SyncBlockerContext``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
 
-class SyncBlockerContext(TypedDict):
+class SyncBlockerContext(TypedDict, closed=True):
     key: "str"
     """<p>The key for the sync blocker context.</p>"""
     value: "str"

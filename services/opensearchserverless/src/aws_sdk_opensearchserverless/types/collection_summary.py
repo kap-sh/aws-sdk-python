@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#CollectionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.collection_group_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.collection_status
 
 
-class CollectionSummary(TypedDict):
+class CollectionSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_opensearchserverless.types.collection_id.CollectionId"]
     """<p>The unique identifier of the collection.</p>"""
     name: NotRequired[

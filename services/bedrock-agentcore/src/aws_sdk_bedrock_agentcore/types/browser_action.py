@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#BrowserAction``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -15,41 +17,41 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.screenshot_arguments
 
 
-class _BrowserAction_mouseClick(TypedDict):
+class _BrowserAction_mouseClick(TypedDict, closed=True):
     mouseClick: (
         "aws_sdk_bedrock_agentcore.types.mouse_click_arguments.MouseClickArguments"
     )
 
 
-class _BrowserAction_mouseMove(TypedDict):
+class _BrowserAction_mouseMove(TypedDict, closed=True):
     mouseMove: "aws_sdk_bedrock_agentcore.types.mouse_move_arguments.MouseMoveArguments"
 
 
-class _BrowserAction_mouseDrag(TypedDict):
+class _BrowserAction_mouseDrag(TypedDict, closed=True):
     mouseDrag: "aws_sdk_bedrock_agentcore.types.mouse_drag_arguments.MouseDragArguments"
 
 
-class _BrowserAction_mouseScroll(TypedDict):
+class _BrowserAction_mouseScroll(TypedDict, closed=True):
     mouseScroll: (
         "aws_sdk_bedrock_agentcore.types.mouse_scroll_arguments.MouseScrollArguments"
     )
 
 
-class _BrowserAction_keyType(TypedDict):
+class _BrowserAction_keyType(TypedDict, closed=True):
     keyType: "aws_sdk_bedrock_agentcore.types.key_type_arguments.KeyTypeArguments"
 
 
-class _BrowserAction_keyPress(TypedDict):
+class _BrowserAction_keyPress(TypedDict, closed=True):
     keyPress: "aws_sdk_bedrock_agentcore.types.key_press_arguments.KeyPressArguments"
 
 
-class _BrowserAction_keyShortcut(TypedDict):
+class _BrowserAction_keyShortcut(TypedDict, closed=True):
     keyShortcut: (
         "aws_sdk_bedrock_agentcore.types.key_shortcut_arguments.KeyShortcutArguments"
     )
 
 
-class _BrowserAction_screenshot(TypedDict):
+class _BrowserAction_screenshot(TypedDict, closed=True):
     screenshot: (
         "aws_sdk_bedrock_agentcore.types.screenshot_arguments.ScreenshotArguments"
     )

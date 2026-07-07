@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#GetDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.string_value_length1to255
 
 
-class GetDatasetRequest(TypedDict):
+class GetDatasetRequest(TypedDict, closed=True):
     dataset_id: (
         "aws_sdk_finspace_data.types.string_value_length1to255.StringValueLength1to255"
     )

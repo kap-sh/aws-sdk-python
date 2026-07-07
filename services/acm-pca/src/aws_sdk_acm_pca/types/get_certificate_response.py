@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#GetCertificateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.certificate_body
     import aws_sdk_acm_pca.types.certificate_chain
 
 
-class GetCertificateResponse(TypedDict):
+class GetCertificateResponse(TypedDict, closed=True):
     certificate: NotRequired["aws_sdk_acm_pca.types.certificate_body.CertificateBody"]
     """<p>The base64 PEM-encoded certificate specified by the <code>CertificateArn</code> parameter.</p>"""
     certificate_chain: NotRequired[

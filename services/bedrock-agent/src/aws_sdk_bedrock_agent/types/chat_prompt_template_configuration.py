@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ChatPromptTemplateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.tool_configuration
 
 
-class ChatPromptTemplateConfiguration(TypedDict):
+class ChatPromptTemplateConfiguration(TypedDict, closed=True):
     messages: "aws_sdk_bedrock_agent.types.messages.Messages"
     """<p>Contains messages in the chat for the prompt.</p>"""
     system: NotRequired[

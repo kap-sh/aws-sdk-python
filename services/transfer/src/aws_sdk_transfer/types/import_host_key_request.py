@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ImportHostKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.tags
 
 
-class ImportHostKeyRequest(TypedDict):
+class ImportHostKeyRequest(TypedDict, closed=True):
     server_id: "aws_sdk_transfer.types.server_id.ServerId"
     """<p>The identifier of the server that contains the host key that you are importing.</p>"""
     host_key_body: "aws_sdk_transfer.types.host_key.HostKey"

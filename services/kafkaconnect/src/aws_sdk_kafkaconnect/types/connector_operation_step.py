@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#ConnectorOperationStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.connector_operation_step_state
     import aws_sdk_kafkaconnect.types.connector_operation_step_type
 
 
-class ConnectorOperationStep(TypedDict):
+class ConnectorOperationStep(TypedDict, closed=True):
     step_type: NotRequired[
         "aws_sdk_kafkaconnect.types.connector_operation_step_type.ConnectorOperationStepType"
     ]

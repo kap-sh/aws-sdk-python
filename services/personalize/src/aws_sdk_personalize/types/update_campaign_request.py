@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#UpdateCampaignRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.transactions_per_second
 
 
-class UpdateCampaignRequest(TypedDict):
+class UpdateCampaignRequest(TypedDict, closed=True):
     campaign_arn: "aws_sdk_personalize.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the campaign.</p>"""
     solution_version_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]

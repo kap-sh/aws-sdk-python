@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#CreateApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.tag_list
 
 
-class CreateApplicationRequest(TypedDict):
+class CreateApplicationRequest(TypedDict, closed=True):
     instance_arn: "aws_sdk_sso_admin.types.instance_arn.InstanceArn"
     r"""<p>The ARN of the instance of IAM Identity Center under which the operation will run. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     application_provider_arn: (

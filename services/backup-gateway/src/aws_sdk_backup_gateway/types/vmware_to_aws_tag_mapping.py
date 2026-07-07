@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#VmwareToAwsTagMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup_gateway.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.vmware_tag_name
 
 
-class VmwareToAwsTagMapping(TypedDict):
+class VmwareToAwsTagMapping(TypedDict, closed=True):
     vmware_category: "aws_sdk_backup_gateway.types.vmware_category.VmwareCategory"
     """<p>The is the category of VMware.</p>"""
     vmware_tag_name: "aws_sdk_backup_gateway.types.vmware_tag_name.VmwareTagName"

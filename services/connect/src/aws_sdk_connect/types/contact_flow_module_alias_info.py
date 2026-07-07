@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ContactFlowModuleAliasInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class ContactFlowModuleAliasInfo(TypedDict):
+class ContactFlowModuleAliasInfo(TypedDict, closed=True):
     contact_flow_module_id: NotRequired["aws_sdk_connect.types.resource_id.ResourceId"]
     """<p>The identifier of the flow module.</p>"""
     contact_flow_module_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

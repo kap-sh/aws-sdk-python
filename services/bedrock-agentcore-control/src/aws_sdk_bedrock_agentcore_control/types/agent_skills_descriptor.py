@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AgentSkillsDescriptor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.skill_definition
     import aws_sdk_bedrock_agentcore_control.types.skill_md_definition
 
 
-class AgentSkillsDescriptor(TypedDict):
+class AgentSkillsDescriptor(TypedDict, closed=True):
     skill_md: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.skill_md_definition.SkillMdDefinition"
     ]

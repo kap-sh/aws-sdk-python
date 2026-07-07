@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#CopyStepDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.input_file_location
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.workflow_step_name
 
 
-class CopyStepDetails(TypedDict):
+class CopyStepDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_transfer.types.workflow_step_name.WorkflowStepName"]
     """<p>The name of the step, used as an identifier.</p>"""
     destination_file_location: NotRequired[

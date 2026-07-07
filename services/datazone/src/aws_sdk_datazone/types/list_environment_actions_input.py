@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListEnvironmentActionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.pagination_token
 
 
-class ListEnvironmentActionsInput(TypedDict):
+class ListEnvironmentActionsInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain in which the environment actions are listed.</p>"""
     environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId"

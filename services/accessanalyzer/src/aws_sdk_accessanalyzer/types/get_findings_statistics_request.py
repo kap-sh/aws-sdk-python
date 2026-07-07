@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#GetFindingsStatisticsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.analyzer_arn
 
 
-class GetFindingsStatisticsRequest(TypedDict):
+class GetFindingsStatisticsRequest(TypedDict, closed=True):
     analyzer_arn: "aws_sdk_accessanalyzer.types.analyzer_arn.AnalyzerArn"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> used to generate the statistics.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#UsageFeatureResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.total
     import aws_sdk_guardduty.types.usage_feature
 
 
-class UsageFeatureResult(TypedDict):
+class UsageFeatureResult(TypedDict, closed=True):
     feature: NotRequired["aws_sdk_guardduty.types.usage_feature.UsageFeature"]
     """<p>The feature that generated the usage cost.</p>"""
     total: NotRequired["aws_sdk_guardduty.types.total.Total"]

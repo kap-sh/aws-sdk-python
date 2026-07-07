@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#CreateUploadUrlRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateUploadUrlRequest(TypedDict):
+class CreateUploadUrlRequest(TypedDict, closed=True):
     pass
 
 

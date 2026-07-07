@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetSensitiveDataOccurrencesAvailabilityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_unavailability_reason_code
     import aws_sdk_macie2.types.availability_code
 
 
-class GetSensitiveDataOccurrencesAvailabilityResponse(TypedDict):
+class GetSensitiveDataOccurrencesAvailabilityResponse(TypedDict, closed=True):
     code: NotRequired["aws_sdk_macie2.types.availability_code.AvailabilityCode"]
     """<p>Specifies whether occurrences of sensitive data can be retrieved for the finding. Possible values are: AVAILABLE, the sensitive data can be retrieved; and, UNAVAILABLE, the sensitive data can't be retrieved. If this value is UNAVAILABLE, the reasons array indicates why the data can't be retrieved.</p>"""
     reasons: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsecuretunneling#ListTunnelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.thing_name
 
 
-class ListTunnelsRequest(TypedDict):
+class ListTunnelsRequest(TypedDict, closed=True):
     thing_name: NotRequired["aws_sdk_iotsecuretunneling.types.thing_name.ThingName"]
     """<p>The name of the IoT thing associated with the destination device.</p>"""
     max_results: NotRequired["aws_sdk_iotsecuretunneling.types.max_results.MaxResults"]

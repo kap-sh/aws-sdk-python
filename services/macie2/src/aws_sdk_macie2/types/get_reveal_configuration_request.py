@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetRevealConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetRevealConfigurationRequest(TypedDict):
+class GetRevealConfigurationRequest(TypedDict, closed=True):
     pass
 
 

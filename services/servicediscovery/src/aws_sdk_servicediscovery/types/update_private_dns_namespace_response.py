@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#UpdatePrivateDnsNamespaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.operation_id
 
 
-class UpdatePrivateDnsNamespaceResponse(TypedDict):
+class UpdatePrivateDnsNamespaceResponse(TypedDict, closed=True):
     operation_id: NotRequired["aws_sdk_servicediscovery.types.operation_id.OperationId"]
     r"""<p>A value that you can use to determine whether the request completed successfully. To get the status of the operation, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html\">GetOperation</a>.</p>"""
 

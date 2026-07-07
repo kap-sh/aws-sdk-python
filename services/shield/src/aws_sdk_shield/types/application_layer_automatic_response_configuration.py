@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#ApplicationLayerAutomaticResponseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.response_action
 
 
-class ApplicationLayerAutomaticResponseConfiguration(TypedDict):
+class ApplicationLayerAutomaticResponseConfiguration(TypedDict, closed=True):
     status: "aws_sdk_shield.types.application_layer_automatic_response_status.ApplicationLayerAutomaticResponseStatus"
     """<p>Indicates whether automatic application layer DDoS mitigation is enabled for the protection. </p>"""
     action: "aws_sdk_shield.types.response_action.ResponseAction"

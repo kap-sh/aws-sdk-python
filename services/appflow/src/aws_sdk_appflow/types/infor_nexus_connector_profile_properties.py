@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#InforNexusConnectorProfileProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.instance_url
 
 
-class InforNexusConnectorProfileProperties(TypedDict):
+class InforNexusConnectorProfileProperties(TypedDict, closed=True):
     instance_url: "aws_sdk_appflow.types.instance_url.InstanceUrl"
     """<p> The location of the Infor Nexus resource. </p>"""
 

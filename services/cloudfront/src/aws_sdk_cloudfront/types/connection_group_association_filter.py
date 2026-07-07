@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ConnectionGroupAssociationFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class ConnectionGroupAssociationFilter(TypedDict):
+class ConnectionGroupAssociationFilter(TypedDict, closed=True):
     anycast_ip_list_id: NotRequired["aws_sdk_cloudfront.types.string.string"]
     """<p>The ID of the Anycast static IP list.</p>"""
 

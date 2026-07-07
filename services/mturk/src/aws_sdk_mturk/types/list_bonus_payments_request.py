@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ListBonusPaymentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.entity_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.result_size
 
 
-class ListBonusPaymentsRequest(TypedDict):
+class ListBonusPaymentsRequest(TypedDict, closed=True):
     hit_id: NotRequired["aws_sdk_mturk.types.entity_id.EntityId"]
     """<p>The ID of the HIT associated with the bonus payments to retrieve. If not specified, all bonus payments for all assignments for the given HIT are returned. Either the HITId parameter or the AssignmentId parameter must be specified</p>"""
     assignment_id: NotRequired["aws_sdk_mturk.types.entity_id.EntityId"]

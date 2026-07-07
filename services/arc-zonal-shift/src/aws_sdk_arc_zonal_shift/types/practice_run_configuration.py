@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#PracticeRunConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_zonal_shift.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.outcome_alarms
 
 
-class PracticeRunConfiguration(TypedDict):
+class PracticeRunConfiguration(TypedDict, closed=True):
     blocking_alarms: NotRequired[
         "aws_sdk_arc_zonal_shift.types.blocking_alarms.BlockingAlarms"
     ]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrieveAndGenerateInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
 
-class RetrieveAndGenerateInput(TypedDict):
+class RetrieveAndGenerateInput(TypedDict, closed=True):
     text: "str"
     """<p>The query made to the knowledge base, in characters.</p>"""
 

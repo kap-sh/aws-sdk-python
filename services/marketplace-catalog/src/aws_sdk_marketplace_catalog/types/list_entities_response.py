@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#ListEntitiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.entity_summary_list
     import aws_sdk_marketplace_catalog.types.next_token
 
 
-class ListEntitiesResponse(TypedDict):
+class ListEntitiesResponse(TypedDict, closed=True):
     entity_summary_list: NotRequired[
         "aws_sdk_marketplace_catalog.types.entity_summary_list.EntitySummaryList"
     ]

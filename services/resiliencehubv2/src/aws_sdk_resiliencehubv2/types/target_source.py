@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#TargetSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.entity_name
     import aws_sdk_resiliencehubv2.types.policy_value_source
 
 
-class TargetSource(TypedDict):
+class TargetSource(TypedDict, closed=True):
     value: NotRequired["int"]
     """<p>The RTO or RPO value in minutes.</p>"""
     policy_name: NotRequired["aws_sdk_resiliencehubv2.types.entity_name.EntityName"]

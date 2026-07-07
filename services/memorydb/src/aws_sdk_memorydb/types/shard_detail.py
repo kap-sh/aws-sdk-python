@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ShardDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.shard_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.t_stamp
 
 
-class ShardDetail(TypedDict):
+class ShardDetail(TypedDict, closed=True):
     name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The name of the shard</p>"""
     configuration: NotRequired[

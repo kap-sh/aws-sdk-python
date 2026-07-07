@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#ExpressionDimensionValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.values
 
 
-class ExpressionDimensionValues(TypedDict):
+class ExpressionDimensionValues(TypedDict, closed=True):
     key: "aws_sdk_budgets.types.dimension.Dimension"
     """<p>The name of the dimension that you want to filter on.</p>"""
     values: "aws_sdk_budgets.types.values.Values"

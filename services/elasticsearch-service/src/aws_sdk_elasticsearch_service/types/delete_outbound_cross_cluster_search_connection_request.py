@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DeleteOutboundCrossClusterSearchConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.cross_cluster_search_connection_id
 
 
-class DeleteOutboundCrossClusterSearchConnectionRequest(TypedDict):
+class DeleteOutboundCrossClusterSearchConnectionRequest(TypedDict, closed=True):
     cross_cluster_search_connection_id: "aws_sdk_elasticsearch_service.types.cross_cluster_search_connection_id.CrossClusterSearchConnectionId"
     """<p>The id of the outbound connection that you want to permanently delete.</p>"""
 

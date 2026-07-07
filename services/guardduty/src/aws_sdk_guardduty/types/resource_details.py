@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.instance_arn
 
 
-class ResourceDetails(TypedDict):
+class ResourceDetails(TypedDict, closed=True):
     instance_arn: NotRequired["aws_sdk_guardduty.types.instance_arn.InstanceArn"]
     """<p>Instance ARN that was scanned in the scan entry.</p>"""
 

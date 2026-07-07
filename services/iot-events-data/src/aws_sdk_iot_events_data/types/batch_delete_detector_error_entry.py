@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#BatchDeleteDetectorErrorEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.message_id
 
 
-class BatchDeleteDetectorErrorEntry(TypedDict):
+class BatchDeleteDetectorErrorEntry(TypedDict, closed=True):
     message_id: NotRequired["aws_sdk_iot_events_data.types.message_id.MessageId"]
     r"""<p>The ID of the message that caused the error. (See the value of the <code>\"messageId\"</code> in the <a href=\"https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_BatchDeleteDetector.html#iotevents-iotevents-data_BatchDeleteDetector-request-detectors\">detectors</a> object of the <code>DeleteDetectorRequest</code>.)</p>"""
     error_code: NotRequired["aws_sdk_iot_events_data.types.error_code.ErrorCode"]

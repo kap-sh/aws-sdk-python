@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#StartMedicalStreamTranscriptionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.audio_stream
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.vocabulary_name
 
 
-class StartMedicalStreamTranscriptionRequest(TypedDict):
+class StartMedicalStreamTranscriptionRequest(TypedDict, closed=True):
     language_code: "aws_sdk_transcribe_streaming.types.language_code.LanguageCode"
     """<p>Specify the language code that represents the language spoken in your audio.</p> <important> <p>Amazon Transcribe Medical only supports US English (<code>en-US</code>).</p> </important>"""
     media_sample_rate_hertz: "aws_sdk_transcribe_streaming.types.media_sample_rate_hertz.MediaSampleRateHertz"

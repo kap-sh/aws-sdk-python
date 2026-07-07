@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#GrpcRouteMatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.grpc_route_metadata_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.service_name
 
 
-class GrpcRouteMatch(TypedDict):
+class GrpcRouteMatch(TypedDict, closed=True):
     service_name: NotRequired["aws_sdk_app_mesh.types.service_name.ServiceName"]
     """<p>The fully qualified domain name for the service to match from the request.</p>"""
     method_name: NotRequired["aws_sdk_app_mesh.types.method_name.MethodName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#DescribeProvisioningParametersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.constraint_summaries
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.usage_instructions
 
 
-class DescribeProvisioningParametersOutput(TypedDict):
+class DescribeProvisioningParametersOutput(TypedDict, closed=True):
     provisioning_artifact_parameters: NotRequired[
         "aws_sdk_service_catalog.types.provisioning_artifact_parameters.ProvisioningArtifactParameters"
     ]

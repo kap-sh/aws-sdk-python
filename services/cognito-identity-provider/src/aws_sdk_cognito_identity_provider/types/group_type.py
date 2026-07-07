@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#GroupType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.arn_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_pool_id_type
 
 
-class GroupType(TypedDict):
+class GroupType(TypedDict, closed=True):
     group_name: NotRequired[
         "aws_sdk_cognito_identity_provider.types.group_name_type.GroupNameType"
     ]

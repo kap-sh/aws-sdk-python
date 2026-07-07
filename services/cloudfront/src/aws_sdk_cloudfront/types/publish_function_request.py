@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#PublishFunctionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class PublishFunctionRequest(TypedDict):
+class PublishFunctionRequest(TypedDict, closed=True):
     name: "aws_sdk_cloudfront.types.function_name.FunctionName"
     """<p>The name of the function that you are publishing.</p>"""
     if_match: "aws_sdk_cloudfront.types.string.string"

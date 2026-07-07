@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fms#GetViolationDetailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.violation_detail
 
 
-class GetViolationDetailsResponse(TypedDict):
+class GetViolationDetailsResponse(TypedDict, closed=True):
     violation_detail: NotRequired["aws_sdk_fms.types.violation_detail.ViolationDetail"]
     """<p>Violation detail for a resource.</p>"""
 

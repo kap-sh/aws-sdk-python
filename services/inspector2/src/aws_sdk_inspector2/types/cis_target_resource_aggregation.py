@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CisTargetResourceAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.target_resource_tags
 
 
-class CisTargetResourceAggregation(TypedDict):
+class CisTargetResourceAggregation(TypedDict, closed=True):
     scan_arn: "aws_sdk_inspector2.types.cis_scan_arn.CisScanArn"
     """<p>The scan ARN for the CIS target resource.</p>"""
     target_resource_id: NotRequired["aws_sdk_inspector2.types.resource_id.ResourceId"]

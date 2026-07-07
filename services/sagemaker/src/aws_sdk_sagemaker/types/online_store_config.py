@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#OnlineStoreConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ttl_duration
 
 
-class OnlineStoreConfig(TypedDict):
+class OnlineStoreConfig(TypedDict, closed=True):
     security_config: NotRequired[
         "aws_sdk_sagemaker.types.online_store_security_config.OnlineStoreSecurityConfig"
     ]

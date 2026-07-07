@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#DescribeFlowOperationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.availability_zone
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.vpc_endpoint_id
 
 
-class DescribeFlowOperationResponse(TypedDict):
+class DescribeFlowOperationResponse(TypedDict, closed=True):
     firewall_arn: NotRequired["aws_sdk_network_firewall.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the firewall.</p>"""
     availability_zone: NotRequired[

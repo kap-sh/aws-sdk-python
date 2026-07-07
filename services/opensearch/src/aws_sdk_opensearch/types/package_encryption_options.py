@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#PackageEncryptionOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.kms_key_id
 
 
-class PackageEncryptionOptions(TypedDict):
+class PackageEncryptionOptions(TypedDict, closed=True):
     kms_key_identifier: NotRequired["aws_sdk_opensearch.types.kms_key_id.KmsKeyId"]
     """<p>KMS key ID for encrypting the package.</p>"""
     encryption_enabled: "aws_sdk_opensearch.types.boolean.Boolean"

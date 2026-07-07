@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#LastUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.last_update_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.string
 
 
-class LastUpdate(TypedDict):
+class LastUpdate(TypedDict, closed=True):
     target_query_tcu: NotRequired["aws_sdk_timestream_query.types.query_tcu.QueryTCU"]
     """<p>The number of TimeStream Compute Units (TCUs) requested in the last account settings update.</p>"""
     status: NotRequired[

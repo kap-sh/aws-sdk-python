@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#SpecificToolChoice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.tool_name
 
 
-class SpecificToolChoice(TypedDict):
+class SpecificToolChoice(TypedDict, closed=True):
     name: "aws_sdk_bedrock_runtime.types.tool_name.ToolName"
     """<p>The name of the tool that the model must request. </p>"""
 

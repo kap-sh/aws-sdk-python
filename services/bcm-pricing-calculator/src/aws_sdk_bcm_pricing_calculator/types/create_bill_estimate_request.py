@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#CreateBillEstimateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.tags
 
 
-class CreateBillEstimateRequest(TypedDict):
+class CreateBillEstimateRequest(TypedDict, closed=True):
     bill_scenario_id: "aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"
     """<p> The ID of the Bill Scenario for which you want to create a Bill estimate. </p>"""
     name: "aws_sdk_bcm_pricing_calculator.types.bill_estimate_name.BillEstimateName"

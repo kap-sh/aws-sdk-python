@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#AnalyzedResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.timestamp
 
 
-class AnalyzedResource(TypedDict):
+class AnalyzedResource(TypedDict, closed=True):
     resource_arn: "aws_sdk_accessanalyzer.types.resource_arn.ResourceArn"
     """<p>The ARN of the resource that was analyzed.</p>"""
     resource_type: "aws_sdk_accessanalyzer.types.resource_type.ResourceType"

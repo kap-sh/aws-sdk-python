@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SharePointConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.share_point_version
 
 
-class SharePointConfiguration(TypedDict):
+class SharePointConfiguration(TypedDict, closed=True):
     share_point_version: "aws_sdk_kendra.types.share_point_version.SharePointVersion"
     """<p>The version of Microsoft SharePoint that you use.</p>"""
     urls: "aws_sdk_kendra.types.share_point_url_list.SharePointUrlList"

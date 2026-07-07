@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#FailoverRouterInputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_network_interface_arn
 
 
-class FailoverRouterInputConfiguration(TypedDict):
+class FailoverRouterInputConfiguration(TypedDict, closed=True):
     network_interface_arn: "aws_sdk_mediaconnect.types.router_network_interface_arn.RouterNetworkInterfaceArn"
     """<p>The ARN of the network interface to use for this failover router input.</p>"""
     protocol_configurations: "aws_sdk_mediaconnect.types.failover_router_input_protocol_configuration_list.FailoverRouterInputProtocolConfigurationList"

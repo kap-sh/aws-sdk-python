@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListContextsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListContextsRequest(TypedDict):
+class ListContextsRequest(TypedDict, closed=True):
     source_uri: NotRequired["aws_sdk_sagemaker.types.source_uri.SourceUri"]
     """<p>A filter that returns only contexts with the specified source URI.</p>"""
     context_type: NotRequired["aws_sdk_sagemaker.types.string256.String256"]

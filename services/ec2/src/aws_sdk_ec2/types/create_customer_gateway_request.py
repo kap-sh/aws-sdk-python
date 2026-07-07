@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateCustomerGatewayRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CreateCustomerGatewayRequest(TypedDict):
+class CreateCustomerGatewayRequest(TypedDict, closed=True):
     bgp_asn: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>For customer gateway devices that support BGP, specify the device's ASN. You must specify either <code>BgpAsn</code> or <code>BgpAsnExtended</code> when creating the customer gateway. If the ASN is larger than <code>2,147,483,647</code>, you must use <code>BgpAsnExtended</code>.</p> <p>Default: 65000</p> <p>Valid values: <code>1</code> to <code>2,147,483,647</code> </p>"""
     public_ip: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetMetricConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.summary_metric_configuration
 
 
-class GetMetricConfigurationResponse(TypedDict):
+class GetMetricConfigurationResponse(TypedDict, closed=True):
     summary_metric: NotRequired[
         "aws_sdk_iot_wireless.types.summary_metric_configuration.SummaryMetricConfiguration"
     ]

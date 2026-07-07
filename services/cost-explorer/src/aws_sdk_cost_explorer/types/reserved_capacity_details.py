@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ReservedCapacityDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.dynamo_db_capacity_details
 
 
-class ReservedCapacityDetails(TypedDict):
+class ReservedCapacityDetails(TypedDict, closed=True):
     dynamo_db_capacity_details: NotRequired[
         "aws_sdk_cost_explorer.types.dynamo_db_capacity_details.DynamoDBCapacityDetails"
     ]

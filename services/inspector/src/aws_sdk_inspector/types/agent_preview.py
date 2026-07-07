@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#AgentPreview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.operating_system
 
 
-class AgentPreview(TypedDict):
+class AgentPreview(TypedDict, closed=True):
     hostname: NotRequired["aws_sdk_inspector.types.hostname.Hostname"]
     """<p>The hostname of the EC2 instance on which the Amazon Inspector Agent is installed.</p>"""
     agent_id: "aws_sdk_inspector.types.agent_id.AgentId"

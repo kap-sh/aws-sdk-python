@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#RuntimeSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.nlu_improvement_specification
     import aws_sdk_lex_models_v2.types.slot_resolution_improvement_specification
 
 
-class RuntimeSettings(TypedDict):
+class RuntimeSettings(TypedDict, closed=True):
     slot_resolution_improvement: NotRequired[
         "aws_sdk_lex_models_v2.types.slot_resolution_improvement_specification.SlotResolutionImprovementSpecification"
     ]

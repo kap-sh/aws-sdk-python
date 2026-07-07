@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#UpdateProxyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.update_token
 
 
-class UpdateProxyRequest(TypedDict):
+class UpdateProxyRequest(TypedDict, closed=True):
     nat_gateway_id: "aws_sdk_network_firewall.types.nat_gateway_id.NatGatewayId"
     """<p>The NAT Gateway the proxy is attached to. </p>"""
     proxy_name: NotRequired["aws_sdk_network_firewall.types.resource_name.ResourceName"]

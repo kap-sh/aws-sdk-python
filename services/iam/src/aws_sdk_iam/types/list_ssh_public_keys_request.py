@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListSSHPublicKeysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class ListSSHPublicKeysRequest(TypedDict):
+class ListSSHPublicKeysRequest(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_iam.types.user_name_type.userNameType"]
     r"""<p>The name of the IAM user to list SSH public keys for. If none is specified, the <code>UserName</code> field is determined implicitly based on the Amazon Web Services access key used to sign the request.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     marker: NotRequired["aws_sdk_iam.types.marker_type.markerType"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DescribeExportTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.describe_limit
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.next_token
 
 
-class DescribeExportTasksRequest(TypedDict):
+class DescribeExportTasksRequest(TypedDict, closed=True):
     task_id: NotRequired["aws_sdk_cloudwatch_logs.types.export_task_id.ExportTaskId"]
     """<p>The ID of the export task. Specifying a task ID filters the results to one or zero export tasks.</p>"""
     status_code: NotRequired[

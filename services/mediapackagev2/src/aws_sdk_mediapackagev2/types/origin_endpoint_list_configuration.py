@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#OriginEndpointListConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.uri_separator
 
 
-class OriginEndpointListConfiguration(TypedDict):
+class OriginEndpointListConfiguration(TypedDict, closed=True):
     arn: "str"
     """<p>The Amazon Resource Name (ARN) associated with the resource.</p>"""
     channel_group_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"

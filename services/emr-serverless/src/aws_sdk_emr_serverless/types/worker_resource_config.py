@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#WorkerResourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.memory_size
 
 
-class WorkerResourceConfig(TypedDict):
+class WorkerResourceConfig(TypedDict, closed=True):
     cpu: "aws_sdk_emr_serverless.types.cpu_size.CpuSize"
     """<p>The CPU requirements for every worker instance of the worker type.</p>"""
     memory: "aws_sdk_emr_serverless.types.memory_size.MemorySize"

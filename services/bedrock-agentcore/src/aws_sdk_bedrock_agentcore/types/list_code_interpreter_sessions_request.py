@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ListCodeInterpreterSessionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.code_interpreter_session_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.next_token
 
 
-class ListCodeInterpreterSessionsRequest(TypedDict):
+class ListCodeInterpreterSessionsRequest(TypedDict, closed=True):
     code_interpreter_identifier: "str"
     """<p>The unique identifier of the code interpreter to list sessions for. If specified, only sessions for this code interpreter are returned. If not specified, sessions for all code interpreters are returned.</p>"""
     max_results: NotRequired["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"]

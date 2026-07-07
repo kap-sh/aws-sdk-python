@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#GetRecommenderSchemaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.name
 
 
-class GetRecommenderSchemaRequest(TypedDict):
+class GetRecommenderSchemaRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_customer_profiles.types.name.name"
     """<p>The unique name of the domain.</p>"""
     recommender_schema_name: "aws_sdk_customer_profiles.types.name.name"

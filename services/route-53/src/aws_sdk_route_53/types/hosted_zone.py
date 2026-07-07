@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#HostedZone``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.resource_id
 
 
-class HostedZone(TypedDict):
+class HostedZone(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.resource_id.ResourceId"
     """<p>The ID that Amazon Route 53 assigned to the hosted zone when you created it.</p>"""
     name: "aws_sdk_route_53.types.dns_name.DNSName"

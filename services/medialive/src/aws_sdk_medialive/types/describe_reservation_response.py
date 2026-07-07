@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeReservationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.tags
 
 
-class DescribeReservationResponse(TypedDict):
+class DescribeReservationResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'"""
     count: NotRequired["aws_sdk_medialive.types.__integer.__integer"]

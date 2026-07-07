@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#OAuth2PropertiesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.authorization_code_properties
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.token_url_parameters_map
 
 
-class OAuth2PropertiesInput(TypedDict):
+class OAuth2PropertiesInput(TypedDict, closed=True):
     o_auth2_grant_type: NotRequired[
         "aws_sdk_glue.types.o_auth2_grant_type.OAuth2GrantType"
     ]

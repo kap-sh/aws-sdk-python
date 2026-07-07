@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEfsAccessPointDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_efs_access_point_posix_user_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEfsAccessPointDetails(TypedDict):
+class AwsEfsAccessPointDetails(TypedDict, closed=True):
     access_point_id: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#UpdateEc2DeepInspectionConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.ec2_deep_inspection_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.path_list
 
 
-class UpdateEc2DeepInspectionConfigurationResponse(TypedDict):
+class UpdateEc2DeepInspectionConfigurationResponse(TypedDict, closed=True):
     package_paths: NotRequired["aws_sdk_inspector2.types.path_list.PathList"]
     """<p>The current Amazon Inspector deep inspection custom paths for your account.</p>"""
     org_package_paths: NotRequired["aws_sdk_inspector2.types.path_list.PathList"]

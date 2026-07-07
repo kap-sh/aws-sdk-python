@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsCloudFrontDistributionOriginCustomOriginConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_cloud_front_distribution_origin_ssl_protocols
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsCloudFrontDistributionOriginCustomOriginConfig(TypedDict):
+class AwsCloudFrontDistributionOriginCustomOriginConfig(TypedDict, closed=True):
     http_port: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The HTTP port that CloudFront uses to connect to the origin. </p>"""
     https_port: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

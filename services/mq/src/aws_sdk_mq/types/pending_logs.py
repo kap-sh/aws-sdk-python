@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mq#PendingLogs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__boolean
 
 
-class PendingLogs(TypedDict):
+class PendingLogs(TypedDict, closed=True):
     audit: NotRequired["aws_sdk_mq.types.__boolean.__boolean"]
     """<p>Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.</p>"""
     general: NotRequired["aws_sdk_mq.types.__boolean.__boolean"]

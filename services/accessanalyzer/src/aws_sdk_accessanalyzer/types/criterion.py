@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#Criterion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.value_list
 
 
-class Criterion(TypedDict):
+class Criterion(TypedDict, closed=True):
     eq: NotRequired["aws_sdk_accessanalyzer.types.value_list.ValueList"]
     r"""<p>An \"equals\" operator to match for the filter used to create the rule.</p>"""
     neq: NotRequired["aws_sdk_accessanalyzer.types.value_list.ValueList"]

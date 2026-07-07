@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#Credentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.access_key_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.session_token_string
 
 
-class Credentials(TypedDict):
+class Credentials(TypedDict, closed=True):
     access_key_id: NotRequired[
         "aws_sdk_cognito_identity.types.access_key_string.AccessKeyString"
     ]

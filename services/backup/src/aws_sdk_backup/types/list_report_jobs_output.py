@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListReportJobsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.report_job_list
     import aws_sdk_backup.types.string
 
 
-class ListReportJobsOutput(TypedDict):
+class ListReportJobsOutput(TypedDict, closed=True):
     report_jobs: NotRequired["aws_sdk_backup.types.report_job_list.ReportJobList"]
     """<p>Details about your report jobs in JSON format.</p>"""
     next_token: NotRequired["aws_sdk_backup.types.string.string"]

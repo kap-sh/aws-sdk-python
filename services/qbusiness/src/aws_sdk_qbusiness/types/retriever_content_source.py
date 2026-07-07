@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#RetrieverContentSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.retriever_id
 
 
-class RetrieverContentSource(TypedDict):
+class RetrieverContentSource(TypedDict, closed=True):
     retriever_id: "aws_sdk_qbusiness.types.retriever_id.RetrieverId"
     """<p>The unique identifier of the retriever to use as the content source.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#EnabledControlDriftTypes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.enabled_control_inheritance_drift
     import aws_sdk_controltower.types.enabled_control_resource_drift
 
 
-class EnabledControlDriftTypes(TypedDict):
+class EnabledControlDriftTypes(TypedDict, closed=True):
     inheritance: NotRequired[
         "aws_sdk_controltower.types.enabled_control_inheritance_drift.EnabledControlInheritanceDrift"
     ]

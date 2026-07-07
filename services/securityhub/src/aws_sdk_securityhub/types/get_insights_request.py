@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetInsightsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.arn_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.next_token
 
 
-class GetInsightsRequest(TypedDict):
+class GetInsightsRequest(TypedDict, closed=True):
     insight_arns: NotRequired["aws_sdk_securityhub.types.arn_list.ArnList"]
     """<p>The ARNs of the insights to describe. If you don't provide any insight ARNs, then <code>GetInsights</code> returns all of your custom insights. It does not return any managed insights.</p>"""
     next_token: NotRequired["aws_sdk_securityhub.types.next_token.NextToken"]

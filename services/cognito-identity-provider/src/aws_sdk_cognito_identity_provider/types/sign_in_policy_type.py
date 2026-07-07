@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#SignInPolicyType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.allowed_first_auth_factors_list_type
 
 
-class SignInPolicyType(TypedDict):
+class SignInPolicyType(TypedDict, closed=True):
     allowed_first_auth_factors: NotRequired[
         "aws_sdk_cognito_identity_provider.types.allowed_first_auth_factors_list_type.AllowedFirstAuthFactorsListType"
     ]

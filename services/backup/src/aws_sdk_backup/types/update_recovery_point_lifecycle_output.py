@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#UpdateRecoveryPointLifecycleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.lifecycle
 
 
-class UpdateRecoveryPointLifecycleOutput(TypedDict):
+class UpdateRecoveryPointLifecycleOutput(TypedDict, closed=True):
     backup_vault_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
     """<p>An ARN that uniquely identifies a backup vault; for example, <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>"""
     recovery_point_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]

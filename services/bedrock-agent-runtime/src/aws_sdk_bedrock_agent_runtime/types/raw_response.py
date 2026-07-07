@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RawResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RawResponse(TypedDict):
+class RawResponse(TypedDict, closed=True):
     content: NotRequired["str"]
     """<p>The foundation model's raw output content.</p>"""
 

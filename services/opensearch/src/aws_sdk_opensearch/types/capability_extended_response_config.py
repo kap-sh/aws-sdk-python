@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CapabilityExtendedResponseConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.ai_config
 
 
-class _CapabilityExtendedResponseConfig_aiConfig(TypedDict):
+class _CapabilityExtendedResponseConfig_aiConfig(TypedDict, closed=True):
     aiConfig: "aws_sdk_opensearch.types.ai_config.AIConfig"
 
 

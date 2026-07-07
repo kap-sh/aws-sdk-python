@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PatchFilterGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_filter_list
 
 
-class PatchFilterGroup(TypedDict):
+class PatchFilterGroup(TypedDict, closed=True):
     patch_filters: "aws_sdk_ssm.types.patch_filter_list.PatchFilterList"
     """<p>The set of patch filters that make up the group.</p>"""
 

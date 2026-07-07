@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#ModifyBackupAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudhsm_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.boolean
 
 
-class ModifyBackupAttributesRequest(TypedDict):
+class ModifyBackupAttributesRequest(TypedDict, closed=True):
     backup_id: "aws_sdk_cloudhsm_v2.types.backup_id.BackupId"
     """<p>The identifier (ID) of the backup to modify. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>"""
     never_expires: "aws_sdk_cloudhsm_v2.types.boolean.Boolean"

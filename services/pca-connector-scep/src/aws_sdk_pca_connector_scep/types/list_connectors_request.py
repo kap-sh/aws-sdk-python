@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#ListConnectorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_scep.types.max_results
     import aws_sdk_pca_connector_scep.types.next_token
 
 
-class ListConnectorsRequest(TypedDict):
+class ListConnectorsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_pca_connector_scep.types.max_results.MaxResults"]
     """<p>The maximum number of objects that you want Connector for SCEP to return for this request. If more objects are available, in the response, Connector for SCEP provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p>"""
     next_token: NotRequired["aws_sdk_pca_connector_scep.types.next_token.NextToken"]

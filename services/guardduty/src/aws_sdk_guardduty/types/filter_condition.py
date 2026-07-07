@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#FilterCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.long_value
     import aws_sdk_guardduty.types.non_empty_string
 
 
-class FilterCondition(TypedDict):
+class FilterCondition(TypedDict, closed=True):
     equals_value: NotRequired["aws_sdk_guardduty.types.non_empty_string.NonEmptyString"]
     """<p>Represents an <i>equal</i> <b/> condition to be applied to a single field when querying for scan entries.</p>"""
     greater_than: NotRequired["aws_sdk_guardduty.types.long_value.LongValue"]

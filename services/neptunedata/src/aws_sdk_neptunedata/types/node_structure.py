@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#NodeStructure``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.node_properties
     import aws_sdk_neptunedata.types.outgoing_edge_labels
 
 
-class NodeStructure(TypedDict):
+class NodeStructure(TypedDict, closed=True):
     count: NotRequired["int"]
     """<p>Number of nodes that have this specific structure.</p>"""
     node_properties: NotRequired[

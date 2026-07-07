@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#StatefulEngineOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.flow_timeouts
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.stream_exception_policy
 
 
-class StatefulEngineOptions(TypedDict):
+class StatefulEngineOptions(TypedDict, closed=True):
     rule_order: NotRequired["aws_sdk_network_firewall.types.rule_order.RuleOrder"]
     r"""<p>Indicates how to manage the order of stateful rule evaluation for the policy. <code>STRICT_ORDER</code> is the recommended option, but <code>DEFAULT_ACTION_ORDER</code> is the default option. With <code>STRICT_ORDER</code>, provide your rules in the order that you want them to be evaluated. You can then choose one or more default actions for packets that don't match any rules. Choose <code>STRICT_ORDER</code> to have the stateful rules engine determine the evaluation order of your rules. The default action for this rule order is <code>PASS</code>, followed by <code>DROP</code>, <code>REJECT</code>, and <code>ALERT</code> actions. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on your settings. For more information, see <a href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html\">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>. </p>"""
     stream_exception_policy: NotRequired[

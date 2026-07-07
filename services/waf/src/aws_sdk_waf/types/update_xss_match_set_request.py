@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#UpdateXssMatchSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.xss_match_set_updates
 
 
-class UpdateXssMatchSetRequest(TypedDict):
+class UpdateXssMatchSetRequest(TypedDict, closed=True):
     xss_match_set_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>XssMatchSetId</code> of the <code>XssMatchSet</code> that you want to update. <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>"""
     change_token: "aws_sdk_waf.types.change_token.ChangeToken"

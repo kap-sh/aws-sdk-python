@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchResourceTagsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.next_token2500
     import aws_sdk_connect.types.tags_list
 
 
-class SearchResourceTagsResponse(TypedDict):
+class SearchResourceTagsResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_connect.types.tags_list.TagsList"]
     """<p>A list of tags used in the Connect Customer instance.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token2500.NextToken2500"]

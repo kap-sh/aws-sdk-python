@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#ListDatasetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.datasets
     import aws_sdk_forecast.types.next_token
 
 
-class ListDatasetsResponse(TypedDict):
+class ListDatasetsResponse(TypedDict, closed=True):
     datasets: NotRequired["aws_sdk_forecast.types.datasets.Datasets"]
     """<p>An array of objects that summarize each dataset's properties.</p>"""
     next_token: NotRequired["aws_sdk_forecast.types.next_token.NextToken"]

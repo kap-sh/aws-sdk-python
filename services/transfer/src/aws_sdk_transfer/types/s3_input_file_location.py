@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#S3InputFileLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.s3_bucket
     import aws_sdk_transfer.types.s3_key
 
 
-class S3InputFileLocation(TypedDict):
+class S3InputFileLocation(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_transfer.types.s3_bucket.S3Bucket"]
     """<p>Specifies the S3 bucket for the customer input file.</p>"""
     key: NotRequired["aws_sdk_transfer.types.s3_key.S3Key"]

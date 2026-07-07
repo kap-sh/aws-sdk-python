@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ListCredentialLockersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.max_results
     import aws_sdk_iot_managed_integrations.types.next_token
 
 
-class ListCredentialLockersRequest(TypedDict):
+class ListCredentialLockersRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_iot_managed_integrations.types.next_token.NextToken"
     ]

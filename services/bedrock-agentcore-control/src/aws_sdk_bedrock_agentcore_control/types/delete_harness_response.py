@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteHarnessResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.harness
 
 
-class DeleteHarnessResponse(TypedDict):
+class DeleteHarnessResponse(TypedDict, closed=True):
     harness: NotRequired["aws_sdk_bedrock_agentcore_control.types.harness.Harness"]
     """<p>The harness that was deleted.</p>"""
 

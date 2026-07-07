@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#WebContentFilteringPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.blocked_categories
     import aws_sdk_workspaces_web.types.url_pattern_list
 
 
-class WebContentFilteringPolicy(TypedDict):
+class WebContentFilteringPolicy(TypedDict, closed=True):
     blocked_categories: NotRequired[
         "aws_sdk_workspaces_web.types.blocked_categories.BlockedCategories"
     ]

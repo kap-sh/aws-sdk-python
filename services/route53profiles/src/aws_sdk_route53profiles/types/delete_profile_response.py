@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53profiles#DeleteProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53profiles.types.profile
 
 
-class DeleteProfileResponse(TypedDict):
+class DeleteProfileResponse(TypedDict, closed=True):
     profile: NotRequired["aws_sdk_route53profiles.types.profile.Profile"]
     """<p> Information about the <code>DeleteProfile</code> request, including the status of the request. </p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ModifyCertificateBasedAuthPropertiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.directory_id
 
 
-class ModifyCertificateBasedAuthPropertiesRequest(TypedDict):
+class ModifyCertificateBasedAuthPropertiesRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId"
     """<p>The resource identifiers, in the form of directory IDs.</p>"""
     certificate_based_auth_properties: NotRequired[

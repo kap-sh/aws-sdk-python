@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#Usage``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Usage(TypedDict):
+class Usage(TypedDict, closed=True):
     usage_type: NotRequired["str"]
     """<p>The usage type.</p>"""
     usage_amount: NotRequired["float"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ServerSideEncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.kms_key_id
 
 
-class ServerSideEncryptionConfiguration(TypedDict):
+class ServerSideEncryptionConfiguration(TypedDict, closed=True):
     kms_key_id: NotRequired["aws_sdk_kendra.types.kms_key_id.KmsKeyId"]
     """<p>The identifier of the KMS key. Amazon Kendra doesn't support asymmetric keys.</p>"""
 

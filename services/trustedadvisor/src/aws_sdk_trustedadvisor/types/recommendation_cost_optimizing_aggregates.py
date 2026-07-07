@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.trustedadvisor#RecommendationCostOptimizingAggregates``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_trustedadvisor.errors import DeserializationError
 
 
-class RecommendationCostOptimizingAggregates(TypedDict):
+class RecommendationCostOptimizingAggregates(TypedDict, closed=True):
     estimated_monthly_savings: "float"
     """<p>The estimated monthly savings</p>"""
     estimated_percent_monthly_savings: "float"

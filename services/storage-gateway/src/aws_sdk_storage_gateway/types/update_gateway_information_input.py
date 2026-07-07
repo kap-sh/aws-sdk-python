@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#UpdateGatewayInformationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.gateway_timezone
 
 
-class UpdateGatewayInformationInput(TypedDict):
+class UpdateGatewayInformationInput(TypedDict, closed=True):
     gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"
     gateway_name: NotRequired["aws_sdk_storage_gateway.types.gateway_name.GatewayName"]
     gateway_timezone: NotRequired[

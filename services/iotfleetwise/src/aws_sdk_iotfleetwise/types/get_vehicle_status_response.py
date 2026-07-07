@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#GetVehicleStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.next_token
     import aws_sdk_iotfleetwise.types.vehicle_status_list
 
 
-class GetVehicleStatusResponse(TypedDict):
+class GetVehicleStatusResponse(TypedDict, closed=True):
     campaigns: NotRequired[
         "aws_sdk_iotfleetwise.types.vehicle_status_list.VehicleStatusList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DeletePendingAggregationRequestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.aws_region
 
 
-class DeletePendingAggregationRequestRequest(TypedDict):
+class DeletePendingAggregationRequestRequest(TypedDict, closed=True):
     requester_account_id: "aws_sdk_config_service.types.account_id.AccountId"
     """<p>The 12-digit account ID of the account requesting to aggregate data.</p>"""
     requester_aws_region: "aws_sdk_config_service.types.aws_region.AwsRegion"

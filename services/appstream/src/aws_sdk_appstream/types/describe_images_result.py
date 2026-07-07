@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeImagesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.image_list
     import aws_sdk_appstream.types.string
 
 
-class DescribeImagesResult(TypedDict):
+class DescribeImagesResult(TypedDict, closed=True):
     images: NotRequired["aws_sdk_appstream.types.image_list.ImageList"]
     """<p>Information about the images.</p>"""
     next_token: NotRequired["aws_sdk_appstream.types.string.String"]

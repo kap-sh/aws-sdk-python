@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#BrowserSessionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.name
 
 
-class BrowserSessionSummary(TypedDict):
+class BrowserSessionSummary(TypedDict, closed=True):
     browser_identifier: "str"
     """<p>The unique identifier of the browser associated with the session. This identifier specifies which browser environment is used for the session.</p>"""
     session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId"

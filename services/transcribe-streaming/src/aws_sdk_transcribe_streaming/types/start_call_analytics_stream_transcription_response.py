@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#StartCallAnalyticsStreamTranscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.boolean
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.vocabulary_names
 
 
-class StartCallAnalyticsStreamTranscriptionResponse(TypedDict):
+class StartCallAnalyticsStreamTranscriptionResponse(TypedDict, closed=True):
     request_id: NotRequired["aws_sdk_transcribe_streaming.types.request_id.RequestId"]
     """<p>Provides the identifier for your real-time Call Analytics request.</p>"""
     language_code: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#GetReportGroupTrendInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.report_group_trend_field_type
 
 
-class GetReportGroupTrendInput(TypedDict):
+class GetReportGroupTrendInput(TypedDict, closed=True):
     report_group_arn: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     """<p>The ARN of the report group that contains the reports to analyze.</p>"""
     num_of_reports: NotRequired["aws_sdk_codebuild.types.page_size.PageSize"]

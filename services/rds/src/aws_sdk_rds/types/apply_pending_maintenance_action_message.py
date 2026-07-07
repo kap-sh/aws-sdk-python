@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ApplyPendingMaintenanceActionMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class ApplyPendingMaintenanceActionMessage(TypedDict):
+class ApplyPendingMaintenanceActionMessage(TypedDict, closed=True):
     resource_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     r"""<p>The RDS Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an RDS Amazon Resource Name (ARN)</a>.</p>"""
     apply_action: NotRequired["aws_sdk_rds.types.string.String"]

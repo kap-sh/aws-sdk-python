@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ResumeWorkflowRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.id_string
     import aws_sdk_glue.types.node_id_list
 
 
-class ResumeWorkflowRunResponse(TypedDict):
+class ResumeWorkflowRunResponse(TypedDict, closed=True):
     run_id: NotRequired["aws_sdk_glue.types.id_string.IdString"]
     """<p>The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.</p>"""
     node_ids: NotRequired["aws_sdk_glue.types.node_id_list.NodeIdList"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#EndSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.uuid
 
 
-class EndSessionResponse(TypedDict):
+class EndSessionResponse(TypedDict, closed=True):
     session_id: "aws_sdk_bedrock_agent_runtime.types.uuid.Uuid"
     """<p>The unique identifier of the session you ended.</p>"""
     session_arn: "aws_sdk_bedrock_agent_runtime.types.session_arn.SessionArn"

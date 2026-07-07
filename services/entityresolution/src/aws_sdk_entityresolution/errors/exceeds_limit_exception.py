@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ExceedsLimitException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.error_message
 
 
-class ExceedsLimitException_(TypedDict):
+class ExceedsLimitException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_entityresolution.types.error_message.ErrorMessage"]
     quota_name: NotRequired["str"]
     """<p>The name of the quota that has been breached.</p>"""

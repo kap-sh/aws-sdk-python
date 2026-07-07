@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CrawlerMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.non_negative_integer
 
 
-class CrawlerMetrics(TypedDict):
+class CrawlerMetrics(TypedDict, closed=True):
     crawler_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the crawler.</p>"""
     time_left_seconds: "aws_sdk_glue.types.non_negative_double.NonNegativeDouble"

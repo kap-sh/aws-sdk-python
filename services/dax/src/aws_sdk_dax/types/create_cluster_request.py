@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#CreateClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dax.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.tag_list
 
 
-class CreateClusterRequest(TypedDict):
+class CreateClusterRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_dax.types.string.String"
     """<p>The cluster identifier. This parameter is stored as a lowercase string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1 to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"""
     node_type: "aws_sdk_dax.types.string.String"

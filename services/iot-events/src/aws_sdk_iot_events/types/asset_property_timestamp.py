@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#AssetPropertyTimestamp``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.asset_property_time_in_seconds
 
 
-class AssetPropertyTimestamp(TypedDict):
+class AssetPropertyTimestamp(TypedDict, closed=True):
     time_in_seconds: "aws_sdk_iot_events.types.asset_property_time_in_seconds.AssetPropertyTimeInSeconds"
     """<p>The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.</p>"""
     offset_in_nanos: NotRequired[

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ListTagsForResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.cleanrooms_arn
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_cleanrooms.types.cleanrooms_arn.CleanroomsArn"
     """<p>The Amazon Resource Name (ARN) associated with the resource you want to list tags on.</p>"""
 

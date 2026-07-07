@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#WorkflowStepAutomationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.platform_command
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.target_type
 
 
-class WorkflowStepAutomationConfiguration(TypedDict):
+class WorkflowStepAutomationConfiguration(TypedDict, closed=True):
     script_location_s3_bucket: NotRequired[
         "aws_sdk_migrationhuborchestrator.types.s3_bucket.S3Bucket"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SheetElementRenderingRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_element_configuration_overrides
 
 
-class SheetElementRenderingRule(TypedDict):
+class SheetElementRenderingRule(TypedDict, closed=True):
     expression: "aws_sdk_quicksight.types.expression.Expression"
     """<p>The expression of the rendering rules of a sheet.</p>"""
     configuration_overrides: "aws_sdk_quicksight.types.sheet_element_configuration_overrides.SheetElementConfigurationOverrides"

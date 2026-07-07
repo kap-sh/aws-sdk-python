@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#ExternalSecretRotationMetadataItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.external_secret_rotation_metadata_item_key_type
     import aws_sdk_secrets_manager.types.external_secret_rotation_metadata_item_value_type
 
 
-class ExternalSecretRotationMetadataItem(TypedDict):
+class ExternalSecretRotationMetadataItem(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_secrets_manager.types.external_secret_rotation_metadata_item_key_type.ExternalSecretRotationMetadataItemKeyType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#CreateAgentSpaceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.target_domain_id_list
 
 
-class CreateAgentSpaceInput(TypedDict):
+class CreateAgentSpaceInput(TypedDict, closed=True):
     name: "aws_sdk_securityagent.types.agent_name.AgentName"
     """<p>The name of the agent space.</p>"""
     description: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#Statement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.response_card
 
 
-class Statement(TypedDict):
+class Statement(TypedDict, closed=True):
     messages: "aws_sdk_lex_model_building_service.types.message_list.MessageList"
     """<p>A collection of message objects.</p>"""
     response_card: NotRequired[

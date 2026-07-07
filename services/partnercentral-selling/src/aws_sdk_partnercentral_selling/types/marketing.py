@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#Marketing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.aws_funding_used
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.use_cases
 
 
-class Marketing(TypedDict):
+class Marketing(TypedDict, closed=True):
     campaign_name: NotRequired["str"]
     """<p>Specifies the <code>Opportunity</code> marketing campaign code. The Amazon Web Services campaign code is a reference to specific marketing initiatives, promotions, or activities. This field captures the identifier used to track and categorize the <code>Opportunity</code> within marketing campaigns. If you don't have a campaign code, contact your Amazon Web Services point of contact to obtain one.</p>"""
     source: NotRequired[

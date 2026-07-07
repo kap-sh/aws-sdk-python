@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#TargetedSentimentMention``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.float
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.targeted_sentiment_entity_type
 
 
-class TargetedSentimentMention(TypedDict):
+class TargetedSentimentMention(TypedDict, closed=True):
     score: NotRequired["aws_sdk_comprehend.types.float.Float"]
     """<p>Model confidence that the entity is relevant. Value range is zero to one, where one is highest confidence.</p>"""
     group_score: NotRequired["aws_sdk_comprehend.types.float.Float"]

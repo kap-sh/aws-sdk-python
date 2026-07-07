@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AssociationAlreadyExists``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
 
-class AssociationAlreadyExists_(TypedDict):
+class AssociationAlreadyExists_(TypedDict, closed=True):
     pass
 
 

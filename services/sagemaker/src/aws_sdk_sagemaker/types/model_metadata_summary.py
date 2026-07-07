@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelMetadataSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class ModelMetadataSummary(TypedDict):
+class ModelMetadataSummary(TypedDict, closed=True):
     domain: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>The machine learning domain of the model.</p>"""
     framework: NotRequired["aws_sdk_sagemaker.types.string.String"]

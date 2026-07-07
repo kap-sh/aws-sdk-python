@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#DescribeLocationEfsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.ec2_config
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.time
 
 
-class DescribeLocationEfsResponse(TypedDict):
+class DescribeLocationEfsResponse(TypedDict, closed=True):
     location_arn: NotRequired["aws_sdk_datasync.types.location_arn.LocationArn"]
     """<p>The ARN of the Amazon EFS file system location.</p>"""
     location_uri: NotRequired["aws_sdk_datasync.types.location_uri.LocationUri"]

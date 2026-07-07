@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BatchDeleteKnowledgeBaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class BatchDeleteKnowledgeBaseResponse(TypedDict):
+class BatchDeleteKnowledgeBaseResponse(TypedDict, closed=True):
     deleted: "aws_sdk_quicksight.types.batch_delete_knowledge_base_success_list.BatchDeleteKnowledgeBaseSuccessList"
     """<p>A list of knowledge bases that were successfully deleted.</p>"""
     errors: "aws_sdk_quicksight.types.batch_delete_knowledge_base_failure_list.BatchDeleteKnowledgeBaseFailureList"

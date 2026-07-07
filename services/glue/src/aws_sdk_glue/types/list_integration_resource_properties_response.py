@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListIntegrationResourcePropertiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.integration_resource_property_list
     import aws_sdk_glue.types.string1024
 
 
-class ListIntegrationResourcePropertiesResponse(TypedDict):
+class ListIntegrationResourcePropertiesResponse(TypedDict, closed=True):
     integration_resource_property_list: NotRequired[
         "aws_sdk_glue.types.integration_resource_property_list.IntegrationResourcePropertyList"
     ]

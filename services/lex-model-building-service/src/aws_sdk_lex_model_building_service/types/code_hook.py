@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#CodeHook``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.message_version
 
 
-class CodeHook(TypedDict):
+class CodeHook(TypedDict, closed=True):
     uri: "aws_sdk_lex_model_building_service.types.lambda_arn.LambdaARN"
     """<p>The Amazon Resource Name (ARN) of the Lambda function.</p>"""
     message_version: (

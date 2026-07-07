@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#GetMetadataTransferJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.id
 
 
-class GetMetadataTransferJobRequest(TypedDict):
+class GetMetadataTransferJobRequest(TypedDict, closed=True):
     metadata_transfer_job_id: "aws_sdk_iottwinmaker.types.id.Id"
     """<p>The metadata transfer job Id.</p>"""
 

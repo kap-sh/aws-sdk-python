@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedQueryDistributeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.protected_query_member_output_list
     import aws_sdk_cleanrooms.types.protected_query_s3_output
 
 
-class ProtectedQueryDistributeOutput(TypedDict):
+class ProtectedQueryDistributeOutput(TypedDict, closed=True):
     s3: NotRequired[
         "aws_sdk_cleanrooms.types.protected_query_s3_output.ProtectedQueryS3Output"
     ]

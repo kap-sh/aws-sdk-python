@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ExperiencesSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.experience_endpoints
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.timestamp
 
 
-class ExperiencesSummary(TypedDict):
+class ExperiencesSummary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_kendra.types.experience_name.ExperienceName"]
     """<p>The name of your Amazon Kendra experience.</p>"""
     id: NotRequired["aws_sdk_kendra.types.experience_id.ExperienceId"]

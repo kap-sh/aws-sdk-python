@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#DialogAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.style_type
 
 
-class DialogAction(TypedDict):
+class DialogAction(TypedDict, closed=True):
     type: "aws_sdk_lex_runtime_v2.types.dialog_action_type.DialogActionType"
     r"""<p>The next action that the bot should take in its interaction with the user. The following values are possible:</p> <ul> <li> <p> <code>Close</code> – Indicates that there will not be a response from the user. For example, the statement \"Your order has been placed\" does not require a response.</p> </li> <li> <p> <code>ConfirmIntent</code> – The next action is asking the user if the intent is complete and ready to be fulfilled. This is a yes/no question such as \"Place the order?\"</p> </li> <li> <p> <code>Delegate</code> – The next action is determined by Amazon Lex V2.</p> </li> <li> <p> <code>ElicitIntent</code> – The next action is to elicit an intent from the user.</p> </li> <li> <p> <code>ElicitSlot</code> – The next action is to elicit a slot value from the user.</p> </li> </ul>"""
     slot_to_elicit: NotRequired[

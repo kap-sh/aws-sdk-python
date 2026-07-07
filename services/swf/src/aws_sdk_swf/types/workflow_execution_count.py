@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowExecutionCount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.count
     import aws_sdk_swf.types.truncated
 
 
-class WorkflowExecutionCount(TypedDict):
+class WorkflowExecutionCount(TypedDict, closed=True):
     count: "aws_sdk_swf.types.count.Count"
     """<p>The number of workflow executions.</p>"""
     truncated: "aws_sdk_swf.types.truncated.Truncated"

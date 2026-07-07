@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#NetworkReachabilityDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.port_range
 
 
-class NetworkReachabilityDetails(TypedDict):
+class NetworkReachabilityDetails(TypedDict, closed=True):
     open_port_range: "aws_sdk_inspector2.types.port_range.PortRange"
     """<p>An object that contains details about the open port range associated with a finding.</p>"""
     protocol: "aws_sdk_inspector2.types.network_protocol.NetworkProtocol"

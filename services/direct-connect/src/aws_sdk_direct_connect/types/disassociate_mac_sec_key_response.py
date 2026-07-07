@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DisassociateMacSecKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.connection_id
     import aws_sdk_direct_connect.types.mac_sec_key_list
 
 
-class DisassociateMacSecKeyResponse(TypedDict):
+class DisassociateMacSecKeyResponse(TypedDict, closed=True):
     connection_id: NotRequired[
         "aws_sdk_direct_connect.types.connection_id.ConnectionId"
     ]

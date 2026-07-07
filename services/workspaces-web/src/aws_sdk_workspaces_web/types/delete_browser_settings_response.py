@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#DeleteBrowserSettingsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteBrowserSettingsResponse(TypedDict):
+class DeleteBrowserSettingsResponse(TypedDict, closed=True):
     pass
 
 

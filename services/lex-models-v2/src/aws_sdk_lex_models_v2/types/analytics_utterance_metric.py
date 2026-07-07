@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AnalyticsUtteranceMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_utterance_metric_name
 
 
-class AnalyticsUtteranceMetric(TypedDict):
+class AnalyticsUtteranceMetric(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.analytics_utterance_metric_name.AnalyticsUtteranceMetricName"
     """<p>The metric for which you want to get utterance summary statistics.</p> <ul> <li> <p> <code>Count</code> – The number of utterances.</p> </li> <li> <p> <code>Missed</code> – The number of utterances that Amazon Lex failed to recognize.</p> </li> <li> <p> <code>Detected</code> – The number of utterances that Amazon Lex managed to detect.</p> </li> <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li> </ul>"""
     statistic: "aws_sdk_lex_models_v2.types.analytics_metric_statistic.AnalyticsMetricStatistic"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#SecretsManagerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.secret_arn
 
 
-class SecretsManagerConfiguration(TypedDict):
+class SecretsManagerConfiguration(TypedDict, closed=True):
     secret_arn: NotRequired["aws_sdk_firehose.types.secret_arn.SecretARN"]
     """<p>The ARN of the secret that stores your credentials. It must be in the same region as the Firehose stream and the role. The secret ARN can reside in a different account than the Firehose stream and role as Firehose supports cross-account secret access. This parameter is required when <b>Enabled</b> is set to <code>True</code>.</p>"""
     role_arn: NotRequired["aws_sdk_firehose.types.role_arn.RoleARN"]

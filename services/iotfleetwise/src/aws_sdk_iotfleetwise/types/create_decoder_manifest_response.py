@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#CreateDecoderManifestResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.resource_name
 
 
-class CreateDecoderManifestResponse(TypedDict):
+class CreateDecoderManifestResponse(TypedDict, closed=True):
     name: "aws_sdk_iotfleetwise.types.resource_name.resourceName"
     """<p> The name of the created decoder manifest. </p>"""
     arn: "aws_sdk_iotfleetwise.types.arn.arn"

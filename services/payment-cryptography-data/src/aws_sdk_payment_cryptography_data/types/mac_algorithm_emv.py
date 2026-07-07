@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#MacAlgorithmEmv``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.session_key_derivation_value
 
 
-class MacAlgorithmEmv(TypedDict):
+class MacAlgorithmEmv(TypedDict, closed=True):
     major_key_derivation_mode: "aws_sdk_payment_cryptography_data.types.major_key_derivation_mode.MajorKeyDerivationMode"
     """<p>The method to use when deriving the master key for EMV MAC generation or verification.</p>"""
     primary_account_number: "aws_sdk_payment_cryptography_data.types.primary_account_number_type.PrimaryAccountNumberType"

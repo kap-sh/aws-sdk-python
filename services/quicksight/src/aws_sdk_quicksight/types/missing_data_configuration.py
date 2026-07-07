@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#MissingDataConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.missing_data_treatment_option
 
 
-class MissingDataConfiguration(TypedDict):
+class MissingDataConfiguration(TypedDict, closed=True):
     treatment_option: NotRequired[
         "aws_sdk_quicksight.types.missing_data_treatment_option.MissingDataTreatmentOption"
     ]

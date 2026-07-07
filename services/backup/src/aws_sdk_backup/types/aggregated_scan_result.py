@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#AggregatedScanResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class AggregatedScanResult(TypedDict):
+class AggregatedScanResult(TypedDict, closed=True):
     failed_scan: NotRequired["aws_sdk_backup.types.boolean.Boolean"]
     """<p>A Boolean value indicating whether any of the aggregated scans failed.</p>"""
     findings: NotRequired["aws_sdk_backup.types.scan_findings.ScanFindings"]

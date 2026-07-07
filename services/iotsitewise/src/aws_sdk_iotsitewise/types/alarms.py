@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#Alarms``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.iam_arn
 
 
-class Alarms(TypedDict):
+class Alarms(TypedDict, closed=True):
     alarm_role_arn: "aws_sdk_iotsitewise.types.iam_arn.IamArn"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the IAM role that allows the alarm to perform actions and access Amazon Web Services resources and services, such as IoT Events.</p>"""
     notification_lambda_arn: NotRequired["aws_sdk_iotsitewise.types.arn.ARN"]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#SpanContext``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class SpanContext(TypedDict):
+class SpanContext(TypedDict, closed=True):
     session_id: "str"
     """<p> The unique identifier of the session containing this span. Sessions represent complete conversation flows and are detected using configurable <code>SessionTimeoutMinutes</code> (default 15 minutes). </p>"""
     trace_id: NotRequired["str"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#TargetTrackingMetricDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.target_tracking_metric_dimension_value
 
 
-class TargetTrackingMetricDimension(TypedDict):
+class TargetTrackingMetricDimension(TypedDict, closed=True):
     name: "aws_sdk_application_auto_scaling.types.target_tracking_metric_dimension_name.TargetTrackingMetricDimensionName"
     """<p>The name of the dimension.</p>"""
     value: "aws_sdk_application_auto_scaling.types.target_tracking_metric_dimension_value.TargetTrackingMetricDimensionValue"

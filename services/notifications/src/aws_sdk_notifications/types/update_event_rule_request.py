@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#UpdateEventRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.event_rule_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.regions
 
 
-class UpdateEventRuleRequest(TypedDict):
+class UpdateEventRuleRequest(TypedDict, closed=True):
     arn: "aws_sdk_notifications.types.event_rule_arn.EventRuleArn"
     """<p>The Amazon Resource Name (ARN) to use to update the <code>EventRule</code>.</p>"""
     event_pattern: NotRequired[

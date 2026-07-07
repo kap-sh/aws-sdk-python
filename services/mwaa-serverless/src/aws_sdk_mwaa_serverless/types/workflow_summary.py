@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#WorkflowSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mwaa_serverless.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.workflow_version
 
 
-class WorkflowSummary(TypedDict):
+class WorkflowSummary(TypedDict, closed=True):
     workflow_arn: "aws_sdk_mwaa_serverless.types.workflow_arn.WorkflowArn"
     """<p>The Amazon Resource Name (ARN) of the workflow.</p>"""
     workflow_version: NotRequired[

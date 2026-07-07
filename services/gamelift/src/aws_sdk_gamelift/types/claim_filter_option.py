@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ClaimFilterOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.filter_instance_statuses
 
 
-class ClaimFilterOption(TypedDict):
+class ClaimFilterOption(TypedDict, closed=True):
     instance_statuses: NotRequired[
         "aws_sdk_gamelift.types.filter_instance_statuses.FilterInstanceStatuses"
     ]

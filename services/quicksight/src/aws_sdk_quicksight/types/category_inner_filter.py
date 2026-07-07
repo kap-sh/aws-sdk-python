@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CategoryInnerFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.default_filter_control_configuration
 
 
-class CategoryInnerFilter(TypedDict):
+class CategoryInnerFilter(TypedDict, closed=True):
     column: "aws_sdk_quicksight.types.column_identifier.ColumnIdentifier"
     configuration: "aws_sdk_quicksight.types.category_filter_configuration.CategoryFilterConfiguration"
     default_filter_control_configuration: NotRequired[

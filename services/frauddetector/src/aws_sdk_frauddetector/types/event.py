@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#Event``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.event_attribute_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.string
 
 
-class Event(TypedDict):
+class Event(TypedDict, closed=True):
     event_id: NotRequired["aws_sdk_frauddetector.types.string.string"]
     """<p>The event ID.</p>"""
     event_type_name: NotRequired["aws_sdk_frauddetector.types.string.string"]

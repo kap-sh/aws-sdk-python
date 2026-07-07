@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AwsEcrContainerImageDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.platform
 
 
-class AwsEcrContainerImageDetails(TypedDict):
+class AwsEcrContainerImageDetails(TypedDict, closed=True):
     repository_name: "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"
     """<p>The name of the repository the Amazon ECR container image resides in.</p>"""
     image_tags: NotRequired["aws_sdk_inspector2.types.image_tag_list.ImageTagList"]

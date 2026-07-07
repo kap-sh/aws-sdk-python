@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#Recommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.timestamp
 
 
-class Recommendation(TypedDict):
+class Recommendation(TypedDict, closed=True):
     all_matches_count: "int"
     """<p>How many different places in the profile graph triggered a match.</p>"""
     all_matches_sum: "float"

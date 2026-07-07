@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details
     import aws_sdk_securityhub.types.aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details
 
 
-class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails(TypedDict):
+class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails(TypedDict, closed=True):
     instances_distribution: NotRequired[
         "aws_sdk_securityhub.types.aws_auto_scaling_auto_scaling_group_mixed_instances_policy_instances_distribution_details.AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails"
     ]

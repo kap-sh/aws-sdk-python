@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#StorageLensDataExportEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.sses3
 
 
-class StorageLensDataExportEncryption(TypedDict):
+class StorageLensDataExportEncryption(TypedDict, closed=True):
     sses3: NotRequired["aws_sdk_s3_control.types.sses3.SSES3"]
     """<p></p>"""
     ssekms: NotRequired["aws_sdk_s3_control.types.ssekms.SSEKMS"]

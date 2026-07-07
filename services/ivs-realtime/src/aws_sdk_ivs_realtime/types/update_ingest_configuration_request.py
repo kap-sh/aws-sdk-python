@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#UpdateIngestConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.redundant_ingest
 
 
-class UpdateIngestConfigurationRequest(TypedDict):
+class UpdateIngestConfigurationRequest(TypedDict, closed=True):
     arn: "aws_sdk_ivs_realtime.types.ingest_configuration_arn.IngestConfigurationArn"
     """<p>ARN of the IngestConfiguration, for which the related stage ARN needs to be updated.</p>"""
     stage_arn: NotRequired[

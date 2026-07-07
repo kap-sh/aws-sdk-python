@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#VcfHostnames``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.host_name
 
 
-class VcfHostnames(TypedDict):
+class VcfHostnames(TypedDict, closed=True):
     v_center: "aws_sdk_evs.types.host_name.HostName"
     """<p>The VMware vCenter hostname.</p>"""
     nsx: "aws_sdk_evs.types.host_name.HostName"

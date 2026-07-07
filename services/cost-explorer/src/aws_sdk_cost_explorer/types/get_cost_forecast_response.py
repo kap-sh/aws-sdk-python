@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetCostForecastResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.forecast_results_by_time
     import aws_sdk_cost_explorer.types.metric_value
 
 
-class GetCostForecastResponse(TypedDict):
+class GetCostForecastResponse(TypedDict, closed=True):
     total: NotRequired["aws_sdk_cost_explorer.types.metric_value.MetricValue"]
     """<p>How much you are forecasted to spend over the forecast period, in <code>USD</code>.</p>"""
     forecast_results_by_time: NotRequired[

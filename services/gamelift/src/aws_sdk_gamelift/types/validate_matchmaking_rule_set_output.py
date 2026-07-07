@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ValidateMatchmakingRuleSetOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.boolean_model
 
 
-class ValidateMatchmakingRuleSetOutput(TypedDict):
+class ValidateMatchmakingRuleSetOutput(TypedDict, closed=True):
     valid: NotRequired["aws_sdk_gamelift.types.boolean_model.BooleanModel"]
     """<p>A response indicating whether the rule set is valid.</p>"""
 

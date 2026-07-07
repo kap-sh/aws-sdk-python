@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#SourceServer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.application_id
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.vcenter_client_id
 
 
-class SourceServer(TypedDict):
+class SourceServer(TypedDict, closed=True):
     source_server_id: NotRequired["aws_sdk_mgn.types.source_server_id.SourceServerID"]
     """<p>Source server ID.</p>"""
     arn: NotRequired["aws_sdk_mgn.types.arn.ARN"]

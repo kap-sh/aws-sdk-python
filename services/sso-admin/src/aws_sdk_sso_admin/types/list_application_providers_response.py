@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ListApplicationProvidersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.application_provider_list
     import aws_sdk_sso_admin.types.token
 
 
-class ListApplicationProvidersResponse(TypedDict):
+class ListApplicationProvidersResponse(TypedDict, closed=True):
     application_providers: NotRequired[
         "aws_sdk_sso_admin.types.application_provider_list.ApplicationProviderList"
     ]

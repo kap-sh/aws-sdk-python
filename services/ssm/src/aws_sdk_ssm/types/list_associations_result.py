@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListAssociationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.association_list
     import aws_sdk_ssm.types.next_token
 
 
-class ListAssociationsResult(TypedDict):
+class ListAssociationsResult(TypedDict, closed=True):
     associations: NotRequired["aws_sdk_ssm.types.association_list.AssociationList"]
     """<p>The associations.</p>"""
     next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]

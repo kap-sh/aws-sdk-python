@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#UpdateSnapshotCopyConfigurationRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
 
-class UpdateSnapshotCopyConfigurationRequest(TypedDict):
+class UpdateSnapshotCopyConfigurationRequest(TypedDict, closed=True):
     snapshot_copy_configuration_id: "str"
     """<p>The ID of the snapshot copy configuration to update.</p>"""
     snapshot_retention_period: NotRequired["int"]

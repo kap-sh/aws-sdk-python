@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#IpRoute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.cidr_ip
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.description
 
 
-class IpRoute(TypedDict):
+class IpRoute(TypedDict, closed=True):
     cidr_ip: NotRequired["aws_sdk_directory_service.types.cidr_ip.CidrIp"]
     """<p>IP address block in CIDR format, such as 10.0.0.0/24. This is often the address block of the DNS server used for your self-managed domain. For a single IP address, use a CIDR address block with /32. For example, 10.0.0.0/32.</p>"""
     cidr_ipv6: NotRequired["aws_sdk_directory_service.types.cidr_ipv6.CidrIpv6"]

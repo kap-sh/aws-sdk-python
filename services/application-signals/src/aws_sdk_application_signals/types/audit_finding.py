@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#AuditFinding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.metric_graph
 
 
-class AuditFinding(TypedDict):
+class AuditFinding(TypedDict, closed=True):
     key_attributes: "aws_sdk_application_signals.types.attributes.Attributes"
     """<p>The key attributes that identify the service or entity this audit finding relates to. This is a string-to-string map that includes fields like Type, Name, and Environment.</p>"""
     auditor_results: NotRequired[

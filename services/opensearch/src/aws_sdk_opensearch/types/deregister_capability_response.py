@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DeregisterCapabilityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.capability_status
 
 
-class DeregisterCapabilityResponse(TypedDict):
+class DeregisterCapabilityResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_opensearch.types.capability_status.CapabilityStatus"]
     """<p>The status of the deregistration operation. Returns <code>deleting</code> when the capability is being removed.</p>"""
 

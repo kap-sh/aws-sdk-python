@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#UpdateMarketplaceModelEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.idempotency_token
 
 
-class UpdateMarketplaceModelEndpointRequest(TypedDict):
+class UpdateMarketplaceModelEndpointRequest(TypedDict, closed=True):
     endpoint_arn: "aws_sdk_bedrock.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the endpoint you want to update.</p>"""
     endpoint_config: "aws_sdk_bedrock.types.endpoint_config.EndpointConfig"

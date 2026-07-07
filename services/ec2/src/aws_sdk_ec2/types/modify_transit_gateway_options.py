@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyTransitGatewayOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpn_ecmp_support_value
 
 
-class ModifyTransitGatewayOptions(TypedDict):
+class ModifyTransitGatewayOptions(TypedDict, closed=True):
     add_transit_gateway_cidr_blocks: NotRequired[
         "aws_sdk_ec2.types.transit_gateway_cidr_block_string_list.TransitGatewayCidrBlockStringList"
     ]

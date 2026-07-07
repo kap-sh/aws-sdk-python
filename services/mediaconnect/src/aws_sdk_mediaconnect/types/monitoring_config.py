@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MonitoringConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_audio_monitoring_setting
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.thumbnail_state
 
 
-class MonitoringConfig(TypedDict):
+class MonitoringConfig(TypedDict, closed=True):
     thumbnail_state: NotRequired[
         "aws_sdk_mediaconnect.types.thumbnail_state.ThumbnailState"
     ]

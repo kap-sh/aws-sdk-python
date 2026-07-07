@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ComputeEnvironmentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.property_name_overrides
 
 
-class ComputeEnvironmentConfiguration(TypedDict):
+class ComputeEnvironmentConfiguration(TypedDict, closed=True):
     name: "aws_sdk_glue.types.compute_environment_name.ComputeEnvironmentName"
     """<p>A name for the compute environment configuration.</p>"""
     description: "aws_sdk_glue.types.compute_environment_configuration_description_string.ComputeEnvironmentConfigurationDescriptionString"

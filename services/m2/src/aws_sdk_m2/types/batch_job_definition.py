@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#BatchJobDefinition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.script_batch_job_definition
 
 
-class _BatchJobDefinition_fileBatchJobDefinition(TypedDict):
+class _BatchJobDefinition_fileBatchJobDefinition(TypedDict, closed=True):
     fileBatchJobDefinition: (
         "aws_sdk_m2.types.file_batch_job_definition.FileBatchJobDefinition"
     )
 
 
-class _BatchJobDefinition_scriptBatchJobDefinition(TypedDict):
+class _BatchJobDefinition_scriptBatchJobDefinition(TypedDict, closed=True):
     scriptBatchJobDefinition: (
         "aws_sdk_m2.types.script_batch_job_definition.ScriptBatchJobDefinition"
     )

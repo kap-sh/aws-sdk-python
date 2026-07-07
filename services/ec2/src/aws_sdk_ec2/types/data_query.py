@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DataQuery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DataQuery(TypedDict):
+class DataQuery(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>A user-defined ID associated with a data query that's returned in the <code>dataResponse</code> identifying the query. For example, if you set the Id to <code>MyQuery01</code>in the query, the <code>dataResponse</code> identifies the query as <code>MyQuery01</code>.</p>"""
     source: NotRequired["aws_sdk_ec2.types.string.String"]

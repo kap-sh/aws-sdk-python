@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#PcaConnectorAd``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_pca_connector_ad._auth._signers
@@ -50,7 +50,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.untag_resource_request
 
 
-class PcaConnectorAdClientConfig(TypedDict, total=False):
+class PcaConnectorAdClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

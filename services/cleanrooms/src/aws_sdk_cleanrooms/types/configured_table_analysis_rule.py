@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ConfiguredTableAnalysisRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.uuid
 
 
-class ConfiguredTableAnalysisRule(TypedDict):
+class ConfiguredTableAnalysisRule(TypedDict, closed=True):
     configured_table_id: "aws_sdk_cleanrooms.types.uuid.UUID"
     """<p>The unique ID for the configured table.</p>"""
     configured_table_arn: (

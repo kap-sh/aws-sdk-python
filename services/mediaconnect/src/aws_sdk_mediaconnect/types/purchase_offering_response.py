@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#PurchaseOfferingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.reservation
 
 
-class PurchaseOfferingResponse(TypedDict):
+class PurchaseOfferingResponse(TypedDict, closed=True):
     reservation: NotRequired["aws_sdk_mediaconnect.types.reservation.Reservation"]
     """<p>The details of the reservation that you just created when you purchased the offering. </p>"""
 

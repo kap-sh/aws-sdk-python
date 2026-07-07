@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#InstanceCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_empty_string
 
 
-class InstanceCredentials(TypedDict):
+class InstanceCredentials(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_gamelift.types.non_empty_string.NonEmptyString"]
     """<p>A user name for logging in.</p>"""
     secret: NotRequired["aws_sdk_gamelift.types.non_empty_string.NonEmptyString"]

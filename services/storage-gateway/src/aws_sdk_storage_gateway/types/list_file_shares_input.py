@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ListFileSharesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.gateway_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.positive_int_object
 
 
-class ListFileSharesInput(TypedDict):
+class ListFileSharesInput(TypedDict, closed=True):
     gateway_arn: NotRequired["aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"]
     """<p>The Amazon Resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed.</p>"""
     limit: NotRequired[

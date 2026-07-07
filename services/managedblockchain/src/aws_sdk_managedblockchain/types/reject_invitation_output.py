@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#RejectInvitationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RejectInvitationOutput(TypedDict):
+class RejectInvitationOutput(TypedDict, closed=True):
     pass
 
 

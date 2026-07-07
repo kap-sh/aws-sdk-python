@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#Scope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.aws_accounts
     import aws_sdk_auditmanager.types.aws_services
 
 
-class Scope(TypedDict):
+class Scope(TypedDict, closed=True):
     aws_accounts: NotRequired["aws_sdk_auditmanager.types.aws_accounts.AWSAccounts"]
     """<p> The Amazon Web Services accounts that are included in the scope of the assessment. </p>"""
     aws_services: NotRequired["aws_sdk_auditmanager.types.aws_services.AWSServices"]

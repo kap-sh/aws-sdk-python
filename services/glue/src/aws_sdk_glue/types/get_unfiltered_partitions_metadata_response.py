@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetUnfilteredPartitionsMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.token
     import aws_sdk_glue.types.unfiltered_partition_list
 
 
-class GetUnfilteredPartitionsMetadataResponse(TypedDict):
+class GetUnfilteredPartitionsMetadataResponse(TypedDict, closed=True):
     unfiltered_partitions: NotRequired[
         "aws_sdk_glue.types.unfiltered_partition_list.UnfilteredPartitionList"
     ]

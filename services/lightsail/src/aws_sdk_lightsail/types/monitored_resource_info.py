@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#MonitoredResourceInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_type
 
 
-class MonitoredResourceInfo(TypedDict):
+class MonitoredResourceInfo(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_lightsail.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the resource being monitored.</p>"""
     name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]

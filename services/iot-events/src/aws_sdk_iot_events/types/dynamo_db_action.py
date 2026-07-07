@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#DynamoDBAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.payload
 
 
-class DynamoDBAction(TypedDict):
+class DynamoDBAction(TypedDict, closed=True):
     hash_key_type: NotRequired["aws_sdk_iot_events.types.dynamo_key_type.DynamoKeyType"]
     """<p>The data type for the hash key (also called the partition key). You can specify the following values:</p> <ul> <li> <p> <code>'STRING'</code> - The hash key is a string.</p> </li> <li> <p> <code>'NUMBER'</code> - The hash key is a number.</p> </li> </ul> <p>If you don't specify <code>hashKeyType</code>, the default value is <code>'STRING'</code>.</p>"""
     hash_key_field: "aws_sdk_iot_events.types.dynamo_key_field.DynamoKeyField"

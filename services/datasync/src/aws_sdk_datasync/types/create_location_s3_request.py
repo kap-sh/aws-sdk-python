@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateLocationS3Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.s3_subdirectory
 
 
-class CreateLocationS3Request(TypedDict):
+class CreateLocationS3Request(TypedDict, closed=True):
     subdirectory: NotRequired["aws_sdk_datasync.types.s3_subdirectory.S3Subdirectory"]
     """<p>Specifies a prefix in the S3 bucket that DataSync reads from or writes to (depending on whether the bucket is a source or destination location).</p> <note> <p>DataSync can't transfer objects with a prefix that begins with a slash (<code>/</code>) or includes <code>//</code>, <code>/./</code>, or <code>/../</code> patterns. For example:</p> <ul> <li> <p> <code>/photos</code> </p> </li> <li> <p> <code>photos//2006/January</code> </p> </li> <li> <p> <code>photos/./2006/February</code> </p> </li> <li> <p> <code>photos/../2006/March</code> </p> </li> </ul> </note>"""
     s3_bucket_arn: "aws_sdk_datasync.types.s3_bucket_arn.S3BucketArn"

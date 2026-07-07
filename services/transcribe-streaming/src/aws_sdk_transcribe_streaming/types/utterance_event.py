@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#UtteranceEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe_streaming._protocol.eventstream import HeaderValue, Message
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.string
 
 
-class UtteranceEvent(TypedDict):
+class UtteranceEvent(TypedDict, closed=True):
     utterance_id: NotRequired["aws_sdk_transcribe_streaming.types.string.String"]
     """<p>The unique identifier that is associated with the specified <code>UtteranceEvent</code>.</p>"""
     is_partial: "aws_sdk_transcribe_streaming.types.boolean.Boolean"

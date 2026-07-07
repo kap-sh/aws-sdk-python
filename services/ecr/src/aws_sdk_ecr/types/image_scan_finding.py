@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ImageScanFinding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.attribute_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.url
 
 
-class ImageScanFinding(TypedDict):
+class ImageScanFinding(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ecr.types.finding_name.FindingName"]
     """<p>The name associated with the finding, usually a CVE number.</p>"""
     description: NotRequired["aws_sdk_ecr.types.finding_description.FindingDescription"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CreateCustomDBEngineVersionMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class CreateCustomDBEngineVersionMessage(TypedDict):
+class CreateCustomDBEngineVersionMessage(TypedDict, closed=True):
     engine: NotRequired["aws_sdk_rds.types.custom_engine_name.CustomEngineName"]
     """<p>The database engine.</p> <p>RDS Custom for Oracle supports the following values:</p> <ul> <li> <p> <code>custom-oracle-ee</code> </p> </li> <li> <p> <code>custom-oracle-ee-cdb</code> </p> </li> <li> <p> <code>custom-oracle-se2</code> </p> </li> <li> <p> <code>custom-oracle-se2-cdb</code> </p> </li> </ul> <p>RDS Custom for SQL Server supports the following values:</p> <ul> <li> <p> <code>custom-sqlserver-ee</code> </p> </li> <li> <p> <code>custom-sqlserver-se</code> </p> </li> <li> <p> <code>ccustom-sqlserver-web</code> </p> </li> <li> <p> <code>custom-sqlserver-dev</code> </p> </li> </ul> <p>RDS for SQL Server supports only <code>sqlserver-dev-ee</code>.</p>"""
     engine_version: NotRequired[

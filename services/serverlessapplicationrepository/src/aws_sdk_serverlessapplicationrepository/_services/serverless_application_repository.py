@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.serverlessapplicationrepository#ServerlessApplicationRepository``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_serverlessapplicationrepository._auth._signers
@@ -62,7 +62,7 @@ if TYPE_CHECKING:
     import aws_sdk_serverlessapplicationrepository.types.update_application_response
 
 
-class ServerlessApplicationRepositoryClientConfig(TypedDict, total=False):
+class ServerlessApplicationRepositoryClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

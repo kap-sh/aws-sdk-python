@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#SubCheckResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.sub_check_references_list
     import aws_sdk_ssm_sap.types.sub_check_result_id
 
 
-class SubCheckResult(TypedDict):
+class SubCheckResult(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ssm_sap.types.sub_check_result_id.SubCheckResultId"]
     """<p>The unique identifier of the sub-check result.</p>"""
     name: NotRequired["str"]

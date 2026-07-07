@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ResourceSnapshotJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.engagement_identifier
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.resource_snapshot_job_status
 
 
-class ResourceSnapshotJobSummary(TypedDict):
+class ResourceSnapshotJobSummary(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_partnercentral_selling.types.resource_snapshot_job_identifier.ResourceSnapshotJobIdentifier"
     ]

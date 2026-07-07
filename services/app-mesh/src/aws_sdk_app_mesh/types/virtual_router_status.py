@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualRouterStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_router_status_code
 
 
-class VirtualRouterStatus(TypedDict):
+class VirtualRouterStatus(TypedDict, closed=True):
     status: "aws_sdk_app_mesh.types.virtual_router_status_code.VirtualRouterStatusCode"
     """<p>The current status of the virtual router.</p>"""
 

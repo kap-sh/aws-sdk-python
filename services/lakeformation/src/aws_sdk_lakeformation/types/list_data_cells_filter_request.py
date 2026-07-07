@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#ListDataCellsFilterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.page_size
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.token
 
 
-class ListDataCellsFilterRequest(TypedDict):
+class ListDataCellsFilterRequest(TypedDict, closed=True):
     table: NotRequired["aws_sdk_lakeformation.types.table_resource.TableResource"]
     """<p>A table in the Glue Data Catalog.</p>"""
     next_token: NotRequired["aws_sdk_lakeformation.types.token.Token"]

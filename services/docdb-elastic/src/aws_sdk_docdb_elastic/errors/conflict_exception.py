@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p>The ID of the resource where there was an access conflict.</p>"""

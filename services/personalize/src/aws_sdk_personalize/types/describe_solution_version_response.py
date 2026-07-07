@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DescribeSolutionVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.solution_version
 
 
-class DescribeSolutionVersionResponse(TypedDict):
+class DescribeSolutionVersionResponse(TypedDict, closed=True):
     solution_version: NotRequired[
         "aws_sdk_personalize.types.solution_version.SolutionVersion"
     ]

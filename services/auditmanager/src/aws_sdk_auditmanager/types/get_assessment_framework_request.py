@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetAssessmentFrameworkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class GetAssessmentFrameworkRequest(TypedDict):
+class GetAssessmentFrameworkRequest(TypedDict, closed=True):
     framework_id: "aws_sdk_auditmanager.types.uuid.UUID"
     """<p> The identifier for the framework. </p>"""
 

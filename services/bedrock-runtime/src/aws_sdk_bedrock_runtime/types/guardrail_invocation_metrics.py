@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailInvocationMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_coverage
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_usage
 
 
-class GuardrailInvocationMetrics(TypedDict):
+class GuardrailInvocationMetrics(TypedDict, closed=True):
     guardrail_processing_latency: NotRequired[
         "aws_sdk_bedrock_runtime.types.guardrail_processing_latency.GuardrailProcessingLatency"
     ]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#VersionCreatedBySource``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
 
-class VersionCreatedBySource(TypedDict):
+class VersionCreatedBySource(TypedDict, closed=True):
     name: "str"
     """<p>The name of the source (for example, <code>user</code>, <code>optimization-job</code>, or <code>system</code>).</p>"""
     arn: NotRequired["str"]

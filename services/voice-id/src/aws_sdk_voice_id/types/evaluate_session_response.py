@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#EvaluateSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.authentication_result
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.streaming_status
 
 
-class EvaluateSessionResponse(TypedDict):
+class EvaluateSessionResponse(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_voice_id.types.domain_id.DomainId"]
     """<p>The identifier of the domain that contains the session.</p>"""
     session_id: NotRequired["aws_sdk_voice_id.types.session_id.SessionId"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#StartJobRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.job_run_id
 
 
-class StartJobRunResponse(TypedDict):
+class StartJobRunResponse(TypedDict, closed=True):
     application_id: "aws_sdk_emr_serverless.types.application_id.ApplicationId"
     """<p>This output displays the application ID on which the job run was submitted.</p>"""
     job_run_id: "aws_sdk_emr_serverless.types.job_run_id.JobRunId"

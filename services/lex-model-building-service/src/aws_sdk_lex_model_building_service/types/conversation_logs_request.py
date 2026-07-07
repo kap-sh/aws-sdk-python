@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#ConversationLogsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.log_settings_request_list
 
 
-class ConversationLogsRequest(TypedDict):
+class ConversationLogsRequest(TypedDict, closed=True):
     log_settings: "aws_sdk_lex_model_building_service.types.log_settings_request_list.LogSettingsRequestList"
     """<p>The settings for your conversation logs. You can log the conversation text, conversation audio, or both.</p>"""
     iam_role_arn: "aws_sdk_lex_model_building_service.types.iam_role_arn.IamRoleArn"

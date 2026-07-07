@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#CodeReviewType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguru_reviewer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.repository_analysis
 
 
-class CodeReviewType(TypedDict):
+class CodeReviewType(TypedDict, closed=True):
     repository_analysis: (
         "aws_sdk_codeguru_reviewer.types.repository_analysis.RepositoryAnalysis"
     )

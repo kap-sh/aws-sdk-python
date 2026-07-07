@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#DeleteOutcomeResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteOutcomeResult(TypedDict):
+class DeleteOutcomeResult(TypedDict, closed=True):
     pass
 
 

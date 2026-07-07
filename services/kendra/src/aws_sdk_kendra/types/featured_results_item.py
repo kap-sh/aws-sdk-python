@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#FeaturedResultsItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.additional_result_attribute_list
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.url
 
 
-class FeaturedResultsItem(TypedDict):
+class FeaturedResultsItem(TypedDict, closed=True):
     id: NotRequired["aws_sdk_kendra.types.result_id.ResultId"]
     """<p>The identifier of the featured result.</p>"""
     type: NotRequired["aws_sdk_kendra.types.query_result_type.QueryResultType"]

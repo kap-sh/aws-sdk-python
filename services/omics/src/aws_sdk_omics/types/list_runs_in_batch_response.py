@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListRunsInBatchResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.list_token
     import aws_sdk_omics.types.run_batch_list
 
 
-class ListRunsInBatchResponse(TypedDict):
+class ListRunsInBatchResponse(TypedDict, closed=True):
     runs: NotRequired["aws_sdk_omics.types.run_batch_list.RunBatchList"]
     """<p>A list of run entries in the batch. See <code>RunBatchListItem</code>.</p>"""
     next_token: NotRequired["aws_sdk_omics.types.list_token.ListToken"]

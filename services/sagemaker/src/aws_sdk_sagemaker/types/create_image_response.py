@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateImageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.image_arn
 
 
-class CreateImageResponse(TypedDict):
+class CreateImageResponse(TypedDict, closed=True):
     image_arn: NotRequired["aws_sdk_sagemaker.types.image_arn.ImageArn"]
     """<p>The ARN of the image.</p>"""
 

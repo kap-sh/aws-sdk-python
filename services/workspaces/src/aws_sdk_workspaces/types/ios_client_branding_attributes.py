@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#IosClientBrandingAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.client_email
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.login_message
 
 
-class IosClientBrandingAttributes(TypedDict):
+class IosClientBrandingAttributes(TypedDict, closed=True):
     logo_url: NotRequired["aws_sdk_workspaces.types.client_url.ClientUrl"]
     """<p>The logo. This is the standard-resolution display that has a 1:1 pixel density (or @1x), where one pixel is equal to one point. The only image format accepted is a binary data object that is converted from a <code>.png</code> file.</p>"""
     logo2x_url: NotRequired["aws_sdk_workspaces.types.client_url.ClientUrl"]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#GetFlowVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_identifier
     import aws_sdk_bedrock_agent.types.numerical_version
 
 
-class GetFlowVersionRequest(TypedDict):
+class GetFlowVersionRequest(TypedDict, closed=True):
     flow_identifier: "aws_sdk_bedrock_agent.types.flow_identifier.FlowIdentifier"
     """<p>The unique identifier of the flow for which to get information.</p>"""
     flow_version: "aws_sdk_bedrock_agent.types.numerical_version.NumericalVersion"

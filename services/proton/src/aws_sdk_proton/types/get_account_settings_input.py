@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetAccountSettingsInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAccountSettingsInput(TypedDict):
+class GetAccountSettingsInput(TypedDict, closed=True):
     pass
 
 

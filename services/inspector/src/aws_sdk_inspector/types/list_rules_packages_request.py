@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#ListRulesPackagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.list_max_results
     import aws_sdk_inspector.types.pagination_token
 
 
-class ListRulesPackagesRequest(TypedDict):
+class ListRulesPackagesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_inspector.types.pagination_token.PaginationToken"]
     """<p>You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the <b>ListRulesPackages</b> action. Subsequent calls to the action fill <b>nextToken</b> in the request with the value of <b>NextToken</b> from the previous response to continue listing data.</p>"""
     max_results: NotRequired["aws_sdk_inspector.types.list_max_results.ListMaxResults"]

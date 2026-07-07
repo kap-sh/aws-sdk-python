@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#InputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.uri
 
 
-class InputDataConfig(TypedDict):
+class InputDataConfig(TypedDict, closed=True):
     s3_uri: "aws_sdk_transcribe.types.uri.Uri"
     """<p>The Amazon S3 location (URI) of the text files you want to use to train your custom language model.</p> <p>Here's an example URI path: <code>s3://DOC-EXAMPLE-BUCKET/my-model-training-data/</code> </p>"""
     tuning_data_s3_uri: NotRequired["aws_sdk_transcribe.types.uri.Uri"]

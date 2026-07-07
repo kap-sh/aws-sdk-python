@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#RequestChangedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.error_message
 
 
-class RequestChangedException_(TypedDict):
+class RequestChangedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_cost_explorer.types.error_message.ErrorMessage"]
 
 

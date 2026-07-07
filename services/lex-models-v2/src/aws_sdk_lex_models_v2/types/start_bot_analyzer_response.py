@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#StartBotAnalyzerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_analyzer_status
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.uuid
 
 
-class StartBotAnalyzerResponse(TypedDict):
+class StartBotAnalyzerResponse(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The unique identifier of the bot being analyzed.</p>"""
     bot_version: NotRequired[

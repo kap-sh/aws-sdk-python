@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterInstancePlacement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_availability_zone
     import aws_sdk_sagemaker.types.cluster_availability_zone_id
 
 
-class ClusterInstancePlacement(TypedDict):
+class ClusterInstancePlacement(TypedDict, closed=True):
     availability_zone: NotRequired[
         "aws_sdk_sagemaker.types.cluster_availability_zone.ClusterAvailabilityZone"
     ]

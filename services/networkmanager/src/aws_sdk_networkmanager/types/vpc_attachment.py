@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#VpcAttachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.attachment
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.vpc_options
 
 
-class VpcAttachment(TypedDict):
+class VpcAttachment(TypedDict, closed=True):
     attachment: NotRequired["aws_sdk_networkmanager.types.attachment.Attachment"]
     """<p>Provides details about the VPC attachment.</p>"""
     subnet_arns: NotRequired[

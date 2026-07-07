@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_xray.types.tag_key.TagKey"
     """<p>A tag key, such as <code>Stage</code> or <code>Name</code>. A tag key cannot be empty. The key can be a maximum of 128 characters, and can contain only Unicode letters, numbers, or separators, or the following special characters: <code>+ - = . _ : /</code> </p>"""
     value: "aws_sdk_xray.types.tag_value.TagValue"

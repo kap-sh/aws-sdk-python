@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#FailureCause``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class FailureCause(TypedDict):
+class FailureCause(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>The description of the error message.</p>"""
 

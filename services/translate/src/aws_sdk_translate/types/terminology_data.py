@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#TerminologyData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.terminology_file
 
 
-class TerminologyData(TypedDict):
+class TerminologyData(TypedDict, closed=True):
     file: "aws_sdk_translate.types.terminology_file.TerminologyFile"
     """<p>The file containing the custom terminology data. Your version of the AWS SDK performs a Base64-encoding on this field before sending a request to the AWS service. Users of the SDK should not perform Base64-encoding themselves.</p>"""
     format: "aws_sdk_translate.types.terminology_data_format.TerminologyDataFormat"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#InstanceRequirements``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.v_cpu_count_request
 
 
-class InstanceRequirements(TypedDict):
+class InstanceRequirements(TypedDict, closed=True):
     v_cpu_count: NotRequired[
         "aws_sdk_auto_scaling.types.v_cpu_count_request.VCpuCountRequest"
     ]

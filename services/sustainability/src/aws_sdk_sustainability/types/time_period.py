@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sustainability#TimePeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sustainability.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sustainability.types.timestamp
 
 
-class TimePeriod(TypedDict):
+class TimePeriod(TypedDict, closed=True):
     start: "aws_sdk_sustainability.types.timestamp.Timestamp"
     """<p>The start (inclusive) of the time period. ISO-8601 formatted timestamp, for example: <code>YYYY-MM-DDThh:mm:ss.sssZ</code> </p>"""
     end: "aws_sdk_sustainability.types.timestamp.Timestamp"

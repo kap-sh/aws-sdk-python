@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateCoipPoolResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.coip_pool
 
 
-class CreateCoipPoolResult(TypedDict):
+class CreateCoipPoolResult(TypedDict, closed=True):
     coip_pool: NotRequired["aws_sdk_ec2.types.coip_pool.CoipPool"]
     """<p>Information about the CoIP address pool.</p>"""
 

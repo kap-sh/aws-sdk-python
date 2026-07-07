@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#UpdateFirewallAnalysisSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.enabled_analysis_types
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.update_token
 
 
-class UpdateFirewallAnalysisSettingsRequest(TypedDict):
+class UpdateFirewallAnalysisSettingsRequest(TypedDict, closed=True):
     enabled_analysis_types: NotRequired[
         "aws_sdk_network_firewall.types.enabled_analysis_types.EnabledAnalysisTypes"
     ]

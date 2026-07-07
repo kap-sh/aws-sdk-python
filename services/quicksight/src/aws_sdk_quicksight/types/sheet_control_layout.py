@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SheetControlLayout``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_control_layout_configuration
 
 
-class SheetControlLayout(TypedDict):
+class SheetControlLayout(TypedDict, closed=True):
     configuration: "aws_sdk_quicksight.types.sheet_control_layout_configuration.SheetControlLayoutConfiguration"
     """<p>The configuration that determines the elements and canvas size options of sheet control.</p>"""
 

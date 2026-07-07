@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#GetQueryResultsWorkloadInsightsTopContributorsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.scope_id
 
 
-class GetQueryResultsWorkloadInsightsTopContributorsInput(TypedDict):
+class GetQueryResultsWorkloadInsightsTopContributorsInput(TypedDict, closed=True):
     scope_id: "aws_sdk_networkflowmonitor.types.scope_id.ScopeId"
     """<p>The identifier for the scope that includes the resources you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>"""
     query_id: "str"

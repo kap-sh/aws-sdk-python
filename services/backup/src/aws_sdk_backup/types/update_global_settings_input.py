@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#UpdateGlobalSettingsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.global_settings
 
 
-class UpdateGlobalSettingsInput(TypedDict):
+class UpdateGlobalSettingsInput(TypedDict, closed=True):
     global_settings: NotRequired["aws_sdk_backup.types.global_settings.GlobalSettings"]
     """<p>Inputs can include:</p> <p>A value for <code>isCrossAccountBackupEnabled</code>. Values can be true or false. Example: <code>update-global-settings --global-settings isCrossAccountBackupEnabled=false</code>.</p> <p>A value for Multi-party approval, styled as <code>isMpaEnabled</code>. Values can be true or false. Example: <code>update-global-settings --global-settings isMpaEnabled=false</code>.</p> <p>A value for Backup Service-Linked Role creation, styled as <code>isDelegatedAdministratorEnabled</code>. Values can be true or false. Example: <code>update-global-settings --global-settings isDelegatedAdministratorEnabled=false</code>.</p>"""
 

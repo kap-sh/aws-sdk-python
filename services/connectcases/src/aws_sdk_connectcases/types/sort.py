@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#Sort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.order
 
 
-class Sort(TypedDict):
+class Sort(TypedDict, closed=True):
     field_id: "aws_sdk_connectcases.types.field_id.FieldId"
     """<p>Unique identifier of a field.</p>"""
     sort_order: "aws_sdk_connectcases.types.order.Order"

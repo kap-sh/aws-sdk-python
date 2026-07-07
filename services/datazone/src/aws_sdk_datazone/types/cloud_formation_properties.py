@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CloudFormationProperties``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class CloudFormationProperties(TypedDict):
+class CloudFormationProperties(TypedDict, closed=True):
     template_url: "str"
     """<p>The template URL of the cloud formation provisioning properties of the environment blueprint.</p>"""
 

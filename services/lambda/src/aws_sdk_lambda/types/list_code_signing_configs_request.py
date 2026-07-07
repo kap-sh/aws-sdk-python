@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListCodeSigningConfigsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.max_list_items
     import aws_sdk_lambda.types.string
 
 
-class ListCodeSigningConfigsRequest(TypedDict):
+class ListCodeSigningConfigsRequest(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>"""
     max_items: NotRequired["aws_sdk_lambda.types.max_list_items.MaxListItems"]

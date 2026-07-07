@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#GetSearchJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.search_scope_summary
 
 
-class GetSearchJobOutput(TypedDict):
+class GetSearchJobOutput(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>Returned name of the specified search job.</p>"""
     search_scope_summary: NotRequired[

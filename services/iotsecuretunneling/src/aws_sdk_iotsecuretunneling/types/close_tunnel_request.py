@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsecuretunneling#CloseTunnelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.delete_flag
     import aws_sdk_iotsecuretunneling.types.tunnel_id
 
 
-class CloseTunnelRequest(TypedDict):
+class CloseTunnelRequest(TypedDict, closed=True):
     tunnel_id: "aws_sdk_iotsecuretunneling.types.tunnel_id.TunnelId"
     """<p>The ID of the tunnel to close.</p>"""
     delete: NotRequired["aws_sdk_iotsecuretunneling.types.delete_flag.DeleteFlag"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#ParsedQuerySecondaryAddressComponent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_places.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class ParsedQuerySecondaryAddressComponent(TypedDict):
+class ParsedQuerySecondaryAddressComponent(TypedDict, closed=True):
     start_index: "int"
     """<p>Start index of the parsed secondary address component in the query text.</p>"""
     end_index: "int"

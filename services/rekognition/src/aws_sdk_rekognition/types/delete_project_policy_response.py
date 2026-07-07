@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DeleteProjectPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteProjectPolicyResponse(TypedDict):
+class DeleteProjectPolicyResponse(TypedDict, closed=True):
     pass
 
 

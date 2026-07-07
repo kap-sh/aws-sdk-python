@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListDataQualityResultsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.pagination_token
 
 
-class ListDataQualityResultsResponse(TypedDict):
+class ListDataQualityResultsResponse(TypedDict, closed=True):
     results: "aws_sdk_glue.types.data_quality_result_description_list.DataQualityResultDescriptionList"
     """<p>A list of <code>DataQualityResultDescription</code> objects.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.pagination_token.PaginationToken"]

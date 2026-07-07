@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#RecoveryPointMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.resource_type
 
 
-class RecoveryPointMember(TypedDict):
+class RecoveryPointMember(TypedDict, closed=True):
     recovery_point_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) of the parent (composite) recovery point.</p>"""
     resource_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]

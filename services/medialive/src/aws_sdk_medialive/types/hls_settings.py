@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#HlsSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.audio_only_hls_settings
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.standard_hls_settings
 
 
-class HlsSettings(TypedDict):
+class HlsSettings(TypedDict, closed=True):
     audio_only_hls_settings: NotRequired[
         "aws_sdk_medialive.types.audio_only_hls_settings.AudioOnlyHlsSettings"
     ]

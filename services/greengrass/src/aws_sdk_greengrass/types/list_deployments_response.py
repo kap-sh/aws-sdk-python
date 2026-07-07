@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ListDeploymentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.deployments
 
 
-class ListDeploymentsResponse(TypedDict):
+class ListDeploymentsResponse(TypedDict, closed=True):
     deployments: NotRequired["aws_sdk_greengrass.types.deployments.Deployments"]
     """A list of deployments for the requested groups."""
     next_token: NotRequired["aws_sdk_greengrass.types.__string.__string"]

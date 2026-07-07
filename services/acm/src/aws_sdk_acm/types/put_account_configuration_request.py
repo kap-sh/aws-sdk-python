@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#PutAccountConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.idempotency_token
 
 
-class PutAccountConfigurationRequest(TypedDict):
+class PutAccountConfigurationRequest(TypedDict, closed=True):
     expiry_events: NotRequired[
         "aws_sdk_acm.types.expiry_events_configuration.ExpiryEventsConfiguration"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#SiemensIE``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.iot_core_thing_name
 
 
-class SiemensIE(TypedDict):
+class SiemensIE(TypedDict, closed=True):
     iot_core_thing_name: (
         "aws_sdk_iotsitewise.types.iot_core_thing_name.IotCoreThingName"
     )

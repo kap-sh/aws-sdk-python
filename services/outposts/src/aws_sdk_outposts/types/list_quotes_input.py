@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ListQuotesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.max_results1000
     import aws_sdk_outposts.types.token
 
 
-class ListQuotesInput(TypedDict):
+class ListQuotesInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_outposts.types.token.Token"]
     """<p>The pagination token.</p>"""
     max_results: NotRequired["aws_sdk_outposts.types.max_results1000.MaxResults1000"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CancelAuditTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_task_id
 
 
-class CancelAuditTaskRequest(TypedDict):
+class CancelAuditTaskRequest(TypedDict, closed=True):
     task_id: "aws_sdk_iot.types.audit_task_id.AuditTaskId"
     r"""<p>The ID of the audit you want to cancel. You can only cancel an audit that is \"IN_PROGRESS\".</p>"""
 

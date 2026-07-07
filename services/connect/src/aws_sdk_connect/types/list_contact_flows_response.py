@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListContactFlowsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_flow_summary_list
     import aws_sdk_connect.types.next_token
 
 
-class ListContactFlowsResponse(TypedDict):
+class ListContactFlowsResponse(TypedDict, closed=True):
     contact_flow_summary_list: NotRequired[
         "aws_sdk_connect.types.contact_flow_summary_list.ContactFlowSummaryList"
     ]

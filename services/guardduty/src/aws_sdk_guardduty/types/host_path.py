@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#HostPath``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class HostPath(TypedDict):
+class HostPath(TypedDict, closed=True):
     path: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Path of the file or directory on the host that the volume maps to.</p>"""
 

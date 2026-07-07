@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#CloudWatchLogsDestinationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class CloudWatchLogsDestinationDetails(TypedDict):
+class CloudWatchLogsDestinationDetails(TypedDict, closed=True):
     log_group: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The name of the CloudWatch Logs log group.</p>"""
 

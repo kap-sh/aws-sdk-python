@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#DeleteUploadResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteUploadResult(TypedDict):
+class DeleteUploadResult(TypedDict, closed=True):
     pass
 
 

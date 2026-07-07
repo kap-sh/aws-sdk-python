@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#Monitor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appconfig.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.string_with_length_between1_and2048
 
 
-class Monitor(TypedDict):
+class Monitor(TypedDict, closed=True):
     alarm_arn: "aws_sdk_appconfig.types.string_with_length_between1_and2048.StringWithLengthBetween1And2048"
     """<p>Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.</p>"""
     alarm_role_arn: NotRequired["aws_sdk_appconfig.types.role_arn.RoleArn"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#GeneralName``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.asn1_subject
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.string256
 
 
-class GeneralName(TypedDict):
+class GeneralName(TypedDict, closed=True):
     other_name: NotRequired["aws_sdk_acm_pca.types.other_name.OtherName"]
     """<p>Represents <code>GeneralName</code> using an <code>OtherName</code> object.</p>"""
     rfc822_name: NotRequired["aws_sdk_acm_pca.types.string256.String256"]

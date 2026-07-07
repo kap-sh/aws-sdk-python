@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#RequestSenderIdRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.tag_list
 
 
-class RequestSenderIdRequest(TypedDict):
+class RequestSenderIdRequest(TypedDict, closed=True):
     sender_id: "aws_sdk_pinpoint_sms_voice_v2.types.sender_id.SenderId"
     """<p>The sender ID string to request.</p>"""
     iso_country_code: (

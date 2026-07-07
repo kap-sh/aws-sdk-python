@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#Parameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.change_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.string
 
 
-class Parameter(TypedDict):
+class Parameter(TypedDict, closed=True):
     parameter_name: NotRequired["aws_sdk_dax.types.string.String"]
     """<p>The name of the parameter.</p>"""
     parameter_type: NotRequired["aws_sdk_dax.types.parameter_type.ParameterType"]

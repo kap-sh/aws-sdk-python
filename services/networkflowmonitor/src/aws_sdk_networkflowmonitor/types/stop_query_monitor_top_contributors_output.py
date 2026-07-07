@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#StopQueryMonitorTopContributorsOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopQueryMonitorTopContributorsOutput(TypedDict):
+class StopQueryMonitorTopContributorsOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#SearchResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.total_hits
 
 
-class SearchResponse(TypedDict):
+class SearchResponse(TypedDict, closed=True):
     results: NotRequired[
         "aws_sdk_sagemaker.types.search_results_list.SearchResultsList"
     ]

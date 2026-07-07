@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#ListSecretsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.boolean_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.sort_order_type
 
 
-class ListSecretsRequest(TypedDict):
+class ListSecretsRequest(TypedDict, closed=True):
     include_planned_deletion: NotRequired[
         "aws_sdk_secrets_manager.types.boolean_type.BooleanType"
     ]

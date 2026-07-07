@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ManagedThingSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.advertised_product_id
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.setup_at
 
 
-class ManagedThingSummary(TypedDict):
+class ManagedThingSummary(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_iot_managed_integrations.types.managed_thing_id.ManagedThingId"
     ]

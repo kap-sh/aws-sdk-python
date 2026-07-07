@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#IamPropertiesInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class IamPropertiesInput(TypedDict):
+class IamPropertiesInput(TypedDict, closed=True):
     glue_lineage_sync_enabled: NotRequired["bool"]
     """<p>Specifies whether Amazon Web Services Glue lineage sync is enabled for a connection.</p>"""
 

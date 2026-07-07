@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#RegionScope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.aws_region_list
     import aws_sdk_fms.types.boolean
 
 
-class RegionScope(TypedDict):
+class RegionScope(TypedDict, closed=True):
     regions: NotRequired["aws_sdk_fms.types.aws_region_list.AWSRegionList"]
     """<p>The Amazon Web Services Regions that the specified Firewall Manager administrator can perform actions in.</p>"""
     all_regions_enabled: "aws_sdk_fms.types.boolean.Boolean"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#IamActionDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.users
 
 
-class IamActionDefinition(TypedDict):
+class IamActionDefinition(TypedDict, closed=True):
     policy_arn: "aws_sdk_budgets.types.policy_arn.PolicyArn"
     """<p>The Amazon Resource Name (ARN) of the policy to be attached. </p>"""
     roles: NotRequired["aws_sdk_budgets.types.roles.Roles"]

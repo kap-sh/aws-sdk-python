@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DeletePodIdentityAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class DeletePodIdentityAssociationRequest(TypedDict):
+class DeletePodIdentityAssociationRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.string.String"
     """<p>The cluster name that</p>"""
     association_id: "aws_sdk_eks.types.string.String"

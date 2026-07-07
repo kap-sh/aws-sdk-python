@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#User``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.user_id
     import aws_sdk_rekognition.types.user_status
 
 
-class User(TypedDict):
+class User(TypedDict, closed=True):
     user_id: NotRequired["aws_sdk_rekognition.types.user_id.UserId"]
     """<p> A provided ID for the User. Unique within the collection.</p>"""
     user_status: NotRequired["aws_sdk_rekognition.types.user_status.UserStatus"]

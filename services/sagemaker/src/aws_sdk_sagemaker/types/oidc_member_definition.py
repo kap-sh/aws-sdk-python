@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#OidcMemberDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.groups
 
 
-class OidcMemberDefinition(TypedDict):
+class OidcMemberDefinition(TypedDict, closed=True):
     groups: NotRequired["aws_sdk_sagemaker.types.groups.Groups"]
     """<p>A list of comma seperated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ComponentEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.action_parameters
 
 
-class ComponentEvent(TypedDict):
+class ComponentEvent(TypedDict, closed=True):
     action: NotRequired["str"]
     """<p>The action to perform when a specific event is raised.</p>"""
     parameters: NotRequired[

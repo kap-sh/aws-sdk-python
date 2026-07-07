@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CoreNetworkChangeEventValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.attachment_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.routing_policy_direction
 
 
-class CoreNetworkChangeEventValues(TypedDict):
+class CoreNetworkChangeEventValues(TypedDict, closed=True):
     edge_location: NotRequired[
         "aws_sdk_networkmanager.types.external_region_code.ExternalRegionCode"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#RdsDbClusterSnapshotAttributeValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.rds_db_cluster_snapshot_account_ids_list
 
 
-class _RdsDbClusterSnapshotAttributeValue_accountIds(TypedDict):
+class _RdsDbClusterSnapshotAttributeValue_accountIds(TypedDict, closed=True):
     accountIds: "aws_sdk_accessanalyzer.types.rds_db_cluster_snapshot_account_ids_list.RdsDbClusterSnapshotAccountIdsList"
 
 

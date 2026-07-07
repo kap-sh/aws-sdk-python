@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentAttributeValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.timestamp
 
 
-class _DocumentAttributeValue_stringValue(TypedDict):
+class _DocumentAttributeValue_stringValue(TypedDict, closed=True):
     stringValue: "aws_sdk_qbusiness.types.document_attribute_string_value.DocumentAttributeStringValue"
 
 
-class _DocumentAttributeValue_stringListValue(TypedDict):
+class _DocumentAttributeValue_stringListValue(TypedDict, closed=True):
     stringListValue: "aws_sdk_qbusiness.types.document_attribute_string_list_value.DocumentAttributeStringListValue"
 
 
-class _DocumentAttributeValue_longValue(TypedDict):
+class _DocumentAttributeValue_longValue(TypedDict, closed=True):
     longValue: "aws_sdk_qbusiness.types.long.Long"
 
 
-class _DocumentAttributeValue_dateValue(TypedDict):
+class _DocumentAttributeValue_dateValue(TypedDict, closed=True):
     dateValue: "aws_sdk_qbusiness.types.timestamp.Timestamp"
 
 

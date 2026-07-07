@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#DeleteDirectoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.arn
 
 
-class DeleteDirectoryResponse(TypedDict):
+class DeleteDirectoryResponse(TypedDict, closed=True):
     directory_arn: "aws_sdk_clouddirectory.types.arn.Arn"
     """<p>The ARN of the deleted directory.</p>"""
 

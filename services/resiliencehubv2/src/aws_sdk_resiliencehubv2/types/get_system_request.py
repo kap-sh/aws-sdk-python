@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#GetSystemRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.arn
 
 
-class GetSystemRequest(TypedDict):
+class GetSystemRequest(TypedDict, closed=True):
     system_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
 
 

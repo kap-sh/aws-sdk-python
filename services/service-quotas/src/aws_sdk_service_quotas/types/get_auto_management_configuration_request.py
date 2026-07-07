@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#GetAutoManagementConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAutoManagementConfigurationRequest(TypedDict):
+class GetAutoManagementConfigurationRequest(TypedDict, closed=True):
     pass
 
 

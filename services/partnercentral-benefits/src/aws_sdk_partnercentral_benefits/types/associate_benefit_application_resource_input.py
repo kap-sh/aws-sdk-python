@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#AssociateBenefitApplicationResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_benefits.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.catalog_name
 
 
-class AssociateBenefitApplicationResourceInput(TypedDict):
+class AssociateBenefitApplicationResourceInput(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_benefits.types.catalog_name.CatalogName"
     """<p>The catalog identifier that specifies which benefit catalog the application belongs to.</p>"""
     benefit_application_identifier: "aws_sdk_partnercentral_benefits.types.benefit_application_identifier.BenefitApplicationIdentifier"

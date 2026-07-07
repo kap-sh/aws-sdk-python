@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#DataPartitionStorageOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.storage_minimum_time_to_live
 
 
-class DataPartitionStorageOptions(TypedDict):
+class DataPartitionStorageOptions(TypedDict, closed=True):
     maximum_size: "aws_sdk_iotfleetwise.types.storage_maximum_size.StorageMaximumSize"
     """<p>The maximum storage size of the data stored in the data partition.</p> <note> <p>Newer data overwrites older data when the partition reaches the maximum size.</p> </note>"""
     storage_location: "aws_sdk_iotfleetwise.types.storage_location.StorageLocation"

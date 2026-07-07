@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#InvokeWithResponseStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.blob
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.tenant_id
 
 
-class InvokeWithResponseStreamRequest(TypedDict):
+class InvokeWithResponseStreamRequest(TypedDict, closed=True):
     function_name: (
         "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName"
     )

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#CallingSettings``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CallingSettings(TypedDict):
+class CallingSettings(TypedDict, closed=True):
     can_start11_call: NotRequired["bool"]
     """<p>Specifies whether users can start one-to-one calls.</p>"""
     can_video_call: NotRequired["bool"]

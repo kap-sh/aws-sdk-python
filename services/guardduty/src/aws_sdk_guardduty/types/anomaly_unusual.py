@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#AnomalyUnusual``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.behavior
 
 
-class AnomalyUnusual(TypedDict):
+class AnomalyUnusual(TypedDict, closed=True):
     behavior: NotRequired["aws_sdk_guardduty.types.behavior.Behavior"]
     """<p>The behavior of the anomalous activity that caused GuardDuty to generate the finding.</p>"""
 

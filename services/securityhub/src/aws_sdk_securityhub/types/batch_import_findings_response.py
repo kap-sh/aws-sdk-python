@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#BatchImportFindingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.import_findings_error_list
     import aws_sdk_securityhub.types.integer
 
 
-class BatchImportFindingsResponse(TypedDict):
+class BatchImportFindingsResponse(TypedDict, closed=True):
     failed_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of findings that failed to import.</p>"""
     success_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

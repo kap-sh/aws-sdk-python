@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#FPorts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.applications
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.positioning
 
 
-class FPorts(TypedDict):
+class FPorts(TypedDict, closed=True):
     fuota: NotRequired["aws_sdk_iot_wireless.types.f_port.FPort"]
     multicast: NotRequired["aws_sdk_iot_wireless.types.f_port.FPort"]
     clock_sync: NotRequired["aws_sdk_iot_wireless.types.f_port.FPort"]

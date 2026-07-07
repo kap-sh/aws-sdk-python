@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetWorkflowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.accelerators
@@ -31,7 +31,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.workflow_uuid
 
 
-class GetWorkflowResponse(TypedDict):
+class GetWorkflowResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_omics.types.workflow_arn.WorkflowArn"]
     """<p>The workflow's ARN.</p>"""
     id: NotRequired["aws_sdk_omics.types.workflow_id.WorkflowId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#VerifyMacResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.boolean_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.mac_algorithm_spec
 
 
-class VerifyMacResponse(TypedDict):
+class VerifyMacResponse(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
     """<p>The HMAC KMS key used in the verification.</p>"""
     mac_valid: "aws_sdk_kms.types.boolean_type.BooleanType"

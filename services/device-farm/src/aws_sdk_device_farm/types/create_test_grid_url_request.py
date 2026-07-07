@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#CreateTestGridUrlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.test_grid_url_expires_in_seconds_input
 
 
-class CreateTestGridUrlRequest(TypedDict):
+class CreateTestGridUrlRequest(TypedDict, closed=True):
     project_arn: "aws_sdk_device_farm.types.device_farm_arn.DeviceFarmArn"
     """<p>ARN (from <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>) to associate with the short-term URL. </p>"""
     expires_in_seconds: "aws_sdk_device_farm.types.test_grid_url_expires_in_seconds_input.TestGridUrlExpiresInSecondsInput"

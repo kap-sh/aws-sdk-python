@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#CreatePermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.principal
 
 
-class CreatePermissionRequest(TypedDict):
+class CreatePermissionRequest(TypedDict, closed=True):
     certificate_authority_arn: "aws_sdk_acm_pca.types.arn.Arn"
     r"""<p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find the ARN by calling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action. This must have the following form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>"""
     principal: "aws_sdk_acm_pca.types.principal.Principal"

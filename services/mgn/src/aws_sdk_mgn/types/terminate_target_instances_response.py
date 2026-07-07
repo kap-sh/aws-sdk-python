@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#TerminateTargetInstancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.job
 
 
-class TerminateTargetInstancesResponse(TypedDict):
+class TerminateTargetInstancesResponse(TypedDict, closed=True):
     job: NotRequired["aws_sdk_mgn.types.job.Job"]
     """<p>Terminate Target instance Job response.</p>"""
 

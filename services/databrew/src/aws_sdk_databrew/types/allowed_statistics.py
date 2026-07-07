@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#AllowedStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.statistic_list
 
 
-class AllowedStatistics(TypedDict):
+class AllowedStatistics(TypedDict, closed=True):
     statistics: "aws_sdk_databrew.types.statistic_list.StatisticList"
     """<p>One or more column statistics to allow for columns that contain detected entities.</p>"""
 

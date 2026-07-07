@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#RebootInputDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.reboot_input_device_force
 
 
-class RebootInputDeviceRequest(TypedDict):
+class RebootInputDeviceRequest(TypedDict, closed=True):
     force: NotRequired[
         "aws_sdk_medialive.types.reboot_input_device_force.RebootInputDeviceForce"
     ]

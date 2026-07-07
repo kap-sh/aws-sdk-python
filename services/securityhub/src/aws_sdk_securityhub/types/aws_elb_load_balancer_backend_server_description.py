@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElbLoadBalancerBackendServerDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.string_list
 
 
-class AwsElbLoadBalancerBackendServerDescription(TypedDict):
+class AwsElbLoadBalancerBackendServerDescription(TypedDict, closed=True):
     instance_port: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The port on which the EC2 instance is listening.</p>"""
     policy_names: NotRequired["aws_sdk_securityhub.types.string_list.StringList"]

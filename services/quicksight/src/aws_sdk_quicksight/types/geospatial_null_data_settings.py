@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialNullDataSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_null_symbol_style
 
 
-class GeospatialNullDataSettings(TypedDict):
+class GeospatialNullDataSettings(TypedDict, closed=True):
     symbol_style: "aws_sdk_quicksight.types.geospatial_null_symbol_style.GeospatialNullSymbolStyle"
     """<p>The symbol style for null data.</p>"""
 

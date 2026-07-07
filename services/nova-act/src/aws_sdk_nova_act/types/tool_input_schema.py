@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#ToolInputSchema``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.tool_input_schema_document
 
 
-class _ToolInputSchema_json(TypedDict):
+class _ToolInputSchema_json(TypedDict, closed=True):
     json: "aws_sdk_nova_act.types.tool_input_schema_document.ToolInputSchemaDocument"
 
 

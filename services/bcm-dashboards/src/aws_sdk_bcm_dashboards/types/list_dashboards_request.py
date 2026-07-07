@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#ListDashboardsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.max_results
     import aws_sdk_bcm_dashboards.types.next_page_token
 
 
-class ListDashboardsRequest(TypedDict):
+class ListDashboardsRequest(TypedDict, closed=True):
     max_results: "aws_sdk_bcm_dashboards.types.max_results.MaxResults"
     """<p>The maximum number of results to return in a single call. The default value is 20.</p>"""
     next_token: NotRequired[

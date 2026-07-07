@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ComponentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.status_message
 
 
-class ComponentSummary(TypedDict):
+class ComponentSummary(TypedDict, closed=True):
     name: "aws_sdk_proton.types.resource_name.ResourceName"
     """<p>The name of the component.</p>"""
     arn: "aws_sdk_proton.types.component_arn.ComponentArn"

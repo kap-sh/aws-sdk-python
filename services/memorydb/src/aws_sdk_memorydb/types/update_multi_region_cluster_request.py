@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#UpdateMultiRegionClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_memorydb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.update_strategy
 
 
-class UpdateMultiRegionClusterRequest(TypedDict):
+class UpdateMultiRegionClusterRequest(TypedDict, closed=True):
     multi_region_cluster_name: "aws_sdk_memorydb.types.string.String"
     """<p>The name of the multi-Region cluster to be updated.</p>"""
     node_type: NotRequired["aws_sdk_memorydb.types.string.String"]

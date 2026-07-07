@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SubtotalOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pivot_table_field_subtotal_options_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class SubtotalOptions(TypedDict):
+class SubtotalOptions(TypedDict, closed=True):
     totals_visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>The visibility configuration for the subtotal cells.</p>"""
     custom_label: NotRequired["aws_sdk_quicksight.types.string.String"]

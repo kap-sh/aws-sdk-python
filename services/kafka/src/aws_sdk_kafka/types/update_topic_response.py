@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#UpdateTopicResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
     import aws_sdk_kafka.types.topic_state
 
 
-class UpdateTopicResponse(TypedDict):
+class UpdateTopicResponse(TypedDict, closed=True):
     topic_arn: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of the topic.</p>"""
     topic_name: NotRequired["aws_sdk_kafka.types.__string.__string"]

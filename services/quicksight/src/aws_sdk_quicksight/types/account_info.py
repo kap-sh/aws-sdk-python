@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AccountInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.edition
     import aws_sdk_quicksight.types.string
 
 
-class AccountInfo(TypedDict):
+class AccountInfo(TypedDict, closed=True):
     account_name: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The account name that you provided for the Amazon Quick Sight subscription in your Amazon Web Services account. You create this name when you sign up for Quick. It's unique over all of Amazon Web Services, and it appears only when users sign in.</p>"""
     edition: NotRequired["aws_sdk_quicksight.types.edition.Edition"]

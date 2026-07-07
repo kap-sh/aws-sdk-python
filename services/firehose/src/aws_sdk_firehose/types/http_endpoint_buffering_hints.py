@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#HttpEndpointBufferingHints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.http_endpoint_buffering_interval_in_seconds
     import aws_sdk_firehose.types.http_endpoint_buffering_size_in_m_bs
 
 
-class HttpEndpointBufferingHints(TypedDict):
+class HttpEndpointBufferingHints(TypedDict, closed=True):
     size_in_m_bs: NotRequired[
         "aws_sdk_firehose.types.http_endpoint_buffering_size_in_m_bs.HttpEndpointBufferingSizeInMBs"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CloudWatchLogsTraceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.service_name_list
 
 
-class CloudWatchLogsTraceConfig(TypedDict):
+class CloudWatchLogsTraceConfig(TypedDict, closed=True):
     log_group_arns: "aws_sdk_bedrock_agentcore.types.log_group_arn_list.LogGroupArnList"
     """<p>The list of CloudWatch log group ARNs to read agent traces from.</p>"""
     service_names: "aws_sdk_bedrock_agentcore.types.service_name_list.ServiceNameList"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#DescribeLabelGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.fault_codes
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.timestamp
 
 
-class DescribeLabelGroupResponse(TypedDict):
+class DescribeLabelGroupResponse(TypedDict, closed=True):
     label_group_name: NotRequired[
         "aws_sdk_lookoutequipment.types.label_group_name.LabelGroupName"
     ]

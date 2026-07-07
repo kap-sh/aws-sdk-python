@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.textract#AdapterVersionDatasetConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.s3_object
 
 
-class AdapterVersionDatasetConfig(TypedDict):
+class AdapterVersionDatasetConfig(TypedDict, closed=True):
     manifest_s3_object: NotRequired["aws_sdk_textract.types.s3_object.S3Object"]
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#GetAccountSettingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.account_setting_name
 
 
-class GetAccountSettingResponse(TypedDict):
+class GetAccountSettingResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ecr.types.account_setting_name.AccountSettingName"]
     """<p>Retrieves the name of the account setting.</p>"""
     value: NotRequired["aws_sdk_ecr.types.account_setting_name.AccountSettingName"]

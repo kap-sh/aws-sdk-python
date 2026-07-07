@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DefaultConnectionTrackingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.default_udp_timeout
 
 
-class DefaultConnectionTrackingConfiguration(TypedDict):
+class DefaultConnectionTrackingConfiguration(TypedDict, closed=True):
     default_tcp_established_timeout: NotRequired[
         "aws_sdk_ec2.types.default_tcp_established_timeout.DefaultTcpEstablishedTimeout"
     ]

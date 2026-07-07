@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#KubernetesPermissionCheckedDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
     import aws_sdk_guardduty.types.string
 
 
-class KubernetesPermissionCheckedDetails(TypedDict):
+class KubernetesPermissionCheckedDetails(TypedDict, closed=True):
     verb: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The verb component of the Kubernetes API call. For example, when you check whether or not you have the permission to call the <code>CreatePod</code> API, the verb component will be <code>Create</code>.</p>"""
     resource: NotRequired["aws_sdk_guardduty.types.string.String"]

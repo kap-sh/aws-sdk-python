@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#TargetNetworkUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.cidr
     import aws_sdk_mgn.types.target_network_topology
 
 
-class TargetNetworkUpdate(TypedDict):
+class TargetNetworkUpdate(TypedDict, closed=True):
     topology: NotRequired[
         "aws_sdk_mgn.types.target_network_topology.TargetNetworkTopology"
     ]

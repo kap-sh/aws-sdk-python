@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AttachNetworkInterfaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.network_interface_id
 
 
-class AttachNetworkInterfaceRequest(TypedDict):
+class AttachNetworkInterfaceRequest(TypedDict, closed=True):
     network_card_index: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.</p>"""
     ena_srd_specification: NotRequired[

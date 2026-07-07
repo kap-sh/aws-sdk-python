@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#IdpMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.idp_metadata_url
 
 
-class _IdpMetadata_url(TypedDict):
+class _IdpMetadata_url(TypedDict, closed=True):
     url: "aws_sdk_grafana.types.idp_metadata_url.IdpMetadataUrl"
 
 
-class _IdpMetadata_xml(TypedDict):
+class _IdpMetadata_xml(TypedDict, closed=True):
     xml: "str"
 
 

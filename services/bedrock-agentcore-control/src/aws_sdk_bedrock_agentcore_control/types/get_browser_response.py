@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetBrowserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.sandbox_name
 
 
-class GetBrowserResponse(TypedDict):
+class GetBrowserResponse(TypedDict, closed=True):
     browser_id: "aws_sdk_bedrock_agentcore_control.types.browser_id.BrowserId"
     """<p>The unique identifier of the browser.</p>"""
     browser_arn: "aws_sdk_bedrock_agentcore_control.types.browser_arn.BrowserArn"

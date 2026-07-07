@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ChatMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.chat_contact_metrics
     import aws_sdk_connect.types.participant_metrics
 
 
-class ChatMetrics(TypedDict):
+class ChatMetrics(TypedDict, closed=True):
     chat_contact_metrics: NotRequired[
         "aws_sdk_connect.types.chat_contact_metrics.ChatContactMetrics"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#UpdateSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.settings
 
 
-class UpdateSettingsResponse(TypedDict):
+class UpdateSettingsResponse(TypedDict, closed=True):
     settings: NotRequired["aws_sdk_auditmanager.types.settings.Settings"]
     """<p> The current list of settings. </p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#DeleteStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.stream_id
 
 
-class DeleteStreamInput(TypedDict):
+class DeleteStreamInput(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     """<p>The ID of the cluster containing the stream to delete.</p>"""
     stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId"

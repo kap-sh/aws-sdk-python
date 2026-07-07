@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DomainUnitFilterForProject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_unit_id
 
 
-class DomainUnitFilterForProject(TypedDict):
+class DomainUnitFilterForProject(TypedDict, closed=True):
     domain_unit: "aws_sdk_datazone.types.domain_unit_id.DomainUnitId"
     """<p>The domain unit ID to use in the filter.</p>"""
     include_child_domain_units: "bool"

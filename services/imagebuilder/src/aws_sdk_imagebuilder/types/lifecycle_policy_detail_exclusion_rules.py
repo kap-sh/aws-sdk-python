@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LifecyclePolicyDetailExclusionRules``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.lifecycle_policy_detail_exclusion_rules_amis
     import aws_sdk_imagebuilder.types.tag_map
 
 
-class LifecyclePolicyDetailExclusionRules(TypedDict):
+class LifecyclePolicyDetailExclusionRules(TypedDict, closed=True):
     tag_map: NotRequired["aws_sdk_imagebuilder.types.tag_map.TagMap"]
     """<p>Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.</p>"""
     amis: NotRequired[

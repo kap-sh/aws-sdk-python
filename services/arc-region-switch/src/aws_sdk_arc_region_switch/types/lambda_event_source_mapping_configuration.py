@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#LambdaEventSourceMappingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.region_event_source_mapping_map
 
 
-class LambdaEventSourceMappingConfiguration(TypedDict):
+class LambdaEventSourceMappingConfiguration(TypedDict, closed=True):
     timeout_minutes: "int"
     """<p>The timeout value specified for the configuration.</p>"""
     action: "aws_sdk_arc_region_switch.types.event_source_mapping_action.EventSourceMappingAction"

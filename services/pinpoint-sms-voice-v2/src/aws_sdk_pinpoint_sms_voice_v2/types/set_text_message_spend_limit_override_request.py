@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#SetTextMessageSpendLimitOverrideRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.monthly_limit
 
 
-class SetTextMessageSpendLimitOverrideRequest(TypedDict):
+class SetTextMessageSpendLimitOverrideRequest(TypedDict, closed=True):
     monthly_limit: "aws_sdk_pinpoint_sms_voice_v2.types.monthly_limit.MonthlyLimit"
     """<p>The new monthly limit to enforce on text messages.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListAccessPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.iam_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.resource_type
 
 
-class ListAccessPoliciesRequest(TypedDict):
+class ListAccessPoliciesRequest(TypedDict, closed=True):
     identity_type: NotRequired["aws_sdk_iotsitewise.types.identity_type.IdentityType"]
     """<p>The type of identity (IAM Identity Center user, IAM Identity Center group, or IAM user). This parameter is required if you specify <code>identityId</code>.</p>"""
     identity_id: NotRequired["aws_sdk_iotsitewise.types.identity_id.IdentityId"]

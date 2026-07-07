@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelPackageSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.creation_time
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_package_version
 
 
-class ModelPackageSummary(TypedDict):
+class ModelPackageSummary(TypedDict, closed=True):
     model_package_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>The name of the model package.</p>"""
     model_package_group_name: NotRequired[

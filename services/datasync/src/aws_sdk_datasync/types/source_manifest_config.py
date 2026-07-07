@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#SourceManifestConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.s3_manifest_config
 
 
-class SourceManifestConfig(TypedDict):
+class SourceManifestConfig(TypedDict, closed=True):
     s3: "aws_sdk_datasync.types.s3_manifest_config.S3ManifestConfig"
     """<p>Specifies the S3 bucket where you're hosting your manifest.</p>"""
 

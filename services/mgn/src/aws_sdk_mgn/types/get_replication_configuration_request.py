@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#GetReplicationConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.source_server_id
 
 
-class GetReplicationConfigurationRequest(TypedDict):
+class GetReplicationConfigurationRequest(TypedDict, closed=True):
     source_server_id: "aws_sdk_mgn.types.source_server_id.SourceServerID"
     """<p>Request to get Replication Configuration by Source Server ID.</p>"""
     account_id: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]

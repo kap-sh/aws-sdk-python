@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#CapacityReservationTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.arn
     import aws_sdk_workspaces_instances.types.string128
 
 
-class CapacityReservationTarget(TypedDict):
+class CapacityReservationTarget(TypedDict, closed=True):
     capacity_reservation_id: NotRequired[
         "aws_sdk_workspaces_instances.types.string128.String128"
     ]

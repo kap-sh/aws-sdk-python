@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ListDevelopmentSchemaArnsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.next_token
     import aws_sdk_clouddirectory.types.number_results
 
 
-class ListDevelopmentSchemaArnsRequest(TypedDict):
+class ListDevelopmentSchemaArnsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_clouddirectory.types.next_token.NextToken"]
     """<p>The pagination token.</p>"""
     max_results: NotRequired[

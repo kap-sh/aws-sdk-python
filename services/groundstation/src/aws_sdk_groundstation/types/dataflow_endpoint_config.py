@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#DataflowEndpointConfig``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
 
-class DataflowEndpointConfig(TypedDict):
+class DataflowEndpointConfig(TypedDict, closed=True):
     dataflow_endpoint_name: "str"
     """<p>Name of a dataflow endpoint.</p>"""
     dataflow_endpoint_region: NotRequired["str"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#DeleteImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_build_version_arn
 
 
-class DeleteImageRequest(TypedDict):
+class DeleteImageRequest(TypedDict, closed=True):
     image_build_version_arn: (
         "aws_sdk_imagebuilder.types.image_build_version_arn.ImageBuildVersionArn"
     )

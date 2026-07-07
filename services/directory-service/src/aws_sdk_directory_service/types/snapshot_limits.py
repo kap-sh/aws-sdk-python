@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#SnapshotLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.limit
     import aws_sdk_directory_service.types.manual_snapshots_limit_reached
 
 
-class SnapshotLimits(TypedDict):
+class SnapshotLimits(TypedDict, closed=True):
     manual_snapshots_limit: NotRequired["aws_sdk_directory_service.types.limit.Limit"]
     """<p>The maximum number of manual snapshots allowed.</p>"""
     manual_snapshots_current_count: NotRequired[

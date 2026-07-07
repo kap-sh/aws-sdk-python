@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#CreateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.resource_name
 
 
-class CreateOutput(TypedDict):
+class CreateOutput(TypedDict, closed=True):
     name: "aws_sdk_elementalinference.types.resource_name.ResourceName"
     """<p>A name for the output.</p>"""
     output_config: "aws_sdk_elementalinference.types.output_config.OutputConfig"

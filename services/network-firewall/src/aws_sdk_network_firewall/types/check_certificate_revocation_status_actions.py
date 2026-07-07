@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#CheckCertificateRevocationStatusActions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.revocation_check_action
 
 
-class CheckCertificateRevocationStatusActions(TypedDict):
+class CheckCertificateRevocationStatusActions(TypedDict, closed=True):
     revoked_status_action: NotRequired[
         "aws_sdk_network_firewall.types.revocation_check_action.RevocationCheckAction"
     ]

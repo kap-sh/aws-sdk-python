@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#DescribeStepOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.step
 
 
-class DescribeStepOutput(TypedDict):
+class DescribeStepOutput(TypedDict, closed=True):
     step: NotRequired["aws_sdk_emr.types.step.Step"]
     """<p>The step details for the requested step identifier.</p>"""
 

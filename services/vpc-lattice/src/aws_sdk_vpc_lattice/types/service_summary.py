@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ServiceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.dns_entry
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.timestamp
 
 
-class ServiceSummary(TypedDict):
+class ServiceSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_vpc_lattice.types.service_id.ServiceId"]
     """<p>The ID of the service.</p>"""
     name: NotRequired["aws_sdk_vpc_lattice.types.service_name.ServiceName"]

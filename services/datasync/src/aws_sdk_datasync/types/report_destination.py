@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#ReportDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.report_destination_s3
 
 
-class ReportDestination(TypedDict):
+class ReportDestination(TypedDict, closed=True):
     s3: NotRequired["aws_sdk_datasync.types.report_destination_s3.ReportDestinationS3"]
     """<p>Specifies the Amazon S3 bucket where DataSync uploads your task report.</p>"""
 

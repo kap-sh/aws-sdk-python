@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetContainerAPIMetadataResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.container_service_metadata_entry_list
 
 
-class GetContainerAPIMetadataResult(TypedDict):
+class GetContainerAPIMetadataResult(TypedDict, closed=True):
     metadata: NotRequired[
         "aws_sdk_lightsail.types.container_service_metadata_entry_list.ContainerServiceMetadataEntryList"
     ]

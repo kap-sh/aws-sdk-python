@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarnotifications#DeleteTargetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codestar_notifications.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_notifications.types.target_address
 
 
-class DeleteTargetRequest(TypedDict):
+class DeleteTargetRequest(TypedDict, closed=True):
     target_address: "aws_sdk_codestar_notifications.types.target_address.TargetAddress"
     """<p>The Amazon Resource Name (ARN) of the Amazon Q Developer in chat applications topic or Amazon Q Developer in chat applications client to delete.</p>"""
     force_unsubscribe_all: (

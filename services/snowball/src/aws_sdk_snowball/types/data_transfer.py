@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#DataTransfer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.long
 
 
-class DataTransfer(TypedDict):
+class DataTransfer(TypedDict, closed=True):
     bytes_transferred: "aws_sdk_snowball.types.long.Long"
     """<p>The number of bytes transferred between a Snow device and Amazon S3.</p>"""
     objects_transferred: "aws_sdk_snowball.types.long.Long"

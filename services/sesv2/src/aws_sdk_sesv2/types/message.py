@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#Message``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.message_header_list
 
 
-class Message(TypedDict):
+class Message(TypedDict, closed=True):
     subject: "aws_sdk_sesv2.types.content.Content"
     r"""<p>The subject line of the email. The subject line can only contain 7-bit ASCII characters. However, you can specify non-ASCII characters in the subject line by using encoded-word syntax, as described in <a href=\"https://tools.ietf.org/html/rfc2047\">RFC 2047</a>.</p>"""
     body: "aws_sdk_sesv2.types.body.Body"

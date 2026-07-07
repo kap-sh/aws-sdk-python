@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#TLSInspectionConfigurationMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.resource_arn
     import aws_sdk_network_firewall.types.resource_name
 
 
-class TLSInspectionConfigurationMetadata(TypedDict):
+class TLSInspectionConfigurationMetadata(TypedDict, closed=True):
     name: NotRequired["aws_sdk_network_firewall.types.resource_name.ResourceName"]
     """<p>The descriptive name of the TLS inspection configuration. You can't change the name of a TLS inspection configuration after you create it.</p>"""
     arn: NotRequired["aws_sdk_network_firewall.types.resource_arn.ResourceArn"]

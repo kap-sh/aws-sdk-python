@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#RecommendationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.account_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.summaries
 
 
-class RecommendationSummary(TypedDict):
+class RecommendationSummary(TypedDict, closed=True):
     summaries: NotRequired["aws_sdk_compute_optimizer.types.summaries.Summaries"]
     """<p>An array of objects that describe a recommendation summary.</p>"""
     idle_summaries: NotRequired[

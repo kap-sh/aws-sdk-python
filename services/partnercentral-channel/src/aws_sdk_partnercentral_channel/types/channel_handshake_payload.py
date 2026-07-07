@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ChannelHandshakePayload``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_channel.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.start_service_period_payload
 
 
-class _ChannelHandshakePayload_startServicePeriodPayload(TypedDict):
+class _ChannelHandshakePayload_startServicePeriodPayload(TypedDict, closed=True):
     startServicePeriodPayload: "aws_sdk_partnercentral_channel.types.start_service_period_payload.StartServicePeriodPayload"
 
 
-class _ChannelHandshakePayload_revokeServicePeriodPayload(TypedDict):
+class _ChannelHandshakePayload_revokeServicePeriodPayload(TypedDict, closed=True):
     revokeServicePeriodPayload: "aws_sdk_partnercentral_channel.types.revoke_service_period_payload.RevokeServicePeriodPayload"
 
 

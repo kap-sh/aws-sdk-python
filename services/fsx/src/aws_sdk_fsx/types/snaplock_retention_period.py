@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#SnaplockRetentionPeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.retention_period
 
 
-class SnaplockRetentionPeriod(TypedDict):
+class SnaplockRetentionPeriod(TypedDict, closed=True):
     default_retention: NotRequired["aws_sdk_fsx.types.retention_period.RetentionPeriod"]
     """<p>The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. </p>"""
     minimum_retention: NotRequired["aws_sdk_fsx.types.retention_period.RetentionPeriod"]

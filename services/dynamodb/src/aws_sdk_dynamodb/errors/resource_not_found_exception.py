@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ResourceNotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.error_message
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_dynamodb.types.error_message.ErrorMessage"]
     """<p>The resource which is being requested does not exist.</p>"""
 

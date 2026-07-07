@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#ServerlessV2ScalingConfigurationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.double_optional
 
 
-class ServerlessV2ScalingConfigurationInfo(TypedDict):
+class ServerlessV2ScalingConfigurationInfo(TypedDict, closed=True):
     min_capacity: NotRequired["aws_sdk_neptune.types.double_optional.DoubleOptional"]
     """<p>The minimum number of Neptune capacity units (NCUs) for a DB instance in a Neptune Serverless cluster. You can specify NCU values in half-step increments, such as 8, 8.5, 9, and so on.</p>"""
     max_capacity: NotRequired["aws_sdk_neptune.types.double_optional.DoubleOptional"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#SlotDefaultValueSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.slot_default_value_list
 
 
-class SlotDefaultValueSpec(TypedDict):
+class SlotDefaultValueSpec(TypedDict, closed=True):
     default_value_list: "aws_sdk_lex_model_building_service.types.slot_default_value_list.SlotDefaultValueList"
     """<p>The default values for a slot. You can specify more than one default. For example, you can specify a default value to use from a matching context variable, a session attribute, or a fixed value.</p> <p>The default value chosen is selected based on the order that you specify them in the list. For example, if you specify a context variable and a fixed value in that order, Amazon Lex uses the context variable if it is available, else it uses the fixed value.</p>"""
 

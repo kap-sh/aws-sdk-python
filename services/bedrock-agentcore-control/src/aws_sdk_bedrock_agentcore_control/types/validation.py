@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#Validation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -13,17 +15,17 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.string_validation
 
 
-class _Validation_stringValidation(TypedDict):
+class _Validation_stringValidation(TypedDict, closed=True):
     stringValidation: (
         "aws_sdk_bedrock_agentcore_control.types.string_validation.StringValidation"
     )
 
 
-class _Validation_stringListValidation(TypedDict):
+class _Validation_stringListValidation(TypedDict, closed=True):
     stringListValidation: "aws_sdk_bedrock_agentcore_control.types.string_list_validation.StringListValidation"
 
 
-class _Validation_numberValidation(TypedDict):
+class _Validation_numberValidation(TypedDict, closed=True):
     numberValidation: (
         "aws_sdk_bedrock_agentcore_control.types.number_validation.NumberValidation"
     )

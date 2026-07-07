@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#ListAppsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.optional_string
     import aws_sdk_simspaceweaver.types.simulation_app_list
 
 
-class ListAppsOutput(TypedDict):
+class ListAppsOutput(TypedDict, closed=True):
     apps: NotRequired[
         "aws_sdk_simspaceweaver.types.simulation_app_list.SimulationAppList"
     ]

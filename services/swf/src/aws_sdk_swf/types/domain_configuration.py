@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#DomainConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.duration_in_days
 
 
-class DomainConfiguration(TypedDict):
+class DomainConfiguration(TypedDict, closed=True):
     workflow_execution_retention_period_in_days: (
         "aws_sdk_swf.types.duration_in_days.DurationInDays"
     )

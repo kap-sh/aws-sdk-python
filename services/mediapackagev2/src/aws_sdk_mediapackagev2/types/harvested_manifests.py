@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#HarvestedManifests``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.harvested_dash_manifests_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.harvested_low_latency_hls_manifests_list
 
 
-class HarvestedManifests(TypedDict):
+class HarvestedManifests(TypedDict, closed=True):
     hls_manifests: NotRequired[
         "aws_sdk_mediapackagev2.types.harvested_hls_manifests_list.HarvestedHlsManifestsList"
     ]

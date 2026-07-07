@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#H264ColorSpaceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.color_space_passthrough_settings
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.rec709_settings
 
 
-class H264ColorSpaceSettings(TypedDict):
+class H264ColorSpaceSettings(TypedDict, closed=True):
     color_space_passthrough_settings: NotRequired[
         "aws_sdk_medialive.types.color_space_passthrough_settings.ColorSpacePassthroughSettings"
     ]

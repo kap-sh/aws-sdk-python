@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#PolicyComplianceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.aws_account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.time_stamp
 
 
-class PolicyComplianceStatus(TypedDict):
+class PolicyComplianceStatus(TypedDict, closed=True):
     policy_owner: NotRequired["aws_sdk_fms.types.aws_account_id.AWSAccountId"]
     """<p>The Amazon Web Services account that created the Firewall Manager policy.</p>"""
     policy_id: NotRequired["aws_sdk_fms.types.policy_id.PolicyId"]

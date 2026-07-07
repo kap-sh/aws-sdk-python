@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ReviewTemplateLensReview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens_alias
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.timestamp
 
 
-class ReviewTemplateLensReview(TypedDict):
+class ReviewTemplateLensReview(TypedDict, closed=True):
     lens_alias: NotRequired["aws_sdk_wellarchitected.types.lens_alias.LensAlias"]
     lens_arn: NotRequired["aws_sdk_wellarchitected.types.lens_arn.LensArn"]
     """<p>The lens ARN.</p>"""

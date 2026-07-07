@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#JobProgress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.score
 
 
-class JobProgress(TypedDict):
+class JobProgress(TypedDict, closed=True):
     percent_complete: NotRequired["aws_sdk_voice_id.types.score.Score"]
     """<p>Shows the completed percentage of enrollment or registration requests listed in the input file.</p>"""
 

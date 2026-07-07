@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RecommendationJobPayloadConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.recommendation_job_supported_content_types
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class RecommendationJobPayloadConfig(TypedDict):
+class RecommendationJobPayloadConfig(TypedDict, closed=True):
     sample_payload_url: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     """<p>The Amazon Simple Storage Service (Amazon S3) path where the sample payload is stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).</p>"""
     supported_content_types: NotRequired[

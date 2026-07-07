@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AIPromptTemplateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
 
 
 class _AIPromptTemplateConfiguration_textFullAIPromptEditTemplateConfiguration(
-    TypedDict
+    TypedDict, closed=True
 ):
     textFullAIPromptEditTemplateConfiguration: "aws_sdk_qconnect.types.text_full_ai_prompt_edit_template_configuration.TextFullAIPromptEditTemplateConfiguration"
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#UpdateTestGridProjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.test_grid_vpc_config
 
 
-class UpdateTestGridProjectRequest(TypedDict):
+class UpdateTestGridProjectRequest(TypedDict, closed=True):
     project_arn: "aws_sdk_device_farm.types.device_farm_arn.DeviceFarmArn"
     """<p>ARN of the project to update.</p>"""
     name: NotRequired["aws_sdk_device_farm.types.resource_name.ResourceName"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#InputConfigInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.earth_observation_job_arn
     import aws_sdk_sagemaker_geospatial.types.raster_data_collection_query_input
 
 
-class InputConfigInput(TypedDict):
+class InputConfigInput(TypedDict, closed=True):
     previous_earth_observation_job_arn: NotRequired[
         "aws_sdk_sagemaker_geospatial.types.earth_observation_job_arn.EarthObservationJobArn"
     ]

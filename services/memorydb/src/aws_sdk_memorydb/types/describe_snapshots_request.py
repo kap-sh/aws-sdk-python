@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DescribeSnapshotsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.boolean_optional
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class DescribeSnapshotsRequest(TypedDict):
+class DescribeSnapshotsRequest(TypedDict, closed=True):
     cluster_name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>A user-supplied cluster identifier. If this parameter is specified, only snapshots associated with that specific cluster are described.</p>"""
     snapshot_name: NotRequired["aws_sdk_memorydb.types.string.String"]

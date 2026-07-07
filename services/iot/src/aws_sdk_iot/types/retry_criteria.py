@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#RetryCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.retryable_failure_type
 
 
-class RetryCriteria(TypedDict):
+class RetryCriteria(TypedDict, closed=True):
     failure_type: "aws_sdk_iot.types.retryable_failure_type.RetryableFailureType"
     """<p>The type of job execution failures that can initiate a job retry.</p>"""
     number_of_retries: "aws_sdk_iot.types.number_of_retries.NumberOfRetries"

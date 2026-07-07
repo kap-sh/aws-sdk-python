@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Campaign``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.campaign_id
 
 
-class Campaign(TypedDict):
+class Campaign(TypedDict, closed=True):
     campaign_id: NotRequired["aws_sdk_connect.types.campaign_id.CampaignId"]
     """<p>A unique identifier for a campaign.</p>"""
 

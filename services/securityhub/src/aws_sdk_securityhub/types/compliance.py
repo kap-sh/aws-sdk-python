@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Compliance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.associated_standards_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.status_reasons_list
 
 
-class Compliance(TypedDict):
+class Compliance(TypedDict, closed=True):
     status: NotRequired["aws_sdk_securityhub.types.compliance_status.ComplianceStatus"]
     """<p>Typically summarizes the result of a control check.</p> <p>For Security Hub CSPM controls, valid values for <code>Status</code> are as follows.</p> <ul> <li> <ul> <li> <p> <code>PASSED</code> - Standards check passed for all evaluated resources.</p> </li> <li> <p> <code>WARNING</code> - Some information is missing or this check is not supported for your configuration.</p> </li> <li> <p> <code>FAILED</code> - Standards check failed for at least one evaluated resource.</p> </li> <li> <p> <code>NOT_AVAILABLE</code> - Check could not be performed due to a service outage, API error, or because the result of the Config evaluation was <code>NOT_APPLICABLE</code>. If the Config evaluation result was <code>NOT_APPLICABLE</code> for a Security Hub CSPM control, Security Hub CSPM automatically archives the finding after 3 days.</p> </li> </ul> </li> </ul>"""
     related_requirements: NotRequired[

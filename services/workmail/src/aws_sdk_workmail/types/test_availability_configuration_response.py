@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#TestAvailabilityConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.boolean
     import aws_sdk_workmail.types.string
 
 
-class TestAvailabilityConfigurationResponse(TypedDict):
+class TestAvailabilityConfigurationResponse(TypedDict, closed=True):
     test_passed: "aws_sdk_workmail.types.boolean.Boolean"
     """<p>Boolean indicating whether the test passed or failed.</p>"""
     failure_reason: NotRequired["aws_sdk_workmail.types.string.String"]

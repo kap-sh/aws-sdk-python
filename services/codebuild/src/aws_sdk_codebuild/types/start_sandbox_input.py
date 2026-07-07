@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#StartSandboxInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
     import aws_sdk_codebuild.types.sensitive_string
 
 
-class StartSandboxInput(TypedDict):
+class StartSandboxInput(TypedDict, closed=True):
     project_name: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p>The CodeBuild project name.</p>"""
     idempotency_token: NotRequired[

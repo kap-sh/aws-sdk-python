@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#EncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.key_id
 
 
-class EncryptionConfiguration(TypedDict):
+class EncryptionConfiguration(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_network_firewall.types.key_id.KeyId"]
     r"""<p>The ID of the Amazon Web Services Key Management Service (KMS) customer managed key. You can use any of the key identifiers that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id\">Key ID</a> in the <i>Amazon Web Services KMS Developer Guide</i>.</p>"""
     type: "aws_sdk_network_firewall.types.encryption_type.EncryptionType"

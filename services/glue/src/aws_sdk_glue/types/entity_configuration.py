@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#EntityConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.field_definition_map
     import aws_sdk_glue.types.source_configuration
 
 
-class EntityConfiguration(TypedDict):
+class EntityConfiguration(TypedDict, closed=True):
     source_configuration: NotRequired[
         "aws_sdk_glue.types.source_configuration.SourceConfiguration"
     ]

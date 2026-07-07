@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationFlowTransformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_flow_transformation_type
 
 
-class DataIntegrationFlowTransformation(TypedDict):
+class DataIntegrationFlowTransformation(TypedDict, closed=True):
     transformation_type: "aws_sdk_supplychain.types.data_integration_flow_transformation_type.DataIntegrationFlowTransformationType"
     """<p>The DataIntegrationFlow transformation type.</p>"""
     sql_transformation: NotRequired[

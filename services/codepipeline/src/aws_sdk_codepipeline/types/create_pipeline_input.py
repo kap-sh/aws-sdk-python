@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#CreatePipelineInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.tag_list
 
 
-class CreatePipelineInput(TypedDict):
+class CreatePipelineInput(TypedDict, closed=True):
     pipeline: "aws_sdk_codepipeline.types.pipeline_declaration.PipelineDeclaration"
     """<p>Represents the structure of actions and stages to be performed in the pipeline. </p>"""
     tags: NotRequired["aws_sdk_codepipeline.types.tag_list.TagList"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#CreateCacheSecurityGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.tag_list
 
 
-class CreateCacheSecurityGroupMessage(TypedDict):
+class CreateCacheSecurityGroupMessage(TypedDict, closed=True):
     cache_security_group_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     r"""<p>A name for the cache security group. This value is stored as a lowercase string.</p> <p>Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word \"Default\".</p> <p>Example: <code>mysecuritygroup</code> </p>"""
     description: NotRequired["aws_sdk_elasticache.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#DecodeAuthorizationMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 from aws_sdk_sts.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.encoded_message_type
 
 
-class DecodeAuthorizationMessageRequest(TypedDict):
+class DecodeAuthorizationMessageRequest(TypedDict, closed=True):
     encoded_message: "aws_sdk_sts.types.encoded_message_type.encodedMessageType"
     """<p>The encoded message that was returned with the response.</p>"""
 

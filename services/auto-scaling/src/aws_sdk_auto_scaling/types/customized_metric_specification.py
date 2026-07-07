@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#CustomizedMetricSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.target_tracking_metric_data_queries
 
 
-class CustomizedMetricSpecification(TypedDict):
+class CustomizedMetricSpecification(TypedDict, closed=True):
     metric_name: NotRequired["aws_sdk_auto_scaling.types.metric_name.MetricName"]
     r"""<p>The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html\">Metric</a> object that is returned by a call to <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html\">ListMetrics</a>.</p>"""
     namespace: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotjobsdataplane#TerminalStateException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_jobs_data_plane.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_jobs_data_plane.types.error_message
 
 
-class TerminalStateException_(TypedDict):
+class TerminalStateException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_iot_jobs_data_plane.types.error_message.errorMessage"]
 
 

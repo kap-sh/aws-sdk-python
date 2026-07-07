@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

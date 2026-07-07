@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#Processor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.add_keys
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.upper_case_string
 
 
-class Processor(TypedDict):
+class Processor(TypedDict, closed=True):
     add_keys: NotRequired["aws_sdk_cloudwatch_logs.types.add_keys.AddKeys"]
     r"""<p>Use this parameter to include the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-addKeys\"> addKeys</a> processor in your transformer.</p>"""
     copy_value: NotRequired["aws_sdk_cloudwatch_logs.types.copy_value.CopyValue"]

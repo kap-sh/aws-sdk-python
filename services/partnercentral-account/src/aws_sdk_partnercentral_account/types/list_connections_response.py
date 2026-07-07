@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#ListConnectionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.next_token
 
 
-class ListConnectionsResponse(TypedDict):
+class ListConnectionsResponse(TypedDict, closed=True):
     connection_summaries: "aws_sdk_partnercentral_account.types.connection_summary_list.ConnectionSummaryList"
     """<p>A list of connection summaries matching the specified criteria.</p>"""
     next_token: NotRequired["aws_sdk_partnercentral_account.types.next_token.NextToken"]

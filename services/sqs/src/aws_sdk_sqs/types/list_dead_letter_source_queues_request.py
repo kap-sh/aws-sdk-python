@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#ListDeadLetterSourceQueuesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.token
 
 
-class ListDeadLetterSourceQueuesRequest(TypedDict):
+class ListDeadLetterSourceQueuesRequest(TypedDict, closed=True):
     queue_url: "aws_sdk_sqs.types.string.String"
     """<p>The URL of a dead-letter queue.</p> <p>Queue URLs and names are case-sensitive.</p>"""
     next_token: NotRequired["aws_sdk_sqs.types.token.Token"]

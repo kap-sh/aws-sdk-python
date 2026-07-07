@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#CustomExtension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.custom_object_identifier
 
 
-class CustomExtension(TypedDict):
+class CustomExtension(TypedDict, closed=True):
     object_identifier: (
         "aws_sdk_acm_pca.types.custom_object_identifier.CustomObjectIdentifier"
     )

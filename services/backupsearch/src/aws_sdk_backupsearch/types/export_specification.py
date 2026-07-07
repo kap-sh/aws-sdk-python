@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#ExportSpecification``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.s3_export_specification
 
 
-class _ExportSpecification_s3ExportSpecification(TypedDict):
+class _ExportSpecification_s3ExportSpecification(TypedDict, closed=True):
     s3ExportSpecification: (
         "aws_sdk_backupsearch.types.s3_export_specification.S3ExportSpecification"
     )

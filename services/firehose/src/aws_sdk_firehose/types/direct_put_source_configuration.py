@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#DirectPutSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.throughput_hint_in_m_bs
 
 
-class DirectPutSourceConfiguration(TypedDict):
+class DirectPutSourceConfiguration(TypedDict, closed=True):
     throughput_hint_in_m_bs: (
         "aws_sdk_firehose.types.throughput_hint_in_m_bs.ThroughputHintInMBs"
     )

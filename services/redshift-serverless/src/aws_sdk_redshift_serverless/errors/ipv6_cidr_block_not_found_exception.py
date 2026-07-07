@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#Ipv6CidrBlockNotFoundException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError, ServiceError
 
 
-class Ipv6CidrBlockNotFoundException_(TypedDict):
+class Ipv6CidrBlockNotFoundException_(TypedDict, closed=True):
     message: "str"
 
 

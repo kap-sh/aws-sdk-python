@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#DestinationTableConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.string_with_letters_digits_underscores_dots
 
 
-class DestinationTableConfiguration(TypedDict):
+class DestinationTableConfiguration(TypedDict, closed=True):
     destination_table_name: "aws_sdk_firehose.types.string_with_letters_digits_underscores_dots.StringWithLettersDigitsUnderscoresDots"
     """<p> Specifies the name of the Apache Iceberg Table. </p>"""
     destination_database_name: "aws_sdk_firehose.types.string_with_letters_digits_underscores_dots.StringWithLettersDigitsUnderscoresDots"

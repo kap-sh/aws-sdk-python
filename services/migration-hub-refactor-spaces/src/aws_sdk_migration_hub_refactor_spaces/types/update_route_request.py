@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#UpdateRouteRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migration_hub_refactor_spaces.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.route_id
 
 
-class UpdateRouteRequest(TypedDict):
+class UpdateRouteRequest(TypedDict, closed=True):
     environment_identifier: (
         "aws_sdk_migration_hub_refactor_spaces.types.environment_id.EnvironmentId"
     )

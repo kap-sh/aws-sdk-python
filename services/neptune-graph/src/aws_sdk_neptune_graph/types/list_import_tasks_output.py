@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#ListImportTasksOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.pagination_token
 
 
-class ListImportTasksOutput(TypedDict):
+class ListImportTasksOutput(TypedDict, closed=True):
     tasks: "aws_sdk_neptune_graph.types.import_task_summary_list.ImportTaskSummaryList"
     """<p>The requested list of import tasks.</p>"""
     next_token: NotRequired[

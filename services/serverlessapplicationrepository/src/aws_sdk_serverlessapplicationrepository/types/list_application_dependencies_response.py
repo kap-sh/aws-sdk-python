@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.serverlessapplicationrepository#ListApplicationDependenciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_serverlessapplicationrepository.types.__list_of_application_dependency_summary
     import aws_sdk_serverlessapplicationrepository.types.__string
 
 
-class ListApplicationDependenciesResponse(TypedDict):
+class ListApplicationDependenciesResponse(TypedDict, closed=True):
     dependencies: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__list_of_application_dependency_summary.__listOfApplicationDependencySummary"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#UpdateLicenseManagerReportGeneratorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class UpdateLicenseManagerReportGeneratorRequest(TypedDict):
+class UpdateLicenseManagerReportGeneratorRequest(TypedDict, closed=True):
     license_manager_report_generator_arn: "aws_sdk_license_manager.types.string.String"
     """<p>Amazon Resource Name (ARN) of the report generator to update.</p>"""
     report_generator_name: (

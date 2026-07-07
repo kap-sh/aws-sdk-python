@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#PopulateIdMappingTableInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.job_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.uuid
 
 
-class PopulateIdMappingTableInput(TypedDict):
+class PopulateIdMappingTableInput(TypedDict, closed=True):
     id_mapping_table_identifier: "aws_sdk_cleanrooms.types.uuid.UUID"
     """<p>The unique identifier of the ID mapping table that you want to populate.</p>"""
     membership_identifier: (

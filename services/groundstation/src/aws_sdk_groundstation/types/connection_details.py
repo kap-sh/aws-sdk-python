@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ConnectionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.socket_address
 
 
-class ConnectionDetails(TypedDict):
+class ConnectionDetails(TypedDict, closed=True):
     socket_address: "aws_sdk_groundstation.types.socket_address.SocketAddress"
     """<p>A socket address.</p>"""
     mtu: NotRequired["int"]

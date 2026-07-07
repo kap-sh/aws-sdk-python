@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#StopFleetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
 
 
-class StopFleetRequest(TypedDict):
+class StopFleetRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>The name of the fleet.</p>"""
 

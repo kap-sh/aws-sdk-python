@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#DescribeParameterGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.integer_optional
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.string
 
 
-class DescribeParameterGroupsRequest(TypedDict):
+class DescribeParameterGroupsRequest(TypedDict, closed=True):
     parameter_group_names: NotRequired[
         "aws_sdk_dax.types.parameter_group_name_list.ParameterGroupNameList"
     ]

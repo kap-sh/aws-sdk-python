@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ListExecutionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.execution_list
 
 
-class ListExecutionsResponse(TypedDict):
+class ListExecutionsResponse(TypedDict, closed=True):
     executions: "aws_sdk_devops_agent.types.execution_list.ExecutionList"
     """<p>List of executions</p>"""
     next_token: NotRequired["str"]

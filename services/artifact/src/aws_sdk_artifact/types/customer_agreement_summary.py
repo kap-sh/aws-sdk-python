@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#CustomerAgreementSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_artifact.types.agreement_terms
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_artifact.types.timestamp_attribute
 
 
-class CustomerAgreementSummary(TypedDict):
+class CustomerAgreementSummary(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_artifact.types.long_string_attribute.LongStringAttribute"
     ]

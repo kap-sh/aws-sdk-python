@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AttachmentReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.reference_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.reference_value
 
 
-class AttachmentReference(TypedDict):
+class AttachmentReference(TypedDict, closed=True):
     name: NotRequired["aws_sdk_connect.types.reference_key.ReferenceKey"]
     """<p>Identifier of the attachment reference.</p>"""
     value: NotRequired["aws_sdk_connect.types.reference_value.ReferenceValue"]

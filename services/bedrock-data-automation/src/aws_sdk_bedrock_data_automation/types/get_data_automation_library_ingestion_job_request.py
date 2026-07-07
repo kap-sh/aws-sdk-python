@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#GetDataAutomationLibraryIngestionJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.data_automation_library_arn
     import aws_sdk_bedrock_data_automation.types.data_automation_library_ingestion_job_arn
 
 
-class GetDataAutomationLibraryIngestionJobRequest(TypedDict):
+class GetDataAutomationLibraryIngestionJobRequest(TypedDict, closed=True):
     library_arn: "aws_sdk_bedrock_data_automation.types.data_automation_library_arn.DataAutomationLibraryArn"
     """ARN generated at the server side when a DataAutomationLibrary is created"""
     job_arn: "aws_sdk_bedrock_data_automation.types.data_automation_library_ingestion_job_arn.DataAutomationLibraryIngestionJobArn"

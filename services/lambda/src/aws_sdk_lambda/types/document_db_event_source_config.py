@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#DocumentDBEventSourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.collection_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.full_document
 
 
-class DocumentDBEventSourceConfig(TypedDict):
+class DocumentDBEventSourceConfig(TypedDict, closed=True):
     database_name: NotRequired["aws_sdk_lambda.types.database_name.DatabaseName"]
     """<p> The name of the database to consume within the DocumentDB cluster. </p>"""
     collection_name: NotRequired["aws_sdk_lambda.types.collection_name.CollectionName"]

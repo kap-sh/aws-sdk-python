@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#VpcEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.network_interface_list
 
 
-class VpcEndpoint(TypedDict):
+class VpcEndpoint(TypedDict, closed=True):
     vpc_endpoint_id: NotRequired["str"]
     """<p>The connection endpoint ID for connecting to Amazon Redshift Serverless.</p>"""
     vpc_id: NotRequired["str"]

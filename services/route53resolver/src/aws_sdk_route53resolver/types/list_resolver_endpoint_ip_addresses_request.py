@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListResolverEndpointIpAddressesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class ListResolverEndpointIpAddressesRequest(TypedDict):
+class ListResolverEndpointIpAddressesRequest(TypedDict, closed=True):
     resolver_endpoint_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p>The ID of the Resolver endpoint that you want to get IP addresses for.</p>"""
     max_results: NotRequired["aws_sdk_route53resolver.types.max_results.MaxResults"]

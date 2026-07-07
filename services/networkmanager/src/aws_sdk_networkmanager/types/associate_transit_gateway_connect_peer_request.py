@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#AssociateTransitGatewayConnectPeerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkmanager.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.transit_gateway_connect_peer_arn
 
 
-class AssociateTransitGatewayConnectPeerRequest(TypedDict):
+class AssociateTransitGatewayConnectPeerRequest(TypedDict, closed=True):
     global_network_id: "aws_sdk_networkmanager.types.global_network_id.GlobalNetworkId"
     """<p>The ID of the global network.</p>"""
     transit_gateway_connect_peer_arn: "aws_sdk_networkmanager.types.transit_gateway_connect_peer_arn.TransitGatewayConnectPeerArn"

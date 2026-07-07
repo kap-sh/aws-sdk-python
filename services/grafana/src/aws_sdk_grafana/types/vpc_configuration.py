@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#VpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.subnet_ids
 
 
-class VpcConfiguration(TypedDict):
+class VpcConfiguration(TypedDict, closed=True):
     security_group_ids: "aws_sdk_grafana.types.security_group_ids.SecurityGroupIds"
     """<p>The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect. Duplicates not allowed.</p>"""
     subnet_ids: "aws_sdk_grafana.types.subnet_ids.SubnetIds"

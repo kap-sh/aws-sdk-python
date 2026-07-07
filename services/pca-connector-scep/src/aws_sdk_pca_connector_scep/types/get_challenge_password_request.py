@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#GetChallengePasswordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_scep.types.challenge_arn
 
 
-class GetChallengePasswordRequest(TypedDict):
+class GetChallengePasswordRequest(TypedDict, closed=True):
     challenge_arn: "aws_sdk_pca_connector_scep.types.challenge_arn.ChallengeArn"
     """<p>The Amazon Resource Name (ARN) of the challenge.</p>"""
 

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetMapStyleDescriptorResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetMapStyleDescriptorResponse(TypedDict):
+class GetMapStyleDescriptorResponse(TypedDict, closed=True):
     blob: NotRequired["bytes"]
     """<p>Contains the body of the style descriptor.</p>"""
     content_type: NotRequired["str"]

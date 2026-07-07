@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DataStorage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.integer_optional
 
 
-class DataStorage(TypedDict):
+class DataStorage(TypedDict, closed=True):
     maximum: NotRequired["aws_sdk_elasticache.types.integer_optional.IntegerOptional"]
     """<p>The upper limit for data storage the cache is set to use.</p>"""
     minimum: NotRequired["aws_sdk_elasticache.types.integer_optional.IntegerOptional"]

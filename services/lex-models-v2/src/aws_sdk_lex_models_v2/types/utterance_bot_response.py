@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UtteranceBotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.image_response_card
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.utterance_content_type
 
 
-class UtteranceBotResponse(TypedDict):
+class UtteranceBotResponse(TypedDict, closed=True):
     content: NotRequired["aws_sdk_lex_models_v2.types.string.String"]
     """<p>The text of the response to the utterance from the bot.</p>"""
     content_type: NotRequired[

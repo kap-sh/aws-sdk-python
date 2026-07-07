@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#BatchWriteItemInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.return_item_collection_metrics
 
 
-class BatchWriteItemInput(TypedDict):
+class BatchWriteItemInput(TypedDict, closed=True):
     request_items: (
         "aws_sdk_dynamodb.types.batch_write_item_request_map.BatchWriteItemRequestMap"
     )

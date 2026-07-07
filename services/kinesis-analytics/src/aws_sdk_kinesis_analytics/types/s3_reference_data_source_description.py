@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#S3ReferenceDataSourceDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.role_arn
 
 
-class S3ReferenceDataSourceDescription(TypedDict):
+class S3ReferenceDataSourceDescription(TypedDict, closed=True):
     bucket_arn: "aws_sdk_kinesis_analytics.types.bucket_arn.BucketARN"
     """<p>Amazon Resource Name (ARN) of the S3 bucket.</p>"""
     file_key: "aws_sdk_kinesis_analytics.types.file_key.FileKey"

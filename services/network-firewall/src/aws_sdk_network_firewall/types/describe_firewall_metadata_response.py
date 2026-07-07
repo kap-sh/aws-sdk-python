@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#DescribeFirewallMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.description
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.transit_gateway_attachment_id
 
 
-class DescribeFirewallMetadataResponse(TypedDict):
+class DescribeFirewallMetadataResponse(TypedDict, closed=True):
     firewall_arn: NotRequired["aws_sdk_network_firewall.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the firewall.</p>"""
     firewall_policy_arn: NotRequired[

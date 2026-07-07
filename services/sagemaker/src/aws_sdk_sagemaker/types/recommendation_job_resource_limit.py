@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RecommendationJobResourceLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_number_of_tests
     import aws_sdk_sagemaker.types.max_parallel_of_tests
 
 
-class RecommendationJobResourceLimit(TypedDict):
+class RecommendationJobResourceLimit(TypedDict, closed=True):
     max_number_of_tests: NotRequired[
         "aws_sdk_sagemaker.types.max_number_of_tests.MaxNumberOfTests"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#ListTypeVersionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.type_version_summaries
 
 
-class ListTypeVersionsOutput(TypedDict):
+class ListTypeVersionsOutput(TypedDict, closed=True):
     type_version_summaries: NotRequired[
         "aws_sdk_cloudformation.types.type_version_summaries.TypeVersionSummaries"
     ]

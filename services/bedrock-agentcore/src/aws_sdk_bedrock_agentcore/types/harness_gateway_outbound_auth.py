@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessGatewayOutboundAuth``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,15 +10,15 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.o_auth_credential_provider
 
 
-class _HarnessGatewayOutboundAuth_awsIam(TypedDict):
+class _HarnessGatewayOutboundAuth_awsIam(TypedDict, closed=True):
     awsIam: "None"
 
 
-class _HarnessGatewayOutboundAuth_none(TypedDict):
+class _HarnessGatewayOutboundAuth_none(TypedDict, closed=True):
     none: "None"
 
 
-class _HarnessGatewayOutboundAuth_oauth(TypedDict):
+class _HarnessGatewayOutboundAuth_oauth(TypedDict, closed=True):
     oauth: "aws_sdk_bedrock_agentcore.types.o_auth_credential_provider.OAuthCredentialProvider"
 
 

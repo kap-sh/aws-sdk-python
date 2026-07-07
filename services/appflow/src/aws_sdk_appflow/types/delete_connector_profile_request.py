@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#DeleteConnectorProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.connector_profile_name
 
 
-class DeleteConnectorProfileRequest(TypedDict):
+class DeleteConnectorProfileRequest(TypedDict, closed=True):
     connector_profile_name: (
         "aws_sdk_appflow.types.connector_profile_name.ConnectorProfileName"
     )

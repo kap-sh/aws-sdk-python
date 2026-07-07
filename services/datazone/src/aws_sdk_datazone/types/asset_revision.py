@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AssetRevision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class AssetRevision(TypedDict):
+class AssetRevision(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_datazone.types.domain_id.DomainId"]
     """<p>The Amazon DataZone user who created the inventory asset.</p>"""
     id: NotRequired["aws_sdk_datazone.types.asset_id.AssetId"]

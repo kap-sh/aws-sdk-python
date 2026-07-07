@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#CaseCreationLimitExceeded``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_support.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.error_message
 
 
-class CaseCreationLimitExceeded_(TypedDict):
+class CaseCreationLimitExceeded_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_support.types.error_message.ErrorMessage"]
     """<p>An error message that indicates that you have exceeded the number of cases you can have open.</p>"""
 

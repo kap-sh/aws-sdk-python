@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#StatelessRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.rule_definition
 
 
-class StatelessRule(TypedDict):
+class StatelessRule(TypedDict, closed=True):
     rule_definition: "aws_sdk_network_firewall.types.rule_definition.RuleDefinition"
     """<p>Defines the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria. </p>"""
     priority: "aws_sdk_network_firewall.types.priority.Priority"

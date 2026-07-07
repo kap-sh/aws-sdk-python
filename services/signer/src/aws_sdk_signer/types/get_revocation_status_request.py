@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#GetRevocationStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.arn
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.timestamp
 
 
-class GetRevocationStatusRequest(TypedDict):
+class GetRevocationStatusRequest(TypedDict, closed=True):
     signature_timestamp: "aws_sdk_signer.types.timestamp.Timestamp"
     """<p>The timestamp of the signature that validates the profile or job.</p>"""
     platform_id: "aws_sdk_signer.types.platform_id.PlatformId"

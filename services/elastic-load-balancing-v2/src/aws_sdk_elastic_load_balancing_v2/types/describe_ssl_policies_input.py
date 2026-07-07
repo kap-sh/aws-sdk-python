@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#DescribeSSLPoliciesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.ssl_policy_names
 
 
-class DescribeSSLPoliciesInput(TypedDict):
+class DescribeSSLPoliciesInput(TypedDict, closed=True):
     names: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.ssl_policy_names.SslPolicyNames"
     ]

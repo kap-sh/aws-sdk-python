@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#DescribePackageVersionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeartifact.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_version_description
 
 
-class DescribePackageVersionResult(TypedDict):
+class DescribePackageVersionResult(TypedDict, closed=True):
     package_version: "aws_sdk_codeartifact.types.package_version_description.PackageVersionDescription"
     r"""<p> A <a href=\"https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html\">PackageVersionDescription</a> object that contains information about the requested package version. </p>"""
 

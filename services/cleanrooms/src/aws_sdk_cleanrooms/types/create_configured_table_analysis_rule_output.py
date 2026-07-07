@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#CreateConfiguredTableAnalysisRuleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.configured_table_analysis_rule
 
 
-class CreateConfiguredTableAnalysisRuleOutput(TypedDict):
+class CreateConfiguredTableAnalysisRuleOutput(TypedDict, closed=True):
     analysis_rule: "aws_sdk_cleanrooms.types.configured_table_analysis_rule.ConfiguredTableAnalysisRule"
     """<p>The analysis rule that was created for the configured table.</p>"""
 

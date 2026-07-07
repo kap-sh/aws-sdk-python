@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeWorkspaceDirectoriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.describe_workspace_directories_filter_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_directory_name_list
 
 
-class DescribeWorkspaceDirectoriesRequest(TypedDict):
+class DescribeWorkspaceDirectoriesRequest(TypedDict, closed=True):
     directory_ids: NotRequired[
         "aws_sdk_workspaces.types.directory_id_list.DirectoryIdList"
     ]

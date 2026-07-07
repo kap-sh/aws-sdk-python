@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#PutResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.resource_policy_body
 
 
-class PutResourcePolicyRequest(TypedDict):
+class PutResourcePolicyRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_bedrock_agentcore_control.types.bedrock_agentcore_resource_arn.BedrockAgentcoreResourceArn"
     """<p>The Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.</p>"""
     policy: "aws_sdk_bedrock_agentcore_control.types.resource_policy_body.ResourcePolicyBody"

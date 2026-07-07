@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplateRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAssociationForServiceQuotaTemplateRequest(TypedDict):
+class GetAssociationForServiceQuotaTemplateRequest(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#DeleteIngestConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.ingest_configuration_arn
 
 
-class DeleteIngestConfigurationRequest(TypedDict):
+class DeleteIngestConfigurationRequest(TypedDict, closed=True):
     arn: "aws_sdk_ivs_realtime.types.ingest_configuration_arn.IngestConfigurationArn"
     """<p>ARN of the IngestConfiguration.</p>"""
     force: "aws_sdk_ivs_realtime.types.boolean.Boolean"

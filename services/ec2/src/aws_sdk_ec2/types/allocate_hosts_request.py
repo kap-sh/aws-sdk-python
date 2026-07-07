@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AllocateHostsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class AllocateHostsRequest(TypedDict):
+class AllocateHostsRequest(TypedDict, closed=True):
     instance_family: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.</p> <p>If you want the Dedicated Hosts to support a specific instance type only, omit this parameter and specify <b>InstanceType</b> instead. You cannot specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>"""
     tag_specifications: NotRequired[

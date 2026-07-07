@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#StopAssessmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhubstrategy.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.async_task_id
 
 
-class StopAssessmentRequest(TypedDict):
+class StopAssessmentRequest(TypedDict, closed=True):
     assessment_id: "aws_sdk_migrationhubstrategy.types.async_task_id.AsyncTaskId"
     """<p> The <code>assessmentId</code> returned by <a>StartAssessment</a>. </p>"""
 

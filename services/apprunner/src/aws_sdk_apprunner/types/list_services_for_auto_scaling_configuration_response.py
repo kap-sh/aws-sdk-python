@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ListServicesForAutoScalingConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.service_arn_list
 
 
-class ListServicesForAutoScalingConfigurationResponse(TypedDict):
+class ListServicesForAutoScalingConfigurationResponse(TypedDict, closed=True):
     service_arn_list: "aws_sdk_apprunner.types.service_arn_list.ServiceArnList"
     """<p>A list of service ARN records. In a paginated request, the request returns up to <code>MaxResults</code> records for each call.</p>"""
     next_token: NotRequired["aws_sdk_apprunner.types.next_token.NextToken"]

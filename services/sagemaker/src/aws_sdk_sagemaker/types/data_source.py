@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.dataset_source
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_data_source
 
 
-class DataSource(TypedDict):
+class DataSource(TypedDict, closed=True):
     s3_data_source: NotRequired["aws_sdk_sagemaker.types.s3_data_source.S3DataSource"]
     """<p>The S3 location of the data source that is associated with a channel.</p>"""
     file_system_data_source: NotRequired[

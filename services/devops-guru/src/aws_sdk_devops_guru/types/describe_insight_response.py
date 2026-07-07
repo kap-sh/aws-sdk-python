@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeInsightResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.proactive_insight
     import aws_sdk_devops_guru.types.reactive_insight
 
 
-class DescribeInsightResponse(TypedDict):
+class DescribeInsightResponse(TypedDict, closed=True):
     proactive_insight: NotRequired[
         "aws_sdk_devops_guru.types.proactive_insight.ProactiveInsight"
     ]

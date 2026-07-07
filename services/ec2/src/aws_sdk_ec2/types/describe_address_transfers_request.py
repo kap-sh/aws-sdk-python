@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeAddressTransfersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeAddressTransfersRequest(TypedDict):
+class DescribeAddressTransfersRequest(TypedDict, closed=True):
     allocation_ids: NotRequired["aws_sdk_ec2.types.allocation_id_list.AllocationIdList"]
     """<p>The allocation IDs of Elastic IP addresses.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]

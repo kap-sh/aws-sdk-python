@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#DeliveryStreamEncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.awskms_key_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.key_type
 
 
-class DeliveryStreamEncryptionConfiguration(TypedDict):
+class DeliveryStreamEncryptionConfiguration(TypedDict, closed=True):
     key_arn: NotRequired["aws_sdk_firehose.types.awskms_key_arn.AWSKMSKeyARN"]
     """<p>If <code>KeyType</code> is <code>CUSTOMER_MANAGED_CMK</code>, this field contains the ARN of the customer managed CMK. If <code>KeyType</code> is <code>Amazon Web Services_OWNED_CMK</code>, <code>DeliveryStreamEncryptionConfiguration</code> doesn't contain a value for <code>KeyARN</code>.</p>"""
     key_type: NotRequired["aws_sdk_firehose.types.key_type.KeyType"]

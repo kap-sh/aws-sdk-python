@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#CanaryRunStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.canary_run_state
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.string
 
 
-class CanaryRunStatus(TypedDict):
+class CanaryRunStatus(TypedDict, closed=True):
     state: NotRequired["aws_sdk_synthetics.types.canary_run_state.CanaryRunState"]
     """<p>The current state of the run.</p>"""
     state_reason: NotRequired["aws_sdk_synthetics.types.string.String"]

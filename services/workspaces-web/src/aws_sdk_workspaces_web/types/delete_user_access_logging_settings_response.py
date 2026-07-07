@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#DeleteUserAccessLoggingSettingsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteUserAccessLoggingSettingsResponse(TypedDict):
+class DeleteUserAccessLoggingSettingsResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#DescribeLabelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.label_id
 
 
-class DescribeLabelRequest(TypedDict):
+class DescribeLabelRequest(TypedDict, closed=True):
     label_group_name: "aws_sdk_lookoutequipment.types.label_group_name.LabelGroupName"
     """<p> Returns the name of the group containing the label. </p>"""
     label_id: "aws_sdk_lookoutequipment.types.label_id.LabelId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeCompilationJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.compilation_job_arn
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class DescribeCompilationJobResponse(TypedDict):
+class DescribeCompilationJobResponse(TypedDict, closed=True):
     compilation_job_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>The name of the model compilation job.</p>"""
     compilation_job_arn: NotRequired[

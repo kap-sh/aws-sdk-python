@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#BatchGetPolicyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.batch_get_policy_output_list
 
 
-class BatchGetPolicyOutput(TypedDict):
+class BatchGetPolicyOutput(TypedDict, closed=True):
     results: "aws_sdk_verifiedpermissions.types.batch_get_policy_output_list.BatchGetPolicyOutputList"
     """<p>Information about the policies listed in the request that were successfully returned. These results are returned in the order they were requested.</p>"""
     errors: "aws_sdk_verifiedpermissions.types.batch_get_policy_error_list.BatchGetPolicyErrorList"

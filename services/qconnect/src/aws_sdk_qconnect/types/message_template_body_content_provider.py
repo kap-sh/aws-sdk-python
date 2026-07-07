@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#MessageTemplateBodyContentProvider``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.non_empty_unlimited_string
 
 
-class _MessageTemplateBodyContentProvider_content(TypedDict):
+class _MessageTemplateBodyContentProvider_content(TypedDict, closed=True):
     content: "aws_sdk_qconnect.types.non_empty_unlimited_string.NonEmptyUnlimitedString"
 
 

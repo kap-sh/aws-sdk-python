@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#GetResourcePolicyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.policy
 
 
-class GetResourcePolicyOutput(TypedDict):
+class GetResourcePolicyOutput(TypedDict, closed=True):
     policy: "aws_sdk_kinesis.types.policy.Policy"
     """<p>Details of the resource policy. This is formatted as a JSON string.</p>"""
 

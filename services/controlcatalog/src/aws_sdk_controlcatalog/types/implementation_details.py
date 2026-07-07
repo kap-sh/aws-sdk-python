@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ImplementationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.implementation_type
 
 
-class ImplementationDetails(TypedDict):
+class ImplementationDetails(TypedDict, closed=True):
     type: "aws_sdk_controlcatalog.types.implementation_type.ImplementationType"
     """<p>A string that describes a control's implementation type.</p>"""
     identifier: NotRequired[

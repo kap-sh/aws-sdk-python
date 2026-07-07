@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AssociateInstanceStorageConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.association_id
 
 
-class AssociateInstanceStorageConfigResponse(TypedDict):
+class AssociateInstanceStorageConfigResponse(TypedDict, closed=True):
     association_id: NotRequired["aws_sdk_connect.types.association_id.AssociationId"]
     """<p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>"""
 

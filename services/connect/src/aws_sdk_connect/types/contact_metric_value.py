@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ContactMetricValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.double
 
 
-class _ContactMetricValue_Number(TypedDict):
+class _ContactMetricValue_Number(TypedDict, closed=True):
     Number: "aws_sdk_connect.types.double.Double"
 
 

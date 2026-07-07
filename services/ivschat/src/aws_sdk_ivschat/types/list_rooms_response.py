@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#ListRoomsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivschat.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.room_list
 
 
-class ListRoomsResponse(TypedDict):
+class ListRoomsResponse(TypedDict, closed=True):
     rooms: "aws_sdk_ivschat.types.room_list.RoomList"
     """<p>List of the matching rooms (summary information only).</p>"""
     next_token: NotRequired["aws_sdk_ivschat.types.pagination_token.PaginationToken"]

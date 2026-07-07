@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SearchKnowledgeBasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.kb_aws_account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.next_token
 
 
-class SearchKnowledgeBasesRequest(TypedDict):
+class SearchKnowledgeBasesRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.kb_aws_account_id.KbAwsAccountId"
     """<p>The ID of the Amazon Web Services account that contains the knowledge base.</p>"""
     next_token: NotRequired["aws_sdk_quicksight.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#InviteMembersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.account_ids
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class InviteMembersRequest(TypedDict):
+class InviteMembersRequest(TypedDict, closed=True):
     detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
     r"""<p>The unique ID of the detector of the GuardDuty account with which you want to invite members.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
     account_ids: NotRequired["aws_sdk_guardduty.types.account_ids.AccountIds"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#NetworkInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
 
 
-class NetworkInterface(TypedDict):
+class NetworkInterface(TypedDict, closed=True):
     subnet_id: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p>The ID of the subnet.</p>"""
     network_interface_id: NotRequired[

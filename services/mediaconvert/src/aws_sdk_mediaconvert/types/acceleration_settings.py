@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AccelerationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.acceleration_mode
 
 
-class AccelerationSettings(TypedDict):
+class AccelerationSettings(TypedDict, closed=True):
     mode: NotRequired["aws_sdk_mediaconvert.types.acceleration_mode.AccelerationMode"]
     """Specify the conditions when the service will run your job with accelerated transcoding."""
 

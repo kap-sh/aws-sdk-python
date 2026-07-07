@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ListPermissionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.permission_entry_list
 
 
-class ListPermissionsResponse(TypedDict):
+class ListPermissionsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_grafana.types.pagination_token.PaginationToken"]
     """<p>The token to use in a subsequent <code>ListPermissions</code> operation to return the next set of results.</p>"""
     permissions: "aws_sdk_grafana.types.permission_entry_list.PermissionEntryList"

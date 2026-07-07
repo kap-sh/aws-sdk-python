@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#UpdateApprovalRuleTemplateContentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.rule_content_sha256
 
 
-class UpdateApprovalRuleTemplateContentInput(TypedDict):
+class UpdateApprovalRuleTemplateContentInput(TypedDict, closed=True):
     approval_rule_template_name: (
         "aws_sdk_codecommit.types.approval_rule_template_name.ApprovalRuleTemplateName"
     )

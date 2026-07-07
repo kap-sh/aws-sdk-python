@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DBShardGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class DBShardGroup(TypedDict):
+class DBShardGroup(TypedDict, closed=True):
     db_shard_group_resource_id: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The Amazon Web Services Region-unique, immutable identifier for the DB shard group.</p>"""
     db_shard_group_identifier: NotRequired[

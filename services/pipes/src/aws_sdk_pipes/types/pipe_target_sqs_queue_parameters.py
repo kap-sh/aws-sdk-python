@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeTargetSqsQueueParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.message_deduplication_id
     import aws_sdk_pipes.types.message_group_id
 
 
-class PipeTargetSqsQueueParameters(TypedDict):
+class PipeTargetSqsQueueParameters(TypedDict, closed=True):
     message_group_id: NotRequired["aws_sdk_pipes.types.message_group_id.MessageGroupId"]
     """<p>The FIFO message group ID to use as the target.</p>"""
     message_deduplication_id: NotRequired[

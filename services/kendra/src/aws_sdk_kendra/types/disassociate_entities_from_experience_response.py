@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DisassociateEntitiesFromExperienceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.failed_entity_list
 
 
-class DisassociateEntitiesFromExperienceResponse(TypedDict):
+class DisassociateEntitiesFromExperienceResponse(TypedDict, closed=True):
     failed_entity_list: NotRequired[
         "aws_sdk_kendra.types.failed_entity_list.FailedEntityList"
     ]

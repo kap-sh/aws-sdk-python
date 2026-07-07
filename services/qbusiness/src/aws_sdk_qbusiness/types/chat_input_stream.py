@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ChatInputStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness._iter import AnyIterator
 from aws_sdk_qbusiness._protocol.eventstream import Message
@@ -14,31 +16,31 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.text_input_event
 
 
-class _ChatInputStream_configurationEvent(TypedDict):
+class _ChatInputStream_configurationEvent(TypedDict, closed=True):
     configurationEvent: "aws_sdk_qbusiness.types.configuration_event.ConfigurationEvent"
 
 
-class _ChatInputStream_textEvent(TypedDict):
+class _ChatInputStream_textEvent(TypedDict, closed=True):
     textEvent: "aws_sdk_qbusiness.types.text_input_event.TextInputEvent"
 
 
-class _ChatInputStream_attachmentEvent(TypedDict):
+class _ChatInputStream_attachmentEvent(TypedDict, closed=True):
     attachmentEvent: (
         "aws_sdk_qbusiness.types.attachment_input_event.AttachmentInputEvent"
     )
 
 
-class _ChatInputStream_actionExecutionEvent(TypedDict):
+class _ChatInputStream_actionExecutionEvent(TypedDict, closed=True):
     actionExecutionEvent: (
         "aws_sdk_qbusiness.types.action_execution_event.ActionExecutionEvent"
     )
 
 
-class _ChatInputStream_endOfInputEvent(TypedDict):
+class _ChatInputStream_endOfInputEvent(TypedDict, closed=True):
     endOfInputEvent: "aws_sdk_qbusiness.types.end_of_input_event.EndOfInputEvent"
 
 
-class _ChatInputStream_authChallengeResponseEvent(TypedDict):
+class _ChatInputStream_authChallengeResponseEvent(TypedDict, closed=True):
     authChallengeResponseEvent: "aws_sdk_qbusiness.types.auth_challenge_response_event.AuthChallengeResponseEvent"
 
 

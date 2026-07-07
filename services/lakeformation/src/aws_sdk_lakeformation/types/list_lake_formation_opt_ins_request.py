@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#ListLakeFormationOptInsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.data_lake_principal
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.token
 
 
-class ListLakeFormationOptInsRequest(TypedDict):
+class ListLakeFormationOptInsRequest(TypedDict, closed=True):
     principal: NotRequired[
         "aws_sdk_lakeformation.types.data_lake_principal.DataLakePrincipal"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.next_marker
     import aws_sdk_waf_regional.types.tag_info_for_resource
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_waf_regional.types.next_marker.NextMarker"]
     """<p></p>"""
     tag_info_for_resource: NotRequired[

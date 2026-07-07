@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#CreateInstanceAccessControlAttributeConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateInstanceAccessControlAttributeConfigurationResponse(TypedDict):
+class CreateInstanceAccessControlAttributeConfigurationResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListPluginTypeActionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.max_results_integer_for_list_plugin_type_actions
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.plugin_type
 
 
-class ListPluginTypeActionsRequest(TypedDict):
+class ListPluginTypeActionsRequest(TypedDict, closed=True):
     plugin_type: "aws_sdk_qbusiness.types.plugin_type.PluginType"
     """<p>The type of the plugin.</p>"""
     next_token: NotRequired["aws_sdk_qbusiness.types.next_token.NextToken"]

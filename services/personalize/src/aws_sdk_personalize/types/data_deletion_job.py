@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DataDeletionJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.status
 
 
-class DataDeletionJob(TypedDict):
+class DataDeletionJob(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_personalize.types.name.Name"]
     """<p>The name of the data deletion job.</p>"""
     data_deletion_job_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]

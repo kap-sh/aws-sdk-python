@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#SubjectSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.uuid
 
 
-class SubjectSummary(TypedDict):
+class SubjectSummary(TypedDict, closed=True):
     subject_arn: NotRequired["str"]
     """<p>The ARN of the resource.</p>"""
     subject_id: NotRequired["aws_sdk_rolesanywhere.types.uuid.Uuid"]

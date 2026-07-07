@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#CloudHsmServiceException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudhsm.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.string
 
 
-class CloudHsmServiceException_(TypedDict):
+class CloudHsmServiceException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_cloudhsm.types.string.String"]
     """<p>Additional information about the error.</p>"""
     retryable: "aws_sdk_cloudhsm.types.boolean.Boolean"

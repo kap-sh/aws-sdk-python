@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListStudioSessionMappingsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.identity_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class ListStudioSessionMappingsInput(TypedDict):
+class ListStudioSessionMappingsInput(TypedDict, closed=True):
     studio_id: NotRequired["aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"]
     """<p>The ID of the Amazon EMR Studio.</p>"""
     identity_type: NotRequired["aws_sdk_emr.types.identity_type.IdentityType"]

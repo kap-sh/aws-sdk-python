@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ListAssistantsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.next_token
 
 
-class ListAssistantsResponse(TypedDict):
+class ListAssistantsResponse(TypedDict, closed=True):
     assistant_summaries: "aws_sdk_qconnect.types.assistant_list.AssistantList"
     """<p>Information about the assistants.</p>"""
     next_token: NotRequired["aws_sdk_qconnect.types.next_token.NextToken"]

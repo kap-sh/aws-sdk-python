@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AmiAggregationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.severity_counts
 
 
-class AmiAggregationResponse(TypedDict):
+class AmiAggregationResponse(TypedDict, closed=True):
     ami: "aws_sdk_inspector2.types.ami_id.AmiId"
     """<p>The ID of the AMI that findings were aggregated for.</p>"""
     account_id: NotRequired["aws_sdk_inspector2.types.account_id.AccountId"]

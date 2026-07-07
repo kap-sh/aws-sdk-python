@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ListServicesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.next_token
     import aws_sdk_devops_agent.types.service
 
 
-class ListServicesInput(TypedDict):
+class ListServicesInput(TypedDict, closed=True):
     max_results: "int"
     """<p>Maximum number of results to return in a single call.</p>"""
     next_token: NotRequired["aws_sdk_devops_agent.types.next_token.NextToken"]

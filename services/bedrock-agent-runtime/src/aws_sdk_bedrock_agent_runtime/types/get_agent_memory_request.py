@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GetAgentMemoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.agent_alias_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.next_token
 
 
-class GetAgentMemoryRequest(TypedDict):
+class GetAgentMemoryRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"]
     """<p>If the total number of results is greater than the maxItems value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>"""
     max_items: NotRequired["aws_sdk_bedrock_agent_runtime.types.max_results.MaxResults"]

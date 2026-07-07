@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DescribeComputationModelExecutionSummaryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
     import aws_sdk_iotsitewise.types.resolve_to_resource_type
 
 
-class DescribeComputationModelExecutionSummaryRequest(TypedDict):
+class DescribeComputationModelExecutionSummaryRequest(TypedDict, closed=True):
     computation_model_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the computation model.</p>"""
     resolve_to_resource_type: NotRequired[

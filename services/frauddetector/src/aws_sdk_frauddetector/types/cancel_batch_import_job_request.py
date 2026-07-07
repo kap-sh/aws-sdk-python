@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#CancelBatchImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.identifier
 
 
-class CancelBatchImportJobRequest(TypedDict):
+class CancelBatchImportJobRequest(TypedDict, closed=True):
     job_id: "aws_sdk_frauddetector.types.identifier.identifier"
     """<p> The ID of an in-progress batch import job to cancel. </p> <p>Amazon Fraud Detector will throw an error if the batch import job is in <code>FAILED</code>, <code>CANCELED</code>, or <code>COMPLETED</code> state.</p>"""
 

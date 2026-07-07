@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateMemoryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.tags_map
 
 
-class CreateMemoryInput(TypedDict):
+class CreateMemoryInput(TypedDict, closed=True):
     client_token: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.non_empty_string.NonEmptyString"
     ]

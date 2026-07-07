@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#KPIVisualLayoutOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.kpi_visual_standard_layout
 
 
-class KPIVisualLayoutOptions(TypedDict):
+class KPIVisualLayoutOptions(TypedDict, closed=True):
     standard_layout: NotRequired[
         "aws_sdk_quicksight.types.kpi_visual_standard_layout.KPIVisualStandardLayout"
     ]

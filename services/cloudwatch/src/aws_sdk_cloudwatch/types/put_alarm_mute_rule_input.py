@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#PutAlarmMuteRuleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.timestamp
 
 
-class PutAlarmMuteRuleInput(TypedDict):
+class PutAlarmMuteRuleInput(TypedDict, closed=True):
     name: NotRequired["aws_sdk_cloudwatch.types.name.Name"]
     """<p>The name of the alarm mute rule. This name must be unique within your Amazon Web Services account and region.</p>"""
     description: NotRequired[

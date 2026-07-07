@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#RelatedOpsItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class RelatedOpsItem(TypedDict):
+class RelatedOpsItem(TypedDict, closed=True):
     ops_item_id: "aws_sdk_ssm.types.string.String"
     """<p>The ID of an OpsItem related to the current OpsItem.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#OAuthParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.vpc_connection_properties
 
 
-class OAuthParameters(TypedDict):
+class OAuthParameters(TypedDict, closed=True):
     token_provider_url: "aws_sdk_quicksight.types.token_provider_url.TokenProviderUrl"
     """<p>The token endpoint URL of the identity provider.</p>"""
     o_auth_scope: NotRequired["aws_sdk_quicksight.types.o_auth_scope.OAuthScope"]

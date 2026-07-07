@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ResultsSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.optional_long
 
 
-class ResultsSummary(TypedDict):
+class ResultsSummary(TypedDict, closed=True):
     updated_records: NotRequired[
         "aws_sdk_customer_profiles.types.optional_long.optionalLong"
     ]

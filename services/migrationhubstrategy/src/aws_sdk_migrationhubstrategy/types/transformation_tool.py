@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#TransformationTool``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.tranformation_tool_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.transformation_tool_name
 
 
-class TransformationTool(TypedDict):
+class TransformationTool(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_migrationhubstrategy.types.transformation_tool_name.TransformationToolName"
     ]

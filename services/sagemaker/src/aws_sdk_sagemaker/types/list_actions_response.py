@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListActionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.action_summaries
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListActionsResponse(TypedDict):
+class ListActionsResponse(TypedDict, closed=True):
     action_summaries: NotRequired[
         "aws_sdk_sagemaker.types.action_summaries.ActionSummaries"
     ]

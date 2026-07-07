@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DirectorySizeUpdateSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.directory_size
 
 
-class DirectorySizeUpdateSettings(TypedDict):
+class DirectorySizeUpdateSettings(TypedDict, closed=True):
     directory_size: NotRequired[
         "aws_sdk_directory_service.types.directory_size.DirectorySize"
     ]

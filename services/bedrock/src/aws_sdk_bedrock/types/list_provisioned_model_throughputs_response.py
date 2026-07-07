@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListProvisionedModelThroughputsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.pagination_token
     import aws_sdk_bedrock.types.provisioned_model_summaries
 
 
-class ListProvisionedModelThroughputsResponse(TypedDict):
+class ListProvisionedModelThroughputsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_bedrock.types.pagination_token.PaginationToken"]
     """<p>If there are more results than the number you specified in the <code>maxResults</code> field, this value is returned. To see the next batch of results, include this value in the <code>nextToken</code> field in another list request.</p>"""
     provisioned_model_summaries: NotRequired[

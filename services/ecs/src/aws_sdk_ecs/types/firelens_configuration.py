@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#FirelensConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.firelens_configuration_type
 
 
-class FirelensConfiguration(TypedDict):
+class FirelensConfiguration(TypedDict, closed=True):
     type: "aws_sdk_ecs.types.firelens_configuration_type.FirelensConfigurationType"
     """<p>The log router to use. The valid values are <code>fluentd</code> or <code>fluentbit</code>.</p>"""
     options: NotRequired[

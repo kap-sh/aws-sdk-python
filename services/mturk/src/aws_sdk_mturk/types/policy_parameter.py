@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#PolicyParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.parameter_map_entry_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string_list
 
 
-class PolicyParameter(TypedDict):
+class PolicyParameter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_mturk.types.string.String"]
     """<p> Name of the parameter from the list of Review Polices. </p>"""
     values: NotRequired["aws_sdk_mturk.types.string_list.StringList"]

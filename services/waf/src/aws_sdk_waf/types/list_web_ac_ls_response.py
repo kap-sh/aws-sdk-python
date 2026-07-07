@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.waf#ListWebACLsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.next_marker
     import aws_sdk_waf.types.web_acl_summaries
 
 
-class ListWebACLsResponse(TypedDict):
+class ListWebACLsResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_waf.types.next_marker.NextMarker"]
     """<p>If you have more <code>WebACL</code> objects than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>WebACL</code> objects, submit another <code>ListWebACLs</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>"""
     web_ac_ls: NotRequired["aws_sdk_waf.types.web_acl_summaries.WebACLSummaries"]

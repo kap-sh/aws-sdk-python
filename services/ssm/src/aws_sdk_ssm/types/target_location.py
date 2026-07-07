@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#TargetLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.accounts
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class TargetLocation(TypedDict):
+class TargetLocation(TypedDict, closed=True):
     accounts: NotRequired["aws_sdk_ssm.types.accounts.Accounts"]
     """<p>The Amazon Web Services accounts targeted by the current Automation execution.</p>"""
     regions: NotRequired["aws_sdk_ssm.types.regions.Regions"]

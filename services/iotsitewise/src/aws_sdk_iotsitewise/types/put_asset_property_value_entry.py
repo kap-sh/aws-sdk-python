@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#PutAssetPropertyValueEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
 
 
-class PutAssetPropertyValueEntry(TypedDict):
+class PutAssetPropertyValueEntry(TypedDict, closed=True):
     entry_id: "aws_sdk_iotsitewise.types.entry_id.EntryId"
     """<p>The user specified ID for the entry. You can use this ID to identify which entries failed.</p>"""
     asset_id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]

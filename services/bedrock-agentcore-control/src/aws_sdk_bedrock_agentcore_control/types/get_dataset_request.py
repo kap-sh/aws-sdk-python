@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.dataset_id
     import aws_sdk_bedrock_agentcore_control.types.dataset_version
 
 
-class GetDatasetRequest(TypedDict):
+class GetDatasetRequest(TypedDict, closed=True):
     dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId"
     """<p> The unique identifier of the dataset to retrieve. </p>"""
     dataset_version: NotRequired[

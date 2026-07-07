@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#ScaleInPolicyDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__integer
 
 
-class ScaleInPolicyDescription(TypedDict):
+class ScaleInPolicyDescription(TypedDict, closed=True):
     cpu_utilization_percentage: "aws_sdk_kafkaconnect.types.__integer.__integer"
     """<p>Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.</p>"""
 

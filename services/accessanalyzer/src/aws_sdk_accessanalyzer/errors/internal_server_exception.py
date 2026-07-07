@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#InternalServerException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
     retry_after_seconds: NotRequired["int"]
     """<p>The seconds to wait to retry.</p>"""

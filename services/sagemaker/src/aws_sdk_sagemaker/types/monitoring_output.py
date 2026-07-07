@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MonitoringOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.monitoring_s3_output
 
 
-class MonitoringOutput(TypedDict):
+class MonitoringOutput(TypedDict, closed=True):
     s3_output: NotRequired[
         "aws_sdk_sagemaker.types.monitoring_s3_output.MonitoringS3Output"
     ]

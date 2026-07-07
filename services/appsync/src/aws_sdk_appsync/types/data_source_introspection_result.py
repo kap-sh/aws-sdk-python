@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#DataSourceIntrospectionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.data_source_introspection_models
     import aws_sdk_appsync.types.pagination_token
 
 
-class DataSourceIntrospectionResult(TypedDict):
+class DataSourceIntrospectionResult(TypedDict, closed=True):
     models: NotRequired[
         "aws_sdk_appsync.types.data_source_introspection_models.DataSourceIntrospectionModels"
     ]

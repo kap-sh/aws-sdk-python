@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#FsxProtocol``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.fsx_protocol_nfs
     import aws_sdk_datasync.types.fsx_protocol_smb
 
 
-class FsxProtocol(TypedDict):
+class FsxProtocol(TypedDict, closed=True):
     nfs: NotRequired["aws_sdk_datasync.types.fsx_protocol_nfs.FsxProtocolNfs"]
     """<p>Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for OpenZFS file system or FSx for ONTAP file system's storage virtual machine (SVM).</p>"""
     smb: NotRequired["aws_sdk_datasync.types.fsx_protocol_smb.FsxProtocolSmb"]

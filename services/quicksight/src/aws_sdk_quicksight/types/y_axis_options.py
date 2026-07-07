@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#YAxisOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.single_y_axis_option
 
 
-class YAxisOptions(TypedDict):
+class YAxisOptions(TypedDict, closed=True):
     y_axis: "aws_sdk_quicksight.types.single_y_axis_option.SingleYAxisOption"
     """<p>The Y axis type to be used in the chart.</p> <p>If you choose <code>PRIMARY_Y_AXIS</code>, the primary Y Axis is located on the leftmost vertical axis of the chart.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListDeviceInstancesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.integer
     import aws_sdk_device_farm.types.pagination_token
 
 
-class ListDeviceInstancesRequest(TypedDict):
+class ListDeviceInstancesRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_device_farm.types.integer.Integer"]
     """<p>An integer that specifies the maximum number of items you want to return in the API response.</p>"""
     next_token: NotRequired[

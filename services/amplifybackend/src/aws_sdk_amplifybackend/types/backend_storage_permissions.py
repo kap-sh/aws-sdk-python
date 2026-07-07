@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#BackendStoragePermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.list_of_authenticated_element
     import aws_sdk_amplifybackend.types.list_of_un_authenticated_element
 
 
-class BackendStoragePermissions(TypedDict):
+class BackendStoragePermissions(TypedDict, closed=True):
     authenticated: NotRequired[
         "aws_sdk_amplifybackend.types.list_of_authenticated_element.ListOfAuthenticatedElement"
     ]

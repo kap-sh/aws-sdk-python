@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#UpdateServiceSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.box_boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string_list
 
 
-class UpdateServiceSettingsRequest(TypedDict):
+class UpdateServiceSettingsRequest(TypedDict, closed=True):
     s3_bucket_arn: NotRequired["aws_sdk_license_manager.types.string.String"]
     """<p>Amazon Resource Name (ARN) of the Amazon S3 bucket where the License Manager information is stored.</p>"""
     sns_topic_arn: NotRequired["aws_sdk_license_manager.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#EbuTtDDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1_max800
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.ebu_tt_d_fill_line_gap_control
 
 
-class EbuTtDDestinationSettings(TypedDict):
+class EbuTtDDestinationSettings(TypedDict, closed=True):
     copyright_holder: NotRequired[
         "aws_sdk_medialive.types.__string_max1000.__stringMax1000"
     ]

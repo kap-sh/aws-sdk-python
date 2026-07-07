@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#ApacheKafkaClusterDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__string
     import aws_sdk_kafkaconnect.types.vpc_description
 
 
-class ApacheKafkaClusterDescription(TypedDict):
+class ApacheKafkaClusterDescription(TypedDict, closed=True):
     bootstrap_servers: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]
     """<p>The bootstrap servers of the cluster.</p>"""
     vpc: NotRequired["aws_sdk_kafkaconnect.types.vpc_description.VpcDescription"]

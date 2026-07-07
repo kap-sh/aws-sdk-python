@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionExecutionPayloadField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.action_payload_field_value
 
 
-class ActionExecutionPayloadField(TypedDict):
+class ActionExecutionPayloadField(TypedDict, closed=True):
     value: "aws_sdk_qbusiness.types.action_payload_field_value.ActionPayloadFieldValue"
     """<p>The content of a user input field in an plugin action execution payload.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ListOutpostsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.outpost_list_definition
     import aws_sdk_outposts.types.token
 
 
-class ListOutpostsOutput(TypedDict):
+class ListOutpostsOutput(TypedDict, closed=True):
     outposts: NotRequired[
         "aws_sdk_outposts.types.outpost_list_definition.outpostListDefinition"
     ]

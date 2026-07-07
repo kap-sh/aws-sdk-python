@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#OpsItemEventSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class OpsItemEventSummary(TypedDict):
+class OpsItemEventSummary(TypedDict, closed=True):
     ops_item_id: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The ID of the OpsItem.</p>"""
     event_id: NotRequired["aws_sdk_ssm.types.string.String"]

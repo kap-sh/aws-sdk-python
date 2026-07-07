@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateEnvironmentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.glossary_terms
 
 
-class UpdateEnvironmentInput(TypedDict):
+class UpdateEnvironmentInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the domain in which the environment is to be updated.</p>"""
     identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId"

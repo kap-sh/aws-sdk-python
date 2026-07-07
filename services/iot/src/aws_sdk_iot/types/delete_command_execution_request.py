@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteCommandExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.command_execution_id
     import aws_sdk_iot.types.target_arn
 
 
-class DeleteCommandExecutionRequest(TypedDict):
+class DeleteCommandExecutionRequest(TypedDict, closed=True):
     execution_id: "aws_sdk_iot.types.command_execution_id.CommandExecutionId"
     """<p>The unique identifier of the command execution that you want to delete from your account.</p>"""
     target_arn: "aws_sdk_iot.types.target_arn.TargetArn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#HierarchyTypeMismatchException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class HierarchyTypeMismatchException_(TypedDict):
+class HierarchyTypeMismatchException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>Parameter Store doesn't support changing a parameter type in a hierarchy. For example, you can't change a parameter from a <code>String</code> type to a <code>SecureString</code> type. You must create a new, unique parameter.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ram#EnableSharingWithAwsOrganizationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EnableSharingWithAwsOrganizationRequest(TypedDict):
+class EnableSharingWithAwsOrganizationRequest(TypedDict, closed=True):
     pass
 
 

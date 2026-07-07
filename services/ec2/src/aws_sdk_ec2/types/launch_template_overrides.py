@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#LaunchTemplateOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.subnet_id
 
 
-class LaunchTemplateOverrides(TypedDict):
+class LaunchTemplateOverrides(TypedDict, closed=True):
     instance_type: NotRequired["aws_sdk_ec2.types.instance_type.InstanceType"]
     """<p>The instance type.</p>"""
     spot_price: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#RemoveTrustStoreRevocationsOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
 
-class RemoveTrustStoreRevocationsOutput(TypedDict):
+class RemoveTrustStoreRevocationsOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#ParallelDataDataLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.string
 
 
-class ParallelDataDataLocation(TypedDict):
+class ParallelDataDataLocation(TypedDict, closed=True):
     repository_type: "aws_sdk_translate.types.string.String"
     """<p>Describes the repository that contains the parallel data input file.</p>"""
     location: "aws_sdk_translate.types.string.String"

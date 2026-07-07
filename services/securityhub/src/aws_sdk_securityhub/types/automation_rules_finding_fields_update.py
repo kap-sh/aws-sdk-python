@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AutomationRulesFindingFieldsUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.field_map
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.workflow_update
 
 
-class AutomationRulesFindingFieldsUpdate(TypedDict):
+class AutomationRulesFindingFieldsUpdate(TypedDict, closed=True):
     note: NotRequired["aws_sdk_securityhub.types.note_update.NoteUpdate"]
     severity: NotRequired["aws_sdk_securityhub.types.severity_update.SeverityUpdate"]
     verification_state: NotRequired[

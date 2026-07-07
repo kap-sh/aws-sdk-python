@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsGuardDutyDetectorFeaturesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsGuardDutyDetectorFeaturesDetails(TypedDict):
+class AwsGuardDutyDetectorFeaturesDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> Indicates the name of the feature that is activated for the detector. </p>"""
     status: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

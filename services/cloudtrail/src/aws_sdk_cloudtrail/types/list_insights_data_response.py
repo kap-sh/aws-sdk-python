@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListInsightsDataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.events_list
     import aws_sdk_cloudtrail.types.pagination_token
 
 
-class ListInsightsDataResponse(TypedDict):
+class ListInsightsDataResponse(TypedDict, closed=True):
     events: NotRequired["aws_sdk_cloudtrail.types.events_list.EventsList"]
     """<p>A list of events returned based on the InsightSource, DataType or Dimensions specified. The events list is sorted by time. The most recent event is listed first.</p>"""
     next_token: NotRequired["aws_sdk_cloudtrail.types.pagination_token.PaginationToken"]

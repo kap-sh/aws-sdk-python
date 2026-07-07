@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#DeregisterResourceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeregisterResourceResponse(TypedDict):
+class DeregisterResourceResponse(TypedDict, closed=True):
     pass
 
 

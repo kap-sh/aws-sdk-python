@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#SendCustomVerificationEmailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.outbound_message_id
 
 
-class SendCustomVerificationEmailResponse(TypedDict):
+class SendCustomVerificationEmailResponse(TypedDict, closed=True):
     message_id: NotRequired["aws_sdk_sesv2.types.outbound_message_id.OutboundMessageId"]
     """<p>The unique message identifier returned from the <code>SendCustomVerificationEmail</code> operation.</p>"""
 

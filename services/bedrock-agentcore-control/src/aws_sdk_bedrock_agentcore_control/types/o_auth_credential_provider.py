@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#OAuthCredentialProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.o_auth_scopes
 
 
-class OAuthCredentialProvider(TypedDict):
+class OAuthCredentialProvider(TypedDict, closed=True):
     provider_arn: "aws_sdk_bedrock_agentcore_control.types.o_auth_credential_provider_arn.OAuthCredentialProviderArn"
     """<p>The Amazon Resource Name (ARN) of the OAuth credential provider. This ARN identifies the provider in Amazon Web Services.</p>"""
     scopes: "aws_sdk_bedrock_agentcore_control.types.o_auth_scopes.OAuthScopes"

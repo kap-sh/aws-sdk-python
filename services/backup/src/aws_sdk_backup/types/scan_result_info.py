@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ScanResultInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.scan_result_status
 
 
-class ScanResultInfo(TypedDict):
+class ScanResultInfo(TypedDict, closed=True):
     scan_result_status: "aws_sdk_backup.types.scan_result_status.ScanResultStatus"
     """<p>The status of the scan results.</p> <p>Valid values: <code>THREATS_FOUND</code> | <code>NO_THREATS_FOUND</code> | <code>UNKNOWN</code>.</p>"""
 

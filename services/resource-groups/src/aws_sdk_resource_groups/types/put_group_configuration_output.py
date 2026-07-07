@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#PutGroupConfigurationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutGroupConfigurationOutput(TypedDict):
+class PutGroupConfigurationOutput(TypedDict, closed=True):
     pass
 
 

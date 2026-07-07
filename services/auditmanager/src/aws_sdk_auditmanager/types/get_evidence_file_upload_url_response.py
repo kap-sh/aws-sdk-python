@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetEvidenceFileUploadUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.non_empty_string
 
 
-class GetEvidenceFileUploadUrlResponse(TypedDict):
+class GetEvidenceFileUploadUrlResponse(TypedDict, closed=True):
     evidence_file_name: NotRequired[
         "aws_sdk_auditmanager.types.non_empty_string.NonEmptyString"
     ]

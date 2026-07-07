@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalScribeChannelDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe_streaming.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.medical_scribe_participant_role
 
 
-class MedicalScribeChannelDefinition(TypedDict):
+class MedicalScribeChannelDefinition(TypedDict, closed=True):
     channel_id: "aws_sdk_transcribe_streaming.types.medical_scribe_channel_id.MedicalScribeChannelId"
     """<p>Specify the audio channel you want to define.</p>"""
     participant_role: "aws_sdk_transcribe_streaming.types.medical_scribe_participant_role.MedicalScribeParticipantRole"

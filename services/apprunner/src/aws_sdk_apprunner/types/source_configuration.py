@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#SourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.authentication_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.nullable_boolean
 
 
-class SourceConfiguration(TypedDict):
+class SourceConfiguration(TypedDict, closed=True):
     code_repository: NotRequired[
         "aws_sdk_apprunner.types.code_repository.CodeRepository"
     ]

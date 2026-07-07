@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ResourceShareConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.boolean
 
 
-class ResourceShareConfiguration(TypedDict):
+class ResourceShareConfiguration(TypedDict, closed=True):
     retain_sharing_on_account_leave_organization: NotRequired[
         "aws_sdk_ram.types.boolean.Boolean"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#RestoreKeyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.key_arn_or_key_alias_type
 
 
-class RestoreKeyInput(TypedDict):
+class RestoreKeyInput(TypedDict, closed=True):
     key_identifier: "aws_sdk_payment_cryptography.types.key_arn_or_key_alias_type.KeyArnOrKeyAliasType"
     """<p>The <code>KeyARN</code> of the key to be restored within Amazon Web Services Payment Cryptography.</p>"""
 

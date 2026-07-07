@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.notificationscontacts#ListEmailContactsRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListEmailContactsRequest(TypedDict):
+class ListEmailContactsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>"""
     next_token: NotRequired["str"]

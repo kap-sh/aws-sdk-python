@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#InputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.input_starting_position_configuration
 
 
-class InputConfiguration(TypedDict):
+class InputConfiguration(TypedDict, closed=True):
     id: "aws_sdk_kinesis_analytics.types.id.Id"
     r"""<p>Input source ID. You can get this ID by calling the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation.</p>"""
     input_starting_position_configuration: "aws_sdk_kinesis_analytics.types.input_starting_position_configuration.InputStartingPositionConfiguration"

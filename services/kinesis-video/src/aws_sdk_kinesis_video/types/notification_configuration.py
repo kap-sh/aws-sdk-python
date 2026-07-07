@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#NotificationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.notification_destination_config
 
 
-class NotificationConfiguration(TypedDict):
+class NotificationConfiguration(TypedDict, closed=True):
     status: "aws_sdk_kinesis_video.types.configuration_status.ConfigurationStatus"
     """<p>Indicates if a notification configuration is enabled or disabled.</p>"""
     destination_config: "aws_sdk_kinesis_video.types.notification_destination_config.NotificationDestinationConfig"

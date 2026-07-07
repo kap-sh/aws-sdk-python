@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListServerCertificatesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.server_certificate_metadata_list_type
 
 
-class ListServerCertificatesResponse(TypedDict):
+class ListServerCertificatesResponse(TypedDict, closed=True):
     server_certificate_metadata_list: "aws_sdk_iam.types.server_certificate_metadata_list_type.serverCertificateMetadataListType"
     """<p>A list of server certificates.</p>"""
     is_truncated: "aws_sdk_iam.types.boolean_type.booleanType"

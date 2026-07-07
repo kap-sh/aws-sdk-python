@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ArnResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.wildcard_arn
 
 
-class ArnResource(TypedDict):
+class ArnResource(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_vpc_lattice.types.wildcard_arn.WildcardArn"]
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
 

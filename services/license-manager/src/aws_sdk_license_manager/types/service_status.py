@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ServiceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.cross_account_discovery_service_status
     import aws_sdk_license_manager.types.cross_region_discovery_status
 
 
-class ServiceStatus(TypedDict):
+class ServiceStatus(TypedDict, closed=True):
     cross_account_discovery: NotRequired[
         "aws_sdk_license_manager.types.cross_account_discovery_service_status.CrossAccountDiscoveryServiceStatus"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#UploadMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.iso8601_datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.upload_metadata_url
 
 
-class UploadMetadata(TypedDict):
+class UploadMetadata(TypedDict, closed=True):
     url: NotRequired[
         "aws_sdk_connectparticipant.types.upload_metadata_url.UploadMetadataUrl"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssooidc#InvalidRequestException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_oidc.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_oidc.types.invalid_request_exception_reason
 
 
-class InvalidRequestException_(TypedDict):
+class InvalidRequestException_(TypedDict, closed=True):
     error: NotRequired["aws_sdk_sso_oidc.types.error.Error"]
     """<p>Single error code. For this exception the value will be <code>invalid_request</code>.</p>"""
     reason: NotRequired[

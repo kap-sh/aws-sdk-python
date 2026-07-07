@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#KeyValuePair``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class KeyValuePair(TypedDict):
+class KeyValuePair(TypedDict, closed=True):
     key: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>One part of a key-value pair that comprises a tag. A tag key is a general label that acts as a category for more specific tag values.</p>"""
     value: NotRequired["aws_sdk_macie2.types.__string.__string"]

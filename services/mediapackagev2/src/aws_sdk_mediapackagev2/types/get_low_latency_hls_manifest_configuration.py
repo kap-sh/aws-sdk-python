@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#GetLowLatencyHlsManifestConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.uri_path_type
 
 
-class GetLowLatencyHlsManifestConfiguration(TypedDict):
+class GetLowLatencyHlsManifestConfiguration(TypedDict, closed=True):
     manifest_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"
     """<p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>"""
     url: "str"

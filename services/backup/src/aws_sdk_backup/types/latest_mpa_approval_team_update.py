@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#LatestMpaApprovalTeamUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class LatestMpaApprovalTeamUpdate(TypedDict):
+class LatestMpaApprovalTeamUpdate(TypedDict, closed=True):
     mpa_session_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
     """<p>The ARN of the MPA session associated with this update.</p>"""
     status: NotRequired["aws_sdk_backup.types.mpa_session_status.MpaSessionStatus"]

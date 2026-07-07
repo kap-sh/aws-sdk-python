@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ExistingObjectReplication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.existing_object_replication_status
 
 
-class ExistingObjectReplication(TypedDict):
+class ExistingObjectReplication(TypedDict, closed=True):
     status: "aws_sdk_s3.types.existing_object_replication_status.ExistingObjectReplicationStatus"
     """<p>Specifies whether Amazon S3 replicates existing source bucket objects. </p>"""
 

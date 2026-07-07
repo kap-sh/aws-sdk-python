@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#CreateFoundationModelAgreementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.offer_token
 
 
-class CreateFoundationModelAgreementRequest(TypedDict):
+class CreateFoundationModelAgreementRequest(TypedDict, closed=True):
     offer_token: "aws_sdk_bedrock.types.offer_token.OfferToken"
     """<p>An offer token encapsulates the information for an offer.</p>"""
     model_id: "aws_sdk_bedrock.types.bedrock_model_id.BedrockModelId"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AwsJobTimeoutConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.aws_job_timeout_in_progress_timeout_in_minutes
 
 
-class AwsJobTimeoutConfig(TypedDict):
+class AwsJobTimeoutConfig(TypedDict, closed=True):
     in_progress_timeout_in_minutes: NotRequired[
         "aws_sdk_iot.types.aws_job_timeout_in_progress_timeout_in_minutes.AwsJobTimeoutInProgressTimeoutInMinutes"
     ]

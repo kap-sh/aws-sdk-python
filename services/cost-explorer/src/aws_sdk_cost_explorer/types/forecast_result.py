@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ForecastResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.date_interval
     import aws_sdk_cost_explorer.types.generic_string
 
 
-class ForecastResult(TypedDict):
+class ForecastResult(TypedDict, closed=True):
     time_period: NotRequired["aws_sdk_cost_explorer.types.date_interval.DateInterval"]
     """<p>The period of time that the forecast covers.</p>"""
     mean_value: NotRequired["aws_sdk_cost_explorer.types.generic_string.GenericString"]

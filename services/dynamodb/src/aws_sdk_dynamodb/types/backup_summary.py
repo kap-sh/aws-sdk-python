@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#BackupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.backup_arn
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_name
 
 
-class BackupSummary(TypedDict):
+class BackupSummary(TypedDict, closed=True):
     table_name: NotRequired["aws_sdk_dynamodb.types.table_name.TableName"]
     """<p>Name of the table.</p>"""
     table_id: NotRequired["aws_sdk_dynamodb.types.table_id.TableId"]

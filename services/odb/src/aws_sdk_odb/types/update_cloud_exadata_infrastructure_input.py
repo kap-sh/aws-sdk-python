@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.odb#UpdateCloudExadataInfrastructureInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.maintenance_window
     import aws_sdk_odb.types.resource_id_or_arn
 
 
-class UpdateCloudExadataInfrastructureInput(TypedDict):
+class UpdateCloudExadataInfrastructureInput(TypedDict, closed=True):
     cloud_exadata_infrastructure_id: (
         "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
     )

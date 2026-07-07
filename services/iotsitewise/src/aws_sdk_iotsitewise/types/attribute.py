@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#Attribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.default_value
 
 
-class Attribute(TypedDict):
+class Attribute(TypedDict, closed=True):
     default_value: NotRequired["aws_sdk_iotsitewise.types.default_value.DefaultValue"]
     r"""<p>The default value of the asset model property attribute. All assets that you create from the asset model contain this attribute value. You can update an attribute's value after you create an asset. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-attribute-values.html\">Updating attribute values</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
 

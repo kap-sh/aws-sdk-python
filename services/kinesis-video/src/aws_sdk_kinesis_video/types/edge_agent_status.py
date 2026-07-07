@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#EdgeAgentStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.last_recorder_status
     import aws_sdk_kinesis_video.types.last_uploader_status
 
 
-class EdgeAgentStatus(TypedDict):
+class EdgeAgentStatus(TypedDict, closed=True):
     last_recorder_status: NotRequired[
         "aws_sdk_kinesis_video.types.last_recorder_status.LastRecorderStatus"
     ]

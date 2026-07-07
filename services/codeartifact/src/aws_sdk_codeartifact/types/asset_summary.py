@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#AssetSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeartifact.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.long_optional
 
 
-class AssetSummary(TypedDict):
+class AssetSummary(TypedDict, closed=True):
     name: "aws_sdk_codeartifact.types.asset_name.AssetName"
     """<p> The name of the asset. </p>"""
     size: NotRequired["aws_sdk_codeartifact.types.long_optional.LongOptional"]

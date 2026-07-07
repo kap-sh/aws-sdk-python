@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#GetMilestoneInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.milestone_number
     import aws_sdk_wellarchitected.types.workload_id
 
 
-class GetMilestoneInput(TypedDict):
+class GetMilestoneInput(TypedDict, closed=True):
     workload_id: "aws_sdk_wellarchitected.types.workload_id.WorkloadId"
     milestone_number: "aws_sdk_wellarchitected.types.milestone_number.MilestoneNumber"
 

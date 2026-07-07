@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ReverseReplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.source_server_arn
 
 
-class ReverseReplicationResponse(TypedDict):
+class ReverseReplicationResponse(TypedDict, closed=True):
     reversed_direction_source_server_arn: NotRequired[
         "aws_sdk_drs.types.source_server_arn.SourceServerARN"
     ]

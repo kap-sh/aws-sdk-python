@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#RegionOfInterest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.bounding_box
     import aws_sdk_rekognition.types.polygon
 
 
-class RegionOfInterest(TypedDict):
+class RegionOfInterest(TypedDict, closed=True):
     bounding_box: NotRequired["aws_sdk_rekognition.types.bounding_box.BoundingBox"]
     """<p>The box representing a region of interest on screen.</p>"""
     polygon: NotRequired["aws_sdk_rekognition.types.polygon.Polygon"]

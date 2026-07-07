@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#DocumentMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.document_version_metadata
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.timestamp_type
 
 
-class DocumentMetadata(TypedDict):
+class DocumentMetadata(TypedDict, closed=True):
     id: NotRequired["aws_sdk_workdocs.types.resource_id_type.ResourceIdType"]
     """<p>The ID of the document.</p>"""
     creator_id: NotRequired["aws_sdk_workdocs.types.id_type.IdType"]

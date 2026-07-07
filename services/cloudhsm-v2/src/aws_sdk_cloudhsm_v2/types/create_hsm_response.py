@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#CreateHsmResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.hsm
 
 
-class CreateHsmResponse(TypedDict):
+class CreateHsmResponse(TypedDict, closed=True):
     hsm: NotRequired["aws_sdk_cloudhsm_v2.types.hsm.Hsm"]
     """<p>Information about the HSM that was created.</p>"""
 

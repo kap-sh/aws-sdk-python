@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#KubernetesApiCallAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class KubernetesApiCallAction(TypedDict):
+class KubernetesApiCallAction(TypedDict, closed=True):
     request_uri: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The Kubernetes API request URI.</p>"""
     verb: NotRequired["aws_sdk_guardduty.types.string.String"]

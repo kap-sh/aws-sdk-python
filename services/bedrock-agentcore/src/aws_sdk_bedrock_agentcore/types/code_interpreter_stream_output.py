@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CodeInterpreterStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore._iter import AnyIterator
 from aws_sdk_bedrock_agentcore._protocol.eventstream import Message
@@ -16,41 +18,43 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.code_interpreter_result
 
 
-class _CodeInterpreterStreamOutput_result(TypedDict):
+class _CodeInterpreterStreamOutput_result(TypedDict, closed=True):
     result: (
         "aws_sdk_bedrock_agentcore.types.code_interpreter_result.CodeInterpreterResult"
     )
 
 
-class _CodeInterpreterStreamOutput_accessDeniedException(TypedDict):
+class _CodeInterpreterStreamOutput_accessDeniedException(TypedDict, closed=True):
     accessDeniedException: "aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException_"
 
 
-class _CodeInterpreterStreamOutput_conflictException(TypedDict):
+class _CodeInterpreterStreamOutput_conflictException(TypedDict, closed=True):
     conflictException: (
         "aws_sdk_bedrock_agentcore.errors.conflict_exception.ConflictException_"
     )
 
 
-class _CodeInterpreterStreamOutput_internalServerException(TypedDict):
+class _CodeInterpreterStreamOutput_internalServerException(TypedDict, closed=True):
     internalServerException: "aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException_"
 
 
-class _CodeInterpreterStreamOutput_resourceNotFoundException(TypedDict):
+class _CodeInterpreterStreamOutput_resourceNotFoundException(TypedDict, closed=True):
     resourceNotFoundException: "aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException_"
 
 
-class _CodeInterpreterStreamOutput_serviceQuotaExceededException(TypedDict):
+class _CodeInterpreterStreamOutput_serviceQuotaExceededException(
+    TypedDict, closed=True
+):
     serviceQuotaExceededException: "aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException_"
 
 
-class _CodeInterpreterStreamOutput_throttlingException(TypedDict):
+class _CodeInterpreterStreamOutput_throttlingException(TypedDict, closed=True):
     throttlingException: (
         "aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException_"
     )
 
 
-class _CodeInterpreterStreamOutput_validationException(TypedDict):
+class _CodeInterpreterStreamOutput_validationException(TypedDict, closed=True):
     validationException: (
         "aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException_"
     )

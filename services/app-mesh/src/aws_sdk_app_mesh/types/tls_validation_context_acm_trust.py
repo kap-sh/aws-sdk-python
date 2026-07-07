@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#TlsValidationContextAcmTrust``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.certificate_authority_arns
 
 
-class TlsValidationContextAcmTrust(TypedDict):
+class TlsValidationContextAcmTrust(TypedDict, closed=True):
     certificate_authority_arns: (
         "aws_sdk_app_mesh.types.certificate_authority_arns.CertificateAuthorityArns"
     )

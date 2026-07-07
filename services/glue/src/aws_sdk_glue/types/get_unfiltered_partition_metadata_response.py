@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetUnfilteredPartitionMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.partition
 
 
-class GetUnfilteredPartitionMetadataResponse(TypedDict):
+class GetUnfilteredPartitionMetadataResponse(TypedDict, closed=True):
     partition: NotRequired["aws_sdk_glue.types.partition.Partition"]
     """<p>A Partition object containing the partition metadata.</p>"""
     authorized_columns: NotRequired[

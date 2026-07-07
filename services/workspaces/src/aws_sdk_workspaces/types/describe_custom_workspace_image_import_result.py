@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeCustomWorkspaceImageImportResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.custom_workspace_image_import_error_details_list
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_image_id
 
 
-class DescribeCustomWorkspaceImageImportResult(TypedDict):
+class DescribeCustomWorkspaceImageImportResult(TypedDict, closed=True):
     image_id: NotRequired[
         "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId"
     ]

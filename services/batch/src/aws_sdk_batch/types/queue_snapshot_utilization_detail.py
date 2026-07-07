@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#QueueSnapshotUtilizationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.fairshare_utilization_detail
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.quota_share_utilization_detail
 
 
-class QueueSnapshotUtilizationDetail(TypedDict):
+class QueueSnapshotUtilizationDetail(TypedDict, closed=True):
     total_capacity_usage: NotRequired[
         "aws_sdk_batch.types.queue_snapshot_capacity_usage_list.QueueSnapshotCapacityUsageList"
     ]

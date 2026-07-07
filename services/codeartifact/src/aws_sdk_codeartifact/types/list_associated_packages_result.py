@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#ListAssociatedPackagesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.associated_package_list
     import aws_sdk_codeartifact.types.pagination_token
 
 
-class ListAssociatedPackagesResult(TypedDict):
+class ListAssociatedPackagesResult(TypedDict, closed=True):
     packages: NotRequired[
         "aws_sdk_codeartifact.types.associated_package_list.AssociatedPackageList"
     ]

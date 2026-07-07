@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#EvaluateCodeErrorDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.code_errors
     import aws_sdk_appsync.types.error_message
 
 
-class EvaluateCodeErrorDetail(TypedDict):
+class EvaluateCodeErrorDetail(TypedDict, closed=True):
     message: NotRequired["aws_sdk_appsync.types.error_message.ErrorMessage"]
     """<p>The error payload.</p>"""
     code_errors: NotRequired["aws_sdk_appsync.types.code_errors.CodeErrors"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#InvalidTokenException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError, ServiceError
 
 
-class InvalidTokenException_(TypedDict):
+class InvalidTokenException_(TypedDict, closed=True):
     message: "str"
     """<p>The exception message.</p>"""
 

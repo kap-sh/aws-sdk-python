@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#PluginProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.plugin_class_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.uncompressed_plugin_size_in_bytes
 
 
-class PluginProperties(TypedDict):
+class PluginProperties(TypedDict, closed=True):
     name: NotRequired["aws_sdk_opensearch.types.plugin_name.PluginName"]
     """<p>The name of the plugin.</p>"""
     description: NotRequired[

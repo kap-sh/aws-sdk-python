@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#GetVpcOriginResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.vpc_origin
 
 
-class GetVpcOriginResult(TypedDict):
+class GetVpcOriginResult(TypedDict, closed=True):
     vpc_origin: NotRequired["aws_sdk_cloudfront.types.vpc_origin.VpcOrigin"]
     """<p>The VPC origin.</p>"""
     e_tag: NotRequired["aws_sdk_cloudfront.types.string.string"]

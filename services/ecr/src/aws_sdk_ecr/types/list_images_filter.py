@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ListImagesFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_status_filter
     import aws_sdk_ecr.types.tag_status
 
 
-class ListImagesFilter(TypedDict):
+class ListImagesFilter(TypedDict, closed=True):
     tag_status: NotRequired["aws_sdk_ecr.types.tag_status.TagStatus"]
     """<p>The tag status with which to filter your <a>ListImages</a> results.</p>"""
     image_status: NotRequired["aws_sdk_ecr.types.image_status_filter.ImageStatusFilter"]

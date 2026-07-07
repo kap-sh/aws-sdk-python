@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#SubModule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.object_id
     import aws_sdk_codecommit.types.path
 
 
-class SubModule(TypedDict):
+class SubModule(TypedDict, closed=True):
     commit_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]
     """<p>The commit ID that contains the reference to the submodule.</p>"""
     absolute_path: NotRequired["aws_sdk_codecommit.types.path.Path"]

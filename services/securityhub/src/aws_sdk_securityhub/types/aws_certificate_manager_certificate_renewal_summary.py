@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsCertificateManagerCertificateRenewalSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_certificate_manager_certificate_domain_validation_options
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsCertificateManagerCertificateRenewalSummary(TypedDict):
+class AwsCertificateManagerCertificateRenewalSummary(TypedDict, closed=True):
     domain_validation_options: NotRequired[
         "aws_sdk_securityhub.types.aws_certificate_manager_certificate_domain_validation_options.AwsCertificateManagerCertificateDomainValidationOptions"
     ]

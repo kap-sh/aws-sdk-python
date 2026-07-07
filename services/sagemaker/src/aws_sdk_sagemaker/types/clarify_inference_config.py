@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClarifyInferenceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.clarify_content_template
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.clarify_probability_index
 
 
-class ClarifyInferenceConfig(TypedDict):
+class ClarifyInferenceConfig(TypedDict, closed=True):
     features_attribute: NotRequired[
         "aws_sdk_sagemaker.types.clarify_features_attribute.ClarifyFeaturesAttribute"
     ]

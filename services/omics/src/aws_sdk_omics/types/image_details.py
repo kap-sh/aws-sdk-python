@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ImageDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.task_image_digest
     import aws_sdk_omics.types.uri
 
 
-class ImageDetails(TypedDict):
+class ImageDetails(TypedDict, closed=True):
     image: NotRequired["aws_sdk_omics.types.uri.Uri"]
     """<p>The URI of the container image.</p>"""
     image_digest: NotRequired["aws_sdk_omics.types.task_image_digest.TaskImageDigest"]

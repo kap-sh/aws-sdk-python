@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#DnsVerification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.dns_record_type
 
 
-class DnsVerification(TypedDict):
+class DnsVerification(TypedDict, closed=True):
     token: NotRequired["str"]
     """<p>The verification token to include in the DNS record value.</p>"""
     dns_record_name: NotRequired["str"]

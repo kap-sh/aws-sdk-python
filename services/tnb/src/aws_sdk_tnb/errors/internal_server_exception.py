@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#InternalServerException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError, ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
 
 

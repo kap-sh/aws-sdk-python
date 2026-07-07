@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleResourceLinkSharingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.asset_bundle_resource_permissions
 
 
-class AssetBundleResourceLinkSharingConfiguration(TypedDict):
+class AssetBundleResourceLinkSharingConfiguration(TypedDict, closed=True):
     permissions: NotRequired[
         "aws_sdk_quicksight.types.asset_bundle_resource_permissions.AssetBundleResourcePermissions"
     ]

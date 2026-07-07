@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeSourceParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.filter_criteria
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.pipe_source_sqs_queue_parameters
 
 
-class PipeSourceParameters(TypedDict):
+class PipeSourceParameters(TypedDict, closed=True):
     filter_criteria: NotRequired["aws_sdk_pipes.types.filter_criteria.FilterCriteria"]
     r"""<p>The collection of event patterns used to filter events.</p> <p>To remove a filter, specify a <code>FilterCriteria</code> object with an empty array of <code>Filter</code> objects.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html\">Events and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
     kinesis_stream_parameters: NotRequired[

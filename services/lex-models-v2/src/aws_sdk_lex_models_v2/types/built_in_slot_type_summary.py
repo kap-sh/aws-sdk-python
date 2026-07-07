@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BuiltInSlotTypeSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.description
     import aws_sdk_lex_models_v2.types.slot_type_signature
 
 
-class BuiltInSlotTypeSummary(TypedDict):
+class BuiltInSlotTypeSummary(TypedDict, closed=True):
     slot_type_signature: NotRequired[
         "aws_sdk_lex_models_v2.types.slot_type_signature.SlotTypeSignature"
     ]

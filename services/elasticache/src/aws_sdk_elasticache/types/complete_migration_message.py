@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#CompleteMigrationMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class CompleteMigrationMessage(TypedDict):
+class CompleteMigrationMessage(TypedDict, closed=True):
     replication_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The ID of the replication group to which data is being migrated.</p>"""
     force: NotRequired["aws_sdk_elasticache.types.boolean.Boolean"]

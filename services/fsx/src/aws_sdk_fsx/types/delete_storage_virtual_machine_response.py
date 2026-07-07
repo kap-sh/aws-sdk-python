@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteStorageVirtualMachineResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.storage_virtual_machine_id
     import aws_sdk_fsx.types.storage_virtual_machine_lifecycle
 
 
-class DeleteStorageVirtualMachineResponse(TypedDict):
+class DeleteStorageVirtualMachineResponse(TypedDict, closed=True):
     storage_virtual_machine_id: NotRequired[
         "aws_sdk_fsx.types.storage_virtual_machine_id.StorageVirtualMachineId"
     ]

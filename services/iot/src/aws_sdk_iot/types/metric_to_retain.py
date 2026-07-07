@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#MetricToRetain``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.metric_dimension
 
 
-class MetricToRetain(TypedDict):
+class MetricToRetain(TypedDict, closed=True):
     metric: "aws_sdk_iot.types.behavior_metric.BehaviorMetric"
     """<p>What is measured by the behavior.</p>"""
     metric_dimension: NotRequired["aws_sdk_iot.types.metric_dimension.MetricDimension"]

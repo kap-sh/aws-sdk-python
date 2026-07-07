@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#RouteFilterPrefix``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.cidr
 
 
-class RouteFilterPrefix(TypedDict):
+class RouteFilterPrefix(TypedDict, closed=True):
     cidr: NotRequired["aws_sdk_direct_connect.types.cidr.CIDR"]
     """<p>The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.</p>"""
 

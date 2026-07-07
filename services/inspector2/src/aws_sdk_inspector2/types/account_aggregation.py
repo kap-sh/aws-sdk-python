@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AccountAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.account_sort_by
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.sort_order
 
 
-class AccountAggregation(TypedDict):
+class AccountAggregation(TypedDict, closed=True):
     finding_type: NotRequired[
         "aws_sdk_inspector2.types.aggregation_finding_type.AggregationFindingType"
     ]

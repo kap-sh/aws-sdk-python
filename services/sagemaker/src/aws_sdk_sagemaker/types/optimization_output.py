@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#OptimizationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.optimization_container_image
 
 
-class OptimizationOutput(TypedDict):
+class OptimizationOutput(TypedDict, closed=True):
     recommended_inference_image: NotRequired[
         "aws_sdk_sagemaker.types.optimization_container_image.OptimizationContainerImage"
     ]

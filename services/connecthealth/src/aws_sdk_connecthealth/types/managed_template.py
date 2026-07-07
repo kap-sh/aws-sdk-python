@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#ManagedTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connecthealth.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.managed_note_template
 
 
-class ManagedTemplate(TypedDict):
+class ManagedTemplate(TypedDict, closed=True):
     template_type: (
         "aws_sdk_connecthealth.types.managed_note_template.ManagedNoteTemplate"
     )

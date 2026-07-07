@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#RecommendationDisruptionCompliance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string500
 
 
-class RecommendationDisruptionCompliance(TypedDict):
+class RecommendationDisruptionCompliance(TypedDict, closed=True):
     expected_compliance_status: (
         "aws_sdk_resiliencehub.types.compliance_status.ComplianceStatus"
     )

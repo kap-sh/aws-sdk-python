@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#User``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.after_contact_work_configs
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.voice_enhancement_configs
 
 
-class User(TypedDict):
+class User(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.user_id.UserId"]
     """<p>The identifier of the user account.</p>"""
     arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

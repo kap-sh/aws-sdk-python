@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#Authorization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.cognito_config
     import aws_sdk_apigatewayv2.types.none
 
 
-class Authorization(TypedDict):
+class Authorization(TypedDict, closed=True):
     cognito_config: NotRequired[
         "aws_sdk_apigatewayv2.types.cognito_config.CognitoConfig"
     ]

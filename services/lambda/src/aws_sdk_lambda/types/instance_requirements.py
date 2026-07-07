@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#InstanceRequirements``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.architectures_list
     import aws_sdk_lambda.types.instance_type_set
 
 
-class InstanceRequirements(TypedDict):
+class InstanceRequirements(TypedDict, closed=True):
     architectures: NotRequired[
         "aws_sdk_lambda.types.architectures_list.ArchitecturesList"
     ]

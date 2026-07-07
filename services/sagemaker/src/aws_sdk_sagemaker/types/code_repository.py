@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CodeRepository``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.repository_url
 
 
-class CodeRepository(TypedDict):
+class CodeRepository(TypedDict, closed=True):
     repository_url: NotRequired["aws_sdk_sagemaker.types.repository_url.RepositoryUrl"]
     """<p>The URL of the Git repository.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#MultiRegionAccessPointRegionalResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.region_name
 
 
-class MultiRegionAccessPointRegionalResponse(TypedDict):
+class MultiRegionAccessPointRegionalResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_s3_control.types.region_name.RegionName"]
     """<p>The name of the Region in the Multi-Region Access Point.</p>"""
     request_status: NotRequired[

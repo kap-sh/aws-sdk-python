@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#SearchFlowExecutionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotthingsgraph.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.urn
 
 
-class SearchFlowExecutionsRequest(TypedDict):
+class SearchFlowExecutionsRequest(TypedDict, closed=True):
     system_instance_id: "aws_sdk_iotthingsgraph.types.urn.Urn"
     """<p>The ID of the system instance that contains the flow.</p>"""
     flow_execution_id: NotRequired[

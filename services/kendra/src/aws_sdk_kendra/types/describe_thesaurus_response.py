@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DescribeThesaurusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.description
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.timestamp
 
 
-class DescribeThesaurusResponse(TypedDict):
+class DescribeThesaurusResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_kendra.types.thesaurus_id.ThesaurusId"]
     """<p>The identifier of the thesaurus.</p>"""
     index_id: NotRequired["aws_sdk_kendra.types.index_id.IndexId"]

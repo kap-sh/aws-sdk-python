@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#GetChangesetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.change_type
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.timestamp_epoch
 
 
-class GetChangesetResponse(TypedDict):
+class GetChangesetResponse(TypedDict, closed=True):
     changeset_id: NotRequired["aws_sdk_finspace_data.types.changeset_id.ChangesetId"]
     """<p>The unique identifier for a Changeset.</p>"""
     changeset_arn: NotRequired["aws_sdk_finspace_data.types.changeset_arn.ChangesetArn"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DifferentialPrivacyPrivacyBudget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.epsilon
 
 
-class DifferentialPrivacyPrivacyBudget(TypedDict):
+class DifferentialPrivacyPrivacyBudget(TypedDict, closed=True):
     aggregations: "aws_sdk_cleanrooms.types.differential_privacy_privacy_budget_aggregation_list.DifferentialPrivacyPrivacyBudgetAggregationList"
     """<p>This information includes the configured epsilon value and the utility in terms of total aggregations, as well as the remaining aggregations.</p>"""
     epsilon: "aws_sdk_cleanrooms.types.epsilon.Epsilon"

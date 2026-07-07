@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#UpdateAliasInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.alias_id_or_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.routing_strategy
 
 
-class UpdateAliasInput(TypedDict):
+class UpdateAliasInput(TypedDict, closed=True):
     alias_id: NotRequired["aws_sdk_gamelift.types.alias_id_or_arn.AliasIdOrArn"]
     """<p>A unique identifier for the alias that you want to update. You can use either the alias ID or ARN value.</p>"""
     name: NotRequired[

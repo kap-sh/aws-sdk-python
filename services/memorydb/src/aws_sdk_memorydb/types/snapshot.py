@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#Snapshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.cluster_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class Snapshot(TypedDict):
+class Snapshot(TypedDict, closed=True):
     name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The name of the snapshot</p>"""
     status: NotRequired["aws_sdk_memorydb.types.string.String"]

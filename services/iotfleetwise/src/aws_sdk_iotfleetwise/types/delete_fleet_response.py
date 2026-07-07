@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#DeleteFleetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.arn
     import aws_sdk_iotfleetwise.types.fleet_id
 
 
-class DeleteFleetResponse(TypedDict):
+class DeleteFleetResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_iotfleetwise.types.fleet_id.fleetId"]
     """<p>The ID of the deleted fleet.</p>"""
     arn: NotRequired["aws_sdk_iotfleetwise.types.arn.arn"]

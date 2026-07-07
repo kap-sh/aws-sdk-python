@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#AnnotationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.description_string
     import aws_sdk_glue.types.hash_string
 
 
-class AnnotationError(TypedDict):
+class AnnotationError(TypedDict, closed=True):
     profile_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>The Profile ID for the failed annotation.</p>"""
     statistic_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]

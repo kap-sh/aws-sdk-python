@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#OutputFormat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.output_format_type
 
 
-class OutputFormat(TypedDict):
+class OutputFormat(TypedDict, closed=True):
     type: "aws_sdk_bedrock_runtime.types.output_format_type.OutputFormatType"
     """<p> The type of structured output format. </p>"""
     structure: (

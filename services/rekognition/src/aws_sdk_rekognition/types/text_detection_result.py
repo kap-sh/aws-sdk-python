@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#TextDetectionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.text_detection
     import aws_sdk_rekognition.types.timestamp
 
 
-class TextDetectionResult(TypedDict):
+class TextDetectionResult(TypedDict, closed=True):
     timestamp: "aws_sdk_rekognition.types.timestamp.Timestamp"
     """<p>The time, in milliseconds from the start of the video, that the text was detected. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the text first appears.</p>"""
     text_detection: NotRequired[

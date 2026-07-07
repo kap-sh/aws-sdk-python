@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateComputeQuotaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.compute_quota_arn
     import aws_sdk_sagemaker.types.integer
 
 
-class UpdateComputeQuotaResponse(TypedDict):
+class UpdateComputeQuotaResponse(TypedDict, closed=True):
     compute_quota_arn: NotRequired[
         "aws_sdk_sagemaker.types.compute_quota_arn.ComputeQuotaArn"
     ]

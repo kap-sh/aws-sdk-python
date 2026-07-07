@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.tag_key
     import aws_sdk_workspaces_instances.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: NotRequired["aws_sdk_workspaces_instances.types.tag_key.TagKey"]
     """<p>Unique identifier for the tag.</p>"""
     value: NotRequired["aws_sdk_workspaces_instances.types.tag_value.TagValue"]

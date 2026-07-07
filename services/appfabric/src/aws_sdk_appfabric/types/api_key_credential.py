@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#ApiKeyCredential``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.sensitive_string2048
 
 
-class ApiKeyCredential(TypedDict):
+class ApiKeyCredential(TypedDict, closed=True):
     api_key: "aws_sdk_appfabric.types.sensitive_string2048.SensitiveString2048"
     """<p>An API key for an application.</p>"""
 

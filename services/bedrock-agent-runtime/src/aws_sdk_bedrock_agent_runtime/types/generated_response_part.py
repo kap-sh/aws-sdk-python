@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GeneratedResponsePart``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.text_response_part
 
 
-class GeneratedResponsePart(TypedDict):
+class GeneratedResponsePart(TypedDict, closed=True):
     text_response_part: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.text_response_part.TextResponsePart"
     ]

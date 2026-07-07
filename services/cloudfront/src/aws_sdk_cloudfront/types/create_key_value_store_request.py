@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CreateKeyValueStoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.tags
 
 
-class CreateKeyValueStoreRequest(TypedDict):
+class CreateKeyValueStoreRequest(TypedDict, closed=True):
     name: "aws_sdk_cloudfront.types.key_value_store_name.KeyValueStoreName"
     """<p>The name of the key value store. The minimum length is 1 character and the maximum length is 64 characters.</p>"""
     comment: NotRequired[

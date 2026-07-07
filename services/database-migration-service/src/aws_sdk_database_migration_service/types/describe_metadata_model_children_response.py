@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeMetadataModelChildrenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.metadata_model_reference_list
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeMetadataModelChildrenResponse(TypedDict):
+class DescribeMetadataModelChildrenResponse(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>Specifies the unique pagination token that makes it possible to display the next page of metadata model children. If a marker is returned, there are more metadata model children available.</p>"""
     metadata_model_children: NotRequired[

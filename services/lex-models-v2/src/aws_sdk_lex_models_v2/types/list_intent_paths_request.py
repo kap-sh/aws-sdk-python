@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListIntentPathsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class ListIntentPathsRequest(TypedDict):
+class ListIntentPathsRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The identifier for the bot for which you want to retrieve intent path metrics.</p>"""
     start_date_time: "aws_sdk_lex_models_v2.types.timestamp.Timestamp"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#CrawlFilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.pattern_object_filter_configuration
 
 
-class CrawlFilterConfiguration(TypedDict):
+class CrawlFilterConfiguration(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent.types.crawl_filter_configuration_type.CrawlFilterConfigurationType"
     """<p>The type of filtering that you want to apply to certain objects or content of the data source. For example, the <code>PATTERN</code> type is regular expression patterns you can apply to filter your content.</p>"""
     pattern_object_filter: NotRequired[

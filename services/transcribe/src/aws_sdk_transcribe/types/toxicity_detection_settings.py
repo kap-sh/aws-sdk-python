@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#ToxicityDetectionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.toxicity_categories
 
 
-class ToxicityDetectionSettings(TypedDict):
+class ToxicityDetectionSettings(TypedDict, closed=True):
     toxicity_categories: (
         "aws_sdk_transcribe.types.toxicity_categories.ToxicityCategories"
     )

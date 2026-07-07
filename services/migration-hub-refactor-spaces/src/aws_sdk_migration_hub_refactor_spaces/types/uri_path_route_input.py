@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#UriPathRouteInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migration_hub_refactor_spaces.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.uri_path
 
 
-class UriPathRouteInput(TypedDict):
+class UriPathRouteInput(TypedDict, closed=True):
     source_path: "aws_sdk_migration_hub_refactor_spaces.types.uri_path.UriPath"
     """<p>This is the path that Refactor Spaces uses to match traffic. Paths must start with <code>/</code> and are relative to the base of the application. To use path parameters in the source path, add a variable in curly braces. For example, the resource path {user} represents a path parameter called 'user'.</p>"""
     activation_state: "aws_sdk_migration_hub_refactor_spaces.types.route_activation_state.RouteActivationState"

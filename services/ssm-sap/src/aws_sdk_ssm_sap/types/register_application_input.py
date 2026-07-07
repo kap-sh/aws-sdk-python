@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#RegisterApplicationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_sap.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.tag_map
 
 
-class RegisterApplicationInput(TypedDict):
+class RegisterApplicationInput(TypedDict, closed=True):
     application_id: "aws_sdk_ssm_sap.types.application_id.ApplicationId"
     """<p>The ID of the application.</p>"""
     application_type: "aws_sdk_ssm_sap.types.application_type.ApplicationType"

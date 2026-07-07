@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#CreateConfigurationProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appconfig.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.validator_list
 
 
-class CreateConfigurationProfileRequest(TypedDict):
+class CreateConfigurationProfileRequest(TypedDict, closed=True):
     application_id: "aws_sdk_appconfig.types.id.Id"
     """<p>The application ID.</p>"""
     name: "aws_sdk_appconfig.types.long_name.LongName"

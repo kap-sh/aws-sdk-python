@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CancelDataQualityRulesetEvaluationRunResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelDataQualityRulesetEvaluationRunResponse(TypedDict):
+class CancelDataQualityRulesetEvaluationRunResponse(TypedDict, closed=True):
     pass
 
 

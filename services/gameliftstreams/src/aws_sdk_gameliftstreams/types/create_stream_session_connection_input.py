@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#CreateStreamSessionConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_gameliftstreams.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.signal_request
 
 
-class CreateStreamSessionConnectionInput(TypedDict):
+class CreateStreamSessionConnectionInput(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_gameliftstreams.types.client_token.ClientToken"]
     """<p> A unique identifier that represents a client request. The request is idempotent, which ensures that an API request completes only once. When users send a request, Amazon GameLift Streams automatically populates this field. </p>"""
     identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ListWorkspaceServiceAccountTokensRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.pagination_token
     import aws_sdk_grafana.types.workspace_id
 
 
-class ListWorkspaceServiceAccountTokensRequest(TypedDict):
+class ListWorkspaceServiceAccountTokensRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of tokens to include in the results.</p>"""
     next_token: NotRequired["aws_sdk_grafana.types.pagination_token.PaginationToken"]

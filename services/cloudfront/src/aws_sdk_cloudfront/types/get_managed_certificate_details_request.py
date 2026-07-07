@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#GetManagedCertificateDetailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class GetManagedCertificateDetailsRequest(TypedDict):
+class GetManagedCertificateDetailsRequest(TypedDict, closed=True):
     identifier: "aws_sdk_cloudfront.types.string.string"
     """<p>The identifier of the distribution tenant. You can specify the ARN, ID, or name of the distribution tenant.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#SipMediaApplicationCall``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.guid_string
 
 
-class SipMediaApplicationCall(TypedDict):
+class SipMediaApplicationCall(TypedDict, closed=True):
     transaction_id: NotRequired["aws_sdk_chime_sdk_voice.types.guid_string.GuidString"]
     """<p>The call's transaction ID.</p>"""
 

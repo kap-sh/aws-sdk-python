@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#PricingDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.integer
 
 
-class PricingDetail(TypedDict):
+class PricingDetail(TypedDict, closed=True):
     count: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The number of reservations available for the price.</p>"""
     price: NotRequired["aws_sdk_ec2.types.double.Double"]

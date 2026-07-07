@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#SetDefaultMessageFeedbackEnabledRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name_or_arn
 
 
-class SetDefaultMessageFeedbackEnabledRequest(TypedDict):
+class SetDefaultMessageFeedbackEnabledRequest(TypedDict, closed=True):
     configuration_set_name: "aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name_or_arn.ConfigurationSetNameOrArn"
     """<p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>"""
     message_feedback_enabled: "bool"

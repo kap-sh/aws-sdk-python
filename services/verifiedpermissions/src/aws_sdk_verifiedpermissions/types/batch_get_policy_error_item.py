@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#BatchGetPolicyErrorItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.batch_get_policy_error_code
 
 
-class BatchGetPolicyErrorItem(TypedDict):
+class BatchGetPolicyErrorItem(TypedDict, closed=True):
     code: "aws_sdk_verifiedpermissions.types.batch_get_policy_error_code.BatchGetPolicyErrorCode"
     """<p>The error code that was returned.</p>"""
     policy_store_id: "str"

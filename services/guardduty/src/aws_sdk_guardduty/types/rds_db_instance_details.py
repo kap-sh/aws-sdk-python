@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#RdsDbInstanceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
     import aws_sdk_guardduty.types.tags
 
 
-class RdsDbInstanceDetails(TypedDict):
+class RdsDbInstanceDetails(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The identifier associated to the database instance that was involved in the finding.</p>"""
     engine: NotRequired["aws_sdk_guardduty.types.string.String"]

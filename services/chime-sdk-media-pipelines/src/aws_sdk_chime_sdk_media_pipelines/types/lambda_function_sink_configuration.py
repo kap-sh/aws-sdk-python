@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#LambdaFunctionSinkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.arn
 
 
-class LambdaFunctionSinkConfiguration(TypedDict):
+class LambdaFunctionSinkConfiguration(TypedDict, closed=True):
     insights_target: NotRequired["aws_sdk_chime_sdk_media_pipelines.types.arn.Arn"]
     """<p>The ARN of the sink.</p>"""
 

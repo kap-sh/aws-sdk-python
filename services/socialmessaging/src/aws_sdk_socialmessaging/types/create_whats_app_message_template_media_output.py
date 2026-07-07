@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#CreateWhatsAppMessageTemplateMediaOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CreateWhatsAppMessageTemplateMediaOutput(TypedDict):
+class CreateWhatsAppMessageTemplateMediaOutput(TypedDict, closed=True):
     meta_header_handle: NotRequired["str"]
     """<p>The handle assigned to the uploaded media by Meta, used to reference the media in templates.</p>"""
 

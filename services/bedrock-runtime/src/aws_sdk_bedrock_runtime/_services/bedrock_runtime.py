@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#AmazonBedrockFrontendService``."""
 
 import warnings
-from typing import Any, Iterable, Optional, TypedDict
+from typing import Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 from aws_sdk_bedrock_runtime._auth._identity import Credentials
@@ -36,7 +36,7 @@ from aws_sdk_bedrock_runtime._services._pipeline import (
 )
 
 
-class BedrockRuntimeClientConfig(TypedDict, total=False):
+class BedrockRuntimeClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

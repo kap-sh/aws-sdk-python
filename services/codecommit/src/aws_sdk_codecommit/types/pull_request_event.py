@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#PullRequestEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.approval_rule_event_metadata
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.pull_request_status_changed_event_metadata
 
 
-class PullRequestEvent(TypedDict):
+class PullRequestEvent(TypedDict, closed=True):
     pull_request_id: NotRequired[
         "aws_sdk_codecommit.types.pull_request_id.PullRequestId"
     ]

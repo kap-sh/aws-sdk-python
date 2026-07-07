@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#PortRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.port_number
 
 
-class PortRange(TypedDict):
+class PortRange(TypedDict, closed=True):
     from_port: NotRequired["aws_sdk_global_accelerator.types.port_number.PortNumber"]
     """<p>The first port in the range of ports, inclusive.</p>"""
     to_port: NotRequired["aws_sdk_global_accelerator.types.port_number.PortNumber"]

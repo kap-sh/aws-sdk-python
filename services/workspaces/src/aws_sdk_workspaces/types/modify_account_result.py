@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ModifyAccountResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.message
 
 
-class ModifyAccountResult(TypedDict):
+class ModifyAccountResult(TypedDict, closed=True):
     message: NotRequired["aws_sdk_workspaces.types.message.Message"]
     """<p>The text message to describe the status of BYOL modification.</p>"""
 

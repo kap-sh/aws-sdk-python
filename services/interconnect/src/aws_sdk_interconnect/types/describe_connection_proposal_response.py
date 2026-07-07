@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#DescribeConnectionProposalResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.provider
 
 
-class DescribeConnectionProposalResponse(TypedDict):
+class DescribeConnectionProposalResponse(TypedDict, closed=True):
     bandwidth: "aws_sdk_interconnect.types.connection_bandwidth.ConnectionBandwidth"
     """<p>The bandwidth of the proposed <a>Connection</a>. </p>"""
     environment_id: "aws_sdk_interconnect.types.environment_id.EnvironmentId"

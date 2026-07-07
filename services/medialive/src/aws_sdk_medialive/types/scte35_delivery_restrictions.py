@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Scte35DeliveryRestrictions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.scte35_archive_allowed_flag
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.scte35_web_delivery_allowed_flag
 
 
-class Scte35DeliveryRestrictions(TypedDict):
+class Scte35DeliveryRestrictions(TypedDict, closed=True):
     archive_allowed_flag: NotRequired[
         "aws_sdk_medialive.types.scte35_archive_allowed_flag.Scte35ArchiveAllowedFlag"
     ]

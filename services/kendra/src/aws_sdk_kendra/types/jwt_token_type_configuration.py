@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#JwtTokenTypeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.user_name_attribute_field
 
 
-class JwtTokenTypeConfiguration(TypedDict):
+class JwtTokenTypeConfiguration(TypedDict, closed=True):
     key_location: "aws_sdk_kendra.types.key_location.KeyLocation"
     """<p>The location of the key.</p>"""
     url: NotRequired["aws_sdk_kendra.types.url.Url"]

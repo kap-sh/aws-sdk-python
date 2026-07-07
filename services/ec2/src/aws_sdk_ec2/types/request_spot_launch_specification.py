@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#RequestSpotLaunchSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.subnet_id
 
 
-class RequestSpotLaunchSpecification(TypedDict):
+class RequestSpotLaunchSpecification(TypedDict, closed=True):
     security_group_ids: NotRequired[
         "aws_sdk_ec2.types.request_spot_launch_specification_security_group_id_list.RequestSpotLaunchSpecificationSecurityGroupIdList"
     ]

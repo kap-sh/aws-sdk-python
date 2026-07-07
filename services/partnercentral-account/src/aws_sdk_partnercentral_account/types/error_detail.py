@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#ErrorDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.profile_validation_error_reason
 
 
-class ErrorDetail(TypedDict):
+class ErrorDetail(TypedDict, closed=True):
     locale: "str"
     """<p>The locale or language code for the error message.</p>"""
     message: "str"

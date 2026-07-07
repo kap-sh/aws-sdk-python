@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#PinVerificationAttributes``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.visa_pin_verification
 
 
-class _PinVerificationAttributes_VisaPin(TypedDict):
+class _PinVerificationAttributes_VisaPin(TypedDict, closed=True):
     VisaPin: "aws_sdk_payment_cryptography_data.types.visa_pin_verification.VisaPinVerification"
 
 
-class _PinVerificationAttributes_Ibm3624Pin(TypedDict):
+class _PinVerificationAttributes_Ibm3624Pin(TypedDict, closed=True):
     Ibm3624Pin: "aws_sdk_payment_cryptography_data.types.ibm3624_pin_verification.Ibm3624PinVerification"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pivoted_label_list
 
 
-class PivotConfiguration(TypedDict):
+class PivotConfiguration(TypedDict, closed=True):
     label_column_name: NotRequired["aws_sdk_quicksight.types.column_name.ColumnName"]
     """<p>The name of the column that contains the labels to be pivoted into separate columns.</p>"""
     pivoted_labels: "aws_sdk_quicksight.types.pivoted_label_list.PivotedLabelList"

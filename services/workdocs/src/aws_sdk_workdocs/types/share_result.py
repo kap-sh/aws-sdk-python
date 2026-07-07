@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#ShareResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.id_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.share_status_type
 
 
-class ShareResult(TypedDict):
+class ShareResult(TypedDict, closed=True):
     principal_id: NotRequired["aws_sdk_workdocs.types.id_type.IdType"]
     """<p>The ID of the principal.</p>"""
     invitee_principal_id: NotRequired["aws_sdk_workdocs.types.id_type.IdType"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#Property``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError, SerializationError
 
@@ -13,33 +15,33 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.view_sun_elevation_input
 
 
-class _Property_EoCloudCover(TypedDict):
+class _Property_EoCloudCover(TypedDict, closed=True):
     EoCloudCover: (
         "aws_sdk_sagemaker_geospatial.types.eo_cloud_cover_input.EoCloudCoverInput"
     )
 
 
-class _Property_ViewOffNadir(TypedDict):
+class _Property_ViewOffNadir(TypedDict, closed=True):
     ViewOffNadir: (
         "aws_sdk_sagemaker_geospatial.types.view_off_nadir_input.ViewOffNadirInput"
     )
 
 
-class _Property_ViewSunAzimuth(TypedDict):
+class _Property_ViewSunAzimuth(TypedDict, closed=True):
     ViewSunAzimuth: (
         "aws_sdk_sagemaker_geospatial.types.view_sun_azimuth_input.ViewSunAzimuthInput"
     )
 
 
-class _Property_ViewSunElevation(TypedDict):
+class _Property_ViewSunElevation(TypedDict, closed=True):
     ViewSunElevation: "aws_sdk_sagemaker_geospatial.types.view_sun_elevation_input.ViewSunElevationInput"
 
 
-class _Property_Platform(TypedDict):
+class _Property_Platform(TypedDict, closed=True):
     Platform: "aws_sdk_sagemaker_geospatial.types.platform_input.PlatformInput"
 
 
-class _Property_LandsatCloudCoverLand(TypedDict):
+class _Property_LandsatCloudCoverLand(TypedDict, closed=True):
     LandsatCloudCoverLand: "aws_sdk_sagemaker_geospatial.types.landsat_cloud_cover_land_input.LandsatCloudCoverLandInput"
 
 

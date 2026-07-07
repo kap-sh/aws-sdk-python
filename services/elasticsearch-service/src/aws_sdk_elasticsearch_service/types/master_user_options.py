@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#MasterUserOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.username
 
 
-class MasterUserOptions(TypedDict):
+class MasterUserOptions(TypedDict, closed=True):
     master_user_arn: NotRequired["aws_sdk_elasticsearch_service.types.arn.ARN"]
     """<p>ARN for the master user (if IAM is enabled).</p>"""
     master_user_name: NotRequired[

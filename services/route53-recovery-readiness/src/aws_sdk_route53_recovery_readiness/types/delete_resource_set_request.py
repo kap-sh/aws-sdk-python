@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#DeleteResourceSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__string
 
 
-class DeleteResourceSetRequest(TypedDict):
+class DeleteResourceSetRequest(TypedDict, closed=True):
     resource_set_name: "aws_sdk_route53_recovery_readiness.types.__string.__string"
     """<p>Name of a resource set.</p>"""
 

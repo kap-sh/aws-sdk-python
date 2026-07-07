@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ReactStartCodegenJobData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.api_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.react_codegen_dependencies
 
 
-class ReactStartCodegenJobData(TypedDict):
+class ReactStartCodegenJobData(TypedDict, closed=True):
     module: NotRequired["aws_sdk_amplifyuibuilder.types.js_module.JSModule"]
     """<p>The JavaScript module type.</p>"""
     target: NotRequired["aws_sdk_amplifyuibuilder.types.js_target.JSTarget"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#GetCustomActionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chatbot.types.custom_action
 
 
-class GetCustomActionResult(TypedDict):
+class GetCustomActionResult(TypedDict, closed=True):
     custom_action: NotRequired["aws_sdk_chatbot.types.custom_action.CustomAction"]
     """<p>Returns the custom action.</p>"""
 

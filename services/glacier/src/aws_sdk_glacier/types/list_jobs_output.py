@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#ListJobsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.job_list
     import aws_sdk_glacier.types.string
 
 
-class ListJobsOutput(TypedDict):
+class ListJobsOutput(TypedDict, closed=True):
     job_list: NotRequired["aws_sdk_glacier.types.job_list.JobList"]
     """<p>A list of job objects. Each job object contains metadata describing the job.</p>"""
     marker: NotRequired["aws_sdk_glacier.types.string.string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#GetOutpostInstanceTypesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.instance_type_list_definition
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.token
 
 
-class GetOutpostInstanceTypesOutput(TypedDict):
+class GetOutpostInstanceTypesOutput(TypedDict, closed=True):
     instance_types: NotRequired[
         "aws_sdk_outposts.types.instance_type_list_definition.InstanceTypeListDefinition"
     ]

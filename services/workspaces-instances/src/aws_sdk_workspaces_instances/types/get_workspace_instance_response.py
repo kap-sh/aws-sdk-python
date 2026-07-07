@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#GetWorkspaceInstanceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.billing_configuration
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.workspace_instance_id
 
 
-class GetWorkspaceInstanceResponse(TypedDict):
+class GetWorkspaceInstanceResponse(TypedDict, closed=True):
     workspace_instance_errors: NotRequired[
         "aws_sdk_workspaces_instances.types.workspace_instance_errors.WorkspaceInstanceErrors"
     ]

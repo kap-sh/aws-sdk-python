@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#JobWorkerExecutorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.polling_account_list
     import aws_sdk_codepipeline.types.polling_service_principal_list
 
 
-class JobWorkerExecutorConfiguration(TypedDict):
+class JobWorkerExecutorConfiguration(TypedDict, closed=True):
     polling_accounts: NotRequired[
         "aws_sdk_codepipeline.types.polling_account_list.PollingAccountList"
     ]

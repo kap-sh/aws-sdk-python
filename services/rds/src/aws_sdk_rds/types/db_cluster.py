@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DBCluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -42,7 +42,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.write_forwarding_status
 
 
-class DBCluster(TypedDict):
+class DBCluster(TypedDict, closed=True):
     allocated_storage: NotRequired["aws_sdk_rds.types.integer_optional.IntegerOptional"]
     """<p> <code>AllocatedStorage</code> specifies the allocated storage size in gibibytes (GiB). For Aurora, <code>AllocatedStorage</code> can vary because Aurora DB cluster storage size adjusts as needed.</p>"""
     availability_zones: NotRequired[

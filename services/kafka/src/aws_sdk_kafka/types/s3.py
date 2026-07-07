@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#S3``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__boolean
     import aws_sdk_kafka.types.__string
 
 
-class S3(TypedDict):
+class S3(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_kafka.types.__string.__string"]
     enabled: NotRequired["aws_sdk_kafka.types.__boolean.__boolean"]
     prefix: NotRequired["aws_sdk_kafka.types.__string.__string"]

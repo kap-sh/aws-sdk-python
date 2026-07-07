@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#CreateDataLakeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.tag_list
 
 
-class CreateDataLakeRequest(TypedDict):
+class CreateDataLakeRequest(TypedDict, closed=True):
     configurations: "aws_sdk_securitylake.types.data_lake_configuration_list.DataLakeConfigurationList"
     """<p>Specify the Region or Regions that will contribute data to the rollup region.</p>"""
     meta_store_manager_role_arn: "aws_sdk_securitylake.types.role_arn.RoleArn"

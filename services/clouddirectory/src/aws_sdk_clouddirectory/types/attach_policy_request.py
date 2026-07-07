@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#AttachPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.object_reference
 
 
-class AttachPolicyRequest(TypedDict):
+class AttachPolicyRequest(TypedDict, closed=True):
     directory_arn: "aws_sdk_clouddirectory.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where both objects reside. For more information, see <a>arns</a>.</p>"""
     policy_reference: "aws_sdk_clouddirectory.types.object_reference.ObjectReference"

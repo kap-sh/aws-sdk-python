@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListAppsListsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.apps_lists_data
     import aws_sdk_fms.types.pagination_token
 
 
-class ListAppsListsResponse(TypedDict):
+class ListAppsListsResponse(TypedDict, closed=True):
     apps_lists: NotRequired["aws_sdk_fms.types.apps_lists_data.AppsListsData"]
     """<p>An array of <code>AppsListDataSummary</code> objects.</p>"""
     next_token: NotRequired["aws_sdk_fms.types.pagination_token.PaginationToken"]

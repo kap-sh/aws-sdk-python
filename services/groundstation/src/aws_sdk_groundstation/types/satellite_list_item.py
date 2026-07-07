@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#SatelliteListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.ephemeris_meta_data
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
 
 
-class SatelliteListItem(TypedDict):
+class SatelliteListItem(TypedDict, closed=True):
     satellite_id: NotRequired["aws_sdk_groundstation.types.uuid.Uuid"]
     """<p>UUID of a satellite.</p>"""
     satellite_arn: NotRequired["aws_sdk_groundstation.types.satellite_arn.satelliteArn"]

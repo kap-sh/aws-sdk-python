@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#GetSolFunctionPackageContentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.package_content_type
     import aws_sdk_tnb.types.vnf_pkg_id
 
 
-class GetSolFunctionPackageContentInput(TypedDict):
+class GetSolFunctionPackageContentInput(TypedDict, closed=True):
     vnf_pkg_id: "aws_sdk_tnb.types.vnf_pkg_id.VnfPkgId"
     """<p>ID of the function package.</p>"""
     accept: "aws_sdk_tnb.types.package_content_type.PackageContentType"

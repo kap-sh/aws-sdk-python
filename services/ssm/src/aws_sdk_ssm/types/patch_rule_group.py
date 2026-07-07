@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PatchRuleGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_rule_list
 
 
-class PatchRuleGroup(TypedDict):
+class PatchRuleGroup(TypedDict, closed=True):
     patch_rules: "aws_sdk_ssm.types.patch_rule_list.PatchRuleList"
     """<p>The rules that make up the rule group.</p>"""
 

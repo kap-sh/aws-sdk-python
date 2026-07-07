@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DataProductRevision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.created_at
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class DataProductRevision(TypedDict):
+class DataProductRevision(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_datazone.types.domain_id.DomainId"]
     """<p>The ID of the domain where the data product revision lives.</p>"""
     id: NotRequired["aws_sdk_datazone.types.data_product_id.DataProductId"]

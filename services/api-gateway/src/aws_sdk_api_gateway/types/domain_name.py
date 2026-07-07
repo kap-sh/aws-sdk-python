@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#DomainName``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.domain_name_status
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.timestamp
 
 
-class DomainName(TypedDict):
+class DomainName(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The custom domain name as an API host name, for example, <code>my-api.example.com</code>.</p>"""
     domain_name_id: NotRequired["aws_sdk_api_gateway.types.string.String"]

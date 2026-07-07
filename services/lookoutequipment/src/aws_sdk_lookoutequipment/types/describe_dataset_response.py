@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#DescribeDatasetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.data_quality_summary
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.timestamp
 
 
-class DescribeDatasetResponse(TypedDict):
+class DescribeDatasetResponse(TypedDict, closed=True):
     dataset_name: NotRequired["aws_sdk_lookoutequipment.types.dataset_name.DatasetName"]
     """<p>The name of the dataset being described. </p>"""
     dataset_arn: NotRequired["aws_sdk_lookoutequipment.types.dataset_arn.DatasetArn"]

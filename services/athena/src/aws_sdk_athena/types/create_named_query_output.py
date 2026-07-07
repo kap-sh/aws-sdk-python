@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CreateNamedQueryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.named_query_id
 
 
-class CreateNamedQueryOutput(TypedDict):
+class CreateNamedQueryOutput(TypedDict, closed=True):
     named_query_id: NotRequired["aws_sdk_athena.types.named_query_id.NamedQueryId"]
     """<p>The unique ID of the query.</p>"""
 

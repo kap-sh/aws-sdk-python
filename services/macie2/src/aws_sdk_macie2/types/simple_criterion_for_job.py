@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#SimpleCriterionForJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.simple_criterion_key_for_job
 
 
-class SimpleCriterionForJob(TypedDict):
+class SimpleCriterionForJob(TypedDict, closed=True):
     comparator: NotRequired["aws_sdk_macie2.types.job_comparator.JobComparator"]
     """<p>The operator to use in the condition. Valid values are EQ (equals) and NE (not equals).</p>"""
     key: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pricing#PriceList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pricing.types.currency_code
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pricing.types.region_code
 
 
-class PriceList(TypedDict):
+class PriceList(TypedDict, closed=True):
     price_list_arn: NotRequired["aws_sdk_pricing.types.price_list_arn.PriceListArn"]
     r"""<p>The unique identifier that maps to where your Price List files are located. <code>PriceListArn</code> can be obtained from the <a href=\"https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html\"> <code>ListPriceList</code> </a> response. </p>"""
     region_code: NotRequired["aws_sdk_pricing.types.region_code.RegionCode"]

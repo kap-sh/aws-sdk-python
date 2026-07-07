@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ServiceView``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.service_view_name
 
 
-class ServiceView(TypedDict):
+class ServiceView(TypedDict, closed=True):
     service_view_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the service view.</p>"""
     service_view_name: NotRequired[

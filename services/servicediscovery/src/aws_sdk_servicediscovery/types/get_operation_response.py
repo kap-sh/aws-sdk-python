@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#GetOperationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.operation
 
 
-class GetOperationResponse(TypedDict):
+class GetOperationResponse(TypedDict, closed=True):
     operation: NotRequired["aws_sdk_servicediscovery.types.operation.Operation"]
     """<p>A complex type that contains information about the operation.</p>"""
 

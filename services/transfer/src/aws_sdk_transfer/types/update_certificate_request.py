@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#UpdateCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.description
 
 
-class UpdateCertificateRequest(TypedDict):
+class UpdateCertificateRequest(TypedDict, closed=True):
     certificate_id: "aws_sdk_transfer.types.certificate_id.CertificateId"
     """<p>The identifier of the certificate object that you are updating.</p>"""
     active_date: NotRequired["aws_sdk_transfer.types.cert_date.CertDate"]

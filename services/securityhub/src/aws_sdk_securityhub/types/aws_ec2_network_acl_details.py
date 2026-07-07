@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2NetworkAclDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_network_acl_association_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2NetworkAclDetails(TypedDict):
+class AwsEc2NetworkAclDetails(TypedDict, closed=True):
     is_default: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether this is the default network ACL for the VPC.</p>"""
     network_acl_id: NotRequired[

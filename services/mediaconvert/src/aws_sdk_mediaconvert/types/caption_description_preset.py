@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#CaptionDescriptionPreset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.language_code
 
 
-class CaptionDescriptionPreset(TypedDict):
+class CaptionDescriptionPreset(TypedDict, closed=True):
     custom_language_code: NotRequired[
         "aws_sdk_mediaconvert.types.__string_pattern_a_za_z23_a_za_z.__stringPatternAZaZ23AZaZ"
     ]

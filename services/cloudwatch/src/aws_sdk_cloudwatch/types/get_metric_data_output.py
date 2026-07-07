@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#GetMetricDataOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.next_token
 
 
-class GetMetricDataOutput(TypedDict):
+class GetMetricDataOutput(TypedDict, closed=True):
     metric_data_results: NotRequired[
         "aws_sdk_cloudwatch.types.metric_data_results.MetricDataResults"
     ]

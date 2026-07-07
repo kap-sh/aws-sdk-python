@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#NatGatewayConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class NatGatewayConfiguration(TypedDict):
+class NatGatewayConfiguration(TypedDict, closed=True):
     active_connection_count: NotRequired["int"]
     """<p>The number of active connections through the NAT Gateway.</p>"""
     packets_in_from_source: NotRequired["int"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ListProviderServicesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.entity_name
     import aws_sdk_entityresolution.types.next_token
 
 
-class ListProviderServicesInput(TypedDict):
+class ListProviderServicesInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_entityresolution.types.next_token.NextToken"]
     """<p>The pagination token from the previous API call.</p>"""
     max_results: NotRequired["int"]

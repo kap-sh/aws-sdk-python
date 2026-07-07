@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#VmwareTag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.vmware_tag_name
 
 
-class VmwareTag(TypedDict):
+class VmwareTag(TypedDict, closed=True):
     vmware_category: NotRequired[
         "aws_sdk_backup_gateway.types.vmware_category.VmwareCategory"
     ]

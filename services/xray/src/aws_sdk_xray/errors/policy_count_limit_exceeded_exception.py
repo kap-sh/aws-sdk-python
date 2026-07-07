@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#PolicyCountLimitExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_xray.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.error_message
 
 
-class PolicyCountLimitExceededException_(TypedDict):
+class PolicyCountLimitExceededException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_xray.types.error_message.ErrorMessage"]
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetContactAttributesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.attributes
 
 
-class GetContactAttributesResponse(TypedDict):
+class GetContactAttributesResponse(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_connect.types.attributes.Attributes"]
     """<p>Information about the attributes.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationAutomationRuleCategory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.question_rule_category_automation_label
 
 
-class EvaluationAutomationRuleCategory(TypedDict):
+class EvaluationAutomationRuleCategory(TypedDict, closed=True):
     category: "aws_sdk_connect.types.question_rule_category_automation_label.QuestionRuleCategoryAutomationLabel"
     """<p>A category label.</p>"""
     condition: "aws_sdk_connect.types.question_rule_category_automation_condition.QuestionRuleCategoryAutomationCondition"

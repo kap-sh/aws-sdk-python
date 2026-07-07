@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListEnforcedGuardrailsConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.pagination_token
 
 
-class ListEnforcedGuardrailsConfigurationResponse(TypedDict):
+class ListEnforcedGuardrailsConfigurationResponse(TypedDict, closed=True):
     guardrails_config: "aws_sdk_bedrock.types.account_enforced_guardrails_output_configuration.AccountEnforcedGuardrailsOutputConfiguration"
     """<p>Array of AccountEnforcedGuardrailOutputConfiguration objects.</p>"""
     next_token: NotRequired["aws_sdk_bedrock.types.pagination_token.PaginationToken"]

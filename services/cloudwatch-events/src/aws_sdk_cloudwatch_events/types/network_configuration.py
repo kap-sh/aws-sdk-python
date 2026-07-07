@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#NetworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.aws_vpc_configuration
 
 
-class NetworkConfiguration(TypedDict):
+class NetworkConfiguration(TypedDict, closed=True):
     awsvpc_configuration: NotRequired[
         "aws_sdk_cloudwatch_events.types.aws_vpc_configuration.AwsVpcConfiguration"
     ]

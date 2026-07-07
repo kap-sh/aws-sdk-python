@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ResultConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.acl_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.result_output_location
 
 
-class ResultConfiguration(TypedDict):
+class ResultConfiguration(TypedDict, closed=True):
     output_location: NotRequired[
         "aws_sdk_athena.types.result_output_location.ResultOutputLocation"
     ]

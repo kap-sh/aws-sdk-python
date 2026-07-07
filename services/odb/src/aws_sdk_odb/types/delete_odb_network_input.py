@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DeleteOdbNetworkInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id_or_arn
 
 
-class DeleteOdbNetworkInput(TypedDict):
+class DeleteOdbNetworkInput(TypedDict, closed=True):
     odb_network_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
     """<p>The unique identifier of the ODB network to delete.</p>"""
     delete_associated_resources: "bool"

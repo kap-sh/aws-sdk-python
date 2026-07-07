@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#OnInputLifecycle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.events
     import aws_sdk_iot_events.types.transition_events
 
 
-class OnInputLifecycle(TypedDict):
+class OnInputLifecycle(TypedDict, closed=True):
     events: NotRequired["aws_sdk_iot_events.types.events.Events"]
     """<p>Specifies the actions performed when the <code>condition</code> evaluates to TRUE.</p>"""
     transition_events: NotRequired[

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#CanaryEntity``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
 
-class CanaryEntity(TypedDict):
+class CanaryEntity(TypedDict, closed=True):
     canary_name: "str"
     """<p>The name of the CloudWatch Synthetics canary.</p>"""
 

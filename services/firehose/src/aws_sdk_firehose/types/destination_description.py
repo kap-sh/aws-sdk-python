@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#DestinationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.splunk_destination_description
 
 
-class DestinationDescription(TypedDict):
+class DestinationDescription(TypedDict, closed=True):
     destination_id: "aws_sdk_firehose.types.destination_id.DestinationId"
     """<p>The ID of the destination.</p>"""
     s3_destination_description: NotRequired[

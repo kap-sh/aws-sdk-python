@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#CustomHttpHeader``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.custom_http_header_key_type
     import aws_sdk_transfer.types.custom_http_header_value_type
 
 
-class CustomHttpHeader(TypedDict):
+class CustomHttpHeader(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_transfer.types.custom_http_header_key_type.CustomHttpHeaderKeyType"
     ]

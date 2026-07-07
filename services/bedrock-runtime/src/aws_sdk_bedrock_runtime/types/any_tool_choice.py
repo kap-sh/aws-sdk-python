@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#AnyToolChoice``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AnyToolChoice(TypedDict):
+class AnyToolChoice(TypedDict, closed=True):
     pass
 
 

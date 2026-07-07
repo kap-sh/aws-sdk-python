@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#OrRuleStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.matching_rule_statement_list
     import aws_sdk_license_manager.types.script_rule_statement_list
 
 
-class OrRuleStatement(TypedDict):
+class OrRuleStatement(TypedDict, closed=True):
     matching_rule_statements: NotRequired[
         "aws_sdk_license_manager.types.matching_rule_statement_list.MatchingRuleStatementList"
     ]

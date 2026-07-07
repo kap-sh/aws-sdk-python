@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#GenerateDataKeyPairWithoutPlaintextResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.backing_key_id_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.public_key_type
 
 
-class GenerateDataKeyPairWithoutPlaintextResponse(TypedDict):
+class GenerateDataKeyPairWithoutPlaintextResponse(TypedDict, closed=True):
     private_key_ciphertext_blob: NotRequired[
         "aws_sdk_kms.types.ciphertext_type.CiphertextType"
     ]

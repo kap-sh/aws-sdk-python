@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SidewalkDeviceMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.battery_level
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.integer
 
 
-class SidewalkDeviceMetadata(TypedDict):
+class SidewalkDeviceMetadata(TypedDict, closed=True):
     rssi: NotRequired["aws_sdk_iot_wireless.types.integer.Integer"]
     """<p>The RSSI value.</p>"""
     battery_level: NotRequired["aws_sdk_iot_wireless.types.battery_level.BatteryLevel"]

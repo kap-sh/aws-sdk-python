@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#UpdateRouteOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.route_data
 
 
-class UpdateRouteOutput(TypedDict):
+class UpdateRouteOutput(TypedDict, closed=True):
     route: "aws_sdk_app_mesh.types.route_data.RouteData"
     """<p>A full description of the route that was updated.</p>"""
 

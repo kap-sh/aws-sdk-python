@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#RelationalDatabaseHardware``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.float
     import aws_sdk_lightsail.types.integer
 
 
-class RelationalDatabaseHardware(TypedDict):
+class RelationalDatabaseHardware(TypedDict, closed=True):
     cpu_count: NotRequired["aws_sdk_lightsail.types.integer.integer"]
     """<p>The number of vCPUs for the database.</p>"""
     disk_size_in_gb: NotRequired["aws_sdk_lightsail.types.integer.integer"]

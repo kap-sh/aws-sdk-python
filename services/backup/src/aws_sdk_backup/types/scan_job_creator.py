@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ScanJobCreator``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
 
-class ScanJobCreator(TypedDict):
+class ScanJobCreator(TypedDict, closed=True):
     backup_plan_arn: "str"
     """<p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>"""
     backup_plan_id: "str"

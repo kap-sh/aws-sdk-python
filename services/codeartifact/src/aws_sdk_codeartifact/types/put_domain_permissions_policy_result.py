@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#PutDomainPermissionsPolicyResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.resource_policy
 
 
-class PutDomainPermissionsPolicyResult(TypedDict):
+class PutDomainPermissionsPolicyResult(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_codeartifact.types.resource_policy.ResourcePolicy"]
     """<p> The resource policy that was set after processing the request. </p>"""
 

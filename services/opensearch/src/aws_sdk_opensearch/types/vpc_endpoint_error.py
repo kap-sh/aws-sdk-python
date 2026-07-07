@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#VpcEndpointError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.vpc_endpoint_id
 
 
-class VpcEndpointError(TypedDict):
+class VpcEndpointError(TypedDict, closed=True):
     vpc_endpoint_id: NotRequired[
         "aws_sdk_opensearch.types.vpc_endpoint_id.VpcEndpointId"
     ]

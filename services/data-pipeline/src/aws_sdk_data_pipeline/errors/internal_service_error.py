@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#InternalServiceError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_data_pipeline.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.error_message
 
 
-class InternalServiceError_(TypedDict):
+class InternalServiceError_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_data_pipeline.types.error_message.errorMessage"]
     """<p>Description of the error message.</p>"""
 

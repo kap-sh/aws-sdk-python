@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservicedata#AttributeValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service_data.errors import (
     DeserializationError,
@@ -14,19 +16,19 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service_data.types.string_set_attribute_value
 
 
-class _AttributeValue_S(TypedDict):
+class _AttributeValue_S(TypedDict, closed=True):
     S: "aws_sdk_directory_service_data.types.string_attribute_value.StringAttributeValue"
 
 
-class _AttributeValue_N(TypedDict):
+class _AttributeValue_N(TypedDict, closed=True):
     N: "aws_sdk_directory_service_data.types.number_attribute_value.NumberAttributeValue"
 
 
-class _AttributeValue_BOOL(TypedDict):
+class _AttributeValue_BOOL(TypedDict, closed=True):
     BOOL: "aws_sdk_directory_service_data.types.boolean_attribute_value.BooleanAttributeValue"
 
 
-class _AttributeValue_SS(TypedDict):
+class _AttributeValue_SS(TypedDict, closed=True):
     SS: "aws_sdk_directory_service_data.types.string_set_attribute_value.StringSetAttributeValue"
 
 

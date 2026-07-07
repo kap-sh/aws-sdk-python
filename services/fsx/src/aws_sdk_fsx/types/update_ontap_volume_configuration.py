@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#UpdateOntapVolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.flag
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume_capacity_bytes
 
 
-class UpdateOntapVolumeConfiguration(TypedDict):
+class UpdateOntapVolumeConfiguration(TypedDict, closed=True):
     junction_path: NotRequired["aws_sdk_fsx.types.junction_path.JunctionPath"]
     """<p>Specifies the location in the SVM's namespace where the volume is mounted. The <code>JunctionPath</code> must have a leading forward slash, such as <code>/vol3</code>.</p>"""
     security_style: NotRequired["aws_sdk_fsx.types.security_style.SecurityStyle"]

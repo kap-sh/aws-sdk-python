@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#MessagingSessionEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.url_type
 
 
-class MessagingSessionEndpoint(TypedDict):
+class MessagingSessionEndpoint(TypedDict, closed=True):
     url: NotRequired["aws_sdk_chime_sdk_messaging.types.url_type.UrlType"]
     """<p>The endpoint to which you establish a websocket connection.</p>"""
 

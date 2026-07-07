@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#AccessTokenSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.timestamp
 
 
-class AccessTokenSummary(TypedDict):
+class AccessTokenSummary(TypedDict, closed=True):
     id: "aws_sdk_codecatalyst.types.access_token_id.AccessTokenId"
     """<p>The system-generated ID of the personal access token.</p>"""
     name: "aws_sdk_codecatalyst.types.access_token_name.AccessTokenName"

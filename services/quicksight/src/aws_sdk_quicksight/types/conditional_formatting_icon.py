@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ConditionalFormattingIcon``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.conditional_formatting_custom_icon_condition
     import aws_sdk_quicksight.types.conditional_formatting_icon_set
 
 
-class ConditionalFormattingIcon(TypedDict):
+class ConditionalFormattingIcon(TypedDict, closed=True):
     icon_set: NotRequired[
         "aws_sdk_quicksight.types.conditional_formatting_icon_set.ConditionalFormattingIconSet"
     ]

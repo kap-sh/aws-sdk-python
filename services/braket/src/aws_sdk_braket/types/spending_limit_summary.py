@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#SpendingLimitSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.time_period
 
 
-class SpendingLimitSummary(TypedDict):
+class SpendingLimitSummary(TypedDict, closed=True):
     spending_limit_arn: "aws_sdk_braket.types.spending_limit_arn.SpendingLimitArn"
     """<p>The Amazon Resource Name (ARN) that uniquely identifies the spending limit.</p>"""
     device_arn: "aws_sdk_braket.types.device_arn.DeviceArn"

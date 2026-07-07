@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#UpdateAgentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.agent
 
 
-class UpdateAgentResponse(TypedDict):
+class UpdateAgentResponse(TypedDict, closed=True):
     agent: "aws_sdk_bedrock_agent.types.agent.Agent"
     """<p>Contains details about the agent that was updated.</p>"""
 

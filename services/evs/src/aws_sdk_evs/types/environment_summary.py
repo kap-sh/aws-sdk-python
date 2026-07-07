@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#EnvironmentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.vcf_version
 
 
-class EnvironmentSummary(TypedDict):
+class EnvironmentSummary(TypedDict, closed=True):
     environment_id: NotRequired["aws_sdk_evs.types.environment_id.EnvironmentId"]
     """<p>A unique ID for the environment.</p>"""
     environment_name: NotRequired["aws_sdk_evs.types.environment_name.EnvironmentName"]

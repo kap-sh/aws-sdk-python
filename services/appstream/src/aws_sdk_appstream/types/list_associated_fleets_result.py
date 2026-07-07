@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ListAssociatedFleetsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
     import aws_sdk_appstream.types.string_list
 
 
-class ListAssociatedFleetsResult(TypedDict):
+class ListAssociatedFleetsResult(TypedDict, closed=True):
     names: NotRequired["aws_sdk_appstream.types.string_list.StringList"]
     """<p>The name of the fleet.</p>"""
     next_token: NotRequired["aws_sdk_appstream.types.string.String"]

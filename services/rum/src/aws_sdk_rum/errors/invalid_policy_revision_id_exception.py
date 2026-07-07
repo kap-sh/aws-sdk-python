@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rum#InvalidPolicyRevisionIdException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_rum.errors import DeserializationError, ServiceError
 
 
-class InvalidPolicyRevisionIdException_(TypedDict):
+class InvalidPolicyRevisionIdException_(TypedDict, closed=True):
     message: "str"
 
 

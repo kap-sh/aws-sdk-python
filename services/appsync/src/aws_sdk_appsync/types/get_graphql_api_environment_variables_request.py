@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#GetGraphqlApiEnvironmentVariablesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class GetGraphqlApiEnvironmentVariablesRequest(TypedDict):
+class GetGraphqlApiEnvironmentVariablesRequest(TypedDict, closed=True):
     api_id: "aws_sdk_appsync.types.string.String"
     """<p>The ID of the API from which the environmental variable list will be retrieved.</p>"""
 

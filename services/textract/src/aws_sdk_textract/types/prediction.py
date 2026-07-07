@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#Prediction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.non_empty_string
     import aws_sdk_textract.types.percent
 
 
-class Prediction(TypedDict):
+class Prediction(TypedDict, closed=True):
     value: NotRequired["aws_sdk_textract.types.non_empty_string.NonEmptyString"]
     """<p>The predicted value of a detected object.</p>"""
     confidence: NotRequired["aws_sdk_textract.types.percent.Percent"]

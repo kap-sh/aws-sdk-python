@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ResourceNotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.resource_type
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p>The Id of the missing resource.</p>"""

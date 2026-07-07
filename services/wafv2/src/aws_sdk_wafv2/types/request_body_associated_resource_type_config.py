@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RequestBodyAssociatedResourceTypeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.size_inspection_limit
 
 
-class RequestBodyAssociatedResourceTypeConfig(TypedDict):
+class RequestBodyAssociatedResourceTypeConfig(TypedDict, closed=True):
     default_size_inspection_limit: (
         "aws_sdk_wafv2.types.size_inspection_limit.SizeInspectionLimit"
     )

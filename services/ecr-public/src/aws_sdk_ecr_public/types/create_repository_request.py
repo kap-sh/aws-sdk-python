@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#CreateRepositoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr_public.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.tag_list
 
 
-class CreateRepositoryRequest(TypedDict):
+class CreateRepositoryRequest(TypedDict, closed=True):
     repository_name: "aws_sdk_ecr_public.types.repository_name.RepositoryName"
     """<p>The name to use for the repository. This appears publicly in the Amazon ECR Public Gallery. The repository name can be specified on its own (for example <code>nginx-web-app</code>) or prepended with a namespace to group the repository into a category (for example <code>project-a/nginx-web-app</code>).</p>"""
     catalog_data: NotRequired[

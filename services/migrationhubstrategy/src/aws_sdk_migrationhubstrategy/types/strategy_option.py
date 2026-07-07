@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#StrategyOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.transformation_tool_name
 
 
-class StrategyOption(TypedDict):
+class StrategyOption(TypedDict, closed=True):
     strategy: NotRequired["aws_sdk_migrationhubstrategy.types.strategy.Strategy"]
     """<p> Type of transformation. For example, Rehost, Replatform, and so on. </p>"""
     tool_name: NotRequired[

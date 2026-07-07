@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ListQueuesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max20
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.queue_list_by
 
 
-class ListQueuesRequest(TypedDict):
+class ListQueuesRequest(TypedDict, closed=True):
     list_by: NotRequired["aws_sdk_mediaconvert.types.queue_list_by.QueueListBy"]
     """Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date."""
     max_results: NotRequired[

@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#FormattedVss``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError, SerializationError
 
 
-class _FormattedVss_vssJson(TypedDict):
+class _FormattedVss_vssJson(TypedDict, closed=True):
     vssJson: "str"
 
 

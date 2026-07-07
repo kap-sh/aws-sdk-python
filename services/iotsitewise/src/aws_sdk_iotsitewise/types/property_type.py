@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#PropertyType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.attribute
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.transform
 
 
-class PropertyType(TypedDict):
+class PropertyType(TypedDict, closed=True):
     attribute: NotRequired["aws_sdk_iotsitewise.types.attribute.Attribute"]
     r"""<p>Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an <a href=\"https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications\">IIoT</a> wind turbine.</p>"""
     measurement: NotRequired["aws_sdk_iotsitewise.types.measurement.Measurement"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.supportapp#PutAccountAliasResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutAccountAliasResult(TypedDict):
+class PutAccountAliasResult(TypedDict, closed=True):
     pass
 
 

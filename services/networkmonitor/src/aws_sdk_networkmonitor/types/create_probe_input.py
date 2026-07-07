@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmonitor#CreateProbeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkmonitor.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmonitor.types.tag_map
 
 
-class CreateProbeInput(TypedDict):
+class CreateProbeInput(TypedDict, closed=True):
     monitor_name: "aws_sdk_networkmonitor.types.resource_name.ResourceName"
     """<p>The name of the monitor to associated with the probe. </p>"""
     probe: "aws_sdk_networkmonitor.types.probe_input.ProbeInput"

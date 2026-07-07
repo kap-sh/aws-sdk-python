@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3outposts#DeleteEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.endpoint_id
     import aws_sdk_s3outposts.types.outpost_id
 
 
-class DeleteEndpointRequest(TypedDict):
+class DeleteEndpointRequest(TypedDict, closed=True):
     endpoint_id: "aws_sdk_s3outposts.types.endpoint_id.EndpointId"
     """<p>The ID of the endpoint.</p>"""
     outpost_id: "aws_sdk_s3outposts.types.outpost_id.OutpostId"

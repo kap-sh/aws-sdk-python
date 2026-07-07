@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RegisterMarketplaceModelEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.marketplace_model_endpoint
 
 
-class RegisterMarketplaceModelEndpointResponse(TypedDict):
+class RegisterMarketplaceModelEndpointResponse(TypedDict, closed=True):
     marketplace_model_endpoint: (
         "aws_sdk_bedrock.types.marketplace_model_endpoint.MarketplaceModelEndpoint"
     )

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DescribeDocumentClassifierResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.document_classifier_properties
 
 
-class DescribeDocumentClassifierResponse(TypedDict):
+class DescribeDocumentClassifierResponse(TypedDict, closed=True):
     document_classifier_properties: NotRequired[
         "aws_sdk_comprehend.types.document_classifier_properties.DocumentClassifierProperties"
     ]

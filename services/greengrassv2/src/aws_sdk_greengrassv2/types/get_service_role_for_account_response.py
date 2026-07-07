@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#GetServiceRoleForAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.string
 
 
-class GetServiceRoleForAccountResponse(TypedDict):
+class GetServiceRoleForAccountResponse(TypedDict, closed=True):
     associated_at: NotRequired["aws_sdk_greengrassv2.types.string.String"]
     """<p>The time when the service role was associated with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region.</p>"""
     role_arn: NotRequired["aws_sdk_greengrassv2.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#GroupDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.group_definition_type
 
 
-class GroupDefinition(TypedDict):
+class GroupDefinition(TypedDict, closed=True):
     key: "str"
     """<p>The key to use for grouping cost and usage data.</p>"""
     type: "aws_sdk_bcm_dashboards.types.group_definition_type.GroupDefinitionType"

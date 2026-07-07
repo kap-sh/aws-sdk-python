@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#CustomAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.action_name
 
 
-class CustomAction(TypedDict):
+class CustomAction(TypedDict, closed=True):
     action_name: "aws_sdk_network_firewall.types.action_name.ActionName"
     """<p>The descriptive name of the custom action. You can't change the name of a custom action after you create it.</p>"""
     action_definition: (

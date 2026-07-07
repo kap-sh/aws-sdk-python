@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#BoundingBox``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.float
 
 
-class BoundingBox(TypedDict):
+class BoundingBox(TypedDict, closed=True):
     width: NotRequired["aws_sdk_rekognition.types.float.Float"]
     """<p>Width of the bounding box as a ratio of the overall image width.</p>"""
     height: NotRequired["aws_sdk_rekognition.types.float.Float"]

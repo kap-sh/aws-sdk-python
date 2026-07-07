@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#KinesisAnalytics_20150814``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_kinesis_analytics._auth._signers
@@ -93,7 +93,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.update_application_response
 
 
-class AsyncKinesisAnalyticsClientConfig(TypedDict, total=False):
+class AsyncKinesisAnalyticsClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

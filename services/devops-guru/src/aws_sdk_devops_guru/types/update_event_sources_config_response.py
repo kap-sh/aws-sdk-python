@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#UpdateEventSourcesConfigResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateEventSourcesConfigResponse(TypedDict):
+class UpdateEventSourcesConfigResponse(TypedDict, closed=True):
     pass
 
 

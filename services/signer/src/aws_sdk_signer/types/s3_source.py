@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#S3Source``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signer.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.version
 
 
-class S3Source(TypedDict):
+class S3Source(TypedDict, closed=True):
     bucket_name: "aws_sdk_signer.types.bucket_name.BucketName"
     """<p>Name of the S3 bucket.</p>"""
     key: "aws_sdk_signer.types.key.Key"

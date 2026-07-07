@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#FederatedCatalog``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.federation_identifier
     import aws_sdk_glue.types.name_string
 
 
-class FederatedCatalog(TypedDict):
+class FederatedCatalog(TypedDict, closed=True):
     identifier: NotRequired[
         "aws_sdk_glue.types.federation_identifier.FederationIdentifier"
     ]

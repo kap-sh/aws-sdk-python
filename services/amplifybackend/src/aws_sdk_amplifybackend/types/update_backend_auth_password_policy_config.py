@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#UpdateBackendAuthPasswordPolicyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__double
     import aws_sdk_amplifybackend.types.list_of_additional_constraints_element
 
 
-class UpdateBackendAuthPasswordPolicyConfig(TypedDict):
+class UpdateBackendAuthPasswordPolicyConfig(TypedDict, closed=True):
     additional_constraints: NotRequired[
         "aws_sdk_amplifybackend.types.list_of_additional_constraints_element.ListOfAdditionalConstraintsElement"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.m2#RecordLength``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.integer
 
 
-class RecordLength(TypedDict):
+class RecordLength(TypedDict, closed=True):
     min: "aws_sdk_m2.types.integer.Integer"
     """<p>The minimum record length of a record.</p>"""
     max: "aws_sdk_m2.types.integer.Integer"

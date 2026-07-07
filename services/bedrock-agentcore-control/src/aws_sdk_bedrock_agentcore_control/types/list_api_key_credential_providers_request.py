@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListApiKeyCredentialProvidersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.max_results
 
 
-class ListApiKeyCredentialProvidersRequest(TypedDict):
+class ListApiKeyCredentialProvidersRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>Pagination token.</p>"""
     max_results: "aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"

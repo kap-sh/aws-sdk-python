@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ViewRepresentationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.view_text_string
 
 
-class ViewRepresentationInput(TypedDict):
+class ViewRepresentationInput(TypedDict, closed=True):
     dialect: NotRequired["aws_sdk_glue.types.view_dialect.ViewDialect"]
     """<p>A parameter that specifies the engine type of a specific representation.</p>"""
     dialect_version: NotRequired[

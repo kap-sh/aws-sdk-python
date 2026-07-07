@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideowebrtcstorage#JoinStorageSessionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_video_webrtc_storage.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video_webrtc_storage.types.channel_arn
 
 
-class JoinStorageSessionInput(TypedDict):
+class JoinStorageSessionInput(TypedDict, closed=True):
     channel_arn: "aws_sdk_kinesis_video_webrtc_storage.types.channel_arn.ChannelArn"
     """<p> The Amazon Resource Name (ARN) of the signaling channel. </p>"""
 

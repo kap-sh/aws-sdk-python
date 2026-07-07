@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#ToolSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.tool_name
 
 
-class ToolSpec(TypedDict):
+class ToolSpec(TypedDict, closed=True):
     name: "aws_sdk_nova_act.types.tool_name.ToolName"
     """<p>The unique name of the tool that acts will use to invoke it.</p>"""
     description: "aws_sdk_nova_act.types.tool_description.ToolDescription"

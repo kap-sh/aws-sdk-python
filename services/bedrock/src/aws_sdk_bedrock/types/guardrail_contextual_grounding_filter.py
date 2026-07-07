@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailContextualGroundingFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.guardrail_contextual_grounding_filter_type
 
 
-class GuardrailContextualGroundingFilter(TypedDict):
+class GuardrailContextualGroundingFilter(TypedDict, closed=True):
     type: "aws_sdk_bedrock.types.guardrail_contextual_grounding_filter_type.GuardrailContextualGroundingFilterType"
     """<p>The filter type details for the guardrails contextual grounding filter.</p>"""
     threshold: "float"

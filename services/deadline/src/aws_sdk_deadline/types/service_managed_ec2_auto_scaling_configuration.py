@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ServiceManagedEc2AutoScalingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.min_one_max_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.service_managed_ec2_worker_idle_duration_seconds
 
 
-class ServiceManagedEc2AutoScalingConfiguration(TypedDict):
+class ServiceManagedEc2AutoScalingConfiguration(TypedDict, closed=True):
     standby_worker_count: NotRequired[
         "aws_sdk_deadline.types.min_zero_max_integer.MinZeroMaxInteger"
     ]

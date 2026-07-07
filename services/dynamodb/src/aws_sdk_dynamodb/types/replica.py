@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#Replica``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.region_name
 
 
-class Replica(TypedDict):
+class Replica(TypedDict, closed=True):
     region_name: NotRequired["aws_sdk_dynamodb.types.region_name.RegionName"]
     """<p>The Region where the replica needs to be created.</p>"""
 

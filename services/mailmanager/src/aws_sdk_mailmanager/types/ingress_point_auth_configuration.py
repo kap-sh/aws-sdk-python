@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#IngressPointAuthConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.ingress_point_password_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.tls_auth_configuration
 
 
-class IngressPointAuthConfiguration(TypedDict):
+class IngressPointAuthConfiguration(TypedDict, closed=True):
     ingress_point_password_configuration: NotRequired[
         "aws_sdk_mailmanager.types.ingress_point_password_configuration.IngressPointPasswordConfiguration"
     ]

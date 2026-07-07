@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#TableReference``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.snowflake_table_reference
 
 
-class _TableReference_glue(TypedDict):
+class _TableReference_glue(TypedDict, closed=True):
     glue: "aws_sdk_cleanrooms.types.glue_table_reference.GlueTableReference"
 
 
-class _TableReference_snowflake(TypedDict):
+class _TableReference_snowflake(TypedDict, closed=True):
     snowflake: (
         "aws_sdk_cleanrooms.types.snowflake_table_reference.SnowflakeTableReference"
     )
 
 
-class _TableReference_athena(TypedDict):
+class _TableReference_athena(TypedDict, closed=True):
     athena: "aws_sdk_cleanrooms.types.athena_table_reference.AthenaTableReference"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdatePaymentManagerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.authorizer_configuration
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.role_arn
 
 
-class UpdatePaymentManagerRequest(TypedDict):
+class UpdatePaymentManagerRequest(TypedDict, closed=True):
     payment_manager_id: (
         "aws_sdk_bedrock_agentcore_control.types.payment_manager_id.PaymentManagerId"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ListAccountAssignmentDeletionStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.account_assignment_operation_status_list
     import aws_sdk_sso_admin.types.token
 
 
-class ListAccountAssignmentDeletionStatusResponse(TypedDict):
+class ListAccountAssignmentDeletionStatusResponse(TypedDict, closed=True):
     account_assignments_deletion_status: NotRequired[
         "aws_sdk_sso_admin.types.account_assignment_operation_status_list.AccountAssignmentOperationStatusList"
     ]

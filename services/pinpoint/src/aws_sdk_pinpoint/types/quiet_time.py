@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#QuietTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class QuietTime(TypedDict):
+class QuietTime(TypedDict, closed=True):
     end: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The specific time when quiet time ends. This value has to use 24-hour notation and be in HH:MM format, where HH is the hour (with a leading zero, if applicable) and MM is the minutes. For example, use 02:30 to represent 2:30 AM, or 14:30 to represent 2:30 PM.</p>"""
     start: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

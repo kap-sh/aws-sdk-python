@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#SubnetGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.network_type_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.subnet_list
 
 
-class SubnetGroup(TypedDict):
+class SubnetGroup(TypedDict, closed=True):
     subnet_group_name: NotRequired["aws_sdk_dax.types.string.String"]
     """<p>The name of the subnet group.</p>"""
     description: NotRequired["aws_sdk_dax.types.string.String"]

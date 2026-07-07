@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#DescribeClustersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.clusters_max_size
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.next_token
 
 
-class DescribeClustersRequest(TypedDict):
+class DescribeClustersRequest(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_cloudhsm_v2.types.filters.Filters"]
     """<p>One or more filters to limit the items returned in the response.</p> <p>Use the <code>clusterIds</code> filter to return only the specified clusters. Specify clusters by their cluster identifier (ID).</p> <p>Use the <code>vpcIds</code> filter to return only the clusters in the specified virtual private clouds (VPCs). Specify VPCs by their VPC identifier (ID).</p> <p>Use the <code>states</code> filter to return only clusters that match the specified state.</p>"""
     next_token: NotRequired["aws_sdk_cloudhsm_v2.types.next_token.NextToken"]

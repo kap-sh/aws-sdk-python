@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AmazonQPropertiesInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class AmazonQPropertiesInput(TypedDict):
+class AmazonQPropertiesInput(TypedDict, closed=True):
     is_enabled: "bool"
     """<p>Specifies whether Amazon Q is enabled for the connection.</p>"""
     profile_arn: NotRequired["str"]

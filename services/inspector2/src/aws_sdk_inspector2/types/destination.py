@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Destination``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
 
-class Destination(TypedDict):
+class Destination(TypedDict, closed=True):
     bucket_name: "str"
     """<p>The name of the Amazon S3 bucket to export findings to.</p>"""
     key_prefix: NotRequired["str"]

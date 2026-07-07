@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Schedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.cron_expression
     import aws_sdk_glue.types.schedule_state
 
 
-class Schedule(TypedDict):
+class Schedule(TypedDict, closed=True):
     schedule_expression: NotRequired[
         "aws_sdk_glue.types.cron_expression.CronExpression"
     ]

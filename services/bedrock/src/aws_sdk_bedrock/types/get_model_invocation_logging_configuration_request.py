@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetModelInvocationLoggingConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetModelInvocationLoggingConfigurationRequest(TypedDict):
+class GetModelInvocationLoggingConfigurationRequest(TypedDict, closed=True):
     pass
 
 

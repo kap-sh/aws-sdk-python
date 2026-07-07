@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#DeleteMigrationWorkflowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.migration_workflow_id
 
 
-class DeleteMigrationWorkflowRequest(TypedDict):
+class DeleteMigrationWorkflowRequest(TypedDict, closed=True):
     id: "aws_sdk_migrationhuborchestrator.types.migration_workflow_id.MigrationWorkflowId"
     """<p>The ID of the migration workflow you want to delete.</p>"""
 

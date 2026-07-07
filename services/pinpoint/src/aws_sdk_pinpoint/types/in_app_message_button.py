@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#InAppMessageButton``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.default_button_configuration
     import aws_sdk_pinpoint.types.override_button_configuration
 
 
-class InAppMessageButton(TypedDict):
+class InAppMessageButton(TypedDict, closed=True):
     android: NotRequired[
         "aws_sdk_pinpoint.types.override_button_configuration.OverrideButtonConfiguration"
     ]

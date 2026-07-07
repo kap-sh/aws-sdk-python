@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateKeysAndCertificateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.key_pair
 
 
-class CreateKeysAndCertificateResponse(TypedDict):
+class CreateKeysAndCertificateResponse(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_iot.types.certificate_arn.CertificateArn"]
     """<p>The ARN of the certificate.</p>"""
     certificate_id: NotRequired["aws_sdk_iot.types.certificate_id.CertificateId"]

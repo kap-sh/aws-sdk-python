@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AnalysisSourceTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_reference_list
 
 
-class AnalysisSourceTemplate(TypedDict):
+class AnalysisSourceTemplate(TypedDict, closed=True):
     data_set_references: (
         "aws_sdk_quicksight.types.data_set_reference_list.DataSetReferenceList"
     )

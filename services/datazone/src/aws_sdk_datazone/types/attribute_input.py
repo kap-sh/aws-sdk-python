@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AttributeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.form_input_list
 
 
-class AttributeInput(TypedDict):
+class AttributeInput(TypedDict, closed=True):
     attribute_identifier: (
         "aws_sdk_datazone.types.attribute_identifier.AttributeIdentifier"
     )

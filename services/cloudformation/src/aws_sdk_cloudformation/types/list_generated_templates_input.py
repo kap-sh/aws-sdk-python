@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#ListGeneratedTemplatesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.next_token
 
 
-class ListGeneratedTemplatesInput(TypedDict):
+class ListGeneratedTemplatesInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cloudformation.types.next_token.NextToken"]
     """<p>The token for the next set of items to return. (You received this token from a previous call.)</p>"""
     max_results: NotRequired["aws_sdk_cloudformation.types.max_results.MaxResults"]

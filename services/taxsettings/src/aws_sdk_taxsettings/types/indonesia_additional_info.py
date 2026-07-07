@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#IndonesiaAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.decision_number
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.ppn_exception_designation_code
 
 
-class IndonesiaAdditionalInfo(TypedDict):
+class IndonesiaAdditionalInfo(TypedDict, closed=True):
     tax_registration_number_type: NotRequired[
         "aws_sdk_taxsettings.types.indonesia_tax_registration_number_type.IndonesiaTaxRegistrationNumberType"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#DeleteTLSInspectionConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.resource_arn
     import aws_sdk_network_firewall.types.resource_name
 
 
-class DeleteTLSInspectionConfigurationRequest(TypedDict):
+class DeleteTLSInspectionConfigurationRequest(TypedDict, closed=True):
     tls_inspection_configuration_arn: NotRequired[
         "aws_sdk_network_firewall.types.resource_arn.ResourceArn"
     ]

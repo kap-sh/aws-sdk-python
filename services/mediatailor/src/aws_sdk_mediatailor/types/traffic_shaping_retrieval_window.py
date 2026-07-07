@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#TrafficShapingRetrievalWindow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__integer
 
 
-class TrafficShapingRetrievalWindow(TypedDict):
+class TrafficShapingRetrievalWindow(TypedDict, closed=True):
     retrieval_window_duration_seconds: NotRequired[
         "aws_sdk_mediatailor.types.__integer.__integer"
     ]

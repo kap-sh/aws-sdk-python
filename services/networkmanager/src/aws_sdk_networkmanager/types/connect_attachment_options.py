@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ConnectAttachmentOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.tunnel_protocol
 
 
-class ConnectAttachmentOptions(TypedDict):
+class ConnectAttachmentOptions(TypedDict, closed=True):
     protocol: NotRequired["aws_sdk_networkmanager.types.tunnel_protocol.TunnelProtocol"]
     """<p>The protocol used for the attachment connection.</p>"""
 

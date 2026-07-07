@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#VPCFlowLogParameters``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class VPCFlowLogParameters(TypedDict):
+class VPCFlowLogParameters(TypedDict, closed=True):
     log_format: NotRequired["str"]
     """<p> The format in which VPC Flow Log entries should be logged. </p>"""
     traffic_type: NotRequired["str"]

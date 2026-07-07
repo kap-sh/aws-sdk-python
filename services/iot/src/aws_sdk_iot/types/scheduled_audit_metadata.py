@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ScheduledAuditMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_frequency
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.scheduled_audit_name
 
 
-class ScheduledAuditMetadata(TypedDict):
+class ScheduledAuditMetadata(TypedDict, closed=True):
     scheduled_audit_name: NotRequired[
         "aws_sdk_iot.types.scheduled_audit_name.ScheduledAuditName"
     ]

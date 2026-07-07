@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#ApplicationResourceLifecycleConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.string
 
 
-class ApplicationResourceLifecycleConfig(TypedDict):
+class ApplicationResourceLifecycleConfig(TypedDict, closed=True):
     service_role: NotRequired["aws_sdk_elastic_beanstalk.types.string.String"]
     """<p>The ARN of an IAM service role that Elastic Beanstalk has permission to assume.</p> <p>The <code>ServiceRole</code> property is required the first time that you provide a <code>VersionLifecycleConfig</code> for the application in one of the supporting calls (<code>CreateApplication</code> or <code>UpdateApplicationResourceLifecycle</code>). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent <code>UpdateApplicationResourceLifecycle</code> calls. You can, however, specify it in subsequent calls to change the Service Role to another value.</p>"""
     version_lifecycle_config: NotRequired[

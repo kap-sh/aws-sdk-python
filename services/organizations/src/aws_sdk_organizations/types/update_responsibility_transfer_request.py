@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#UpdateResponsibilityTransferRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.responsibility_transfer_name
 
 
-class UpdateResponsibilityTransferRequest(TypedDict):
+class UpdateResponsibilityTransferRequest(TypedDict, closed=True):
     id: "aws_sdk_organizations.types.responsibility_transfer_id.ResponsibilityTransferId"
     """<p>ID for the transfer.</p>"""
     name: "aws_sdk_organizations.types.responsibility_transfer_name.ResponsibilityTransferName"

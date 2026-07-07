@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdatePipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.parallelism_configuration
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.role_arn
 
 
-class UpdatePipelineRequest(TypedDict):
+class UpdatePipelineRequest(TypedDict, closed=True):
     pipeline_name: NotRequired["aws_sdk_sagemaker.types.pipeline_name.PipelineName"]
     """<p>The name of the pipeline to update.</p>"""
     pipeline_display_name: NotRequired[

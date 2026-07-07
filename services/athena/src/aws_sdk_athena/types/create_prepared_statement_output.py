@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CreatePreparedStatementOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreatePreparedStatementOutput(TypedDict):
+class CreatePreparedStatementOutput(TypedDict, closed=True):
     pass
 
 

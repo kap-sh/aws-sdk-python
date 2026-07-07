@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#ListTableBucketsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.list_table_buckets_limit
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_bucket_type
 
 
-class ListTableBucketsRequest(TypedDict):
+class ListTableBucketsRequest(TypedDict, closed=True):
     prefix: NotRequired["str"]
     """<p>The prefix of the table buckets.</p>"""
     continuation_token: NotRequired["aws_sdk_s3tables.types.next_token.NextToken"]

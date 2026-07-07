@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListBotVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_version_sort_by
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.next_token
 
 
-class ListBotVersionsRequest(TypedDict):
+class ListBotVersionsRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The identifier of the bot to list versions for.</p>"""
     sort_by: NotRequired[

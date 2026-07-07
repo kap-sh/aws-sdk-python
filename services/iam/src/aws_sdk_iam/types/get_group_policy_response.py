@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetGroupPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.policy_name_type
 
 
-class GetGroupPolicyResponse(TypedDict):
+class GetGroupPolicyResponse(TypedDict, closed=True):
     group_name: "aws_sdk_iam.types.group_name_type.groupNameType"
     """<p>The group the policy is associated with.</p>"""
     policy_name: "aws_sdk_iam.types.policy_name_type.policyNameType"

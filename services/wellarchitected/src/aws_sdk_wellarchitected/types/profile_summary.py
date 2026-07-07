@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ProfileSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.aws_account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.timestamp
 
 
-class ProfileSummary(TypedDict):
+class ProfileSummary(TypedDict, closed=True):
     profile_arn: NotRequired["aws_sdk_wellarchitected.types.profile_arn.ProfileArn"]
     """<p>The profile ARN.</p>"""
     profile_version: NotRequired[

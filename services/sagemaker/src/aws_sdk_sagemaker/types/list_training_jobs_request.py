@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListTrainingJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.warm_pool_resource_status
 
 
-class ListTrainingJobsRequest(TypedDict):
+class ListTrainingJobsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]
     """<p>If the result of the previous <code>ListTrainingJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of training jobs, use the token in the next request. </p>"""
     max_results: NotRequired["aws_sdk_sagemaker.types.max_results.MaxResults"]

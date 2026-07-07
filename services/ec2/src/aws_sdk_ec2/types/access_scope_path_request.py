@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AccessScopePathRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.through_resources_statement_request_list
 
 
-class AccessScopePathRequest(TypedDict):
+class AccessScopePathRequest(TypedDict, closed=True):
     source: NotRequired["aws_sdk_ec2.types.path_statement_request.PathStatementRequest"]
     """<p>The source.</p>"""
     destination: NotRequired[

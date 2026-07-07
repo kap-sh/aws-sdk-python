@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ServiceDiscovery``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.dns_service_discovery
 
 
-class _ServiceDiscovery_dns(TypedDict):
+class _ServiceDiscovery_dns(TypedDict, closed=True):
     dns: "aws_sdk_app_mesh.types.dns_service_discovery.DnsServiceDiscovery"
 
 
-class _ServiceDiscovery_awsCloudMap(TypedDict):
+class _ServiceDiscovery_awsCloudMap(TypedDict, closed=True):
     awsCloudMap: "aws_sdk_app_mesh.types.aws_cloud_map_service_discovery.AwsCloudMapServiceDiscovery"
 
 

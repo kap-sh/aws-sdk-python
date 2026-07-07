@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoMLContainerDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.container_image
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.url
 
 
-class AutoMLContainerDefinition(TypedDict):
+class AutoMLContainerDefinition(TypedDict, closed=True):
     image: NotRequired["aws_sdk_sagemaker.types.container_image.ContainerImage"]
     r"""<p>The Amazon Elastic Container Registry (Amazon ECR) path of the container. For more information, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html\"> ContainerDefinition</a>.</p>"""
     model_data_url: NotRequired["aws_sdk_sagemaker.types.url.Url"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#BatchGetMemberAccountDetailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.membership_id
 
 
-class BatchGetMemberAccountDetailsRequest(TypedDict):
+class BatchGetMemberAccountDetailsRequest(TypedDict, closed=True):
     membership_id: "aws_sdk_security_ir.types.membership_id.MembershipId"
     """<p>Required element used in combination with BatchGetMemberAccountDetails to identify the membership ID to query. </p>"""
     account_ids: "aws_sdk_security_ir.types.aws_account_ids.AWSAccountIds"

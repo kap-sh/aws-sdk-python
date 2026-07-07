@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailAutomatedReasoningFinding``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -14,31 +16,31 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_valid_finding
 
 
-class _GuardrailAutomatedReasoningFinding_valid(TypedDict):
+class _GuardrailAutomatedReasoningFinding_valid(TypedDict, closed=True):
     valid: "aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_valid_finding.GuardrailAutomatedReasoningValidFinding"
 
 
-class _GuardrailAutomatedReasoningFinding_invalid(TypedDict):
+class _GuardrailAutomatedReasoningFinding_invalid(TypedDict, closed=True):
     invalid: "aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_invalid_finding.GuardrailAutomatedReasoningInvalidFinding"
 
 
-class _GuardrailAutomatedReasoningFinding_satisfiable(TypedDict):
+class _GuardrailAutomatedReasoningFinding_satisfiable(TypedDict, closed=True):
     satisfiable: "aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_satisfiable_finding.GuardrailAutomatedReasoningSatisfiableFinding"
 
 
-class _GuardrailAutomatedReasoningFinding_impossible(TypedDict):
+class _GuardrailAutomatedReasoningFinding_impossible(TypedDict, closed=True):
     impossible: "aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_impossible_finding.GuardrailAutomatedReasoningImpossibleFinding"
 
 
-class _GuardrailAutomatedReasoningFinding_translationAmbiguous(TypedDict):
+class _GuardrailAutomatedReasoningFinding_translationAmbiguous(TypedDict, closed=True):
     translationAmbiguous: "aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_translation_ambiguous_finding.GuardrailAutomatedReasoningTranslationAmbiguousFinding"
 
 
-class _GuardrailAutomatedReasoningFinding_tooComplex(TypedDict):
+class _GuardrailAutomatedReasoningFinding_tooComplex(TypedDict, closed=True):
     tooComplex: "aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_too_complex_finding.GuardrailAutomatedReasoningTooComplexFinding"
 
 
-class _GuardrailAutomatedReasoningFinding_noTranslations(TypedDict):
+class _GuardrailAutomatedReasoningFinding_noTranslations(TypedDict, closed=True):
     noTranslations: "aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_no_translations_finding.GuardrailAutomatedReasoningNoTranslationsFinding"
 
 

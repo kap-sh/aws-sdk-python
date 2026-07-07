@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ResetPasswordResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ResetPasswordResponse(TypedDict):
+class ResetPasswordResponse(TypedDict, closed=True):
     pass
 
 

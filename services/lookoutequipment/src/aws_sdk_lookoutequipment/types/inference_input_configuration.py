@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#InferenceInputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.inference_input_name_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.time_zone_offset
 
 
-class InferenceInputConfiguration(TypedDict):
+class InferenceInputConfiguration(TypedDict, closed=True):
     s3_input_configuration: NotRequired[
         "aws_sdk_lookoutequipment.types.inference_s3_input_configuration.InferenceS3InputConfiguration"
     ]

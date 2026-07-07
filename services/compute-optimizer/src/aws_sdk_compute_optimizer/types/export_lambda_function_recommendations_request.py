@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ExportLambdaFunctionRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_compute_optimizer.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.s3_destination_config
 
 
-class ExportLambdaFunctionRecommendationsRequest(TypedDict):
+class ExportLambdaFunctionRecommendationsRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_compute_optimizer.types.account_ids.AccountIds"]
     """<p>The IDs of the Amazon Web Services accounts for which to export Lambda function recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to export recommendations.</p> <p>This parameter cannot be specified together with the include member accounts parameter. The parameters are mutually exclusive.</p> <p>Recommendations for member accounts are not included in the export if this parameter, or the include member accounts parameter, is omitted.</p> <p>You can specify multiple account IDs per request.</p>"""
     filters: NotRequired[

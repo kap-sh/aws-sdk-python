@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#ReportDestinationS3``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.s3_subdirectory
 
 
-class ReportDestinationS3(TypedDict):
+class ReportDestinationS3(TypedDict, closed=True):
     subdirectory: NotRequired["aws_sdk_datasync.types.s3_subdirectory.S3Subdirectory"]
     """<p>Specifies a bucket prefix for your report.</p>"""
     s3_bucket_arn: "aws_sdk_datasync.types.s3_bucket_arn.S3BucketArn"

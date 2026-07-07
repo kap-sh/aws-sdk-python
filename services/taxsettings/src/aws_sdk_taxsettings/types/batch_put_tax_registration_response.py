@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#BatchPutTaxRegistrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.tax_registration_status
 
 
-class BatchPutTaxRegistrationResponse(TypedDict):
+class BatchPutTaxRegistrationResponse(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_taxsettings.types.tax_registration_status.TaxRegistrationStatus"
     ]

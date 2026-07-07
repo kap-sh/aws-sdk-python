@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#RegisterTaskDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.volume_list
 
 
-class RegisterTaskDefinitionRequest(TypedDict):
+class RegisterTaskDefinitionRequest(TypedDict, closed=True):
     family: "aws_sdk_ecs.types.string.String"
     """<p>You must specify a <code>family</code> for a task definition. You can use it track multiple versions of the same task definition. The <code>family</code> is used as a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p>"""
     task_role_arn: NotRequired["aws_sdk_ecs.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#UpdatePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.multi_region_targets
 
 
-class UpdatePolicyRequest(TypedDict):
+class UpdatePolicyRequest(TypedDict, closed=True):
     policy_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
     description: NotRequired[
         "aws_sdk_resiliencehubv2.types.long_description.LongDescription"

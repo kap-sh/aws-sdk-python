@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#Pattern``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.percentage
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.target_frames
 
 
-class Pattern(TypedDict):
+class Pattern(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The universally unique identifier (UUID) of this pattern.</p>"""
     name: NotRequired["str"]

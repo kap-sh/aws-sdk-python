@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ReplacePermissionAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ram.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class ReplacePermissionAssociationsRequest(TypedDict):
+class ReplacePermissionAssociationsRequest(TypedDict, closed=True):
     from_permission_arn: "aws_sdk_ram.types.string.String"
     r"""<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the managed permission that you want to replace.</p>"""
     from_permission_version: NotRequired["aws_sdk_ram.types.integer.Integer"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ListElasticsearchInstanceTypesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.domain_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.next_token
 
 
-class ListElasticsearchInstanceTypesRequest(TypedDict):
+class ListElasticsearchInstanceTypesRequest(TypedDict, closed=True):
     elasticsearch_version: "aws_sdk_elasticsearch_service.types.elasticsearch_version_string.ElasticsearchVersionString"
     """<p>Version of Elasticsearch for which list of supported elasticsearch instance types are needed. </p>"""
     domain_name: NotRequired[

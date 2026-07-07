@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#JobProgressReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_healthlake.types.generic_double
     import aws_sdk_healthlake.types.generic_long
 
 
-class JobProgressReport(TypedDict):
+class JobProgressReport(TypedDict, closed=True):
     total_number_of_scanned_files: NotRequired[
         "aws_sdk_healthlake.types.generic_long.GenericLong"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ConnectorOAuthRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.auth_code
     import aws_sdk_appflow.types.redirect_uri
 
 
-class ConnectorOAuthRequest(TypedDict):
+class ConnectorOAuthRequest(TypedDict, closed=True):
     auth_code: NotRequired["aws_sdk_appflow.types.auth_code.AuthCode"]
     """<p> The code provided by the connector when it has been authenticated via the connected app. </p>"""
     redirect_uri: NotRequired["aws_sdk_appflow.types.redirect_uri.RedirectUri"]

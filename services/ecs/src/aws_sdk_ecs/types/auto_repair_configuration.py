@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#AutoRepairConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.auto_repair_actions_status
 
 
-class AutoRepairConfiguration(TypedDict):
+class AutoRepairConfiguration(TypedDict, closed=True):
     actions_status: NotRequired[
         "aws_sdk_ecs.types.auto_repair_actions_status.AutoRepairActionsStatus"
     ]

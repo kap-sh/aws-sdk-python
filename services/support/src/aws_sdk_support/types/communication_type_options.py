@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#CommunicationTypeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.dates_without_support_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.type
 
 
-class CommunicationTypeOptions(TypedDict):
+class CommunicationTypeOptions(TypedDict, closed=True):
     type: NotRequired["aws_sdk_support.types.type.Type"]
     """<p> A string value indicating the communication type. At the moment the type value can assume one of 3 values at the moment chat, web and call. </p>"""
     supported_hours: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#NetworkPathComponent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.network_header
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class NetworkPathComponent(TypedDict):
+class NetworkPathComponent(TypedDict, closed=True):
     component_id: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

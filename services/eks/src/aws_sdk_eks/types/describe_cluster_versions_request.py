@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DescribeClusterVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boxed_boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.version_status
 
 
-class DescribeClusterVersionsRequest(TypedDict):
+class DescribeClusterVersionsRequest(TypedDict, closed=True):
     cluster_type: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The type of cluster to filter versions by.</p>"""
     max_results: NotRequired[

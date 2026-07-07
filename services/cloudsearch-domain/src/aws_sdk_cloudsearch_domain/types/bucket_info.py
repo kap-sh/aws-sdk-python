@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#BucketInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.bucket_list
 
 
-class BucketInfo(TypedDict):
+class BucketInfo(TypedDict, closed=True):
     buckets: NotRequired["aws_sdk_cloudsearch_domain.types.bucket_list.BucketList"]
     """<p>A list of the calculated facet values and counts.</p>"""
 

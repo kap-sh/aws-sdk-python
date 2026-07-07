@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3files.types.resource_id
     import aws_sdk_s3files.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_s3files.types.resource_id.ResourceId"
     """<p>The ID or Amazon Resource Name (ARN) of the resource to remove tags from.</p>"""
     tag_keys: "aws_sdk_s3files.types.tag_keys.TagKeys"

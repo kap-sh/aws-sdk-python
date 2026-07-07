@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#AccessControlListConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.s3_object_key
 
 
-class AccessControlListConfiguration(TypedDict):
+class AccessControlListConfiguration(TypedDict, closed=True):
     key_path: NotRequired["aws_sdk_kendra.types.s3_object_key.S3ObjectKey"]
     """<p>Path to the Amazon S3 bucket that contains the ACL files.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.tag_list
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_chime_sdk_media_pipelines.types.amazon_resource_name.AmazonResourceName"
     """<p>The ARN of the media pipeline associated with any tags. The ARN consists of the pipeline's endpoint region, resource ID, and pipeline ID.</p>"""
     tags: "aws_sdk_chime_sdk_media_pipelines.types.tag_list.TagList"

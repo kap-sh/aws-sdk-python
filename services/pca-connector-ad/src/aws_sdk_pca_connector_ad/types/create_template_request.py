@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#CreateTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pca_connector_ad.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.template_name
 
 
-class CreateTemplateRequest(TypedDict):
+class CreateTemplateRequest(TypedDict, closed=True):
     connector_arn: "aws_sdk_pca_connector_ad.types.connector_arn.ConnectorArn"
     r"""<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html\">CreateConnector</a>.</p>"""
     name: "aws_sdk_pca_connector_ad.types.template_name.TemplateName"

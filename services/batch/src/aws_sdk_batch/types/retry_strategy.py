@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#RetryStrategy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.evaluate_on_exit_list
     import aws_sdk_batch.types.integer
 
 
-class RetryStrategy(TypedDict):
+class RetryStrategy(TypedDict, closed=True):
     attempts: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The number of times to move a job to the <code>RUNNABLE</code> status. You can specify between 1 and 10 attempts. If the value of <code>attempts</code> is greater than one, the job is retried on failure the same number of attempts as the value.</p>"""
     evaluate_on_exit: NotRequired[

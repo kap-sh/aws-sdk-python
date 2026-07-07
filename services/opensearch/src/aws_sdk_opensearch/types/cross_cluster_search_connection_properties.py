@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CrossClusterSearchConnectionProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.skip_unavailable_status
 
 
-class CrossClusterSearchConnectionProperties(TypedDict):
+class CrossClusterSearchConnectionProperties(TypedDict, closed=True):
     skip_unavailable: NotRequired[
         "aws_sdk_opensearch.types.skip_unavailable_status.SkipUnavailableStatus"
     ]

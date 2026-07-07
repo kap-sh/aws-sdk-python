@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#PiiEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.float
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.pii_entity_type
 
 
-class PiiEntity(TypedDict):
+class PiiEntity(TypedDict, closed=True):
     score: NotRequired["aws_sdk_comprehend.types.float.Float"]
     """<p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>"""
     type: NotRequired["aws_sdk_comprehend.types.pii_entity_type.PiiEntityType"]

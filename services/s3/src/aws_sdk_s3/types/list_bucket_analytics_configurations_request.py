@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListBucketAnalyticsConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.token
 
 
-class ListBucketAnalyticsConfigurationsRequest(TypedDict):
+class ListBucketAnalyticsConfigurationsRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     """<p>The name of the bucket from which analytics configurations are retrieved.</p>"""
     continuation_token: NotRequired["aws_sdk_s3.types.token.Token"]

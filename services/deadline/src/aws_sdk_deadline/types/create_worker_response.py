@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#CreateWorkerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.worker_id
 
 
-class CreateWorkerResponse(TypedDict):
+class CreateWorkerResponse(TypedDict, closed=True):
     worker_id: "aws_sdk_deadline.types.worker_id.WorkerId"
     """<p>The worker ID.</p>"""
 

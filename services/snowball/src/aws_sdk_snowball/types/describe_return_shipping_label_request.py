@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#DescribeReturnShippingLabelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.job_id
 
 
-class DescribeReturnShippingLabelRequest(TypedDict):
+class DescribeReturnShippingLabelRequest(TypedDict, closed=True):
     job_id: "aws_sdk_snowball.types.job_id.JobId"
     """<p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>"""
 

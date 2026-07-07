@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#NetworkAccessConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.vpce_ids
 
 
-class NetworkAccessConfiguration(TypedDict):
+class NetworkAccessConfiguration(TypedDict, closed=True):
     prefix_list_ids: "aws_sdk_grafana.types.prefix_list_ids.PrefixListIds"
     r"""<p>An array of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration (passed an empty array) then no IP addresses are allowed to access the workspace. You create a prefix list using the Amazon VPC console.</p> <p>Prefix list IDs have the format <code>pl-<i>1a2b3c4d</i> </code>.</p> <p>For more information about prefix lists, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/managed-prefix-lists.html\">Group CIDR blocks using managed prefix lists</a>in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>"""
     vpce_ids: "aws_sdk_grafana.types.vpce_ids.VpceIds"

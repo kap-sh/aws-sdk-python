@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CreateTenantDatabaseMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class CreateTenantDatabaseMessage(TypedDict):
+class CreateTenantDatabaseMessage(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The user-supplied DB instance identifier. RDS creates your tenant database in this DB instance. This parameter isn't case-sensitive.</p>"""
     tenant_db_name: NotRequired["aws_sdk_rds.types.string.String"]

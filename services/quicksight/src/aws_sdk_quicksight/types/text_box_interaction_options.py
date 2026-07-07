@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TextBoxInteractionOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.text_box_menu_option
 
 
-class TextBoxInteractionOptions(TypedDict):
+class TextBoxInteractionOptions(TypedDict, closed=True):
     text_box_menu_option: NotRequired[
         "aws_sdk_quicksight.types.text_box_menu_option.TextBoxMenuOption"
     ]

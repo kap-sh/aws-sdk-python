@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#Policy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.security_service_policy_data
 
 
-class Policy(TypedDict):
+class Policy(TypedDict, closed=True):
     policy_id: NotRequired["aws_sdk_fms.types.policy_id.PolicyId"]
     """<p>The ID of the Firewall Manager policy.</p>"""
     policy_name: "aws_sdk_fms.types.resource_name.ResourceName"

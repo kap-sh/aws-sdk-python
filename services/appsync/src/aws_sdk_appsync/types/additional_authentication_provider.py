@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#AdditionalAuthenticationProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.authentication_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.open_id_connect_config
 
 
-class AdditionalAuthenticationProvider(TypedDict):
+class AdditionalAuthenticationProvider(TypedDict, closed=True):
     authentication_type: NotRequired[
         "aws_sdk_appsync.types.authentication_type.AuthenticationType"
     ]

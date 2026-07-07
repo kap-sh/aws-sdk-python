@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#StepTimeline``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.date
 
 
-class StepTimeline(TypedDict):
+class StepTimeline(TypedDict, closed=True):
     creation_date_time: NotRequired["aws_sdk_emr.types.date.Date"]
     """<p>The date and time when the cluster step was created.</p>"""
     start_date_time: NotRequired["aws_sdk_emr.types.date.Date"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Field``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.bool
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.list_of_string
 
 
-class Field(TypedDict):
+class Field(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_glue.types.entity_field_name.EntityFieldName"]
     """<p>A unique identifier for the field.</p>"""
     label: NotRequired["aws_sdk_glue.types.field_label.FieldLabel"]

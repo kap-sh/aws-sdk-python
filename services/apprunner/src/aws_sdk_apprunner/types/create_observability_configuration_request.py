@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#CreateObservabilityConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.trace_configuration
 
 
-class CreateObservabilityConfigurationRequest(TypedDict):
+class CreateObservabilityConfigurationRequest(TypedDict, closed=True):
     observability_configuration_name: "aws_sdk_apprunner.types.observability_configuration_name.ObservabilityConfigurationName"
     """<p>A name for the observability configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number <code>1</code> of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.</p> <note> <p>The name <code>DefaultConfiguration</code> is reserved. You can't use it to create a new observability configuration, and you can't create a revision of it.</p> <p>When you want to use your own observability configuration for your App Runner service, <i>create a configuration with a different name</i>, and then provide it when you create or update your service.</p> </note>"""
     trace_configuration: NotRequired[

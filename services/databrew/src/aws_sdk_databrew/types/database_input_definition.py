@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#DatabaseInputDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.s3_location
 
 
-class DatabaseInputDefinition(TypedDict):
+class DatabaseInputDefinition(TypedDict, closed=True):
     glue_connection_name: (
         "aws_sdk_databrew.types.glue_connection_name.GlueConnectionName"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#InitiateProviderRegistrationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.provider
 
 
-class InitiateProviderRegistrationInput(TypedDict):
+class InitiateProviderRegistrationInput(TypedDict, closed=True):
     provider: "aws_sdk_securityagent.types.provider.Provider"
     """<p>The provider to initiate registration with. Currently, only GITHUB is supported.</p>"""
 

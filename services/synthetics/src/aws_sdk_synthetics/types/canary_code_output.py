@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#CanaryCodeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.blueprint_types
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.string
 
 
-class CanaryCodeOutput(TypedDict):
+class CanaryCodeOutput(TypedDict, closed=True):
     source_location_arn: NotRequired["aws_sdk_synthetics.types.string.String"]
     """<p>The ARN of the Lambda layer where Synthetics stores the canary script code.</p>"""
     handler: NotRequired["aws_sdk_synthetics.types.string.String"]

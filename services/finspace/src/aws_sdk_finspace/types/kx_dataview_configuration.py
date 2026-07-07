@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#KxDataviewConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.changeset_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.version_id
 
 
-class KxDataviewConfiguration(TypedDict):
+class KxDataviewConfiguration(TypedDict, closed=True):
     dataview_name: NotRequired["aws_sdk_finspace.types.kx_dataview_name.KxDataviewName"]
     """<p> The unique identifier of the dataview.</p>"""
     dataview_version_id: NotRequired["aws_sdk_finspace.types.version_id.VersionId"]

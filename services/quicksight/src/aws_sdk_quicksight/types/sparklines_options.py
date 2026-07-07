@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SparklinesOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sparkline_visual_type
 
 
-class SparklinesOptions(TypedDict):
+class SparklinesOptions(TypedDict, closed=True):
     field_id: "aws_sdk_quicksight.types.field_id.FieldId"
     """<p>The field ID of the value column that the sparkline is applied to.</p>"""
     x_axis_field: "aws_sdk_quicksight.types.dimension_field.DimensionField"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#TimePeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.time_unit
 
 
-class TimePeriod(TypedDict):
+class TimePeriod(TypedDict, closed=True):
     unit: "aws_sdk_iotfleetwise.types.time_unit.TimeUnit"
     """<p>A unit of time.</p>"""
     value: "aws_sdk_iotfleetwise.types.positive_integer.positiveInteger"

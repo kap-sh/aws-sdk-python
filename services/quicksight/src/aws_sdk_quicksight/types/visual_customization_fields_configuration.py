@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#VisualCustomizationFieldsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.dashboard_customization_status
     import aws_sdk_quicksight.types.visual_customization_additional_fields_list
 
 
-class VisualCustomizationFieldsConfiguration(TypedDict):
+class VisualCustomizationFieldsConfiguration(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_quicksight.types.dashboard_customization_status.DashboardCustomizationStatus"
     ]

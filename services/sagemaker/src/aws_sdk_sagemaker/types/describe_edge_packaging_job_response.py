@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeEdgePackagingJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.edge_output_config
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class DescribeEdgePackagingJobResponse(TypedDict):
+class DescribeEdgePackagingJobResponse(TypedDict, closed=True):
     edge_packaging_job_arn: NotRequired[
         "aws_sdk_sagemaker.types.edge_packaging_job_arn.EdgePackagingJobArn"
     ]

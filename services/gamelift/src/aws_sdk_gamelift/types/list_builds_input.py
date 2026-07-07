@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ListBuildsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.build_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.positive_integer
 
 
-class ListBuildsInput(TypedDict):
+class ListBuildsInput(TypedDict, closed=True):
     status: NotRequired["aws_sdk_gamelift.types.build_status.BuildStatus"]
     """<p>Build status to filter results by. To retrieve all builds, leave this parameter empty.</p> <p>Possible build statuses include the following:</p> <ul> <li> <p> <b>INITIALIZED</b> -- A new build has been defined, but no files have been uploaded. You cannot create fleets for builds that are in this status. When a build is successfully created, the build status is set to this value. </p> </li> <li> <p> <b>READY</b> -- The game build has been successfully uploaded. You can now create new fleets for this build.</p> </li> <li> <p> <b>FAILED</b> -- The game build upload failed. You cannot create new fleets for this build. </p> </li> </ul>"""
     limit: NotRequired["aws_sdk_gamelift.types.positive_integer.PositiveInteger"]

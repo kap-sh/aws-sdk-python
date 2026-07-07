@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DescribeConnectionLoaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_direct_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.provider_name
 
 
-class DescribeConnectionLoaRequest(TypedDict):
+class DescribeConnectionLoaRequest(TypedDict, closed=True):
     connection_id: "aws_sdk_direct_connect.types.connection_id.ConnectionId"
     """<p>The ID of the connection.</p>"""
     provider_name: NotRequired[

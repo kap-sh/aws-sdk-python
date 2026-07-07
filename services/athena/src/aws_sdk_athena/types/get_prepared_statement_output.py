@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetPreparedStatementOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.prepared_statement
 
 
-class GetPreparedStatementOutput(TypedDict):
+class GetPreparedStatementOutput(TypedDict, closed=True):
     prepared_statement: NotRequired[
         "aws_sdk_athena.types.prepared_statement.PreparedStatement"
     ]

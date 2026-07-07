@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#SetDefaultMessageTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.message_type
 
 
-class SetDefaultMessageTypeRequest(TypedDict):
+class SetDefaultMessageTypeRequest(TypedDict, closed=True):
     configuration_set_name: "aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name_or_arn.ConfigurationSetNameOrArn"
     """<p>The configuration set to update with a new default message type. This field can be the ConsigurationSetName or ConfigurationSetArn.</p>"""
     message_type: "aws_sdk_pinpoint_sms_voice_v2.types.message_type.MessageType"

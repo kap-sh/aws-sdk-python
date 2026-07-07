@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#CreateConnectionOAuthClientRequestParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.auth_header_parameters_sensitive
 
 
-class CreateConnectionOAuthClientRequestParameters(TypedDict):
+class CreateConnectionOAuthClientRequestParameters(TypedDict, closed=True):
     client_id: "aws_sdk_eventbridge.types.auth_header_parameters.AuthHeaderParameters"
     """<p>The client ID to use for OAuth authorization for the connection.</p>"""
     client_secret: "aws_sdk_eventbridge.types.auth_header_parameters_sensitive.AuthHeaderParametersSensitive"

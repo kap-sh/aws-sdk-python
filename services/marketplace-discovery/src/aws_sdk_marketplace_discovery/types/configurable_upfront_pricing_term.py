@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#ConfigurableUpfrontPricingTerm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.term_type
 
 
-class ConfigurableUpfrontPricingTerm(TypedDict):
+class ConfigurableUpfrontPricingTerm(TypedDict, closed=True):
     id: "aws_sdk_marketplace_discovery.types.term_id.TermId"
     """<p>The unique identifier of the term.</p>"""
     type: "aws_sdk_marketplace_discovery.types.term_type.TermType"

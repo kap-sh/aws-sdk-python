@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#DeleteRecommenderResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRecommenderResponse(TypedDict):
+class DeleteRecommenderResponse(TypedDict, closed=True):
     pass
 
 

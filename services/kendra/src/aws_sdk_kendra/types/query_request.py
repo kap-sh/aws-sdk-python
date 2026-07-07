@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#QueryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.visitor_id
 
 
-class QueryRequest(TypedDict):
+class QueryRequest(TypedDict, closed=True):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     """<p>The identifier of the index for the search.</p>"""
     query_text: NotRequired["aws_sdk_kendra.types.query_text.QueryText"]

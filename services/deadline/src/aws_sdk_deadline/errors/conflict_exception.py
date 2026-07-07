@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "aws_sdk_deadline.types.string.String"
     reason: "aws_sdk_deadline.types.conflict_exception_reason.ConflictExceptionReason"
     """<p>A description of the error.</p>"""

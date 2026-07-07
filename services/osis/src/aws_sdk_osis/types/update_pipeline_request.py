@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.osis#UpdatePipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.buffer_options
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_osis.types.pipeline_units
 
 
-class UpdatePipelineRequest(TypedDict):
+class UpdatePipelineRequest(TypedDict, closed=True):
     pipeline_name: "aws_sdk_osis.types.pipeline_name.PipelineName"
     """<p>The name of the pipeline to update.</p>"""
     min_units: NotRequired["aws_sdk_osis.types.pipeline_units.PipelineUnits"]

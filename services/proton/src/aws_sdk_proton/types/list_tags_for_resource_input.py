@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListTagsForResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.arn
     import aws_sdk_proton.types.max_page_results
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_proton.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the resource for the listed tags.</p>"""
     next_token: NotRequired["str"]

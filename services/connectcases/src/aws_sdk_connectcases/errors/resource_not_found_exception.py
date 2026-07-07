@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ResourceNotFoundException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p>Unique identifier of the resource affected.</p>"""

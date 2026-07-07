@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListComplianceStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.pagination_token
     import aws_sdk_fms.types.policy_compliance_status_list
 
 
-class ListComplianceStatusResponse(TypedDict):
+class ListComplianceStatusResponse(TypedDict, closed=True):
     policy_compliance_status_list: NotRequired[
         "aws_sdk_fms.types.policy_compliance_status_list.PolicyComplianceStatusList"
     ]

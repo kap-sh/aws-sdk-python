@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AutoSubscriptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.subscription_type
 
 
-class AutoSubscriptionConfiguration(TypedDict):
+class AutoSubscriptionConfiguration(TypedDict, closed=True):
     auto_subscribe: (
         "aws_sdk_qbusiness.types.auto_subscription_status.AutoSubscriptionStatus"
     )

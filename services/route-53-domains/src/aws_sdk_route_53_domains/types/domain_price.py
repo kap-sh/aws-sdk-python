@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#DomainPrice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.domain_price_name
     import aws_sdk_route_53_domains.types.price_with_currency
 
 
-class DomainPrice(TypedDict):
+class DomainPrice(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_route_53_domains.types.domain_price_name.DomainPriceName"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#TableMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.timestamp
 
 
-class TableMetadata(TypedDict):
+class TableMetadata(TypedDict, closed=True):
     name: "aws_sdk_athena.types.name_string.NameString"
     """<p>The name of the table.</p>"""
     create_time: NotRequired["aws_sdk_athena.types.timestamp.Timestamp"]

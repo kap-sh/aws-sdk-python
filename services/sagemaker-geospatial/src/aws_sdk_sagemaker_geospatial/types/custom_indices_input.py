@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#CustomIndicesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.operations_list_input
 
 
-class CustomIndicesInput(TypedDict):
+class CustomIndicesInput(TypedDict, closed=True):
     operations: NotRequired[
         "aws_sdk_sagemaker_geospatial.types.operations_list_input.OperationsListInput"
     ]

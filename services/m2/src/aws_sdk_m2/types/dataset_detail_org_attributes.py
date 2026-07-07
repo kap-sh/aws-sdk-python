@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#DatasetDetailOrgAttributes``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.vsam_detail_attributes
 
 
-class _DatasetDetailOrgAttributes_vsam(TypedDict):
+class _DatasetDetailOrgAttributes_vsam(TypedDict, closed=True):
     vsam: "aws_sdk_m2.types.vsam_detail_attributes.VsamDetailAttributes"
 
 
-class _DatasetDetailOrgAttributes_gdg(TypedDict):
+class _DatasetDetailOrgAttributes_gdg(TypedDict, closed=True):
     gdg: "aws_sdk_m2.types.gdg_detail_attributes.GdgDetailAttributes"
 
 
-class _DatasetDetailOrgAttributes_po(TypedDict):
+class _DatasetDetailOrgAttributes_po(TypedDict, closed=True):
     po: "aws_sdk_m2.types.po_detail_attributes.PoDetailAttributes"
 
 
-class _DatasetDetailOrgAttributes_ps(TypedDict):
+class _DatasetDetailOrgAttributes_ps(TypedDict, closed=True):
     ps: "aws_sdk_m2.types.ps_detail_attributes.PsDetailAttributes"
 
 

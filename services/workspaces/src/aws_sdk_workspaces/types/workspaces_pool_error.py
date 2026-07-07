@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#WorkspacesPoolError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.error_message
     import aws_sdk_workspaces.types.workspaces_pool_error_code
 
 
-class WorkspacesPoolError(TypedDict):
+class WorkspacesPoolError(TypedDict, closed=True):
     error_code: NotRequired[
         "aws_sdk_workspaces.types.workspaces_pool_error_code.WorkspacesPoolErrorCode"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#AccountReceiver``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.aws_account
 
 
-class AccountReceiver(TypedDict):
+class AccountReceiver(TypedDict, closed=True):
     alias: NotRequired["aws_sdk_partnercentral_selling.types.alias.Alias"]
     """<p>Represents the alias of the partner account receiving the Engagement Invitation, making it easier to identify and track the recipient in reports or logs.</p>"""
     aws_account_id: "aws_sdk_partnercentral_selling.types.aws_account.AwsAccount"

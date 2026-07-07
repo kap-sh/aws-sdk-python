@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#UpdatePipeSourceSelfManagedKafkaParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.limit_max10000
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.self_managed_kafka_access_configuration_vpc
 
 
-class UpdatePipeSourceSelfManagedKafkaParameters(TypedDict):
+class UpdatePipeSourceSelfManagedKafkaParameters(TypedDict, closed=True):
     batch_size: NotRequired["aws_sdk_pipes.types.limit_max10000.LimitMax10000"]
     """<p>The maximum number of records to include in each batch.</p>"""
     maximum_batching_window_in_seconds: NotRequired[

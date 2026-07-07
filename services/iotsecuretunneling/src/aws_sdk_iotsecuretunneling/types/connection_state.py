@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsecuretunneling#ConnectionState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.connection_status
     import aws_sdk_iotsecuretunneling.types.date_type
 
 
-class ConnectionState(TypedDict):
+class ConnectionState(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_iotsecuretunneling.types.connection_status.ConnectionStatus"
     ]

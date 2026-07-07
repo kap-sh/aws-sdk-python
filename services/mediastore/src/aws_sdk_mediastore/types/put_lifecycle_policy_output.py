@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#PutLifecyclePolicyOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutLifecyclePolicyOutput(TypedDict):
+class PutLifecyclePolicyOutput(TypedDict, closed=True):
     pass
 
 

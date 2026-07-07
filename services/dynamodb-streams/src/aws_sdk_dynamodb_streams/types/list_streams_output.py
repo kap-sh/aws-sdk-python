@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodbstreams#ListStreamsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.stream_arn
     import aws_sdk_dynamodb_streams.types.stream_list
 
 
-class ListStreamsOutput(TypedDict):
+class ListStreamsOutput(TypedDict, closed=True):
     streams: NotRequired["aws_sdk_dynamodb_streams.types.stream_list.StreamList"]
     """<p>A list of stream descriptors associated with the current account and endpoint.</p>"""
     last_evaluated_stream_arn: NotRequired[

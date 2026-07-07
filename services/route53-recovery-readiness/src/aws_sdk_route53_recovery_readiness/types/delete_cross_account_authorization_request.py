@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#DeleteCrossAccountAuthorizationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__string
 
 
-class DeleteCrossAccountAuthorizationRequest(TypedDict):
+class DeleteCrossAccountAuthorizationRequest(TypedDict, closed=True):
     cross_account_authorization: (
         "aws_sdk_route53_recovery_readiness.types.__string.__string"
     )

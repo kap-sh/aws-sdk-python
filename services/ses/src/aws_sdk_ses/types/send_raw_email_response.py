@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#SendRawEmailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.message_id
 
 
-class SendRawEmailResponse(TypedDict):
+class SendRawEmailResponse(TypedDict, closed=True):
     message_id: "aws_sdk_ses.types.message_id.MessageId"
     """<p>The unique message identifier returned from the <code>SendRawEmail</code> action. </p>"""
 

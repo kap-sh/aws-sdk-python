@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#DeregisterAccountRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeregisterAccountRequest(TypedDict):
+class DeregisterAccountRequest(TypedDict, closed=True):
     pass
 
 

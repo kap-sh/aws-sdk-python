@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DefaultEbsStorageSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.space_ebs_volume_size_in_gb
 
 
-class DefaultEbsStorageSettings(TypedDict):
+class DefaultEbsStorageSettings(TypedDict, closed=True):
     default_ebs_volume_size_in_gb: NotRequired[
         "aws_sdk_sagemaker.types.space_ebs_volume_size_in_gb.SpaceEbsVolumeSizeInGb"
     ]

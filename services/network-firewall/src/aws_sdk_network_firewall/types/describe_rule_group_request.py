@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#DescribeRuleGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.rule_group_type
 
 
-class DescribeRuleGroupRequest(TypedDict):
+class DescribeRuleGroupRequest(TypedDict, closed=True):
     rule_group_name: NotRequired[
         "aws_sdk_network_firewall.types.resource_name.ResourceName"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#GetGraphqlApiEnvironmentVariablesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.environment_variable_map
 
 
-class GetGraphqlApiEnvironmentVariablesResponse(TypedDict):
+class GetGraphqlApiEnvironmentVariablesResponse(TypedDict, closed=True):
     environment_variables: NotRequired[
         "aws_sdk_appsync.types.environment_variable_map.EnvironmentVariableMap"
     ]

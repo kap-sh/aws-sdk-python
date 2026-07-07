@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#CreateUploadUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
     import aws_sdk_lex_models_v2.types.presigned_s3_url
 
 
-class CreateUploadUrlResponse(TypedDict):
+class CreateUploadUrlResponse(TypedDict, closed=True):
     import_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     r"""<p>An identifier for a unique import job. Use it when you call the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_StartImport.html\">StartImport</a> operation.</p>"""
     upload_url: NotRequired[

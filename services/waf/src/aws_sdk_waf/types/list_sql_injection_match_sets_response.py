@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.waf#ListSqlInjectionMatchSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.next_marker
     import aws_sdk_waf.types.sql_injection_match_set_summaries
 
 
-class ListSqlInjectionMatchSetsResponse(TypedDict):
+class ListSqlInjectionMatchSetsResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_waf.types.next_marker.NextMarker"]
     """<p>If you have more <a>SqlInjectionMatchSet</a> objects than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>SqlInjectionMatchSet</code> objects, submit another <code>ListSqlInjectionMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>"""
     sql_injection_match_sets: NotRequired[

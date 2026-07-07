@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetLayerVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.compatible_architectures
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.timestamp
 
 
-class GetLayerVersionResponse(TypedDict):
+class GetLayerVersionResponse(TypedDict, closed=True):
     content: NotRequired[
         "aws_sdk_lambda.types.layer_version_content_output.LayerVersionContentOutput"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteBackupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.backup_id
     import aws_sdk_fsx.types.backup_lifecycle
 
 
-class DeleteBackupResponse(TypedDict):
+class DeleteBackupResponse(TypedDict, closed=True):
     backup_id: NotRequired["aws_sdk_fsx.types.backup_id.BackupId"]
     """<p>The ID of the backup that was deleted.</p>"""
     lifecycle: NotRequired["aws_sdk_fsx.types.backup_lifecycle.BackupLifecycle"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakera2iruntime#DescribeHumanLoopResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_a2i_runtime.types.flow_definition_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_a2i_runtime.types.timestamp
 
 
-class DescribeHumanLoopResponse(TypedDict):
+class DescribeHumanLoopResponse(TypedDict, closed=True):
     creation_time: NotRequired[
         "aws_sdk_sagemaker_a2i_runtime.types.timestamp.Timestamp"
     ]

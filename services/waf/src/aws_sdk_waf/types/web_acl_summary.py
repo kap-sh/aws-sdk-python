@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#WebACLSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_name
 
 
-class WebACLSummary(TypedDict):
+class WebACLSummary(TypedDict, closed=True):
     web_acl_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>A unique identifier for a <code>WebACL</code>. You use <code>WebACLId</code> to get information about a <code>WebACL</code> (see <a>GetWebACL</a>), update a <code>WebACL</code> (see <a>UpdateWebACL</a>), and delete a <code>WebACL</code> from AWS WAF (see <a>DeleteWebACL</a>).</p> <p> <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</p>"""
     name: "aws_sdk_waf.types.resource_name.ResourceName"

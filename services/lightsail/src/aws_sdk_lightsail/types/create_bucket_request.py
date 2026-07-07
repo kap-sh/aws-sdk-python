@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CreateBucketRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.tag_list
 
 
-class CreateBucketRequest(TypedDict):
+class CreateBucketRequest(TypedDict, closed=True):
     bucket_name: "aws_sdk_lightsail.types.bucket_name.BucketName"
     r"""<p>The name for the bucket.</p> <p>For more information about bucket names, see <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/bucket-naming-rules-in-amazon-lightsail\">Bucket naming rules in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>"""
     bundle_id: "aws_sdk_lightsail.types.non_empty_string.NonEmptyString"

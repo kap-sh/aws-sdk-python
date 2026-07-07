@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#BudgetPerformanceHistory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_budgets.types.billing_view_arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.time_unit
 
 
-class BudgetPerformanceHistory(TypedDict):
+class BudgetPerformanceHistory(TypedDict, closed=True):
     budget_name: NotRequired["aws_sdk_budgets.types.budget_name.BudgetName"]
     budget_type: NotRequired["aws_sdk_budgets.types.budget_type.BudgetType"]
     cost_filters: NotRequired["aws_sdk_budgets.types.cost_filters.CostFilters"]

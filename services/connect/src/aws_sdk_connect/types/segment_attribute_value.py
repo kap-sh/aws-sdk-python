@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SegmentAttributeValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.segment_attribute_value_integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.segment_attribute_value_string
 
 
-class SegmentAttributeValue(TypedDict):
+class SegmentAttributeValue(TypedDict, closed=True):
     value_string: NotRequired[
         "aws_sdk_connect.types.segment_attribute_value_string.SegmentAttributeValueString"
     ]

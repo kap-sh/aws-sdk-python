@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#Source``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.source_data
     import aws_sdk_rolesanywhere.types.trust_anchor_type
 
 
-class Source(TypedDict):
+class Source(TypedDict, closed=True):
     source_type: NotRequired[
         "aws_sdk_rolesanywhere.types.trust_anchor_type.TrustAnchorType"
     ]

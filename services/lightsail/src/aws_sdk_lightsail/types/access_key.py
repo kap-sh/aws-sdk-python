@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#AccessKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.access_key_last_used
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.status_type
 
 
-class AccessKey(TypedDict):
+class AccessKey(TypedDict, closed=True):
     access_key_id: NotRequired[
         "aws_sdk_lightsail.types.iam_access_key_id.IAMAccessKeyId"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RuleSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.rule_set_name
 
 
-class RuleSet(TypedDict):
+class RuleSet(TypedDict, closed=True):
     rule_set_id: NotRequired["aws_sdk_mailmanager.types.rule_set_id.RuleSetId"]
     """<p>The identifier of the rule set.</p>"""
     rule_set_name: NotRequired["aws_sdk_mailmanager.types.rule_set_name.RuleSetName"]

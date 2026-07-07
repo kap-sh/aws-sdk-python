@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#UnsupportedImageTypeException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.exception_message
 
 
-class UnsupportedImageTypeException_(TypedDict):
+class UnsupportedImageTypeException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_ecr.types.exception_message.ExceptionMessage"]
 
 

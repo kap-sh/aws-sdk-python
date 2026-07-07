@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#OptionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.update_timestamp
 
 
-class OptionStatus(TypedDict):
+class OptionStatus(TypedDict, closed=True):
     creation_date: "aws_sdk_opensearch.types.update_timestamp.UpdateTimestamp"
     """<p>The timestamp when the entity was created.</p>"""
     update_date: "aws_sdk_opensearch.types.update_timestamp.UpdateTimestamp"

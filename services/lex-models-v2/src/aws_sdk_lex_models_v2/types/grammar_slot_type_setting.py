@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#GrammarSlotTypeSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.grammar_slot_type_source
 
 
-class GrammarSlotTypeSetting(TypedDict):
+class GrammarSlotTypeSetting(TypedDict, closed=True):
     source: NotRequired[
         "aws_sdk_lex_models_v2.types.grammar_slot_type_source.GrammarSlotTypeSource"
     ]

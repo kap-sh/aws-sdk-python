@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#DomainSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connecthealth.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.domain_status
 
 
-class DomainSummary(TypedDict):
+class DomainSummary(TypedDict, closed=True):
     domain_id: "aws_sdk_connecthealth.types.domain_id.DomainId"
     """<p>The unique identifier of the Domain.</p>"""
     arn: "aws_sdk_connecthealth.types.domain_arn.DomainArn"

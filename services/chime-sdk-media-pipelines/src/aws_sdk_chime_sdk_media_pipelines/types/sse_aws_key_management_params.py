@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#SseAwsKeyManagementParams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.string
 
 
-class SseAwsKeyManagementParams(TypedDict):
+class SseAwsKeyManagementParams(TypedDict, closed=True):
     aws_kms_key_id: "aws_sdk_chime_sdk_media_pipelines.types.string.String"
     """<p>The KMS key you want to use to encrypt your media pipeline output. Decryption is required for concatenation pipeline. If using a key located in the current Amazon Web Services account, you can specify your KMS key in one of four ways:</p> <ul> <li> <p>Use the KMS key ID itself. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p> </li> <li> <p>Use an alias for the KMS key ID. For example, <code>alias/ExampleAlias</code>.</p> </li> <li> <p>Use the Amazon Resource Name (ARN) for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p> </li> <li> <p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p> </li> </ul> <p>If using a key located in a different Amazon Web Services account than the current Amazon Web Services account, you can specify your KMS key in one of two ways:</p> <ul> <li> <p>Use the ARN for the KMS key ID. For example, <code>arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p> </li> <li> <p>Use the ARN for the KMS key alias. For example, <code>arn:aws:kms:region:account-ID:alias/ExampleAlias</code>.</p> </li> </ul> <p>If you don't specify an encryption key, your output is encrypted with the default Amazon S3 key (SSE-S3).</p> <p>Note that the role specified in the <code>SinkIamRoleArn</code> request parameter must have permission to use the specified KMS key.</p>"""
     aws_kms_encryption_context: NotRequired[

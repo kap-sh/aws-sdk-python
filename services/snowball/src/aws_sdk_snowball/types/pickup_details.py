@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#PickupDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.device_pickup_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.timestamp
 
 
-class PickupDetails(TypedDict):
+class PickupDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The name of the person picking up the device.</p>"""
     phone_number: NotRequired["aws_sdk_snowball.types.phone_number.PhoneNumber"]

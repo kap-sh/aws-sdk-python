@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#TargetContainerRepository``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class TargetContainerRepository(TypedDict):
+class TargetContainerRepository(TypedDict, closed=True):
     service: "aws_sdk_imagebuilder.types.container_repository_service.ContainerRepositoryService"
     """<p>Specifies the service in which this image was registered.</p>"""
     repository_name: "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"

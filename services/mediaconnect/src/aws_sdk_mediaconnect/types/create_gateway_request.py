@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#CreateGatewayRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_gateway_network
     import aws_sdk_mediaconnect.types.__list_of_string
 
 
-class CreateGatewayRequest(TypedDict):
+class CreateGatewayRequest(TypedDict, closed=True):
     egress_cidr_blocks: NotRequired[
         "aws_sdk_mediaconnect.types.__list_of_string.__listOfString"
     ]

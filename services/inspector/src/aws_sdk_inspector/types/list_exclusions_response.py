@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#ListExclusionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.pagination_token
 
 
-class ListExclusionsResponse(TypedDict):
+class ListExclusionsResponse(TypedDict, closed=True):
     exclusion_arns: "aws_sdk_inspector.types.list_returned_arn_list.ListReturnedArnList"
     """<p>A list of exclusions' ARNs returned by the action.</p>"""
     next_token: NotRequired["aws_sdk_inspector.types.pagination_token.PaginationToken"]

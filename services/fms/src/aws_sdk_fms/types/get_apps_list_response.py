@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#GetAppsListResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.apps_list_data
     import aws_sdk_fms.types.resource_arn
 
 
-class GetAppsListResponse(TypedDict):
+class GetAppsListResponse(TypedDict, closed=True):
     apps_list: NotRequired["aws_sdk_fms.types.apps_list_data.AppsListData"]
     """<p>Information about the specified Firewall Manager applications list.</p>"""
     apps_list_arn: NotRequired["aws_sdk_fms.types.resource_arn.ResourceArn"]

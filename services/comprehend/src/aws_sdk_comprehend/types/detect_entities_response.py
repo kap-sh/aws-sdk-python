@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DetectEntitiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.document_metadata
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.list_of_errors
 
 
-class DetectEntitiesResponse(TypedDict):
+class DetectEntitiesResponse(TypedDict, closed=True):
     entities: NotRequired["aws_sdk_comprehend.types.list_of_entities.ListOfEntities"]
     r"""<p>A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. </p> <p>If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see <a href=\"https://docs.aws.amazon.com/comprehend/latest/dg/how-entities.html\">Entities</a> in the Comprehend Developer Guide. </p>"""
     document_metadata: NotRequired[

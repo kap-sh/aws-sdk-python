@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#WorkerSearchSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.created_at
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.worker_status
 
 
-class WorkerSearchSummary(TypedDict):
+class WorkerSearchSummary(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_deadline.types.fleet_id.FleetId"]
     """<p>The fleet ID.</p>"""
     worker_id: NotRequired["aws_sdk_deadline.types.worker_id.WorkerId"]

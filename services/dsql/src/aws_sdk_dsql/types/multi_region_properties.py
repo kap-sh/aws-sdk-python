@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#MultiRegionProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.cluster_arn_list
     import aws_sdk_dsql.types.region
 
 
-class MultiRegionProperties(TypedDict):
+class MultiRegionProperties(TypedDict, closed=True):
     witness_region: NotRequired["aws_sdk_dsql.types.region.Region"]
     """<p>The Region that serves as the witness region for a multi-Region cluster. The witness Region helps maintain cluster consistency and quorum.</p>"""
     clusters: NotRequired["aws_sdk_dsql.types.cluster_arn_list.ClusterArnList"]

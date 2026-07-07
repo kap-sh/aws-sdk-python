@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#SecurityGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class SecurityGroup(TypedDict):
+class SecurityGroup(TypedDict, closed=True):
     group_id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The security group ID of the EC2 instance.</p>"""
     group_name: NotRequired["aws_sdk_guardduty.types.string.String"]

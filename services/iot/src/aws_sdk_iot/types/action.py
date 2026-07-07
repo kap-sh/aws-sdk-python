@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#Action``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.cloudwatch_alarm_action
@@ -80,6 +80,7 @@ Action = TypedDict(
         ],
         "location": NotRequired["aws_sdk_iot.types.location_action.LocationAction"],
     },
+    closed=True,
 )
 
 

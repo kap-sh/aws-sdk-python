@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#PrepareQueryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.select_column_list
 
 
-class PrepareQueryResponse(TypedDict):
+class PrepareQueryResponse(TypedDict, closed=True):
     query_string: "aws_sdk_timestream_query.types.query_string.QueryString"
     """<p>The query string that you want prepare.</p>"""
     columns: "aws_sdk_timestream_query.types.select_column_list.SelectColumnList"

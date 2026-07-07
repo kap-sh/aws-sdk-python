@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DescribeNodegroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.nodegroup
 
 
-class DescribeNodegroupResponse(TypedDict):
+class DescribeNodegroupResponse(TypedDict, closed=True):
     nodegroup: NotRequired["aws_sdk_eks.types.nodegroup.Nodegroup"]
     """<p>The full description of your node group.</p>"""
 

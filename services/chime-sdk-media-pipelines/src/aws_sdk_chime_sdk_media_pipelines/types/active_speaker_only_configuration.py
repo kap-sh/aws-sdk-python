@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#ActiveSpeakerOnlyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.active_speaker_position
 
 
-class ActiveSpeakerOnlyConfiguration(TypedDict):
+class ActiveSpeakerOnlyConfiguration(TypedDict, closed=True):
     active_speaker_position: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.active_speaker_position.ActiveSpeakerPosition"
     ]

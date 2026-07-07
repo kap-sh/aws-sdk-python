@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#ListRoute53HealthChecksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.route53_record_name
 
 
-class ListRoute53HealthChecksRequest(TypedDict):
+class ListRoute53HealthChecksRequest(TypedDict, closed=True):
     arn: "aws_sdk_arc_region_switch.types.plan_arn.PlanArn"
     """<p>The Amazon Resource Name (ARN) of the Amazon Route 53 health check request.</p>"""
     hosted_zone_id: NotRequired[

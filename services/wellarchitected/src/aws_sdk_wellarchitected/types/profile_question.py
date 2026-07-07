@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ProfileQuestion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.max_selected_profile_choices
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.selected_choice_ids
 
 
-class ProfileQuestion(TypedDict):
+class ProfileQuestion(TypedDict, closed=True):
     question_id: NotRequired["aws_sdk_wellarchitected.types.question_id.QuestionId"]
     question_title: NotRequired[
         "aws_sdk_wellarchitected.types.question_title.QuestionTitle"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#CreateDeploymentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.version
 
 
-class CreateDeploymentRequest(TypedDict):
+class CreateDeploymentRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The identifier of the runtime environment where you want to deploy this application.</p>"""
     application_id: "aws_sdk_m2.types.identifier.Identifier"

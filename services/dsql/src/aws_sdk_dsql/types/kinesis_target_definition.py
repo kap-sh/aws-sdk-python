@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#KinesisTargetDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dsql.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.role_arn
 
 
-class KinesisTargetDefinition(TypedDict):
+class KinesisTargetDefinition(TypedDict, closed=True):
     stream_arn: "aws_sdk_dsql.types.kinesis_stream_arn.KinesisStreamArn"
     """<p>The ARN of the Kinesis stream.</p>"""
     role_arn: "aws_sdk_dsql.types.role_arn.RoleArn"

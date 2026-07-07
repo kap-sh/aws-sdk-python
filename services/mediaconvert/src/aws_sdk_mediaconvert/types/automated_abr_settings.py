@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AutomatedAbrSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double_min1_max10
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of_automated_abr_rule
 
 
-class AutomatedAbrSettings(TypedDict):
+class AutomatedAbrSettings(TypedDict, closed=True):
     max_abr_bitrate: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min100000_max100000000.__integerMin100000Max100000000"
     ]

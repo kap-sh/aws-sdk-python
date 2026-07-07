@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteMLTransformResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.hash_string
 
 
-class DeleteMLTransformResponse(TypedDict):
+class DeleteMLTransformResponse(TypedDict, closed=True):
     transform_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>The unique identifier of the transform that was deleted.</p>"""
 

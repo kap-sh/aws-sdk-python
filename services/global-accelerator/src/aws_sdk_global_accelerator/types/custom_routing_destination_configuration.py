@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#CustomRoutingDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_global_accelerator.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.port_number
 
 
-class CustomRoutingDestinationConfiguration(TypedDict):
+class CustomRoutingDestinationConfiguration(TypedDict, closed=True):
     from_port: "aws_sdk_global_accelerator.types.port_number.PortNumber"
     """<p>The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>"""
     to_port: "aws_sdk_global_accelerator.types.port_number.PortNumber"

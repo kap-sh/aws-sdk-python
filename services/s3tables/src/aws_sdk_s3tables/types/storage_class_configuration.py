@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#StorageClassConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.storage_class
 
 
-class StorageClassConfiguration(TypedDict):
+class StorageClassConfiguration(TypedDict, closed=True):
     storage_class: "aws_sdk_s3tables.types.storage_class.StorageClass"
     """<p>The storage class for the table or table bucket. Valid values include storage classes optimized for different access patterns and cost profiles.</p>"""
 

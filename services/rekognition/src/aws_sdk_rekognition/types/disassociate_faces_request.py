@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DisassociateFacesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.user_id
 
 
-class DisassociateFacesRequest(TypedDict):
+class DisassociateFacesRequest(TypedDict, closed=True):
     collection_id: "aws_sdk_rekognition.types.collection_id.CollectionId"
     """<p>The ID of an existing collection containing the UserID.</p>"""
     user_id: "aws_sdk_rekognition.types.user_id.UserId"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ListLabelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.label_summaries
     import aws_sdk_lookoutequipment.types.next_token
 
 
-class ListLabelsResponse(TypedDict):
+class ListLabelsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_lookoutequipment.types.next_token.NextToken"]
     """<p> An opaque pagination token indicating where to continue the listing of datasets. </p>"""
     label_summaries: NotRequired[

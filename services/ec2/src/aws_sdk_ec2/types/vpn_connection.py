@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VpnConnection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpn_static_route_list
 
 
-class VpnConnection(TypedDict):
+class VpnConnection(TypedDict, closed=True):
     category: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The category of the VPN connection. A value of <code>VPN</code> indicates an Amazon Web Services VPN connection. A value of <code>VPN-Classic</code> indicates an Amazon Web Services Classic VPN connection.</p>"""
     transit_gateway_id: NotRequired["aws_sdk_ec2.types.string.String"]

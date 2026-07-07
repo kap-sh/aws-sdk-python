@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#GetDevicePoolRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.amazon_resource_name
 
 
-class GetDevicePoolRequest(TypedDict):
+class GetDevicePoolRequest(TypedDict, closed=True):
     arn: "aws_sdk_device_farm.types.amazon_resource_name.AmazonResourceName"
     """<p>The device pool's ARN.</p>"""
 

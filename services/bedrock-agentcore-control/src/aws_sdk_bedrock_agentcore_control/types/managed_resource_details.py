@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ManagedResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.domain_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.resource_gateway_arn
 
 
-class ManagedResourceDetails(TypedDict):
+class ManagedResourceDetails(TypedDict, closed=True):
     domain: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.domain_name.DomainName"
     ]

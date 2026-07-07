@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetApiRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
 
 
-class GetApiRequest(TypedDict):
+class GetApiRequest(TypedDict, closed=True):
     api_id: "aws_sdk_apigatewayv2.types.__string.__string"
     """<p>The API identifier.</p>"""
 

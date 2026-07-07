@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#UpdateDeviceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.device_summary
 
 
-class UpdateDeviceResponse(TypedDict):
+class UpdateDeviceResponse(TypedDict, closed=True):
     device: NotRequired[
         "aws_sdk_workspaces_thin_client.types.device_summary.DeviceSummary"
     ]

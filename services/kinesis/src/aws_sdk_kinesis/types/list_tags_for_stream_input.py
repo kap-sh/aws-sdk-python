@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#ListTagsForStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.types.list_tags_for_stream_input_limit
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.tag_key
 
 
-class ListTagsForStreamInput(TypedDict):
+class ListTagsForStreamInput(TypedDict, closed=True):
     stream_name: NotRequired["aws_sdk_kinesis.types.stream_name.StreamName"]
     """<p>The name of the stream.</p>"""
     exclusive_start_tag_key: NotRequired["aws_sdk_kinesis.types.tag_key.TagKey"]

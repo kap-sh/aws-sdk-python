@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SpanMessageValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.span_tool_use_value
 
 
-class _SpanMessageValue_text(TypedDict):
+class _SpanMessageValue_text(TypedDict, closed=True):
     text: "aws_sdk_qconnect.types.span_text_value.SpanTextValue"
 
 
-class _SpanMessageValue_toolUse(TypedDict):
+class _SpanMessageValue_toolUse(TypedDict, closed=True):
     toolUse: "aws_sdk_qconnect.types.span_tool_use_value.SpanToolUseValue"
 
 
-class _SpanMessageValue_toolResult(TypedDict):
+class _SpanMessageValue_toolResult(TypedDict, closed=True):
     toolResult: "aws_sdk_qconnect.types.span_tool_result_value.SpanToolResultValue"
 
 
-class _SpanMessageValue_reasoning(TypedDict):
+class _SpanMessageValue_reasoning(TypedDict, closed=True):
     reasoning: "aws_sdk_qconnect.types.span_reasoning_value.SpanReasoningValue"
 
 

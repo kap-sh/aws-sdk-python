@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycontrolconfig#DeleteControlPanelResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteControlPanelResponse(TypedDict):
+class DeleteControlPanelResponse(TypedDict, closed=True):
     pass
 
 

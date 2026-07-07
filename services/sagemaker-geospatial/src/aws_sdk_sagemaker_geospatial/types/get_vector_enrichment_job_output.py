@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#GetVectorEnrichmentJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.vector_enrichment_job_type
 
 
-class GetVectorEnrichmentJobOutput(TypedDict):
+class GetVectorEnrichmentJobOutput(TypedDict, closed=True):
     arn: "str"
     """<p>The Amazon Resource Name (ARN) of the Vector Enrichment job.</p>"""
     type: "aws_sdk_sagemaker_geospatial.types.vector_enrichment_job_type.VectorEnrichmentJobType"

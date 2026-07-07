@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#AdministrativeAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.administrative_action_failure_details
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume
 
 
-class AdministrativeAction(TypedDict):
+class AdministrativeAction(TypedDict, closed=True):
     administrative_action_type: NotRequired[
         "aws_sdk_fsx.types.administrative_action_type.AdministrativeActionType"
     ]

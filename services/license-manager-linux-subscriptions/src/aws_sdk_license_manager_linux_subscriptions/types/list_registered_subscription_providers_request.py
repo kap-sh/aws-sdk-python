@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerlinuxsubscriptions#ListRegisteredSubscriptionProvidersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager_linux_subscriptions.types.box_integer
     import aws_sdk_license_manager_linux_subscriptions.types.subscription_provider_source_list
 
 
-class ListRegisteredSubscriptionProvidersRequest(TypedDict):
+class ListRegisteredSubscriptionProvidersRequest(TypedDict, closed=True):
     subscription_provider_sources: NotRequired[
         "aws_sdk_license_manager_linux_subscriptions.types.subscription_provider_source_list.SubscriptionProviderSourceList"
     ]

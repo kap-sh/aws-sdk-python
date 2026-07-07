@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#DescribeSecurityConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.resource_id_string
 
 
-class DescribeSecurityConfigurationRequest(TypedDict):
+class DescribeSecurityConfigurationRequest(TypedDict, closed=True):
     id: "aws_sdk_emr_containers.types.resource_id_string.ResourceIdString"
     """<p>The ID of the security configuration.</p>"""
 

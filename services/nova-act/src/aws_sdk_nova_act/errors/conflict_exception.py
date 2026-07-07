@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.non_blank_string
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "aws_sdk_nova_act.types.non_blank_string.NonBlankString"
     """<p>The requested operation conflicts with the current state of the resource.</p>"""
     resource_id: "aws_sdk_nova_act.types.non_blank_string.NonBlankString"

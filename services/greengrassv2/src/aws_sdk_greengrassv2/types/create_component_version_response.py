@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#CreateComponentVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.timestamp
 
 
-class CreateComponentVersionResponse(TypedDict):
+class CreateComponentVersionResponse(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_greengrassv2.types.component_version_arn.ComponentVersionARN"
     ]

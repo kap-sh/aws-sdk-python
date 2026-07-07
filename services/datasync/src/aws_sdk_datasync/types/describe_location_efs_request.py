@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#DescribeLocationEfsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.location_arn
 
 
-class DescribeLocationEfsRequest(TypedDict):
+class DescribeLocationEfsRequest(TypedDict, closed=True):
     location_arn: "aws_sdk_datasync.types.location_arn.LocationArn"
     """<p>The Amazon Resource Name (ARN) of the Amazon EFS file system location that you want information about.</p>"""
 

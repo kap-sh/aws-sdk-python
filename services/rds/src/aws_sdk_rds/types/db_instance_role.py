@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DBInstanceRole``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DBInstanceRole(TypedDict):
+class DBInstanceRole(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.</p>"""
     feature_name: NotRequired["aws_sdk_rds.types.string.String"]

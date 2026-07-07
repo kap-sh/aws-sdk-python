@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#UpdateMembershipInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.membership_identifier
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.update_membership_payment_configuration
 
 
-class UpdateMembershipInput(TypedDict):
+class UpdateMembershipInput(TypedDict, closed=True):
     membership_identifier: (
         "aws_sdk_cleanrooms.types.membership_identifier.MembershipIdentifier"
     )

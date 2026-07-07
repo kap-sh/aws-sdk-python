@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListThemeVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.theme_version_summary_list
 
 
-class ListThemeVersionsResponse(TypedDict):
+class ListThemeVersionsResponse(TypedDict, closed=True):
     theme_version_summary_list: NotRequired[
         "aws_sdk_quicksight.types.theme_version_summary_list.ThemeVersionSummaryList"
     ]

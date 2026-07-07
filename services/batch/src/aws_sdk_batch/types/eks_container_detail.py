@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EksContainerDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.eks_container_environment_variables
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string_list
 
 
-class EksContainerDetail(TypedDict):
+class EksContainerDetail(TypedDict, closed=True):
     name: NotRequired["aws_sdk_batch.types.string.String"]
     r"""<p>The name of the container. If the name isn't specified, the default name \"<code>Default</code>\" is used. Each container in a pod must have a unique name.</p>"""
     image: NotRequired["aws_sdk_batch.types.string.String"]

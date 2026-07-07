@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#GetTemporaryDataLocationCredentialsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.audit_context
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.path_string_list
 
 
-class GetTemporaryDataLocationCredentialsRequest(TypedDict):
+class GetTemporaryDataLocationCredentialsRequest(TypedDict, closed=True):
     duration_seconds: NotRequired[
         "aws_sdk_lakeformation.types.credential_timeout_duration_second_integer.CredentialTimeoutDurationSecondInteger"
     ]

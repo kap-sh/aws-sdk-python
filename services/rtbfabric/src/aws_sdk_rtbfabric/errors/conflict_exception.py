@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
 
 

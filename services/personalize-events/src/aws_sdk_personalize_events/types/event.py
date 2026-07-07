@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeevents#Event``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize_events.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize_events.types.synthesized_json_event_properties_json
 
 
-class Event(TypedDict):
+class Event(TypedDict, closed=True):
     event_id: NotRequired["aws_sdk_personalize_events.types.string_type.StringType"]
     """<p>An ID associated with the event. If an event ID is not provided, Amazon Personalize generates a unique ID for the event. An event ID is not used as an input to the model. Amazon Personalize uses the event ID to distinguish unique events. Any subsequent events after the first with the same event ID are not used in model training.</p>"""
     event_type: "aws_sdk_personalize_events.types.string_type.StringType"

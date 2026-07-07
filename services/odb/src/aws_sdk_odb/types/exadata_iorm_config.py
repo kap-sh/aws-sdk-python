@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ExadataIormConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.db_iorm_config_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.objective
 
 
-class ExadataIormConfig(TypedDict):
+class ExadataIormConfig(TypedDict, closed=True):
     db_plans: NotRequired["aws_sdk_odb.types.db_iorm_config_list.DbIormConfigList"]
     """<p>An array of IORM settings for all the database in the Exadata DB system.</p>"""
     lifecycle_details: NotRequired["str"]

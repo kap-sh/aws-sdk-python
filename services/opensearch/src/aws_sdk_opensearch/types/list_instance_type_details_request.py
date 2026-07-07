@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ListInstanceTypeDetailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.version_string
 
 
-class ListInstanceTypeDetailsRequest(TypedDict):
+class ListInstanceTypeDetailsRequest(TypedDict, closed=True):
     engine_version: "aws_sdk_opensearch.types.version_string.VersionString"
     """<p>The version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y. Defaults to the latest version of OpenSearch.</p>"""
     domain_name: NotRequired["aws_sdk_opensearch.types.domain_name.DomainName"]

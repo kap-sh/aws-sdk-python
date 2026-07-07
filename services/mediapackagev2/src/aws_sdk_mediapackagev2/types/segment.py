@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#Segment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.encryption
     import aws_sdk_mediapackagev2.types.scte
 
 
-class Segment(TypedDict):
+class Segment(TypedDict, closed=True):
     segment_duration_seconds: NotRequired["int"]
     """<p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>"""
     segment_name: NotRequired["str"]

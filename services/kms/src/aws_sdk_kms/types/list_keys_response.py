@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#ListKeysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.boolean_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.marker_type
 
 
-class ListKeysResponse(TypedDict):
+class ListKeysResponse(TypedDict, closed=True):
     keys: NotRequired["aws_sdk_kms.types.key_list.KeyList"]
     """<p>A list of KMS keys.</p>"""
     next_marker: NotRequired["aws_sdk_kms.types.marker_type.MarkerType"]

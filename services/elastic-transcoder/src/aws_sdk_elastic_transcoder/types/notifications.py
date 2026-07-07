@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#Notifications``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.sns_topic
 
 
-class Notifications(TypedDict):
+class Notifications(TypedDict, closed=True):
     progressing: NotRequired["aws_sdk_elastic_transcoder.types.sns_topic.SnsTopic"]
     """<p>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.</p>"""
     completed: NotRequired["aws_sdk_elastic_transcoder.types.sns_topic.SnsTopic"]

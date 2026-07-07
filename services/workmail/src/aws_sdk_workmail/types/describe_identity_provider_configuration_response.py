@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DescribeIdentityProviderConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.identity_center_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.personal_access_token_configuration
 
 
-class DescribeIdentityProviderConfigurationResponse(TypedDict):
+class DescribeIdentityProviderConfigurationResponse(TypedDict, closed=True):
     authentication_mode: NotRequired[
         "aws_sdk_workmail.types.identity_provider_authentication_mode.IdentityProviderAuthenticationMode"
     ]

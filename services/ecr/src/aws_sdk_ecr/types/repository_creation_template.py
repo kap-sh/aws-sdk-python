@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#RepositoryCreationTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.custom_role_arn
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.tag_list
 
 
-class RepositoryCreationTemplate(TypedDict):
+class RepositoryCreationTemplate(TypedDict, closed=True):
     prefix: NotRequired["aws_sdk_ecr.types.prefix.Prefix"]
     """<p>The repository namespace prefix associated with the repository creation template.</p>"""
     description: NotRequired[

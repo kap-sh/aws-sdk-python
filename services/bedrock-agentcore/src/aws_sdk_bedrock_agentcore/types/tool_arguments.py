@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ToolArguments``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.input_content_block_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.string_list
 
 
-class ToolArguments(TypedDict):
+class ToolArguments(TypedDict, closed=True):
     code: NotRequired["aws_sdk_bedrock_agentcore.types.max_len_string.MaxLenString"]
     """<p>The code to execute in a code interpreter session. This is the source code in the specified programming language that will be executed by the code interpreter.</p>"""
     language: NotRequired[

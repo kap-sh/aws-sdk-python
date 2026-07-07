@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SendDiagnosticInterruptRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.instance_id
 
 
-class SendDiagnosticInterruptRequest(TypedDict):
+class SendDiagnosticInterruptRequest(TypedDict, closed=True):
     instance_id: NotRequired["aws_sdk_ec2.types.instance_id.InstanceId"]
     """<p>The ID of the instance.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateComputeQuotaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.activation_state
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateComputeQuotaRequest(TypedDict):
+class CreateComputeQuotaRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>Name to the compute allocation definition.</p>"""
     description: NotRequired[

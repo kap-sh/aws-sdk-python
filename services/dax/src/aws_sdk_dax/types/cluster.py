@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#Cluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.cluster_endpoint_encryption_type
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.string
 
 
-class Cluster(TypedDict):
+class Cluster(TypedDict, closed=True):
     cluster_name: NotRequired["aws_sdk_dax.types.string.String"]
     """<p>The name of the DAX cluster.</p>"""
     description: NotRequired["aws_sdk_dax.types.string.String"]

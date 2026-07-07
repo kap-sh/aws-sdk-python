@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsMskClusterClusterInfoDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_msk_cluster_cluster_info_client_authentication_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsMskClusterClusterInfoDetails(TypedDict):
+class AwsMskClusterClusterInfoDetails(TypedDict, closed=True):
     encryption_info: NotRequired[
         "aws_sdk_securityhub.types.aws_msk_cluster_cluster_info_encryption_info_details.AwsMskClusterClusterInfoEncryptionInfoDetails"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ChatEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.chat_event_type
 
 
-class ChatEvent(TypedDict):
+class ChatEvent(TypedDict, closed=True):
     type: "aws_sdk_connect.types.chat_event_type.ChatEventType"
     """<p>Type of chat integration event. </p>"""
     content_type: NotRequired["aws_sdk_connect.types.chat_content_type.ChatContentType"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AssociationExecutionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.association_filter_operator_type
 
 
-class AssociationExecutionFilter(TypedDict):
+class AssociationExecutionFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.association_execution_filter_key.AssociationExecutionFilterKey"
     """<p>The key value used in the request.</p>"""
     value: "aws_sdk_ssm.types.association_execution_filter_value.AssociationExecutionFilterValue"

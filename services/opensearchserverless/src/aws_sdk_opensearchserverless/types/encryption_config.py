@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#EncryptionConfig``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EncryptionConfig(TypedDict):
+class EncryptionConfig(TypedDict, closed=True):
     a_ws_owned_key: NotRequired["bool"]
     """<p>Indicates whether to use an Amazon Web Services-owned key for encryption.</p>"""
     kms_key_arn: NotRequired["str"]

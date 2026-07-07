@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#Endpoint``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Endpoint(TypedDict):
+class Endpoint(TypedDict, closed=True):
     uri: NotRequired["str"]
     """<p>The URI of the endpoint.</p>"""
 

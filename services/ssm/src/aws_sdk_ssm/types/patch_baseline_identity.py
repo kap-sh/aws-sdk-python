@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PatchBaselineIdentity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.baseline_description
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.operating_system
 
 
-class PatchBaselineIdentity(TypedDict):
+class PatchBaselineIdentity(TypedDict, closed=True):
     baseline_id: NotRequired["aws_sdk_ssm.types.baseline_id.BaselineId"]
     """<p>The ID of the patch baseline.</p>"""
     baseline_name: NotRequired["aws_sdk_ssm.types.baseline_name.BaselineName"]

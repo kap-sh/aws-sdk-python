@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#DeleteDataSourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.entity_id
 
 
-class DeleteDataSourceInput(TypedDict):
+class DeleteDataSourceInput(TypedDict, closed=True):
     data_source_id: "aws_sdk_machine_learning.types.entity_id.EntityId"
     """<p>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</p>"""
 

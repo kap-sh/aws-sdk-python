@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MultiplexProgramSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0_max65535
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.preferred_channel_pipeline
 
 
-class MultiplexProgramSettings(TypedDict):
+class MultiplexProgramSettings(TypedDict, closed=True):
     preferred_channel_pipeline: NotRequired[
         "aws_sdk_medialive.types.preferred_channel_pipeline.PreferredChannelPipeline"
     ]

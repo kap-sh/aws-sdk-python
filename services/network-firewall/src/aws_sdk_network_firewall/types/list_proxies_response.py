@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#ListProxiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.pagination_token
     import aws_sdk_network_firewall.types.proxies
 
 
-class ListProxiesResponse(TypedDict):
+class ListProxiesResponse(TypedDict, closed=True):
     proxies: NotRequired["aws_sdk_network_firewall.types.proxies.Proxies"]
     """<p>The metadata for the proxies. Depending on your setting for max results and the number of proxies that you have, this might not be the full list. </p>"""
     next_token: NotRequired[

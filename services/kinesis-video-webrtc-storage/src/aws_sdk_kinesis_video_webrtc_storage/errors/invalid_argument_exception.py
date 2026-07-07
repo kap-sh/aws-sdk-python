@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideowebrtcstorage#InvalidArgumentException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_video_webrtc_storage.errors import ServiceError
 
 
-class InvalidArgumentException_(TypedDict):
+class InvalidArgumentException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

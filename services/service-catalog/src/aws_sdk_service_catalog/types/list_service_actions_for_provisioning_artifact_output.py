@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ListServiceActionsForProvisioningArtifactOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.page_token
     import aws_sdk_service_catalog.types.service_action_summaries
 
 
-class ListServiceActionsForProvisioningArtifactOutput(TypedDict):
+class ListServiceActionsForProvisioningArtifactOutput(TypedDict, closed=True):
     service_action_summaries: NotRequired[
         "aws_sdk_service_catalog.types.service_action_summaries.ServiceActionSummaries"
     ]

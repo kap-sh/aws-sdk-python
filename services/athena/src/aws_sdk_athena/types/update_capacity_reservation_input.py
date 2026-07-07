@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#UpdateCapacityReservationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.target_dpus_integer
 
 
-class UpdateCapacityReservationInput(TypedDict):
+class UpdateCapacityReservationInput(TypedDict, closed=True):
     target_dpus: "aws_sdk_athena.types.target_dpus_integer.TargetDpusInteger"
     """<p>The new number of requested data processing units.</p>"""
     name: "aws_sdk_athena.types.capacity_reservation_name.CapacityReservationName"

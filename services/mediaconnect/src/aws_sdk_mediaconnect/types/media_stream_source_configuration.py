@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MediaStreamSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_input_configuration
     import aws_sdk_mediaconnect.types.encoding_name
 
 
-class MediaStreamSourceConfiguration(TypedDict):
+class MediaStreamSourceConfiguration(TypedDict, closed=True):
     encoding_name: NotRequired["aws_sdk_mediaconnect.types.encoding_name.EncodingName"]
     """<p> The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv. </p>"""
     input_configurations: NotRequired[

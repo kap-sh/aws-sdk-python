@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_messaging.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.tag_list
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
     """<p>The resource ARN.</p>"""
     tags: "aws_sdk_chime_sdk_messaging.types.tag_list.TagList"

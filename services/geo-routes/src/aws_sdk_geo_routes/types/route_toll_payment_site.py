@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteTollPaymentSite``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.position23
 
 
-class RouteTollPaymentSite(TypedDict):
+class RouteTollPaymentSite(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>Name of the payment site.</p>"""
     position: "aws_sdk_geo_routes.types.position23.Position23"

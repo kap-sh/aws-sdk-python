@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CompatibleVersionsMap``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.version_list
     import aws_sdk_opensearch.types.version_string
 
 
-class CompatibleVersionsMap(TypedDict):
+class CompatibleVersionsMap(TypedDict, closed=True):
     source_version: NotRequired["aws_sdk_opensearch.types.version_string.VersionString"]
     """<p>The current version that the OpenSearch Service domain is running.</p>"""
     target_versions: NotRequired["aws_sdk_opensearch.types.version_list.VersionList"]

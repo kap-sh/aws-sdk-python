@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#SdiSourceMappingUpdateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer
     import aws_sdk_medialive.types.__string
 
 
-class SdiSourceMappingUpdateRequest(TypedDict):
+class SdiSourceMappingUpdateRequest(TypedDict, closed=True):
     card_number: NotRequired["aws_sdk_medialive.types.__integer.__integer"]
     """A number that uniquely identifies the SDI card on the node hardware. For information about how physical cards are identified on your node hardware, see the documentation for your node hardware. The numbering always starts at 1."""
     channel_number: NotRequired["aws_sdk_medialive.types.__integer.__integer"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifySnapshotTierRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.target_storage_tier
 
 
-class ModifySnapshotTierRequest(TypedDict):
+class ModifySnapshotTierRequest(TypedDict, closed=True):
     snapshot_id: NotRequired["aws_sdk_ec2.types.snapshot_id.SnapshotId"]
     """<p>The ID of the snapshot.</p>"""
     storage_tier: NotRequired["aws_sdk_ec2.types.target_storage_tier.TargetStorageTier"]

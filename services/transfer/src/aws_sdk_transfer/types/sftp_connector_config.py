@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#SftpConnectorConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.max_concurrent_connections
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.sftp_connector_trusted_host_key_list
 
 
-class SftpConnectorConfig(TypedDict):
+class SftpConnectorConfig(TypedDict, closed=True):
     user_secret_id: NotRequired["aws_sdk_transfer.types.secret_id.SecretId"]
     """<p>The identifier for the secret (in Amazon Web Services Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier must be the Amazon Resource Name (ARN) of the secret.</p> <note> <ul> <li> <p>Required when creating an SFTP connector</p> </li> <li> <p>Optional when updating an existing SFTP connector</p> </li> </ul> </note>"""
     trusted_host_keys: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#HttpDataSourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.authorization_config
     import aws_sdk_appsync.types.string
 
 
-class HttpDataSourceConfig(TypedDict):
+class HttpDataSourceConfig(TypedDict, closed=True):
     endpoint: NotRequired["aws_sdk_appsync.types.string.String"]
     """<p>The HTTP URL endpoint. You can specify either the domain name or IP, and port combination, and the URL scheme must be HTTP or HTTPS. If you don't specify the port, AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.</p>"""
     authorization_config: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#UsageReportSubscription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.last_report_generation_execution_errors
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.usage_report_schedule
 
 
-class UsageReportSubscription(TypedDict):
+class UsageReportSubscription(TypedDict, closed=True):
     s3_bucket_name: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>The Amazon S3 bucket where generated reports are stored.</p> <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script configuration, WorkSpaces Applications created an S3 bucket to store the script output. The bucket is unique to your account and Region. When you enable usage reporting in this case, WorkSpaces Applications uses the same bucket to store your usage reports. If you haven't already enabled on-instance session scripts, when you enable usage reports, WorkSpaces Applications creates a new S3 bucket.</p>"""
     schedule: NotRequired[

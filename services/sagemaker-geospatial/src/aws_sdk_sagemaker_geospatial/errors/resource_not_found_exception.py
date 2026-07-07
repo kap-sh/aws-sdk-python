@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ResourceNotFoundException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
     resource_id: NotRequired["str"]
     """<p>Identifier of the resource that was not found.</p>"""

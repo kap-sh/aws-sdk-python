@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#Ec2AmiResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class Ec2AmiResource(TypedDict):
+class Ec2AmiResource(TypedDict, closed=True):
     ami_id: "aws_sdk_snowball.types.ami_id.AmiId"
     """<p>The ID of the AMI in Amazon EC2.</p>"""
     snowball_ami_id: NotRequired["aws_sdk_snowball.types.string.String"]

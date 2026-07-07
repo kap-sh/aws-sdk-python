@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GetAsyncInvokeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.invocation_arn
 
 
-class GetAsyncInvokeRequest(TypedDict):
+class GetAsyncInvokeRequest(TypedDict, closed=True):
     invocation_arn: "aws_sdk_bedrock_runtime.types.invocation_arn.InvocationArn"
     """<p>The invocation's ARN.</p>"""
 

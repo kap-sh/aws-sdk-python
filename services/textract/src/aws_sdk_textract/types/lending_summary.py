@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#LendingSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.document_group_list
     import aws_sdk_textract.types.undetected_document_type_list
 
 
-class LendingSummary(TypedDict):
+class LendingSummary(TypedDict, closed=True):
     document_groups: NotRequired[
         "aws_sdk_textract.types.document_group_list.DocumentGroupList"
     ]

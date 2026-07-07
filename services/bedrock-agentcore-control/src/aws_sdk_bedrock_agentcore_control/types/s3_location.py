@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#S3Location``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
 
-class S3Location(TypedDict):
+class S3Location(TypedDict, closed=True):
     bucket: "str"
     """<p>The name of the Amazon S3 bucket. This bucket contains the stored data.</p>"""
     prefix: "str"

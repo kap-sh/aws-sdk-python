@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#Facet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.document_attribute_key
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.top_document_attribute_value_count_pairs_size
 
 
-class Facet(TypedDict):
+class Facet(TypedDict, closed=True):
     document_attribute_key: NotRequired[
         "aws_sdk_kendra.types.document_attribute_key.DocumentAttributeKey"
     ]

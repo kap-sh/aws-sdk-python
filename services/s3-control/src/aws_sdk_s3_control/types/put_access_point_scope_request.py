@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#PutAccessPointScopeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.scope
 
 
-class PutAccessPointScopeRequest(TypedDict):
+class PutAccessPointScopeRequest(TypedDict, closed=True):
     account_id: "aws_sdk_s3_control.types.account_id.AccountId"
     """<p> The Amazon Web Services account ID that owns the access point with scope that you want to create or replace. </p>"""
     name: "aws_sdk_s3_control.types.access_point_name.AccessPointName"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CaptionRectangle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double_min0_max100
 
 
-class CaptionRectangle(TypedDict):
+class CaptionRectangle(TypedDict, closed=True):
     height: NotRequired[
         "aws_sdk_medialive.types.__double_min0_max100.__doubleMin0Max100"
     ]

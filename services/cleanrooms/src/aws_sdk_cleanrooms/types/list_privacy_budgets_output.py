@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ListPrivacyBudgetsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.privacy_budget_summary_list
 
 
-class ListPrivacyBudgetsOutput(TypedDict):
+class ListPrivacyBudgetsOutput(TypedDict, closed=True):
     privacy_budget_summaries: (
         "aws_sdk_cleanrooms.types.privacy_budget_summary_list.PrivacyBudgetSummaryList"
     )

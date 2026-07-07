@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceExperimentDataStorageConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.capture_content_type_header
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.kms_key_id
 
 
-class InferenceExperimentDataStorageConfig(TypedDict):
+class InferenceExperimentDataStorageConfig(TypedDict, closed=True):
     destination: NotRequired[
         "aws_sdk_sagemaker.types.destination_s3_uri.DestinationS3Uri"
     ]

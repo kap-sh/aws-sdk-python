@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#RulesConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.mapping_rules_list
 
 
-class RulesConfigurationType(TypedDict):
+class RulesConfigurationType(TypedDict, closed=True):
     rules: "aws_sdk_cognito_identity.types.mapping_rules_list.MappingRulesList"
     """<p>An array of rules. You can specify up to 25 rules per identity provider.</p> <p>Rules are evaluated in order. The first one to match specifies the role.</p>"""
 

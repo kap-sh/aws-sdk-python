@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#UpdateDatasetEntriesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateDatasetEntriesResponse(TypedDict):
+class UpdateDatasetEntriesResponse(TypedDict, closed=True):
     pass
 
 

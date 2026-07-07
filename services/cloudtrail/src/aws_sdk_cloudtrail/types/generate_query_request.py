@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#GenerateQueryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.prompt
 
 
-class GenerateQueryRequest(TypedDict):
+class GenerateQueryRequest(TypedDict, closed=True):
     event_data_stores: (
         "aws_sdk_cloudtrail.types.event_data_store_list.EventDataStoreList"
     )

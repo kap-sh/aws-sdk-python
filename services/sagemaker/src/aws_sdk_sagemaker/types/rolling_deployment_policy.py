@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RollingDeploymentPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.capacity_size_config
 
 
-class RollingDeploymentPolicy(TypedDict):
+class RollingDeploymentPolicy(TypedDict, closed=True):
     maximum_batch_size: NotRequired[
         "aws_sdk_sagemaker.types.capacity_size_config.CapacitySizeConfig"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ManagedRuleGroupStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.version_key_string
 
 
-class ManagedRuleGroupStatement(TypedDict):
+class ManagedRuleGroupStatement(TypedDict, closed=True):
     vendor_name: "aws_sdk_wafv2.types.vendor_name.VendorName"
     """<p>The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.</p>"""
     name: "aws_sdk_wafv2.types.entity_name.EntityName"

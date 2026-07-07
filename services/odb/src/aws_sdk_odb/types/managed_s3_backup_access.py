@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ManagedS3BackupAccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.managed_resource_status
     import aws_sdk_odb.types.string_list
 
 
-class ManagedS3BackupAccess(TypedDict):
+class ManagedS3BackupAccess(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_odb.types.managed_resource_status.ManagedResourceStatus"
     ]

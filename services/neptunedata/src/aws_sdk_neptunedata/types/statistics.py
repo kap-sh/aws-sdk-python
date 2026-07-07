@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#Statistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.statistics_summary
 
 
-class Statistics(TypedDict):
+class Statistics(TypedDict, closed=True):
     auto_compute: NotRequired["bool"]
     """<p>Indicates whether or not automatic statistics generation is enabled.</p>"""
     active: NotRequired["bool"]

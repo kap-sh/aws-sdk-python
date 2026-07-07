@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#BatchIsAuthorizedWithTokenOutputItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.evaluation_error_list
 
 
-class BatchIsAuthorizedWithTokenOutputItem(TypedDict):
+class BatchIsAuthorizedWithTokenOutputItem(TypedDict, closed=True):
     request: "aws_sdk_verifiedpermissions.types.batch_is_authorized_with_token_input_item.BatchIsAuthorizedWithTokenInputItem"
     """<p>The authorization request that initiated the decision.</p>"""
     decision: "aws_sdk_verifiedpermissions.types.decision.Decision"

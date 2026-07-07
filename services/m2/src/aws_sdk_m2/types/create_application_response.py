@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#CreateApplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.version
 
 
-class CreateApplicationResponse(TypedDict):
+class CreateApplicationResponse(TypedDict, closed=True):
     application_arn: "aws_sdk_m2.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the application.</p>"""
     application_id: "aws_sdk_m2.types.identifier.Identifier"

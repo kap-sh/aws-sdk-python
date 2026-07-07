@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#SrtEncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.secrets_manager_encryption_key_configuration
 
 
-class SrtEncryptionConfiguration(TypedDict):
+class SrtEncryptionConfiguration(TypedDict, closed=True):
     encryption_key: "aws_sdk_mediaconnect.types.secrets_manager_encryption_key_configuration.SecretsManagerEncryptionKeyConfiguration"
     """<p>Specifies the encryption key configuration used for encrypting SRT streams, including the key source and associated credentials.</p>"""
 

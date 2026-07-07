@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#FastRestoreRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.availability_zone_id_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.retention_interval_unit_values
 
 
-class FastRestoreRule(TypedDict):
+class FastRestoreRule(TypedDict, closed=True):
     count: NotRequired["aws_sdk_dlm.types.count.Count"]
     """<p>The number of snapshots to be enabled with fast snapshot restore.</p>"""
     interval: NotRequired["aws_sdk_dlm.types.interval.Interval"]

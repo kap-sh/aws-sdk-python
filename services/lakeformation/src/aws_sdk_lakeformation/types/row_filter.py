@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#RowFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.all_rows_wildcard
     import aws_sdk_lakeformation.types.predicate_string
 
 
-class RowFilter(TypedDict):
+class RowFilter(TypedDict, closed=True):
     filter_expression: NotRequired[
         "aws_sdk_lakeformation.types.predicate_string.PredicateString"
     ]

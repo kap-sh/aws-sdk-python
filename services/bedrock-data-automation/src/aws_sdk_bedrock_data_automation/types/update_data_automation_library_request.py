@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#UpdateDataAutomationLibraryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.data_automation_library_description
 
 
-class UpdateDataAutomationLibraryRequest(TypedDict):
+class UpdateDataAutomationLibraryRequest(TypedDict, closed=True):
     library_arn: "aws_sdk_bedrock_data_automation.types.data_automation_library_arn.DataAutomationLibraryArn"
     """ARN generated at the server side when a DataAutomationLibrary is created"""
     library_description: NotRequired[

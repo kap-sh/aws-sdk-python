@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#ListScopesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.max_results
 
 
-class ListScopesInput(TypedDict):
+class ListScopesInput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The token for the next set of results. You receive this token from a previous call.</p>"""
     max_results: NotRequired["aws_sdk_networkflowmonitor.types.max_results.MaxResults"]

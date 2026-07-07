@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ConnectionTrackingSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.integer
 
 
-class ConnectionTrackingSpecification(TypedDict):
+class ConnectionTrackingSpecification(TypedDict, closed=True):
     tcp_established_timeout: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>"""
     udp_timeout: NotRequired["aws_sdk_ec2.types.integer.Integer"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#S3StorageOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.directory_listing_optimization
 
 
-class S3StorageOptions(TypedDict):
+class S3StorageOptions(TypedDict, closed=True):
     directory_listing_optimization: NotRequired[
         "aws_sdk_transfer.types.directory_listing_optimization.DirectoryListingOptimization"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#Part``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.size
 
 
-class Part(TypedDict):
+class Part(TypedDict, closed=True):
     part_number: NotRequired["aws_sdk_s3.types.part_number.PartNumber"]
     """<p>Part number identifying the part. This is a positive integer between 1 and 10,000.</p>"""
     last_modified: NotRequired["aws_sdk_s3.types.last_modified.LastModified"]

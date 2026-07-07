@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#GetCorsPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediastore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore.types.container_name
 
 
-class GetCorsPolicyInput(TypedDict):
+class GetCorsPolicyInput(TypedDict, closed=True):
     container_name: "aws_sdk_mediastore.types.container_name.ContainerName"
     """<p>The name of the container that the policy is assigned to.</p>"""
 

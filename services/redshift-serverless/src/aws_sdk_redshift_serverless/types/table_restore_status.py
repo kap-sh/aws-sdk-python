@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#TableRestoreStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class TableRestoreStatus(TypedDict):
+class TableRestoreStatus(TypedDict, closed=True):
     table_restore_request_id: NotRequired["str"]
     """<p>The ID of the RestoreTableFromSnapshot request.</p>"""
     status: NotRequired["str"]

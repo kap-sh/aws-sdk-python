@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#EffectiveDeployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.timestamp
 
 
-class EffectiveDeployment(TypedDict):
+class EffectiveDeployment(TypedDict, closed=True):
     deployment_id: "aws_sdk_greengrassv2.types.deployment_id.DeploymentID"
     """<p>The ID of the deployment.</p>"""
     deployment_name: "aws_sdk_greengrassv2.types.deployment_name.DeploymentName"

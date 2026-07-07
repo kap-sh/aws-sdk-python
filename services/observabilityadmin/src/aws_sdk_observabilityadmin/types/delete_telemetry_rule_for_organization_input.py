@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#DeleteTelemetryRuleForOrganizationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.rule_identifier
 
 
-class DeleteTelemetryRuleForOrganizationInput(TypedDict):
+class DeleteTelemetryRuleForOrganizationInput(TypedDict, closed=True):
     rule_identifier: "aws_sdk_observabilityadmin.types.rule_identifier.RuleIdentifier"
     """<p> The identifier (name or ARN) of the organization telemetry rule to delete. </p>"""
 

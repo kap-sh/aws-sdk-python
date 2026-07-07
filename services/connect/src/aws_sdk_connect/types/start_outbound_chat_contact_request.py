@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StartOutboundChatContactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.templated_message_config
 
 
-class StartOutboundChatContactRequest(TypedDict):
+class StartOutboundChatContactRequest(TypedDict, closed=True):
     source_endpoint: "aws_sdk_connect.types.endpoint.Endpoint"
     destination_endpoint: "aws_sdk_connect.types.endpoint.Endpoint"
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"

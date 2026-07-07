@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeAlgorithmInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.arn_or_name
 
 
-class DescribeAlgorithmInput(TypedDict):
+class DescribeAlgorithmInput(TypedDict, closed=True):
     algorithm_name: NotRequired["aws_sdk_sagemaker.types.arn_or_name.ArnOrName"]
     """<p>The name of the algorithm to describe.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ListNotebookMetadataInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.work_group_name
 
 
-class ListNotebookMetadataInput(TypedDict):
+class ListNotebookMetadataInput(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_athena.types.filter_definition.FilterDefinition"]
     """<p>Search filter string.</p>"""
     next_token: NotRequired["aws_sdk_athena.types.token.Token"]

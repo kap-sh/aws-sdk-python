@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#UpdateProductOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.product_view_detail
     import aws_sdk_service_catalog.types.tags
 
 
-class UpdateProductOutput(TypedDict):
+class UpdateProductOutput(TypedDict, closed=True):
     product_view_detail: NotRequired[
         "aws_sdk_service_catalog.types.product_view_detail.ProductViewDetail"
     ]

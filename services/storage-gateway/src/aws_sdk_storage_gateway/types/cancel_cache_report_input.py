@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#CancelCacheReportInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.cache_report_arn
 
 
-class CancelCacheReportInput(TypedDict):
+class CancelCacheReportInput(TypedDict, closed=True):
     cache_report_arn: "aws_sdk_storage_gateway.types.cache_report_arn.CacheReportARN"
     """<p>The Amazon Resource Name (ARN) of the cache report you want to cancel.</p>"""
 

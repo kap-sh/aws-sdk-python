@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#AssociateApplicationToEntitlementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.name
     import aws_sdk_appstream.types.string
 
 
-class AssociateApplicationToEntitlementRequest(TypedDict):
+class AssociateApplicationToEntitlementRequest(TypedDict, closed=True):
     stack_name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>The name of the stack.</p>"""
     entitlement_name: NotRequired["aws_sdk_appstream.types.name.Name"]

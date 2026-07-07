@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SeedUrl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.web_url
 
 
-class SeedUrl(TypedDict):
+class SeedUrl(TypedDict, closed=True):
     url: NotRequired["aws_sdk_qconnect.types.web_url.WebUrl"]
     """<p>URL for crawling</p>"""
 

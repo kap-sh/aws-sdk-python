@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#PrivateDnsPropertiesMutable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.soa
 
 
-class PrivateDnsPropertiesMutable(TypedDict):
+class PrivateDnsPropertiesMutable(TypedDict, closed=True):
     soa: "aws_sdk_servicediscovery.types.soa.SOA"
     """<p>Fields for the Start of Authority (SOA) record for the hosted zone for the private DNS namespace.</p>"""
 

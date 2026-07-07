@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribeHostKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.server_id
 
 
-class DescribeHostKeyRequest(TypedDict):
+class DescribeHostKeyRequest(TypedDict, closed=True):
     server_id: "aws_sdk_transfer.types.server_id.ServerId"
     """<p>The identifier of the server that contains the host key that you want described.</p>"""
     host_key_id: "aws_sdk_transfer.types.host_key_id.HostKeyId"

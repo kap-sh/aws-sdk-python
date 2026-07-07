@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DeleteFaqRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.index_id
 
 
-class DeleteFaqRequest(TypedDict):
+class DeleteFaqRequest(TypedDict, closed=True):
     id: "aws_sdk_kendra.types.faq_id.FaqId"
     """<p>The identifier of the FAQ you want to remove.</p>"""
     index_id: "aws_sdk_kendra.types.index_id.IndexId"

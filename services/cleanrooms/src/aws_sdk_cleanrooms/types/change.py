@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#Change``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.change_type_list
 
 
-class Change(TypedDict):
+class Change(TypedDict, closed=True):
     specification_type: (
         "aws_sdk_cleanrooms.types.change_specification_type.ChangeSpecificationType"
     )

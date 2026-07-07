@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#FileSourceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min_negative2147483648_max2147483647
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.file_source_time_delta_units
 
 
-class FileSourceSettings(TypedDict):
+class FileSourceSettings(TypedDict, closed=True):
     byte_rate_limit: NotRequired[
         "aws_sdk_mediaconvert.types.caption_source_byte_rate_limit.CaptionSourceByteRateLimit"
     ]

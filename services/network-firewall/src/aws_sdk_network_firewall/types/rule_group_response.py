@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#RuleGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.tag_list
 
 
-class RuleGroupResponse(TypedDict):
+class RuleGroupResponse(TypedDict, closed=True):
     rule_group_arn: "aws_sdk_network_firewall.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the rule group.</p> <note> <p>If this response is for a create request that had <code>DryRun</code> set to <code>TRUE</code>, then this ARN is a placeholder that isn't attached to a valid resource.</p> </note>"""
     rule_group_name: "aws_sdk_network_firewall.types.resource_name.ResourceName"

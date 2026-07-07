@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AutoTuneMaintenanceSchedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.duration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
 
 
-class AutoTuneMaintenanceSchedule(TypedDict):
+class AutoTuneMaintenanceSchedule(TypedDict, closed=True):
     start_at: NotRequired["aws_sdk_opensearch.types.start_at.StartAt"]
     """<p>The Epoch timestamp at which the Auto-Tune maintenance schedule starts.</p>"""
     duration: NotRequired["aws_sdk_opensearch.types.duration.Duration"]

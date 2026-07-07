@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#NetworkPath``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.step_list
 
 
-class NetworkPath(TypedDict):
+class NetworkPath(TypedDict, closed=True):
     steps: NotRequired["aws_sdk_inspector2.types.step_list.StepList"]
     """<p>The details on the steps in the network path.</p>"""
 

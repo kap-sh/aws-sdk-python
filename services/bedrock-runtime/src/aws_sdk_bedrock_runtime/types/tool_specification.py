@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ToolSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.tool_name
 
 
-class ToolSpecification(TypedDict):
+class ToolSpecification(TypedDict, closed=True):
     name: "aws_sdk_bedrock_runtime.types.tool_name.ToolName"
     """<p>The name for the tool.</p>"""
     description: NotRequired[

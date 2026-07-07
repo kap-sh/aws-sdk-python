@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtraildata#DuplicatedAuditEventId``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail_data.errors import ServiceError
 
 
-class DuplicatedAuditEventId_(TypedDict):
+class DuplicatedAuditEventId_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

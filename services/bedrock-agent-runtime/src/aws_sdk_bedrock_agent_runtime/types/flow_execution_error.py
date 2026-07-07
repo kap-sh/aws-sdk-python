@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowExecutionError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.flow_execution_error_type
     import aws_sdk_bedrock_agent_runtime.types.node_name
 
 
-class FlowExecutionError(TypedDict):
+class FlowExecutionError(TypedDict, closed=True):
     node_name: NotRequired["aws_sdk_bedrock_agent_runtime.types.node_name.NodeName"]
     """<p>The name of the node in the flow where the error occurred (if applicable).</p>"""
     error: NotRequired[

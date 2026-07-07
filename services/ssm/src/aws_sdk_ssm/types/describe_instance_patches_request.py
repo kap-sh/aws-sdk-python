@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeInstancePatchesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_orchestrator_filter_list
 
 
-class DescribeInstancePatchesRequest(TypedDict):
+class DescribeInstancePatchesRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_ssm.types.instance_id.InstanceId"
     """<p>The ID of the managed node whose patch state information should be retrieved.</p>"""
     filters: NotRequired[

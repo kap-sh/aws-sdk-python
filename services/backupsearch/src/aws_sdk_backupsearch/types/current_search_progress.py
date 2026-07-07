@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#CurrentSearchProgress``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CurrentSearchProgress(TypedDict):
+class CurrentSearchProgress(TypedDict, closed=True):
     recovery_points_scanned_count: NotRequired["int"]
     """<p>This number is the sum of all backups that have been scanned so far during a search job.</p>"""
     items_scanned_count: NotRequired["int"]

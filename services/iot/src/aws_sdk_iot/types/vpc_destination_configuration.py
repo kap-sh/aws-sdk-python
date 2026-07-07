@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#VpcDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.vpc_id
 
 
-class VpcDestinationConfiguration(TypedDict):
+class VpcDestinationConfiguration(TypedDict, closed=True):
     subnet_ids: "aws_sdk_iot.types.subnet_id_list.SubnetIdList"
     """<p>The subnet IDs of the VPC destination.</p>"""
     security_groups: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DBClusterAutomatedBackupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DBClusterAutomatedBackupMessage(TypedDict):
+class DBClusterAutomatedBackupMessage(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to <code>MaxRecords</code>.</p>"""
     db_cluster_automated_backups: NotRequired[

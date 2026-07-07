@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListProtectedResourcesByBackupVaultInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class ListProtectedResourcesByBackupVaultInput(TypedDict):
+class ListProtectedResourcesByBackupVaultInput(TypedDict, closed=True):
     backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
     """<p>The list of protected resources by backup vault within the vault(s) you specify by name.</p>"""
     backup_vault_account_id: NotRequired["aws_sdk_backup.types.account_id.AccountId"]

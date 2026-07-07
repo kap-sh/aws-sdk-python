@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#QueryTimeoutException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.error_message
 
 
-class QueryTimeoutException_(TypedDict):
+class QueryTimeoutException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_iottwinmaker.types.error_message.ErrorMessage"]
 
 

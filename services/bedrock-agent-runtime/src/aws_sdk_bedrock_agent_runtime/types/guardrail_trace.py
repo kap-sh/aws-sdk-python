@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailTrace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.guardrail_action
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.trace_id
 
 
-class GuardrailTrace(TypedDict):
+class GuardrailTrace(TypedDict, closed=True):
     action: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.guardrail_action.GuardrailAction"
     ]

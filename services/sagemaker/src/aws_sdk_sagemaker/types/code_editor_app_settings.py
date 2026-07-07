@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CodeEditorAppSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.app_lifecycle_management
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.studio_lifecycle_config_arn
 
 
-class CodeEditorAppSettings(TypedDict):
+class CodeEditorAppSettings(TypedDict, closed=True):
     default_resource_spec: NotRequired[
         "aws_sdk_sagemaker.types.resource_spec.ResourceSpec"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#GetInAppMessagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class GetInAppMessagesRequest(TypedDict):
+class GetInAppMessagesRequest(TypedDict, closed=True):
     application_id: "aws_sdk_pinpoint.types.__string.__string"
     """<p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>"""
     endpoint_id: "aws_sdk_pinpoint.types.__string.__string"

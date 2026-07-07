@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#DeviceUnderTest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.amazon_resource_name
 
 
-class DeviceUnderTest(TypedDict):
+class DeviceUnderTest(TypedDict, closed=True):
     thing_arn: NotRequired[
         "aws_sdk_iotdeviceadvisor.types.amazon_resource_name.AmazonResourceName"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#RemoveEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_global_accelerator.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.generic_string
 
 
-class RemoveEndpointsRequest(TypedDict):
+class RemoveEndpointsRequest(TypedDict, closed=True):
     endpoint_identifiers: (
         "aws_sdk_global_accelerator.types.endpoint_identifiers.EndpointIdentifiers"
     )

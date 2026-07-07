@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.tags
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The Amazon Resource Name (ARN) to use to tag a resource.</p>"""
     tags: "aws_sdk_amplifyuibuilder.types.tags.Tags"

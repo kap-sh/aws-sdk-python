@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreateIndexRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.tags
 
 
-class CreateIndexRequest(TypedDict):
+class CreateIndexRequest(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The identifier of the Amazon Q Business application using the index.</p>"""
     display_name: "aws_sdk_qbusiness.types.index_name.IndexName"

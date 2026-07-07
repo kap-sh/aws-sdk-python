@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#RelationshipValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.entity_id
     import aws_sdk_iottwinmaker.types.name
 
 
-class RelationshipValue(TypedDict):
+class RelationshipValue(TypedDict, closed=True):
     target_entity_id: NotRequired["aws_sdk_iottwinmaker.types.entity_id.EntityId"]
     """<p>The ID of the target entity associated with this relationship value.</p>"""
     target_component_name: NotRequired["aws_sdk_iottwinmaker.types.name.Name"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DataQualityResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_quality_aggregated_metrics
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class DataQualityResult(TypedDict):
+class DataQualityResult(TypedDict, closed=True):
     result_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>A unique result ID for the data quality result.</p>"""
     profile_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#LogConfigurationForChannel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.log_types
 
 
-class LogConfigurationForChannel(TypedDict):
+class LogConfigurationForChannel(TypedDict, closed=True):
     log_types: NotRequired["aws_sdk_mediatailor.types.log_types.LogTypes"]
     """<p>The log types.</p>"""
 

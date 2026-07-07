@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetServiceSyncBlockerSummaryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.resource_name
 
 
-class GetServiceSyncBlockerSummaryInput(TypedDict):
+class GetServiceSyncBlockerSummaryInput(TypedDict, closed=True):
     service_name: "aws_sdk_proton.types.resource_name.ResourceName"
     """<p>The name of the service that you want to get the service sync blocker summary for. If given only the service name, all instances are blocked.</p>"""
     service_instance_name: NotRequired[

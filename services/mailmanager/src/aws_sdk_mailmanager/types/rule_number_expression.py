@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RuleNumberExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.rule_number_to_evaluate
 
 
-class RuleNumberExpression(TypedDict):
+class RuleNumberExpression(TypedDict, closed=True):
     evaluate: "aws_sdk_mailmanager.types.rule_number_to_evaluate.RuleNumberToEvaluate"
     """<p>The number to evaluate in a numeric condition expression.</p>"""
     operator: "aws_sdk_mailmanager.types.rule_number_operator.RuleNumberOperator"

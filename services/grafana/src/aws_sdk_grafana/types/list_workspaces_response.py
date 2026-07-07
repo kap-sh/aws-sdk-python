@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ListWorkspacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_list
 
 
-class ListWorkspacesResponse(TypedDict):
+class ListWorkspacesResponse(TypedDict, closed=True):
     workspaces: "aws_sdk_grafana.types.workspace_list.WorkspaceList"
     """<p>An array of structures that contain some information about the workspaces in the account.</p>"""
     next_token: NotRequired["aws_sdk_grafana.types.pagination_token.PaginationToken"]

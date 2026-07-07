@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EksContainerSecurityContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.boolean
     import aws_sdk_batch.types.long
 
 
-class EksContainerSecurityContext(TypedDict):
+class EksContainerSecurityContext(TypedDict, closed=True):
     run_as_user: NotRequired["aws_sdk_batch.types.long.Long"]
     r"""<p>When this parameter is specified, the container is run as the specified user ID (<code>uid</code>). If this parameter isn't specified, the default is the user that's specified in the image metadata. This parameter maps to <code>RunAsUser</code> and <code>MustRanAs</code> policy in the <a href=\"https://kubernetes.io/docs/concepts/security/pod-security-policy/#users-and-groups\">Users and groups pod security policies</a> in the <i>Kubernetes documentation</i>.</p>"""
     run_as_group: NotRequired["aws_sdk_batch.types.long.Long"]

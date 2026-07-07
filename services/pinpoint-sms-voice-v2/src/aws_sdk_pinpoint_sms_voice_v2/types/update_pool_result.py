@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#UpdatePoolResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.two_way_channel_arn
 
 
-class UpdatePoolResult(TypedDict):
+class UpdatePoolResult(TypedDict, closed=True):
     pool_arn: NotRequired["str"]
     """<p>The ARN of the pool.</p>"""
     pool_id: NotRequired["str"]

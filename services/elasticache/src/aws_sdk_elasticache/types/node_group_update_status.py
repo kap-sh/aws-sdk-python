@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#NodeGroupUpdateStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class NodeGroupUpdateStatus(TypedDict):
+class NodeGroupUpdateStatus(TypedDict, closed=True):
     node_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The ID of the node group</p>"""
     node_group_member_update_status: NotRequired[

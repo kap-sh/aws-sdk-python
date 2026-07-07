@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#EncryptionContractConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.preset_speke20_video
 
 
-class EncryptionContractConfiguration(TypedDict):
+class EncryptionContractConfiguration(TypedDict, closed=True):
     preset_speke20_audio: (
         "aws_sdk_mediapackagev2.types.preset_speke20_audio.PresetSpeke20Audio"
     )

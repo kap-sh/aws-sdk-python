@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#UpdateSchedulingPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.fairshare_policy
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class UpdateSchedulingPolicyRequest(TypedDict):
+class UpdateSchedulingPolicyRequest(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the scheduling policy to update.</p>"""
     quota_share_policy: NotRequired[

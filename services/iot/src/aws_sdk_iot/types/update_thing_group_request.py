@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateThingGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_group_properties
 
 
-class UpdateThingGroupRequest(TypedDict):
+class UpdateThingGroupRequest(TypedDict, closed=True):
     thing_group_name: "aws_sdk_iot.types.thing_group_name.ThingGroupName"
     """<p>The thing group to update.</p>"""
     thing_group_properties: (

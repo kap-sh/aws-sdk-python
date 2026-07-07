@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#GetIndexOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3vectors.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.index
 
 
-class GetIndexOutput(TypedDict):
+class GetIndexOutput(TypedDict, closed=True):
     index: "aws_sdk_s3vectors.types.index.Index"
     """<p>The attributes of the vector index.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#GetFunctionDefinitionVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class GetFunctionDefinitionVersionRequest(TypedDict):
+class GetFunctionDefinitionVersionRequest(TypedDict, closed=True):
     function_definition_id: "aws_sdk_greengrass.types.__string.__string"
     """The ID of the Lambda function definition."""
     function_definition_version_id: "aws_sdk_greengrass.types.__string.__string"

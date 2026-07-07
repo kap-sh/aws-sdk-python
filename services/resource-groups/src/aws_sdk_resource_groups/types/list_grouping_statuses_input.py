@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#ListGroupingStatusesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_groups.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.next_token
 
 
-class ListGroupingStatusesInput(TypedDict):
+class ListGroupingStatusesInput(TypedDict, closed=True):
     group: "aws_sdk_resource_groups.types.group_string_v2.GroupStringV2"
     """<p>The application group identifier, expressed as an Amazon resource name (ARN) or the application group name. </p>"""
     max_results: NotRequired["aws_sdk_resource_groups.types.max_results.MaxResults"]

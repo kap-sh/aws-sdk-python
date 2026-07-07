@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#QueryComputeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.compute_mode
     import aws_sdk_timestream_query.types.provisioned_capacity_response
 
 
-class QueryComputeResponse(TypedDict):
+class QueryComputeResponse(TypedDict, closed=True):
     compute_mode: NotRequired["aws_sdk_timestream_query.types.compute_mode.ComputeMode"]
     """<p>The mode in which Timestream Compute Units (TCUs) are allocated and utilized within an account. Note that in the Asia Pacific (Mumbai) region, the API operation only recognizes the value <code>PROVISIONED</code>.</p>"""
     provisioned_capacity: NotRequired[

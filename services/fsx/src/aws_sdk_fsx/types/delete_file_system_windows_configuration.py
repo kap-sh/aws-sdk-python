@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteFileSystemWindowsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.flag
     import aws_sdk_fsx.types.tags
 
 
-class DeleteFileSystemWindowsConfiguration(TypedDict):
+class DeleteFileSystemWindowsConfiguration(TypedDict, closed=True):
     skip_final_backup: NotRequired["aws_sdk_fsx.types.flag.Flag"]
     """<p>By default, Amazon FSx for Windows takes a final backup on your behalf when the <code>DeleteFileSystem</code> operation is invoked. Doing this helps protect you from data loss, and we highly recommend taking the final backup. If you want to skip this backup, use this flag to do so.</p>"""
     final_backup_tags: NotRequired["aws_sdk_fsx.types.tags.Tags"]

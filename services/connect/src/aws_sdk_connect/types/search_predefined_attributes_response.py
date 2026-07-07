@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchPredefinedAttributesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.approximate_total_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.predefined_attribute_search_summary_list
 
 
-class SearchPredefinedAttributesResponse(TypedDict):
+class SearchPredefinedAttributesResponse(TypedDict, closed=True):
     predefined_attributes: NotRequired[
         "aws_sdk_connect.types.predefined_attribute_search_summary_list.PredefinedAttributeSearchSummaryList"
     ]

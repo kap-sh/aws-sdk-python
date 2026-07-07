@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#ComponentConfigurationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.component_configuration_path_list
     import aws_sdk_greengrassv2.types.component_configuration_string
 
 
-class ComponentConfigurationUpdate(TypedDict):
+class ComponentConfigurationUpdate(TypedDict, closed=True):
     merge: NotRequired[
         "aws_sdk_greengrassv2.types.component_configuration_string.ComponentConfigurationString"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsMskClusterClusterInfoClientAuthenticationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_msk_cluster_cluster_info_client_authentication_sasl_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_msk_cluster_cluster_info_client_authentication_unauthenticated_details
 
 
-class AwsMskClusterClusterInfoClientAuthenticationDetails(TypedDict):
+class AwsMskClusterClusterInfoClientAuthenticationDetails(TypedDict, closed=True):
     sasl: NotRequired[
         "aws_sdk_securityhub.types.aws_msk_cluster_cluster_info_client_authentication_sasl_details.AwsMskClusterClusterInfoClientAuthenticationSaslDetails"
     ]

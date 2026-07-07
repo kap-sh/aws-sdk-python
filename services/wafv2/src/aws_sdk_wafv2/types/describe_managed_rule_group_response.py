@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#DescribeManagedRuleGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.capacity_unit
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.version_key_string
 
 
-class DescribeManagedRuleGroupResponse(TypedDict):
+class DescribeManagedRuleGroupResponse(TypedDict, closed=True):
     version_name: NotRequired["aws_sdk_wafv2.types.version_key_string.VersionKeyString"]
     """<p>The managed rule group's version. </p>"""
     sns_topic_arn: NotRequired["aws_sdk_wafv2.types.resource_arn.ResourceArn"]

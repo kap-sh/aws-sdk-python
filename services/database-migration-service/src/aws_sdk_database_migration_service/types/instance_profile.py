@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#InstanceProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.boolean_optional
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string_list
 
 
-class InstanceProfile(TypedDict):
+class InstanceProfile(TypedDict, closed=True):
     instance_profile_arn: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

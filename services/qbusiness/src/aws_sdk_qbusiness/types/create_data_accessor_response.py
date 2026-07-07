@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreateDataAccessorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.idc_application_arn
 
 
-class CreateDataAccessorResponse(TypedDict):
+class CreateDataAccessorResponse(TypedDict, closed=True):
     data_accessor_id: "aws_sdk_qbusiness.types.data_accessor_id.DataAccessorId"
     """<p>The unique identifier of the created data accessor.</p>"""
     idc_application_arn: "aws_sdk_qbusiness.types.idc_application_arn.IdcApplicationArn"

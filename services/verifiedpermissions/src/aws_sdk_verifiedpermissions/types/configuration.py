@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#Configuration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.open_id_connect_configuration
 
 
-class _Configuration_cognitoUserPoolConfiguration(TypedDict):
+class _Configuration_cognitoUserPoolConfiguration(TypedDict, closed=True):
     cognitoUserPoolConfiguration: "aws_sdk_verifiedpermissions.types.cognito_user_pool_configuration.CognitoUserPoolConfiguration"
 
 
-class _Configuration_openIdConnectConfiguration(TypedDict):
+class _Configuration_openIdConnectConfiguration(TypedDict, closed=True):
     openIdConnectConfiguration: "aws_sdk_verifiedpermissions.types.open_id_connect_configuration.OpenIdConnectConfiguration"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DescribeInboundIntegrationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.inbound_integrations_list
     import aws_sdk_glue.types.string128
 
 
-class DescribeInboundIntegrationsResponse(TypedDict):
+class DescribeInboundIntegrationsResponse(TypedDict, closed=True):
     inbound_integrations: NotRequired[
         "aws_sdk_glue.types.inbound_integrations_list.InboundIntegrationsList"
     ]

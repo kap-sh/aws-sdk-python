@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SnapshotDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.snapshot_s3_destination_configuration_list
 
 
-class SnapshotDestinationConfiguration(TypedDict):
+class SnapshotDestinationConfiguration(TypedDict, closed=True):
     s3_destinations: NotRequired[
         "aws_sdk_quicksight.types.snapshot_s3_destination_configuration_list.SnapshotS3DestinationConfigurationList"
     ]

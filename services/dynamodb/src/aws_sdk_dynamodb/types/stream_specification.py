@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#StreamSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.stream_view_type
 
 
-class StreamSpecification(TypedDict):
+class StreamSpecification(TypedDict, closed=True):
     stream_enabled: "aws_sdk_dynamodb.types.stream_enabled.StreamEnabled"
     """<p>Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.</p>"""
     stream_view_type: NotRequired[

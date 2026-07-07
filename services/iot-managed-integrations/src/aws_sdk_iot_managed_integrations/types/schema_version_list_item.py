@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#SchemaVersionListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.schema_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.schema_version_visibility
 
 
-class SchemaVersionListItem(TypedDict):
+class SchemaVersionListItem(TypedDict, closed=True):
     schema_id: NotRequired["aws_sdk_iot_managed_integrations.types.schema_id.SchemaId"]
     """<p>The identifier of the schema version.</p>"""
     type: NotRequired[

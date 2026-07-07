@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoMLComputeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.emr_serverless_compute_config
 
 
-class AutoMLComputeConfig(TypedDict):
+class AutoMLComputeConfig(TypedDict, closed=True):
     emr_serverless_compute_config: NotRequired[
         "aws_sdk_sagemaker.types.emr_serverless_compute_config.EmrServerlessComputeConfig"
     ]

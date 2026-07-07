@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#DescribeJobFlowsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_list
 
 
-class DescribeJobFlowsInput(TypedDict):
+class DescribeJobFlowsInput(TypedDict, closed=True):
     created_after: NotRequired["aws_sdk_emr.types.date.Date"]
     """<p>Return only job flows created after this date and time.</p>"""
     created_before: NotRequired["aws_sdk_emr.types.date.Date"]

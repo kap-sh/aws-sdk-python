@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ManifestPayload``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.manifest_payload_data
 
 
-class _ManifestPayload_PayloadData(TypedDict):
+class _ManifestPayload_PayloadData(TypedDict, closed=True):
     PayloadData: "aws_sdk_panorama.types.manifest_payload_data.ManifestPayloadData"
 
 

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrievalResultSqlLocation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RetrievalResultSqlLocation(TypedDict):
+class RetrievalResultSqlLocation(TypedDict, closed=True):
     query: NotRequired["str"]
     """<p>The SQL query used to retrieve the result.</p>"""
 

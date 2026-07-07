@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DisableOrganizationAdminAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class DisableOrganizationAdminAccountRequest(TypedDict):
+class DisableOrganizationAdminAccountRequest(TypedDict, closed=True):
     admin_account_id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The Amazon Web Services Account ID for the organizations account to be disabled as a GuardDuty delegated administrator.</p>"""
 

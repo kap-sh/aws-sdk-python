@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotAliasLocaleSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.boolean
     import aws_sdk_lex_models_v2.types.code_hook_specification
 
 
-class BotAliasLocaleSettings(TypedDict):
+class BotAliasLocaleSettings(TypedDict, closed=True):
     enabled: "aws_sdk_lex_models_v2.types.boolean.Boolean"
     """<p>Determines whether the locale is enabled for the bot. If the value is <code>false</code>, the locale isn't available for use.</p>"""
     code_hook_specification: NotRequired[

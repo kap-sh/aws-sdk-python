@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#Environment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.remote_account_identifier_type
 
 
-class Environment(TypedDict):
+class Environment(TypedDict, closed=True):
     provider: "aws_sdk_interconnect.types.provider.Provider"
     """<p>The provider on the remote side of this <a>Connection</a>.</p>"""
     location: "aws_sdk_interconnect.types.location.Location"

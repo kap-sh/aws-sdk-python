@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#StaticIpConnectionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.mask
 
 
-class StaticIpConnectionInfo(TypedDict):
+class StaticIpConnectionInfo(TypedDict, closed=True):
     ip_address: "aws_sdk_panorama.types.ip_address.IpAddress"
     """<p>The connection's IP address.</p>"""
     mask: "aws_sdk_panorama.types.mask.Mask"

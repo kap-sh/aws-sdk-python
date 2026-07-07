@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendraranking#DescribeRescoreExecutionPlanResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra_ranking.types.capacity_units_configuration
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra_ranking.types.timestamp
 
 
-class DescribeRescoreExecutionPlanResponse(TypedDict):
+class DescribeRescoreExecutionPlanResponse(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_kendra_ranking.types.rescore_execution_plan_id.RescoreExecutionPlanId"
     ]

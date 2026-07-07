@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#StartAccessRequestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class StartAccessRequestRequest(TypedDict):
+class StartAccessRequestRequest(TypedDict, closed=True):
     reason: "aws_sdk_ssm.types.string1to256.String1to256"
     """<p>A brief description explaining why you are requesting access to the node.</p>"""
     targets: "aws_sdk_ssm.types.targets.Targets"

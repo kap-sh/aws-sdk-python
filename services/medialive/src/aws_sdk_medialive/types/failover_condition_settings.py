@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#FailoverConditionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.audio_silence_failover_settings
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.video_black_failover_settings
 
 
-class FailoverConditionSettings(TypedDict):
+class FailoverConditionSettings(TypedDict, closed=True):
     audio_silence_settings: NotRequired[
         "aws_sdk_medialive.types.audio_silence_failover_settings.AudioSilenceFailoverSettings"
     ]

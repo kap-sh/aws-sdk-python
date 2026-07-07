@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ListTagsForResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.arn
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_swf.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) for the Amazon SWF domain.</p>"""
 

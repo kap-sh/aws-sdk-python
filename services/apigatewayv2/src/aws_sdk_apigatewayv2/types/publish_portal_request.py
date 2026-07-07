@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#PublishPortalRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
     import aws_sdk_apigatewayv2.types.__string_min0_max1024
 
 
-class PublishPortalRequest(TypedDict):
+class PublishPortalRequest(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_apigatewayv2.types.__string_min0_max1024.__stringMin0Max1024"
     ]

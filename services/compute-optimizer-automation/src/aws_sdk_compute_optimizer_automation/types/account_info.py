@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#AccountInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.organization_rule_mode
 
 
-class AccountInfo(TypedDict):
+class AccountInfo(TypedDict, closed=True):
     account_id: "aws_sdk_compute_optimizer_automation.types.account_id.AccountId"
     """<p> The ID of the Amazon Web Services account. </p>"""
     status: (

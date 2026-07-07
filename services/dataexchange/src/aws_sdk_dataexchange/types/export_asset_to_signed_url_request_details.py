@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ExportAssetToSignedUrlRequestDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.id
 
 
-class ExportAssetToSignedUrlRequestDetails(TypedDict):
+class ExportAssetToSignedUrlRequestDetails(TypedDict, closed=True):
     asset_id: "aws_sdk_dataexchange.types.id.Id"
     """<p>The unique identifier for the asset that is exported to a signed URL.</p>"""
     data_set_id: "aws_sdk_dataexchange.types.id.Id"

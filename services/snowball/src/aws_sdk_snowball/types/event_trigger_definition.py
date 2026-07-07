@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#EventTriggerDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.resource_arn
 
 
-class EventTriggerDefinition(TypedDict):
+class EventTriggerDefinition(TypedDict, closed=True):
     event_resource_arn: NotRequired["aws_sdk_snowball.types.resource_arn.ResourceARN"]
     """<p>The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an Lambda function's event trigger associated with this job.</p>"""
 

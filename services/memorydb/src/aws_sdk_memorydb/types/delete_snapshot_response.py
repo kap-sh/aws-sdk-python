@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DeleteSnapshotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.snapshot
 
 
-class DeleteSnapshotResponse(TypedDict):
+class DeleteSnapshotResponse(TypedDict, closed=True):
     snapshot: NotRequired["aws_sdk_memorydb.types.snapshot.Snapshot"]
     """<p>The snapshot object that has been deleted.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeploymentDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.deployment_id
 
 
-class DeploymentDetails(TypedDict):
+class DeploymentDetails(TypedDict, closed=True):
     latest_deployment_id: NotRequired[
         "aws_sdk_gamelift.types.deployment_id.DeploymentId"
     ]

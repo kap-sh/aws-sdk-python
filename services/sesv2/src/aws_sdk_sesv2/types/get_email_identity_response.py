@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetEmailIdentityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.configuration_set_name
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.verification_status
 
 
-class GetEmailIdentityResponse(TypedDict):
+class GetEmailIdentityResponse(TypedDict, closed=True):
     identity_type: NotRequired["aws_sdk_sesv2.types.identity_type.IdentityType"]
     """<p>The email identity type. Note: the <code>MANAGED_DOMAIN</code> identity type is not supported.</p>"""
     feedback_forwarding_status: "aws_sdk_sesv2.types.enabled.Enabled"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#StartAuditMitigationActionsTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.mitigation_actions_task_id
 
 
-class StartAuditMitigationActionsTaskRequest(TypedDict):
+class StartAuditMitigationActionsTaskRequest(TypedDict, closed=True):
     task_id: "aws_sdk_iot.types.mitigation_actions_task_id.MitigationActionsTaskId"
     """<p>A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.</p>"""
     target: "aws_sdk_iot.types.audit_mitigation_actions_task_target.AuditMitigationActionsTaskTarget"

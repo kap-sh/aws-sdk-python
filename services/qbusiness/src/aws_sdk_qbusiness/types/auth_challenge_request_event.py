@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AuthChallengeRequestEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness._protocol.eventstream import HeaderValue, Message
 from aws_sdk_qbusiness.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.url
 
 
-class AuthChallengeRequestEvent(TypedDict):
+class AuthChallengeRequestEvent(TypedDict, closed=True):
     authorization_url: "aws_sdk_qbusiness.types.url.Url"
     """<p>The URL sent by Amazon Q Business to a third party authentication server in response to an authentication verification event activated by an end user request to use a custom plugin. </p>"""
 

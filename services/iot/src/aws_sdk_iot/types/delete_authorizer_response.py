@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteAuthorizerResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAuthorizerResponse(TypedDict):
+class DeleteAuthorizerResponse(TypedDict, closed=True):
     pass
 
 

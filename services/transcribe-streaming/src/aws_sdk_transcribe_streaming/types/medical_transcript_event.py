@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalTranscriptEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe_streaming._protocol.eventstream import HeaderValue, Message
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.medical_transcript
 
 
-class MedicalTranscriptEvent(TypedDict):
+class MedicalTranscriptEvent(TypedDict, closed=True):
     transcript: NotRequired[
         "aws_sdk_transcribe_streaming.types.medical_transcript.MedicalTranscript"
     ]

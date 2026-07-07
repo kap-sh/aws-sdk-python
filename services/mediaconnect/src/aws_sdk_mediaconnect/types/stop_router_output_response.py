@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#StopRouterOutputResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_output_state
 
 
-class StopRouterOutputResponse(TypedDict):
+class StopRouterOutputResponse(TypedDict, closed=True):
     arn: "aws_sdk_mediaconnect.types.router_output_arn.RouterOutputArn"
     """<p>The ARN of the router output that was stopped.</p>"""
     name: "str"

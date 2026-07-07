@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListRecommendersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.list_recommenders_request_max_results_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.token
 
 
-class ListRecommendersRequest(TypedDict):
+class ListRecommendersRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_customer_profiles.types.name.name"
     """<p>The unique name of the domain.</p>"""
     max_results: NotRequired[

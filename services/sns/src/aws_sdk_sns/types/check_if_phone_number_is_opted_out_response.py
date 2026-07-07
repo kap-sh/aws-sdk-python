@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#CheckIfPhoneNumberIsOptedOutResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.boolean
 
 
-class CheckIfPhoneNumberIsOptedOutResponse(TypedDict):
+class CheckIfPhoneNumberIsOptedOutResponse(TypedDict, closed=True):
     is_opted_out: "aws_sdk_sns.types.boolean.boolean"
     """<p>Indicates whether the phone number is opted out:</p> <ul> <li> <p> <code>true</code> – The phone number is opted out, meaning you cannot publish SMS messages to it.</p> </li> <li> <p> <code>false</code> – The phone number is opted in, meaning you can publish SMS messages to it.</p> </li> </ul>"""
 

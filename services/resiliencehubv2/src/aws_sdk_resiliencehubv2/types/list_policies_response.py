@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListPoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.policy_summary_list
 
 
-class ListPoliciesResponse(TypedDict):
+class ListPoliciesResponse(TypedDict, closed=True):
     policy_summaries: (
         "aws_sdk_resiliencehubv2.types.policy_summary_list.PolicySummaryList"
     )

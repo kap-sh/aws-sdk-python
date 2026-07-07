@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#ListPoolOriginationIdentitiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.pool_origination_identities_filter_list
 
 
-class ListPoolOriginationIdentitiesRequest(TypedDict):
+class ListPoolOriginationIdentitiesRequest(TypedDict, closed=True):
     pool_id: "aws_sdk_pinpoint_sms_voice_v2.types.pool_id_or_arn.PoolIdOrArn"
     """<p>The unique identifier for the pool. This value can be either the PoolId or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>"""
     filters: NotRequired[

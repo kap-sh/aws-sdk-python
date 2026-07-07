@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#GetComponentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_sap.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.component_id
 
 
-class GetComponentInput(TypedDict):
+class GetComponentInput(TypedDict, closed=True):
     application_id: "aws_sdk_ssm_sap.types.application_id.ApplicationId"
     """<p>The ID of the application.</p>"""
     component_id: "aws_sdk_ssm_sap.types.component_id.ComponentId"

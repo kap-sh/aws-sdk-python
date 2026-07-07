@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#BatchDeleteDelegationByAssessmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.batch_delete_delegation_by_assessment_errors
 
 
-class BatchDeleteDelegationByAssessmentResponse(TypedDict):
+class BatchDeleteDelegationByAssessmentResponse(TypedDict, closed=True):
     errors: NotRequired[
         "aws_sdk_auditmanager.types.batch_delete_delegation_by_assessment_errors.BatchDeleteDelegationByAssessmentErrors"
     ]

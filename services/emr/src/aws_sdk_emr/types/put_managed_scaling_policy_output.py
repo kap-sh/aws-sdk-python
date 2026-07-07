@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emr#PutManagedScalingPolicyOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutManagedScalingPolicyOutput(TypedDict):
+class PutManagedScalingPolicyOutput(TypedDict, closed=True):
     pass
 
 

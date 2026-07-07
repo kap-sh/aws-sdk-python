@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DeliveryOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.max_delivery_seconds
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.tls_policy
 
 
-class DeliveryOptions(TypedDict):
+class DeliveryOptions(TypedDict, closed=True):
     tls_policy: NotRequired["aws_sdk_sesv2.types.tls_policy.TlsPolicy"]
     """<p>Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only delivered if a TLS connection can be established. If the value is <code>Optional</code>, messages can be delivered in plain text if a TLS connection can't be established.</p>"""
     sending_pool_name: NotRequired["aws_sdk_sesv2.types.pool_name.PoolName"]

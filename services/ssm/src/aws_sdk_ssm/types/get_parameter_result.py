@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetParameterResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.parameter
 
 
-class GetParameterResult(TypedDict):
+class GetParameterResult(TypedDict, closed=True):
     parameter: NotRequired["aws_sdk_ssm.types.parameter.Parameter"]
     """<p>Information about a parameter.</p>"""
 

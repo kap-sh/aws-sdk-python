@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultFormatting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.display_format
     import aws_sdk_quicksight.types.display_format_options
 
 
-class DefaultFormatting(TypedDict):
+class DefaultFormatting(TypedDict, closed=True):
     display_format: NotRequired["aws_sdk_quicksight.types.display_format.DisplayFormat"]
     """<p>The display format. Valid values for this structure are <code>AUTO</code>, <code>PERCENT</code>, <code>CURRENCY</code>, <code>NUMBER</code>, <code>DATE</code>, and <code>STRING</code>.</p>"""
     display_format_options: NotRequired[

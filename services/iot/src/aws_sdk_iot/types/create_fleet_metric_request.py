@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateFleetMetricRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.tag_list
 
 
-class CreateFleetMetricRequest(TypedDict):
+class CreateFleetMetricRequest(TypedDict, closed=True):
     metric_name: "aws_sdk_iot.types.fleet_metric_name.FleetMetricName"
     """<p>The name of the fleet metric to create.</p>"""
     query_string: "aws_sdk_iot.types.query_string.QueryString"

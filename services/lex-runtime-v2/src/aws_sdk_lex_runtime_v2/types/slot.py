@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#Slot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.shape
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.values
 
 
-class Slot(TypedDict):
+class Slot(TypedDict, closed=True):
     value: NotRequired["aws_sdk_lex_runtime_v2.types.value.Value"]
     """<p>The current value of the slot.</p>"""
     shape: NotRequired["aws_sdk_lex_runtime_v2.types.shape.Shape"]

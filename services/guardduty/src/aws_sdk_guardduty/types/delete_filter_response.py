@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DeleteFilterResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteFilterResponse(TypedDict):
+class DeleteFilterResponse(TypedDict, closed=True):
     pass
 
 

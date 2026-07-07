@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#FlowAliasRoutingConfigurationListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.version
 
 
-class FlowAliasRoutingConfigurationListItem(TypedDict):
+class FlowAliasRoutingConfigurationListItem(TypedDict, closed=True):
     flow_version: NotRequired["aws_sdk_bedrock_agent.types.version.Version"]
     """<p>The version that the alias maps to.</p>"""
 

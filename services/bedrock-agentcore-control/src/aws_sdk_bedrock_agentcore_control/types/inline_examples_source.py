@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#InlineExamplesSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.dataset_example_list
 
 
-class InlineExamplesSource(TypedDict):
+class InlineExamplesSource(TypedDict, closed=True):
     examples: "aws_sdk_bedrock_agentcore_control.types.dataset_example_list.DatasetExampleList"
     """<p> Examples to add. Each example is assigned an auto-generated UUID. </p>"""
 

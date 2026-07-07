@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#CoverageFilterCriterion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.coverage_filter_condition
     import aws_sdk_guardduty.types.coverage_filter_criterion_key
 
 
-class CoverageFilterCriterion(TypedDict):
+class CoverageFilterCriterion(TypedDict, closed=True):
     criterion_key: NotRequired[
         "aws_sdk_guardduty.types.coverage_filter_criterion_key.CoverageFilterCriterionKey"
     ]

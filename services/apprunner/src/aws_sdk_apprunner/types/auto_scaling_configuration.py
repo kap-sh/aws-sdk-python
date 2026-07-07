@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#AutoScalingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.app_runner_resource_arn
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.timestamp
 
 
-class AutoScalingConfiguration(TypedDict):
+class AutoScalingConfiguration(TypedDict, closed=True):
     auto_scaling_configuration_arn: NotRequired[
         "aws_sdk_apprunner.types.app_runner_resource_arn.AppRunnerResourceArn"
     ]

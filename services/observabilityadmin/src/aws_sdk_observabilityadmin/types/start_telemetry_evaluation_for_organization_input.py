@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#StartTelemetryEvaluationForOrganizationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.all_regions
     import aws_sdk_observabilityadmin.types.regions
 
 
-class StartTelemetryEvaluationForOrganizationInput(TypedDict):
+class StartTelemetryEvaluationForOrganizationInput(TypedDict, closed=True):
     regions: NotRequired["aws_sdk_observabilityadmin.types.regions.Regions"]
     """<p> An optional list of Amazon Web Services Regions to include in multi-region telemetry evaluation for the organization. The current region is always implicitly included and must not be specified in this list. When provided, telemetry evaluation starts in the current region and propagates to all specified regions for the organization. Mutually exclusive with <code>AllRegions</code>. If neither <code>Regions</code> nor <code>AllRegions</code> is provided, the operation applies only to the current region. </p>"""
     all_regions: NotRequired["aws_sdk_observabilityadmin.types.all_regions.AllRegions"]

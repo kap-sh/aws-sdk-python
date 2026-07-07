@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ResourceTag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.tag_value_list
 
 
-class ResourceTag(TypedDict):
+class ResourceTag(TypedDict, closed=True):
     key: "aws_sdk_resiliencehubv2.types.tag_key.TagKey"
     values: "aws_sdk_resiliencehubv2.types.tag_value_list.TagValueList"
     """<p>The list of tag values.</p>"""

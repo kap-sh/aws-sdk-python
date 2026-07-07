@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#Ip``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.ip_address
 
 
-class Ip(TypedDict):
+class Ip(TypedDict, closed=True):
     ip_address: "aws_sdk_iot_wireless.types.ip_address.IPAddress"
     """<p>IP address information.</p>"""
 

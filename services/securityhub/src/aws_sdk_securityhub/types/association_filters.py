@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AssociationFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.association_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AssociationFilters(TypedDict):
+class AssociationFilters(TypedDict, closed=True):
     configuration_policy_id: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

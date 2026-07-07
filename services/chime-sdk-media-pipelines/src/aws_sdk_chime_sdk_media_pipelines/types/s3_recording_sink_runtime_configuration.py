@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#S3RecordingSinkRuntimeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.recording_file_format
 
 
-class S3RecordingSinkRuntimeConfiguration(TypedDict):
+class S3RecordingSinkRuntimeConfiguration(TypedDict, closed=True):
     destination: "aws_sdk_chime_sdk_media_pipelines.types.arn.Arn"
     """<p>The URI of the S3 bucket used as the sink.</p>"""
     recording_file_format: "aws_sdk_chime_sdk_media_pipelines.types.recording_file_format.RecordingFileFormat"

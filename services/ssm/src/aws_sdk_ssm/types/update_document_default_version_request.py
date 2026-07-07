@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateDocumentDefaultVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.document_version_number
 
 
-class UpdateDocumentDefaultVersionRequest(TypedDict):
+class UpdateDocumentDefaultVersionRequest(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.document_name.DocumentName"
     """<p>The name of a custom document that you want to set as the default version.</p>"""
     document_version: "aws_sdk_ssm.types.document_version_number.DocumentVersionNumber"

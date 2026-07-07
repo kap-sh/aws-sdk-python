@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#UpdateAgreementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.server_id
 
 
-class UpdateAgreementRequest(TypedDict):
+class UpdateAgreementRequest(TypedDict, closed=True):
     agreement_id: "aws_sdk_transfer.types.agreement_id.AgreementId"
     """<p>A unique identifier for the agreement. This identifier is returned when you create an agreement.</p>"""
     server_id: "aws_sdk_transfer.types.server_id.ServerId"

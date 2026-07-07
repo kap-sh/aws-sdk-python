@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.stream_id
 
 
-class DescribeStreamRequest(TypedDict):
+class DescribeStreamRequest(TypedDict, closed=True):
     stream_id: "aws_sdk_iot.types.stream_id.StreamId"
     """<p>The stream ID.</p>"""
 

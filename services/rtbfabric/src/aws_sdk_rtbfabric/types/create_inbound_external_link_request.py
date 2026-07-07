@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#CreateInboundExternalLinkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.tags_map
 
 
-class CreateInboundExternalLinkRequest(TypedDict):
+class CreateInboundExternalLinkRequest(TypedDict, closed=True):
     client_token: "str"
     """<p>The unique client token.</p>"""
     gateway_id: "aws_sdk_rtbfabric.types.gateway_id.GatewayId"

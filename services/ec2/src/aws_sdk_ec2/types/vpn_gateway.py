@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VpnGateway``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpn_state
 
 
-class VpnGateway(TypedDict):
+class VpnGateway(TypedDict, closed=True):
     amazon_side_asn: NotRequired["aws_sdk_ec2.types.long.Long"]
     """<p>The private Autonomous System Number (ASN) for the Amazon side of a BGP session.</p>"""
     tags: NotRequired["aws_sdk_ec2.types.tag_list.TagList"]

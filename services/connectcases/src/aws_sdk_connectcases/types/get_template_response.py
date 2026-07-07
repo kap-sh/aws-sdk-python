@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#GetTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.template_status
 
 
-class GetTemplateResponse(TypedDict):
+class GetTemplateResponse(TypedDict, closed=True):
     template_id: "aws_sdk_connectcases.types.template_id.TemplateId"
     """<p>A unique identifier of a template.</p>"""
     template_arn: "aws_sdk_connectcases.types.template_arn.TemplateArn"

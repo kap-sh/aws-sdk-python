@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#GetPropertyValueHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.property_value_list
 
 
-class GetPropertyValueHistoryResponse(TypedDict):
+class GetPropertyValueHistoryResponse(TypedDict, closed=True):
     property_values: "aws_sdk_iottwinmaker.types.property_value_list.PropertyValueList"
     """<p>An object that maps strings to the property definitions in the component type. Each string in the mapping must be unique to this object.</p>"""
     next_token: NotRequired["aws_sdk_iottwinmaker.types.next_token.NextToken"]

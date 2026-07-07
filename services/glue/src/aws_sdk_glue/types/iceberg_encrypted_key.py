@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IcebergEncryptedKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.string_to_string_map
 
 
-class IcebergEncryptedKey(TypedDict):
+class IcebergEncryptedKey(TypedDict, closed=True):
     key_id: "aws_sdk_glue.types.encryption_key_id_string.EncryptionKeyIdString"
     """<p>Unique identifier of the encryption key used for Iceberg table encryption. This ID is used to reference the key in table metadata and track which key was used to encrypt specific data.</p>"""
     encrypted_key_metadata: (

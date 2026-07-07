@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListServiceTopologyEdgesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.next_token
     import aws_sdk_resiliencehubv2.types.service_topology_edge_summary_list
 
 
-class ListServiceTopologyEdgesResponse(TypedDict):
+class ListServiceTopologyEdgesResponse(TypedDict, closed=True):
     service_topology_edge_summaries: NotRequired[
         "aws_sdk_resiliencehubv2.types.service_topology_edge_summary_list.ServiceTopologyEdgeSummaryList"
     ]

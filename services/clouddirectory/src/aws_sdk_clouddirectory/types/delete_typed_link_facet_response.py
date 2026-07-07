@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#DeleteTypedLinkFacetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteTypedLinkFacetResponse(TypedDict):
+class DeleteTypedLinkFacetResponse(TypedDict, closed=True):
     pass
 
 

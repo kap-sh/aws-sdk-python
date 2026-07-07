@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ListChannelHandshakesTypeFilters``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_channel.errors import (
     DeserializationError,
@@ -13,15 +15,21 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.start_service_period_type_filters
 
 
-class _ListChannelHandshakesTypeFilters_startServicePeriodTypeFilters(TypedDict):
+class _ListChannelHandshakesTypeFilters_startServicePeriodTypeFilters(
+    TypedDict, closed=True
+):
     startServicePeriodTypeFilters: "aws_sdk_partnercentral_channel.types.start_service_period_type_filters.StartServicePeriodTypeFilters"
 
 
-class _ListChannelHandshakesTypeFilters_revokeServicePeriodTypeFilters(TypedDict):
+class _ListChannelHandshakesTypeFilters_revokeServicePeriodTypeFilters(
+    TypedDict, closed=True
+):
     revokeServicePeriodTypeFilters: "aws_sdk_partnercentral_channel.types.revoke_service_period_type_filters.RevokeServicePeriodTypeFilters"
 
 
-class _ListChannelHandshakesTypeFilters_programManagementAccountTypeFilters(TypedDict):
+class _ListChannelHandshakesTypeFilters_programManagementAccountTypeFilters(
+    TypedDict, closed=True
+):
     programManagementAccountTypeFilters: "aws_sdk_partnercentral_channel.types.program_management_account_type_filters.ProgramManagementAccountTypeFilters"
 
 

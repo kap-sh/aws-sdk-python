@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#VideoConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.integer
     import aws_sdk_ivs.types.string
 
 
-class VideoConfiguration(TypedDict):
+class VideoConfiguration(TypedDict, closed=True):
     avc_profile: NotRequired["aws_sdk_ivs.types.string.String"]
     """<p>(Deprecated) Indicates to the decoder the requirements for decoding the stream. For definitions of the valid values, see the H.264 specification. This is populated only when VideoConfiguration is part of the deprecated IngestConfiguration; otherwise, this is an empty string.</p>"""
     avc_level: NotRequired["aws_sdk_ivs.types.string.String"]

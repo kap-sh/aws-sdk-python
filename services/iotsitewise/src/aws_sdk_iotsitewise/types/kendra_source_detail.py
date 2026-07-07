@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#KendraSourceDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.arn
 
 
-class KendraSourceDetail(TypedDict):
+class KendraSourceDetail(TypedDict, closed=True):
     knowledge_base_arn: "aws_sdk_iotsitewise.types.arn.ARN"
     """<p>The <code>knowledgeBaseArn</code> details for the Kendra dataset source.</p>"""
     role_arn: "aws_sdk_iotsitewise.types.arn.ARN"

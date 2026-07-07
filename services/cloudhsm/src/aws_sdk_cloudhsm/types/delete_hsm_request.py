@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#DeleteHsmRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudhsm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.hsm_arn
 
 
-class DeleteHsmRequest(TypedDict):
+class DeleteHsmRequest(TypedDict, closed=True):
     hsm_arn: "aws_sdk_cloudhsm.types.hsm_arn.HsmArn"
     """<p>The ARN of the HSM to delete.</p>"""
 

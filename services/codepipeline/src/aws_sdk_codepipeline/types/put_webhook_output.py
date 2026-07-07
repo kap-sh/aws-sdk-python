@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PutWebhookOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.list_webhook_item
 
 
-class PutWebhookOutput(TypedDict):
+class PutWebhookOutput(TypedDict, closed=True):
     webhook: NotRequired["aws_sdk_codepipeline.types.list_webhook_item.ListWebhookItem"]
     """<p>The detail returned from creating the webhook, such as the webhook name, webhook URL, and webhook ARN.</p>"""
 

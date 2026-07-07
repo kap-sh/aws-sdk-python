@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeS3AccessPointAttachmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.next_token
     import aws_sdk_fsx.types.s3_access_point_attachments
 
 
-class DescribeS3AccessPointAttachmentsResponse(TypedDict):
+class DescribeS3AccessPointAttachmentsResponse(TypedDict, closed=True):
     s3_access_point_attachments: NotRequired[
         "aws_sdk_fsx.types.s3_access_point_attachments.S3AccessPointAttachments"
     ]

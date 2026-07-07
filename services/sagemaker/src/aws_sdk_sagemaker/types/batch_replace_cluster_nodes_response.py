@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#BatchReplaceClusterNodesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.batch_replace_cluster_node_logical_ids_errors
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_node_logical_id_list
 
 
-class BatchReplaceClusterNodesResponse(TypedDict):
+class BatchReplaceClusterNodesResponse(TypedDict, closed=True):
     successful: NotRequired["aws_sdk_sagemaker.types.cluster_node_ids.ClusterNodeIds"]
     """<p>A list of EC2 instance IDs for which the replacement operation was successfully initiated.</p>"""
     failed: NotRequired[

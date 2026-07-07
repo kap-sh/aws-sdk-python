@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#QueryConstraintRequireOverlap``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.analysis_rule_column_list
 
 
-class QueryConstraintRequireOverlap(TypedDict):
+class QueryConstraintRequireOverlap(TypedDict, closed=True):
     columns: NotRequired[
         "aws_sdk_cleanrooms.types.analysis_rule_column_list.AnalysisRuleColumnList"
     ]

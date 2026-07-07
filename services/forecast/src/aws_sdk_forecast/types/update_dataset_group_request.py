@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#UpdateDatasetGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn_list
 
 
-class UpdateDatasetGroupRequest(TypedDict):
+class UpdateDatasetGroupRequest(TypedDict, closed=True):
     dataset_group_arn: "aws_sdk_forecast.types.arn.Arn"
     """<p>The ARN of the dataset group.</p>"""
     dataset_arns: "aws_sdk_forecast.types.arn_list.ArnList"

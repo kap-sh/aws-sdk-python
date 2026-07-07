@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#UpdateAssessmentControlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.control_comment_body
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class UpdateAssessmentControlRequest(TypedDict):
+class UpdateAssessmentControlRequest(TypedDict, closed=True):
     assessment_id: "aws_sdk_auditmanager.types.uuid.UUID"
     """<p> The unique identifier for the assessment. </p>"""
     control_set_id: "aws_sdk_auditmanager.types.control_set_id.ControlSetId"

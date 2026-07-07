@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListOutpostResolversRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.outpost_arn
 
 
-class ListOutpostResolversRequest(TypedDict):
+class ListOutpostResolversRequest(TypedDict, closed=True):
     outpost_arn: NotRequired["aws_sdk_route53resolver.types.outpost_arn.OutpostArn"]
     """<p>The Amazon Resource Name (ARN) of the Outpost.</p>"""
     max_results: NotRequired["aws_sdk_route53resolver.types.max_results.MaxResults"]

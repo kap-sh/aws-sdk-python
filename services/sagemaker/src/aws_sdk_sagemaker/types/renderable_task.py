@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RenderableTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.task_input
 
 
-class RenderableTask(TypedDict):
+class RenderableTask(TypedDict, closed=True):
     input: NotRequired["aws_sdk_sagemaker.types.task_input.TaskInput"]
     r"""<p>A JSON object that contains values for the variables defined in the template. It is made available to the template under the substitution variable <code>task.input</code>. For example, if you define a variable <code>task.input.text</code> in your template, you can supply the variable in the JSON object as <code>\"text\": \"sample text\"</code>.</p>"""
 

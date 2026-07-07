@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CommandPreprocessor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.aws_json_substitution_command_preprocessor_config
 
 
-class CommandPreprocessor(TypedDict):
+class CommandPreprocessor(TypedDict, closed=True):
     aws_json_substitution: NotRequired[
         "aws_sdk_iot.types.aws_json_substitution_command_preprocessor_config.AwsJsonSubstitutionCommandPreprocessorConfig"
     ]

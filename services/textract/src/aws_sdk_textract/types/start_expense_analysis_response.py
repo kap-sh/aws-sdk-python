@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.textract#StartExpenseAnalysisResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.job_id
 
 
-class StartExpenseAnalysisResponse(TypedDict):
+class StartExpenseAnalysisResponse(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_textract.types.job_id.JobId"]
     """<p>A unique identifier for the text detection job. The <code>JobId</code> is returned from <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>"""
 

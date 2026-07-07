@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#StageEndpoints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.stage_endpoint
 
 
-class StageEndpoints(TypedDict):
+class StageEndpoints(TypedDict, closed=True):
     events: NotRequired["aws_sdk_ivs_realtime.types.stage_endpoint.StageEndpoint"]
     """<p>Events endpoint.</p>"""
     whip: NotRequired["aws_sdk_ivs_realtime.types.stage_endpoint.StageEndpoint"]

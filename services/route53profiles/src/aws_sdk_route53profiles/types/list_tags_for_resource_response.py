@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53profiles#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53profiles.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53profiles.types.tag_map
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: "aws_sdk_route53profiles.types.tag_map.TagMap"
     """<p> The tags that are associated with the resource that you specified in the <code>ListTagsForResource</code> request. </p>"""
 

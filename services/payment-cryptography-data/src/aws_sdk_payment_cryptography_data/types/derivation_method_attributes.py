@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#DerivationMethodAttributes``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -15,25 +17,25 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.visa_attributes
 
 
-class _DerivationMethodAttributes_EmvCommon(TypedDict):
+class _DerivationMethodAttributes_EmvCommon(TypedDict, closed=True):
     EmvCommon: "aws_sdk_payment_cryptography_data.types.emv_common_attributes.EmvCommonAttributes"
 
 
-class _DerivationMethodAttributes_Amex(TypedDict):
+class _DerivationMethodAttributes_Amex(TypedDict, closed=True):
     Amex: "aws_sdk_payment_cryptography_data.types.amex_attributes.AmexAttributes"
 
 
-class _DerivationMethodAttributes_Visa(TypedDict):
+class _DerivationMethodAttributes_Visa(TypedDict, closed=True):
     Visa: "aws_sdk_payment_cryptography_data.types.visa_attributes.VisaAttributes"
 
 
-class _DerivationMethodAttributes_Emv2000(TypedDict):
+class _DerivationMethodAttributes_Emv2000(TypedDict, closed=True):
     Emv2000: (
         "aws_sdk_payment_cryptography_data.types.emv2000_attributes.Emv2000Attributes"
     )
 
 
-class _DerivationMethodAttributes_Mastercard(TypedDict):
+class _DerivationMethodAttributes_Mastercard(TypedDict, closed=True):
     Mastercard: "aws_sdk_payment_cryptography_data.types.master_card_attributes.MasterCardAttributes"
 
 

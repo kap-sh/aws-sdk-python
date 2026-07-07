@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#LambdaAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.function_arn
 
 
-class LambdaAction(TypedDict):
+class LambdaAction(TypedDict, closed=True):
     function_arn: "aws_sdk_iot.types.function_arn.FunctionArn"
     """<p>The ARN of the Lambda function.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#MCPServerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.mcp_tools_list
 
 
-class MCPServerConfiguration(TypedDict):
+class MCPServerConfiguration(TypedDict, closed=True):
     tools: "aws_sdk_devops_agent.types.mcp_tools_list.MCPToolsList"
     """<p>List of MCP tools can be used with the association.</p>"""
 

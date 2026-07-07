@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#DeviceProxy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.device_proxy_port
 
 
-class DeviceProxy(TypedDict):
+class DeviceProxy(TypedDict, closed=True):
     host: "aws_sdk_device_farm.types.device_proxy_host.DeviceProxyHost"
     """<p>Hostname or IPv4 address of the proxy.</p>"""
     port: "aws_sdk_device_farm.types.device_proxy_port.DeviceProxyPort"

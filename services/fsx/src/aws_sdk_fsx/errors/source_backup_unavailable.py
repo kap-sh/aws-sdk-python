@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#SourceBackupUnavailable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fsx.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.error_message
 
 
-class SourceBackupUnavailable_(TypedDict):
+class SourceBackupUnavailable_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_fsx.types.error_message.ErrorMessage"]
     backup_id: NotRequired["aws_sdk_fsx.types.backup_id.BackupId"]
 

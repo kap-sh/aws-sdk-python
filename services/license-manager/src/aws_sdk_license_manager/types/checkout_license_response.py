@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#CheckoutLicenseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.checkout_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class CheckoutLicenseResponse(TypedDict):
+class CheckoutLicenseResponse(TypedDict, closed=True):
     checkout_type: NotRequired[
         "aws_sdk_license_manager.types.checkout_type.CheckoutType"
     ]

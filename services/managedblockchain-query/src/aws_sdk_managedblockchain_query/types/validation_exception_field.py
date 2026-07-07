@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The name of the field that triggered the <code>ValidationException</code>.</p>"""
     message: "str"

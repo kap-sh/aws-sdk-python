@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#PackageAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.package_sort_by
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.string_filter_list
 
 
-class PackageAggregation(TypedDict):
+class PackageAggregation(TypedDict, closed=True):
     package_names: NotRequired[
         "aws_sdk_inspector2.types.string_filter_list.StringFilterList"
     ]

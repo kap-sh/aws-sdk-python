@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#DeploymentGroupInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.alarm_configuration
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.trigger_config_list
 
 
-class DeploymentGroupInfo(TypedDict):
+class DeploymentGroupInfo(TypedDict, closed=True):
     application_name: NotRequired[
         "aws_sdk_codedeploy.types.application_name.ApplicationName"
     ]

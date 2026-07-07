@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#RequestCancelExternalWorkflowExecutionFailedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -14,7 +14,9 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_run_id_optional
 
 
-class RequestCancelExternalWorkflowExecutionFailedEventAttributes(TypedDict):
+class RequestCancelExternalWorkflowExecutionFailedEventAttributes(
+    TypedDict, closed=True
+):
     workflow_id: "aws_sdk_swf.types.workflow_id.WorkflowId"
     """<p>The <code>workflowId</code> of the external workflow to which the cancel request was to be delivered.</p>"""
     run_id: NotRequired[

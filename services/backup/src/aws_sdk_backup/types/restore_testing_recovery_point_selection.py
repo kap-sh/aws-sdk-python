@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#RestoreTestingRecoveryPointSelection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string_list
 
 
-class RestoreTestingRecoveryPointSelection(TypedDict):
+class RestoreTestingRecoveryPointSelection(TypedDict, closed=True):
     algorithm: NotRequired[
         "aws_sdk_backup.types.restore_testing_recovery_point_selection_algorithm.RestoreTestingRecoveryPointSelectionAlgorithm"
     ]

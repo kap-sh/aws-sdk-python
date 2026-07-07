@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#PromptRouterTargetModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.prompt_router_target_model_arn
 
 
-class PromptRouterTargetModel(TypedDict):
+class PromptRouterTargetModel(TypedDict, closed=True):
     model_arn: NotRequired[
         "aws_sdk_bedrock.types.prompt_router_target_model_arn.PromptRouterTargetModelArn"
     ]

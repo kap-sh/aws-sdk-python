@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#CreateOAuth2TokenResponseBody``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_signin.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.token_type
 
 
-class CreateOAuth2TokenResponseBody(TypedDict):
+class CreateOAuth2TokenResponseBody(TypedDict, closed=True):
     access_token: "aws_sdk_signin.types.access_token.AccessToken"
     """Scoped-down AWS credentials (15 minute duration) Present for both authorization code redemption and token refresh"""
     token_type: "aws_sdk_signin.types.token_type.TokenType"

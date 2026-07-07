@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.amazon_resource_name
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_sns.types.amazon_resource_name.AmazonResourceName"
     """<p>The ARN of the topic for which to list tags.</p>"""
 

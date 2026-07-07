@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#SecretsManagerSecretConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.secrets_manager_secret_kms_id
     import aws_sdk_accessanalyzer.types.secrets_manager_secret_policy
 
 
-class SecretsManagerSecretConfiguration(TypedDict):
+class SecretsManagerSecretConfiguration(TypedDict, closed=True):
     kms_key_id: NotRequired[
         "aws_sdk_accessanalyzer.types.secrets_manager_secret_kms_id.SecretsManagerSecretKmsId"
     ]

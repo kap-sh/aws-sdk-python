@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#UpdateFileSystemRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.file_system_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.throughput_mode
 
 
-class UpdateFileSystemRequest(TypedDict):
+class UpdateFileSystemRequest(TypedDict, closed=True):
     file_system_id: "aws_sdk_efs.types.file_system_id.FileSystemId"
     """<p>The ID of the file system that you want to update.</p>"""
     throughput_mode: NotRequired["aws_sdk_efs.types.throughput_mode.ThroughputMode"]

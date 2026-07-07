@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#CreateParallelDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.tag_list
 
 
-class CreateParallelDataRequest(TypedDict):
+class CreateParallelDataRequest(TypedDict, closed=True):
     name: "aws_sdk_translate.types.resource_name.ResourceName"
     """<p>A custom name for the parallel data resource in Amazon Translate. You must assign a name that is unique in the account and region.</p>"""
     description: NotRequired["aws_sdk_translate.types.description.Description"]

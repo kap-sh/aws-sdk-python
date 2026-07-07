@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelPackageValidationSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_package_validation_profiles
     import aws_sdk_sagemaker.types.role_arn
 
 
-class ModelPackageValidationSpecification(TypedDict):
+class ModelPackageValidationSpecification(TypedDict, closed=True):
     validation_role: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]
     """<p>The IAM roles to be used for the validation of the model package.</p>"""
     validation_profiles: NotRequired[

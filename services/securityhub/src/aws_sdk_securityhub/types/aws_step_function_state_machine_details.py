@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsStepFunctionStateMachineDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsStepFunctionStateMachineDetails(TypedDict):
+class AwsStepFunctionStateMachineDetails(TypedDict, closed=True):
     label: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> A user-defined or an auto-generated string that identifies a <code>Map</code> state. This parameter is present only if the <code>stateMachineArn</code> specified in input is a qualified state machine ARN. </p>"""
     logging_configuration: NotRequired[

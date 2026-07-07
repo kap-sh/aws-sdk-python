@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#RegisterComputeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.compute_name
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_zero_and_max_string
 
 
-class RegisterComputeInput(TypedDict):
+class RegisterComputeInput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id_or_arn.FleetIdOrArn"]
     """<p>A unique identifier for the fleet to register the compute to. You can use either the fleet ID or ARN value.</p>"""
     compute_name: NotRequired["aws_sdk_gamelift.types.compute_name.ComputeName"]

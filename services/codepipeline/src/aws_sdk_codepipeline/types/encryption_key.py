@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#EncryptionKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.encryption_key_type
 
 
-class EncryptionKey(TypedDict):
+class EncryptionKey(TypedDict, closed=True):
     id: "aws_sdk_codepipeline.types.encryption_key_id.EncryptionKeyId"
     """<p>The ID used to identify the key. For an Amazon Web Services KMS key, you can use the key ID, the key ARN, or the alias ARN.</p> <note> <p>Aliases are recognized only in the account that created the KMS key. For cross-account actions, you can only use the key ID or key ARN to identify the key. Cross-account actions involve using the role from the other account (AccountB), so specifying the key ID will use the key from the other account (AccountB).</p> </note>"""
     type: "aws_sdk_codepipeline.types.encryption_key_type.EncryptionKeyType"

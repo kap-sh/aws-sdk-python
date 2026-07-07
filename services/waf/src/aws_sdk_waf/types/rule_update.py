@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#RuleUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.predicate
 
 
-class RuleUpdate(TypedDict):
+class RuleUpdate(TypedDict, closed=True):
     action: "aws_sdk_waf.types.change_action.ChangeAction"
     """<p>Specify <code>INSERT</code> to add a <code>Predicate</code> to a <code>Rule</code>. Use <code>DELETE</code> to remove a <code>Predicate</code> from a <code>Rule</code>.</p>"""
     predicate: "aws_sdk_waf.types.predicate.Predicate"

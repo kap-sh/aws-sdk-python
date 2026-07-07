@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#FirewallConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class FirewallConfig(TypedDict):
+class FirewallConfig(TypedDict, closed=True):
     id: NotRequired["aws_sdk_route53resolver.types.resource_id.ResourceId"]
     """<p>The ID of the firewall configuration.</p>"""
     resource_id: NotRequired["aws_sdk_route53resolver.types.resource_id.ResourceId"]

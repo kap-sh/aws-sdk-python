@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AnalysisDefaults``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.default_new_sheet_configuration
 
 
-class AnalysisDefaults(TypedDict):
+class AnalysisDefaults(TypedDict, closed=True):
     default_new_sheet_configuration: "aws_sdk_quicksight.types.default_new_sheet_configuration.DefaultNewSheetConfiguration"
     """<p>The configuration for default new sheet settings.</p>"""
 

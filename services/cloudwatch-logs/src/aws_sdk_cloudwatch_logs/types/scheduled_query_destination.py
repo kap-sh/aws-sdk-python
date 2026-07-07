@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ScheduledQueryDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.action_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.string
 
 
-class ScheduledQueryDestination(TypedDict):
+class ScheduledQueryDestination(TypedDict, closed=True):
     destination_type: NotRequired[
         "aws_sdk_cloudwatch_logs.types.scheduled_query_destination_type.ScheduledQueryDestinationType"
     ]

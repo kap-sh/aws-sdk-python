@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#LoadBalancerTlsCertificateRenewalSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.load_balancer_tls_certificate_domain_validation_option_list
     import aws_sdk_lightsail.types.load_balancer_tls_certificate_renewal_status
 
 
-class LoadBalancerTlsCertificateRenewalSummary(TypedDict):
+class LoadBalancerTlsCertificateRenewalSummary(TypedDict, closed=True):
     renewal_status: NotRequired[
         "aws_sdk_lightsail.types.load_balancer_tls_certificate_renewal_status.LoadBalancerTlsCertificateRenewalStatus"
     ]

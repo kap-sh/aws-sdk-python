@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#FunctionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrass.types.function_configuration_environment
 
 
-class FunctionConfiguration(TypedDict):
+class FunctionConfiguration(TypedDict, closed=True):
     encoding_type: NotRequired["aws_sdk_greengrass.types.encoding_type.EncodingType"]
     """The expected encoding type of the input payload for the function. The default is ''json''."""
     environment: NotRequired[

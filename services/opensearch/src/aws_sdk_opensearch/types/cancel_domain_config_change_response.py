@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CancelDomainConfigChangeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.cancelled_change_property_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.guid_list
 
 
-class CancelDomainConfigChangeResponse(TypedDict):
+class CancelDomainConfigChangeResponse(TypedDict, closed=True):
     cancelled_change_ids: NotRequired["aws_sdk_opensearch.types.guid_list.GUIDList"]
     """<p>The unique identifiers of the changes that were cancelled.</p>"""
     cancelled_change_properties: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#TransitGatewayAttachmentSyncState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.attachment_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.transit_gateway_attachment_sync_state_message
 
 
-class TransitGatewayAttachmentSyncState(TypedDict):
+class TransitGatewayAttachmentSyncState(TypedDict, closed=True):
     attachment_id: NotRequired[
         "aws_sdk_network_firewall.types.attachment_id.AttachmentId"
     ]

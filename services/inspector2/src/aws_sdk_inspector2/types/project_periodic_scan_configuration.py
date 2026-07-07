@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ProjectPeriodicScanConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.frequency_expression
     import aws_sdk_inspector2.types.rule_set_categories
 
 
-class ProjectPeriodicScanConfiguration(TypedDict):
+class ProjectPeriodicScanConfiguration(TypedDict, closed=True):
     frequency_expression: NotRequired[
         "aws_sdk_inspector2.types.frequency_expression.FrequencyExpression"
     ]

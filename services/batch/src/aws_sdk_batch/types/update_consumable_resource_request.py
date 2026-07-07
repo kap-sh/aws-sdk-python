@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#UpdateConsumableResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.client_request_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class UpdateConsumableResourceRequest(TypedDict):
+class UpdateConsumableResourceRequest(TypedDict, closed=True):
     consumable_resource: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name or ARN of the consumable resource to be updated.</p>"""
     operation: NotRequired["aws_sdk_batch.types.string.String"]

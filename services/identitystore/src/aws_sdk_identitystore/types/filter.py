@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_identitystore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_identitystore.types.sensitive_string_type
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     attribute_path: "aws_sdk_identitystore.types.attribute_path.AttributePath"
     """<p>The attribute path that is used to specify which attribute name to search. Length limit is 255 characters. For example, <code>UserName</code> is a valid attribute path for the <code> ListUsers</code> API, and <code>DisplayName</code> is a valid attribute path for the <code> ListGroups</code> API.</p>"""
     attribute_value: (

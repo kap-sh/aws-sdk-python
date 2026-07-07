@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteRegistryRecordResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRegistryRecordResponse(TypedDict):
+class DeleteRegistryRecordResponse(TypedDict, closed=True):
     pass
 
 

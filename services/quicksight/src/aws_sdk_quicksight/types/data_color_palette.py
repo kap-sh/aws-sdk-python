@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataColorPalette``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.color_list
     import aws_sdk_quicksight.types.hex_color
 
 
-class DataColorPalette(TypedDict):
+class DataColorPalette(TypedDict, closed=True):
     colors: NotRequired["aws_sdk_quicksight.types.color_list.ColorList"]
     """<p>The hexadecimal codes for the colors.</p>"""
     min_max_gradient: NotRequired["aws_sdk_quicksight.types.color_list.ColorList"]

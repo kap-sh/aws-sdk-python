@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ConversationState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.conversation_status_reason
 
 
-class ConversationState(TypedDict):
+class ConversationState(TypedDict, closed=True):
     status: "aws_sdk_qconnect.types.conversation_status.ConversationStatus"
     """<p>The status of the conversation state.</p>"""
     reason: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.odb#EncryptionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.encryption_key_configuration
     import aws_sdk_odb.types.encryption_key_provider
 
 
-class EncryptionSummary(TypedDict):
+class EncryptionSummary(TypedDict, closed=True):
     encryption_key_provider: NotRequired[
         "aws_sdk_odb.types.encryption_key_provider.EncryptionKeyProvider"
     ]

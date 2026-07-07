@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.integer
 
 
-class InferenceMetrics(TypedDict):
+class InferenceMetrics(TypedDict, closed=True):
     max_invocations: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]
     """<p>The expected maximum number of requests per minute for the instance.</p>"""
     model_latency: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]

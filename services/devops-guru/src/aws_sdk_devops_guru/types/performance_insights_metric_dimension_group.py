@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#PerformanceInsightsMetricDimensionGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.performance_insights_metric_dimensions
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.performance_insights_metric_limit_integer
 
 
-class PerformanceInsightsMetricDimensionGroup(TypedDict):
+class PerformanceInsightsMetricDimensionGroup(TypedDict, closed=True):
     group: NotRequired[
         "aws_sdk_devops_guru.types.performance_insights_metric_group.PerformanceInsightsMetricGroup"
     ]

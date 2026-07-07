@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ServiceJobCapacityUsageSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.double
     import aws_sdk_batch.types.string
 
 
-class ServiceJobCapacityUsageSummary(TypedDict):
+class ServiceJobCapacityUsageSummary(TypedDict, closed=True):
     capacity_unit: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The unit of measure for the service job capacity usage. For service jobs, this is the instance type.</p>"""
     quantity: NotRequired["aws_sdk_batch.types.double.Double"]

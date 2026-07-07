@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ListKeywordsForDataSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.data_source_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.token
 
 
-class ListKeywordsForDataSourceRequest(TypedDict):
+class ListKeywordsForDataSourceRequest(TypedDict, closed=True):
     source: "aws_sdk_auditmanager.types.data_source_type.DataSourceType"
     """<p>The control mapping data source that the keywords apply to. </p>"""
     next_token: NotRequired["aws_sdk_auditmanager.types.token.Token"]

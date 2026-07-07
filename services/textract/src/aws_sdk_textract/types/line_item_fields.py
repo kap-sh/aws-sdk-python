@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.textract#LineItemFields``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.expense_field_list
 
 
-class LineItemFields(TypedDict):
+class LineItemFields(TypedDict, closed=True):
     line_item_expense_fields: NotRequired[
         "aws_sdk_textract.types.expense_field_list.ExpenseFieldList"
     ]

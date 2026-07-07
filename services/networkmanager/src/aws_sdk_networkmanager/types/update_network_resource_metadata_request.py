@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#UpdateNetworkResourceMetadataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_networkmanager.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.resource_arn
 
 
-class UpdateNetworkResourceMetadataRequest(TypedDict):
+class UpdateNetworkResourceMetadataRequest(TypedDict, closed=True):
     global_network_id: "aws_sdk_networkmanager.types.global_network_id.GlobalNetworkId"
     """<p>The ID of the global network.</p>"""
     resource_arn: "aws_sdk_networkmanager.types.resource_arn.ResourceArn"

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#DataRecoveryTargets``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DataRecoveryTargets(TypedDict):
+class DataRecoveryTargets(TypedDict, closed=True):
     time_between_backups_in_minutes: NotRequired["int"]
     """<p>The target time between backups, in minutes.</p>"""
 

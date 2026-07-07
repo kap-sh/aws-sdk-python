@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CapacityReservationBillingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class CapacityReservationBillingRequest(TypedDict):
+class CapacityReservationBillingRequest(TypedDict, closed=True):
     capacity_reservation_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the Capacity Reservation.</p>"""
     requested_by: NotRequired["aws_sdk_ec2.types.string.String"]

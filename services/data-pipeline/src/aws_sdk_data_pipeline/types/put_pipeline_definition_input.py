@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#PutPipelineDefinitionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_data_pipeline.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.pipeline_object_list
 
 
-class PutPipelineDefinitionInput(TypedDict):
+class PutPipelineDefinitionInput(TypedDict, closed=True):
     pipeline_id: "aws_sdk_data_pipeline.types.id.id"
     """<p>The ID of the pipeline.</p>"""
     pipeline_objects: (

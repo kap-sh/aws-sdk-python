@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ResourceSelection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.tiering_down_settings_in_days
 
 
-class ResourceSelection(TypedDict):
+class ResourceSelection(TypedDict, closed=True):
     resources: "aws_sdk_backup.types.resource_arns.ResourceArns"
     """<p>An array of strings that either contains ARNs of the associated resources or contains a wildcard <code>*</code> to specify all resources. You can specify up to 100 specific resources per tiering configuration.</p>"""
     tiering_down_settings_in_days: (

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#Dimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.dimension_value
 
 
-class Dimension(TypedDict):
+class Dimension(TypedDict, closed=True):
     value: "aws_sdk_network_firewall.types.dimension_value.DimensionValue"
     """<p>The value to use in the custom metric dimension.</p>"""
 

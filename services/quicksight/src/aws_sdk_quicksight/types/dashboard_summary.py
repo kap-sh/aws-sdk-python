@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DashboardSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.version_number
 
 
-class DashboardSummary(TypedDict):
+class DashboardSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
     dashboard_id: NotRequired[

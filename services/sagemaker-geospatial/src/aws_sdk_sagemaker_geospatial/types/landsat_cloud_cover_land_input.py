@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#LandsatCloudCoverLandInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
 
-class LandsatCloudCoverLandInput(TypedDict):
+class LandsatCloudCoverLandInput(TypedDict, closed=True):
     lower_bound: "float"
     """<p>The minimum value for Land Cloud Cover property filter. This will filter items having Land Cloud Cover greater than or equal to this value.</p>"""
     upper_bound: "float"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#CreateAccessPointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.tag_list
 
 
-class CreateAccessPointRequest(TypedDict):
+class CreateAccessPointRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_s3files.types.client_token.ClientToken"]
     """<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Web Services ignores the request, but does not return an error.</p>"""
     tags: NotRequired["aws_sdk_s3files.types.tag_list.TagList"]

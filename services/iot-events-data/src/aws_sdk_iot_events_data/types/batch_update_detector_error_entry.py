@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#BatchUpdateDetectorErrorEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.message_id
 
 
-class BatchUpdateDetectorErrorEntry(TypedDict):
+class BatchUpdateDetectorErrorEntry(TypedDict, closed=True):
     message_id: NotRequired["aws_sdk_iot_events_data.types.message_id.MessageId"]
     r"""<p>The <code>\"messageId\"</code> of the update request that caused the error. (The value of the <code>\"messageId\"</code> in the update request <code>\"Detector\"</code> object.)</p>"""
     error_code: NotRequired["aws_sdk_iot_events_data.types.error_code.ErrorCode"]

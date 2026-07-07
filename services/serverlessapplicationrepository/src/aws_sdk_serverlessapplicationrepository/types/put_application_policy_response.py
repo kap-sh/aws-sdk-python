@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.serverlessapplicationrepository#PutApplicationPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_serverlessapplicationrepository.types.__list_of_application_policy_statement
 
 
-class PutApplicationPolicyResponse(TypedDict):
+class PutApplicationPolicyResponse(TypedDict, closed=True):
     statements: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__list_of_application_policy_statement.__listOfApplicationPolicyStatement"
     ]

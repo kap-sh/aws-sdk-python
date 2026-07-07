@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#UserMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.email_address_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.username_type
 
 
-class UserMetadata(TypedDict):
+class UserMetadata(TypedDict, closed=True):
     id: NotRequired["aws_sdk_workdocs.types.id_type.IdType"]
     """<p>The ID of the user.</p>"""
     username: NotRequired["aws_sdk_workdocs.types.username_type.UsernameType"]

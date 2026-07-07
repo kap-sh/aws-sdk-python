@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#CancelExportTaskOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.role_arn
 
 
-class CancelExportTaskOutput(TypedDict):
+class CancelExportTaskOutput(TypedDict, closed=True):
     graph_id: "aws_sdk_neptune_graph.types.graph_id.GraphId"
     """<p>The source graph identifier of the cancelled export task.</p>"""
     role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#ChannelDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.channel_id
     import aws_sdk_chime_sdk_media_pipelines.types.participant_role
 
 
-class ChannelDefinition(TypedDict):
+class ChannelDefinition(TypedDict, closed=True):
     channel_id: "aws_sdk_chime_sdk_media_pipelines.types.channel_id.ChannelId"
     """<p>The channel ID.</p>"""
     participant_role: NotRequired[

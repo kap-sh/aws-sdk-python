@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListTrialComponentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
     import aws_sdk_sagemaker.types.trial_component_summaries
 
 
-class ListTrialComponentsResponse(TypedDict):
+class ListTrialComponentsResponse(TypedDict, closed=True):
     trial_component_summaries: NotRequired[
         "aws_sdk_sagemaker.types.trial_component_summaries.TrialComponentSummaries"
     ]

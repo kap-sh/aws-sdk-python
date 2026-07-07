@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#Step``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.step_status
 
 
-class Step(TypedDict):
+class Step(TypedDict, closed=True):
     name: NotRequired["aws_sdk_securityagent.types.step_name.StepName"]
     """<p>The name of the step. Valid values include PREFLIGHT, STATIC_ANALYSIS, PENTEST, and FINALIZING.</p>"""
     status: NotRequired["aws_sdk_securityagent.types.step_status.StepStatus"]

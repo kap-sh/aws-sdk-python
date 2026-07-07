@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#UpdateCisTargets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.target_account_list
     import aws_sdk_inspector2.types.target_resource_tags
 
 
-class UpdateCisTargets(TypedDict):
+class UpdateCisTargets(TypedDict, closed=True):
     account_ids: NotRequired[
         "aws_sdk_inspector2.types.target_account_list.TargetAccountList"
     ]

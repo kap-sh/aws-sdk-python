@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#PutEventsResultEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.event_id
 
 
-class PutEventsResultEntry(TypedDict):
+class PutEventsResultEntry(TypedDict, closed=True):
     event_id: NotRequired["aws_sdk_cloudwatch_events.types.event_id.EventId"]
     """<p>The ID of the event.</p>"""
     error_code: NotRequired["aws_sdk_cloudwatch_events.types.error_code.ErrorCode"]

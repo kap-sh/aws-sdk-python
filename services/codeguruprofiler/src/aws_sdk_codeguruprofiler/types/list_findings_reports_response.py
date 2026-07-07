@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#ListFindingsReportsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.pagination_token
 
 
-class ListFindingsReportsResponse(TypedDict):
+class ListFindingsReportsResponse(TypedDict, closed=True):
     findings_report_summaries: "aws_sdk_codeguruprofiler.types.findings_report_summaries.FindingsReportSummaries"
     """<p>The list of analysis results summaries.</p>"""
     next_token: NotRequired[

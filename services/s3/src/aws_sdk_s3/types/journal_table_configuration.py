@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#JournalTableConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.record_expiration
 
 
-class JournalTableConfiguration(TypedDict):
+class JournalTableConfiguration(TypedDict, closed=True):
     record_expiration: "aws_sdk_s3.types.record_expiration.RecordExpiration"
     """<p> The journal table record expiration settings for the journal table. </p>"""
     encryption_configuration: NotRequired[

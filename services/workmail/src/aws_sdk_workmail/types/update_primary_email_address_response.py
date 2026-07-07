@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#UpdatePrimaryEmailAddressResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdatePrimaryEmailAddressResponse(TypedDict):
+class UpdatePrimaryEmailAddressResponse(TypedDict, closed=True):
     pass
 
 

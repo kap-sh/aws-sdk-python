@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#ControlCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_zonal_shift.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.metric_identifier
 
 
-class ControlCondition(TypedDict):
+class ControlCondition(TypedDict, closed=True):
     type: "aws_sdk_arc_zonal_shift.types.control_condition_type.ControlConditionType"
     """<p>The type of alarm specified for a practice run. You can only specify Amazon CloudWatch alarms for practice runs, so the only valid value is <code>CLOUDWATCH</code>.</p>"""
     alarm_identifier: "aws_sdk_arc_zonal_shift.types.metric_identifier.MetricIdentifier"

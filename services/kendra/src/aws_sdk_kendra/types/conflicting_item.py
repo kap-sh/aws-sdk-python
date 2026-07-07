@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ConflictingItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.query_text
     import aws_sdk_kendra.types.string
 
 
-class ConflictingItem(TypedDict):
+class ConflictingItem(TypedDict, closed=True):
     query_text: NotRequired["aws_sdk_kendra.types.query_text.QueryText"]
     """<p>The text of the conflicting query.</p>"""
     set_name: NotRequired["aws_sdk_kendra.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#IotSiteWiseAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.asset_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.asset_property_value
 
 
-class IotSiteWiseAction(TypedDict):
+class IotSiteWiseAction(TypedDict, closed=True):
     entry_id: NotRequired[
         "aws_sdk_iot_events.types.asset_property_entry_id.AssetPropertyEntryId"
     ]

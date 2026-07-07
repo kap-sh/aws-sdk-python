@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ImportDataFormat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.import_data_type
 
 
-class ImportDataFormat(TypedDict):
+class ImportDataFormat(TypedDict, closed=True):
     import_data_type: "aws_sdk_mailmanager.types.import_data_type.ImportDataType"
     """<p>The type of file that would be passed as an input for the address list import job.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#ListDomainsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.max_results_for_list_domain_fe
     import aws_sdk_voice_id.types.next_token
 
 
-class ListDomainsRequest(TypedDict):
+class ListDomainsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_voice_id.types.max_results_for_list_domain_fe.MaxResultsForListDomainFe"
     ]

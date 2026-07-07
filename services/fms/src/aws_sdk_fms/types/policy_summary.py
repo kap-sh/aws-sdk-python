@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#PolicySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.boolean
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.security_service_type
 
 
-class PolicySummary(TypedDict):
+class PolicySummary(TypedDict, closed=True):
     policy_arn: NotRequired["aws_sdk_fms.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the specified policy.</p>"""
     policy_id: NotRequired["aws_sdk_fms.types.policy_id.PolicyId"]

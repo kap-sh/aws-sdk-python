@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#MacAttributes``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -13,27 +15,27 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.mac_algorithm_emv
 
 
-class _MacAttributes_Algorithm(TypedDict):
+class _MacAttributes_Algorithm(TypedDict, closed=True):
     Algorithm: "aws_sdk_payment_cryptography_data.types.mac_algorithm.MacAlgorithm"
 
 
-class _MacAttributes_EmvMac(TypedDict):
+class _MacAttributes_EmvMac(TypedDict, closed=True):
     EmvMac: "aws_sdk_payment_cryptography_data.types.mac_algorithm_emv.MacAlgorithmEmv"
 
 
-class _MacAttributes_DukptIso9797Algorithm1(TypedDict):
+class _MacAttributes_DukptIso9797Algorithm1(TypedDict, closed=True):
     DukptIso9797Algorithm1: (
         "aws_sdk_payment_cryptography_data.types.mac_algorithm_dukpt.MacAlgorithmDukpt"
     )
 
 
-class _MacAttributes_DukptIso9797Algorithm3(TypedDict):
+class _MacAttributes_DukptIso9797Algorithm3(TypedDict, closed=True):
     DukptIso9797Algorithm3: (
         "aws_sdk_payment_cryptography_data.types.mac_algorithm_dukpt.MacAlgorithmDukpt"
     )
 
 
-class _MacAttributes_DukptCmac(TypedDict):
+class _MacAttributes_DukptCmac(TypedDict, closed=True):
     DukptCmac: (
         "aws_sdk_payment_cryptography_data.types.mac_algorithm_dukpt.MacAlgorithmDukpt"
     )

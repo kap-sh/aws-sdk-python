@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyBuildStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_definition_element
 
 
-class AutomatedReasoningPolicyBuildStep(TypedDict):
+class AutomatedReasoningPolicyBuildStep(TypedDict, closed=True):
     context: "aws_sdk_bedrock.types.automated_reasoning_policy_build_step_context.AutomatedReasoningPolicyBuildStepContext"
     """<p>Contextual information about what was being processed during this build step, such as the type of operation or the source material being analyzed.</p>"""
     prior_element: NotRequired[

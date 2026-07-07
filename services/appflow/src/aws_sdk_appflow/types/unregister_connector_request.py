@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#UnregisterConnectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.connector_label
 
 
-class UnregisterConnectorRequest(TypedDict):
+class UnregisterConnectorRequest(TypedDict, closed=True):
     connector_label: "aws_sdk_appflow.types.connector_label.ConnectorLabel"
     """<p>The label of the connector. The label is unique for each <code>ConnectorRegistration</code> in your Amazon Web Services account.</p>"""
     force_delete: "aws_sdk_appflow.types.boolean.Boolean"

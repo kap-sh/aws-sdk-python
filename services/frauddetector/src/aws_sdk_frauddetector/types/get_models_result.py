@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetModelsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.model_list
     import aws_sdk_frauddetector.types.string
 
 
-class GetModelsResult(TypedDict):
+class GetModelsResult(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_frauddetector.types.string.string"]
     """<p>The next page token to be used in subsequent requests.</p>"""
     models: NotRequired["aws_sdk_frauddetector.types.model_list.modelList"]

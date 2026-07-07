@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#QueryInputData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.query_text_input_data
 
 
-class _QueryInputData_queryTextInputData(TypedDict):
+class _QueryInputData_queryTextInputData(TypedDict, closed=True):
     queryTextInputData: (
         "aws_sdk_qconnect.types.query_text_input_data.QueryTextInputData"
     )
 
 
-class _QueryInputData_intentInputData(TypedDict):
+class _QueryInputData_intentInputData(TypedDict, closed=True):
     intentInputData: "aws_sdk_qconnect.types.intent_input_data.IntentInputData"
 
 
-class _QueryInputData_caseSummarizationInputData(TypedDict):
+class _QueryInputData_caseSummarizationInputData(TypedDict, closed=True):
     caseSummarizationInputData: "aws_sdk_qconnect.types.case_summarization_input_data.CaseSummarizationInputData"
 
 

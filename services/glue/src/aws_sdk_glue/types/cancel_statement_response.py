@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CancelStatementResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelStatementResponse(TypedDict):
+class CancelStatementResponse(TypedDict, closed=True):
     pass
 
 

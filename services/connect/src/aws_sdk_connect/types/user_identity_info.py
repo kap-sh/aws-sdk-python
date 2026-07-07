@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UserIdentityInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_first_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.phone_number
 
 
-class UserIdentityInfo(TypedDict):
+class UserIdentityInfo(TypedDict, closed=True):
     first_name: NotRequired["aws_sdk_connect.types.agent_first_name.AgentFirstName"]
     """<p>The first name. This is required if you are using Connect Customer or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.</p>"""
     last_name: NotRequired["aws_sdk_connect.types.agent_last_name.AgentLastName"]

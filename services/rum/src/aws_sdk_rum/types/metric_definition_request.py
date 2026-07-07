@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#MetricDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rum.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.value_key
 
 
-class MetricDefinitionRequest(TypedDict):
+class MetricDefinitionRequest(TypedDict, closed=True):
     name: "aws_sdk_rum.types.metric_name.MetricName"
     """<p>The name for the metric that is defined in this structure. For custom metrics, you can specify any name that you like. For extended metrics, valid values are the following:</p> <ul> <li> <p> <code>PerformanceNavigationDuration</code> </p> </li> <li> <p> <code>PerformanceResourceDuration </code> </p> </li> <li> <p> <code>NavigationSatisfiedTransaction</code> </p> </li> <li> <p> <code>NavigationToleratedTransaction</code> </p> </li> <li> <p> <code>NavigationFrustratedTransaction</code> </p> </li> <li> <p> <code>WebVitalsCumulativeLayoutShift</code> </p> </li> <li> <p> <code>WebVitalsFirstInputDelay</code> </p> </li> <li> <p> <code>WebVitalsLargestContentfulPaint</code> </p> </li> <li> <p> <code>JsErrorCount</code> </p> </li> <li> <p> <code>HttpErrorCount</code> </p> </li> <li> <p> <code>SessionCount</code> </p> </li> </ul>"""
     value_key: NotRequired["aws_sdk_rum.types.value_key.ValueKey"]

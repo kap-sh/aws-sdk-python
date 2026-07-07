@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#Interpretation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.confidence_score
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.sentiment_response
 
 
-class Interpretation(TypedDict):
+class Interpretation(TypedDict, closed=True):
     nlu_confidence: NotRequired[
         "aws_sdk_lex_runtime_v2.types.confidence_score.ConfidenceScore"
     ]

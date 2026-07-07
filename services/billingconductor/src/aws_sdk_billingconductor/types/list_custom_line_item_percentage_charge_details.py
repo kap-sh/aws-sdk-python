@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#ListCustomLineItemPercentageChargeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.custom_line_item_percentage_charge_value
 
 
-class ListCustomLineItemPercentageChargeDetails(TypedDict):
+class ListCustomLineItemPercentageChargeDetails(TypedDict, closed=True):
     percentage_value: "aws_sdk_billingconductor.types.custom_line_item_percentage_charge_value.CustomLineItemPercentageChargeValue"
     """<p> The custom line item's percentage value. This will be multiplied against the combined value of its associated resources to determine its charge value. </p>"""
 

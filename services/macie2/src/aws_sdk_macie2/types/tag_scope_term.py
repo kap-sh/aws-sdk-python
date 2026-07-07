@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#TagScopeTerm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_tag_value_pair
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.tag_target
 
 
-class TagScopeTerm(TypedDict):
+class TagScopeTerm(TypedDict, closed=True):
     comparator: NotRequired["aws_sdk_macie2.types.job_comparator.JobComparator"]
     """<p>The operator to use in the condition. Valid values are EQ (equals) or NE (not equals).</p>"""
     key: NotRequired["aws_sdk_macie2.types.__string.__string"]

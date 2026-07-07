@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AssociatedInstances``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
 
-class AssociatedInstances_(TypedDict):
+class AssociatedInstances_(TypedDict, closed=True):
     pass
 
 

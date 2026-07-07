@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#LambdaConfigType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.arn_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.pre_token_generation_version_config_type
 
 
-class LambdaConfigType(TypedDict):
+class LambdaConfigType(TypedDict, closed=True):
     pre_sign_up: NotRequired["aws_sdk_cognito_identity_provider.types.arn_type.ArnType"]
     r"""<p>The configuration of a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html\">pre sign-up Lambda trigger</a> in a user pool. This trigger evaluates new users and can bypass confirmation, <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html\">link a federated user profile</a>, or block sign-up requests.</p>"""
     custom_message: NotRequired[

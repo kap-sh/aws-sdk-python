@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#DevEnvironmentAccessDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.sensitive_string
 
 
-class DevEnvironmentAccessDetails(TypedDict):
+class DevEnvironmentAccessDetails(TypedDict, closed=True):
     stream_url: "aws_sdk_codecatalyst.types.sensitive_string.SensitiveString"
     """<p>The URL used to send commands to and from the Dev Environment.</p>"""
     token_value: "aws_sdk_codecatalyst.types.sensitive_string.SensitiveString"

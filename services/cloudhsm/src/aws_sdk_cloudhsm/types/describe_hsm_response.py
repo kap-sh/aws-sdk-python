@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#DescribeHsmResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.az
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.vpc_id
 
 
-class DescribeHsmResponse(TypedDict):
+class DescribeHsmResponse(TypedDict, closed=True):
     hsm_arn: NotRequired["aws_sdk_cloudhsm.types.hsm_arn.HsmArn"]
     """<p>The ARN of the HSM.</p>"""
     status: NotRequired["aws_sdk_cloudhsm.types.hsm_status.HsmStatus"]

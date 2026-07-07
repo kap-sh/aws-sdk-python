@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#DeviceType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.attribute_list_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.device_key_type
 
 
-class DeviceType(TypedDict):
+class DeviceType(TypedDict, closed=True):
     device_key: NotRequired[
         "aws_sdk_cognito_identity_provider.types.device_key_type.DeviceKeyType"
     ]

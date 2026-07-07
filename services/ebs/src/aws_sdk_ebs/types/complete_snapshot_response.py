@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#CompleteSnapshotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ebs.types.status
 
 
-class CompleteSnapshotResponse(TypedDict):
+class CompleteSnapshotResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_ebs.types.status.Status"]
     """<p>The status of the snapshot.</p>"""
 

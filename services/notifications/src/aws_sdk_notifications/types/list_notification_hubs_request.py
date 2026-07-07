@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListNotificationHubsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.next_token
 
 
-class ListNotificationHubsRequest(TypedDict):
+class ListNotificationHubsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of records to list in a single response.</p>"""
     next_token: NotRequired["aws_sdk_notifications.types.next_token.NextToken"]

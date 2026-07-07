@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#GetCredentialsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.db_user
 
 
-class GetCredentialsResponse(TypedDict):
+class GetCredentialsResponse(TypedDict, closed=True):
     db_user: NotRequired["aws_sdk_redshift_serverless.types.db_user.DbUser"]
     """<p>A database user name that is authorized to log on to the database <code>DbName</code> using the password <code>DbPassword</code>. If the specified <code>DbUser</code> exists in the database, the new user name has the same database privileges as the the user named in <code>DbUser</code>. By default, the user is added to PUBLIC.</p>"""
     db_password: NotRequired["aws_sdk_redshift_serverless.types.db_password.DbPassword"]

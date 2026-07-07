@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DeleteInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_supplychain.types.uuid
 
 
-class DeleteInstanceRequest(TypedDict):
+class DeleteInstanceRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_supplychain.types.uuid.UUID"
     """<p>The AWS Supply Chain instance identifier.</p>"""
 

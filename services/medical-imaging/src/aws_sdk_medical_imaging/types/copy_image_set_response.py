@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#CopyImageSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.datastore_id
 
 
-class CopyImageSetResponse(TypedDict):
+class CopyImageSetResponse(TypedDict, closed=True):
     datastore_id: "aws_sdk_medical_imaging.types.datastore_id.DatastoreId"
     """<p>The data store identifier.</p>"""
     source_image_set_properties: "aws_sdk_medical_imaging.types.copy_source_image_set_properties.CopySourceImageSetProperties"

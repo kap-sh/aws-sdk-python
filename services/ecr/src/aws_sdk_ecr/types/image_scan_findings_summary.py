@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ImageScanFindingsSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.finding_severity_counts
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.vulnerability_source_update_timestamp
 
 
-class ImageScanFindingsSummary(TypedDict):
+class ImageScanFindingsSummary(TypedDict, closed=True):
     image_scan_completed_at: NotRequired[
         "aws_sdk_ecr.types.scan_timestamp.ScanTimestamp"
     ]

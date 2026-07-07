@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#PutReplicationConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.replication_configuration
 
 
-class PutReplicationConfigurationRequest(TypedDict):
+class PutReplicationConfigurationRequest(TypedDict, closed=True):
     replication_configuration: (
         "aws_sdk_ecr.types.replication_configuration.ReplicationConfiguration"
     )

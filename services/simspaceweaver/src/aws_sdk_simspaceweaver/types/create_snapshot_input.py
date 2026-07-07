@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#CreateSnapshotInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_simspaceweaver.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name
 
 
-class CreateSnapshotInput(TypedDict):
+class CreateSnapshotInput(TypedDict, closed=True):
     simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName"
     """<p>The name of the simulation.</p>"""
     destination: "aws_sdk_simspaceweaver.types.s3_destination.S3Destination"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetConnectAttachmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.connect_attachment
 
 
-class GetConnectAttachmentResponse(TypedDict):
+class GetConnectAttachmentResponse(TypedDict, closed=True):
     connect_attachment: NotRequired[
         "aws_sdk_networkmanager.types.connect_attachment.ConnectAttachment"
     ]

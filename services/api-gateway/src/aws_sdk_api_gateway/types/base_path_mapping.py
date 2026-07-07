@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#BasePathMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class BasePathMapping(TypedDict):
+class BasePathMapping(TypedDict, closed=True):
     base_path: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The base path name that callers of the API must provide as part of the URL after the domain name.</p>"""
     rest_api_id: NotRequired["aws_sdk_api_gateway.types.string.String"]

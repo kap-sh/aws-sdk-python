@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#DescribeEndpointGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_global_accelerator.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.generic_string
 
 
-class DescribeEndpointGroupRequest(TypedDict):
+class DescribeEndpointGroupRequest(TypedDict, closed=True):
     endpoint_group_arn: "aws_sdk_global_accelerator.types.generic_string.GenericString"
     """<p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>"""
 

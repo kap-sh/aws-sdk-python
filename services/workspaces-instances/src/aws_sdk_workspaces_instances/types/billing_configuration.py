@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#BillingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_instances.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.billing_mode
 
 
-class BillingConfiguration(TypedDict):
+class BillingConfiguration(TypedDict, closed=True):
     billing_mode: "aws_sdk_workspaces_instances.types.billing_mode.BillingMode"
     """<p>Specifies the billing mode for WorkSpace Instances. MONTHLY provides fixed monthly rates for predictable budgeting, while HOURLY enables pay-per-second billing for actual usage.</p>"""
 

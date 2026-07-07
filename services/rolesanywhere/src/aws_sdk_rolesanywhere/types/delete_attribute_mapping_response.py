@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#DeleteAttributeMappingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rolesanywhere.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.profile_detail
 
 
-class DeleteAttributeMappingResponse(TypedDict):
+class DeleteAttributeMappingResponse(TypedDict, closed=True):
     profile: "aws_sdk_rolesanywhere.types.profile_detail.ProfileDetail"
     """<p>The state of the profile after a read or write operation.</p>"""
 

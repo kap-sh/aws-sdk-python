@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#RegisterWorkspaceDirectoryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.directory_id
     import aws_sdk_workspaces.types.workspace_directory_state
 
 
-class RegisterWorkspaceDirectoryResult(TypedDict):
+class RegisterWorkspaceDirectoryResult(TypedDict, closed=True):
     directory_id: NotRequired["aws_sdk_workspaces.types.directory_id.DirectoryId"]
     """<p>The identifier of the directory.</p>"""
     state: NotRequired[

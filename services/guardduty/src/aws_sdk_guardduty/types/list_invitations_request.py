@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ListInvitationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.max_results
     import aws_sdk_guardduty.types.string
 
 
-class ListInvitationsRequest(TypedDict):
+class ListInvitationsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_guardduty.types.max_results.MaxResults"]
     """<p>You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.</p>"""
     next_token: NotRequired["aws_sdk_guardduty.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ListScheduledQueriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.list_scheduled_queries_max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.scheduled_query_state
 
 
-class ListScheduledQueriesRequest(TypedDict):
+class ListScheduledQueriesRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_cloudwatch_logs.types.list_scheduled_queries_max_results.ListScheduledQueriesMaxResults"
     ]

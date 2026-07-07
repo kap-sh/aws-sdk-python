@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateRoleAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.tag_list
 
 
-class CreateRoleAliasRequest(TypedDict):
+class CreateRoleAliasRequest(TypedDict, closed=True):
     role_alias: "aws_sdk_iot.types.role_alias.RoleAlias"
     """<p>The role alias that points to a role ARN. This allows you to change the role without having to update the device.</p>"""
     role_arn: "aws_sdk_iot.types.role_arn.RoleArn"

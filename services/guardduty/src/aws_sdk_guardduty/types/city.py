@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#City``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class City(TypedDict):
+class City(TypedDict, closed=True):
     city_name: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The city name of the remote IP address.</p>"""
 

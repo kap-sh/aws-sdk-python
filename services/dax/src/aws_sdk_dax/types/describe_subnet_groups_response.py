@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dax#DescribeSubnetGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.string
     import aws_sdk_dax.types.subnet_group_list
 
 
-class DescribeSubnetGroupsResponse(TypedDict):
+class DescribeSubnetGroupsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_dax.types.string.String"]
     """<p>Provides an identifier to allow retrieval of paginated results.</p>"""
     subnet_groups: NotRequired["aws_sdk_dax.types.subnet_group_list.SubnetGroupList"]

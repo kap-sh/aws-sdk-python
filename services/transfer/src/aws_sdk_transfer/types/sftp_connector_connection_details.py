@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#SftpConnectorConnectionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.sftp_connector_host_key
 
 
-class SftpConnectorConnectionDetails(TypedDict):
+class SftpConnectorConnectionDetails(TypedDict, closed=True):
     host_key: NotRequired[
         "aws_sdk_transfer.types.sftp_connector_host_key.SftpConnectorHostKey"
     ]

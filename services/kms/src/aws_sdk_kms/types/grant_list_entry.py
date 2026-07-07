@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#GrantListEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.date_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.service_principal_type
 
 
-class GrantListEntry(TypedDict):
+class GrantListEntry(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
     """<p>The unique identifier for the KMS key to which the grant applies.</p>"""
     grant_id: NotRequired["aws_sdk_kms.types.grant_id_type.GrantIdType"]

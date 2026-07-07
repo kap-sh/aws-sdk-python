@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#UpdatePortfolioShareOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.id
     import aws_sdk_service_catalog.types.share_status
 
 
-class UpdatePortfolioShareOutput(TypedDict):
+class UpdatePortfolioShareOutput(TypedDict, closed=True):
     portfolio_share_token: NotRequired["aws_sdk_service_catalog.types.id.Id"]
     """<p>The token that tracks the status of the <code>UpdatePortfolioShare</code> operation for external account to account or organizational type sharing.</p>"""
     status: NotRequired["aws_sdk_service_catalog.types.share_status.ShareStatus"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DirectConnectGatewayAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.associated_core_network
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.virtual_gateway_region
 
 
-class DirectConnectGatewayAssociation(TypedDict):
+class DirectConnectGatewayAssociation(TypedDict, closed=True):
     direct_connect_gateway_id: NotRequired[
         "aws_sdk_direct_connect.types.direct_connect_gateway_id.DirectConnectGatewayId"
     ]

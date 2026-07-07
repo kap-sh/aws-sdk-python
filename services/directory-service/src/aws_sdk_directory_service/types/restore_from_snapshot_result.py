@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#RestoreFromSnapshotResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RestoreFromSnapshotResult(TypedDict):
+class RestoreFromSnapshotResult(TypedDict, closed=True):
     pass
 
 

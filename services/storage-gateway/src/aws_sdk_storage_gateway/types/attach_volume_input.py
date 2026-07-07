@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#AttachVolumeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.volume_arn
 
 
-class AttachVolumeInput(TypedDict):
+class AttachVolumeInput(TypedDict, closed=True):
     gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"
     """<p>The Amazon Resource Name (ARN) of the gateway that you want to attach the volume to.</p>"""
     target_name: NotRequired["aws_sdk_storage_gateway.types.target_name.TargetName"]

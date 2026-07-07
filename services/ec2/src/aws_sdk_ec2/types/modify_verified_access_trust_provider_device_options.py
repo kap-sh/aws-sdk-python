@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyVerifiedAccessTrustProviderDeviceOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class ModifyVerifiedAccessTrustProviderDeviceOptions(TypedDict):
+class ModifyVerifiedAccessTrustProviderDeviceOptions(TypedDict, closed=True):
     public_signing_key_url: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p> The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#DescribeBucketsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.bucket_sort_criteria
 
 
-class DescribeBucketsRequest(TypedDict):
+class DescribeBucketsRequest(TypedDict, closed=True):
     criteria: NotRequired["aws_sdk_macie2.types.bucket_criteria.BucketCriteria"]
     """<p>The criteria to use to filter the query results.</p>"""
     max_results: NotRequired["aws_sdk_macie2.types.__integer.__integer"]

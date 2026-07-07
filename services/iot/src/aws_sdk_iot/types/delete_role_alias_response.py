@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteRoleAliasResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRoleAliasResponse(TypedDict):
+class DeleteRoleAliasResponse(TypedDict, closed=True):
     pass
 
 

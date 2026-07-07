@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ReplicationTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.replication_time_value
 
 
-class ReplicationTime(TypedDict):
+class ReplicationTime(TypedDict, closed=True):
     status: "aws_sdk_s3.types.replication_time_status.ReplicationTimeStatus"
     """<p> Specifies whether the replication time is enabled. </p>"""
     time: "aws_sdk_s3.types.replication_time_value.ReplicationTimeValue"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#UpdateMaintenance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.maintenance_day
 
 
-class UpdateMaintenance(TypedDict):
+class UpdateMaintenance(TypedDict, closed=True):
     maintenance_day: NotRequired[
         "aws_sdk_mediaconnect.types.maintenance_day.MaintenanceDay"
     ]

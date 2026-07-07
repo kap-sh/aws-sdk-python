@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FieldSort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sort_direction
 
 
-class FieldSort(TypedDict):
+class FieldSort(TypedDict, closed=True):
     field_id: "aws_sdk_quicksight.types.field_id.FieldId"
     """<p>The sort configuration target field.</p>"""
     direction: "aws_sdk_quicksight.types.sort_direction.SortDirection"

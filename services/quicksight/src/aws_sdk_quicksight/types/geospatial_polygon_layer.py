@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialPolygonLayer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_polygon_style
 
 
-class GeospatialPolygonLayer(TypedDict):
+class GeospatialPolygonLayer(TypedDict, closed=True):
     style: "aws_sdk_quicksight.types.geospatial_polygon_style.GeospatialPolygonStyle"
     """<p>The visualization style for a polygon layer.</p>"""
 

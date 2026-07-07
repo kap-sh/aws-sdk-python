@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PrimaryValueResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.data_table_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.string
 
 
-class PrimaryValueResponse(TypedDict):
+class PrimaryValueResponse(TypedDict, closed=True):
     attribute_name: NotRequired["aws_sdk_connect.types.data_table_name.DataTableName"]
     """<p>The value's attribute name.</p>"""
     attribute_id: NotRequired["aws_sdk_connect.types.data_table_id.DataTableId"]

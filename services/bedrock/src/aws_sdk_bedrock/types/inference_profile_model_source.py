@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#InferenceProfileModelSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.inference_profile_model_source_arn
 
 
-class _InferenceProfileModelSource_copyFrom(TypedDict):
+class _InferenceProfileModelSource_copyFrom(TypedDict, closed=True):
     copyFrom: "aws_sdk_bedrock.types.inference_profile_model_source_arn.InferenceProfileModelSourceArn"
 
 

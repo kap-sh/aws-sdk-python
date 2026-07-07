@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#InferenceInputNameConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.component_timestamp_delimiter
     import aws_sdk_lookoutequipment.types.file_name_timestamp_format
 
 
-class InferenceInputNameConfiguration(TypedDict):
+class InferenceInputNameConfiguration(TypedDict, closed=True):
     timestamp_format: NotRequired[
         "aws_sdk_lookoutequipment.types.file_name_timestamp_format.FileNameTimestampFormat"
     ]

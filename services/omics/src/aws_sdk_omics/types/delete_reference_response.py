@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DeleteReferenceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteReferenceResponse(TypedDict):
+class DeleteReferenceResponse(TypedDict, closed=True):
     pass
 
 

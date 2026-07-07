@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#SystemResourceLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.cpu
     import aws_sdk_greengrassv2.types.memory
 
 
-class SystemResourceLimits(TypedDict):
+class SystemResourceLimits(TypedDict, closed=True):
     memory: "aws_sdk_greengrassv2.types.memory.Memory"
     """<p>The maximum amount of RAM, expressed in kilobytes, that a component's processes can use on the core device.</p>"""
     cpus: "aws_sdk_greengrassv2.types.cpu.CPU"

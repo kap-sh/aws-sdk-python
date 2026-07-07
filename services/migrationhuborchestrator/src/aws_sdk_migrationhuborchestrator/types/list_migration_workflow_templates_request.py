@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#ListMigrationWorkflowTemplatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.template_name
 
 
-class ListMigrationWorkflowTemplatesRequest(TypedDict):
+class ListMigrationWorkflowTemplatesRequest(TypedDict, closed=True):
     max_results: "aws_sdk_migrationhuborchestrator.types.max_results.MaxResults"
     """<p>The maximum number of results that can be returned.</p>"""
     next_token: NotRequired[

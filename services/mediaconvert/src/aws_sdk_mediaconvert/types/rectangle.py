@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Rectangle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max2147483647
     import aws_sdk_mediaconvert.types.__integer_min2_max2147483647
 
 
-class Rectangle(TypedDict):
+class Rectangle(TypedDict, closed=True):
     height: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min2_max2147483647.__integerMin2Max2147483647"
     ]

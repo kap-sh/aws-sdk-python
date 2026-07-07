@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#DeleteCollectionGroupResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCollectionGroupResponse(TypedDict):
+class DeleteCollectionGroupResponse(TypedDict, closed=True):
     pass
 
 

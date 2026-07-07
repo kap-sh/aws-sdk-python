@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#ItalyAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.cig_number
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.tax_code
 
 
-class ItalyAdditionalInfo(TypedDict):
+class ItalyAdditionalInfo(TypedDict, closed=True):
     sdi_account_id: NotRequired["aws_sdk_taxsettings.types.sdi_account_id.SdiAccountId"]
     """<p> Additional tax information to specify for a TRN in Italy. Use CodiceDestinatario to receive your invoices via web service (API) or FTP. </p>"""
     cig_number: NotRequired["aws_sdk_taxsettings.types.cig_number.CigNumber"]

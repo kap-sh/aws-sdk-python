@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#AntennaListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.ground_station_name
 
 
-class AntennaListItem(TypedDict):
+class AntennaListItem(TypedDict, closed=True):
     ground_station_name: (
         "aws_sdk_groundstation.types.ground_station_name.GroundStationName"
     )

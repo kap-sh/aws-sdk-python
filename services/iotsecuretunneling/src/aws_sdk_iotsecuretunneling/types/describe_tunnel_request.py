@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsecuretunneling#DescribeTunnelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.tunnel_id
 
 
-class DescribeTunnelRequest(TypedDict):
+class DescribeTunnelRequest(TypedDict, closed=True):
     tunnel_id: "aws_sdk_iotsecuretunneling.types.tunnel_id.TunnelId"
     """<p>The tunnel to describe.</p>"""
 

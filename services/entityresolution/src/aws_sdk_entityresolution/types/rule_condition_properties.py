@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#RuleConditionProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.rule_condition_list
 
 
-class RuleConditionProperties(TypedDict):
+class RuleConditionProperties(TypedDict, closed=True):
     rules: "aws_sdk_entityresolution.types.rule_condition_list.RuleConditionList"
     """<p> A list of rule objects, each of which have fields <code>ruleName</code> and <code>condition</code>. </p>"""
     matching_config: NotRequired[

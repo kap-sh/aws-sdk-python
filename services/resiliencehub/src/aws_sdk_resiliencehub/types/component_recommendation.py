@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ComponentRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.recommendation_compliance_status
 
 
-class ComponentRecommendation(TypedDict):
+class ComponentRecommendation(TypedDict, closed=True):
     app_component_name: "aws_sdk_resiliencehub.types.entity_id.EntityId"
     """<p>Name of the Application Component.</p>"""
     recommendation_status: "aws_sdk_resiliencehub.types.recommendation_compliance_status.RecommendationComplianceStatus"

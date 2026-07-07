@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#UpdateChannelOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateChannelOutput(TypedDict):
+class UpdateChannelOutput(TypedDict, closed=True):
     pass
 
 

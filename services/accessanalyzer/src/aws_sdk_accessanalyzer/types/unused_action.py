@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#UnusedAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.timestamp
 
 
-class UnusedAction(TypedDict):
+class UnusedAction(TypedDict, closed=True):
     action: "str"
     """<p>The action for which the unused access finding was generated.</p>"""
     last_accessed: NotRequired["aws_sdk_accessanalyzer.types.timestamp.Timestamp"]

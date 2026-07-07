@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#UpdateWorkflowVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.readme_markdown
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.workflow_version_name
 
 
-class UpdateWorkflowVersionRequest(TypedDict):
+class UpdateWorkflowVersionRequest(TypedDict, closed=True):
     workflow_id: "aws_sdk_omics.types.workflow_id.WorkflowId"
     """<p>The workflow's ID. The <code>workflowId</code> is not the UUID.</p>"""
     version_name: "aws_sdk_omics.types.workflow_version_name.WorkflowVersionName"

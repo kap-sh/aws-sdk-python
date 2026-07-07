@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ServiceQuotaExceededException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError, ServiceError
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p>The ID of the resource that exceeds a service quota.</p>"""

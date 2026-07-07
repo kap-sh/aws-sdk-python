@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelShardingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.optimization_container_image
     import aws_sdk_sagemaker.types.optimization_job_environment_variables
 
 
-class ModelShardingConfig(TypedDict):
+class ModelShardingConfig(TypedDict, closed=True):
     image: NotRequired[
         "aws_sdk_sagemaker.types.optimization_container_image.OptimizationContainerImage"
     ]

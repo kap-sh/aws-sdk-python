@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ProcessingInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.app_managed
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class ProcessingInput(TypedDict):
+class ProcessingInput(TypedDict, closed=True):
     input_name: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>The name for the processing job input.</p>"""
     app_managed: NotRequired["aws_sdk_sagemaker.types.app_managed.AppManaged"]

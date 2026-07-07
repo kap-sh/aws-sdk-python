@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#GetPortfolioSummaryRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetPortfolioSummaryRequest(TypedDict):
+class GetPortfolioSummaryRequest(TypedDict, closed=True):
     pass
 
 

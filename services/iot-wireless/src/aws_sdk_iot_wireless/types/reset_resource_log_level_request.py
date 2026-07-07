@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ResetResourceLogLevelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.resource_identifier
     import aws_sdk_iot_wireless.types.resource_type
 
 
-class ResetResourceLogLevelRequest(TypedDict):
+class ResetResourceLogLevelRequest(TypedDict, closed=True):
     resource_identifier: (
         "aws_sdk_iot_wireless.types.resource_identifier.ResourceIdentifier"
     )

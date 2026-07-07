@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AssistantSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class AssistantSummary(TypedDict):
+class AssistantSummary(TypedDict, closed=True):
     assistant_id: "aws_sdk_qconnect.types.uuid.Uuid"
     """<p>The identifier of the Amazon Q in Connect assistant.</p>"""
     assistant_arn: "aws_sdk_qconnect.types.arn.Arn"

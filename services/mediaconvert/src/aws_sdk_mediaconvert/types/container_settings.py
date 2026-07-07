@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ContainerSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.cmfc_settings
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.mxf_settings
 
 
-class ContainerSettings(TypedDict):
+class ContainerSettings(TypedDict, closed=True):
     cmfc_settings: NotRequired["aws_sdk_mediaconvert.types.cmfc_settings.CmfcSettings"]
     """These settings relate to the fragmented MP4 container for the segments in your CMAF outputs."""
     container: NotRequired["aws_sdk_mediaconvert.types.container_type.ContainerType"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeScheduleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_schedule_action
     import aws_sdk_medialive.types.__string
 
 
-class DescribeScheduleResponse(TypedDict):
+class DescribeScheduleResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The next token; for use in pagination."""
     schedule_actions: NotRequired[

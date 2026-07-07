@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rum#UpdateRumMetricDefinitionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateRumMetricDefinitionResponse(TypedDict):
+class UpdateRumMetricDefinitionResponse(TypedDict, closed=True):
     pass
 
 

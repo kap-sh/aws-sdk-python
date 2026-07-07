@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListCommandsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.command_max_results
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.sort_order
 
 
-class ListCommandsRequest(TypedDict):
+class ListCommandsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_iot.types.command_max_results.CommandMaxResults"]
     """<p>The maximum number of results to return in this operation. By default, the API returns up to a maximum of 25 results. You can override this default value to return up to a maximum of 100 results for this operation.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#SageMakerPipelineParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_scheduler.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_scheduler.types.sage_maker_pipeline_parameter_value
 
 
-class SageMakerPipelineParameter(TypedDict):
+class SageMakerPipelineParameter(TypedDict, closed=True):
     name: "aws_sdk_scheduler.types.sage_maker_pipeline_parameter_name.SageMakerPipelineParameterName"
     """<p>Name of parameter to start execution of a SageMaker Model Building Pipeline.</p>"""
     value: "aws_sdk_scheduler.types.sage_maker_pipeline_parameter_value.SageMakerPipelineParameterValue"

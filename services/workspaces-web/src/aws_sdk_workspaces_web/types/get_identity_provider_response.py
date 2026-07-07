@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#GetIdentityProviderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.identity_provider
 
 
-class GetIdentityProviderResponse(TypedDict):
+class GetIdentityProviderResponse(TypedDict, closed=True):
     identity_provider: NotRequired[
         "aws_sdk_workspaces_web.types.identity_provider.IdentityProvider"
     ]

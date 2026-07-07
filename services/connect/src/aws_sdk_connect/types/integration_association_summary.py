@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#IntegrationAssociationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.uri
 
 
-class IntegrationAssociationSummary(TypedDict):
+class IntegrationAssociationSummary(TypedDict, closed=True):
     integration_association_id: NotRequired[
         "aws_sdk_connect.types.integration_association_id.IntegrationAssociationId"
     ]

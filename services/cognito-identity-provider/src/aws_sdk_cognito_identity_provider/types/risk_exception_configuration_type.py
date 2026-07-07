@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#RiskExceptionConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.blocked_ip_range_list_type
     import aws_sdk_cognito_identity_provider.types.skipped_ip_range_list_type
 
 
-class RiskExceptionConfigurationType(TypedDict):
+class RiskExceptionConfigurationType(TypedDict, closed=True):
     blocked_ip_range_list: NotRequired[
         "aws_sdk_cognito_identity_provider.types.blocked_ip_range_list_type.BlockedIPRangeListType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreatePipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.idempotency_token
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreatePipelineRequest(TypedDict):
+class CreatePipelineRequest(TypedDict, closed=True):
     pipeline_name: NotRequired["aws_sdk_sagemaker.types.pipeline_name.PipelineName"]
     """<p>The name of the pipeline.</p>"""
     pipeline_display_name: NotRequired[

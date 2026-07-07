@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#VpcTransitConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_gameliftstreams.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.vpc_id
 
 
-class VpcTransitConfiguration(TypedDict):
+class VpcTransitConfiguration(TypedDict, closed=True):
     vpc_id: "aws_sdk_gameliftstreams.types.vpc_id.VpcId"
     """<p>The ID of the Amazon VPC that you want to connect to the stream group. The VPC must be in the same Amazon Web Services account as the stream group. This value cannot be changed after the stream group is created.</p>"""
     ipv4_cidr_blocks: (

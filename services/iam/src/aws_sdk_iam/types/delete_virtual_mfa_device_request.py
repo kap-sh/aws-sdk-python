@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#DeleteVirtualMFADeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.serial_number_type
 
 
-class DeleteVirtualMFADeviceRequest(TypedDict):
+class DeleteVirtualMFADeviceRequest(TypedDict, closed=True):
     serial_number: "aws_sdk_iam.types.serial_number_type.serialNumberType"
     r"""<p>The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-</p>"""
 

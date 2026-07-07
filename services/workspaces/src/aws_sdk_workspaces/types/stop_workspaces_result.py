@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#StopWorkspacesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.failed_stop_workspace_requests
 
 
-class StopWorkspacesResult(TypedDict):
+class StopWorkspacesResult(TypedDict, closed=True):
     failed_requests: NotRequired[
         "aws_sdk_workspaces.types.failed_stop_workspace_requests.FailedStopWorkspaceRequests"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#ListStreamsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_summary_list
 
 
-class ListStreamsOutput(TypedDict):
+class ListStreamsOutput(TypedDict, closed=True):
     stream_names: "aws_sdk_kinesis.types.stream_name_list.StreamNameList"
     """<p>The names of the streams that are associated with the Amazon Web Services account making the <code>ListStreams</code> request.</p>"""
     has_more_streams: "aws_sdk_kinesis.types.boolean_object.BooleanObject"

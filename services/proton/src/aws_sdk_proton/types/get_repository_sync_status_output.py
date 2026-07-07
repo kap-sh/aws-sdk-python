@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetRepositorySyncStatusOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.repository_sync_attempt
 
 
-class GetRepositorySyncStatusOutput(TypedDict):
+class GetRepositorySyncStatusOutput(TypedDict, closed=True):
     latest_sync: NotRequired[
         "aws_sdk_proton.types.repository_sync_attempt.RepositorySyncAttempt"
     ]

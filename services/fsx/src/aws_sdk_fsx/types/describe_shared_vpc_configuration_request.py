@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeSharedVpcConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeSharedVpcConfigurationRequest(TypedDict):
+class DescribeSharedVpcConfigurationRequest(TypedDict, closed=True):
     pass
 
 

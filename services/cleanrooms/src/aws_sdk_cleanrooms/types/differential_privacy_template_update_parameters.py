@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DifferentialPrivacyTemplateUpdateParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.epsilon
     import aws_sdk_cleanrooms.types.users_noise_per_query
 
 
-class DifferentialPrivacyTemplateUpdateParameters(TypedDict):
+class DifferentialPrivacyTemplateUpdateParameters(TypedDict, closed=True):
     epsilon: NotRequired["aws_sdk_cleanrooms.types.epsilon.Epsilon"]
     """<p>The updated epsilon value that you want to use.</p>"""
     users_noise_per_query: NotRequired[

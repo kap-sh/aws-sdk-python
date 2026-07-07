@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StatisticAnnotation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.hash_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamped_inclusion_annotation
 
 
-class StatisticAnnotation(TypedDict):
+class StatisticAnnotation(TypedDict, closed=True):
     profile_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>The Profile ID.</p>"""
     statistic_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]

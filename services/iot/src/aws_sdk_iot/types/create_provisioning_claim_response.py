@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateProvisioningClaimResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.key_pair
 
 
-class CreateProvisioningClaimResponse(TypedDict):
+class CreateProvisioningClaimResponse(TypedDict, closed=True):
     certificate_id: NotRequired["aws_sdk_iot.types.certificate_id.CertificateId"]
     """<p>The ID of the certificate.</p>"""
     certificate_pem: NotRequired["aws_sdk_iot.types.certificate_pem.CertificatePem"]

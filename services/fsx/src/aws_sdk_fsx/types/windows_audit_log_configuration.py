@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#WindowsAuditLogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.general_arn
     import aws_sdk_fsx.types.windows_access_audit_log_level
 
 
-class WindowsAuditLogConfiguration(TypedDict):
+class WindowsAuditLogConfiguration(TypedDict, closed=True):
     file_access_audit_log_level: NotRequired[
         "aws_sdk_fsx.types.windows_access_audit_log_level.WindowsAccessAuditLogLevel"
     ]

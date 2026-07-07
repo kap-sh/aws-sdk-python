@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#ManagedExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.managed_execution_nullable
 
 
-class ManagedExecution(TypedDict):
+class ManagedExecution(TypedDict, closed=True):
     active: NotRequired[
         "aws_sdk_cloudformation.types.managed_execution_nullable.ManagedExecutionNullable"
     ]

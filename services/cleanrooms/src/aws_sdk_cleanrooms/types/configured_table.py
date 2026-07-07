@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ConfiguredTable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.uuid
 
 
-class ConfiguredTable(TypedDict):
+class ConfiguredTable(TypedDict, closed=True):
     id: "aws_sdk_cleanrooms.types.uuid.UUID"
     """<p>The unique ID for the configured table.</p>"""
     arn: "aws_sdk_cleanrooms.types.configured_table_arn.ConfiguredTableArn"

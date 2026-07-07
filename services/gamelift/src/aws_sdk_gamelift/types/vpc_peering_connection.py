@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#VpcPeeringConnection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.vpc_peering_connection_status
 
 
-class VpcPeeringConnection(TypedDict):
+class VpcPeeringConnection(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id.FleetId"]
     """<p>A unique identifier for the fleet. This ID determines the ID of the Amazon GameLift Servers VPC for your fleet.</p>"""
     fleet_arn: NotRequired["aws_sdk_gamelift.types.fleet_arn.FleetArn"]

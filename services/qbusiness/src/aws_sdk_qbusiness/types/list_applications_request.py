@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListApplicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.max_results_integer_for_list_applications
     import aws_sdk_qbusiness.types.next_token
 
 
-class ListApplicationsRequest(TypedDict):
+class ListApplicationsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_qbusiness.types.next_token.NextToken"]
     """<p>If the <code>maxResults</code> response was incomplete because there is more data to retrieve, Amazon Q Business returns a pagination token in the response. You can use this pagination token to retrieve the next set of Amazon Q Business applications.</p>"""
     max_results: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#GetSizeConstraintSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.resource_id
 
 
-class GetSizeConstraintSetRequest(TypedDict):
+class GetSizeConstraintSetRequest(TypedDict, closed=True):
     size_constraint_set_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to get. <code>SizeConstraintSetId</code> is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>"""
 

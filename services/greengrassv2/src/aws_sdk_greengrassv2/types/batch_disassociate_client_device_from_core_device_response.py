@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#BatchDisassociateClientDeviceFromCoreDeviceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.disassociate_client_device_from_core_device_error_list
 
 
-class BatchDisassociateClientDeviceFromCoreDeviceResponse(TypedDict):
+class BatchDisassociateClientDeviceFromCoreDeviceResponse(TypedDict, closed=True):
     error_entries: NotRequired[
         "aws_sdk_greengrassv2.types.disassociate_client_device_from_core_device_error_list.DisassociateClientDeviceFromCoreDeviceErrorList"
     ]

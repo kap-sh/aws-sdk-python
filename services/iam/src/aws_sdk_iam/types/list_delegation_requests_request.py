@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListDelegationRequestsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.owner_id_type
 
 
-class ListDelegationRequestsRequest(TypedDict):
+class ListDelegationRequestsRequest(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_iam.types.owner_id_type.ownerIdType"]
     """<p>The owner ID to filter delegation requests by.</p>"""
     marker: NotRequired["aws_sdk_iam.types.marker_type.markerType"]

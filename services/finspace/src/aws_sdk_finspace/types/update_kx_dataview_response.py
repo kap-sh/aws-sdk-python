@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#UpdateKxDataviewResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.availability_zone_id
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.timestamp
 
 
-class UpdateKxDataviewResponse(TypedDict):
+class UpdateKxDataviewResponse(TypedDict, closed=True):
     environment_id: NotRequired["aws_sdk_finspace.types.environment_id.EnvironmentId"]
     """<p>A unique identifier for the kdb environment, where you want to update the dataview.</p>"""
     database_name: NotRequired["aws_sdk_finspace.types.database_name.DatabaseName"]

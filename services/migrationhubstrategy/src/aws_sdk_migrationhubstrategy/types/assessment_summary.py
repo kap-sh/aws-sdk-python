@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#AssessmentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.antipattern_report_status
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.time_stamp
 
 
-class AssessmentSummary(TypedDict):
+class AssessmentSummary(TypedDict, closed=True):
     list_server_strategy_summary: NotRequired[
         "aws_sdk_migrationhubstrategy.types.list_strategy_summary.ListStrategySummary"
     ]

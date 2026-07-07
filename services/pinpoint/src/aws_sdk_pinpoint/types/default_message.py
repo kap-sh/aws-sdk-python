@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#DefaultMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.map_of_list_of__string
 
 
-class DefaultMessage(TypedDict):
+class DefaultMessage(TypedDict, closed=True):
     body: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The default body of the message.</p>"""
     substitutions: NotRequired[

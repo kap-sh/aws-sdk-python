@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#LaunchOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.launch_command_list
 
 
-class LaunchOverrides(TypedDict):
+class LaunchOverrides(TypedDict, closed=True):
     launch_commands: NotRequired[
         "aws_sdk_simspaceweaver.types.launch_command_list.LaunchCommandList"
     ]

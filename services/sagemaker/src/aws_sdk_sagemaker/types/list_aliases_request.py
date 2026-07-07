@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListAliasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.image_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.sage_maker_image_version_alias
 
 
-class ListAliasesRequest(TypedDict):
+class ListAliasesRequest(TypedDict, closed=True):
     image_name: NotRequired["aws_sdk_sagemaker.types.image_name.ImageName"]
     """<p>The name of the image.</p>"""
     alias: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#UpdateConnectivityInfoResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.string
 
 
-class UpdateConnectivityInfoResponse(TypedDict):
+class UpdateConnectivityInfoResponse(TypedDict, closed=True):
     version: NotRequired["aws_sdk_greengrassv2.types.string.String"]
     """<p>The new version of the connectivity information for the core device.</p>"""
     message: NotRequired["aws_sdk_greengrassv2.types.string.String"]

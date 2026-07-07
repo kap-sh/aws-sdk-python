@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#GeocodeParsedQueryAddressComponents``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.parsed_query_component_list
     import aws_sdk_geo_places.types.parsed_query_secondary_address_component_list
 
 
-class GeocodeParsedQueryAddressComponents(TypedDict):
+class GeocodeParsedQueryAddressComponents(TypedDict, closed=True):
     country: NotRequired[
         "aws_sdk_geo_places.types.parsed_query_component_list.ParsedQueryComponentList"
     ]

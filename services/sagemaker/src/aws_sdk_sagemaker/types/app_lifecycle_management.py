@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AppLifecycleManagement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.idle_settings
 
 
-class AppLifecycleManagement(TypedDict):
+class AppLifecycleManagement(TypedDict, closed=True):
     idle_settings: NotRequired["aws_sdk_sagemaker.types.idle_settings.IdleSettings"]
     """<p>Settings related to idle shutdown of Studio applications.</p>"""
 

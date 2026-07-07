@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchStopJobRunError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.error_detail
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class BatchStopJobRunError(TypedDict):
+class BatchStopJobRunError(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the job definition that is used in the job run in question.</p>"""
     job_run_id: NotRequired["aws_sdk_glue.types.id_string.IdString"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#CreateBillingGroupOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.billing_group_arn
 
 
-class CreateBillingGroupOutput(TypedDict):
+class CreateBillingGroupOutput(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_billingconductor.types.billing_group_arn.BillingGroupArn"]
     """<p>The Amazon Resource Name (ARN) of the created billing group. </p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ListApplicationInstanceNodeInstancesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.application_instance_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.next_token
 
 
-class ListApplicationInstanceNodeInstancesRequest(TypedDict):
+class ListApplicationInstanceNodeInstancesRequest(TypedDict, closed=True):
     application_instance_id: (
         "aws_sdk_panorama.types.application_instance_id.ApplicationInstanceId"
     )

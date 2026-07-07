@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#PutResourcePermissionStatementOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signin.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.statement_id
 
 
-class PutResourcePermissionStatementOutput(TypedDict):
+class PutResourcePermissionStatementOutput(TypedDict, closed=True):
     statement_id: "aws_sdk_signin.types.statement_id.StatementId"
     """Unique identifier for the created permission statement"""
 

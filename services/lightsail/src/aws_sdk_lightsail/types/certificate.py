@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#Certificate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.certificate_name
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.tag_list
 
 
-class Certificate(TypedDict):
+class Certificate(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]
     """<p>The Amazon Resource Name (ARN) of the certificate.</p>"""
     name: NotRequired["aws_sdk_lightsail.types.certificate_name.CertificateName"]

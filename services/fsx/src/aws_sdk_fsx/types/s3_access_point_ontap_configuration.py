@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#S3AccessPointOntapConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.ontap_file_system_identity
     import aws_sdk_fsx.types.volume_id
 
 
-class S3AccessPointOntapConfiguration(TypedDict):
+class S3AccessPointOntapConfiguration(TypedDict, closed=True):
     volume_id: NotRequired["aws_sdk_fsx.types.volume_id.VolumeId"]
     """<p>The ID of the FSx for ONTAP volume that the S3 access point is attached to.</p>"""
     file_system_identity: NotRequired[

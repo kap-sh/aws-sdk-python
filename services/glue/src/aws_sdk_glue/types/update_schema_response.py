@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpdateSchemaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.glue_resource_arn
     import aws_sdk_glue.types.schema_registry_name_string
 
 
-class UpdateSchemaResponse(TypedDict):
+class UpdateSchemaResponse(TypedDict, closed=True):
     schema_arn: NotRequired["aws_sdk_glue.types.glue_resource_arn.GlueResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the schema.</p>"""
     schema_name: NotRequired[

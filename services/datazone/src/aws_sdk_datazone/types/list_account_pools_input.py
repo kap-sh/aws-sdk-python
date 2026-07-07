@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListAccountPoolsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.account_pool_name
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.sort_order
 
 
-class ListAccountPoolsInput(TypedDict):
+class ListAccountPoolsInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain where exsting account pools are to be listed.</p>"""
     name: NotRequired["aws_sdk_datazone.types.account_pool_name.AccountPoolName"]

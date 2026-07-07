@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#PillarMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.pillar_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.risk_counts
 
 
-class PillarMetric(TypedDict):
+class PillarMetric(TypedDict, closed=True):
     pillar_id: NotRequired["aws_sdk_wellarchitected.types.pillar_id.PillarId"]
     risk_counts: NotRequired["aws_sdk_wellarchitected.types.risk_counts.RiskCounts"]
     questions: NotRequired[

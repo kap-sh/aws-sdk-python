@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#InterpolationParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.interpolation_type
     import aws_sdk_iottwinmaker.types.interval_in_seconds
 
 
-class InterpolationParameters(TypedDict):
+class InterpolationParameters(TypedDict, closed=True):
     interpolation_type: NotRequired[
         "aws_sdk_iottwinmaker.types.interpolation_type.InterpolationType"
     ]

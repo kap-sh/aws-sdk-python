@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsIamAccessKeySessionContextAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsIamAccessKeySessionContextAttributes(TypedDict):
+class AwsIamAccessKeySessionContextAttributes(TypedDict, closed=True):
     mfa_authenticated: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Indicates whether the session used multi-factor authentication (MFA).</p>"""
     creation_date: NotRequired[

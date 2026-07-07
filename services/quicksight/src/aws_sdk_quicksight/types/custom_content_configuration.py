@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomContentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.custom_content_image_scaling_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_interaction_options
 
 
-class CustomContentConfiguration(TypedDict):
+class CustomContentConfiguration(TypedDict, closed=True):
     content_url: NotRequired[
         "aws_sdk_quicksight.types.url_operation_template.URLOperationTemplate"
     ]

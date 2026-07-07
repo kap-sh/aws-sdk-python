@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BuildtimeSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.descriptive_bot_builder_specification
     import aws_sdk_lex_models_v2.types.sample_utterance_generation_specification
 
 
-class BuildtimeSettings(TypedDict):
+class BuildtimeSettings(TypedDict, closed=True):
     descriptive_bot_builder: NotRequired[
         "aws_sdk_lex_models_v2.types.descriptive_bot_builder_specification.DescriptiveBotBuilderSpecification"
     ]

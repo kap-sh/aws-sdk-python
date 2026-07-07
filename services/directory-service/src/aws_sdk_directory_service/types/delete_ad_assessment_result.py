@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DeleteADAssessmentResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.assessment_id
 
 
-class DeleteADAssessmentResult(TypedDict):
+class DeleteADAssessmentResult(TypedDict, closed=True):
     assessment_id: NotRequired[
         "aws_sdk_directory_service.types.assessment_id.AssessmentId"
     ]

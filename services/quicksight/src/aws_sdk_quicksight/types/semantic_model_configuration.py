@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SemanticModelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_semantic_metadata_list
     import aws_sdk_quicksight.types.semantic_table_map
 
 
-class SemanticModelConfiguration(TypedDict):
+class SemanticModelConfiguration(TypedDict, closed=True):
     table_map: NotRequired[
         "aws_sdk_quicksight.types.semantic_table_map.SemanticTableMap"
     ]

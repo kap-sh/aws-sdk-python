@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#ATIMetricDataPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.float
 
 
-class ATIMetricDataPoint(TypedDict):
+class ATIMetricDataPoint(TypedDict, closed=True):
     cr: NotRequired["aws_sdk_frauddetector.types.float.float"]
     """<p> The challenge rate. This indicates the percentage of login events that the model recommends to challenge such as one-time password, multi-factor authentication, and investigations. </p>"""
     adr: NotRequired["aws_sdk_frauddetector.types.float.float"]

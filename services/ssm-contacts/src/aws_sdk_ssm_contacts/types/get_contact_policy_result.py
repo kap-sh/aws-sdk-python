@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#GetContactPolicyResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.policy
     import aws_sdk_ssm_contacts.types.ssm_contacts_arn
 
 
-class GetContactPolicyResult(TypedDict):
+class GetContactPolicyResult(TypedDict, closed=True):
     contact_arn: NotRequired[
         "aws_sdk_ssm_contacts.types.ssm_contacts_arn.SsmContactsArn"
     ]

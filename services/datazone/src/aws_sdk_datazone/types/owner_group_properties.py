@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#OwnerGroupProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.group_identifier
 
 
-class OwnerGroupProperties(TypedDict):
+class OwnerGroupProperties(TypedDict, closed=True):
     group_identifier: "aws_sdk_datazone.types.group_identifier.GroupIdentifier"
     """<p>The ID of the domain unit owners group.</p>"""
 

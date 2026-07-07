@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#UpdateBrowserSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.browser_settings
 
 
-class UpdateBrowserSettingsResponse(TypedDict):
+class UpdateBrowserSettingsResponse(TypedDict, closed=True):
     browser_settings: "aws_sdk_workspaces_web.types.browser_settings.BrowserSettings"
     """<p>The browser settings.</p>"""
 

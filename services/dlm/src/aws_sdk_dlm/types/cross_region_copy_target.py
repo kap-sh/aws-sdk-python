@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#CrossRegionCopyTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.target_region
 
 
-class CrossRegionCopyTarget(TypedDict):
+class CrossRegionCopyTarget(TypedDict, closed=True):
     target_region: NotRequired["aws_sdk_dlm.types.target_region.TargetRegion"]
     """<p>The target Region, for example <code>us-east-1</code>.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#CitationsContentBlock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.citation_generated_content_list
     import aws_sdk_bedrock_runtime.types.citations
 
 
-class CitationsContentBlock(TypedDict):
+class CitationsContentBlock(TypedDict, closed=True):
     content: NotRequired[
         "aws_sdk_bedrock_runtime.types.citation_generated_content_list.CitationGeneratedContentList"
     ]

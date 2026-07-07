@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#UpdateUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.user
 
 
-class UpdateUserResponse(TypedDict):
+class UpdateUserResponse(TypedDict, closed=True):
     user: NotRequired["aws_sdk_memorydb.types.user.User"]
     """<p>The updated user</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#Variable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.data_source
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.time
 
 
-class Variable(TypedDict):
+class Variable(TypedDict, closed=True):
     name: NotRequired["aws_sdk_frauddetector.types.string.string"]
     """<p>The name of the variable.</p>"""
     data_type: NotRequired["aws_sdk_frauddetector.types.data_type.DataType"]

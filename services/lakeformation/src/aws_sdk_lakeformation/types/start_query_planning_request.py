@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#StartQueryPlanningRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.synthetic_start_query_planning_request_query_string
 
 
-class StartQueryPlanningRequest(TypedDict):
+class StartQueryPlanningRequest(TypedDict, closed=True):
     query_planning_context: (
         "aws_sdk_lakeformation.types.query_planning_context.QueryPlanningContext"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#ListTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudhsm_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.resource_id
 
 
-class ListTagsRequest(TypedDict):
+class ListTagsRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_cloudhsm_v2.types.resource_id.ResourceId"
     """<p>The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use <a>DescribeClusters</a>.</p>"""
     next_token: NotRequired["aws_sdk_cloudhsm_v2.types.next_token.NextToken"]

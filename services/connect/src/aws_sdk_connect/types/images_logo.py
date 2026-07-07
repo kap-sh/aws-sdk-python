@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ImagesLogo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.theme_image_link
 
 
-class ImagesLogo(TypedDict):
+class ImagesLogo(TypedDict, closed=True):
     default: NotRequired["aws_sdk_connect.types.theme_image_link.ThemeImageLink"]
     """<p>The default logo image displayed in the workspace.</p>"""
     favicon: NotRequired["aws_sdk_connect.types.theme_image_link.ThemeImageLink"]

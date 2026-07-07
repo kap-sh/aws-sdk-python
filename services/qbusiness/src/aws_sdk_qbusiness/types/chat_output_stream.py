@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ChatOutputStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness._iter import AnyIterator
 from aws_sdk_qbusiness._protocol.eventstream import Message
@@ -13,25 +15,25 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.text_output_event
 
 
-class _ChatOutputStream_textEvent(TypedDict):
+class _ChatOutputStream_textEvent(TypedDict, closed=True):
     textEvent: "aws_sdk_qbusiness.types.text_output_event.TextOutputEvent"
 
 
-class _ChatOutputStream_metadataEvent(TypedDict):
+class _ChatOutputStream_metadataEvent(TypedDict, closed=True):
     metadataEvent: "aws_sdk_qbusiness.types.metadata_event.MetadataEvent"
 
 
-class _ChatOutputStream_actionReviewEvent(TypedDict):
+class _ChatOutputStream_actionReviewEvent(TypedDict, closed=True):
     actionReviewEvent: "aws_sdk_qbusiness.types.action_review_event.ActionReviewEvent"
 
 
-class _ChatOutputStream_failedAttachmentEvent(TypedDict):
+class _ChatOutputStream_failedAttachmentEvent(TypedDict, closed=True):
     failedAttachmentEvent: (
         "aws_sdk_qbusiness.types.failed_attachment_event.FailedAttachmentEvent"
     )
 
 
-class _ChatOutputStream_authChallengeRequestEvent(TypedDict):
+class _ChatOutputStream_authChallengeRequestEvent(TypedDict, closed=True):
     authChallengeRequestEvent: (
         "aws_sdk_qbusiness.types.auth_challenge_request_event.AuthChallengeRequestEvent"
     )

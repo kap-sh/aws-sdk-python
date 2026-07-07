@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetMasterAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.invitation
 
 
-class GetMasterAccountResponse(TypedDict):
+class GetMasterAccountResponse(TypedDict, closed=True):
     master: NotRequired["aws_sdk_securityhub.types.invitation.Invitation"]
     """<p>A list of details about the Security Hub CSPM administrator account for the current member account. </p>"""
 

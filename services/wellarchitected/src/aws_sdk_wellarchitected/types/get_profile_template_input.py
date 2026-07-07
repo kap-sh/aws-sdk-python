@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#GetProfileTemplateInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetProfileTemplateInput(TypedDict):
+class GetProfileTemplateInput(TypedDict, closed=True):
     pass
 
 

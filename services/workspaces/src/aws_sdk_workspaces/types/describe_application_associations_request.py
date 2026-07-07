@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeApplicationAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.work_space_application_id
 
 
-class DescribeApplicationAssociationsRequest(TypedDict):
+class DescribeApplicationAssociationsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_workspaces.types.limit.Limit"]
     """<p>The maximum number of associations to return.</p>"""
     next_token: NotRequired["aws_sdk_workspaces.types.pagination_token.PaginationToken"]

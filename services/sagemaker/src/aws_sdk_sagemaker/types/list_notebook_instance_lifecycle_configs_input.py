@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListNotebookInstanceLifecycleConfigsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.creation_time
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.notebook_instance_lifecycle_config_sort_order
 
 
-class ListNotebookInstanceLifecycleConfigsInput(TypedDict):
+class ListNotebookInstanceLifecycleConfigsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]
     """<p>If the result of a <code>ListNotebookInstanceLifecycleConfigs</code> request was truncated, the response includes a <code>NextToken</code>. To get the next set of lifecycle configurations, use the token in the next request.</p>"""
     max_results: NotRequired["aws_sdk_sagemaker.types.max_results.MaxResults"]

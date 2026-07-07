@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#RuleGroupSourceStatefulRulesOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.rule_group_source_stateful_rules_rule_options_settings_list
 
 
-class RuleGroupSourceStatefulRulesOptionsDetails(TypedDict):
+class RuleGroupSourceStatefulRulesOptionsDetails(TypedDict, closed=True):
     keyword: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>A keyword to look for.</p>"""
     settings: NotRequired[

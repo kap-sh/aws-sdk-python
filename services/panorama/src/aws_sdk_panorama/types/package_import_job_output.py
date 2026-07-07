@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#PackageImportJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.out_put_s3_location
 
 
-class PackageImportJobOutput(TypedDict):
+class PackageImportJobOutput(TypedDict, closed=True):
     package_id: "aws_sdk_panorama.types.node_package_id.NodePackageId"
     """<p>The package's ID.</p>"""
     package_version: "aws_sdk_panorama.types.node_package_version.NodePackageVersion"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3files.types.resource_id
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_s3files.types.resource_id.ResourceId"
     """<p>The ID or Amazon Resource Name (ARN) of the resource to list tags for.</p>"""
     max_results: NotRequired["int"]

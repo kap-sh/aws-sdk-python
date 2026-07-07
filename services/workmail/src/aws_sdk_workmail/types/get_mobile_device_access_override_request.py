@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#GetMobileDeviceAccessOverrideRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class GetMobileDeviceAccessOverrideRequest(TypedDict):
+class GetMobileDeviceAccessOverrideRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The WorkMail organization to which you want to apply the override.</p>"""
     user_id: "aws_sdk_workmail.types.entity_identifier.EntityIdentifier"

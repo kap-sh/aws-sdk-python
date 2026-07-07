@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowExecutionTerminatedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_execution_terminated_cause
 
 
-class WorkflowExecutionTerminatedEventAttributes(TypedDict):
+class WorkflowExecutionTerminatedEventAttributes(TypedDict, closed=True):
     reason: NotRequired["aws_sdk_swf.types.terminate_reason.TerminateReason"]
     """<p>The reason provided for the termination.</p>"""
     details: NotRequired["aws_sdk_swf.types.data.Data"]

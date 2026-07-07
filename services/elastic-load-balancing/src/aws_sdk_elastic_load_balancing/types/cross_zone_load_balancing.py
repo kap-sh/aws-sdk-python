@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancing#CrossZoneLoadBalancing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_load_balancing._protocol.xml import Element
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing.types.cross_zone_load_balancing_enabled
 
 
-class CrossZoneLoadBalancing(TypedDict):
+class CrossZoneLoadBalancing(TypedDict, closed=True):
     enabled: "aws_sdk_elastic_load_balancing.types.cross_zone_load_balancing_enabled.CrossZoneLoadBalancingEnabled"
     """<p>Specifies whether cross-zone load balancing is enabled for the load balancer.</p>"""
 

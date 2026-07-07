@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListTestGridSessionActionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.pagination_token
     import aws_sdk_device_farm.types.test_grid_session_actions
 
 
-class ListTestGridSessionActionsResult(TypedDict):
+class ListTestGridSessionActionsResult(TypedDict, closed=True):
     actions: NotRequired[
         "aws_sdk_device_farm.types.test_grid_session_actions.TestGridSessionActions"
     ]

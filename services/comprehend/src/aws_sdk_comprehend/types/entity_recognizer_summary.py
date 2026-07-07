@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EntityRecognizerSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.comprehend_arn_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.version_name
 
 
-class EntityRecognizerSummary(TypedDict):
+class EntityRecognizerSummary(TypedDict, closed=True):
     recognizer_name: NotRequired[
         "aws_sdk_comprehend.types.comprehend_arn_name.ComprehendArnName"
     ]

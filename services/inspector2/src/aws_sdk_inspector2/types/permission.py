@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Permission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.service
 
 
-class Permission(TypedDict):
+class Permission(TypedDict, closed=True):
     service: "aws_sdk_inspector2.types.service.Service"
     """<p>The services that the permissions allow an account to perform the given operations for.</p>"""
     operation: "aws_sdk_inspector2.types.operation.Operation"

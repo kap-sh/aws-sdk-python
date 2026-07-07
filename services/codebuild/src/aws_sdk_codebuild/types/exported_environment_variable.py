@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ExportedEnvironmentVariable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
     import aws_sdk_codebuild.types.string
 
 
-class ExportedEnvironmentVariable(TypedDict):
+class ExportedEnvironmentVariable(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p>The name of the exported environment variable.</p>"""
     value: NotRequired["aws_sdk_codebuild.types.string.String"]

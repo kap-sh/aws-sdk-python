@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ListGameServersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.game_servers
     import aws_sdk_gamelift.types.non_zero_and_max_string
 
 
-class ListGameServersOutput(TypedDict):
+class ListGameServersOutput(TypedDict, closed=True):
     game_servers: NotRequired["aws_sdk_gamelift.types.game_servers.GameServers"]
     """<p>A collection of game server objects that match the request.</p>"""
     next_token: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#CompositeSliComponent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.operation_name
 
 
-class _CompositeSliComponent_OperationName(TypedDict):
+class _CompositeSliComponent_OperationName(TypedDict, closed=True):
     OperationName: "aws_sdk_application_signals.types.operation_name.OperationName"
 
 

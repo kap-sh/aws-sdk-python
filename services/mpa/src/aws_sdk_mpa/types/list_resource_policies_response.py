@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#ListResourcePoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.list_resource_policies_response_resource_policies
     import aws_sdk_mpa.types.token
 
 
-class ListResourcePoliciesResponse(TypedDict):
+class ListResourcePoliciesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_mpa.types.token.Token"]
     """<p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a next call to the operation to get more output. You can repeat this until the <code>NextToken</code> response element returns <code>null</code>.</p>"""
     resource_policies: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodbstreams#StreamRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.attribute_map
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.stream_view_type
 
 
-class StreamRecord(TypedDict):
+class StreamRecord(TypedDict, closed=True):
     approximate_creation_date_time: NotRequired[
         "aws_sdk_dynamodb_streams.types.date.Date"
     ]

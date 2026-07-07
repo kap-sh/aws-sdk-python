@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListStudioLifecycleConfigsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
     import aws_sdk_sagemaker.types.studio_lifecycle_configs_list
 
 
-class ListStudioLifecycleConfigsResponse(TypedDict):
+class ListStudioLifecycleConfigsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]
     """<p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>"""
     studio_lifecycle_configs: NotRequired[

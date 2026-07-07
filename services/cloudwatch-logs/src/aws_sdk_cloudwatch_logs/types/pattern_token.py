@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#PatternToken``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.token_string
 
 
-class PatternToken(TypedDict):
+class PatternToken(TypedDict, closed=True):
     dynamic_token_position: (
         "aws_sdk_cloudwatch_logs.types.dynamic_token_position.DynamicTokenPosition"
     )

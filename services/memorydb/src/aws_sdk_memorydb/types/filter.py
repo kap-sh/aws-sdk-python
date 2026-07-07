@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_memorydb.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.filter_value_list
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     name: "aws_sdk_memorydb.types.filter_name.FilterName"
     """<p>The property being filtered. For example, UserName.</p>"""
     values: "aws_sdk_memorydb.types.filter_value_list.FilterValueList"

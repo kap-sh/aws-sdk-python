@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ActionConnectorSearchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.filter_operator
 
 
-class ActionConnectorSearchFilter(TypedDict):
+class ActionConnectorSearchFilter(TypedDict, closed=True):
     name: "aws_sdk_quicksight.types.action_connector_search_filter_name_enum.ActionConnectorSearchFilterNameEnum"
     """<p>The name of the filter attribute (e.g., ACTION_CONNECTOR_NAME, ACTION_CONNECTOR_TYPE, QUICKSIGHT_VIEWER_OR_OWNER).</p>"""
     operator: "aws_sdk_quicksight.types.filter_operator.FilterOperator"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UserContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.iam_identity
     import aws_sdk_sagemaker.types.string
 
 
-class UserContext(TypedDict):
+class UserContext(TypedDict, closed=True):
     user_profile_arn: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the user's profile.</p>"""
     user_profile_name: NotRequired["aws_sdk_sagemaker.types.string.String"]

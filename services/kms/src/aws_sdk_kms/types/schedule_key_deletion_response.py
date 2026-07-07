@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#ScheduleKeyDeletionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.date_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.pending_window_in_days_type
 
 
-class ScheduleKeyDeletionResponse(TypedDict):
+class ScheduleKeyDeletionResponse(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
     r"""<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">key ARN</a>) of the KMS key whose deletion is scheduled.</p>"""
     deletion_date: NotRequired["aws_sdk_kms.types.date_type.DateType"]

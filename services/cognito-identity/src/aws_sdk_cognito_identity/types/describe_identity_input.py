@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#DescribeIdentityInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.identity_id
 
 
-class DescribeIdentityInput(TypedDict):
+class DescribeIdentityInput(TypedDict, closed=True):
     identity_id: "aws_sdk_cognito_identity.types.identity_id.IdentityId"
     """<p>A unique identifier in the format REGION:GUID.</p>"""
 

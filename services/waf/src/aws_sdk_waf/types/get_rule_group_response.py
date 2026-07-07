@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.waf#GetRuleGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.rule_group
 
 
-class GetRuleGroupResponse(TypedDict):
+class GetRuleGroupResponse(TypedDict, closed=True):
     rule_group: NotRequired["aws_sdk_waf.types.rule_group.RuleGroup"]
     """<p>Information about the <a>RuleGroup</a> that you specified in the <code>GetRuleGroup</code> request. </p>"""
 

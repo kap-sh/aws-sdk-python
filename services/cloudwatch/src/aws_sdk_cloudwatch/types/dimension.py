@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#Dimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.dimension_value
 
 
-class Dimension(TypedDict):
+class Dimension(TypedDict, closed=True):
     name: NotRequired["aws_sdk_cloudwatch.types.dimension_name.DimensionName"]
     """<p>The name of the dimension. Dimension names must contain only ASCII characters, must include at least one non-whitespace character, and cannot start with a colon (<code>:</code>). ASCII control characters are not supported as part of dimension names.</p>"""
     value: NotRequired["aws_sdk_cloudwatch.types.dimension_value.DimensionValue"]

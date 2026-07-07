@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#AutomationEventSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.summary_dimensions
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.time_period
 
 
-class AutomationEventSummary(TypedDict):
+class AutomationEventSummary(TypedDict, closed=True):
     key: NotRequired["str"]
     """<p>The key identifier for this summary grouping.</p>"""
     dimensions: NotRequired[

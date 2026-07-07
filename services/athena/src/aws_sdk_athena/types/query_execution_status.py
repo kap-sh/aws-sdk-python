@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#QueryExecutionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.athena_error
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.string
 
 
-class QueryExecutionStatus(TypedDict):
+class QueryExecutionStatus(TypedDict, closed=True):
     state: NotRequired["aws_sdk_athena.types.query_execution_state.QueryExecutionState"]
     """<p>The state of query execution. <code>QUEUED</code> indicates that the query has been submitted to the service, and Athena will execute the query as soon as resources are available. <code>RUNNING</code> indicates that the query is in execution phase. <code>SUCCEEDED</code> indicates that the query completed without errors. <code>FAILED</code> indicates that the query experienced an error and did not complete processing. <code>CANCELLED</code> indicates that a user input interrupted query execution.</p> <note> <p>For queries that experience certain transient errors, the state transitions from <code>RUNNING</code> back to <code>QUEUED</code>. The <code>FAILED</code> state is always terminal with no automatic retry. </p> </note>"""
     state_change_reason: NotRequired["aws_sdk_athena.types.string.String"]

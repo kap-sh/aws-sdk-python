@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#TrainedModelExportsConfigurationPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.trained_model_exports_max_size
 
 
-class TrainedModelExportsConfigurationPolicy(TypedDict):
+class TrainedModelExportsConfigurationPolicy(TypedDict, closed=True):
     max_size: "aws_sdk_cleanroomsml.types.trained_model_exports_max_size.TrainedModelExportsMaxSize"
     """<p>The maximum size of the data that can be exported.</p>"""
     files_to_export: "aws_sdk_cleanroomsml.types.trained_model_export_file_type_list.TrainedModelExportFileTypeList"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#QueryGenerationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.input_query_type
 
 
-class QueryGenerationInput(TypedDict):
+class QueryGenerationInput(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent_runtime.types.input_query_type.InputQueryType"
     """<p>The type of the query.</p>"""
     text: "str"

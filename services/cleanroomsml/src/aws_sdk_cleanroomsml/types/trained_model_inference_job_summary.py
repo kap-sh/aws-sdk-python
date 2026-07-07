@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#TrainedModelInferenceJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.uuid
 
 
-class TrainedModelInferenceJobSummary(TypedDict):
+class TrainedModelInferenceJobSummary(TypedDict, closed=True):
     trained_model_inference_job_arn: "aws_sdk_cleanroomsml.types.trained_model_inference_job_arn.TrainedModelInferenceJobArn"
     """<p>The Amazon Resource Name (ARN) of the trained model inference job.</p>"""
     configured_model_algorithm_association_arn: NotRequired[

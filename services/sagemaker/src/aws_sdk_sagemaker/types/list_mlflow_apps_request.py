@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListMlflowAppsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.account_default_status
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListMlflowAppsRequest(TypedDict):
+class ListMlflowAppsRequest(TypedDict, closed=True):
     created_after: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     r"""<p>Use the <code>CreatedAfter</code> filter to only list MLflow Apps created after a specific date and time. Listed MLflow Apps are shown with a date and time such as <code>\"2024-03-16T01:46:56+00:00\"</code>. The <code>CreatedAfter</code> parameter takes in a Unix timestamp.</p>"""
     created_before: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]

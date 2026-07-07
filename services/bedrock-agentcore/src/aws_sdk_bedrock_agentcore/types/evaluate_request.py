@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EvaluateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.evaluator_id
 
 
-class EvaluateRequest(TypedDict):
+class EvaluateRequest(TypedDict, closed=True):
     evaluator_id: "aws_sdk_bedrock_agentcore.types.evaluator_id.EvaluatorId"
     """<p> The unique identifier of the evaluator to use for scoring. Can be a built-in evaluator (e.g., <code>Builtin.Helpfulness</code>, <code>Builtin.Correctness</code>) or a custom evaluator Id created through the control plane API. </p>"""
     evaluation_input: "aws_sdk_bedrock_agentcore.types.evaluation_input.EvaluationInput"

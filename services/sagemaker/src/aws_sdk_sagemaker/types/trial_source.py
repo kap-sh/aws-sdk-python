@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TrialSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.source_type
     import aws_sdk_sagemaker.types.trial_source_arn
 
 
-class TrialSource(TypedDict):
+class TrialSource(TypedDict, closed=True):
     source_arn: NotRequired["aws_sdk_sagemaker.types.trial_source_arn.TrialSourceArn"]
     """<p>The Amazon Resource Name (ARN) of the source.</p>"""
     source_type: NotRequired["aws_sdk_sagemaker.types.source_type.SourceType"]

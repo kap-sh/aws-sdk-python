@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.tag_key_list
     import aws_sdk_bedrock_agent.types.taggable_resources_arn
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: (
         "aws_sdk_bedrock_agent.types.taggable_resources_arn.TaggableResourcesArn"
     )

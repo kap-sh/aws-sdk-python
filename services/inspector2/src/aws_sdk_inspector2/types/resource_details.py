@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.aws_ec2_instance_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.code_repository_details
 
 
-class ResourceDetails(TypedDict):
+class ResourceDetails(TypedDict, closed=True):
     aws_ec2_instance: NotRequired[
         "aws_sdk_inspector2.types.aws_ec2_instance_details.AwsEc2InstanceDetails"
     ]

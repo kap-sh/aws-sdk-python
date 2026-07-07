@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#UpdateUsageLimitRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.usage_limit_breach_action
 
 
-class UpdateUsageLimitRequest(TypedDict):
+class UpdateUsageLimitRequest(TypedDict, closed=True):
     usage_limit_id: "str"
     """<p>The identifier of the usage limit to update.</p>"""
     amount: NotRequired["int"]

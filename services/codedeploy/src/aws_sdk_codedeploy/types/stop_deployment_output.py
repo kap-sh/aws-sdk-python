@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#StopDeploymentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.message
     import aws_sdk_codedeploy.types.stop_status
 
 
-class StopDeploymentOutput(TypedDict):
+class StopDeploymentOutput(TypedDict, closed=True):
     status: NotRequired["aws_sdk_codedeploy.types.stop_status.StopStatus"]
     """<p>The status of the stop deployment operation:</p> <ul> <li> <p>Pending: The stop operation is pending.</p> </li> <li> <p>Succeeded: The stop operation was successful.</p> </li> </ul>"""
     status_message: NotRequired["aws_sdk_codedeploy.types.message.Message"]

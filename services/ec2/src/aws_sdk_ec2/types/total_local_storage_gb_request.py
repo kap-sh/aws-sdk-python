@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#TotalLocalStorageGBRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.double
 
 
-class TotalLocalStorageGBRequest(TypedDict):
+class TotalLocalStorageGBRequest(TypedDict, closed=True):
     min: NotRequired["aws_sdk_ec2.types.double.Double"]
     """<p>The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.</p>"""
     max: NotRequired["aws_sdk_ec2.types.double.Double"]

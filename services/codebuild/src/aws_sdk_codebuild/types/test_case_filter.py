@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#TestCaseFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class TestCaseFilter(TypedDict):
+class TestCaseFilter(TypedDict, closed=True):
     status: NotRequired["aws_sdk_codebuild.types.string.String"]
     """<p>The status used to filter test cases. A <code>TestCaseFilter</code> can have one status. Valid values are:</p> <ul> <li> <p> <code>SUCCEEDED</code> </p> </li> <li> <p> <code>FAILED</code> </p> </li> <li> <p> <code>ERROR</code> </p> </li> <li> <p> <code>SKIPPED</code> </p> </li> <li> <p> <code>UNKNOWN</code> </p> </li> </ul>"""
     keyword: NotRequired["aws_sdk_codebuild.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#MatchItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.double
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.string1_to255
 
 
-class MatchItem(TypedDict):
+class MatchItem(TypedDict, closed=True):
     match_id: NotRequired["aws_sdk_customer_profiles.types.string1_to255.string1To255"]
     """<p>The unique identifiers for this group of profiles that match.</p>"""
     profile_ids: NotRequired[

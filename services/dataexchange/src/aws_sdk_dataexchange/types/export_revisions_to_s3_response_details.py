@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ExportRevisionsToS3ResponseDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_revision_destination_entry
 
 
-class ExportRevisionsToS3ResponseDetails(TypedDict):
+class ExportRevisionsToS3ResponseDetails(TypedDict, closed=True):
     data_set_id: "aws_sdk_dataexchange.types.id.Id"
     """<p>The unique identifier for the data set associated with this export job.</p>"""
     encryption: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#SequenceNumberRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.sequence_number
 
 
-class SequenceNumberRange(TypedDict):
+class SequenceNumberRange(TypedDict, closed=True):
     starting_sequence_number: "aws_sdk_kinesis.types.sequence_number.SequenceNumber"
     """<p>The starting sequence number for the range.</p>"""
     ending_sequence_number: NotRequired[

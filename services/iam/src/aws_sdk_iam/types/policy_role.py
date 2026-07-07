@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#PolicyRole``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.role_name_type
 
 
-class PolicyRole(TypedDict):
+class PolicyRole(TypedDict, closed=True):
     role_name: NotRequired["aws_sdk_iam.types.role_name_type.roleNameType"]
     """<p>The name (friendly name, not ARN) identifying the role.</p>"""
     role_id: NotRequired["aws_sdk_iam.types.id_type.idType"]

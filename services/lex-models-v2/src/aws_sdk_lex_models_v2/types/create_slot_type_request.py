@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#CreateSlotTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.slot_value_selection_setting
 
 
-class CreateSlotTypeRequest(TypedDict):
+class CreateSlotTypeRequest(TypedDict, closed=True):
     slot_type_name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>The name for the slot. A slot type name must be unique within the intent.</p>"""
     description: NotRequired["aws_sdk_lex_models_v2.types.description.Description"]

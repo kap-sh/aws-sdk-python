@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#TrackListMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.track_list
 
 
-class TrackListMessage(TypedDict):
+class TrackListMessage(TypedDict, closed=True):
     maintenance_tracks: NotRequired["aws_sdk_redshift.types.track_list.TrackList"]
     """<p>A list of maintenance tracks output by the <code>DescribeClusterTracks</code> operation. </p>"""
     marker: NotRequired["aws_sdk_redshift.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#PutLoggingOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.cloud_watch_log_delivery_options
 
 
-class PutLoggingOptionsRequest(TypedDict):
+class PutLoggingOptionsRequest(TypedDict, closed=True):
     cloud_watch_log_delivery: "aws_sdk_iotfleetwise.types.cloud_watch_log_delivery_options.CloudWatchLogDeliveryOptions"
     """<p>Creates or updates the log delivery option to Amazon CloudWatch Logs.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#AddTagsToResourceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.tag_list
 
 
-class AddTagsToResourceMessage(TypedDict):
+class AddTagsToResourceMessage(TypedDict, closed=True):
     resource_arn: "aws_sdk_database_migration_service.types.string.String"
     """<p>Identifies the DMS resource to which tags should be added. The value for this parameter is an Amazon Resource Name (ARN).</p> <p>For DMS, you can tag a replication instance, an endpoint, or a replication task.</p>"""
     tags: "aws_sdk_database_migration_service.types.tag_list.TagList"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ParentStepDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.automation_action_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class ParentStepDetails(TypedDict):
+class ParentStepDetails(TypedDict, closed=True):
     step_execution_id: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The unique ID of a step execution.</p>"""
     step_name: NotRequired["aws_sdk_ssm.types.string.String"]

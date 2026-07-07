@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListCisScanConfigurationsFilterCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cis_scan_configuration_arn_filter_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.resource_tag_filter_list
 
 
-class ListCisScanConfigurationsFilterCriteria(TypedDict):
+class ListCisScanConfigurationsFilterCriteria(TypedDict, closed=True):
     scan_name_filters: NotRequired[
         "aws_sdk_inspector2.types.cis_scan_name_filter_list.CisScanNameFilterList"
     ]

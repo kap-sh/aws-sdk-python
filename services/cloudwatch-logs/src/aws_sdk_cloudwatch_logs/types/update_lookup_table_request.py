@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#UpdateLookupTableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.table_body
 
 
-class UpdateLookupTableRequest(TypedDict):
+class UpdateLookupTableRequest(TypedDict, closed=True):
     lookup_table_arn: "aws_sdk_cloudwatch_logs.types.arn.Arn"
     """<p>The ARN of the lookup table to update.</p>"""
     description: NotRequired[

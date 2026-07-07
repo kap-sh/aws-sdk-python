@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#JobsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.job_status
 
 
-class JobsFilter(TypedDict):
+class JobsFilter(TypedDict, closed=True):
     job_status: NotRequired["aws_sdk_location.types.job_status.JobStatus"]
     """<p>Filter by job status.</p>"""
 

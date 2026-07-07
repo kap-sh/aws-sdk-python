@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#InnerFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.category_inner_filter
 
 
-class InnerFilter(TypedDict):
+class InnerFilter(TypedDict, closed=True):
     category_inner_filter: NotRequired[
         "aws_sdk_quicksight.types.category_inner_filter.CategoryInnerFilter"
     ]

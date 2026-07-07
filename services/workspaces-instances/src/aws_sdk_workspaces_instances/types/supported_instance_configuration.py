@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#SupportedInstanceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.billing_mode
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.platform_type_enum
 
 
-class SupportedInstanceConfiguration(TypedDict):
+class SupportedInstanceConfiguration(TypedDict, closed=True):
     billing_mode: NotRequired[
         "aws_sdk_workspaces_instances.types.billing_mode.BillingMode"
     ]

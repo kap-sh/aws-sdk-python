@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#RefreshTrustedAdvisorCheckResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_support.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.trusted_advisor_check_refresh_status
 
 
-class RefreshTrustedAdvisorCheckResponse(TypedDict):
+class RefreshTrustedAdvisorCheckResponse(TypedDict, closed=True):
     status: "aws_sdk_support.types.trusted_advisor_check_refresh_status.TrustedAdvisorCheckRefreshStatus"
     """<p>The current refresh status for a check, including the amount of time until the check is eligible for refresh.</p>"""
 

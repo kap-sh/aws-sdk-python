@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#AdConfigurationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.tags
 
 
-class AdConfigurationSummary(TypedDict):
+class AdConfigurationSummary(TypedDict, closed=True):
     arn: "aws_sdk_ivs.types.ad_configuration_arn.AdConfigurationArn"
     """<p>Ad configuration ARN.</p>"""
     name: NotRequired["aws_sdk_ivs.types.ad_configuration_name.AdConfigurationName"]

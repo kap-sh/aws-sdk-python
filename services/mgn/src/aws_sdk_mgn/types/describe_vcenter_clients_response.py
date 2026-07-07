@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DescribeVcenterClientsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.pagination_token
     import aws_sdk_mgn.types.vcenter_client_list
 
 
-class DescribeVcenterClientsResponse(TypedDict):
+class DescribeVcenterClientsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_mgn.types.vcenter_client_list.VcenterClientList"]
     """<p>List of items returned by DescribeVcenterClients.</p>"""
     next_token: NotRequired["aws_sdk_mgn.types.pagination_token.PaginationToken"]

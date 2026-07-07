@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ListSopRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.sop_recommendation_list
 
 
-class ListSopRecommendationsResponse(TypedDict):
+class ListSopRecommendationsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_resiliencehub.types.next_token.NextToken"]
     """<p>Token for the next set of results, or null if there are no more results.</p>"""
     sop_recommendations: (

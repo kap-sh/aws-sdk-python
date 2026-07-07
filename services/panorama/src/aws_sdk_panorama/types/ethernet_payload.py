@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#EthernetPayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.static_ip_connection_info
 
 
-class EthernetPayload(TypedDict):
+class EthernetPayload(TypedDict, closed=True):
     connection_type: "aws_sdk_panorama.types.connection_type.ConnectionType"
     """<p>How the device gets an IP address.</p>"""
     static_ip_connection_info: NotRequired[

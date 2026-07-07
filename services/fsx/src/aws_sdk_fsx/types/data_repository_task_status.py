@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DataRepositoryTaskStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.failed_count
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.total_count
 
 
-class DataRepositoryTaskStatus(TypedDict):
+class DataRepositoryTaskStatus(TypedDict, closed=True):
     total_count: NotRequired["aws_sdk_fsx.types.total_count.TotalCount"]
     """<p>The total number of files that the task will process. While a task is executing, the sum of <code>SucceededCount</code> plus <code>FailedCount</code> may not equal <code>TotalCount</code>. When the task is complete, <code>TotalCount</code> equals the sum of <code>SucceededCount</code> plus <code>FailedCount</code>.</p>"""
     succeeded_count: NotRequired["aws_sdk_fsx.types.succeeded_count.SucceededCount"]

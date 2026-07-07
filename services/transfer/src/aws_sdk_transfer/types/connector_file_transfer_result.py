@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ConnectorFileTransferResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.transfer_table_status
 
 
-class ConnectorFileTransferResult(TypedDict):
+class ConnectorFileTransferResult(TypedDict, closed=True):
     file_path: "aws_sdk_transfer.types.file_path.FilePath"
     """<p>The filename and path to where the file was sent to or retrieved from.</p>"""
     status_code: "aws_sdk_transfer.types.transfer_table_status.TransferTableStatus"

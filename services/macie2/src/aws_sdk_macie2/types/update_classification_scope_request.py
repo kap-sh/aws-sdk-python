@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UpdateClassificationScopeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
     import aws_sdk_macie2.types.s3_classification_scope_update
 
 
-class UpdateClassificationScopeRequest(TypedDict):
+class UpdateClassificationScopeRequest(TypedDict, closed=True):
     id: "aws_sdk_macie2.types.__string.__string"
     """<p>The unique identifier for the Amazon Macie resource that the request applies to.</p>"""
     s3: NotRequired[

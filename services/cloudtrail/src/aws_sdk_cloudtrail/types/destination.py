@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.location
 
 
-class Destination(TypedDict):
+class Destination(TypedDict, closed=True):
     type: "aws_sdk_cloudtrail.types.destination_type.DestinationType"
     """<p>The type of destination for events arriving from a channel. For channels used for a CloudTrail Lake integration, the value is <code>EVENT_DATA_STORE</code>. For service-linked channels, the value is <code>AWS_SERVICE</code>. </p>"""
     location: "aws_sdk_cloudtrail.types.location.Location"

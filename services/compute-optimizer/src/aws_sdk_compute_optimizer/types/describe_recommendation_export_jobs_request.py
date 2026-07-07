@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#DescribeRecommendationExportJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.job_filters
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.next_token
 
 
-class DescribeRecommendationExportJobsRequest(TypedDict):
+class DescribeRecommendationExportJobsRequest(TypedDict, closed=True):
     job_ids: NotRequired["aws_sdk_compute_optimizer.types.job_ids.JobIds"]
     """<p>The identification numbers of the export jobs to return.</p> <p>An export job ID is returned when you create an export using the <a>ExportAutoScalingGroupRecommendations</a> or <a>ExportEC2InstanceRecommendations</a> actions.</p> <p>All export jobs created in the last seven days are returned if this parameter is omitted.</p>"""
     filters: NotRequired["aws_sdk_compute_optimizer.types.job_filters.JobFilters"]

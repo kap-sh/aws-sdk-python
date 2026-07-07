@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ValidateE911AddressRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.sensitive_non_empty_string
 
 
-class ValidateE911AddressRequest(TypedDict):
+class ValidateE911AddressRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_chime_sdk_voice.types.non_empty_string.NonEmptyString"
     """<p>The AWS account ID.</p>"""
     street_number: "aws_sdk_chime_sdk_voice.types.sensitive_non_empty_string.SensitiveNonEmptyString"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#CustomAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chatbot.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_chatbot.types.custom_action_name
 
 
-class CustomAction(TypedDict):
+class CustomAction(TypedDict, closed=True):
     custom_action_arn: "aws_sdk_chatbot.types.custom_action_arn.CustomActionArn"
     """<p>The fully defined Amazon Resource Name (ARN) of the custom action.</p>"""
     definition: "aws_sdk_chatbot.types.custom_action_definition.CustomActionDefinition"

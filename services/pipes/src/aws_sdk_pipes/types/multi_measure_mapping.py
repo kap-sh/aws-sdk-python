@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#MultiMeasureMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.multi_measure_name
 
 
-class MultiMeasureMapping(TypedDict):
+class MultiMeasureMapping(TypedDict, closed=True):
     multi_measure_name: "aws_sdk_pipes.types.multi_measure_name.MultiMeasureName"
     """<p>The name of the multiple measurements per record (multi-measure).</p>"""
     multi_measure_attribute_mappings: "aws_sdk_pipes.types.multi_measure_attribute_mappings.MultiMeasureAttributeMappings"

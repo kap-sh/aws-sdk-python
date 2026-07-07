@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#CustomMetricDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.rating_scale
 
 
-class CustomMetricDefinition(TypedDict):
+class CustomMetricDefinition(TypedDict, closed=True):
     name: "aws_sdk_bedrock.types.metric_name.MetricName"
     """<p>The name for a custom metric. Names must be unique in your Amazon Web Services region.</p>"""
     instructions: (

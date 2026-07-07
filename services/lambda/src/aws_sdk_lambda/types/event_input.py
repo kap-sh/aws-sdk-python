@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#EventInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.input_payload
     import aws_sdk_lambda.types.truncated
 
 
-class EventInput(TypedDict):
+class EventInput(TypedDict, closed=True):
     payload: NotRequired["aws_sdk_lambda.types.input_payload.InputPayload"]
     """<p>The input payload.</p>"""
     truncated: NotRequired["aws_sdk_lambda.types.truncated.Truncated"]

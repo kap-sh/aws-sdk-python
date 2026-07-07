@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakermetrics#BatchGetMetricsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_metrics.types.metric_query_list
 
 
-class BatchGetMetricsRequest(TypedDict):
+class BatchGetMetricsRequest(TypedDict, closed=True):
     metric_queries: NotRequired[
         "aws_sdk_sagemaker_metrics.types.metric_query_list.MetricQueryList"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#CodeStar_connections_20191201``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_codestar_connections._auth._signers
@@ -109,7 +109,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.vpc_configuration
 
 
-class CodeStarconnectionsClientConfig(TypedDict, total=False):
+class CodeStarconnectionsClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

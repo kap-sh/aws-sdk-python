@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.braket#UpdateSpendingLimitResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateSpendingLimitResponse(TypedDict):
+class UpdateSpendingLimitResponse(TypedDict, closed=True):
     pass
 
 

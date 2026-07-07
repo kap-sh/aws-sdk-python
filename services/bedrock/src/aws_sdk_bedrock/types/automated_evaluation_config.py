@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedEvaluationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.evaluator_model_config
 
 
-class AutomatedEvaluationConfig(TypedDict):
+class AutomatedEvaluationConfig(TypedDict, closed=True):
     dataset_metric_configs: "aws_sdk_bedrock.types.evaluation_dataset_metric_configs.EvaluationDatasetMetricConfigs"
     """<p>Configuration details of the prompt datasets and metrics you want to use for your evaluation job.</p>"""
     evaluator_model_config: NotRequired[

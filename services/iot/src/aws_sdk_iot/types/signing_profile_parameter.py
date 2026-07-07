@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#SigningProfileParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.platform
 
 
-class SigningProfileParameter(TypedDict):
+class SigningProfileParameter(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_iot.types.certificate_arn.CertificateArn"]
     """<p>Certificate ARN.</p>"""
     platform: NotRequired["aws_sdk_iot.types.platform.Platform"]

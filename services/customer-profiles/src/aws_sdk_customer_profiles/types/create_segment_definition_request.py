@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#CreateSegmentDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.tag_map
 
 
-class CreateSegmentDefinitionRequest(TypedDict):
+class CreateSegmentDefinitionRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_customer_profiles.types.name.name"
     """<p>The unique name of the domain.</p>"""
     segment_definition_name: "aws_sdk_customer_profiles.types.name.name"

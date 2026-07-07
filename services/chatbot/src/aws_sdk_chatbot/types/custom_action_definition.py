@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#CustomActionDefinition``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_chatbot.errors import DeserializationError
 
 
-class CustomActionDefinition(TypedDict):
+class CustomActionDefinition(TypedDict, closed=True):
     command_text: "str"
     """<p>The command string to run which may include variables by prefixing with a dollar sign ($).</p>"""
 

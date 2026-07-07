@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#Warning``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.error_code
     import aws_sdk_textract.types.pages
 
 
-class Warning(TypedDict):
+class Warning(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_textract.types.error_code.ErrorCode"]
     """<p>The error code for the warning.</p>"""
     pages: NotRequired["aws_sdk_textract.types.pages.Pages"]

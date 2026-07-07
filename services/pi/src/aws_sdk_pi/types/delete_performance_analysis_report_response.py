@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pi#DeletePerformanceAnalysisReportResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePerformanceAnalysisReportResponse(TypedDict):
+class DeletePerformanceAnalysisReportResponse(TypedDict, closed=True):
     pass
 
 

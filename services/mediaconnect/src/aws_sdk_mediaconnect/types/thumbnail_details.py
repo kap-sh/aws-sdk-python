@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#ThumbnailDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_message_detail
 
 
-class ThumbnailDetails(TypedDict):
+class ThumbnailDetails(TypedDict, closed=True):
     flow_arn: NotRequired["str"]
     """<p> The ARN of the flow that DescribeFlowSourceThumbnail was performed on.</p>"""
     thumbnail: NotRequired["str"]

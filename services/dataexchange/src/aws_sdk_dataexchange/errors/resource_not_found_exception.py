@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ResourceNotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.resource_type
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "aws_sdk_dataexchange.types.__string.__string"
     """<p>The resource couldn't be found.</p>"""
     resource_id: NotRequired["aws_sdk_dataexchange.types.__string.__string"]

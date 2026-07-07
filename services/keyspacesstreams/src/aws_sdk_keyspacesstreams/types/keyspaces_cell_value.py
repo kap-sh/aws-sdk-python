@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#KeyspacesCellValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_keyspacesstreams.errors import DeserializationError, SerializationError
 
@@ -10,107 +12,107 @@ if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.keyspaces_udt_map
 
 
-class _KeyspacesCellValue_asciiT(TypedDict):
+class _KeyspacesCellValue_asciiT(TypedDict, closed=True):
     asciiT: "str"
 
 
-class _KeyspacesCellValue_bigintT(TypedDict):
+class _KeyspacesCellValue_bigintT(TypedDict, closed=True):
     bigintT: "str"
 
 
-class _KeyspacesCellValue_blobT(TypedDict):
+class _KeyspacesCellValue_blobT(TypedDict, closed=True):
     blobT: "bytes"
 
 
-class _KeyspacesCellValue_boolT(TypedDict):
+class _KeyspacesCellValue_boolT(TypedDict, closed=True):
     boolT: "bool"
 
 
-class _KeyspacesCellValue_counterT(TypedDict):
+class _KeyspacesCellValue_counterT(TypedDict, closed=True):
     counterT: "str"
 
 
-class _KeyspacesCellValue_dateT(TypedDict):
+class _KeyspacesCellValue_dateT(TypedDict, closed=True):
     dateT: "str"
 
 
-class _KeyspacesCellValue_decimalT(TypedDict):
+class _KeyspacesCellValue_decimalT(TypedDict, closed=True):
     decimalT: "str"
 
 
-class _KeyspacesCellValue_doubleT(TypedDict):
+class _KeyspacesCellValue_doubleT(TypedDict, closed=True):
     doubleT: "str"
 
 
-class _KeyspacesCellValue_durationT(TypedDict):
+class _KeyspacesCellValue_durationT(TypedDict, closed=True):
     durationT: "str"
 
 
-class _KeyspacesCellValue_floatT(TypedDict):
+class _KeyspacesCellValue_floatT(TypedDict, closed=True):
     floatT: "str"
 
 
-class _KeyspacesCellValue_inetT(TypedDict):
+class _KeyspacesCellValue_inetT(TypedDict, closed=True):
     inetT: "str"
 
 
-class _KeyspacesCellValue_intT(TypedDict):
+class _KeyspacesCellValue_intT(TypedDict, closed=True):
     intT: "str"
 
 
-class _KeyspacesCellValue_listT(TypedDict):
+class _KeyspacesCellValue_listT(TypedDict, closed=True):
     listT: "aws_sdk_keyspacesstreams.types.keyspaces_cell_list.KeyspacesCellList"
 
 
-class _KeyspacesCellValue_mapT(TypedDict):
+class _KeyspacesCellValue_mapT(TypedDict, closed=True):
     mapT: "aws_sdk_keyspacesstreams.types.keyspaces_cell_map.KeyspacesCellMap"
 
 
-class _KeyspacesCellValue_setT(TypedDict):
+class _KeyspacesCellValue_setT(TypedDict, closed=True):
     setT: "aws_sdk_keyspacesstreams.types.keyspaces_cell_list.KeyspacesCellList"
 
 
-class _KeyspacesCellValue_smallintT(TypedDict):
+class _KeyspacesCellValue_smallintT(TypedDict, closed=True):
     smallintT: "str"
 
 
-class _KeyspacesCellValue_textT(TypedDict):
+class _KeyspacesCellValue_textT(TypedDict, closed=True):
     textT: "str"
 
 
-class _KeyspacesCellValue_timeT(TypedDict):
+class _KeyspacesCellValue_timeT(TypedDict, closed=True):
     timeT: "str"
 
 
-class _KeyspacesCellValue_timestampT(TypedDict):
+class _KeyspacesCellValue_timestampT(TypedDict, closed=True):
     timestampT: "str"
 
 
-class _KeyspacesCellValue_timeuuidT(TypedDict):
+class _KeyspacesCellValue_timeuuidT(TypedDict, closed=True):
     timeuuidT: "str"
 
 
-class _KeyspacesCellValue_tinyintT(TypedDict):
+class _KeyspacesCellValue_tinyintT(TypedDict, closed=True):
     tinyintT: "str"
 
 
-class _KeyspacesCellValue_tupleT(TypedDict):
+class _KeyspacesCellValue_tupleT(TypedDict, closed=True):
     tupleT: "aws_sdk_keyspacesstreams.types.keyspaces_cell_list.KeyspacesCellList"
 
 
-class _KeyspacesCellValue_uuidT(TypedDict):
+class _KeyspacesCellValue_uuidT(TypedDict, closed=True):
     uuidT: "str"
 
 
-class _KeyspacesCellValue_varcharT(TypedDict):
+class _KeyspacesCellValue_varcharT(TypedDict, closed=True):
     varcharT: "str"
 
 
-class _KeyspacesCellValue_varintT(TypedDict):
+class _KeyspacesCellValue_varintT(TypedDict, closed=True):
     varintT: "str"
 
 
-class _KeyspacesCellValue_udtT(TypedDict):
+class _KeyspacesCellValue_udtT(TypedDict, closed=True):
     udtT: "aws_sdk_keyspacesstreams.types.keyspaces_udt_map.KeyspacesUdtMap"
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DetailedError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.detailed_error_message
 
 
-class DetailedError(TypedDict):
+class DetailedError(TypedDict, closed=True):
     code: "aws_sdk_iotsitewise.types.detailed_error_code.DetailedErrorCode"
     """<p>The error code. </p>"""
     message: "aws_sdk_iotsitewise.types.detailed_error_message.DetailedErrorMessage"

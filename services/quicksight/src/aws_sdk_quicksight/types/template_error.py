@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TemplateError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.entity_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.template_error_type
 
 
-class TemplateError(TypedDict):
+class TemplateError(TypedDict, closed=True):
     type: NotRequired["aws_sdk_quicksight.types.template_error_type.TemplateErrorType"]
     """<p>Type of error.</p>"""
     message: NotRequired["aws_sdk_quicksight.types.non_empty_string.NonEmptyString"]

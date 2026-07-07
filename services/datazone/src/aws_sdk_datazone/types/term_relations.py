@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#TermRelations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.glossary_terms
 
 
-class TermRelations(TypedDict):
+class TermRelations(TypedDict, closed=True):
     is_a: NotRequired["aws_sdk_datazone.types.glossary_terms.GlossaryTerms"]
     """<p>The <code>isA</code> property of the term relations.</p>"""
     classifies: NotRequired["aws_sdk_datazone.types.glossary_terms.GlossaryTerms"]

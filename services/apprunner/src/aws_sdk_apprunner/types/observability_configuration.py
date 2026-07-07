@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ObservabilityConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.app_runner_resource_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.trace_configuration
 
 
-class ObservabilityConfiguration(TypedDict):
+class ObservabilityConfiguration(TypedDict, closed=True):
     observability_configuration_arn: NotRequired[
         "aws_sdk_apprunner.types.app_runner_resource_arn.AppRunnerResourceArn"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#LaunchTemplatePrivateDnsNameOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.hostname_type
 
 
-class LaunchTemplatePrivateDnsNameOptionsRequest(TypedDict):
+class LaunchTemplatePrivateDnsNameOptionsRequest(TypedDict, closed=True):
     hostname_type: NotRequired["aws_sdk_ec2.types.hostname_type.HostnameType"]
     """<p>The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID.</p>"""
     enable_resource_name_dns_a_record: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

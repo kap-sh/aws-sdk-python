@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#CreateInAppTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.template_create_message_body
 
 
-class CreateInAppTemplateResponse(TypedDict):
+class CreateInAppTemplateResponse(TypedDict, closed=True):
     template_create_message_body: NotRequired[
         "aws_sdk_pinpoint.types.template_create_message_body.TemplateCreateMessageBody"
     ]

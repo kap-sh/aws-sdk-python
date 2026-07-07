@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListReportJobsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class ListReportJobsInput(TypedDict):
+class ListReportJobsInput(TypedDict, closed=True):
     by_report_plan_name: NotRequired[
         "aws_sdk_backup.types.report_plan_name.ReportPlanName"
     ]

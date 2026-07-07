@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#TransferDomainToAnotherAwsAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.operation_id
     import aws_sdk_route_53_domains.types.password
 
 
-class TransferDomainToAnotherAwsAccountResponse(TypedDict):
+class TransferDomainToAnotherAwsAccountResponse(TypedDict, closed=True):
     operation_id: NotRequired["aws_sdk_route_53_domains.types.operation_id.OperationId"]
     r"""<p>Identifier for tracking the progress of the request. To query the operation status, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html\">GetOperationDetail</a>.</p>"""
     password: NotRequired["aws_sdk_route_53_domains.types.password.Password"]

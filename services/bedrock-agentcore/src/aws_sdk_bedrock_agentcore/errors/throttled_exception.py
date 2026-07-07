@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ThrottledException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, ServiceError
 
 
-class ThrottledException_(TypedDict):
+class ThrottledException_(TypedDict, closed=True):
     message: "str"
 
 

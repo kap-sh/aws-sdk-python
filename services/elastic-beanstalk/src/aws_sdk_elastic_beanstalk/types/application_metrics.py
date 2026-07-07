@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#ApplicationMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.status_codes
 
 
-class ApplicationMetrics(TypedDict):
+class ApplicationMetrics(TypedDict, closed=True):
     duration: NotRequired[
         "aws_sdk_elastic_beanstalk.types.nullable_integer.NullableInteger"
     ]

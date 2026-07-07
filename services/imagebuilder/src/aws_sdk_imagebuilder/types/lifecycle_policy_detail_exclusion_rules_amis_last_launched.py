@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LifecyclePolicyDetailExclusionRulesAmisLastLaunched``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.lifecycle_policy_time_unit
 
 
-class LifecyclePolicyDetailExclusionRulesAmisLastLaunched(TypedDict):
+class LifecyclePolicyDetailExclusionRulesAmisLastLaunched(TypedDict, closed=True):
     value: "aws_sdk_imagebuilder.types.lifecycle_policy_detail_exclusion_rules_amis_last_launched_value.LifecyclePolicyDetailExclusionRulesAmisLastLaunchedValue"
     """<p>The integer number of units for the time period. For example <code>6</code> (months).</p>"""
     unit: (

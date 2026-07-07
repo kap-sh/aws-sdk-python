@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ListBulkDeploymentDetailedReportsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.bulk_deployment_results
 
 
-class ListBulkDeploymentDetailedReportsResponse(TypedDict):
+class ListBulkDeploymentDetailedReportsResponse(TypedDict, closed=True):
     deployments: NotRequired[
         "aws_sdk_greengrass.types.bulk_deployment_results.BulkDeploymentResults"
     ]

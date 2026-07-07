@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AddEntityOwnerOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AddEntityOwnerOutput(TypedDict):
+class AddEntityOwnerOutput(TypedDict, closed=True):
     pass
 
 

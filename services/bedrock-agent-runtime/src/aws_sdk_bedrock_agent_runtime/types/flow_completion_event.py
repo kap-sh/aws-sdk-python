@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowCompletionEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.flow_completion_reason
 
 
-class FlowCompletionEvent(TypedDict):
+class FlowCompletionEvent(TypedDict, closed=True):
     completion_reason: "aws_sdk_bedrock_agent_runtime.types.flow_completion_reason.FlowCompletionReason"
     """<p>The reason that the flow completed.</p>"""
 

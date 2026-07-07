@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#File``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.file_mode_type_enum
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.path
 
 
-class File(TypedDict):
+class File(TypedDict, closed=True):
     blob_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]
     """<p>The blob ID that contains the file information.</p>"""
     absolute_path: NotRequired["aws_sdk_codecommit.types.path.Path"]

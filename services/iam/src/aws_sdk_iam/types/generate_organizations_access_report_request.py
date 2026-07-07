@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GenerateOrganizationsAccessReportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.organizations_policy_id_type
 
 
-class GenerateOrganizationsAccessReportRequest(TypedDict):
+class GenerateOrganizationsAccessReportRequest(TypedDict, closed=True):
     entity_path: (
         "aws_sdk_iam.types.organizations_entity_path_type.organizationsEntityPathType"
     )

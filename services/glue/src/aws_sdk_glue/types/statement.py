@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Statement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.double_value
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.statement_state
 
 
-class Statement(TypedDict):
+class Statement(TypedDict, closed=True):
     id: "aws_sdk_glue.types.integer_value.IntegerValue"
     """<p>The ID of the statement.</p>"""
     code: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]

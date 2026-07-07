@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#SentimentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.sentiment_score
     import aws_sdk_lex_runtime_v2.types.sentiment_type
 
 
-class SentimentResponse(TypedDict):
+class SentimentResponse(TypedDict, closed=True):
     sentiment: NotRequired["aws_sdk_lex_runtime_v2.types.sentiment_type.SentimentType"]
     """<p>The overall sentiment expressed in the user's response. This is the sentiment most likely expressed by the user based on the analysis by Amazon Comprehend.</p>"""
     sentiment_score: NotRequired[

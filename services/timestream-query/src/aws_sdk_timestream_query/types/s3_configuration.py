@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#S3Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.s3_object_key_prefix
 
 
-class S3Configuration(TypedDict):
+class S3Configuration(TypedDict, closed=True):
     bucket_name: "aws_sdk_timestream_query.types.s3_bucket_name.S3BucketName"
     """<p> Name of the S3 bucket under which error reports will be created.</p>"""
     object_key_prefix: NotRequired[

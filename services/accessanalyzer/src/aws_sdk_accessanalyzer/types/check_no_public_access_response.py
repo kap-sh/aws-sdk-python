@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#CheckNoPublicAccessResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.check_no_public_access_result
     import aws_sdk_accessanalyzer.types.reason_summary_list
 
 
-class CheckNoPublicAccessResponse(TypedDict):
+class CheckNoPublicAccessResponse(TypedDict, closed=True):
     result: NotRequired[
         "aws_sdk_accessanalyzer.types.check_no_public_access_result.CheckNoPublicAccessResult"
     ]

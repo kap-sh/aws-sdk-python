@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoRollbackConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.alarm_list
 
 
-class AutoRollbackConfig(TypedDict):
+class AutoRollbackConfig(TypedDict, closed=True):
     alarms: NotRequired["aws_sdk_sagemaker.types.alarm_list.AlarmList"]
     """<p>List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment.</p>"""
 

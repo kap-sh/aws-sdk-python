@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#GetMediaAnalysisJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.media_analysis_results
 
 
-class GetMediaAnalysisJobResponse(TypedDict):
+class GetMediaAnalysisJobResponse(TypedDict, closed=True):
     job_id: "aws_sdk_rekognition.types.media_analysis_job_id.MediaAnalysisJobId"
     """<p>The identifier for the media analysis job.</p>"""
     job_name: NotRequired[

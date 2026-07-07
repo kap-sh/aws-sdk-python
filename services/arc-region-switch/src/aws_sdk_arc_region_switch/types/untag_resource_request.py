@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     arn: "aws_sdk_arc_region_switch.types.plan_arn.PlanArn"
     """<p>The Amazon Resource Name (ARN) for a tag you remove a resource from.</p>"""
     resource_tag_keys: "aws_sdk_arc_region_switch.types.tag_keys.TagKeys"

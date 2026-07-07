@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#UpdateInstruction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.user_list
 
 
-class UpdateInstruction(TypedDict):
+class UpdateInstruction(TypedDict, closed=True):
     action: "aws_sdk_grafana.types.update_action.UpdateAction"
     """<p>Specifies whether this update is to add or revoke role permissions.</p>"""
     role: "aws_sdk_grafana.types.role.Role"

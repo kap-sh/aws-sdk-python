@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#ResponseItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.comment_metadata
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.response_item_web_url
 
 
-class ResponseItem(TypedDict):
+class ResponseItem(TypedDict, closed=True):
     resource_type: NotRequired[
         "aws_sdk_workdocs.types.response_item_type.ResponseItemType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#OrganizationalUnit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.organizational_unit_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.path
 
 
-class OrganizationalUnit(TypedDict):
+class OrganizationalUnit(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_organizations.types.organizational_unit_id.OrganizationalUnitId"
     ]

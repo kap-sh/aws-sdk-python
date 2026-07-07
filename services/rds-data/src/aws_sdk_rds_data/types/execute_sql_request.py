@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#ExecuteSqlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds_data.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds_data.types.sql_statement
 
 
-class ExecuteSqlRequest(TypedDict):
+class ExecuteSqlRequest(TypedDict, closed=True):
     db_cluster_or_instance_arn: "aws_sdk_rds_data.types.arn.Arn"
     """<p>The ARN of the Aurora Serverless DB cluster.</p>"""
     aws_secret_store_arn: "aws_sdk_rds_data.types.arn.Arn"

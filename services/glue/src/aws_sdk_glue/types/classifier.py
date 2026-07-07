@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Classifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.csv_classifier
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.xml_classifier
 
 
-class Classifier(TypedDict):
+class Classifier(TypedDict, closed=True):
     grok_classifier: NotRequired["aws_sdk_glue.types.grok_classifier.GrokClassifier"]
     """<p>A classifier that uses <code>grok</code>.</p>"""
     xml_classifier: NotRequired["aws_sdk_glue.types.xml_classifier.XMLClassifier"]

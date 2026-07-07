@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#InitiateAuthRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_context_data_type
 
 
-class InitiateAuthRequest(TypedDict):
+class InitiateAuthRequest(TypedDict, closed=True):
     auth_flow: "aws_sdk_cognito_identity_provider.types.auth_flow_type.AuthFlowType"
     r"""<p>The authentication flow that you want to initiate. Each <code>AuthFlow</code> has linked <code>AuthParameters</code> that you must submit. The following are some example flows.</p> <dl> <dt>USER_AUTH</dt> <dd> <p>The entry point for <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice\">choice-based authentication</a> with passwords, one-time passwords, and WebAuthn authenticators. Request a preferred authentication type or review available authentication types. From the offered authentication types, select one in a challenge response and then authenticate with that method in an additional challenge response. To activate this setting, your user pool must be in the <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html\"> Essentials tier</a> or higher.</p> </dd> <dt>USER_SRP_AUTH</dt> <dd> <p>Username-password authentication with the Secure Remote Password (SRP) protocol. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html#Using-SRP-password-verification-in-custom-authentication-flow\">Use SRP password verification in custom authentication flow</a>.</p> </dd> <dt>REFRESH_TOKEN_AUTH and REFRESH_TOKEN</dt> <dd> <p>Receive new ID and access tokens when you pass a <code>REFRESH_TOKEN</code> parameter with a valid refresh token as the value. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-the-refresh-token.html\">Using the refresh token</a>.</p> </dd> <dt>CUSTOM_AUTH</dt> <dd> <p>Custom authentication with Lambda triggers. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html\">Custom authentication challenge Lambda triggers</a>.</p> </dd> <dt>USER_PASSWORD_AUTH</dt> <dd> <p>Client-side username-password authentication with the password sent directly in the request. For more information about client-side and server-side authentication, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-public-server-side.html\">SDK authorization models</a>.</p> </dd> </dl> <p> <code>ADMIN_USER_PASSWORD_AUTH</code> is a flow type of <code>AdminInitiateAuth</code> and isn't valid for InitiateAuth. <code>ADMIN_NO_SRP_AUTH</code> is a legacy server-side username-password flow and isn't valid for InitiateAuth.</p>"""
     auth_parameters: NotRequired[

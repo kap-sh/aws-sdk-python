@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#ConsumableDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.issuance_detail
     import aws_sdk_partnercentral_benefits.types.monetary_value
 
 
-class ConsumableDetails(TypedDict):
+class ConsumableDetails(TypedDict, closed=True):
     allocated_amount: NotRequired[
         "aws_sdk_partnercentral_benefits.types.monetary_value.MonetaryValue"
     ]

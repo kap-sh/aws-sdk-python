@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#MetaFlowApplicationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.meta_flow_application_name
 
 
-class MetaFlowApplicationInfo(TypedDict):
+class MetaFlowApplicationInfo(TypedDict, closed=True):
     link: NotRequired[
         "aws_sdk_socialmessaging.types.meta_flow_application_link.MetaFlowApplicationLink"
     ]

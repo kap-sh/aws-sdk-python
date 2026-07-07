@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#SimSpaceWeaver``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_simspaceweaver._auth._signers
@@ -41,7 +41,7 @@ if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.untag_resource_output
 
 
-class AsyncSimSpaceWeaverClientConfig(TypedDict, total=False):
+class AsyncSimSpaceWeaverClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#PutSchemaFromJsonRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.schema_json_document
 
 
-class PutSchemaFromJsonRequest(TypedDict):
+class PutSchemaFromJsonRequest(TypedDict, closed=True):
     schema_arn: "aws_sdk_clouddirectory.types.arn.Arn"
     """<p>The ARN of the schema to update.</p>"""
     document: "aws_sdk_clouddirectory.types.schema_json_document.SchemaJsonDocument"

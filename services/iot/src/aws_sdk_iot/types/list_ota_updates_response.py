@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListOTAUpdatesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
     import aws_sdk_iot.types.ota_updates_summary
 
 
-class ListOTAUpdatesResponse(TypedDict):
+class ListOTAUpdatesResponse(TypedDict, closed=True):
     ota_updates: NotRequired["aws_sdk_iot.types.ota_updates_summary.OTAUpdatesSummary"]
     """<p>A list of OTA update jobs.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

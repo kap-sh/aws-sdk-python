@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#CustomPluginRevisionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__long
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.custom_plugin_location_description
 
 
-class CustomPluginRevisionSummary(TypedDict):
+class CustomPluginRevisionSummary(TypedDict, closed=True):
     content_type: NotRequired[
         "aws_sdk_kafkaconnect.types.custom_plugin_content_type.CustomPluginContentType"
     ]

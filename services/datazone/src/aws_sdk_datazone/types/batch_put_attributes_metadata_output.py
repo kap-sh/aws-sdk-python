@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#BatchPutAttributesMetadataOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.attributes_errors
     import aws_sdk_datazone.types.batch_put_attribute_items
 
 
-class BatchPutAttributesMetadataOutput(TypedDict):
+class BatchPutAttributesMetadataOutput(TypedDict, closed=True):
     errors: NotRequired["aws_sdk_datazone.types.attributes_errors.AttributesErrors"]
     """<p>The errors generated when the BatchPutAttributeMetadata action is invoked.</p>"""
     attributes: NotRequired[

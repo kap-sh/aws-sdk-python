@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#CreateCallAnalyticsCategoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.tag_list
 
 
-class CreateCallAnalyticsCategoryRequest(TypedDict):
+class CreateCallAnalyticsCategoryRequest(TypedDict, closed=True):
     category_name: "aws_sdk_transcribe.types.category_name.CategoryName"
     """<p>A unique name, chosen by you, for your Call Analytics category. It's helpful to use a detailed naming system that will make sense to you in the future. For example, it's better to use <code>sentiment-positive-last30seconds</code> for a category over a generic name like <code>test-category</code>.</p> <p>Category names are case sensitive.</p>"""
     rules: "aws_sdk_transcribe.types.rule_list.RuleList"

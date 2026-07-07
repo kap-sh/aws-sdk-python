@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#SimpleRuleEvaluation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.comparison_operator
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.threshold_value
 
 
-class SimpleRuleEvaluation(TypedDict):
+class SimpleRuleEvaluation(TypedDict, closed=True):
     input_property_value: NotRequired[
         "aws_sdk_iot_events_data.types.input_property_value.InputPropertyValue"
     ]

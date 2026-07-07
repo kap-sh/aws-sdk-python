@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#Target``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.target_key
     import aws_sdk_ssm.types.target_values
 
 
-class Target(TypedDict):
+class Target(TypedDict, closed=True):
     key: NotRequired["aws_sdk_ssm.types.target_key.TargetKey"]
     """<p>User-defined criteria for sending commands that target managed nodes that meet the criteria.</p>"""
     values: NotRequired["aws_sdk_ssm.types.target_values.TargetValues"]

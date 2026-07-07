@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#DeleteExtensionAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.id
 
 
-class DeleteExtensionAssociationRequest(TypedDict):
+class DeleteExtensionAssociationRequest(TypedDict, closed=True):
     extension_association_id: "aws_sdk_appconfig.types.id.Id"
     """<p>The ID of the extension association to delete.</p>"""
 

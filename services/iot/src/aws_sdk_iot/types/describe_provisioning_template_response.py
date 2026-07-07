@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeProvisioningTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.date_type
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.template_version_id
 
 
-class DescribeProvisioningTemplateResponse(TypedDict):
+class DescribeProvisioningTemplateResponse(TypedDict, closed=True):
     template_arn: NotRequired["aws_sdk_iot.types.template_arn.TemplateArn"]
     """<p>The ARN of the provisioning template.</p>"""
     template_name: NotRequired["aws_sdk_iot.types.template_name.TemplateName"]

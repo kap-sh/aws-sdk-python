@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateWorkforceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cognito_config
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workforce_vpc_config_request
 
 
-class CreateWorkforceRequest(TypedDict):
+class CreateWorkforceRequest(TypedDict, closed=True):
     cognito_config: NotRequired["aws_sdk_sagemaker.types.cognito_config.CognitoConfig"]
     r"""<p>Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html\"> Amazon Cognito user pool</a>.</p> <p>Do not use <code>OidcConfig</code> if you specify values for <code>CognitoConfig</code>.</p>"""
     oidc_config: NotRequired["aws_sdk_sagemaker.types.oidc_config.OidcConfig"]

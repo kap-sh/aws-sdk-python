@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#ListProfilingGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.max_results
     import aws_sdk_codeguruprofiler.types.pagination_token
 
 
-class ListProfilingGroupsRequest(TypedDict):
+class ListProfilingGroupsRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_codeguruprofiler.types.pagination_token.PaginationToken"
     ]

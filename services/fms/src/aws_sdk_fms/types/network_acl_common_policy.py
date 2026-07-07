@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#NetworkAclCommonPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.network_acl_entry_set
 
 
-class NetworkAclCommonPolicy(TypedDict):
+class NetworkAclCommonPolicy(TypedDict, closed=True):
     network_acl_entry_set: "aws_sdk_fms.types.network_acl_entry_set.NetworkAclEntrySet"
     """<p>The definition of the first and last rules for the network ACL policy. </p>"""
 

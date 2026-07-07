@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#StorageOptimizer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.message_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.storage_optimizer_config
 
 
-class StorageOptimizer(TypedDict):
+class StorageOptimizer(TypedDict, closed=True):
     storage_optimizer_type: NotRequired[
         "aws_sdk_lakeformation.types.optimizer_type.OptimizerType"
     ]

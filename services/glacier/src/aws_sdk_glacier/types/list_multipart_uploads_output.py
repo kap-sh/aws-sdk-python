@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#ListMultipartUploadsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
     import aws_sdk_glacier.types.uploads_list
 
 
-class ListMultipartUploadsOutput(TypedDict):
+class ListMultipartUploadsOutput(TypedDict, closed=True):
     uploads_list: NotRequired["aws_sdk_glacier.types.uploads_list.UploadsList"]
     """<p>A list of in-progress multipart uploads.</p>"""
     marker: NotRequired["aws_sdk_glacier.types.string.string"]

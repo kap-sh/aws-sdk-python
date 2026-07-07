@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#GreeceAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.contracting_authority_code
 
 
-class GreeceAdditionalInfo(TypedDict):
+class GreeceAdditionalInfo(TypedDict, closed=True):
     contracting_authority_code: NotRequired[
         "aws_sdk_taxsettings.types.contracting_authority_code.ContractingAuthorityCode"
     ]

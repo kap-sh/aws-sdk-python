@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelQualityJobDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListModelQualityJobDefinitionsRequest(TypedDict):
+class ListModelQualityJobDefinitionsRequest(TypedDict, closed=True):
     endpoint_name: NotRequired["aws_sdk_sagemaker.types.endpoint_name.EndpointName"]
     """<p>A filter that returns only model quality monitoring job definitions that are associated with the specified endpoint.</p>"""
     sort_by: NotRequired[

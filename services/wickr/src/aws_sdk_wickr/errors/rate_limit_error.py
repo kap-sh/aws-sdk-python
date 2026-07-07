@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#RateLimitError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class RateLimitError_(TypedDict):
+class RateLimitError_(TypedDict, closed=True):
     message: "aws_sdk_wickr.types.generic_string.GenericString"
     """<p>A message indicating that the rate limit was exceeded and suggesting when to retry.</p>"""
 

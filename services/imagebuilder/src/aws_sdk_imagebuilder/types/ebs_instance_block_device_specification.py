@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#EbsInstanceBlockDeviceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.ebs_iops_integer
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.nullable_boolean
 
 
-class EbsInstanceBlockDeviceSpecification(TypedDict):
+class EbsInstanceBlockDeviceSpecification(TypedDict, closed=True):
     encrypted: NotRequired[
         "aws_sdk_imagebuilder.types.nullable_boolean.NullableBoolean"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscalingplans#ScalingPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling_plans.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling_plans.types.target_tracking_configuration
 
 
-class ScalingPolicy(TypedDict):
+class ScalingPolicy(TypedDict, closed=True):
     policy_name: "aws_sdk_auto_scaling_plans.types.policy_name.PolicyName"
     """<p>The name of the scaling policy.</p>"""
     policy_type: "aws_sdk_auto_scaling_plans.types.policy_type.PolicyType"

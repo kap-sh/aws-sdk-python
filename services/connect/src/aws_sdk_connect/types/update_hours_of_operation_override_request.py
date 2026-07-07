@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateHoursOfOperationOverrideRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.common_human_readable_description
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.recurrence_config
 
 
-class UpdateHoursOfOperationOverrideRequest(TypedDict):
+class UpdateHoursOfOperationOverrideRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     """<p>The identifier of the Connect Customer instance.</p>"""
     hours_of_operation_id: (

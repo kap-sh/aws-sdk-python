@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#CreateJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.tags_map
 
 
-class CreateJobRequest(TypedDict):
+class CreateJobRequest(TypedDict, closed=True):
     client_token: "aws_sdk_braket.types.string64.String64"
     """<p>The client token associated with this request that guarantees that the request is idempotent.</p>"""
     algorithm_specification: (

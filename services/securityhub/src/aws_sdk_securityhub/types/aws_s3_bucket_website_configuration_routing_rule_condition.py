@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3BucketWebsiteConfigurationRoutingRuleCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsS3BucketWebsiteConfigurationRoutingRuleCondition(TypedDict):
+class AwsS3BucketWebsiteConfigurationRoutingRuleCondition(TypedDict, closed=True):
     http_error_code_returned_equals: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

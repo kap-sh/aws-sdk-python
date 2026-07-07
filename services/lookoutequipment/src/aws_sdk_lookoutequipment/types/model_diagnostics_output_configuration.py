@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ModelDiagnosticsOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.name_or_arn
 
 
-class ModelDiagnosticsOutputConfiguration(TypedDict):
+class ModelDiagnosticsOutputConfiguration(TypedDict, closed=True):
     s3_output_configuration: "aws_sdk_lookoutequipment.types.model_diagnostics_s3_output_configuration.ModelDiagnosticsS3OutputConfiguration"
     """<p>The Amazon S3 location for the pointwise model diagnostics. </p>"""
     kms_key_id: NotRequired["aws_sdk_lookoutequipment.types.name_or_arn.NameOrArn"]

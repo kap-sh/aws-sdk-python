@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#DeleteStackInstancesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.stack_set_operation_preferences
 
 
-class DeleteStackInstancesInput(TypedDict):
+class DeleteStackInstancesInput(TypedDict, closed=True):
     stack_set_name: NotRequired[
         "aws_sdk_cloudformation.types.stack_set_name.StackSetName"
     ]

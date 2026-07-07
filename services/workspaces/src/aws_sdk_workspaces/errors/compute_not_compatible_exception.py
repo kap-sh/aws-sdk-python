@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ComputeNotCompatibleException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import ServiceError
 
 
-class ComputeNotCompatibleException_(TypedDict):
+class ComputeNotCompatibleException_(TypedDict, closed=True):
     pass
 
 

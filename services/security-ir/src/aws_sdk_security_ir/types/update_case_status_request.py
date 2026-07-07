@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#UpdateCaseStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.self_managed_case_status
 
 
-class UpdateCaseStatusRequest(TypedDict):
+class UpdateCaseStatusRequest(TypedDict, closed=True):
     case_id: "aws_sdk_security_ir.types.case_id.CaseId"
     """<p>Required element for UpdateCaseStatus to identify the case to update.</p>"""
     case_status: (

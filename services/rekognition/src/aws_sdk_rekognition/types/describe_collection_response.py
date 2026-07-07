@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DescribeCollectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.date_time
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.u_long
 
 
-class DescribeCollectionResponse(TypedDict):
+class DescribeCollectionResponse(TypedDict, closed=True):
     face_count: NotRequired["aws_sdk_rekognition.types.u_long.ULong"]
     """<p>The number of faces that are indexed into the collection. To index faces into a collection, use <a>IndexFaces</a>.</p>"""
     face_model_version: NotRequired["aws_sdk_rekognition.types.string.String"]

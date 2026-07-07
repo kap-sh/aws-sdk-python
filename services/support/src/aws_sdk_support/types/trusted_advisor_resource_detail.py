@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#TrustedAdvisorResourceDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_support.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.string_list
 
 
-class TrustedAdvisorResourceDetail(TypedDict):
+class TrustedAdvisorResourceDetail(TypedDict, closed=True):
     status: "aws_sdk_support.types.string.String"
     """<p>The status code for the resource identified in the Trusted Advisor check.</p>"""
     region: NotRequired["aws_sdk_support.types.string.String"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#PutResourcePolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutResourcePolicyResponse(TypedDict):
+class PutResourcePolicyResponse(TypedDict, closed=True):
     pass
 
 

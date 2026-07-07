@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#CreateFlowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.flow
 
 
-class CreateFlowResponse(TypedDict):
+class CreateFlowResponse(TypedDict, closed=True):
     flow: NotRequired["aws_sdk_mediaconnect.types.flow.Flow"]
     """<p> The flow that you created. </p>"""
 

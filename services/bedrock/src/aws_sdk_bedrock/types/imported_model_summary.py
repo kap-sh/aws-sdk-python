@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ImportedModelSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.timestamp
 
 
-class ImportedModelSummary(TypedDict):
+class ImportedModelSummary(TypedDict, closed=True):
     model_arn: "aws_sdk_bedrock.types.imported_model_arn.ImportedModelArn"
     """<p>The Amazon Resource Name (ARN) of the imported model.</p>"""
     model_name: "aws_sdk_bedrock.types.imported_model_name.ImportedModelName"

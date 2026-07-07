@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DesiredWeightAndCapacity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.production_variant_serverless_update_config
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.variant_weight
 
 
-class DesiredWeightAndCapacity(TypedDict):
+class DesiredWeightAndCapacity(TypedDict, closed=True):
     variant_name: NotRequired["aws_sdk_sagemaker.types.variant_name.VariantName"]
     """<p>The name of the variant to update.</p>"""
     desired_weight: NotRequired["aws_sdk_sagemaker.types.variant_weight.VariantWeight"]

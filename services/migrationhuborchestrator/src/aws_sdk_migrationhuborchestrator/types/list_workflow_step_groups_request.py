@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#ListWorkflowStepGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.next_token
 
 
-class ListWorkflowStepGroupsRequest(TypedDict):
+class ListWorkflowStepGroupsRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_migrationhuborchestrator.types.next_token.NextToken"
     ]

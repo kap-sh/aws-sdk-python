@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ListSnapshotsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class ListSnapshotsRequest(TypedDict):
+class ListSnapshotsRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>"""
     max_results: NotRequired["int"]

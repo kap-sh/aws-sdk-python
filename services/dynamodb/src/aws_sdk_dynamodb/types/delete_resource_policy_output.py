@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#DeleteResourcePolicyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.policy_revision_id
 
 
-class DeleteResourcePolicyOutput(TypedDict):
+class DeleteResourcePolicyOutput(TypedDict, closed=True):
     revision_id: NotRequired[
         "aws_sdk_dynamodb.types.policy_revision_id.PolicyRevisionId"
     ]

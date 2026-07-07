@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#ListWebhooksResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.webhooks
 
 
-class ListWebhooksResult(TypedDict):
+class ListWebhooksResult(TypedDict, closed=True):
     webhooks: "aws_sdk_amplify.types.webhooks.Webhooks"
     """<p>A list of webhooks. </p>"""
     next_token: NotRequired["aws_sdk_amplify.types.next_token.NextToken"]

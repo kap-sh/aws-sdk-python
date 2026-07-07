@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.scan_name_arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_codeguru_security.types.scan_name_arn.ScanNameArn"
     """<p>The ARN of the <code>ScanName</code> object. You can retrieve this ARN by calling <code>CreateScan</code>, <code>ListScans</code>, or <code>GetScan</code>.</p>"""
 

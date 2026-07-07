@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#PromptCreationConfigurations``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class PromptCreationConfigurations(TypedDict):
+class PromptCreationConfigurations(TypedDict, closed=True):
     previous_conversation_turns_to_include: NotRequired["int"]
     """<p>The number of previous conversations from the ongoing agent session to include in the conversation history of the agent prompt, during the current invocation. This gives you more granular control over the context that the model is made aware of, and helps the model remove older context which is no longer useful during the ongoing agent session.</p>"""
     exclude_previous_thinking_steps: "bool"

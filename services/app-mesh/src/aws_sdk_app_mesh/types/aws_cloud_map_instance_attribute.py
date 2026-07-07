@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#AwsCloudMapInstanceAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.aws_cloud_map_instance_attribute_value
 
 
-class AwsCloudMapInstanceAttribute(TypedDict):
+class AwsCloudMapInstanceAttribute(TypedDict, closed=True):
     key: "aws_sdk_app_mesh.types.aws_cloud_map_instance_attribute_key.AwsCloudMapInstanceAttributeKey"
     """<p>The name of an Cloud Map service instance attribute key. Any Cloud Map service instance that contains the specified key and value is returned.</p>"""
     value: "aws_sdk_app_mesh.types.aws_cloud_map_instance_attribute_value.AwsCloudMapInstanceAttributeValue"

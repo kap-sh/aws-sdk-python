@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ListEngagementResourceAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.resource_type
 
 
-class ListEngagementResourceAssociationsRequest(TypedDict):
+class ListEngagementResourceAssociationsRequest(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier"
     r"""<p>Specifies the catalog in which to search for engagement-resource associations. Valid Values: \"AWS\" or \"Sandbox\"</p> <ul> <li> <p> <code>AWS</code> for production environments.</p> </li> <li> <p> <code>Sandbox</code> for testing and development purposes.</p> </li> </ul>"""
     max_results: "aws_sdk_partnercentral_selling.types.page_size.PageSize"

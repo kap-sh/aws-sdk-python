@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#DeleteStateMachineInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.arn
 
 
-class DeleteStateMachineInput(TypedDict):
+class DeleteStateMachineInput(TypedDict, closed=True):
     state_machine_arn: "aws_sdk_sfn.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the state machine to delete.</p>"""
 

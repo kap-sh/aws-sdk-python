@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#SnowflakeVpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.snowflake_private_link_vpce_id
 
 
-class SnowflakeVpcConfiguration(TypedDict):
+class SnowflakeVpcConfiguration(TypedDict, closed=True):
     private_link_vpce_id: "aws_sdk_firehose.types.snowflake_private_link_vpce_id.SnowflakePrivateLinkVpceId"
     r"""<p>The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see <a href=\"https://docs.snowflake.com/en/user-guide/admin-security-privatelink\">Amazon PrivateLink & Snowflake</a> </p>"""
 

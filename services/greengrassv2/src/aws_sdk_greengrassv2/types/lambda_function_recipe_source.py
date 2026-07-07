@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#LambdaFunctionRecipeSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.non_empty_string
 
 
-class LambdaFunctionRecipeSource(TypedDict):
+class LambdaFunctionRecipeSource(TypedDict, closed=True):
     lambda_arn: "aws_sdk_greengrassv2.types.non_empty_string.NonEmptyString"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the Lambda function. The ARN must include the version of the function to import. You can't use version aliases like <code>$LATEST</code>.</p>"""
     component_name: NotRequired[

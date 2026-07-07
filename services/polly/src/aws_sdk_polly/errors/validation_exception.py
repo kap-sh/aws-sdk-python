@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_polly._protocol.eventstream import HeaderValue, Message
 from aws_sdk_polly.errors import DeserializationError, ServiceError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.validation_exception_reason
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: "aws_sdk_polly.types.error_message.ErrorMessage"
     reason: "aws_sdk_polly.types.validation_exception_reason.ValidationExceptionReason"
     """<p>The reason the request failed validation.</p>"""

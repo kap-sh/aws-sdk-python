@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AIGuardrailWordPolicyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.guardrail_managed_word_lists_config
     import aws_sdk_qconnect.types.guardrail_words_config
 
 
-class AIGuardrailWordPolicyConfig(TypedDict):
+class AIGuardrailWordPolicyConfig(TypedDict, closed=True):
     words_config: NotRequired[
         "aws_sdk_qconnect.types.guardrail_words_config.GuardrailWordsConfig"
     ]

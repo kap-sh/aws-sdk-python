@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#GetDataLakeSourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.amazon_resource_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.next_token
 
 
-class GetDataLakeSourcesResponse(TypedDict):
+class GetDataLakeSourcesResponse(TypedDict, closed=True):
     data_lake_arn: NotRequired[
         "aws_sdk_securitylake.types.amazon_resource_name.AmazonResourceName"
     ]

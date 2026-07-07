@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#HarvesterScheduleConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class HarvesterScheduleConfiguration(TypedDict):
+class HarvesterScheduleConfiguration(TypedDict, closed=True):
     start_time: "datetime.datetime"
     """<p>The start time for the harvest job.</p>"""
     end_time: "datetime.datetime"

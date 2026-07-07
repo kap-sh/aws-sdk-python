@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ResourceChangeDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.causing_entity
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.resource_target_definition
 
 
-class ResourceChangeDetail(TypedDict):
+class ResourceChangeDetail(TypedDict, closed=True):
     target: NotRequired[
         "aws_sdk_service_catalog.types.resource_target_definition.ResourceTargetDefinition"
     ]

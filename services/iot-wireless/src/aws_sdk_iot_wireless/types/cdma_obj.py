@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CdmaObj``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.system_id
 
 
-class CdmaObj(TypedDict):
+class CdmaObj(TypedDict, closed=True):
     system_id: "aws_sdk_iot_wireless.types.system_id.SystemId"
     """<p>CDMA system ID (SID).</p>"""
     network_id: "aws_sdk_iot_wireless.types.network_id.NetworkId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#CreateClusterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.bypass_policy_lockout_safety_check
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.tag_map
 
 
-class CreateClusterInput(TypedDict):
+class CreateClusterInput(TypedDict, closed=True):
     deletion_protection_enabled: (
         "aws_sdk_dsql.types.deletion_protection_enabled.DeletionProtectionEnabled"
     )

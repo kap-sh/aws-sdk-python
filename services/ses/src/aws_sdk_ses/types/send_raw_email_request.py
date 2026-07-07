@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#SendRawEmailRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.raw_message
 
 
-class SendRawEmailRequest(TypedDict):
+class SendRawEmailRequest(TypedDict, closed=True):
     source: NotRequired["aws_sdk_ses.types.address.Address"]
     r"""<p>The identity's email address. If you do not provide a value for this parameter, you must specify a \"From\" address in the raw text of the message. (You can also specify both.)</p> <note> <p>Amazon SES does not support the SMTPUTF8 extension, as described in<a href=\"https://tools.ietf.org/html/rfc6531\">RFC6531</a>. For this reason, the email address string must be 7-bit ASCII. If you want to send to or from email addresses that contain Unicode characters in the domain part of an address, you must encode the domain using Punycode. Punycode is not permitted in the local part of the email address (the part before the @ sign) nor in the \"friendly from\" name. If you want to use Unicode characters in the \"friendly from\" name, you must encode the \"friendly from\" name using MIME encoded-word syntax, as described in <a href=\"https://docs.aws.amazon.com/ses/latest/dg/send-email-raw.html\">Sending raw email using the Amazon SES API</a>. For more information about Punycode, see <a href=\"http://tools.ietf.org/html/rfc3492\">RFC 3492</a>.</p> </note> <p>If you specify the <code>Source</code> parameter and have feedback forwarding enabled, then bounces and complaints are sent to this email address. This takes precedence over any Return-Path header that you might include in the raw text of the message.</p>"""
     destinations: NotRequired["aws_sdk_ses.types.address_list.AddressList"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#ResourceTargetDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.resource_property_path
 
 
-class ResourceTargetDefinition(TypedDict):
+class ResourceTargetDefinition(TypedDict, closed=True):
     attribute: NotRequired[
         "aws_sdk_cloudformation.types.resource_attribute.ResourceAttribute"
     ]

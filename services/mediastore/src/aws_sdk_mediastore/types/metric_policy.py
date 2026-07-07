@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#MetricPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediastore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore.types.metric_policy_rules
 
 
-class MetricPolicy(TypedDict):
+class MetricPolicy(TypedDict, closed=True):
     container_level_metrics: (
         "aws_sdk_mediastore.types.container_level_metrics.ContainerLevelMetrics"
     )

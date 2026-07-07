@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#GetResourcePermissionOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetResourcePermissionOutput(TypedDict):
+class GetResourcePermissionOutput(TypedDict, closed=True):
     policy: NotRequired["str"]
     """<p/>"""
 

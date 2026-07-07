@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#JobCommand``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.script_location_string
 
 
-class JobCommand(TypedDict):
+class JobCommand(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]
     """<p>The name of the job command. For an Apache Spark ETL job, this must be <code>glueetl</code>. For a Python shell job, it must be <code>pythonshell</code>. For an Apache Spark streaming ETL job, this must be <code>gluestreaming</code>. For a Ray job, this must be <code>glueray</code>.</p>"""
     script_location: NotRequired[

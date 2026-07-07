@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#IndexStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.text_document_statistics
 
 
-class IndexStatistics(TypedDict):
+class IndexStatistics(TypedDict, closed=True):
     faq_statistics: "aws_sdk_kendra.types.faq_statistics.FaqStatistics"
     """<p>The number of question and answer topics in the index.</p>"""
     text_document_statistics: (

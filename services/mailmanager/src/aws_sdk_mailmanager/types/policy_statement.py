@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#PolicyStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.policy_conditions
 
 
-class PolicyStatement(TypedDict):
+class PolicyStatement(TypedDict, closed=True):
     conditions: "aws_sdk_mailmanager.types.policy_conditions.PolicyConditions"
     """<p>The list of conditions to apply to incoming messages for filtering email traffic.</p>"""
     action: "aws_sdk_mailmanager.types.accept_action.AcceptAction"

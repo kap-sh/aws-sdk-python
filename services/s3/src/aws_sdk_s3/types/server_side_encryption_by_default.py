@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ServerSideEncryptionByDefault``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.ssekms_key_id
 
 
-class ServerSideEncryptionByDefault(TypedDict):
+class ServerSideEncryptionByDefault(TypedDict, closed=True):
     sse_algorithm: "aws_sdk_s3.types.server_side_encryption.ServerSideEncryption"
     """<p>Server-side encryption algorithm to use for the default encryption.</p> <note> <p>For directory buckets, there are only two supported values for server-side encryption: <code>AES256</code> and <code>aws:kms</code>.</p> </note>"""
     kms_master_key_id: NotRequired["aws_sdk_s3.types.ssekms_key_id.SSEKMSKeyId"]

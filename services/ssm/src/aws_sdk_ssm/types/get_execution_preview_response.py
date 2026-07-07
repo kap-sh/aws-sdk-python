@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetExecutionPreviewResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class GetExecutionPreviewResponse(TypedDict):
+class GetExecutionPreviewResponse(TypedDict, closed=True):
     execution_preview_id: NotRequired[
         "aws_sdk_ssm.types.execution_preview_id.ExecutionPreviewId"
     ]

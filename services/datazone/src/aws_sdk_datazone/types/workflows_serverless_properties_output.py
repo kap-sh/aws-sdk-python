@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#WorkflowsServerlessPropertiesOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class WorkflowsServerlessPropertiesOutput(TypedDict):
+class WorkflowsServerlessPropertiesOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelPackageSecurityConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.kms_key_id
 
 
-class ModelPackageSecurityConfig(TypedDict):
+class ModelPackageSecurityConfig(TypedDict, closed=True):
     kms_key_id: NotRequired["aws_sdk_sagemaker.types.kms_key_id.KmsKeyId"]
     """<p>The KMS Key ID (<code>KMSKeyId</code>) used for encryption of model package information.</p>"""
 

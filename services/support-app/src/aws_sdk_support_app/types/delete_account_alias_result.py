@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.supportapp#DeleteAccountAliasResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAccountAliasResult(TypedDict):
+class DeleteAccountAliasResult(TypedDict, closed=True):
     pass
 
 

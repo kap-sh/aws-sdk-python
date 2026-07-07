@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#TerminateWorkspacesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.terminate_workspace_requests
 
 
-class TerminateWorkspacesRequest(TypedDict):
+class TerminateWorkspacesRequest(TypedDict, closed=True):
     terminate_workspace_requests: "aws_sdk_workspaces.types.terminate_workspace_requests.TerminateWorkspaceRequests"
     """<p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>"""
 

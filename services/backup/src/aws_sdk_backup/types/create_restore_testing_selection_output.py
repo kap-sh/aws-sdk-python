@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CreateRestoreTestingSelectionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class CreateRestoreTestingSelectionOutput(TypedDict):
+class CreateRestoreTestingSelectionOutput(TypedDict, closed=True):
     creation_time: "datetime.datetime"
     """<p>The time that the resource testing selection was created.</p>"""
     restore_testing_plan_arn: "str"

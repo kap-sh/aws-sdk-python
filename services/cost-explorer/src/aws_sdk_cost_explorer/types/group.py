@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#Group``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.keys
     import aws_sdk_cost_explorer.types.metrics
 
 
-class Group(TypedDict):
+class Group(TypedDict, closed=True):
     keys: NotRequired["aws_sdk_cost_explorer.types.keys.Keys"]
     """<p>The keys that are included in this group.</p>"""
     metrics: NotRequired["aws_sdk_cost_explorer.types.metrics.Metrics"]

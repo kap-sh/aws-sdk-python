@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ListAutonomousVirtualMachinesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.autonomous_virtual_machine_list
 
 
-class ListAutonomousVirtualMachinesOutput(TypedDict):
+class ListAutonomousVirtualMachinesOutput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The pagination token from which to continue listing.</p>"""
     autonomous_virtual_machines: (

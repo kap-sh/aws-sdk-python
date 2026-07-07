@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#AssessmentRiskRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.app_component_name_list
     import aws_sdk_resiliencehub.types.string255
 
 
-class AssessmentRiskRecommendation(TypedDict):
+class AssessmentRiskRecommendation(TypedDict, closed=True):
     risk: NotRequired["aws_sdk_resiliencehub.types.string255.String255"]
     """<p>Indicates the description of the potential risk identified in the application as part of the Resilience Hub assessment.</p> <note> <p>This property is available only in the US East (N. Virginia) Region.</p> </note>"""
     recommendation: NotRequired["aws_sdk_resiliencehub.types.string255.String255"]

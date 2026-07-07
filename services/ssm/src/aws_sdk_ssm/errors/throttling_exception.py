@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ThrottlingException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError, ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "aws_sdk_ssm.types.string.String"
     quota_code: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>"""

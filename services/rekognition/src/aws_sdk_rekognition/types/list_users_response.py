@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ListUsersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.pagination_token
     import aws_sdk_rekognition.types.user_list
 
 
-class ListUsersResponse(TypedDict):
+class ListUsersResponse(TypedDict, closed=True):
     users: NotRequired["aws_sdk_rekognition.types.user_list.UserList"]
     """<p>List of UsersID associated with the specified collection.</p>"""
     next_token: NotRequired[

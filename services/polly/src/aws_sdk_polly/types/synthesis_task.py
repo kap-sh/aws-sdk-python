@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#SynthesisTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.date_time
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.voice_id
 
 
-class SynthesisTask(TypedDict):
+class SynthesisTask(TypedDict, closed=True):
     engine: NotRequired["aws_sdk_polly.types.engine.Engine"]
     """<p>Specifies the engine (<code>standard</code>, <code>neural</code>, <code>long-form</code> or <code>generative</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.</p>"""
     task_id: NotRequired["aws_sdk_polly.types.task_id.TaskId"]

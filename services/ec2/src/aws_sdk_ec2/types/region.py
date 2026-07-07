@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Region``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class Region(TypedDict):
+class Region(TypedDict, closed=True):
     opt_in_status: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Region opt-in status. The possible values are <code>opt-in-not-required</code>, <code>opted-in</code>, and <code>not-opted-in</code>.</p>"""
     geography: NotRequired[

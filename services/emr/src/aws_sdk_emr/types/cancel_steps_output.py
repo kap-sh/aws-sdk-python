@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#CancelStepsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cancel_steps_info_list
 
 
-class CancelStepsOutput(TypedDict):
+class CancelStepsOutput(TypedDict, closed=True):
     cancel_steps_info_list: NotRequired[
         "aws_sdk_emr.types.cancel_steps_info_list.CancelStepsInfoList"
     ]

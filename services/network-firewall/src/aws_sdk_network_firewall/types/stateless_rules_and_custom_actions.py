@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#StatelessRulesAndCustomActions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.stateless_rules
 
 
-class StatelessRulesAndCustomActions(TypedDict):
+class StatelessRulesAndCustomActions(TypedDict, closed=True):
     stateless_rules: "aws_sdk_network_firewall.types.stateless_rules.StatelessRules"
     """<p>Defines the set of stateless rules for use in a stateless rule group. </p>"""
     custom_actions: NotRequired[

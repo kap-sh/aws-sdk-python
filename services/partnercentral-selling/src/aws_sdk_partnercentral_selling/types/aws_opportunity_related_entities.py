@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#AwsOpportunityRelatedEntities``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.aws_product_identifiers
     import aws_sdk_partnercentral_selling.types.solution_identifiers
 
 
-class AwsOpportunityRelatedEntities(TypedDict):
+class AwsOpportunityRelatedEntities(TypedDict, closed=True):
     aws_products: NotRequired[
         "aws_sdk_partnercentral_selling.types.aws_product_identifiers.AwsProductIdentifiers"
     ]

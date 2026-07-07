@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterInstanceStorageConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError, SerializationError
 
@@ -10,19 +12,19 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_fsx_open_zfs_config
 
 
-class _ClusterInstanceStorageConfig_EbsVolumeConfig(TypedDict):
+class _ClusterInstanceStorageConfig_EbsVolumeConfig(TypedDict, closed=True):
     EbsVolumeConfig: (
         "aws_sdk_sagemaker.types.cluster_ebs_volume_config.ClusterEbsVolumeConfig"
     )
 
 
-class _ClusterInstanceStorageConfig_FsxLustreConfig(TypedDict):
+class _ClusterInstanceStorageConfig_FsxLustreConfig(TypedDict, closed=True):
     FsxLustreConfig: (
         "aws_sdk_sagemaker.types.cluster_fsx_lustre_config.ClusterFsxLustreConfig"
     )
 
 
-class _ClusterInstanceStorageConfig_FsxOpenZfsConfig(TypedDict):
+class _ClusterInstanceStorageConfig_FsxOpenZfsConfig(TypedDict, closed=True):
     FsxOpenZfsConfig: (
         "aws_sdk_sagemaker.types.cluster_fsx_open_zfs_config.ClusterFsxOpenZfsConfig"
     )

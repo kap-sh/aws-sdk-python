@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#SubscribedWorkteam``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workteam_arn
 
 
-class SubscribedWorkteam(TypedDict):
+class SubscribedWorkteam(TypedDict, closed=True):
     workteam_arn: NotRequired["aws_sdk_sagemaker.types.workteam_arn.WorkteamArn"]
     """<p>The Amazon Resource Name (ARN) of the vendor that you have subscribed.</p>"""
     marketplace_title: NotRequired["aws_sdk_sagemaker.types.string200.String200"]

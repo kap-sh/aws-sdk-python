@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DeleteOAuthClientApplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DeleteOAuthClientApplicationResponse(TypedDict):
+class DeleteOAuthClientApplicationResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the OAuthClientApplication that you deleted.</p>"""
     o_auth_client_application_id: NotRequired[

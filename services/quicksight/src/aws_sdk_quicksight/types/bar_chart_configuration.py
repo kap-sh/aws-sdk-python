@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BarChartConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.axis_display_options
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_palette
 
 
-class BarChartConfiguration(TypedDict):
+class BarChartConfiguration(TypedDict, closed=True):
     field_wells: NotRequired[
         "aws_sdk_quicksight.types.bar_chart_field_wells.BarChartFieldWells"
     ]

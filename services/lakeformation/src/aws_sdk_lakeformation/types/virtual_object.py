@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#VirtualObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.uri
 
 
-class VirtualObject(TypedDict):
+class VirtualObject(TypedDict, closed=True):
     uri: "aws_sdk_lakeformation.types.uri.URI"
     """<p>The path to the Amazon S3 object. Must start with s3://</p>"""
     e_tag: NotRequired["aws_sdk_lakeformation.types.e_tag_string.ETagString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#PredictiveScalingMetricStat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.xml_string
 
 
-class PredictiveScalingMetricStat(TypedDict):
+class PredictiveScalingMetricStat(TypedDict, closed=True):
     metric: "aws_sdk_application_auto_scaling.types.predictive_scaling_metric.PredictiveScalingMetric"
     r"""<p> The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html\">Metric</a> object that is returned by a call to <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html\">ListMetrics</a>. </p>"""
     stat: "aws_sdk_application_auto_scaling.types.xml_string.XmlString"

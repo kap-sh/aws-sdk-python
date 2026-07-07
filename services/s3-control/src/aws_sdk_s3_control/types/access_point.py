@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#AccessPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.vpc_configuration
 
 
-class AccessPoint(TypedDict):
+class AccessPoint(TypedDict, closed=True):
     name: "aws_sdk_s3_control.types.access_point_name.AccessPointName"
     """<p>The name of this access point.</p>"""
     network_origin: "aws_sdk_s3_control.types.network_origin.NetworkOrigin"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#GetFailureModeFindingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.finding
 
 
-class GetFailureModeFindingResponse(TypedDict):
+class GetFailureModeFindingResponse(TypedDict, closed=True):
     finding: NotRequired["aws_sdk_resiliencehubv2.types.finding.Finding"]
     """<p>The requested finding.</p>"""
 

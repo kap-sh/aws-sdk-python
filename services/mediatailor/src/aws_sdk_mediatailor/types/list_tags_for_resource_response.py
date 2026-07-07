@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__map_of__string
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_mediatailor.types.__map_of__string.__mapOf__string"]
     r"""<p>The tags associated with this resource. Tags are key-value pairs that you can associate with Amazon resources to help with organization, access control, and cost tracking. For more information, see <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/tagging.html\">Tagging AWS Elemental MediaTailor Resources</a>.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListLensSharesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens_share_summaries
     import aws_sdk_wellarchitected.types.next_token
 
 
-class ListLensSharesOutput(TypedDict):
+class ListLensSharesOutput(TypedDict, closed=True):
     lens_share_summaries: NotRequired[
         "aws_sdk_wellarchitected.types.lens_share_summaries.LensShareSummaries"
     ]

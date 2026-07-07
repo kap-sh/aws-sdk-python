@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DomainValidationRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.certificate_domain_validation_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_record
 
 
-class DomainValidationRecord(TypedDict):
+class DomainValidationRecord(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_lightsail.types.domain_name.DomainName"]
     """<p>The domain name of the certificate validation record. For example, <code>example.com</code> or <code>www.example.com</code>.</p>"""
     resource_record: NotRequired[

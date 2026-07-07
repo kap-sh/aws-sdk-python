@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ServiceQuotaExceededException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_observabilityadmin.errors import ServiceError
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: NotRequired["str"]
     resource_id: NotRequired["str"]
     """<p> The identifier of the resource which exceeds the service quota. </p>"""

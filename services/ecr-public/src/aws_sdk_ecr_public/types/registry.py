@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#Registry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr_public.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.url
 
 
-class Registry(TypedDict):
+class Registry(TypedDict, closed=True):
     registry_id: "aws_sdk_ecr_public.types.registry_id.RegistryId"
     """<p>The Amazon Web Services account ID that's associated with the registry. If you do not specify a registry, the default public registry is assumed.</p>"""
     registry_arn: "aws_sdk_ecr_public.types.arn.Arn"

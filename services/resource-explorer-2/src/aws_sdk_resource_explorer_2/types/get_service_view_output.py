@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#GetServiceViewOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.service_view
 
 
-class GetServiceViewOutput(TypedDict):
+class GetServiceViewOutput(TypedDict, closed=True):
     view: "aws_sdk_resource_explorer_2.types.service_view.ServiceView"
     """<p>A <code>ServiceView</code> object that contains the details and configuration of the requested service view.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CredentialsProviderConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,11 +13,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration
 
 
-class _CredentialsProviderConfiguration_coinbaseCDP(TypedDict):
+class _CredentialsProviderConfiguration_coinbaseCDP(TypedDict, closed=True):
     coinbaseCDP: "aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.PaymentCredentialProviderConfiguration"
 
 
-class _CredentialsProviderConfiguration_stripePrivy(TypedDict):
+class _CredentialsProviderConfiguration_stripePrivy(TypedDict, closed=True):
     stripePrivy: "aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_configuration.PaymentCredentialProviderConfiguration"
 
 

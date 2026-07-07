@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#CancelMessageMoveTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class CancelMessageMoveTaskRequest(TypedDict):
+class CancelMessageMoveTaskRequest(TypedDict, closed=True):
     task_handle: "aws_sdk_sqs.types.string.String"
     """<p>An identifier associated with a message movement task.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#Authentication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.authentication_provider_type
 
 
-class Authentication(TypedDict):
+class Authentication(TypedDict, closed=True):
     provider_type: NotRequired[
         "aws_sdk_securityagent.types.authentication_provider_type.AuthenticationProviderType"
     ]

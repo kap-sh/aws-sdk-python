@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VolumeAttachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.volume_attachment_state
 
 
-class VolumeAttachment(TypedDict):
+class VolumeAttachment(TypedDict, closed=True):
     delete_on_termination: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether the EBS volume is deleted on instance termination.</p>"""
     associated_resource: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Typography``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.control_title_font_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_title_font_configuration
 
 
-class Typography(TypedDict):
+class Typography(TypedDict, closed=True):
     font_families: NotRequired["aws_sdk_quicksight.types.font_list.FontList"]
     """<p>Determines the list of font families.</p>"""
     axis_title_font_configuration: NotRequired[

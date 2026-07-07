@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#MessageNotInflight``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_sqs.errors import ServiceError
 
 
-class MessageNotInflight_(TypedDict):
+class MessageNotInflight_(TypedDict, closed=True):
     pass
 
 

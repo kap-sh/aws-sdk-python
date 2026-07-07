@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#CreateResourceShareResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateResourceShareResponse(TypedDict):
+class CreateResourceShareResponse(TypedDict, closed=True):
     pass
 
 

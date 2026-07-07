@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomNarrativeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.narrative_string
 
 
-class CustomNarrativeOptions(TypedDict):
+class CustomNarrativeOptions(TypedDict, closed=True):
     narrative: "aws_sdk_quicksight.types.narrative_string.NarrativeString"
     """<p>The string input of custom narrative.</p>"""
 

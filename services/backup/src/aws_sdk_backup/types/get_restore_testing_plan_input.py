@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetRestoreTestingPlanInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetRestoreTestingPlanInput(TypedDict):
+class GetRestoreTestingPlanInput(TypedDict, closed=True):
     restore_testing_plan_name: "str"
     """<p>Required unique name of the restore testing plan.</p>"""
 

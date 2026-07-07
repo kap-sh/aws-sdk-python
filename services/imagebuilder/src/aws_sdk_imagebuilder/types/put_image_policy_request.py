@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#PutImagePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.resource_policy_document
 
 
-class PutImagePolicyRequest(TypedDict):
+class PutImagePolicyRequest(TypedDict, closed=True):
     image_arn: "aws_sdk_imagebuilder.types.image_build_version_arn.ImageBuildVersionArn"
     """<p>The Amazon Resource Name (ARN) of the image that this policy should be applied to.</p>"""
     policy: "aws_sdk_imagebuilder.types.resource_policy_document.ResourcePolicyDocument"

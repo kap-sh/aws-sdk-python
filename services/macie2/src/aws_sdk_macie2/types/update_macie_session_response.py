@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UpdateMacieSessionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateMacieSessionResponse(TypedDict):
+class UpdateMacieSessionResponse(TypedDict, closed=True):
     pass
 
 

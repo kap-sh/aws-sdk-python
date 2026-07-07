@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutSuppressedDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.tenant_name
 
 
-class PutSuppressedDestinationRequest(TypedDict):
+class PutSuppressedDestinationRequest(TypedDict, closed=True):
     email_address: "aws_sdk_sesv2.types.email_address.EmailAddress"
     """<p>The email address that should be added to the suppression list for your account or for the specified tenant.</p>"""
     reason: "aws_sdk_sesv2.types.suppression_list_reason.SuppressionListReason"

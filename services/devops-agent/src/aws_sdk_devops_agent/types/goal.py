@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#Goal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.goal_type
 
 
-class Goal(TypedDict):
+class Goal(TypedDict, closed=True):
     agent_space_arn: "str"
     """<p>The unique identifier for the agent space containing this goal</p>"""
     goal_id: "str"

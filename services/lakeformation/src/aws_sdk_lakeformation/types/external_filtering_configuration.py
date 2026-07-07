@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#ExternalFilteringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.scope_targets
 
 
-class ExternalFilteringConfiguration(TypedDict):
+class ExternalFilteringConfiguration(TypedDict, closed=True):
     status: "aws_sdk_lakeformation.types.enable_status.EnableStatus"
     """<p>Allows to enable or disable the third-party applications that are allowed to access data managed by Lake Formation.</p>"""
     authorized_targets: "aws_sdk_lakeformation.types.scope_targets.ScopeTargets"

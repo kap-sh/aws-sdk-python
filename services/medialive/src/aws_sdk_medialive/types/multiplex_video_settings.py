@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MultiplexVideoSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min100000_max100000000
     import aws_sdk_medialive.types.multiplex_statmux_video_settings
 
 
-class MultiplexVideoSettings(TypedDict):
+class MultiplexVideoSettings(TypedDict, closed=True):
     constant_bitrate: NotRequired[
         "aws_sdk_medialive.types.__integer_min100000_max100000000.__integerMin100000Max100000000"
     ]

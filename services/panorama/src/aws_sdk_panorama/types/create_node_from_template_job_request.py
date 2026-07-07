@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#CreateNodeFromTemplateJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.template_type
 
 
-class CreateNodeFromTemplateJobRequest(TypedDict):
+class CreateNodeFromTemplateJobRequest(TypedDict, closed=True):
     template_type: "aws_sdk_panorama.types.template_type.TemplateType"
     """<p>The type of node.</p>"""
     output_package_name: "aws_sdk_panorama.types.node_package_name.NodePackageName"

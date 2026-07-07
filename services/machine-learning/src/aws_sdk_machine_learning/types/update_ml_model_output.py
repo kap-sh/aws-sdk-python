@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#UpdateMLModelOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.entity_id
 
 
-class UpdateMLModelOutput(TypedDict):
+class UpdateMLModelOutput(TypedDict, closed=True):
     ml_model_id: NotRequired["aws_sdk_machine_learning.types.entity_id.EntityId"]
     """<p>The ID assigned to the <code>MLModel</code> during creation. This value should be identical to the value of the <code>MLModelID</code> in the request.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#UpdateSafetyLeverStateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_fis.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.update_safety_lever_state_input
 
 
-class UpdateSafetyLeverStateRequest(TypedDict):
+class UpdateSafetyLeverStateRequest(TypedDict, closed=True):
     id: "aws_sdk_fis.types.safety_lever_id.SafetyLeverId"
     """<p> The ID of the safety lever. </p>"""
     state: (

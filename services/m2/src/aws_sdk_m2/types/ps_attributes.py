@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.m2#PsAttributes``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
 
-class PsAttributes(TypedDict):
+class PsAttributes(TypedDict, closed=True):
     format: "str"
     """<p>The format of the data set records.</p>"""
     encoding: NotRequired["str"]

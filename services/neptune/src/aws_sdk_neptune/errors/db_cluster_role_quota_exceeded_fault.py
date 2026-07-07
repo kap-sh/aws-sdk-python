@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#DBClusterRoleQuotaExceededFault``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 from aws_sdk_neptune.errors import ServiceError
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.exception_message
 
 
-class DBClusterRoleQuotaExceededFault_(TypedDict):
+class DBClusterRoleQuotaExceededFault_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_neptune.types.exception_message.ExceptionMessage"]
     """<p>A message describing the details of the problem.</p>"""
 

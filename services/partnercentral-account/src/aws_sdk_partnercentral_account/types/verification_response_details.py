@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#VerificationResponseDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import (
     DeserializationError,
@@ -12,11 +14,13 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.registrant_verification_response
 
 
-class _VerificationResponseDetails_BusinessVerificationResponse(TypedDict):
+class _VerificationResponseDetails_BusinessVerificationResponse(TypedDict, closed=True):
     BusinessVerificationResponse: "aws_sdk_partnercentral_account.types.business_verification_response.BusinessVerificationResponse"
 
 
-class _VerificationResponseDetails_RegistrantVerificationResponse(TypedDict):
+class _VerificationResponseDetails_RegistrantVerificationResponse(
+    TypedDict, closed=True
+):
     RegistrantVerificationResponse: "aws_sdk_partnercentral_account.types.registrant_verification_response.RegistrantVerificationResponse"
 
 

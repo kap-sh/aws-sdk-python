@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#Insight``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.additional_info_map
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.timestamp
 
 
-class Insight(TypedDict):
+class Insight(TypedDict, closed=True):
     id: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The ID of the insight.</p>"""
     name: NotRequired["aws_sdk_eks.types.string.String"]

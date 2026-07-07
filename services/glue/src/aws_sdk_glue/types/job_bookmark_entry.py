@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#JobBookmarkEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.integer_value
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.run_id
 
 
-class JobBookmarkEntry(TypedDict):
+class JobBookmarkEntry(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_glue.types.job_name.JobName"]
     """<p>The name of the job in question.</p>"""
     version: "aws_sdk_glue.types.integer_value.IntegerValue"

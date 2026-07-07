@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateOpsMetadataResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.ops_metadata_arn
 
 
-class UpdateOpsMetadataResult(TypedDict):
+class UpdateOpsMetadataResult(TypedDict, closed=True):
     ops_metadata_arn: NotRequired["aws_sdk_ssm.types.ops_metadata_arn.OpsMetadataArn"]
     """<p>The Amazon Resource Name (ARN) of the OpsMetadata Object that was updated.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DeleteSnapshotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.snapshot_id
 
 
-class DeleteSnapshotRequest(TypedDict):
+class DeleteSnapshotRequest(TypedDict, closed=True):
     snapshot_id: "aws_sdk_directory_service.types.snapshot_id.SnapshotId"
     """<p>The identifier of the directory snapshot to be deleted.</p>"""
 

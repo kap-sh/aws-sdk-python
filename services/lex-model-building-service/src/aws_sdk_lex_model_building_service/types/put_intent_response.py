@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#PutIntentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.boolean
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.version
 
 
-class PutIntentResponse(TypedDict):
+class PutIntentResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lex_model_building_service.types.intent_name.IntentName"]
     """<p>The name of the intent.</p>"""
     description: NotRequired[

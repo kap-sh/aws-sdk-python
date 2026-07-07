@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ListChannelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__list_of_channel
     import aws_sdk_mediatailor.types.__string
 
 
-class ListChannelsResponse(TypedDict):
+class ListChannelsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_mediatailor.types.__list_of_channel.__listOfChannel"]
     """<p>A list of channels that are associated with this account.</p>"""
     next_token: NotRequired["aws_sdk_mediatailor.types.__string.__string"]

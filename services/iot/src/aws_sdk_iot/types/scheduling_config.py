@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#SchedulingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.job_end_behavior
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.string_date_time
 
 
-class SchedulingConfig(TypedDict):
+class SchedulingConfig(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_iot.types.string_date_time.StringDateTime"]
     r"""<p>The time a job will begin rollout of the job document to all devices in the target group for a job. The <code>startTime</code> can be scheduled up to a year in advance and must be scheduled a minimum of thirty minutes from the current time. The date and time format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM for the time.</p> <p>For more information on the syntax for <code>startTime</code> when using an API command or the Command Line Interface, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp\">Timestamp</a>.</p>"""
     end_time: NotRequired["aws_sdk_iot.types.string_date_time.StringDateTime"]

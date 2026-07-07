@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListFoundationModelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.inference_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.provider
 
 
-class ListFoundationModelsRequest(TypedDict):
+class ListFoundationModelsRequest(TypedDict, closed=True):
     by_provider: NotRequired["aws_sdk_bedrock.types.provider.Provider"]
     """<p>Return models belonging to the model provider that you specify.</p>"""
     by_customization_type: NotRequired[

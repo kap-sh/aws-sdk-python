@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.tag_map
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     tags: "aws_sdk_kinesis.types.tag_map.TagMap"
     """<p>An array of tags to be added to the Kinesis resource. A tag consists of a required key and an optional value. You can add up to 50 tags per resource.</p> <p>Tags may only contain Unicode letters, digits, white space, or these symbols: _ . : / = + - @.</p>"""
     resource_arn: "aws_sdk_kinesis.types.resource_arn.ResourceARN"

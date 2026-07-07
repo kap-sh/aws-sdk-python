@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListReadSetUploadPartsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.next_token
     import aws_sdk_omics.types.read_set_upload_part_list
 
 
-class ListReadSetUploadPartsResponse(TypedDict):
+class ListReadSetUploadPartsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_omics.types.next_token.NextToken"]
     """<p>Next token returned in the response of a previous ListReadSetUploadParts call. Used to get the next page of results.</p>"""
     parts: NotRequired[

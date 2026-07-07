@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ListClassificationJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.list_jobs_sort_criteria
 
 
-class ListClassificationJobsRequest(TypedDict):
+class ListClassificationJobsRequest(TypedDict, closed=True):
     filter_criteria: NotRequired[
         "aws_sdk_macie2.types.list_jobs_filter_criteria.ListJobsFilterCriteria"
     ]

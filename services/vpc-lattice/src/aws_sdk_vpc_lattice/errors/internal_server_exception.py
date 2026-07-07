@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#InternalServerException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError, ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
     retry_after_seconds: NotRequired["int"]
     """<p>The number of seconds to wait before retrying.</p>"""

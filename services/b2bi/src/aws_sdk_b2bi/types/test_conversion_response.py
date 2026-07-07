@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#TestConversionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.validation_messages
 
 
-class TestConversionResponse(TypedDict):
+class TestConversionResponse(TypedDict, closed=True):
     converted_file_content: "str"
     """<p>Returns the converted file content.</p>"""
     validation_messages: NotRequired[

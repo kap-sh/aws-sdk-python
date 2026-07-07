@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteDomainInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
 
 
-class DeleteDomainInput(TypedDict):
+class DeleteDomainInput(TypedDict, closed=True):
     identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon Web Services domain that is to be deleted.</p>"""
     client_token: NotRequired["str"]

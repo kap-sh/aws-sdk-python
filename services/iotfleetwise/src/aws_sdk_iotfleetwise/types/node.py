@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#Node``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError, SerializationError
 
@@ -13,27 +15,27 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.sensor
 
 
-class _Node_branch(TypedDict):
+class _Node_branch(TypedDict, closed=True):
     branch: "aws_sdk_iotfleetwise.types.branch.Branch"
 
 
-class _Node_sensor(TypedDict):
+class _Node_sensor(TypedDict, closed=True):
     sensor: "aws_sdk_iotfleetwise.types.sensor.Sensor"
 
 
-class _Node_actuator(TypedDict):
+class _Node_actuator(TypedDict, closed=True):
     actuator: "aws_sdk_iotfleetwise.types.actuator.Actuator"
 
 
-class _Node_attribute(TypedDict):
+class _Node_attribute(TypedDict, closed=True):
     attribute: "aws_sdk_iotfleetwise.types.attribute.Attribute"
 
 
-class _Node_struct(TypedDict):
+class _Node_struct(TypedDict, closed=True):
     struct: "aws_sdk_iotfleetwise.types.custom_struct.CustomStruct"
 
 
-class _Node_property(TypedDict):
+class _Node_property(TypedDict, closed=True):
     property: "aws_sdk_iotfleetwise.types.custom_property.CustomProperty"
 
 

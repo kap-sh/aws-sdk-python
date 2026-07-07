@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#ListSolFunctionInstancesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.list_sol_function_instance_resources
     import aws_sdk_tnb.types.pagination_token
 
 
-class ListSolFunctionInstancesOutput(TypedDict):
+class ListSolFunctionInstancesOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_tnb.types.pagination_token.PaginationToken"]
     """<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>"""
     function_instances: NotRequired[

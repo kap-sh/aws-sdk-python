@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#GetBotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.bot_status
     import aws_sdk_wickr.types.generic_string
 
 
-class GetBotResponse(TypedDict):
+class GetBotResponse(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>The unique identifier of the bot.</p>"""
     display_name: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

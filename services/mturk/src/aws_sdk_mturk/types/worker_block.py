@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#WorkerBlock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.customer_id
     import aws_sdk_mturk.types.string
 
 
-class WorkerBlock(TypedDict):
+class WorkerBlock(TypedDict, closed=True):
     worker_id: NotRequired["aws_sdk_mturk.types.customer_id.CustomerId"]
     """<p> The ID of the Worker who accepted the HIT.</p>"""
     reason: NotRequired["aws_sdk_mturk.types.string.String"]

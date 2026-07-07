@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsNetworkFirewallFirewallDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_network_firewall_firewall_subnet_mappings_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsNetworkFirewallFirewallDetails(TypedDict):
+class AwsNetworkFirewallFirewallDetails(TypedDict, closed=True):
     delete_protection: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether the firewall is protected from deletion. If set to <code>true</code>, then the firewall cannot be deleted.</p>"""
     description: NotRequired[

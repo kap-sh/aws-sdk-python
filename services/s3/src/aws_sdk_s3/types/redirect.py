@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#Redirect``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.replace_key_with
 
 
-class Redirect(TypedDict):
+class Redirect(TypedDict, closed=True):
     host_name: NotRequired["aws_sdk_s3.types.host_name.HostName"]
     """<p>The host name to use in the redirect request.</p>"""
     http_redirect_code: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CvssScoreDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.non_empty_string
 
 
-class CvssScoreDetails(TypedDict):
+class CvssScoreDetails(TypedDict, closed=True):
     score_source: "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"
     """<p>The source for the CVSS score.</p>"""
     cvss_source: NotRequired["aws_sdk_inspector2.types.non_empty_string.NonEmptyString"]

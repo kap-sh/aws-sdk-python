@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#CreateBatchLoadTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.resource_create_api_name
 
 
-class CreateBatchLoadTaskRequest(TypedDict):
+class CreateBatchLoadTaskRequest(TypedDict, closed=True):
     client_token: NotRequired[
         "aws_sdk_timestream_write.types.client_request_token.ClientRequestToken"
     ]

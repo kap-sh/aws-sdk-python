@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AssociateVpcCidrBlockRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_id
 
 
-class AssociateVpcCidrBlockRequest(TypedDict):
+class AssociateVpcCidrBlockRequest(TypedDict, closed=True):
     cidr_block: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>An IPv4 CIDR block to associate with the VPC.</p>"""
     ipv6_cidr_block_network_border_group: NotRequired["aws_sdk_ec2.types.string.String"]

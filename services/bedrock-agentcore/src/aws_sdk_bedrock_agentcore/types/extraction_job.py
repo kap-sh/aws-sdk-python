@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ExtractionJob``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class ExtractionJob(TypedDict):
+class ExtractionJob(TypedDict, closed=True):
     job_id: "str"
     """<p>The unique identifier of the extraction job.</p>"""
 

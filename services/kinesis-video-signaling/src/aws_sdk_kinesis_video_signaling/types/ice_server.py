@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideosignaling#IceServer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_signaling.types.password
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video_signaling.types.username
 
 
-class IceServer(TypedDict):
+class IceServer(TypedDict, closed=True):
     uris: NotRequired["aws_sdk_kinesis_video_signaling.types.uris.Uris"]
     r"""<p>An array of URIs, in the form specified in the <a href=\"https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03\">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different addresses and/or protocols that can be used to reach the TURN server.</p>"""
     username: NotRequired["aws_sdk_kinesis_video_signaling.types.username.Username"]

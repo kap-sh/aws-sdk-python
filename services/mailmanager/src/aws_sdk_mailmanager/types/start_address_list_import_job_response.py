@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#StartAddressListImportJobResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartAddressListImportJobResponse(TypedDict):
+class StartAddressListImportJobResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_arn
 
 
-class UpdateClusterResponse(TypedDict):
+class UpdateClusterResponse(TypedDict, closed=True):
     cluster_arn: NotRequired["aws_sdk_sagemaker.types.cluster_arn.ClusterArn"]
     """<p>The Amazon Resource Name (ARN) of the updated SageMaker HyperPod cluster.</p>"""
 

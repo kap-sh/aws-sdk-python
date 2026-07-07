@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DeleteDefaultMessageTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name_or_arn
 
 
-class DeleteDefaultMessageTypeRequest(TypedDict):
+class DeleteDefaultMessageTypeRequest(TypedDict, closed=True):
     configuration_set_name: "aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name_or_arn.ConfigurationSetNameOrArn"
     """<p>The name of the configuration set or the configuration set Amazon Resource Name (ARN) to delete the default message type from. The ConfigurationSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>"""
 

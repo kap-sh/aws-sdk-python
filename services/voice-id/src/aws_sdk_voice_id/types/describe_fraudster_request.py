@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#DescribeFraudsterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_voice_id.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.fraudster_id
 
 
-class DescribeFraudsterRequest(TypedDict):
+class DescribeFraudsterRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_voice_id.types.domain_id.DomainId"
     """<p>The identifier of the domain that contains the fraudster.</p>"""
     fraudster_id: "aws_sdk_voice_id.types.fraudster_id.FraudsterId"

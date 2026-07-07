@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#PutEvaluationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class PutEvaluationsRequest(TypedDict):
+class PutEvaluationsRequest(TypedDict, closed=True):
     evaluations: NotRequired["aws_sdk_config_service.types.evaluations.Evaluations"]
     """<p>The assessments that the Lambda function performs. Each evaluation identifies an Amazon Web Services resource and indicates whether it complies with the Config rule that invokes the Lambda function.</p>"""
     result_token: "aws_sdk_config_service.types.string.String"

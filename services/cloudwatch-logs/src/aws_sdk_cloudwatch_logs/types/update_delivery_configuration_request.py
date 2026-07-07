@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#UpdateDeliveryConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.s3_delivery_configuration
 
 
-class UpdateDeliveryConfigurationRequest(TypedDict):
+class UpdateDeliveryConfigurationRequest(TypedDict, closed=True):
     id: "aws_sdk_cloudwatch_logs.types.delivery_id.DeliveryId"
     """<p>The ID of the delivery to be updated by this request.</p>"""
     record_fields: NotRequired[

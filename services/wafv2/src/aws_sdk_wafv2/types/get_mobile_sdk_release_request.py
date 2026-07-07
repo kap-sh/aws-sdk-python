@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GetMobileSdkReleaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.version_key_string
 
 
-class GetMobileSdkReleaseRequest(TypedDict):
+class GetMobileSdkReleaseRequest(TypedDict, closed=True):
     platform: "aws_sdk_wafv2.types.platform.Platform"
     """<p>The device platform.</p>"""
     release_version: "aws_sdk_wafv2.types.version_key_string.VersionKeyString"

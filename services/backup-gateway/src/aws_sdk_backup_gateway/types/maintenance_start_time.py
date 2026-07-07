@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#MaintenanceStartTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup_gateway.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.minute_of_hour
 
 
-class MaintenanceStartTime(TypedDict):
+class MaintenanceStartTime(TypedDict, closed=True):
     day_of_month: NotRequired["aws_sdk_backup_gateway.types.day_of_month.DayOfMonth"]
     """<p>The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.</p>"""
     day_of_week: NotRequired["aws_sdk_backup_gateway.types.day_of_week.DayOfWeek"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#KMSInvalidStateException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import ServiceError
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class KMSInvalidStateException_(TypedDict):
+class KMSInvalidStateException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_sns.types.string.String"]
 
 

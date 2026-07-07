@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#TimeSeriesDataPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.timestamp
 
 
-class TimeSeriesDataPoint(TypedDict):
+class TimeSeriesDataPoint(TypedDict, closed=True):
     time: "aws_sdk_timestream_query.types.timestamp.Timestamp"
     """<p>The timestamp when the measure value was collected.</p>"""
     value: "aws_sdk_timestream_query.types.datum.Datum"

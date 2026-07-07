@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#SelectedPillar``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.pillar_id
     import aws_sdk_wellarchitected.types.selected_question_ids
 
 
-class SelectedPillar(TypedDict):
+class SelectedPillar(TypedDict, closed=True):
     pillar_id: NotRequired["aws_sdk_wellarchitected.types.pillar_id.PillarId"]
     selected_question_ids: NotRequired[
         "aws_sdk_wellarchitected.types.selected_question_ids.SelectedQuestionIds"

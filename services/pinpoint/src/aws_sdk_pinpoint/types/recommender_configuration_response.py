@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#RecommenderConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of__string
 
 
-class RecommenderConfigurationResponse(TypedDict):
+class RecommenderConfigurationResponse(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_pinpoint.types.map_of__string.MapOf__string"]
     """<p>A map that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.</p> <p>This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p>"""
     creation_date: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

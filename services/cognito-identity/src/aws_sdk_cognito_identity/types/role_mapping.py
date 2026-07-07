@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#RoleMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.rules_configuration_type
 
 
-class RoleMapping(TypedDict):
+class RoleMapping(TypedDict, closed=True):
     type: "aws_sdk_cognito_identity.types.role_mapping_type.RoleMappingType"
     """<p>The role mapping type. Token will use <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.</p>"""
     ambiguous_role_resolution: NotRequired[

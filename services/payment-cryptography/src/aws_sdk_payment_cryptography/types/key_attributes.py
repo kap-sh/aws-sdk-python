@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#KeyAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.key_usage
 
 
-class KeyAttributes(TypedDict):
+class KeyAttributes(TypedDict, closed=True):
     key_usage: "aws_sdk_payment_cryptography.types.key_usage.KeyUsage"
     """<p>The cryptographic usage of an Amazon Web Services Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.</p>"""
     key_class: "aws_sdk_payment_cryptography.types.key_class.KeyClass"

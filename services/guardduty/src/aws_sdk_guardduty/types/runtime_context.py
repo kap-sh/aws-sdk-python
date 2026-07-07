@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#RuntimeContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.flags_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.timestamp
 
 
-class RuntimeContext(TypedDict):
+class RuntimeContext(TypedDict, closed=True):
     modifying_process: NotRequired[
         "aws_sdk_guardduty.types.process_details.ProcessDetails"
     ]

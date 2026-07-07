@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DecimalCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.decimal_comparison_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.string
 
 
-class DecimalCondition(TypedDict):
+class DecimalCondition(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_connect.types.string.String"]
     """<p>A name of the decimal property to be searched.</p>"""
     min_value: NotRequired["aws_sdk_connect.types.nullable_double.NullableDouble"]

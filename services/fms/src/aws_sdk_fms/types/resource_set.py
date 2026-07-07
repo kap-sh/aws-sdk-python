@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ResourceSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.update_token
 
 
-class ResourceSet(TypedDict):
+class ResourceSet(TypedDict, closed=True):
     id: NotRequired["aws_sdk_fms.types.base62_id.Base62Id"]
     """<p>A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.</p>"""
     name: "aws_sdk_fms.types.name.Name"

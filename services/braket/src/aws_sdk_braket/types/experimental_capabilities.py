@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#ExperimentalCapabilities``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.experimental_capabilities_enablement_type
 
 
-class _ExperimentalCapabilities_enabled(TypedDict):
+class _ExperimentalCapabilities_enabled(TypedDict, closed=True):
     enabled: "aws_sdk_braket.types.experimental_capabilities_enablement_type.ExperimentalCapabilitiesEnablementType"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListAuthenticationProfilesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.authentication_profile_summary_list
     import aws_sdk_connect.types.next_token
 
 
-class ListAuthenticationProfilesResponse(TypedDict):
+class ListAuthenticationProfilesResponse(TypedDict, closed=True):
     authentication_profile_summary_list: NotRequired[
         "aws_sdk_connect.types.authentication_profile_summary_list.AuthenticationProfileSummaryList"
     ]

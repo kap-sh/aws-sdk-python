@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DatabaseIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.catalog_id_string
     import aws_sdk_glue.types.name_string
 
 
-class DatabaseIdentifier(TypedDict):
+class DatabaseIdentifier(TypedDict, closed=True):
     catalog_id: NotRequired["aws_sdk_glue.types.catalog_id_string.CatalogIdString"]
     """<p>The ID of the Data Catalog in which the database resides.</p>"""
     database_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

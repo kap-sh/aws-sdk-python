@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#CreateMeetingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.meeting
 
 
-class CreateMeetingResponse(TypedDict):
+class CreateMeetingResponse(TypedDict, closed=True):
     meeting: NotRequired["aws_sdk_chime_sdk_meetings.types.meeting.Meeting"]
     """<p>The meeting information, including the meeting ID and <code>MediaPlacement</code>.</p>"""
 

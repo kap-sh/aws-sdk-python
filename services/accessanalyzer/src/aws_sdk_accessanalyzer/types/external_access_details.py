@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ExternalAccessDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.resource_control_policy_restriction
 
 
-class ExternalAccessDetails(TypedDict):
+class ExternalAccessDetails(TypedDict, closed=True):
     action: NotRequired["aws_sdk_accessanalyzer.types.action_list.ActionList"]
     """<p>The action in the analyzed policy statement that an external principal has permission to use.</p>"""
     condition: "aws_sdk_accessanalyzer.types.condition_key_map.ConditionKeyMap"

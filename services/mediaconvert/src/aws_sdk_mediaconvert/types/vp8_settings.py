@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Vp8Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double_min0
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.vp8_rate_control_mode
 
 
-class Vp8Settings(TypedDict):
+class Vp8Settings(TypedDict, closed=True):
     bitrate: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min1000_max1152000000.__integerMin1000Max1152000000"
     ]

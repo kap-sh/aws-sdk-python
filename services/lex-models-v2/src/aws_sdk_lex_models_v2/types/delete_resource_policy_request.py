@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DeleteResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.amazon_resource_name
     import aws_sdk_lex_models_v2.types.revision_id
 
 
-class DeleteResourcePolicyRequest(TypedDict):
+class DeleteResourcePolicyRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_lex_models_v2.types.amazon_resource_name.AmazonResourceName"
     """<p>The Amazon Resource Name (ARN) of the bot or bot alias that has the resource policy attached.</p>"""
     expected_revision_id: NotRequired[

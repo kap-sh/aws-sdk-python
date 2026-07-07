@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateFeatureGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.feature_additions
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.throughput_config_update
 
 
-class UpdateFeatureGroupRequest(TypedDict):
+class UpdateFeatureGroupRequest(TypedDict, closed=True):
     feature_group_name: NotRequired[
         "aws_sdk_sagemaker.types.feature_group_name_or_arn.FeatureGroupNameOrArn"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#GetRandomPasswordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.exclude_characters_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.require_each_included_type_type
 
 
-class GetRandomPasswordRequest(TypedDict):
+class GetRandomPasswordRequest(TypedDict, closed=True):
     password_length: NotRequired[
         "aws_sdk_secrets_manager.types.password_length_type.PasswordLengthType"
     ]

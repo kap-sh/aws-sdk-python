@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#Outpost``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.availability_zone
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.tag_map
 
 
-class Outpost(TypedDict):
+class Outpost(TypedDict, closed=True):
     outpost_id: NotRequired["aws_sdk_outposts.types.outpost_id.OutpostId"]
     """<p> The ID of the Outpost. </p>"""
     owner_id: NotRequired["aws_sdk_outposts.types.owner_id.OwnerId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#LibraryTemplateBodyInputs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.add_contact_number
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.code_expiration_minutes
 
 
-class LibraryTemplateBodyInputs(TypedDict):
+class LibraryTemplateBodyInputs(TypedDict, closed=True):
     add_contact_number: NotRequired[
         "aws_sdk_socialmessaging.types.add_contact_number.AddContactNumber"
     ]

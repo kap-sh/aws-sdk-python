@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#FailedItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.failed_item_reason
     import aws_sdk_fms.types.identifier
 
 
-class FailedItem(TypedDict):
+class FailedItem(TypedDict, closed=True):
     uri: NotRequired["aws_sdk_fms.types.identifier.Identifier"]
     """<p>The univeral resource indicator (URI) of the resource that failed.</p>"""
     reason: NotRequired["aws_sdk_fms.types.failed_item_reason.FailedItemReason"]

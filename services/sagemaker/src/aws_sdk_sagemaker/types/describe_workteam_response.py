@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeWorkteamResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workteam
 
 
-class DescribeWorkteamResponse(TypedDict):
+class DescribeWorkteamResponse(TypedDict, closed=True):
     workteam: NotRequired["aws_sdk_sagemaker.types.workteam.Workteam"]
     """<p>A <code>Workteam</code> instance that contains information about the work team. </p>"""
 

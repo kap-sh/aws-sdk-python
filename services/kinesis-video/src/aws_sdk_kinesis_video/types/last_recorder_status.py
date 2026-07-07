@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#LastRecorderStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.job_status_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.timestamp
 
 
-class LastRecorderStatus(TypedDict):
+class LastRecorderStatus(TypedDict, closed=True):
     job_status_details: NotRequired[
         "aws_sdk_kinesis_video.types.job_status_details.JobStatusDetails"
     ]

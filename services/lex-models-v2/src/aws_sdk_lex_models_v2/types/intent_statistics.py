@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#IntentStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.count
 
 
-class IntentStatistics(TypedDict):
+class IntentStatistics(TypedDict, closed=True):
     discovered_intent_count: NotRequired["aws_sdk_lex_models_v2.types.count.Count"]
     """<p>The number of recommended intents associated with the bot recommendation.</p>"""
 

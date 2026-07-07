@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BatchGetSandboxesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.sandbox_ids
 
 
-class BatchGetSandboxesInput(TypedDict):
+class BatchGetSandboxesInput(TypedDict, closed=True):
     ids: "aws_sdk_codebuild.types.sandbox_ids.SandboxIds"
     """<p>A comma separated list of <code>sandboxIds</code> or <code>sandboxArns</code>.</p>"""
 

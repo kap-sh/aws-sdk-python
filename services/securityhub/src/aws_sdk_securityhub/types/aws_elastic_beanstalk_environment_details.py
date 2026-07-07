@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElasticBeanstalkEnvironmentDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_elastic_beanstalk_environment_environment_links
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsElasticBeanstalkEnvironmentDetails(TypedDict):
+class AwsElasticBeanstalkEnvironmentDetails(TypedDict, closed=True):
     application_name: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

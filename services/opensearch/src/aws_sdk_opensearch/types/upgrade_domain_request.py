@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#UpgradeDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.version_string
 
 
-class UpgradeDomainRequest(TypedDict):
+class UpgradeDomainRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"
     """<p>Name of the OpenSearch Service domain that you want to upgrade.</p>"""
     target_version: "aws_sdk_opensearch.types.version_string.VersionString"

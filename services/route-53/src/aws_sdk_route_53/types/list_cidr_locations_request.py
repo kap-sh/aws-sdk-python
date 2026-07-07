@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ListCidrLocationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.uuid
 
 
-class ListCidrLocationsRequest(TypedDict):
+class ListCidrLocationsRequest(TypedDict, closed=True):
     collection_id: "aws_sdk_route_53.types.uuid.UUID"
     """<p>The CIDR collection ID.</p>"""
     next_token: NotRequired["aws_sdk_route_53.types.pagination_token.PaginationToken"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#ResourcePendingMaintenanceAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.pending_maintenance_action_details_list
 
 
-class ResourcePendingMaintenanceAction(TypedDict):
+class ResourcePendingMaintenanceAction(TypedDict, closed=True):
     resource_arn: NotRequired["str"]
     """<p>The Amazon DocumentDB Amazon Resource Name (ARN) of the resource to which the pending maintenance action applies.</p>"""
     pending_maintenance_action_details: NotRequired[

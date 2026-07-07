@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreatePaymentConnectorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -14,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.payment_manager_id
 
 
-class CreatePaymentConnectorResponse(TypedDict):
+class CreatePaymentConnectorResponse(TypedDict, closed=True):
     payment_connector_id: "aws_sdk_bedrock_agentcore_control.types.payment_connector_id.PaymentConnectorId"
     """<p>The unique identifier of the created payment connector.</p>"""
     payment_manager_id: (

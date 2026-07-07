@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.odb#OciEncryptionKeyConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
 
-class OciEncryptionKeyConfiguration(TypedDict):
+class OciEncryptionKeyConfiguration(TypedDict, closed=True):
     kms_key_id: "str"
     """<p>The Oracle Cloud Identifier (OCID) of the OCI Vault key to use for encryption.</p>"""
     vault_id: "str"

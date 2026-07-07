@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.amazon_resource_name
     import aws_sdk_iotdeviceadvisor.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: (
         "aws_sdk_iotdeviceadvisor.types.amazon_resource_name.AmazonResourceName"
     )

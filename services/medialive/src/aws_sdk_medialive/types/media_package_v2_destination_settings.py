@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MediaPackageV2DestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.hls_default
 
 
-class MediaPackageV2DestinationSettings(TypedDict):
+class MediaPackageV2DestinationSettings(TypedDict, closed=True):
     audio_group_id: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Applies only to an output that contains audio. If you want to put several audio encodes into one audio rendition group, decide on a name (ID) for the group. Then in every audio output that you want to belong to that group, enter that ID in this field. Note that this information is part of the HLS specification (not the CMAF specification), but if you include it then MediaPackage will include it in the manifest it creates for the video player."""
     audio_rendition_sets: NotRequired["aws_sdk_medialive.types.__string.__string"]

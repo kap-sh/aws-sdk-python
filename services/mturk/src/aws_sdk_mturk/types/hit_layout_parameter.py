@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#HITLayoutParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class HITLayoutParameter(TypedDict):
+class HITLayoutParameter(TypedDict, closed=True):
     name: "aws_sdk_mturk.types.string.String"
     """<p> The name of the parameter in the HITLayout. </p>"""
     value: "aws_sdk_mturk.types.string.String"

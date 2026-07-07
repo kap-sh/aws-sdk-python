@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#UpdateSceneResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.timestamp
 
 
-class UpdateSceneResponse(TypedDict):
+class UpdateSceneResponse(TypedDict, closed=True):
     update_date_time: "aws_sdk_iottwinmaker.types.timestamp.Timestamp"
     """<p>The date and time when the scene was last updated.</p>"""
 

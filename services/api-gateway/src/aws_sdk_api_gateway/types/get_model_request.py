@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#GetModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.boolean
     import aws_sdk_api_gateway.types.string
 
 
-class GetModelRequest(TypedDict):
+class GetModelRequest(TypedDict, closed=True):
     rest_api_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The RestApi identifier under which the Model exists.</p>"""
     model_name: "aws_sdk_api_gateway.types.string.String"

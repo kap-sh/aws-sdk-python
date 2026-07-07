@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EFSFileSystemConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.file_system_id
     import aws_sdk_sagemaker.types.file_system_path
 
 
-class EFSFileSystemConfig(TypedDict):
+class EFSFileSystemConfig(TypedDict, closed=True):
     file_system_id: NotRequired["aws_sdk_sagemaker.types.file_system_id.FileSystemId"]
     """<p>The ID of your Amazon EFS file system.</p>"""
     file_system_path: NotRequired[

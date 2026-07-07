@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#Attachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.attachment_error_list
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.tag_list
 
 
-class Attachment(TypedDict):
+class Attachment(TypedDict, closed=True):
     core_network_id: NotRequired[
         "aws_sdk_networkmanager.types.core_network_id.CoreNetworkId"
     ]

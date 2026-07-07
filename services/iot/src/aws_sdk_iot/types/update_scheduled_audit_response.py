@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateScheduledAuditResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.scheduled_audit_arn
 
 
-class UpdateScheduledAuditResponse(TypedDict):
+class UpdateScheduledAuditResponse(TypedDict, closed=True):
     scheduled_audit_arn: NotRequired[
         "aws_sdk_iot.types.scheduled_audit_arn.ScheduledAuditArn"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#S3Origin``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class S3Origin(TypedDict):
+class S3Origin(TypedDict, closed=True):
     domain_name: "aws_sdk_cloudfront.types.string.string"
     """<p>The DNS name of the Amazon S3 origin.</p>"""
     origin_access_identity: "aws_sdk_cloudfront.types.string.string"

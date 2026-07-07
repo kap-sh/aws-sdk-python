@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#AccountPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.account_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class AccountPolicy(TypedDict):
+class AccountPolicy(TypedDict, closed=True):
     policy_name: NotRequired["aws_sdk_cloudwatch_logs.types.policy_name.PolicyName"]
     """<p>The name of the account policy.</p>"""
     policy_document: NotRequired[

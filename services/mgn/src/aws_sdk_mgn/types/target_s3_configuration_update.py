@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#TargetS3ConfigurationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
     import aws_sdk_mgn.types.s3_bucket_name
 
 
-class TargetS3ConfigurationUpdate(TypedDict):
+class TargetS3ConfigurationUpdate(TypedDict, closed=True):
     s3_bucket: NotRequired["aws_sdk_mgn.types.s3_bucket_name.S3BucketName"]
     """<p>The updated name of the S3 bucket.</p>"""
     s3_bucket_owner: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]

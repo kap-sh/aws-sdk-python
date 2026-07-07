@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#Conditions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.object_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.threshold
 
 
-class Conditions(TypedDict):
+class Conditions(TypedDict, closed=True):
     range: NotRequired["aws_sdk_customer_profiles.types.range.Range"]
     """<p>The relative time period over which data is included in the aggregation.</p>"""
     object_count: NotRequired[

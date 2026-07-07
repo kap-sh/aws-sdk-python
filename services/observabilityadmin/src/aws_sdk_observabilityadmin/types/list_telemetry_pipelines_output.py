@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ListTelemetryPipelinesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.next_token
     import aws_sdk_observabilityadmin.types.telemetry_pipeline_summaries
 
 
-class ListTelemetryPipelinesOutput(TypedDict):
+class ListTelemetryPipelinesOutput(TypedDict, closed=True):
     pipeline_summaries: NotRequired[
         "aws_sdk_observabilityadmin.types.telemetry_pipeline_summaries.TelemetryPipelineSummaries"
     ]

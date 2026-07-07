@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#RuleEvaluation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.simple_rule_evaluation
 
 
-class RuleEvaluation(TypedDict):
+class RuleEvaluation(TypedDict, closed=True):
     simple_rule_evaluation: NotRequired[
         "aws_sdk_iot_events_data.types.simple_rule_evaluation.SimpleRuleEvaluation"
     ]

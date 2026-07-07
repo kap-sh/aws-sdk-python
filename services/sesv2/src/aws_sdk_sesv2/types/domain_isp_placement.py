@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DomainIspPlacement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.isp_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.volume
 
 
-class DomainIspPlacement(TypedDict):
+class DomainIspPlacement(TypedDict, closed=True):
     isp_name: NotRequired["aws_sdk_sesv2.types.isp_name.IspName"]
     """<p>The name of the email provider that the inbox placement data applies to.</p>"""
     inbox_raw_count: NotRequired["aws_sdk_sesv2.types.volume.Volume"]

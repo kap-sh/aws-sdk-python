@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ListPrivateConnectionsInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListPrivateConnectionsInput(TypedDict):
+class ListPrivateConnectionsInput(TypedDict, closed=True):
     pass
 
 

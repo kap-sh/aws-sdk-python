@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ToolOverrideInputValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.tool_override_input_value_configuration
 
 
-class ToolOverrideInputValue(TypedDict):
+class ToolOverrideInputValue(TypedDict, closed=True):
     json_path: "aws_sdk_qconnect.types.non_empty_string.NonEmptyString"
     """<p>The JSON path for the input value override.</p>"""
     value: "aws_sdk_qconnect.types.tool_override_input_value_configuration.ToolOverrideInputValueConfiguration"

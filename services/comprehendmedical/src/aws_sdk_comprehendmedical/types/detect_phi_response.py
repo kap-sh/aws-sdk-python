@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#DetectPHIResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehendmedical.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.string
 
 
-class DetectPHIResponse(TypedDict):
+class DetectPHIResponse(TypedDict, closed=True):
     entities: "aws_sdk_comprehendmedical.types.entity_list.EntityList"
     """<p>The collection of PHI entities extracted from the input text and their associated information. For each entity, the response provides the entity text, the entity category, where the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in its detection.</p>"""
     pagination_token: NotRequired["aws_sdk_comprehendmedical.types.string.String"]

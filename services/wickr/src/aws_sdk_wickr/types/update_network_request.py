@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#UpdateNetworkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.network_id
 
 
-class UpdateNetworkRequest(TypedDict):
+class UpdateNetworkRequest(TypedDict, closed=True):
     network_id: "aws_sdk_wickr.types.network_id.NetworkId"
     """<p>The ID of the Wickr network to update.</p>"""
     network_name: "aws_sdk_wickr.types.generic_string.GenericString"

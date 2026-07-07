@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ConnectorEgressConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.connector_vpc_lattice_egress_config
 
 
-class _ConnectorEgressConfig_VpcLattice(TypedDict):
+class _ConnectorEgressConfig_VpcLattice(TypedDict, closed=True):
     VpcLattice: "aws_sdk_transfer.types.connector_vpc_lattice_egress_config.ConnectorVpcLatticeEgressConfig"
 
 

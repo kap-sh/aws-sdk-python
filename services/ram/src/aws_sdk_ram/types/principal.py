@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#Principal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class Principal(TypedDict):
+class Principal(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>The ID of the principal that can be associated with a resource share.</p>"""
     resource_share_arn: NotRequired["aws_sdk_ram.types.string.String"]

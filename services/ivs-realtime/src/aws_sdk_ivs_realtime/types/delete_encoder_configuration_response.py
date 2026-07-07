@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#DeleteEncoderConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteEncoderConfigurationResponse(TypedDict):
+class DeleteEncoderConfigurationResponse(TypedDict, closed=True):
     pass
 
 

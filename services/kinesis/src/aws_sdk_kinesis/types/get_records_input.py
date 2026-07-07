@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#GetRecordsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_id
 
 
-class GetRecordsInput(TypedDict):
+class GetRecordsInput(TypedDict, closed=True):
     shard_iterator: "aws_sdk_kinesis.types.shard_iterator.ShardIterator"
     """<p>The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.</p>"""
     limit: NotRequired[

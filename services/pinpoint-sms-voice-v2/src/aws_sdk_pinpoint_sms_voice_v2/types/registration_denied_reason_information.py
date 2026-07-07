@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#RegistrationDeniedReasonInformation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
 
-class RegistrationDeniedReasonInformation(TypedDict):
+class RegistrationDeniedReasonInformation(TypedDict, closed=True):
     reason: "str"
     """<p>The reason a registration was rejected.</p>"""
     short_description: "str"

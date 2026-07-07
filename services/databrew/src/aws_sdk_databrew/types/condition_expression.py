@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ConditionExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.target_column
 
 
-class ConditionExpression(TypedDict):
+class ConditionExpression(TypedDict, closed=True):
     condition: "aws_sdk_databrew.types.condition.Condition"
     r"""<p>A specific condition to apply to a recipe action. For more information, see <a href=\"https://docs.aws.amazon.com/databrew/latest/dg/recipes.html#recipes.structure\">Recipe structure</a> in the <i>Glue DataBrew Developer Guide</i>.</p>"""
     value: NotRequired["aws_sdk_databrew.types.condition_value.ConditionValue"]

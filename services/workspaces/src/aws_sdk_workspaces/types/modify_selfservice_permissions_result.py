@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ModifySelfservicePermissionsResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ModifySelfservicePermissionsResult(TypedDict):
+class ModifySelfservicePermissionsResult(TypedDict, closed=True):
     pass
 
 

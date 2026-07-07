@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#RemoveTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.string_list
 
 
-class RemoveTagsRequest(TypedDict):
+class RemoveTagsRequest(TypedDict, closed=True):
     arn: "aws_sdk_elasticsearch_service.types.arn.ARN"
     """<p>Specifies the <code>ARN</code> for the Elasticsearch domain from which you want to delete the specified tags.</p>"""
     tag_keys: "aws_sdk_elasticsearch_service.types.string_list.StringList"

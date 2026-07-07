@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DataBindingValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.asset_model_property_binding_value
     import aws_sdk_iotsitewise.types.asset_property_binding_value
 
 
-class DataBindingValue(TypedDict):
+class DataBindingValue(TypedDict, closed=True):
     asset_model_property: NotRequired[
         "aws_sdk_iotsitewise.types.asset_model_property_binding_value.AssetModelPropertyBindingValue"
     ]

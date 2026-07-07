@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#CopyJobTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.job_template_type
 
 
-class CopyJobTemplateResponse(TypedDict):
+class CopyJobTemplateResponse(TypedDict, closed=True):
     template_type: "aws_sdk_deadline.types.job_template_type.JobTemplateType"
     """<p>The format of the job template, either <code>JSON</code> or <code>YAML</code>.</p>"""
 

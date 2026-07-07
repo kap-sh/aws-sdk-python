@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#DeleteEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.deletion_protection_check
     import aws_sdk_appconfig.types.id
 
 
-class DeleteEnvironmentRequest(TypedDict):
+class DeleteEnvironmentRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_appconfig.types.id.Id"
     """<p>The ID of the environment that you want to delete.</p>"""
     application_id: "aws_sdk_appconfig.types.id.Id"

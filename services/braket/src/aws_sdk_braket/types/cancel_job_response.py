@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#CancelJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.job_arn
 
 
-class CancelJobResponse(TypedDict):
+class CancelJobResponse(TypedDict, closed=True):
     job_arn: "aws_sdk_braket.types.job_arn.JobArn"
     """<p>The ARN of the Amazon Braket job.</p>"""
     cancellation_status: "aws_sdk_braket.types.cancellation_status.CancellationStatus"

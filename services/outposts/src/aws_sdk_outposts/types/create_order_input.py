@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#CreateOrderInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_outposts.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.payment_term
 
 
-class CreateOrderInput(TypedDict):
+class CreateOrderInput(TypedDict, closed=True):
     outpost_identifier: "aws_sdk_outposts.types.outpost_identifier.OutpostIdentifier"
     """<p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>"""
     line_items: NotRequired[

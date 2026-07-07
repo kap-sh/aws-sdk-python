@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#ListCustomerAgreementsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_artifact.types.max_results_attribute
     import aws_sdk_artifact.types.next_token_attribute
 
 
-class ListCustomerAgreementsRequest(TypedDict):
+class ListCustomerAgreementsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_artifact.types.max_results_attribute.MaxResultsAttribute"
     ]

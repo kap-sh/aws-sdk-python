@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#AutoTerminationPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.long
 
 
-class AutoTerminationPolicy(TypedDict):
+class AutoTerminationPolicy(TypedDict, closed=True):
     idle_timeout: NotRequired["aws_sdk_emr.types.long.Long"]
     """<p>Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of 60 seconds and a maximum of 604800 seconds (seven days).</p>"""
 

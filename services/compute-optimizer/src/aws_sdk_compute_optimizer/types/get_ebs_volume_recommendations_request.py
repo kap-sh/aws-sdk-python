@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetEBSVolumeRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.account_ids
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.volume_arns
 
 
-class GetEBSVolumeRecommendationsRequest(TypedDict):
+class GetEBSVolumeRecommendationsRequest(TypedDict, closed=True):
     volume_arns: NotRequired["aws_sdk_compute_optimizer.types.volume_arns.VolumeArns"]
     """<p>The Amazon Resource Name (ARN) of the volumes for which to return recommendations.</p>"""
     next_token: NotRequired["aws_sdk_compute_optimizer.types.next_token.NextToken"]

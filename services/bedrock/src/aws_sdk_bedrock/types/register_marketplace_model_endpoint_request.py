@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RegisterMarketplaceModelEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.model_source_identifier
 
 
-class RegisterMarketplaceModelEndpointRequest(TypedDict):
+class RegisterMarketplaceModelEndpointRequest(TypedDict, closed=True):
     endpoint_identifier: "aws_sdk_bedrock.types.arn.Arn"
     """<p>The ARN of the Amazon SageMaker endpoint you want to register with Amazon Bedrock Marketplace.</p>"""
     model_source_identifier: (

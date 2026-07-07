@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RejectChoice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.prediction_choices
 
 
-class RejectChoice(TypedDict):
+class RejectChoice(TypedDict, closed=True):
     prediction_target: NotRequired["str"]
     """<p>Specifies the target (for example, a column name) where a prediction can be rejected.</p>"""
     prediction_choices: NotRequired[

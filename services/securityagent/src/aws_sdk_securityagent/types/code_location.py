@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#CodeLocation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
 
-class CodeLocation(TypedDict):
+class CodeLocation(TypedDict, closed=True):
     file_path: "str"
     """<p>The absolute path to the file containing the code location.</p>"""
     line_start: NotRequired["int"]

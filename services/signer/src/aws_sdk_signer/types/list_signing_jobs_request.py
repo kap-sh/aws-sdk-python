@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#ListSigningJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.account_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.timestamp
 
 
-class ListSigningJobsRequest(TypedDict):
+class ListSigningJobsRequest(TypedDict, closed=True):
     status: NotRequired["aws_sdk_signer.types.signing_status.SigningStatus"]
     """<p>A status value with which to filter your results.</p>"""
     platform_id: NotRequired["aws_sdk_signer.types.platform_id.PlatformId"]

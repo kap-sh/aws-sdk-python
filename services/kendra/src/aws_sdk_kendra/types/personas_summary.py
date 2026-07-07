@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#PersonasSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.entity_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.timestamp
 
 
-class PersonasSummary(TypedDict):
+class PersonasSummary(TypedDict, closed=True):
     entity_id: NotRequired["aws_sdk_kendra.types.entity_id.EntityId"]
     """<p>The identifier of a user or group in your IAM Identity Center identity source. For example, a user ID could be an email.</p>"""
     persona: NotRequired["aws_sdk_kendra.types.persona.Persona"]

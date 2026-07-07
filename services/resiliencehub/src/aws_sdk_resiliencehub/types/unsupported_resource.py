@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#UnsupportedResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string255
 
 
-class UnsupportedResource(TypedDict):
+class UnsupportedResource(TypedDict, closed=True):
     logical_resource_id: (
         "aws_sdk_resiliencehub.types.logical_resource_id.LogicalResourceId"
     )

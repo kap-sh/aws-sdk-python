@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListDataQualityStatisticsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.pagination_token
     import aws_sdk_glue.types.statistic_summary_list
 
 
-class ListDataQualityStatisticsResponse(TypedDict):
+class ListDataQualityStatisticsResponse(TypedDict, closed=True):
     statistics: NotRequired[
         "aws_sdk_glue.types.statistic_summary_list.StatisticSummaryList"
     ]

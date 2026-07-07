@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ResourceErrorsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.boolean_optional
     import aws_sdk_resiliencehub.types.resource_error_list
 
 
-class ResourceErrorsDetails(TypedDict):
+class ResourceErrorsDetails(TypedDict, closed=True):
     resource_errors: NotRequired[
         "aws_sdk_resiliencehub.types.resource_error_list.ResourceErrorList"
     ]

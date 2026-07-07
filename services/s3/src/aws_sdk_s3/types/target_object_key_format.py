@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#TargetObjectKeyFormat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.simple_prefix
 
 
-class TargetObjectKeyFormat(TypedDict):
+class TargetObjectKeyFormat(TypedDict, closed=True):
     simple_prefix: NotRequired["aws_sdk_s3.types.simple_prefix.SimplePrefix"]
     """<p>To use the simple format for S3 keys for log objects. To specify SimplePrefix format, set SimplePrefix to {}.</p>"""
     partitioned_prefix: NotRequired[

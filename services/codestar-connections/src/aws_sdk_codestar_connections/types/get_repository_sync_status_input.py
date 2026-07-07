@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#GetRepositorySyncStatusInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.sync_configuration_type
 
 
-class GetRepositorySyncStatusInput(TypedDict):
+class GetRepositorySyncStatusInput(TypedDict, closed=True):
     branch: "aws_sdk_codestar_connections.types.branch_name.BranchName"
     """<p>The branch of the repository link for the requested repository sync status.</p>"""
     repository_link_id: (

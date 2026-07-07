@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#GetEnvironmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.environment
 
 
-class GetEnvironmentResponse(TypedDict):
+class GetEnvironmentResponse(TypedDict, closed=True):
     environment: "aws_sdk_interconnect.types.environment.Environment"
     """<p>The requested <a>Environment</a> structure.</p>"""
 

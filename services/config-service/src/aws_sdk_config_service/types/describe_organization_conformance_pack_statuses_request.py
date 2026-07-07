@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DescribeOrganizationConformancePackStatusesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.cosmos_page_limit
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class DescribeOrganizationConformancePackStatusesRequest(TypedDict):
+class DescribeOrganizationConformancePackStatusesRequest(TypedDict, closed=True):
     organization_conformance_pack_names: NotRequired[
         "aws_sdk_config_service.types.organization_conformance_pack_names.OrganizationConformancePackNames"
     ]

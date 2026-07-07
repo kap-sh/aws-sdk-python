@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycontrolconfig#AssertionRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.__integer
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.status
 
 
-class AssertionRule(TypedDict):
+class AssertionRule(TypedDict, closed=True):
     asserted_controls: NotRequired[
         "aws_sdk_route53_recovery_control_config.types.__list_of__string_min1_max256_pattern_a_za_z09.__listOf__stringMin1Max256PatternAZaZ09"
     ]

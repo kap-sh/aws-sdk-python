@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#S3Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.tag_value_string
 
 
-class S3Tag(TypedDict):
+class S3Tag(TypedDict, closed=True):
     key: "aws_sdk_s3_control.types.tag_key_string.TagKeyString"
     """<p>Key of the tag</p>"""
     value: "aws_sdk_s3_control.types.tag_value_string.TagValueString"

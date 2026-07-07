@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#TemplateRevision``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pca_connector_ad.errors import DeserializationError
 
 
-class TemplateRevision(TypedDict):
+class TemplateRevision(TypedDict, closed=True):
     major_revision: "int"
     """<p>The revision version of the template. Re-enrolling all certificate holders will increment the major revision.</p>"""
     minor_revision: "int"

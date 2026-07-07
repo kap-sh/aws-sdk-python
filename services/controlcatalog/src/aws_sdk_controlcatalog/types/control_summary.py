@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ControlSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.parameter_requirement_summary
 
 
-class ControlSummary(TypedDict):
+class ControlSummary(TypedDict, closed=True):
     arn: "aws_sdk_controlcatalog.types.control_arn.ControlArn"
     """<p>The Amazon Resource Name (ARN) of the control.</p>"""
     aliases: NotRequired["aws_sdk_controlcatalog.types.control_aliases.ControlAliases"]

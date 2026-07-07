@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#S3ReportOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
 
-class S3ReportOutput(TypedDict):
+class S3ReportOutput(TypedDict, closed=True):
     s3_object_key: "str"
     """<p>The S3 object key for the generated report.</p>"""
 

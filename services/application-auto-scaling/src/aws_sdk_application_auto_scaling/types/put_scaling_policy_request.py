@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#PutScalingPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.target_tracking_scaling_policy_configuration
 
 
-class PutScalingPolicyRequest(TypedDict):
+class PutScalingPolicyRequest(TypedDict, closed=True):
     policy_name: "aws_sdk_application_auto_scaling.types.policy_name.PolicyName"
     """<p>The name of the scaling policy.</p> <p>You cannot change the name of a scaling policy, but you can delete the original scaling policy and create a new scaling policy with the same settings and a different name.</p>"""
     service_namespace: (

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ListEntitiesFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.string
 
 
-class _ListEntitiesFilter_parentEntityId(TypedDict):
+class _ListEntitiesFilter_parentEntityId(TypedDict, closed=True):
     parentEntityId: "aws_sdk_iottwinmaker.types.parent_entity_id.ParentEntityId"
 
 
-class _ListEntitiesFilter_componentTypeId(TypedDict):
+class _ListEntitiesFilter_componentTypeId(TypedDict, closed=True):
     componentTypeId: "aws_sdk_iottwinmaker.types.component_type_id.ComponentTypeId"
 
 
-class _ListEntitiesFilter_externalId(TypedDict):
+class _ListEntitiesFilter_externalId(TypedDict, closed=True):
     externalId: "aws_sdk_iottwinmaker.types.string.String"
 
 

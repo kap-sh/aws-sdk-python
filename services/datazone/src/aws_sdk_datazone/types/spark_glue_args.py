@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SparkGlueArgs``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SparkGlueArgs(TypedDict):
+class SparkGlueArgs(TypedDict, closed=True):
     connection: NotRequired["str"]
     """<p>The connection in the Spark Amazon Web Services Glue args.</p>"""
 

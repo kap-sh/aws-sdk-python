@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateAgentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.vpc_endpoint_id
 
 
-class CreateAgentRequest(TypedDict):
+class CreateAgentRequest(TypedDict, closed=True):
     activation_key: "aws_sdk_datasync.types.activation_key.ActivationKey"
     r"""<p>Specifies your DataSync agent's activation key. If you don't have an activation key, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/activate-agent.html\">Activating your agent</a>.</p>"""
     agent_name: NotRequired["aws_sdk_datasync.types.tag_value.TagValue"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#IngestionJobFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.ingestion_job_filter_values
 
 
-class IngestionJobFilter(TypedDict):
+class IngestionJobFilter(TypedDict, closed=True):
     attribute: "aws_sdk_bedrock_agent.types.ingestion_job_filter_attribute.IngestionJobFilterAttribute"
     """<p>The name of field or attribute to apply the filter.</p>"""
     operator: "aws_sdk_bedrock_agent.types.ingestion_job_filter_operator.IngestionJobFilterOperator"

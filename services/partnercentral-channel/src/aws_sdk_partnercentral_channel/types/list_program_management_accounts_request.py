@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ListProgramManagementAccountsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_channel.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.program_management_account_status_list
 
 
-class ListProgramManagementAccountsRequest(TypedDict):
+class ListProgramManagementAccountsRequest(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_channel.types.catalog.Catalog"
     """<p>The catalog identifier to filter accounts.</p>"""
     max_results: "int"

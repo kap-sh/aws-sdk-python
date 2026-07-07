@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#GetSolutionMetricsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
     import aws_sdk_personalize.types.metrics
 
 
-class GetSolutionMetricsResponse(TypedDict):
+class GetSolutionMetricsResponse(TypedDict, closed=True):
     solution_version_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The same solution version ARN as specified in the request.</p>"""
     metrics: NotRequired["aws_sdk_personalize.types.metrics.Metrics"]

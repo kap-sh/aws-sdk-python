@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListObjectVersionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.version_id_marker
 
 
-class ListObjectVersionsOutput(TypedDict):
+class ListObjectVersionsOutput(TypedDict, closed=True):
     is_truncated: NotRequired["aws_sdk_s3.types.is_truncated.IsTruncated"]
     """<p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request by using the <code>NextKeyMarker</code> and <code>NextVersionIdMarker</code> response parameters as a starting place in another request to return the rest of the results.</p>"""
     key_marker: NotRequired["aws_sdk_s3.types.key_marker.KeyMarker"]

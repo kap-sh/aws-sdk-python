@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdateNetworkAnalyzerConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.description
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_gateway_list
 
 
-class UpdateNetworkAnalyzerConfigurationRequest(TypedDict):
+class UpdateNetworkAnalyzerConfigurationRequest(TypedDict, closed=True):
     configuration_name: "aws_sdk_iot_wireless.types.network_analyzer_configuration_name.NetworkAnalyzerConfigurationName"
     trace_content: NotRequired["aws_sdk_iot_wireless.types.trace_content.TraceContent"]
     wireless_devices_to_add: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AssetTargetNameMap``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_id
 
 
-class AssetTargetNameMap(TypedDict):
+class AssetTargetNameMap(TypedDict, closed=True):
     asset_id: "aws_sdk_datazone.types.asset_id.AssetId"
     """<p>The identifier of the inventory asset.</p>"""
     target_name: "str"

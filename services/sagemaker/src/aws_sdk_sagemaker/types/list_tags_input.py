@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.list_tags_max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.resource_arn
 
 
-class ListTagsInput(TypedDict):
+class ListTagsInput(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_sagemaker.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]

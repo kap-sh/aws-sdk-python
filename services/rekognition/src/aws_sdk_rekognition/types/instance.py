@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Instance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.bounding_box
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.percent
 
 
-class Instance(TypedDict):
+class Instance(TypedDict, closed=True):
     bounding_box: NotRequired["aws_sdk_rekognition.types.bounding_box.BoundingBox"]
     """<p>The position of the label instance on the image.</p>"""
     confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]

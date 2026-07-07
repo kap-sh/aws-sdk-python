@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#EventBridgeMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EventBridgeMetadata(TypedDict):
+class EventBridgeMetadata(TypedDict, closed=True):
     pass
 
 

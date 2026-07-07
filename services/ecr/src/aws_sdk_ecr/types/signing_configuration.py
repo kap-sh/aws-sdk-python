@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#SigningConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.signing_rule_list
 
 
-class SigningConfiguration(TypedDict):
+class SigningConfiguration(TypedDict, closed=True):
     rules: "aws_sdk_ecr.types.signing_rule_list.SigningRuleList"
     """<p>A list of signing rules. Each rule defines a signing profile and optional repository filters that determine which images are automatically signed. Maximum of 10 rules.</p>"""
 

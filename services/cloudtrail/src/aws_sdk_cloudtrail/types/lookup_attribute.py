@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#LookupAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.lookup_attribute_value
 
 
-class LookupAttribute(TypedDict):
+class LookupAttribute(TypedDict, closed=True):
     attribute_key: "aws_sdk_cloudtrail.types.lookup_attribute_key.LookupAttributeKey"
     """<p>Specifies an attribute on which to filter the events returned.</p>"""
     attribute_value: (

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#Field``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rds_data.errors import DeserializationError, SerializationError
 
@@ -13,31 +15,31 @@ if TYPE_CHECKING:
     import aws_sdk_rds_data.types.string
 
 
-class _Field_isNull(TypedDict):
+class _Field_isNull(TypedDict, closed=True):
     isNull: "aws_sdk_rds_data.types.boxed_boolean.BoxedBoolean"
 
 
-class _Field_booleanValue(TypedDict):
+class _Field_booleanValue(TypedDict, closed=True):
     booleanValue: "aws_sdk_rds_data.types.boxed_boolean.BoxedBoolean"
 
 
-class _Field_longValue(TypedDict):
+class _Field_longValue(TypedDict, closed=True):
     longValue: "aws_sdk_rds_data.types.boxed_long.BoxedLong"
 
 
-class _Field_doubleValue(TypedDict):
+class _Field_doubleValue(TypedDict, closed=True):
     doubleValue: "aws_sdk_rds_data.types.boxed_double.BoxedDouble"
 
 
-class _Field_stringValue(TypedDict):
+class _Field_stringValue(TypedDict, closed=True):
     stringValue: "aws_sdk_rds_data.types.string.String"
 
 
-class _Field_blobValue(TypedDict):
+class _Field_blobValue(TypedDict, closed=True):
     blobValue: "aws_sdk_rds_data.types.blob.Blob"
 
 
-class _Field_arrayValue(TypedDict):
+class _Field_arrayValue(TypedDict, closed=True):
     arrayValue: "aws_sdk_rds_data.types.array_value.ArrayValue"
 
 

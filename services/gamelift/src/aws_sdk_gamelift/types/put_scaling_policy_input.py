@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#PutScalingPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.comparison_operator_type
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.target_configuration
 
 
-class PutScalingPolicyInput(TypedDict):
+class PutScalingPolicyInput(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
     ]

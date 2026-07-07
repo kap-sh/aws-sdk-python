@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#DeleteSyncConfigurationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSyncConfigurationOutput(TypedDict):
+class DeleteSyncConfigurationOutput(TypedDict, closed=True):
     pass
 
 

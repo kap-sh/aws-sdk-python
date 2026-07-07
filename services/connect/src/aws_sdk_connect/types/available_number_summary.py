@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AvailableNumberSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.phone_number
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.phone_number_type
 
 
-class AvailableNumberSummary(TypedDict):
+class AvailableNumberSummary(TypedDict, closed=True):
     phone_number: NotRequired["aws_sdk_connect.types.phone_number.PhoneNumber"]
     """<p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>"""
     phone_number_country_code: NotRequired[

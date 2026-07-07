@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GlobalResiliencyMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.active_region
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.traffic_distribution_group_id
 
 
-class GlobalResiliencyMetadata(TypedDict):
+class GlobalResiliencyMetadata(TypedDict, closed=True):
     active_region: NotRequired["aws_sdk_connect.types.active_region.ActiveRegion"]
     """<p>The current AWS region in which the contact is active. This indicates where the contact is being processed in real-time.</p>"""
     origin_region: NotRequired["aws_sdk_connect.types.origin_region.OriginRegion"]

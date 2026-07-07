@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CreateThemeAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.version_number
 
 
-class CreateThemeAliasRequest(TypedDict):
+class CreateThemeAliasRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account that contains the theme for the new theme alias.</p>"""
     theme_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"

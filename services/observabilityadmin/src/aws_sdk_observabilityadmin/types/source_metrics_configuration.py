@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#SourceMetricsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.metrics_filter_string
 
 
-class SourceMetricsConfiguration(TypedDict):
+class SourceMetricsConfiguration(TypedDict, closed=True):
     metrics_selection_criteria: NotRequired[
         "aws_sdk_observabilityadmin.types.metrics_filter_string.MetricsFilterString"
     ]

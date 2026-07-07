@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ArrayPropertiesSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.array_job_status_summary
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.long
 
 
-class ArrayPropertiesSummary(TypedDict):
+class ArrayPropertiesSummary(TypedDict, closed=True):
     size: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The size of the array job. This parameter is returned for parent array jobs.</p>"""
     index: NotRequired["aws_sdk_batch.types.integer.Integer"]

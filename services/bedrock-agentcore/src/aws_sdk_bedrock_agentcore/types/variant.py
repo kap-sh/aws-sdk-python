@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#Variant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.variant_name
 
 
-class Variant(TypedDict):
+class Variant(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agentcore.types.variant_name.VariantName"
     """<p>The name of the variant. Must be <code>C</code> for control or <code>T1</code> for treatment.</p>"""
     weight: "int"

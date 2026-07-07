@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#DeploymentPolicies``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.deployment_component_update_policy
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.deployment_failure_handling_policy
 
 
-class DeploymentPolicies(TypedDict):
+class DeploymentPolicies(TypedDict, closed=True):
     failure_handling_policy: NotRequired[
         "aws_sdk_greengrassv2.types.deployment_failure_handling_policy.DeploymentFailureHandlingPolicy"
     ]

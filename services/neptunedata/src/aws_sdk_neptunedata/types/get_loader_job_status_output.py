@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetLoaderJobStatusOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
 
-class GetLoaderJobStatusOutput(TypedDict):
+class GetLoaderJobStatusOutput(TypedDict, closed=True):
     status: "str"
     """<p>The HTTP response code for the request.</p>"""
     payload: "object"

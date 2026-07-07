@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListReputationEntitiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.max_items
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.reputation_entity_filter
 
 
-class ListReputationEntitiesRequest(TypedDict):
+class ListReputationEntitiesRequest(TypedDict, closed=True):
     filter: NotRequired[
         "aws_sdk_sesv2.types.reputation_entity_filter.ReputationEntityFilter"
     ]

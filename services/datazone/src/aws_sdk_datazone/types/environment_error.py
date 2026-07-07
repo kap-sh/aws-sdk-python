@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#EnvironmentError``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class EnvironmentError(TypedDict):
+class EnvironmentError(TypedDict, closed=True):
     code: NotRequired["str"]
     """<p>The error code for the failure reason for the environment deployment.</p>"""
     message: "str"

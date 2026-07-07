@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#EfsStorageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.string200
 
 
-class EfsStorageConfiguration(TypedDict):
+class EfsStorageConfiguration(TypedDict, closed=True):
     file_system_id: "aws_sdk_m2.types.string200.String200"
     """<p>The file system identifier.</p>"""
     mount_point: "aws_sdk_m2.types.string200.String200"

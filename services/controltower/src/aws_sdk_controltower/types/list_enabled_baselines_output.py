@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#ListEnabledBaselinesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.list_enabled_baselines_next_token
 
 
-class ListEnabledBaselinesOutput(TypedDict):
+class ListEnabledBaselinesOutput(TypedDict, closed=True):
     enabled_baselines: "aws_sdk_controltower.types.enabled_baselines.EnabledBaselines"
     """<p>Retuens a list of summaries of <code>EnabledBaseline</code> resources.</p>"""
     next_token: NotRequired[

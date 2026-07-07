@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CloudWatchFilterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.evaluation_string_list
     import aws_sdk_bedrock_agentcore.types.session_filter_config
 
 
-class CloudWatchFilterConfig(TypedDict):
+class CloudWatchFilterConfig(TypedDict, closed=True):
     session_ids: NotRequired[
         "aws_sdk_bedrock_agentcore.types.evaluation_string_list.EvaluationStringList"
     ]

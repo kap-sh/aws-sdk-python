@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetCatalogResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.catalog
 
 
-class GetCatalogResponse(TypedDict):
+class GetCatalogResponse(TypedDict, closed=True):
     catalog: NotRequired["aws_sdk_glue.types.catalog.Catalog"]
     """<p>A <code>Catalog</code> object. The definition of the specified catalog in the Glue Data Catalog.</p>"""
 

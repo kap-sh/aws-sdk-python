@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#CreateChimeWebhookConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chatbot.types.chime_webhook_configuration
 
 
-class CreateChimeWebhookConfigurationResult(TypedDict):
+class CreateChimeWebhookConfigurationResult(TypedDict, closed=True):
     webhook_configuration: NotRequired[
         "aws_sdk_chatbot.types.chime_webhook_configuration.ChimeWebhookConfiguration"
     ]

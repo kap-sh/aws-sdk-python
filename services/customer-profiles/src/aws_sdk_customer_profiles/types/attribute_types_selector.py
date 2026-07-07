@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#AttributeTypesSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.phone_number_list
 
 
-class AttributeTypesSelector(TypedDict):
+class AttributeTypesSelector(TypedDict, closed=True):
     attribute_matching_model: "aws_sdk_customer_profiles.types.attribute_matching_model.AttributeMatchingModel"
     """<p>Configures the <code>AttributeMatchingModel</code>, you can either choose <code>ONE_TO_ONE</code> or <code>MANY_TO_MANY</code>.</p>"""
     address: NotRequired["aws_sdk_customer_profiles.types.address_list.AddressList"]

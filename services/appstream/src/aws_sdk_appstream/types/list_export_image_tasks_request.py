@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ListExportImageTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.filters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
 
 
-class ListExportImageTasksRequest(TypedDict):
+class ListExportImageTasksRequest(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_appstream.types.filters.Filters"]
     """<p>Optional filters to apply when listing export image tasks. Filters help you narrow down the results based on specific criteria.</p>"""
     max_results: NotRequired["aws_sdk_appstream.types.max_results.MaxResults"]

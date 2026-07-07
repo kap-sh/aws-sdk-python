@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EntityRecognitionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.entity_types_list
 
 
-class EntityRecognitionConfig(TypedDict):
+class EntityRecognitionConfig(TypedDict, closed=True):
     entity_types: "aws_sdk_comprehend.types.entity_types_list.EntityTypesList"
     """<p>Up to 25 entity types that the model is trained to recognize.</p>"""
 

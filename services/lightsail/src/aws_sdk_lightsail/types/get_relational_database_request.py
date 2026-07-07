@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetRelationalDatabaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class GetRelationalDatabaseRequest(TypedDict):
+class GetRelationalDatabaseRequest(TypedDict, closed=True):
     relational_database_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of the database that you are looking up.</p>"""
 

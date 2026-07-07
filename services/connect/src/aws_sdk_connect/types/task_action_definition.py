@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TaskActionDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.task_name_expression
 
 
-class TaskActionDefinition(TypedDict):
+class TaskActionDefinition(TypedDict, closed=True):
     name: "aws_sdk_connect.types.task_name_expression.TaskNameExpression"
     r"""<p>The name. Supports variable injection. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html\">JSONPath reference</a> in the <i>Connect Customer Administrators Guide</i>.</p>"""
     description: NotRequired[

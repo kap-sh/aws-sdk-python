@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#StartAsyncInvokeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.tag_list
 
 
-class StartAsyncInvokeRequest(TypedDict):
+class StartAsyncInvokeRequest(TypedDict, closed=True):
     client_request_token: NotRequired[
         "aws_sdk_bedrock_runtime.types.async_invoke_idempotency_token.AsyncInvokeIdempotencyToken"
     ]

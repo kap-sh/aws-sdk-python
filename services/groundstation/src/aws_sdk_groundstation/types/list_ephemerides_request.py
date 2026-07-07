@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ListEphemeridesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
 
 
-class ListEphemeridesRequest(TypedDict):
+class ListEphemeridesRequest(TypedDict, closed=True):
     satellite_id: NotRequired["aws_sdk_groundstation.types.uuid.Uuid"]
     """<p>The AWS Ground Station satellite ID to list ephemeris for.</p>"""
     ephemeris_type: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#MLTransformNotReadyException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.message_string
 
 
-class MLTransformNotReadyException_(TypedDict):
+class MLTransformNotReadyException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_glue.types.message_string.MessageString"]
     """<p>A message describing the problem.</p>"""
 

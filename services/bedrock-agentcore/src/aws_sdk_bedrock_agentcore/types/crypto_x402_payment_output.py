@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CryptoX402PaymentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.payment_document
 
 
-class CryptoX402PaymentOutput(TypedDict):
+class CryptoX402PaymentOutput(TypedDict, closed=True):
     version: "str"
     """<p>The version of the X402 protocol.</p>"""
     payload: "aws_sdk_bedrock_agentcore.types.payment_document.PaymentDocument"

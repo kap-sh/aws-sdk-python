@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ActiveViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.behavior
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.violation_id
 
 
-class ActiveViolation(TypedDict):
+class ActiveViolation(TypedDict, closed=True):
     violation_id: NotRequired["aws_sdk_iot.types.violation_id.ViolationId"]
     """<p>The ID of the active violation.</p>"""
     thing_name: NotRequired[

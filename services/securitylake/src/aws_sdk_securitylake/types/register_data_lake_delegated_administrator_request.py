@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#RegisterDataLakeDelegatedAdministratorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.safe_string
 
 
-class RegisterDataLakeDelegatedAdministratorRequest(TypedDict):
+class RegisterDataLakeDelegatedAdministratorRequest(TypedDict, closed=True):
     account_id: "aws_sdk_securitylake.types.safe_string.SafeString"
     """<p>The Amazon Web Services account ID of the Security Lake delegated administrator.</p>"""
 

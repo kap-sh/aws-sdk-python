@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#GetMLConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.uuid
 
 
-class GetMLConfigurationRequest(TypedDict):
+class GetMLConfigurationRequest(TypedDict, closed=True):
     membership_identifier: "aws_sdk_cleanroomsml.types.uuid.UUID"
     """<p>The membership ID of the member that owns the ML configuration you want to return information about.</p>"""
 

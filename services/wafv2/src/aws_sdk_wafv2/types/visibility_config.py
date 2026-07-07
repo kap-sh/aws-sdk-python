@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#VisibilityConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.metric_name
 
 
-class VisibilityConfig(TypedDict):
+class VisibilityConfig(TypedDict, closed=True):
     sampled_requests_enabled: "aws_sdk_wafv2.types.boolean.Boolean"
     """<p>Indicates whether WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the WAF console. </p> <p>If you configure data protection for the web ACL, the protection applies to the web ACL's sampled web request data. </p> <note> <p>Request sampling doesn't provide a field redaction option, and any field redaction that you specify in your logging configuration doesn't affect sampling. You can only exclude fields from request sampling by disabling sampling in the web ACL visibility configuration or by configuring data protection for the web ACL.</p> </note>"""
     cloud_watch_metrics_enabled: "aws_sdk_wafv2.types.boolean.Boolean"

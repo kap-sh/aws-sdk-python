@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#DeleteFlowTemplateResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteFlowTemplateResponse(TypedDict):
+class DeleteFlowTemplateResponse(TypedDict, closed=True):
     pass
 
 

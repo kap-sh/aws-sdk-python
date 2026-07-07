@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#SMBLocalGroups``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.user_list
 
 
-class SMBLocalGroups(TypedDict):
+class SMBLocalGroups(TypedDict, closed=True):
     gateway_admins: NotRequired["aws_sdk_storage_gateway.types.user_list.UserList"]
     r"""<p>A list of Active Directory users and groups that have local Gateway Admin permissions. Acceptable formats include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>DOMAIN\group1</code>, and <code>group1</code>.</p> <p>Gateway Admins can use the Shared Folders Microsoft Management Console snap-in to force-close files that are open and locked.</p>"""
 

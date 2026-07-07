@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#CancelClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.cluster_id
 
 
-class CancelClusterRequest(TypedDict):
+class CancelClusterRequest(TypedDict, closed=True):
     cluster_id: "aws_sdk_snowball.types.cluster_id.ClusterId"
     """<p>The 39-character ID for the cluster that you want to cancel, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>"""
 

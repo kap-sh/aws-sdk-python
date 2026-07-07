@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#PutPartnerEventsRequestEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.event_resource_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.string
 
 
-class PutPartnerEventsRequestEntry(TypedDict):
+class PutPartnerEventsRequestEntry(TypedDict, closed=True):
     time: NotRequired["aws_sdk_cloudwatch_events.types.event_time.EventTime"]
     """<p>The date and time of the event.</p>"""
     source: NotRequired[

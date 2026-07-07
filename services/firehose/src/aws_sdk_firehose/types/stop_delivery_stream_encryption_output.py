@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#StopDeliveryStreamEncryptionOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopDeliveryStreamEncryptionOutput(TypedDict):
+class StopDeliveryStreamEncryptionOutput(TypedDict, closed=True):
     pass
 
 

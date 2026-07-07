@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#History``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.page_token
 
 
-class History(TypedDict):
+class History(TypedDict, closed=True):
     events: "aws_sdk_swf.types.history_event_list.HistoryEventList"
     """<p>The list of history events.</p>"""
     next_page_token: NotRequired["aws_sdk_swf.types.page_token.PageToken"]

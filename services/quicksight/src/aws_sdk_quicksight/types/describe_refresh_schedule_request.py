@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeRefreshScheduleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DescribeRefreshScheduleRequest(TypedDict):
+class DescribeRefreshScheduleRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The Amazon Web Services account ID.</p>"""
     data_set_id: "aws_sdk_quicksight.types.resource_id.ResourceId"

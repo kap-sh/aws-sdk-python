@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#CreateTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.type_name
 
 
-class CreateTypeResponse(TypedDict):
+class CreateTypeResponse(TypedDict, closed=True):
     keyspace_arn: "aws_sdk_keyspaces.types.arn.ARN"
     """<p> The unique identifier of the keyspace that contains the new type in the format of an Amazon Resource Name (ARN). </p>"""
     type_name: "aws_sdk_keyspaces.types.type_name.TypeName"

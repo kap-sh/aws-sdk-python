@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#StringConfigurationOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class StringConfigurationOptions(TypedDict):
+class StringConfigurationOptions(TypedDict, closed=True):
     default_value: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

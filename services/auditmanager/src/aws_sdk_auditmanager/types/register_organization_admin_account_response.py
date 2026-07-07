@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#RegisterOrganizationAdminAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.account_id
     import aws_sdk_auditmanager.types.organization_id
 
 
-class RegisterOrganizationAdminAccountResponse(TypedDict):
+class RegisterOrganizationAdminAccountResponse(TypedDict, closed=True):
     admin_account_id: NotRequired["aws_sdk_auditmanager.types.account_id.AccountId"]
     """<p> The identifier for the delegated administrator account. </p>"""
     organization_id: NotRequired[

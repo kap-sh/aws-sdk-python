@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetPropertygraphSummaryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.graph_summary_type
 
 
-class GetPropertygraphSummaryInput(TypedDict):
+class GetPropertygraphSummaryInput(TypedDict, closed=True):
     mode: "aws_sdk_neptunedata.types.graph_summary_type.GraphSummaryType"
     """<p>Mode can take one of two values: <code>BASIC</code> (the default), and <code>DETAILED</code>.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#ResetDistributionCacheRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class ResetDistributionCacheRequest(TypedDict):
+class ResetDistributionCacheRequest(TypedDict, closed=True):
     distribution_name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
     """<p>The name of the distribution for which to reset cache.</p> <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>"""
 

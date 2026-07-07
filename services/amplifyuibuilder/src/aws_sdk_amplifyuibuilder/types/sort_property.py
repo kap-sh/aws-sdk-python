@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#SortProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.sort_direction
 
 
-class SortProperty(TypedDict):
+class SortProperty(TypedDict, closed=True):
     field: "str"
     """<p>The field to perform the sort on.</p>"""
     direction: "aws_sdk_amplifyuibuilder.types.sort_direction.SortDirection"

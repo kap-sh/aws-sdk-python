@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#TimePeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.iso_date
 
 
-class TimePeriod(TypedDict):
+class TimePeriod(TypedDict, closed=True):
     start: NotRequired["aws_sdk_lightsail.types.iso_date.IsoDate"]
     """<p>The beginning of the time period. The start date is inclusive. For example, if <code>start</code> is <code>2017-01-01</code>, Lightsail for Research retrieves cost and usage data starting at <code>2017-01-01</code> up to the end date. The start date must be equal to or no later than the current date to avoid a validation error.</p>"""
     end: NotRequired["aws_sdk_lightsail.types.iso_date.IsoDate"]

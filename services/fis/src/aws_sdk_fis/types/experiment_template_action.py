@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentTemplateAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.action_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.experiment_template_action_target_map
 
 
-class ExperimentTemplateAction(TypedDict):
+class ExperimentTemplateAction(TypedDict, closed=True):
     action_id: NotRequired["aws_sdk_fis.types.action_id.ActionId"]
     """<p>The ID of the action.</p>"""
     description: NotRequired[

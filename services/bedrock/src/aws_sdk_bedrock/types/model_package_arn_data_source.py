@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ModelPackageArnDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.model_package_arn
 
 
-class ModelPackageArnDataSource(TypedDict):
+class ModelPackageArnDataSource(TypedDict, closed=True):
     model_package_arn: "aws_sdk_bedrock.types.model_package_arn.ModelPackageArn"
     """<p>The Amazon Resource Name (ARN) of the SageMaker AI model package. The ARN must be for a model package of <code>restricted</code> type.</p> <p>To use a model package ARN, you must have the <code>sagemaker:DescribeModelPackage</code> and <code>sagemaker:AccessModelPackageData</code> permissions on the model package resource.</p>"""
 

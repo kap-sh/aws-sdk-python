@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#SearchTextResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.search_text_result_item_list
     import aws_sdk_geo_places.types.token
 
 
-class SearchTextResponse(TypedDict):
+class SearchTextResponse(TypedDict, closed=True):
     pricing_bucket: "str"
     r"""<p>The pricing bucket for which the query is charged at.</p> <p>For more information on pricing, please visit <a href=\"https://aws.amazon.com/location/pricing/\">Amazon Location Service Pricing</a>.</p>"""
     result_items: NotRequired[

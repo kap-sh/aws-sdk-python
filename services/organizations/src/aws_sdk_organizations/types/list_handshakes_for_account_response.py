@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ListHandshakesForAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.handshakes
     import aws_sdk_organizations.types.next_token
 
 
-class ListHandshakesForAccountResponse(TypedDict):
+class ListHandshakesForAccountResponse(TypedDict, closed=True):
     handshakes: NotRequired["aws_sdk_organizations.types.handshakes.Handshakes"]
     """<p>An array of <code>Handshake</code>objects. Contains details for a handshake.</p>"""
     next_token: NotRequired["aws_sdk_organizations.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#CvssScore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.base_score
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.version
 
 
-class CvssScore(TypedDict):
+class CvssScore(TypedDict, closed=True):
     base_score: "aws_sdk_ecr.types.base_score.BaseScore"
     """<p>The base CVSS score used for the finding.</p>"""
     scoring_vector: NotRequired["aws_sdk_ecr.types.scoring_vector.ScoringVector"]

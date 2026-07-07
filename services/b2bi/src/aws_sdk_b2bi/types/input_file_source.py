@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#InputFileSource``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError, SerializationError
 
 
-class _InputFileSource_fileContent(TypedDict):
+class _InputFileSource_fileContent(TypedDict, closed=True):
     fileContent: "str"
 
 

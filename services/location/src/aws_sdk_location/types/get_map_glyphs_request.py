@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetMapGlyphsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.api_key
     import aws_sdk_location.types.resource_name
 
 
-class GetMapGlyphsRequest(TypedDict):
+class GetMapGlyphsRequest(TypedDict, closed=True):
     map_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The map resource associated with the glyph ﬁle.</p>"""
     font_stack: "str"

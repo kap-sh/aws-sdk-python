@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#ListDatabasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.database_list
     import aws_sdk_timestream_write.types.string
 
 
-class ListDatabasesResponse(TypedDict):
+class ListDatabasesResponse(TypedDict, closed=True):
     databases: NotRequired["aws_sdk_timestream_write.types.database_list.DatabaseList"]
     """<p>A list of database names.</p>"""
     next_token: NotRequired["aws_sdk_timestream_write.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#CreateMonitorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.monitor_id
 
 
-class CreateMonitorResponse(TypedDict):
+class CreateMonitorResponse(TypedDict, closed=True):
     monitor_id: "aws_sdk_deadline.types.monitor_id.MonitorId"
     """<p>The unique identifier of the monitor.</p>"""
     identity_center_application_arn: "aws_sdk_deadline.types.identity_center_application_arn.IdentityCenterApplicationArn"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetPlaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.place
 
 
-class GetPlaceResponse(TypedDict):
+class GetPlaceResponse(TypedDict, closed=True):
     place: "aws_sdk_location.types.place.Place"
     """<p>Details about the result, such as its address and position.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DeleteTaskSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.task_set
 
 
-class DeleteTaskSetResponse(TypedDict):
+class DeleteTaskSetResponse(TypedDict, closed=True):
     task_set: NotRequired["aws_sdk_ecs.types.task_set.TaskSet"]
     """<p>Details about the task set.</p>"""
 

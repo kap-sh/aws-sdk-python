@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetInvitationsCountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
 
 
-class GetInvitationsCountResponse(TypedDict):
+class GetInvitationsCountResponse(TypedDict, closed=True):
     invitations_count: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The total number of invitations that were received by the account, not including the currently accepted invitation.</p>"""
 

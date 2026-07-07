@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#GetContactReachabilityStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.domain_name
     import aws_sdk_route_53_domains.types.reachability_status
 
 
-class GetContactReachabilityStatusResponse(TypedDict):
+class GetContactReachabilityStatusResponse(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_route_53_domains.types.domain_name.DomainName"]
     """<p>The domain name for which you requested the reachability status.</p>"""
     status: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#TransitGatewayVpcAttachmentOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.security_group_referencing_support_value
 
 
-class TransitGatewayVpcAttachmentOptions(TypedDict):
+class TransitGatewayVpcAttachmentOptions(TypedDict, closed=True):
     dns_support: NotRequired["aws_sdk_ec2.types.dns_support_value.DnsSupportValue"]
     """<p>Indicates whether DNS support is enabled.</p>"""
     security_group_referencing_support: NotRequired[

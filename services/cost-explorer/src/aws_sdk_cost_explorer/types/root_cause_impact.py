@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#RootCauseImpact``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_double
 
 
-class RootCauseImpact(TypedDict):
+class RootCauseImpact(TypedDict, closed=True):
     contribution: "aws_sdk_cost_explorer.types.generic_double.GenericDouble"
     """<p>The dollar amount that this root cause contributed to the anomaly's TotalImpact.</p>"""
 

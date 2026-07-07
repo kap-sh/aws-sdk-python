@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ListAccessTokensRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListAccessTokensRequest(TypedDict):
+class ListAccessTokensRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>"""
     next_token: NotRequired["str"]

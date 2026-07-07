@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#S3Logs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class S3Logs(TypedDict):
+class S3Logs(TypedDict, closed=True):
     s3_bucket_name: NotRequired[
         "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
     ]

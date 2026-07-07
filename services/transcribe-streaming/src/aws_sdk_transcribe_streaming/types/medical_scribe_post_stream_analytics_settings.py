@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalScribePostStreamAnalyticsSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe_streaming.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.clinical_note_generation_settings
 
 
-class MedicalScribePostStreamAnalyticsSettings(TypedDict):
+class MedicalScribePostStreamAnalyticsSettings(TypedDict, closed=True):
     clinical_note_generation_settings: "aws_sdk_transcribe_streaming.types.clinical_note_generation_settings.ClinicalNoteGenerationSettings"
     """<p>Specify settings for the post-stream clinical note generation.</p>"""
 

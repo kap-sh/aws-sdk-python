@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#PublishTypeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.type_name
 
 
-class PublishTypeInput(TypedDict):
+class PublishTypeInput(TypedDict, closed=True):
     type: NotRequired["aws_sdk_cloudformation.types.third_party_type.ThirdPartyType"]
     """<p>The type of the extension.</p> <p>Conditional: You must specify <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>"""
     arn: NotRequired["aws_sdk_cloudformation.types.private_type_arn.PrivateTypeArn"]

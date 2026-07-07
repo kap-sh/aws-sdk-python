@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DescribeProtectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.protection_id
     import aws_sdk_shield.types.resource_arn
 
 
-class DescribeProtectionRequest(TypedDict):
+class DescribeProtectionRequest(TypedDict, closed=True):
     protection_id: NotRequired["aws_sdk_shield.types.protection_id.ProtectionId"]
     """<p>The unique identifier (ID) for the <a>Protection</a> object to describe. You must provide either the <code>ResourceArn</code> of the protected resource or the <code>ProtectionID</code> of the protection, but not both.</p>"""
     resource_arn: NotRequired["aws_sdk_shield.types.resource_arn.ResourceArn"]

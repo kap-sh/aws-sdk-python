@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#WorkerConfigurationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__long
     import aws_sdk_kafkaconnect.types.__string
 
 
-class WorkerConfigurationDescription(TypedDict):
+class WorkerConfigurationDescription(TypedDict, closed=True):
     revision: "aws_sdk_kafkaconnect.types.__long.__long"
     """<p>The revision of the worker configuration.</p>"""
     worker_configuration_arn: NotRequired[

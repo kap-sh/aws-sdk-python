@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ModifyEventSubscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.event_subscription
 
 
-class ModifyEventSubscriptionResponse(TypedDict):
+class ModifyEventSubscriptionResponse(TypedDict, closed=True):
     event_subscription: NotRequired[
         "aws_sdk_database_migration_service.types.event_subscription.EventSubscription"
     ]

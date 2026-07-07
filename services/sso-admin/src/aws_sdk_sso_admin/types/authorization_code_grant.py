@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#AuthorizationCodeGrant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.redirect_uris
 
 
-class AuthorizationCodeGrant(TypedDict):
+class AuthorizationCodeGrant(TypedDict, closed=True):
     redirect_uris: NotRequired["aws_sdk_sso_admin.types.redirect_uris.RedirectUris"]
     """<p>A list of URIs that are valid locations to redirect a user's browser after the user is authorized.</p> <note> <p>RedirectUris is required when the grant type is <code>authorization_code</code>.</p> </note>"""
 

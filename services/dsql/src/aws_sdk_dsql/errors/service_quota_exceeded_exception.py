@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#ServiceQuotaExceededException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_dsql.errors import DeserializationError, ServiceError
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "str"
     """<p>The service exception for exceeding a quota.</p>"""
     resource_id: "str"

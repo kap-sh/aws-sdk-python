@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#ImpactedLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_internetmonitor.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.network_impairment
 
 
-class ImpactedLocation(TypedDict):
+class ImpactedLocation(TypedDict, closed=True):
     as_name: "str"
     """<p>The name of the internet service provider (ISP) or network (ASN).</p>"""
     as_number: "int"

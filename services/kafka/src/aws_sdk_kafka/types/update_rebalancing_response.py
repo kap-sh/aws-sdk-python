@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#UpdateRebalancingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
 
 
-class UpdateRebalancingResponse(TypedDict):
+class UpdateRebalancingResponse(TypedDict, closed=True):
     cluster_arn: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of the cluster whose intelligent rebalancing status you've updated.</p>"""
     cluster_operation_arn: NotRequired["aws_sdk_kafka.types.__string.__string"]

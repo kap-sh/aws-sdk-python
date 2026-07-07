@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailCoverage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_image_coverage
     import aws_sdk_bedrock_runtime.types.guardrail_text_characters_coverage
 
 
-class GuardrailCoverage(TypedDict):
+class GuardrailCoverage(TypedDict, closed=True):
     text_characters: NotRequired[
         "aws_sdk_bedrock_runtime.types.guardrail_text_characters_coverage.GuardrailTextCharactersCoverage"
     ]

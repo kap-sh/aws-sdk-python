@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sustainability#DimensionEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sustainability.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sustainability.types.dimension
 
 
-class DimensionEntry(TypedDict):
+class DimensionEntry(TypedDict, closed=True):
     dimension: "aws_sdk_sustainability.types.dimension.Dimension"
     """<p>The dimension type that categorizes this entry.</p>"""
     value: "str"

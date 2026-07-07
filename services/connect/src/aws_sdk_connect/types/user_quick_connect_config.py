@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UserQuickConnectConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.user_id
 
 
-class UserQuickConnectConfig(TypedDict):
+class UserQuickConnectConfig(TypedDict, closed=True):
     user_id: "aws_sdk_connect.types.user_id.UserId"
     """<p>The identifier of the user.</p>"""
     contact_flow_id: "aws_sdk_connect.types.contact_flow_id.ContactFlowId"

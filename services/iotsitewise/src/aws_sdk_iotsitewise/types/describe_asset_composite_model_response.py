@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DescribeAssetCompositeModelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.name
 
 
-class DescribeAssetCompositeModelResponse(TypedDict):
+class DescribeAssetCompositeModelResponse(TypedDict, closed=True):
     asset_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the asset, in UUID format. This ID uniquely identifies the asset within IoT SiteWise and can be used with other IoT SiteWise APIs.</p>"""
     asset_composite_model_id: "aws_sdk_iotsitewise.types.id.ID"

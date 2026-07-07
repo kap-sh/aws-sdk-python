@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#NotificationOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.boolean_type
     import aws_sdk_workdocs.types.message_type
 
 
-class NotificationOptions(TypedDict):
+class NotificationOptions(TypedDict, closed=True):
     send_email: "aws_sdk_workdocs.types.boolean_type.BooleanType"
     """<p>Boolean value to indicate an email notification should be sent to the recipients.</p>"""
     email_message: NotRequired["aws_sdk_workdocs.types.message_type.MessageType"]

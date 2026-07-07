@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ListResourceEndpointAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.max_results
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.vpc_endpoint_owner
 
 
-class ListResourceEndpointAssociationsRequest(TypedDict):
+class ListResourceEndpointAssociationsRequest(TypedDict, closed=True):
     resource_configuration_identifier: "aws_sdk_vpc_lattice.types.resource_configuration_identifier.ResourceConfigurationIdentifier"
     """<p>The ID for the resource configuration associated with the VPC endpoint.</p>"""
     resource_endpoint_association_identifier: NotRequired[

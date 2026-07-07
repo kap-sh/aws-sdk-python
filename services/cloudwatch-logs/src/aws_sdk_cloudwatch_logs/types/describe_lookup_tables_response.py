@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DescribeLookupTablesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.lookup_tables
     import aws_sdk_cloudwatch_logs.types.next_token
 
 
-class DescribeLookupTablesResponse(TypedDict):
+class DescribeLookupTablesResponse(TypedDict, closed=True):
     lookup_tables: NotRequired[
         "aws_sdk_cloudwatch_logs.types.lookup_tables.LookupTables"
     ]

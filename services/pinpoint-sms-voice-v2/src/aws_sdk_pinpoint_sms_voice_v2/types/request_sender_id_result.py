@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#RequestSenderIdResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.tag_list
 
 
-class RequestSenderIdResult(TypedDict):
+class RequestSenderIdResult(TypedDict, closed=True):
     sender_id_arn: "str"
     """<p>The Amazon Resource Name (ARN) associated with the SenderId.</p>"""
     sender_id: "aws_sdk_pinpoint_sms_voice_v2.types.sender_id.SenderId"

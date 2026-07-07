@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#ApplicationPolicy``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pca_connector_ad.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.custom_object_identifier
 
 
-class _ApplicationPolicy_PolicyType(TypedDict):
+class _ApplicationPolicy_PolicyType(TypedDict, closed=True):
     PolicyType: (
         "aws_sdk_pca_connector_ad.types.application_policy_type.ApplicationPolicyType"
     )
 
 
-class _ApplicationPolicy_PolicyObjectIdentifier(TypedDict):
+class _ApplicationPolicy_PolicyObjectIdentifier(TypedDict, closed=True):
     PolicyObjectIdentifier: (
         "aws_sdk_pca_connector_ad.types.custom_object_identifier.CustomObjectIdentifier"
     )

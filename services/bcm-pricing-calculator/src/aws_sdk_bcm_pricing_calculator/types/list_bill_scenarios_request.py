@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#ListBillScenariosRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.filter_timestamp
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.next_page_token
 
 
-class ListBillScenariosRequest(TypedDict):
+class ListBillScenariosRequest(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.list_bill_scenarios_filters.ListBillScenariosFilters"
     ]

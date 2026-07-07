@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#IamPropertiesOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class IamPropertiesOutput(TypedDict):
+class IamPropertiesOutput(TypedDict, closed=True):
     environment_id: NotRequired["str"]
     """<p>The environment ID of the connection.</p>"""
     glue_lineage_sync_enabled: NotRequired["bool"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#UpdateAppResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.app
 
 
-class UpdateAppResult(TypedDict):
+class UpdateAppResult(TypedDict, closed=True):
     app: "aws_sdk_amplify.types.app.App"
     """<p>Represents the updated Amplify app. </p>"""
 

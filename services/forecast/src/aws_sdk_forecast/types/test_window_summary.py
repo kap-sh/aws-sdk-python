@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#TestWindowSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.error_message
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.timestamp
 
 
-class TestWindowSummary(TypedDict):
+class TestWindowSummary(TypedDict, closed=True):
     test_window_start: NotRequired["aws_sdk_forecast.types.timestamp.Timestamp"]
     """<p>The time at which the test began.</p>"""
     test_window_end: NotRequired["aws_sdk_forecast.types.timestamp.Timestamp"]

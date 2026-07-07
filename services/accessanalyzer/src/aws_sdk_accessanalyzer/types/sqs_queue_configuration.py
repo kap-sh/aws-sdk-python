@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#SqsQueueConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.sqs_queue_policy
 
 
-class SqsQueueConfiguration(TypedDict):
+class SqsQueueConfiguration(TypedDict, closed=True):
     queue_policy: NotRequired[
         "aws_sdk_accessanalyzer.types.sqs_queue_policy.SqsQueuePolicy"
     ]

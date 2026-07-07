@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#LaunchPath``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.id
     import aws_sdk_service_catalog.types.portfolio_name
 
 
-class LaunchPath(TypedDict):
+class LaunchPath(TypedDict, closed=True):
     id: NotRequired["aws_sdk_service_catalog.types.id.Id"]
     """<p>The identifier of the launch path.</p>"""
     name: NotRequired["aws_sdk_service_catalog.types.portfolio_name.PortfolioName"]

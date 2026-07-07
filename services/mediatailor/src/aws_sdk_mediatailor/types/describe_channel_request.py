@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#DescribeChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__string
 
 
-class DescribeChannelRequest(TypedDict):
+class DescribeChannelRequest(TypedDict, closed=True):
     channel_name: "aws_sdk_mediatailor.types.__string.__string"
     """<p>The name of the channel.</p>"""
 

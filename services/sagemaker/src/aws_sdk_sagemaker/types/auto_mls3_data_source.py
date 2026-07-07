@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoMLS3DataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_mls3_data_type
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class AutoMLS3DataSource(TypedDict):
+class AutoMLS3DataSource(TypedDict, closed=True):
     s3_data_type: NotRequired[
         "aws_sdk_sagemaker.types.auto_mls3_data_type.AutoMLS3DataType"
     ]

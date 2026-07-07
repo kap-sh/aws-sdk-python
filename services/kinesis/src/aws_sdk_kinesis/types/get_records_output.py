@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#GetRecordsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.shard_iterator
 
 
-class GetRecordsOutput(TypedDict):
+class GetRecordsOutput(TypedDict, closed=True):
     records: "aws_sdk_kinesis.types.record_list.RecordList"
     """<p>The data records retrieved from the shard.</p>"""
     next_shard_iterator: NotRequired[

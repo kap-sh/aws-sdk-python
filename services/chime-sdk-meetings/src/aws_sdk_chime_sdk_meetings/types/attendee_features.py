@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#AttendeeFeatures``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.attendee_max
 
 
-class AttendeeFeatures(TypedDict):
+class AttendeeFeatures(TypedDict, closed=True):
     max_count: NotRequired["aws_sdk_chime_sdk_meetings.types.attendee_max.AttendeeMax"]
     """<p>The maximum number of attendees allowed into the meeting.</p>"""
 

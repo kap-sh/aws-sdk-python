@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#IamPolicyConstraints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.enabled_or_disabled
 
 
-class IamPolicyConstraints(TypedDict):
+class IamPolicyConstraints(TypedDict, closed=True):
     source_ip: NotRequired[
         "aws_sdk_sagemaker.types.enabled_or_disabled.EnabledOrDisabled"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#ResourcePermission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.string_value_length1to250
 
 
-class ResourcePermission(TypedDict):
+class ResourcePermission(TypedDict, closed=True):
     permission: NotRequired[
         "aws_sdk_finspace_data.types.string_value_length1to250.StringValueLength1to250"
     ]

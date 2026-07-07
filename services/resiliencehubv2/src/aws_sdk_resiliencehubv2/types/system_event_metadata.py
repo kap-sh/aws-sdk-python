@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#SystemEventMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError, SerializationError
 
@@ -16,43 +18,43 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.system_user_journey_updated_metadata
 
 
-class _SystemEventMetadata_systemCreated(TypedDict):
+class _SystemEventMetadata_systemCreated(TypedDict, closed=True):
     systemCreated: (
         "aws_sdk_resiliencehubv2.types.system_created_metadata.SystemCreatedMetadata"
     )
 
 
-class _SystemEventMetadata_systemDeleted(TypedDict):
+class _SystemEventMetadata_systemDeleted(TypedDict, closed=True):
     systemDeleted: (
         "aws_sdk_resiliencehubv2.types.system_deleted_metadata.SystemDeletedMetadata"
     )
 
 
-class _SystemEventMetadata_systemUserJourneyCreated(TypedDict):
+class _SystemEventMetadata_systemUserJourneyCreated(TypedDict, closed=True):
     systemUserJourneyCreated: "aws_sdk_resiliencehubv2.types.system_user_journey_created_metadata.SystemUserJourneyCreatedMetadata"
 
 
-class _SystemEventMetadata_systemUserJourneyUpdated(TypedDict):
+class _SystemEventMetadata_systemUserJourneyUpdated(TypedDict, closed=True):
     systemUserJourneyUpdated: "aws_sdk_resiliencehubv2.types.system_user_journey_updated_metadata.SystemUserJourneyUpdatedMetadata"
 
 
-class _SystemEventMetadata_systemUserJourneyDeleted(TypedDict):
+class _SystemEventMetadata_systemUserJourneyDeleted(TypedDict, closed=True):
     systemUserJourneyDeleted: "aws_sdk_resiliencehubv2.types.system_user_journey_deleted_metadata.SystemUserJourneyDeletedMetadata"
 
 
-class _SystemEventMetadata_systemServiceAssociated(TypedDict):
+class _SystemEventMetadata_systemServiceAssociated(TypedDict, closed=True):
     systemServiceAssociated: "aws_sdk_resiliencehubv2.types.system_service_associated_metadata.SystemServiceAssociatedMetadata"
 
 
-class _SystemEventMetadata_systemServiceDisassociated(TypedDict):
+class _SystemEventMetadata_systemServiceDisassociated(TypedDict, closed=True):
     systemServiceDisassociated: "aws_sdk_resiliencehubv2.types.system_service_disassociated_metadata.SystemServiceDisassociatedMetadata"
 
 
-class _SystemEventMetadata_systemPolicyAssociated(TypedDict):
+class _SystemEventMetadata_systemPolicyAssociated(TypedDict, closed=True):
     systemPolicyAssociated: "aws_sdk_resiliencehubv2.types.system_policy_associated_metadata.SystemPolicyAssociatedMetadata"
 
 
-class _SystemEventMetadata_systemPolicyDisassociated(TypedDict):
+class _SystemEventMetadata_systemPolicyDisassociated(TypedDict, closed=True):
     systemPolicyDisassociated: "aws_sdk_resiliencehubv2.types.system_policy_disassociated_metadata.SystemPolicyDisassociatedMetadata"
 
 

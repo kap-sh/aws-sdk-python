@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.athena#PutCapacityAssignmentConfigurationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutCapacityAssignmentConfigurationOutput(TypedDict):
+class PutCapacityAssignmentConfigurationOutput(TypedDict, closed=True):
     pass
 
 

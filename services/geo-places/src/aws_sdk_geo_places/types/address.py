@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#Address``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.country
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sub_region
 
 
-class Address(TypedDict):
+class Address(TypedDict, closed=True):
     label: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     """<p>Assembled address value built out of the address components, according to the regional postal rules. This is the correctly formatted address.</p>"""
     country: NotRequired["aws_sdk_geo_places.types.country.Country"]

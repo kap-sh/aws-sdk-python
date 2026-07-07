@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DeleteAnalysisTemplateInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.analysis_template_identifier
     import aws_sdk_cleanrooms.types.membership_identifier
 
 
-class DeleteAnalysisTemplateInput(TypedDict):
+class DeleteAnalysisTemplateInput(TypedDict, closed=True):
     membership_identifier: (
         "aws_sdk_cleanrooms.types.membership_identifier.MembershipIdentifier"
     )

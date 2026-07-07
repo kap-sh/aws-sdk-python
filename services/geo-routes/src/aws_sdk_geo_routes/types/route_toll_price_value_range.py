@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteTollPriceValueRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_double
 
 
-class RouteTollPriceValueRange(TypedDict):
+class RouteTollPriceValueRange(TypedDict, closed=True):
     min: "aws_sdk_geo_routes.types.sensitive_double.SensitiveDouble"
     """<p>Minimum price.</p>"""
     max: "aws_sdk_geo_routes.types.sensitive_double.SensitiveDouble"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#InviteAccountToOrganizationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.tags
 
 
-class InviteAccountToOrganizationRequest(TypedDict):
+class InviteAccountToOrganizationRequest(TypedDict, closed=True):
     target: "aws_sdk_organizations.types.handshake_party.HandshakeParty"
     r"""<p>The identifier (ID) of the Amazon Web Services account that you want to invite to join your organization. This is a JSON object that contains the following elements:</p> <p> <code>{ \"Type\": \"ACCOUNT\", \"Id\": \"<<i> <b>account id number</b> </i>>\" }</code> </p> <p>If you use the CLI, you can submit this as a single string, similar to the following example:</p> <p> <code>--target Id=123456789012,Type=ACCOUNT</code> </p> <p>If you specify <code>\"Type\": \"ACCOUNT\"</code>, you must provide the Amazon Web Services account ID number as the <code>Id</code>. If you specify <code>\"Type\": \"EMAIL\"</code>, you must specify the email address that is associated with the account.</p> <p> <code>--target Id=diego@example.com,Type=EMAIL</code> </p>"""
     notes: NotRequired["aws_sdk_organizations.types.handshake_notes.HandshakeNotes"]

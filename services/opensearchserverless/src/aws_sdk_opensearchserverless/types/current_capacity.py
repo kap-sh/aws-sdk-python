@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#CurrentCapacity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.capacity_details
 
 
-class CurrentCapacity(TypedDict):
+class CurrentCapacity(TypedDict, closed=True):
     search: NotRequired[
         "aws_sdk_opensearchserverless.types.capacity_details.CapacityDetails"
     ]

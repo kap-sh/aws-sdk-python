@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#GetAccessorOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.accessor
 
 
-class GetAccessorOutput(TypedDict):
+class GetAccessorOutput(TypedDict, closed=True):
     accessor: NotRequired["aws_sdk_managedblockchain.types.accessor.Accessor"]
     """<p>The properties of the accessor.</p>"""
 

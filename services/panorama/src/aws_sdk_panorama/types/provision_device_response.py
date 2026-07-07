@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ProvisionDeviceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.iot_thing_name
 
 
-class ProvisionDeviceResponse(TypedDict):
+class ProvisionDeviceResponse(TypedDict, closed=True):
     device_id: NotRequired["aws_sdk_panorama.types.device_id.DeviceId"]
     """<p>The device's ID.</p>"""
     arn: "aws_sdk_panorama.types.device_arn.DeviceArn"

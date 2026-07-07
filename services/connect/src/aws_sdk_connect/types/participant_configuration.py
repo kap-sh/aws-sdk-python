@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ParticipantConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.response_mode
 
 
-class ParticipantConfiguration(TypedDict):
+class ParticipantConfiguration(TypedDict, closed=True):
     response_mode: NotRequired["aws_sdk_connect.types.response_mode.ResponseMode"]
     """<p> The mode in which responses should be sent to the participant. </p>"""
 

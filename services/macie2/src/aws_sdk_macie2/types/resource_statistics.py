@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ResourceStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
 
 
-class ResourceStatistics(TypedDict):
+class ResourceStatistics(TypedDict, closed=True):
     total_bytes_classified: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The total amount of data, in bytes, that Amazon Macie has analyzed in the bucket.</p>"""
     total_detections: NotRequired["aws_sdk_macie2.types.__long.__long"]

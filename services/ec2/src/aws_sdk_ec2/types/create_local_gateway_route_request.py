@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateLocalGatewayRouteRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class CreateLocalGatewayRouteRequest(TypedDict):
+class CreateLocalGatewayRouteRequest(TypedDict, closed=True):
     destination_cidr_block: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The CIDR range used for destination matches. Routing decisions are based on the most specific match.</p>"""
     local_gateway_route_table_id: NotRequired[

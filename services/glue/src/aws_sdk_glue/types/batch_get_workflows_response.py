@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetWorkflowsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.workflow_names
     import aws_sdk_glue.types.workflows
 
 
-class BatchGetWorkflowsResponse(TypedDict):
+class BatchGetWorkflowsResponse(TypedDict, closed=True):
     workflows: NotRequired["aws_sdk_glue.types.workflows.Workflows"]
     """<p>A list of workflow resource metadata.</p>"""
     missing_workflows: NotRequired["aws_sdk_glue.types.workflow_names.WorkflowNames"]

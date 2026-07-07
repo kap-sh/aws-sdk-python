@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DataSourceToIndexFieldMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.index_field_name
 
 
-class DataSourceToIndexFieldMapping(TypedDict):
+class DataSourceToIndexFieldMapping(TypedDict, closed=True):
     data_source_field_name: (
         "aws_sdk_kendra.types.data_source_field_name.DataSourceFieldName"
     )

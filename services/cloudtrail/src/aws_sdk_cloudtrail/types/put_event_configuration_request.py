@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#PutEventConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.aggregation_configurations
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.string
 
 
-class PutEventConfigurationRequest(TypedDict):
+class PutEventConfigurationRequest(TypedDict, closed=True):
     trail_name: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>The name of the trail for which you want to update event configuration settings.</p>"""
     event_data_store: NotRequired["aws_sdk_cloudtrail.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#Stats``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.double
 
 
-class Stats(TypedDict):
+class Stats(TypedDict, closed=True):
     min: NotRequired["aws_sdk_deadline.types.double.Double"]
     """<p>The minimum of the usage statistics.</p>"""
     max: NotRequired["aws_sdk_deadline.types.double.Double"]

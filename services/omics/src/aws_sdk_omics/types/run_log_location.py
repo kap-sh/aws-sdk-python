@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#RunLogLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.engine_log_stream
     import aws_sdk_omics.types.run_log_stream
 
 
-class RunLogLocation(TypedDict):
+class RunLogLocation(TypedDict, closed=True):
     engine_log_stream: NotRequired[
         "aws_sdk_omics.types.engine_log_stream.EngineLogStream"
     ]

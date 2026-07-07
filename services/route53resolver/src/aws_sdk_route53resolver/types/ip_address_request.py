@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#IpAddressRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.subnet_id
 
 
-class IpAddressRequest(TypedDict):
+class IpAddressRequest(TypedDict, closed=True):
     subnet_id: "aws_sdk_route53resolver.types.subnet_id.SubnetId"
     """<p>The ID of the subnet that contains the IP address. </p>"""
     ip: NotRequired["aws_sdk_route53resolver.types.ip.Ip"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListCompositionRelationshipsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class ListCompositionRelationshipsResponse(TypedDict):
+class ListCompositionRelationshipsResponse(TypedDict, closed=True):
     composition_relationship_summaries: "aws_sdk_iotsitewise.types.composition_relationship_summaries.CompositionRelationshipSummaries"
     """<p>A list that summarizes each composition relationship.</p>"""
     next_token: NotRequired["aws_sdk_iotsitewise.types.next_token.NextToken"]

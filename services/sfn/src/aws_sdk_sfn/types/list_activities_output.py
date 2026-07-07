@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ListActivitiesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.page_token
 
 
-class ListActivitiesOutput(TypedDict):
+class ListActivitiesOutput(TypedDict, closed=True):
     activities: "aws_sdk_sfn.types.activity_list.ActivityList"
     """<p>The list of activities.</p>"""
     next_token: NotRequired["aws_sdk_sfn.types.page_token.PageToken"]

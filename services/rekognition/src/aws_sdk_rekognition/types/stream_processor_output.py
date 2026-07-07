@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StreamProcessorOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.kinesis_data_stream
     import aws_sdk_rekognition.types.s3_destination
 
 
-class StreamProcessorOutput(TypedDict):
+class StreamProcessorOutput(TypedDict, closed=True):
     kinesis_data_stream: NotRequired[
         "aws_sdk_rekognition.types.kinesis_data_stream.KinesisDataStream"
     ]

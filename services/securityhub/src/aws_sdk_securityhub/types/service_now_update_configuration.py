@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ServiceNowUpdateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class ServiceNowUpdateConfiguration(TypedDict):
+class ServiceNowUpdateConfiguration(TypedDict, closed=True):
     secret_arn: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.</p>"""
 

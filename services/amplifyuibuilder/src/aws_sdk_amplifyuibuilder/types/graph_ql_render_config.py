@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#GraphQLRenderConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
 
-class GraphQLRenderConfig(TypedDict):
+class GraphQLRenderConfig(TypedDict, closed=True):
     types_file_path: "str"
     """<p>The path to the GraphQL types file, relative to the component output directory.</p>"""
     queries_file_path: "str"

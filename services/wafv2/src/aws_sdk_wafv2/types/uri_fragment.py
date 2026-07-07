@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#UriFragment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.fallback_behavior
 
 
-class UriFragment(TypedDict):
+class UriFragment(TypedDict, closed=True):
     fallback_behavior: NotRequired[
         "aws_sdk_wafv2.types.fallback_behavior.FallbackBehavior"
     ]

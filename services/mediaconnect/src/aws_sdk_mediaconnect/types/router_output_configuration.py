@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.standard_router_output_configuration
 
 
-class _RouterOutputConfiguration_Standard(TypedDict):
+class _RouterOutputConfiguration_Standard(TypedDict, closed=True):
     Standard: "aws_sdk_mediaconnect.types.standard_router_output_configuration.StandardRouterOutputConfiguration"
 
 
-class _RouterOutputConfiguration_MediaConnectFlow(TypedDict):
+class _RouterOutputConfiguration_MediaConnectFlow(TypedDict, closed=True):
     MediaConnectFlow: "aws_sdk_mediaconnect.types.media_connect_flow_router_output_configuration.MediaConnectFlowRouterOutputConfiguration"
 
 
-class _RouterOutputConfiguration_MediaLiveInput(TypedDict):
+class _RouterOutputConfiguration_MediaLiveInput(TypedDict, closed=True):
     MediaLiveInput: "aws_sdk_mediaconnect.types.media_live_input_router_output_configuration.MediaLiveInputRouterOutputConfiguration"
 
 

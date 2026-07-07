@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetResourceDashboardRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.amazon_resource_name
 
 
-class GetResourceDashboardRequest(TypedDict):
+class GetResourceDashboardRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_athena.types.amazon_resource_name.AmazonResourceName"
     """<p>The The Amazon Resource Name (ARN) for a session.</p>"""
 

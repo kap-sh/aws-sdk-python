@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2NetworkInterfaceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_network_interface_attachment
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2NetworkInterfaceDetails(TypedDict):
+class AwsEc2NetworkInterfaceDetails(TypedDict, closed=True):
     attachment: NotRequired[
         "aws_sdk_securityhub.types.aws_ec2_network_interface_attachment.AwsEc2NetworkInterfaceAttachment"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#Schedule``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import datetime
 
 
-class _Schedule_at(TypedDict):
+class _Schedule_at(TypedDict, closed=True):
     at: "datetime.datetime"
 
 
-class _Schedule_cron(TypedDict):
+class _Schedule_cron(TypedDict, closed=True):
     cron: "str"
 
 

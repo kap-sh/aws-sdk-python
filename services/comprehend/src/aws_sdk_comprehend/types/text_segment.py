@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#TextSegment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.customer_input_string
 
 
-class TextSegment(TypedDict):
+class TextSegment(TypedDict, closed=True):
     text: "aws_sdk_comprehend.types.customer_input_string.CustomerInputString"
     """<p>The text content.</p>"""
 

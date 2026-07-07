@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#Overrides``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Overrides(TypedDict):
+class Overrides(TypedDict, closed=True):
     forced: NotRequired["bool"]
     """<p>Providing this parameter will force completion of the <code>CopyImageSet</code> and <code>UpdateImageSetMetadata</code> actions, even if metadata is inconsistent at the Patient, Study, and/or Series levels.</p>"""
 

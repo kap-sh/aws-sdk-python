@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__map_of__string
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_mediapackage_vod.types.__map_of__string.__mapOf__string"]
     """A collection of tags associated with a resource"""
 

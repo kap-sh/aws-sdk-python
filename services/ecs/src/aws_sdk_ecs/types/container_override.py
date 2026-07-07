@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ContainerOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string_list
 
 
-class ContainerOverride(TypedDict):
+class ContainerOverride(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The name of the container that receives the override. This parameter is required if any override is specified.</p>"""
     command: NotRequired["aws_sdk_ecs.types.string_list.StringList"]

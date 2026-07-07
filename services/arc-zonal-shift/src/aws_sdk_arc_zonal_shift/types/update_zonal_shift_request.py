@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#UpdateZonalShiftRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.expires_in
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.zonal_shift_id
 
 
-class UpdateZonalShiftRequest(TypedDict):
+class UpdateZonalShiftRequest(TypedDict, closed=True):
     zonal_shift_id: "aws_sdk_arc_zonal_shift.types.zonal_shift_id.ZonalShiftId"
     """<p>The identifier of a zonal shift.</p>"""
     comment: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DescribeDatasetExportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class DescribeDatasetExportJobRequest(TypedDict):
+class DescribeDatasetExportJobRequest(TypedDict, closed=True):
     dataset_export_job_arn: "aws_sdk_personalize.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the dataset export job to describe.</p>"""
 

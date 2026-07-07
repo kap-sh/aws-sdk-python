@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#BatchLookupUserUnameRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.unames
 
 
-class BatchLookupUserUnameRequest(TypedDict):
+class BatchLookupUserUnameRequest(TypedDict, closed=True):
     network_id: "aws_sdk_wickr.types.network_id.NetworkId"
     """<p>The ID of the Wickr network where the users will be looked up.</p>"""
     unames: "aws_sdk_wickr.types.unames.Unames"

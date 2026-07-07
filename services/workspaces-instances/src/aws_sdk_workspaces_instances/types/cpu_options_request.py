@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#CpuOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.amd_sev_snp_enum
     import aws_sdk_workspaces_instances.types.non_negative_integer
 
 
-class CpuOptionsRequest(TypedDict):
+class CpuOptionsRequest(TypedDict, closed=True):
     amd_sev_snp: NotRequired[
         "aws_sdk_workspaces_instances.types.amd_sev_snp_enum.AmdSevSnpEnum"
     ]

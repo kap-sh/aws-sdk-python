@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#ListCoreDevicesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.core_devices_list
     import aws_sdk_greengrassv2.types.next_token_string
 
 
-class ListCoreDevicesResponse(TypedDict):
+class ListCoreDevicesResponse(TypedDict, closed=True):
     core_devices: NotRequired[
         "aws_sdk_greengrassv2.types.core_devices_list.CoreDevicesList"
     ]

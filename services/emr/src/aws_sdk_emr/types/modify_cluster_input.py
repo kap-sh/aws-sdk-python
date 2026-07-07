@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ModifyClusterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean_object
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.string
 
 
-class ModifyClusterInput(TypedDict):
+class ModifyClusterInput(TypedDict, closed=True):
     cluster_id: NotRequired["aws_sdk_emr.types.string.String"]
     """<p>The unique identifier of the cluster.</p>"""
     step_concurrency_level: NotRequired["aws_sdk_emr.types.integer.Integer"]

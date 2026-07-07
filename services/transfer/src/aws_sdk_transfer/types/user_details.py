@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#UserDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.user_name
 
 
-class UserDetails(TypedDict):
+class UserDetails(TypedDict, closed=True):
     user_name: "aws_sdk_transfer.types.user_name.UserName"
     """<p>A unique string that identifies a Transfer Family user associated with a server.</p>"""
     server_id: "aws_sdk_transfer.types.server_id.ServerId"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.osis#GetPipelineChangeProgressResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.change_progress_status_list
 
 
-class GetPipelineChangeProgressResponse(TypedDict):
+class GetPipelineChangeProgressResponse(TypedDict, closed=True):
     change_progress_statuses: NotRequired[
         "aws_sdk_osis.types.change_progress_status_list.ChangeProgressStatusList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#TargetTrackingScalingPolicyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.boolean_object
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.integer_object
 
 
-class TargetTrackingScalingPolicyConfiguration(TypedDict):
+class TargetTrackingScalingPolicyConfiguration(TypedDict, closed=True):
     disable_scale_in: "aws_sdk_keyspaces.types.boolean_object.BooleanObject"
     """<p>Specifies if <code>scale-in</code> is enabled.</p> <p>When auto scaling automatically decreases capacity for a table, the table <i>scales in</i>. When scaling policies are set, they can't scale in the table lower than its minimum capacity.</p>"""
     scale_in_cooldown: "aws_sdk_keyspaces.types.integer_object.IntegerObject"

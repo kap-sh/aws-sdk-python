@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#DescribeGatewayRouteOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.gateway_route_data
 
 
-class DescribeGatewayRouteOutput(TypedDict):
+class DescribeGatewayRouteOutput(TypedDict, closed=True):
     gateway_route: "aws_sdk_app_mesh.types.gateway_route_data.GatewayRouteData"
     """<p>The full description of your gateway route.</p>"""
 

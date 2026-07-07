@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ConnectorMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.amplitude_metadata
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.zendesk_metadata
 
 
-class ConnectorMetadata(TypedDict):
+class ConnectorMetadata(TypedDict, closed=True):
     amplitude: NotRequired["aws_sdk_appflow.types.amplitude_metadata.AmplitudeMetadata"]
     """<p> The connector metadata specific to Amplitude. </p>"""
     datadog: NotRequired["aws_sdk_appflow.types.datadog_metadata.DatadogMetadata"]

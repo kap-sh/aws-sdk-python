@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VpnConnectionOptionsSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpn_tunnel_options_specifications_list
 
 
-class VpnConnectionOptionsSpecification(TypedDict):
+class VpnConnectionOptionsSpecification(TypedDict, closed=True):
     enable_acceleration: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicate whether to enable acceleration for the VPN connection.</p> <p>Default: <code>false</code> </p>"""
     tunnel_inside_ip_version: NotRequired[

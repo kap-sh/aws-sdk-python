@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#DeactivateUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.authentication_header_type
     import aws_sdk_workdocs.types.id_type
 
 
-class DeactivateUserRequest(TypedDict):
+class DeactivateUserRequest(TypedDict, closed=True):
     user_id: "aws_sdk_workdocs.types.id_type.IdType"
     """<p>The ID of the user.</p>"""
     authentication_token: NotRequired[

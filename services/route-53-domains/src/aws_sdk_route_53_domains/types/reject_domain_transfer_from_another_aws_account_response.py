@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#RejectDomainTransferFromAnotherAwsAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.operation_id
 
 
-class RejectDomainTransferFromAnotherAwsAccountResponse(TypedDict):
+class RejectDomainTransferFromAnotherAwsAccountResponse(TypedDict, closed=True):
     operation_id: NotRequired["aws_sdk_route_53_domains.types.operation_id.OperationId"]
     """<p>The identifier that <code>TransferDomainToAnotherAwsAccount</code> returned to track the progress of the request. Because the transfer request was rejected, the value is no longer valid, and you can't use <code>GetOperationDetail</code> to query the operation status.</p>"""
 

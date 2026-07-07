@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#ListAppInstanceUserEndpointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.app_instance_user_endpoint_summary_list
     import aws_sdk_chime_sdk_identity.types.next_token
 
 
-class ListAppInstanceUserEndpointsResponse(TypedDict):
+class ListAppInstanceUserEndpointsResponse(TypedDict, closed=True):
     app_instance_user_endpoints: NotRequired[
         "aws_sdk_chime_sdk_identity.types.app_instance_user_endpoint_summary_list.AppInstanceUserEndpointSummaryList"
     ]

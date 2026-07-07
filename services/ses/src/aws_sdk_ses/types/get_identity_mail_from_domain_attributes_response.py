@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#GetIdentityMailFromDomainAttributesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.mail_from_domain_attributes
 
 
-class GetIdentityMailFromDomainAttributesResponse(TypedDict):
+class GetIdentityMailFromDomainAttributesResponse(TypedDict, closed=True):
     mail_from_domain_attributes: (
         "aws_sdk_ses.types.mail_from_domain_attributes.MailFromDomainAttributes"
     )

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#StartCanaryResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartCanaryResponse(TypedDict):
+class StartCanaryResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DisassociateConnectionFromLagRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_direct_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.lag_id
 
 
-class DisassociateConnectionFromLagRequest(TypedDict):
+class DisassociateConnectionFromLagRequest(TypedDict, closed=True):
     connection_id: "aws_sdk_direct_connect.types.connection_id.ConnectionId"
     """<p>The ID of the connection.</p>"""
     lag_id: "aws_sdk_direct_connect.types.lag_id.LagId"

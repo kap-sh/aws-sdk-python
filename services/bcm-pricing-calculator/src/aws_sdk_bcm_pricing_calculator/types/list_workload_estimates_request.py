@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#ListWorkloadEstimatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.filter_timestamp
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.next_page_token
 
 
-class ListWorkloadEstimatesRequest(TypedDict):
+class ListWorkloadEstimatesRequest(TypedDict, closed=True):
     created_at_filter: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.filter_timestamp.FilterTimestamp"
     ]

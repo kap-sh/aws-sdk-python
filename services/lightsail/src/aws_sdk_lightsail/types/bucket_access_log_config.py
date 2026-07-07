@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#BucketAccessLogConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.bucket_name
 
 
-class BucketAccessLogConfig(TypedDict):
+class BucketAccessLogConfig(TypedDict, closed=True):
     enabled: "aws_sdk_lightsail.types.boolean.boolean"
     """<p>A Boolean value that indicates whether bucket access logging is enabled for the bucket.</p>"""
     destination: NotRequired["aws_sdk_lightsail.types.bucket_name.BucketName"]

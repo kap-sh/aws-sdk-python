@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#UnprocessableEntityException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_meetings.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.string
 
 
-class UnprocessableEntityException_(TypedDict):
+class UnprocessableEntityException_(TypedDict, closed=True):
     code: NotRequired["aws_sdk_chime_sdk_meetings.types.string.String"]
     message: NotRequired["aws_sdk_chime_sdk_meetings.types.string.String"]
     request_id: NotRequired["aws_sdk_chime_sdk_meetings.types.string.String"]

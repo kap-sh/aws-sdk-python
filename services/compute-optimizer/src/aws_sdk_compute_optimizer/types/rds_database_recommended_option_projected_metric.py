@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#RDSDatabaseRecommendedOptionProjectedMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.rank
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.recommended_db_instance_class
 
 
-class RDSDatabaseRecommendedOptionProjectedMetric(TypedDict):
+class RDSDatabaseRecommendedOptionProjectedMetric(TypedDict, closed=True):
     recommended_db_instance_class: NotRequired[
         "aws_sdk_compute_optimizer.types.recommended_db_instance_class.RecommendedDBInstanceClass"
     ]

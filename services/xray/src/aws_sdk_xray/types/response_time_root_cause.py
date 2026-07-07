@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#ResponseTimeRootCause``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.nullable_boolean
     import aws_sdk_xray.types.response_time_root_cause_services
 
 
-class ResponseTimeRootCause(TypedDict):
+class ResponseTimeRootCause(TypedDict, closed=True):
     services: NotRequired[
         "aws_sdk_xray.types.response_time_root_cause_services.ResponseTimeRootCauseServices"
     ]

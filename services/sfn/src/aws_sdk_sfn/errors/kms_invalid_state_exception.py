@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#KmsInvalidStateException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.kms_key_state
 
 
-class KmsInvalidStateException_(TypedDict):
+class KmsInvalidStateException_(TypedDict, closed=True):
     kms_key_state: NotRequired["aws_sdk_sfn.types.kms_key_state.KmsKeyState"]
     """<p>Current status of the KMS; key. For example: <code>DISABLED</code>, <code>PENDING_DELETION</code>, <code>PENDING_IMPORT</code>, <code>UNAVAILABLE</code>, <code>CREATING</code>.</p>"""
     message: NotRequired["aws_sdk_sfn.types.error_message.ErrorMessage"]

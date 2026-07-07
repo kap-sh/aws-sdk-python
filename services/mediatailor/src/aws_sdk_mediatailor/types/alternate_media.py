@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#AlternateMedia``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__list_of_ad_break
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.clip_range
 
 
-class AlternateMedia(TypedDict):
+class AlternateMedia(TypedDict, closed=True):
     source_location_name: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The name of the source location for alternateMedia.</p>"""
     live_source_name: NotRequired["aws_sdk_mediatailor.types.__string.__string"]

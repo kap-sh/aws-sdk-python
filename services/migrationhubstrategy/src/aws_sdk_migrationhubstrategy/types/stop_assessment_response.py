@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#StopAssessmentResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopAssessmentResponse(TypedDict):
+class StopAssessmentResponse(TypedDict, closed=True):
     pass
 
 

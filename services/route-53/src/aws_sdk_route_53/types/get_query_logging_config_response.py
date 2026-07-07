@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#GetQueryLoggingConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.query_logging_config
 
 
-class GetQueryLoggingConfigResponse(TypedDict):
+class GetQueryLoggingConfigResponse(TypedDict, closed=True):
     query_logging_config: (
         "aws_sdk_route_53.types.query_logging_config.QueryLoggingConfig"
     )

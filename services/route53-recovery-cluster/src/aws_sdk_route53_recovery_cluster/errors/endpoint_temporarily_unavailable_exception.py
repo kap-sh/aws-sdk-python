@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycluster#EndpointTemporarilyUnavailableException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53_recovery_cluster.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_cluster.types.string
 
 
-class EndpointTemporarilyUnavailableException_(TypedDict):
+class EndpointTemporarilyUnavailableException_(TypedDict, closed=True):
     message: "aws_sdk_route53_recovery_cluster.types.string.String"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#SourceCodeType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.branch_diff_source_code_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.s3_bucket_repository
 
 
-class SourceCodeType(TypedDict):
+class SourceCodeType(TypedDict, closed=True):
     commit_diff: NotRequired[
         "aws_sdk_codeguru_reviewer.types.commit_diff_source_code_type.CommitDiffSourceCodeType"
     ]

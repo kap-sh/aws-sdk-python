@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#CreateDomainResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.domain_description
 
 
-class CreateDomainResult(TypedDict):
+class CreateDomainResult(TypedDict, closed=True):
     domain: NotRequired[
         "aws_sdk_codeartifact.types.domain_description.DomainDescription"
     ]

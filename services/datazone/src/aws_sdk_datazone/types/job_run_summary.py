@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#JobRunSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.job_type
 
 
-class JobRunSummary(TypedDict):
+class JobRunSummary(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_datazone.types.domain_id.DomainId"]
     """<p>The domain ID of the job run.</p>"""
     job_id: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ListSensorStatisticsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.next_token
 
 
-class ListSensorStatisticsRequest(TypedDict):
+class ListSensorStatisticsRequest(TypedDict, closed=True):
     dataset_name: "aws_sdk_lookoutequipment.types.dataset_name.DatasetName"
     """<p> The name of the dataset associated with the list of Sensor Statistics. </p>"""
     ingestion_job_id: NotRequired[

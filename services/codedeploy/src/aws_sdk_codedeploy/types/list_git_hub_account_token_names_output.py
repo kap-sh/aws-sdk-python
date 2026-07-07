@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#ListGitHubAccountTokenNamesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.git_hub_account_token_name_list
     import aws_sdk_codedeploy.types.next_token
 
 
-class ListGitHubAccountTokenNamesOutput(TypedDict):
+class ListGitHubAccountTokenNamesOutput(TypedDict, closed=True):
     token_name_list: NotRequired[
         "aws_sdk_codedeploy.types.git_hub_account_token_name_list.GitHubAccountTokenNameList"
     ]

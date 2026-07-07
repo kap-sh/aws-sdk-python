@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteMatrixBoundary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_matrix_boundary_geometry
     import aws_sdk_geo_routes.types.sensitive_boolean
 
 
-class RouteMatrixBoundary(TypedDict):
+class RouteMatrixBoundary(TypedDict, closed=True):
     geometry: NotRequired[
         "aws_sdk_geo_routes.types.route_matrix_boundary_geometry.RouteMatrixBoundaryGeometry"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#RestoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.tier
 
 
-class RestoreRequest(TypedDict):
+class RestoreRequest(TypedDict, closed=True):
     days: NotRequired["aws_sdk_s3.types.days.Days"]
     """<p>Lifetime of the active copy in days. Do not use with restores that specify <code>OutputLocation</code>.</p> <p>The Days element is required for regular restores, and must not be provided for select requests.</p>"""
     glacier_job_parameters: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.user
 
 
-class DescribeUserResponse(TypedDict):
+class DescribeUserResponse(TypedDict, closed=True):
     user: NotRequired["aws_sdk_quicksight.types.user.User"]
     """<p>The user name.</p>"""
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]

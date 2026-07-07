@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#PutInlinePolicyToPermissionSetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutInlinePolicyToPermissionSetResponse(TypedDict):
+class PutInlinePolicyToPermissionSetResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#InstanceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.instance_type
 
 
-class InstanceConfig(TypedDict):
+class InstanceConfig(TypedDict, closed=True):
     instance_type: "aws_sdk_braket.types.instance_type.InstanceType"
     """<p>Configures the type of resource instances to use while running an Amazon Braket hybrid job.</p>"""
     volume_size_in_gb: "int"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#LocalizedBrandingStrings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.contact_link_url
 
 
-class LocalizedBrandingStrings(TypedDict):
+class LocalizedBrandingStrings(TypedDict, closed=True):
     browser_tab_title: (
         "aws_sdk_workspaces_web.types.branding_safe_string_type.BrandingSafeStringType"
     )

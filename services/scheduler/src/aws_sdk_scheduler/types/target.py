@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#Target``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_scheduler.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_scheduler.types.target_input
 
 
-class Target(TypedDict):
+class Target(TypedDict, closed=True):
     arn: "aws_sdk_scheduler.types.target_arn.TargetArn"
     """<p>The Amazon Resource Name (ARN) of the target.</p>"""
     role_arn: "aws_sdk_scheduler.types.role_arn.RoleArn"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchListObjectParentPathsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.next_token
     import aws_sdk_clouddirectory.types.path_to_object_identifiers_list
 
 
-class BatchListObjectParentPathsResponse(TypedDict):
+class BatchListObjectParentPathsResponse(TypedDict, closed=True):
     path_to_object_identifiers_list: NotRequired[
         "aws_sdk_clouddirectory.types.path_to_object_identifiers_list.PathToObjectIdentifiersList"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#DescribeRecommendationFeedbackResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.recommendation_feedback
 
 
-class DescribeRecommendationFeedbackResponse(TypedDict):
+class DescribeRecommendationFeedbackResponse(TypedDict, closed=True):
     recommendation_feedback: NotRequired[
         "aws_sdk_codeguru_reviewer.types.recommendation_feedback.RecommendationFeedback"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Validation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.value_boundary
 
 
-class Validation(TypedDict):
+class Validation(TypedDict, closed=True):
     min_length: "aws_sdk_connect.types.length_boundary.LengthBoundary"
     """<p>The minimum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be less than or equal to MaxLength.</p>"""
     max_length: "aws_sdk_connect.types.length_boundary.LengthBoundary"

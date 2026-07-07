@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AuthorizeVpcEndpointAccessResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.authorized_principal
 
 
-class AuthorizeVpcEndpointAccessResponse(TypedDict):
+class AuthorizeVpcEndpointAccessResponse(TypedDict, closed=True):
     authorized_principal: (
         "aws_sdk_opensearch.types.authorized_principal.AuthorizedPrincipal"
     )

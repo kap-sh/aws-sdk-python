@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ListAvailableManagementCidrRangesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.dedicated_tenancy_cidr_range_list
     import aws_sdk_workspaces.types.pagination_token
 
 
-class ListAvailableManagementCidrRangesResult(TypedDict):
+class ListAvailableManagementCidrRangesResult(TypedDict, closed=True):
     management_cidr_ranges: NotRequired[
         "aws_sdk_workspaces.types.dedicated_tenancy_cidr_range_list.DedicatedTenancyCidrRangeList"
     ]

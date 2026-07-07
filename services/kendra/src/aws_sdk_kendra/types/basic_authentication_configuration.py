@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#BasicAuthenticationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.secret_arn
 
 
-class BasicAuthenticationConfiguration(TypedDict):
+class BasicAuthenticationConfiguration(TypedDict, closed=True):
     host: "aws_sdk_kendra.types.host.Host"
     r"""<p>The name of the website host you want to connect to using authentication credentials.</p> <p>For example, the host name of https://a.example.com/page1.html is \"a.example.com\".</p>"""
     port: "aws_sdk_kendra.types.port.Port"

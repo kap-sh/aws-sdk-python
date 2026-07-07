@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#StopStreamResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopStreamResponse(TypedDict):
+class StopStreamResponse(TypedDict, closed=True):
     pass
 
 

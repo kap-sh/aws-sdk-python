@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ZonalStatisticsConfigInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.zonal_statistics_list_input
 
 
-class ZonalStatisticsConfigInput(TypedDict):
+class ZonalStatisticsConfigInput(TypedDict, closed=True):
     zone_s3_path: "aws_sdk_sagemaker_geospatial.types.s3_uri.S3Uri"
     """<p>The Amazon S3 path pointing to the GeoJSON containing the polygonal zones.</p>"""
     statistics: "aws_sdk_sagemaker_geospatial.types.zonal_statistics_list_input.ZonalStatisticsListInput"

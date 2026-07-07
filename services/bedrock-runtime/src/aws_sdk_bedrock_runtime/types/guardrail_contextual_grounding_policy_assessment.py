@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailContextualGroundingPolicyAssessment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_contextual_grounding_filters
 
 
-class GuardrailContextualGroundingPolicyAssessment(TypedDict):
+class GuardrailContextualGroundingPolicyAssessment(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_bedrock_runtime.types.guardrail_contextual_grounding_filters.GuardrailContextualGroundingFilters"
     ]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#ThrottlingException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
 
 

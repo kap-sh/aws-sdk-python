@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AudioWatermarkSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.nielsen_watermarks_settings
 
 
-class AudioWatermarkSettings(TypedDict):
+class AudioWatermarkSettings(TypedDict, closed=True):
     nielsen_watermarks_settings: NotRequired[
         "aws_sdk_medialive.types.nielsen_watermarks_settings.NielsenWatermarksSettings"
     ]

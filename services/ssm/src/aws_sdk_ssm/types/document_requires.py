@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DocumentRequires``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.require_type
 
 
-class DocumentRequires(TypedDict):
+class DocumentRequires(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.document_arn.DocumentARN"
     """<p>The name of the required SSM document. The name can be an Amazon Resource Name (ARN).</p>"""
     version: NotRequired["aws_sdk_ssm.types.document_version.DocumentVersion"]

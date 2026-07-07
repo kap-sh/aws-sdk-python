@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#GetSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.bot_alias_identifier
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.session_id
 
 
-class GetSessionRequest(TypedDict):
+class GetSessionRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_runtime_v2.types.bot_identifier.BotIdentifier"
     """<p>The identifier of the bot that contains the session data.</p>"""
     bot_alias_id: "aws_sdk_lex_runtime_v2.types.bot_alias_identifier.BotAliasIdentifier"

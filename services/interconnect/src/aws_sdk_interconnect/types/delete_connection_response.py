@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#DeleteConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.connection
 
 
-class DeleteConnectionResponse(TypedDict):
+class DeleteConnectionResponse(TypedDict, closed=True):
     connection: "aws_sdk_interconnect.types.connection.Connection"
     """<p>The <a>Connection</a> object that has been marked for deletion.</p>"""
 

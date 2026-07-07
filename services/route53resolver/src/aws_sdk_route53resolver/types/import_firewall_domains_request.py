@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ImportFirewallDomainsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class ImportFirewallDomainsRequest(TypedDict):
+class ImportFirewallDomainsRequest(TypedDict, closed=True):
     firewall_domain_list_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p>The ID of the domain list that you want to modify with the import operation.</p>"""
     operation: "aws_sdk_route53resolver.types.firewall_domain_import_operation.FirewallDomainImportOperation"

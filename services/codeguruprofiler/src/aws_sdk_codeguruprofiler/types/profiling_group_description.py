@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#ProfilingGroupDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.agent_orchestration_config
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.timestamp
 
 
-class ProfilingGroupDescription(TypedDict):
+class ProfilingGroupDescription(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_codeguruprofiler.types.profiling_group_name.ProfilingGroupName"
     ]

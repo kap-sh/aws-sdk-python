@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#ThrottlingException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_finspace_data.errors import ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     pass
 
 

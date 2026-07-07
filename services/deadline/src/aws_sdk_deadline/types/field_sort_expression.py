@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#FieldSortExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string
 
 
-class FieldSortExpression(TypedDict):
+class FieldSortExpression(TypedDict, closed=True):
     sort_order: "aws_sdk_deadline.types.sort_order.SortOrder"
     """<p>The sort order for the field.</p>"""
     name: "aws_sdk_deadline.types.string.String"

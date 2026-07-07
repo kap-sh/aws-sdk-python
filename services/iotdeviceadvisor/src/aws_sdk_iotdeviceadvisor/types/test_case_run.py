@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#TestCaseRun``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.failure
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.warnings
 
 
-class TestCaseRun(TypedDict):
+class TestCaseRun(TypedDict, closed=True):
     test_case_run_id: NotRequired["aws_sdk_iotdeviceadvisor.types.uuid.UUID"]
     """<p>Provides the test case run ID.</p>"""
     test_case_definition_id: NotRequired["aws_sdk_iotdeviceadvisor.types.uuid.UUID"]

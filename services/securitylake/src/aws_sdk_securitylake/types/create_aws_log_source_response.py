@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#CreateAwsLogSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.account_list
 
 
-class CreateAwsLogSourceResponse(TypedDict):
+class CreateAwsLogSourceResponse(TypedDict, closed=True):
     failed: NotRequired["aws_sdk_securitylake.types.account_list.AccountList"]
     """<p>Lists all accounts in which enabling a natively supported Amazon Web Services service as a Security Lake source failed. The failure occurred as these accounts are not part of an organization.</p>"""
 

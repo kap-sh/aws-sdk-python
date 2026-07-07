@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ListGroupsForEntityFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.string
 
 
-class ListGroupsForEntityFilters(TypedDict):
+class ListGroupsForEntityFilters(TypedDict, closed=True):
     group_name_prefix: NotRequired["aws_sdk_workmail.types.string.String"]
     """<p>Filters only group names that start with the provided name prefix.</p>"""
 

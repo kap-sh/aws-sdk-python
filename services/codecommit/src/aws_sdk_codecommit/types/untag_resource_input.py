@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#UntagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.tag_keys_list
 
 
-class UntagResourceInput(TypedDict):
+class UntagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_codecommit.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the resource to which you want to remove tags.</p>"""
     tag_keys: "aws_sdk_codecommit.types.tag_keys_list.TagKeysList"

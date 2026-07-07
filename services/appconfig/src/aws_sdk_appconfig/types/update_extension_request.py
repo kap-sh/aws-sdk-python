@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#UpdateExtensionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.actions_map
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.parameter_map
 
 
-class UpdateExtensionRequest(TypedDict):
+class UpdateExtensionRequest(TypedDict, closed=True):
     extension_identifier: "aws_sdk_appconfig.types.identifier.Identifier"
     """<p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>"""
     description: NotRequired["aws_sdk_appconfig.types.description.Description"]

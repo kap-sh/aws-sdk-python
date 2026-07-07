@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsLambdaFunctionEnvironmentError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsLambdaFunctionEnvironmentError(TypedDict):
+class AwsLambdaFunctionEnvironmentError(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The error code.</p>"""
     message: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

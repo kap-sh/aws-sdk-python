@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListEvaluationJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.evaluation_summaries
     import aws_sdk_bedrock.types.pagination_token
 
 
-class ListEvaluationJobsResponse(TypedDict):
+class ListEvaluationJobsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_bedrock.types.pagination_token.PaginationToken"]
     """<p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>"""
     job_summaries: NotRequired[

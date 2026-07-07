@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#InternalServerException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError, ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
     retry_after_seconds: NotRequired["int"]
     """<p> An internal error has occurred. Retry your request, but if the problem persists, contact Amazon Web Services support. </p>"""

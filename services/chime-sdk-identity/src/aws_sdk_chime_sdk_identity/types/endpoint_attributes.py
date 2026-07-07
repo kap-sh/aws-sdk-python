@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#EndpointAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_identity.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.non_empty_sensitive_string1600
 
 
-class EndpointAttributes(TypedDict):
+class EndpointAttributes(TypedDict, closed=True):
     device_token: "aws_sdk_chime_sdk_identity.types.non_empty_sensitive_string1600.NonEmptySensitiveString1600"
     """<p>The device token for the GCM, APNS, and APNS_SANDBOX endpoint types.</p>"""
     voip_device_token: NotRequired[

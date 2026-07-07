@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#PreferredCommitment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.payment_option
     import aws_sdk_cost_optimization_hub.types.term
 
 
-class PreferredCommitment(TypedDict):
+class PreferredCommitment(TypedDict, closed=True):
     term: NotRequired["aws_sdk_cost_optimization_hub.types.term.Term"]
     """<p>The preferred length of the commitment period. If the value is null, it will default to <code>ThreeYears</code> (highest savings) where applicable.</p>"""
     payment_option: NotRequired[

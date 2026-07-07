@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#CustomizableMetricParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.customizable_metric_headroom
     import aws_sdk_compute_optimizer.types.customizable_metric_threshold
 
 
-class CustomizableMetricParameters(TypedDict):
+class CustomizableMetricParameters(TypedDict, closed=True):
     threshold: NotRequired[
         "aws_sdk_compute_optimizer.types.customizable_metric_threshold.CustomizableMetricThreshold"
     ]

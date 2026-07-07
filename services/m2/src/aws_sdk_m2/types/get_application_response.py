@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#GetApplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.timestamp
 
 
-class GetApplicationResponse(TypedDict):
+class GetApplicationResponse(TypedDict, closed=True):
     name: "aws_sdk_m2.types.entity_name.EntityName"
     """<p>The unique identifier of the application.</p>"""
     description: NotRequired["aws_sdk_m2.types.entity_description.EntityDescription"]

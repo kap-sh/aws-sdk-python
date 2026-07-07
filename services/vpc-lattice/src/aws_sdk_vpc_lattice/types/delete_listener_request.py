@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#DeleteListenerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.listener_identifier
     import aws_sdk_vpc_lattice.types.service_identifier
 
 
-class DeleteListenerRequest(TypedDict):
+class DeleteListenerRequest(TypedDict, closed=True):
     service_identifier: "aws_sdk_vpc_lattice.types.service_identifier.ServiceIdentifier"
     """<p>The ID or ARN of the service.</p>"""
     listener_identifier: (

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialCircleRadius``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_radius
 
 
-class GeospatialCircleRadius(TypedDict):
+class GeospatialCircleRadius(TypedDict, closed=True):
     radius: NotRequired["aws_sdk_quicksight.types.geospatial_radius.GeospatialRadius"]
     """<p>The positive value for the radius of a circle.</p>"""
 

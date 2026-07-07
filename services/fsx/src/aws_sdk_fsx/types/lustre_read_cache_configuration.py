@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#LustreReadCacheConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.lustre_read_cache_sizing_mode
     import aws_sdk_fsx.types.storage_capacity
 
 
-class LustreReadCacheConfiguration(TypedDict):
+class LustreReadCacheConfiguration(TypedDict, closed=True):
     sizing_mode: NotRequired[
         "aws_sdk_fsx.types.lustre_read_cache_sizing_mode.LustreReadCacheSizingMode"
     ]

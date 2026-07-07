@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The ARN of the resource the tag association is removed from. </p>"""
     tag_keys: "aws_sdk_grafana.types.tag_keys.TagKeys"

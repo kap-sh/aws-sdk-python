@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.detective#DescribeOrganizationConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.boolean
 
 
-class DescribeOrganizationConfigurationResponse(TypedDict):
+class DescribeOrganizationConfigurationResponse(TypedDict, closed=True):
     auto_enable: "aws_sdk_detective.types.boolean.Boolean"
     """<p>Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.</p>"""
 

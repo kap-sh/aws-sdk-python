@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AccessDeniedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: "aws_sdk_ssm.types.string.String"
 
 

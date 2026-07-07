@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#ConflictException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>The requested operation conflicts with the current state of the resource or another concurrent operation.</p>"""
 

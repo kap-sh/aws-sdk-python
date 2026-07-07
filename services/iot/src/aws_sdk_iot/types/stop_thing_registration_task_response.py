@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iot#StopThingRegistrationTaskResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopThingRegistrationTaskResponse(TypedDict):
+class StopThingRegistrationTaskResponse(TypedDict, closed=True):
     pass
 
 

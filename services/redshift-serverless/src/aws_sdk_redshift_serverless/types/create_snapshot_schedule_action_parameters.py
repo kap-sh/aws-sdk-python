@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#CreateSnapshotScheduleActionParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.tag_list
 
 
-class CreateSnapshotScheduleActionParameters(TypedDict):
+class CreateSnapshotScheduleActionParameters(TypedDict, closed=True):
     namespace_name: "aws_sdk_redshift_serverless.types.namespace_name.NamespaceName"
     """<p>The name of the namespace for which you want to configure a scheduled action to create a snapshot.</p>"""
     snapshot_name_prefix: (

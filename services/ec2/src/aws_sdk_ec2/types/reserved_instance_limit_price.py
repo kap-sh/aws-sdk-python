@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ReservedInstanceLimitPrice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.double
 
 
-class ReservedInstanceLimitPrice(TypedDict):
+class ReservedInstanceLimitPrice(TypedDict, closed=True):
     amount: NotRequired["aws_sdk_ec2.types.double.Double"]
     """<p>Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).</p>"""
     currency_code: NotRequired[

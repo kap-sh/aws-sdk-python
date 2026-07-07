@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#AssociateIdentityProviderConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.tag_map
 
 
-class AssociateIdentityProviderConfigRequest(TypedDict):
+class AssociateIdentityProviderConfigRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.string.String"
     """<p>The name of your cluster.</p>"""
     oidc: "aws_sdk_eks.types.oidc_identity_provider_config_request.OidcIdentityProviderConfigRequest"

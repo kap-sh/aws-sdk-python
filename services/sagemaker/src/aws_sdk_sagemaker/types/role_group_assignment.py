@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RoleGroupAssignment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.non_empty_string256
 
 
-class RoleGroupAssignment(TypedDict):
+class RoleGroupAssignment(TypedDict, closed=True):
     role_name: "aws_sdk_sagemaker.types.non_empty_string256.NonEmptyString256"
     """<p>The name of the in-app role within the SageMaker Partner AI App. The specific roles available depend on the app type and version.</p>"""
     group_patterns: "aws_sdk_sagemaker.types.group_patterns_list.GroupPatternsList"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SourceProcessingProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.string128
 
 
-class SourceProcessingProperties(TypedDict):
+class SourceProcessingProperties(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_glue.types.string128.String128"]
     """<p>The IAM role to access the Glue connection.</p>"""
 

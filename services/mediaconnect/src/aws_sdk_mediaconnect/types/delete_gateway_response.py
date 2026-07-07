@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DeleteGatewayResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DeleteGatewayResponse(TypedDict):
+class DeleteGatewayResponse(TypedDict, closed=True):
     gateway_arn: NotRequired["str"]
     """<p> The ARN of the gateway that was deleted.</p>"""
 

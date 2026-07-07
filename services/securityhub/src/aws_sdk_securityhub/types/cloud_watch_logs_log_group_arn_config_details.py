@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#CloudWatchLogsLogGroupArnConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class CloudWatchLogsLogGroupArnConfigDetails(TypedDict):
+class CloudWatchLogsLogGroupArnConfigDetails(TypedDict, closed=True):
     cloud_watch_logs_log_group_arn: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

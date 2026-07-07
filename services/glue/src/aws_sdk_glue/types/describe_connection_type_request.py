@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DescribeConnectionTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class DescribeConnectionTypeRequest(TypedDict):
+class DescribeConnectionTypeRequest(TypedDict, closed=True):
     connection_type: "aws_sdk_glue.types.name_string.NameString"
     """<p>The name of the connection type to be described.</p>"""
 

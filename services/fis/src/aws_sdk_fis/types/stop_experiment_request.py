@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#StopExperimentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.experiment_id
 
 
-class StopExperimentRequest(TypedDict):
+class StopExperimentRequest(TypedDict, closed=True):
     id: "aws_sdk_fis.types.experiment_id.ExperimentId"
     """<p>The ID of the experiment.</p>"""
 

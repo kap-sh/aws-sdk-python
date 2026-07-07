@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetCustomEntityTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.context_words
     import aws_sdk_glue.types.name_string
 
 
-class GetCustomEntityTypeResponse(TypedDict):
+class GetCustomEntityTypeResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the custom pattern that you retrieved.</p>"""
     regex_string: NotRequired["aws_sdk_glue.types.name_string.NameString"]

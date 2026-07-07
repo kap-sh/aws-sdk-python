@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ThemeGenerationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.fields_for_theme_generation
 
 
-class ThemeGenerationConfig(TypedDict):
+class ThemeGenerationConfig(TypedDict, closed=True):
     fields_for_theme_generation: (
         "aws_sdk_personalize.types.fields_for_theme_generation.FieldsForThemeGeneration"
     )

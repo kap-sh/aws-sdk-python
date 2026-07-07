@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#CreateFlowTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.flow_template_summary
 
 
-class CreateFlowTemplateResponse(TypedDict):
+class CreateFlowTemplateResponse(TypedDict, closed=True):
     summary: NotRequired[
         "aws_sdk_iotthingsgraph.types.flow_template_summary.FlowTemplateSummary"
     ]

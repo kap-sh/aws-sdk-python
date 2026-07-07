@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ScoringComponentResiliencyScore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.double
     import aws_sdk_resiliencehub.types.long
 
 
-class ScoringComponentResiliencyScore(TypedDict):
+class ScoringComponentResiliencyScore(TypedDict, closed=True):
     score: "aws_sdk_resiliencehub.types.double.Double"
     """<p>Resiliency score points given for the scoring component. The score is always less than or equal to the <code>possibleScore</code>.</p>"""
     possible_score: "aws_sdk_resiliencehub.types.double.Double"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#TerminateSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.session_id
 
 
-class TerminateSessionResponse(TypedDict):
+class TerminateSessionResponse(TypedDict, closed=True):
     application_id: "aws_sdk_emr_serverless.types.application_id.ApplicationId"
     """<p>The output contains the application ID on which the session was terminated.</p>"""
     session_id: "aws_sdk_emr_serverless.types.session_id.SessionId"

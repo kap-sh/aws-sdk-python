@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElbLoadBalancerAccessLog``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsElbLoadBalancerAccessLog(TypedDict):
+class AwsElbLoadBalancerAccessLog(TypedDict, closed=True):
     emit_interval: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The interval in minutes for publishing the access logs.</p> <p>You can publish access logs either every 5 minutes or every 60 minutes.</p>"""
     enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#SourceConnection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.source_type
 
 
-class SourceConnection(TypedDict):
+class SourceConnection(TypedDict, closed=True):
     type: NotRequired["aws_sdk_service_catalog.types.source_type.SourceType"]
     """<p>The only supported <code>SourceConnection</code> type is Codestar. </p>"""
     connection_parameters: "aws_sdk_service_catalog.types.source_connection_parameters.SourceConnectionParameters"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ServiceVolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.service_managed_ebs_volume_configuration
 
 
-class ServiceVolumeConfiguration(TypedDict):
+class ServiceVolumeConfiguration(TypedDict, closed=True):
     name: "aws_sdk_ecs.types.ecs_volume_name.ECSVolumeName"
     """<p>The name of the volume. This value must match the volume name from the <code>Volume</code> object in the task definition.</p>"""
     managed_ebs_volume: NotRequired[

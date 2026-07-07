@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ListResourceTelemetryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.list_resource_telemetry_max_results
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.telemetry_configuration_state
 
 
-class ListResourceTelemetryInput(TypedDict):
+class ListResourceTelemetryInput(TypedDict, closed=True):
     resource_identifier_prefix: NotRequired[
         "aws_sdk_observabilityadmin.types.resource_identifier_prefix.ResourceIdentifierPrefix"
     ]

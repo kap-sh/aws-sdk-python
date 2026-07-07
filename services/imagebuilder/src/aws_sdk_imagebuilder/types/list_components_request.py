@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListComponentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.restricted_integer
 
 
-class ListComponentsRequest(TypedDict):
+class ListComponentsRequest(TypedDict, closed=True):
     owner: NotRequired["aws_sdk_imagebuilder.types.ownership.Ownership"]
     """<p>Filters results based on the type of owner for the component. By default, this request returns a list of components that your account owns. To see results for other types of owners, you can specify components that Amazon manages, third party components, or components that other accounts have shared with you.</p>"""
     filters: NotRequired["aws_sdk_imagebuilder.types.filter_list.FilterList"]

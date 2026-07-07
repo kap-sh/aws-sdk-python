@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CheckDocumentAccessResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.associated_groups
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.document_acl
 
 
-class CheckDocumentAccessResponse(TypedDict):
+class CheckDocumentAccessResponse(TypedDict, closed=True):
     user_groups: NotRequired[
         "aws_sdk_qbusiness.types.associated_groups.AssociatedGroups"
     ]

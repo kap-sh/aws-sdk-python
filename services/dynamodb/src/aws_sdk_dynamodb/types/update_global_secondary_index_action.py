@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#UpdateGlobalSecondaryIndexAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.warm_throughput
 
 
-class UpdateGlobalSecondaryIndexAction(TypedDict):
+class UpdateGlobalSecondaryIndexAction(TypedDict, closed=True):
     index_name: "aws_sdk_dynamodb.types.index_name.IndexName"
     """<p>The name of the global secondary index to be updated.</p>"""
     provisioned_throughput: NotRequired[

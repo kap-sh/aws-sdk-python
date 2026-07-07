@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarnotifications#ListNotificationRulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codestar_notifications.types.list_notification_rules_filters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_notifications.types.next_token
 
 
-class ListNotificationRulesRequest(TypedDict):
+class ListNotificationRulesRequest(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_codestar_notifications.types.list_notification_rules_filters.ListNotificationRulesFilters"
     ]

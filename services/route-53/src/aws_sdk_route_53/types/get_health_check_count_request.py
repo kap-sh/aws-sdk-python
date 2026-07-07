@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.route53#GetHealthCheckCountRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
 
-class GetHealthCheckCountRequest(TypedDict):
+class GetHealthCheckCountRequest(TypedDict, closed=True):
     pass
 
 

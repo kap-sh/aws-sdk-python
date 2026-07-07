@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyTypeValueAnnotation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,19 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_update_type_value
 
 
-class _AutomatedReasoningPolicyTypeValueAnnotation_addTypeValue(TypedDict):
+class _AutomatedReasoningPolicyTypeValueAnnotation_addTypeValue(TypedDict, closed=True):
     addTypeValue: "aws_sdk_bedrock.types.automated_reasoning_policy_add_type_value.AutomatedReasoningPolicyAddTypeValue"
 
 
-class _AutomatedReasoningPolicyTypeValueAnnotation_updateTypeValue(TypedDict):
+class _AutomatedReasoningPolicyTypeValueAnnotation_updateTypeValue(
+    TypedDict, closed=True
+):
     updateTypeValue: "aws_sdk_bedrock.types.automated_reasoning_policy_update_type_value.AutomatedReasoningPolicyUpdateTypeValue"
 
 
-class _AutomatedReasoningPolicyTypeValueAnnotation_deleteTypeValue(TypedDict):
+class _AutomatedReasoningPolicyTypeValueAnnotation_deleteTypeValue(
+    TypedDict, closed=True
+):
     deleteTypeValue: "aws_sdk_bedrock.types.automated_reasoning_policy_delete_type_value.AutomatedReasoningPolicyDeleteTypeValue"
 
 

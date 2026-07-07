@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#Endpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.endpoint_type
 
 
-class Endpoint(TypedDict):
+class Endpoint(TypedDict, closed=True):
     type: "aws_sdk_pcs.types.endpoint_type.EndpointType"
     """<p>Indicates the type of endpoint running at the specific IP address.</p>"""
     private_ip_address: "str"

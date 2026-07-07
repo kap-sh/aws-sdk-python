@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#InputChannel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.input_channel_data_source
 
 
-class InputChannel(TypedDict):
+class InputChannel(TypedDict, closed=True):
     data_source: (
         "aws_sdk_cleanroomsml.types.input_channel_data_source.InputChannelDataSource"
     )

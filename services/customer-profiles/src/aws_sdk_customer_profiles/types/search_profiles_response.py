@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#SearchProfilesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.profile_list
     import aws_sdk_customer_profiles.types.token
 
 
-class SearchProfilesResponse(TypedDict):
+class SearchProfilesResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_customer_profiles.types.profile_list.ProfileList"]
     """<p>The list of Profiles matching the search criteria.</p>"""
     next_token: NotRequired["aws_sdk_customer_profiles.types.token.token"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CacheTagConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class CacheTagConfig(TypedDict):
+class CacheTagConfig(TypedDict, closed=True):
     header_name: "aws_sdk_cloudfront.types.string.string"
     """<p>The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, <code>product:electronics, category:tv, brand:example</code>).</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#DeleteApiCacheResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteApiCacheResponse(TypedDict):
+class DeleteApiCacheResponse(TypedDict, closed=True):
     pass
 
 

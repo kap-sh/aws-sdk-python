@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#SigningRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.signing_repository_filter_list
 
 
-class SigningRule(TypedDict):
+class SigningRule(TypedDict, closed=True):
     signing_profile_arn: "aws_sdk_ecr.types.signing_profile_arn.SigningProfileArn"
     r"""<p>The ARN of the Amazon Web Services Signer signing profile to use for signing images that match this rule. For more information about signing profiles, see <a href=\"https://docs.aws.amazon.com/signer/latest/developerguide/signing-profiles.html\">Signing profiles</a> in the <i>Amazon Web Services Signer Developer Guide</i>.</p>"""
     repository_filters: NotRequired[

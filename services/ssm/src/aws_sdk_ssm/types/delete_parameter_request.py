@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeleteParameterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ps_parameter_name
 
 
-class DeleteParameterRequest(TypedDict):
+class DeleteParameterRequest(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.ps_parameter_name.PSParameterName"
     """<p>The name of the parameter to delete.</p> <note> <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name itself.</p> </note>"""
 

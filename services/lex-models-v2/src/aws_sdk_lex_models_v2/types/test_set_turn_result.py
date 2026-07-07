@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#TestSetTurnResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.agent_turn_result
     import aws_sdk_lex_models_v2.types.user_turn_result
 
 
-class TestSetTurnResult(TypedDict):
+class TestSetTurnResult(TypedDict, closed=True):
     agent: NotRequired["aws_sdk_lex_models_v2.types.agent_turn_result.AgentTurnResult"]
     """<p>Contains information about the agent messages in the turn.</p>"""
     user: NotRequired["aws_sdk_lex_models_v2.types.user_turn_result.UserTurnResult"]

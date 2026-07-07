@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SuccessfulKeyRegistrationEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class SuccessfulKeyRegistrationEntry(TypedDict):
+class SuccessfulKeyRegistrationEntry(TypedDict, closed=True):
     key_arn: "aws_sdk_quicksight.types.string.String"
     """<p>The ARN of the KMS key that is associated with the <code>SuccessfulKeyRegistrationEntry</code> entry.</p>"""
     status_code: "aws_sdk_quicksight.types.status_code.StatusCode"

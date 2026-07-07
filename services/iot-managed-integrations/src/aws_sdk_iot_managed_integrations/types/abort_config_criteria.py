@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#AbortConfigCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.abort_criteria_action
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.threshold_percentage
 
 
-class AbortConfigCriteria(TypedDict):
+class AbortConfigCriteria(TypedDict, closed=True):
     action: NotRequired[
         "aws_sdk_iot_managed_integrations.types.abort_criteria_action.AbortCriteriaAction"
     ]

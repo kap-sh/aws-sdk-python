@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#SignalCatalogSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.timestamp
 
 
-class SignalCatalogSummary(TypedDict):
+class SignalCatalogSummary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_iotfleetwise.types.string.string"]
     """<p>The name of the signal catalog.</p>"""
     arn: NotRequired["aws_sdk_iotfleetwise.types.arn.arn"]

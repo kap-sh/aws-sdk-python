@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Attribution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.citations
 
 
-class Attribution(TypedDict):
+class Attribution(TypedDict, closed=True):
     citations: NotRequired["aws_sdk_bedrock_agent_runtime.types.citations.Citations"]
     """<p>A list of citations and related information for a part of an agent response.</p>"""
 

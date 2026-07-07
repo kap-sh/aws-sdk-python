@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#FollowerChannelSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.linked_channel_type
 
 
-class FollowerChannelSettings(TypedDict):
+class FollowerChannelSettings(TypedDict, closed=True):
     linked_channel_type: NotRequired[
         "aws_sdk_medialive.types.linked_channel_type.LinkedChannelType"
     ]

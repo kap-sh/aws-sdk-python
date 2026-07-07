@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RateBasedStatementManagedKeysIPSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.ip_address_version
     import aws_sdk_wafv2.types.ip_addresses
 
 
-class RateBasedStatementManagedKeysIPSet(TypedDict):
+class RateBasedStatementManagedKeysIPSet(TypedDict, closed=True):
     ip_address_version: NotRequired[
         "aws_sdk_wafv2.types.ip_address_version.IPAddressVersion"
     ]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#Gpu``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.gpu_count
     import aws_sdk_compute_optimizer.types.gpu_memory_size_in_mi_b
 
 
-class Gpu(TypedDict):
+class Gpu(TypedDict, closed=True):
     gpu_count: "aws_sdk_compute_optimizer.types.gpu_count.GpuCount"
     """<p> The number of GPUs for the instance type. </p>"""
     gpu_memory_size_in_mi_b: (

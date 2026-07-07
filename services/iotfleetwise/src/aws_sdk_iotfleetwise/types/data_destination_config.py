@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#DataDestinationConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.timestream_config
 
 
-class _DataDestinationConfig_s3Config(TypedDict):
+class _DataDestinationConfig_s3Config(TypedDict, closed=True):
     s3Config: "aws_sdk_iotfleetwise.types.s3_config.S3Config"
 
 
-class _DataDestinationConfig_timestreamConfig(TypedDict):
+class _DataDestinationConfig_timestreamConfig(TypedDict, closed=True):
     timestreamConfig: "aws_sdk_iotfleetwise.types.timestream_config.TimestreamConfig"
 
 
-class _DataDestinationConfig_mqttTopicConfig(TypedDict):
+class _DataDestinationConfig_mqttTopicConfig(TypedDict, closed=True):
     mqttTopicConfig: "aws_sdk_iotfleetwise.types.mqtt_topic_config.MqttTopicConfig"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#ListLogSourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.log_source_list
     import aws_sdk_securitylake.types.next_token
 
 
-class ListLogSourcesResponse(TypedDict):
+class ListLogSourcesResponse(TypedDict, closed=True):
     sources: NotRequired["aws_sdk_securitylake.types.log_source_list.LogSourceList"]
     """<p>The list of log sources in your organization that send data to the data lake.</p>"""
     next_token: NotRequired["aws_sdk_securitylake.types.next_token.NextToken"]

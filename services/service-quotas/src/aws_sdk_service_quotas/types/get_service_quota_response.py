@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#GetServiceQuotaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.service_quota
 
 
-class GetServiceQuotaResponse(TypedDict):
+class GetServiceQuotaResponse(TypedDict, closed=True):
     quota: NotRequired["aws_sdk_service_quotas.types.service_quota.ServiceQuota"]
     """<p>Information about the quota.</p>"""
 

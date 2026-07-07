@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#CreateWebACLResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.web_acl_summary
 
 
-class CreateWebACLResponse(TypedDict):
+class CreateWebACLResponse(TypedDict, closed=True):
     summary: NotRequired["aws_sdk_wafv2.types.web_acl_summary.WebACLSummary"]
     """<p>High-level information about a <a>WebACL</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>WebACL</code>, and the ARN, that you provide to operations like <a>AssociateWebACL</a>.</p>"""
 

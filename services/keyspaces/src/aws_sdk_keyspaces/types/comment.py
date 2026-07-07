@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#Comment``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
 
-class Comment(TypedDict):
+class Comment(TypedDict, closed=True):
     message: "str"
     """<p>An optional description of the table.</p>"""
 

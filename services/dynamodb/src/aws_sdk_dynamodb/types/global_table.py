@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#GlobalTable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.replica_list
     import aws_sdk_dynamodb.types.table_name
 
 
-class GlobalTable(TypedDict):
+class GlobalTable(TypedDict, closed=True):
     global_table_name: NotRequired["aws_sdk_dynamodb.types.table_name.TableName"]
     """<p>The global table name.</p>"""
     replication_group: NotRequired["aws_sdk_dynamodb.types.replica_list.ReplicaList"]

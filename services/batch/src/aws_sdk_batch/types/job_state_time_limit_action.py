@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#JobStateTimeLimitAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class JobStateTimeLimitAction(TypedDict):
+class JobStateTimeLimitAction(TypedDict, closed=True):
     reason: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The reason to log for the action being taken.</p>"""
     state: NotRequired[

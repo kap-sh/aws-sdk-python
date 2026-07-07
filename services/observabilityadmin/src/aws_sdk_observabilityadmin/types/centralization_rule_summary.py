@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#CentralizationRuleSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.centralization_failure_reason
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.rule_name
 
 
-class CentralizationRuleSummary(TypedDict):
+class CentralizationRuleSummary(TypedDict, closed=True):
     rule_name: NotRequired["aws_sdk_observabilityadmin.types.rule_name.RuleName"]
     """<p>The name of the organization centralization rule.</p>"""
     rule_arn: NotRequired["aws_sdk_observabilityadmin.types.resource_arn.ResourceArn"]

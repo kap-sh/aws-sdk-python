@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateDataSourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.data_source_configuration_input
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.schedule_configuration
 
 
-class UpdateDataSourceInput(TypedDict):
+class UpdateDataSourceInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the domain in which to update a data source.</p>"""
     identifier: "aws_sdk_datazone.types.data_source_id.DataSourceId"

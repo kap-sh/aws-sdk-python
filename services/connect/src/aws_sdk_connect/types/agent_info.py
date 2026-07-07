@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AgentInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_pause_duration_in_seconds
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.voice_enhancement_mode
 
 
-class AgentInfo(TypedDict):
+class AgentInfo(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.agent_resource_id.AgentResourceId"]
     """<p>The identifier of the agent who accepted the contact.</p>"""
     accepted_by_agent_timestamp: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#StaticImageOutputDeactivateScheduleActionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of__string
 
 
-class StaticImageOutputDeactivateScheduleActionSettings(TypedDict):
+class StaticImageOutputDeactivateScheduleActionSettings(TypedDict, closed=True):
     fade_out: NotRequired["aws_sdk_medialive.types.__integer_min0.__integerMin0"]
     """The time in milliseconds for the image to fade out. Default is 0 (no fade-out)."""
     layer: NotRequired["aws_sdk_medialive.types.__integer_min0_max7.__integerMin0Max7"]

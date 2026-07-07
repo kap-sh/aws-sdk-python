@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#ListStreamsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.next_token
     import aws_sdk_kinesis_video.types.stream_info_list
 
 
-class ListStreamsOutput(TypedDict):
+class ListStreamsOutput(TypedDict, closed=True):
     stream_info_list: NotRequired[
         "aws_sdk_kinesis_video.types.stream_info_list.StreamInfoList"
     ]

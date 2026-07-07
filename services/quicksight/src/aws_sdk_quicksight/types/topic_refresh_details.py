@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicRefreshDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_refresh_status
 
 
-class TopicRefreshDetails(TypedDict):
+class TopicRefreshDetails(TypedDict, closed=True):
     refresh_arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the topic refresh.</p>"""
     refresh_id: NotRequired["aws_sdk_quicksight.types.resource_id.ResourceId"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#AddTagsToResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.tags
 
 
-class AddTagsToResourceRequest(TypedDict):
+class AddTagsToResourceRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_directory_service.types.resource_id.ResourceId"
     """<p>Identifier (ID) for the directory to which to add the tag.</p>"""
     tags: "aws_sdk_directory_service.types.tags.Tags"

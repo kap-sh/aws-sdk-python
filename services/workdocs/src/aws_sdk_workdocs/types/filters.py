@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#Filters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.date_range_type
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.text_locale_type_list
 
 
-class Filters(TypedDict):
+class Filters(TypedDict, closed=True):
     text_locales: NotRequired[
         "aws_sdk_workdocs.types.text_locale_type_list.TextLocaleTypeList"
     ]

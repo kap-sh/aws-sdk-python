@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#BatchError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_repostspace.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_repostspace.types.error_message
 
 
-class BatchError(TypedDict):
+class BatchError(TypedDict, closed=True):
     accessor_id: "aws_sdk_repostspace.types.accessor_id.AccessorId"
     """<p>The accessor identifier that's related to the error.</p>"""
     error: "aws_sdk_repostspace.types.error_code.ErrorCode"

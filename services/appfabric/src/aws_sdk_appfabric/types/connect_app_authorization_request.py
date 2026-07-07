@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#ConnectAppAuthorizationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appfabric.types.auth_request
     import aws_sdk_appfabric.types.identifier
 
 
-class ConnectAppAuthorizationRequest(TypedDict):
+class ConnectAppAuthorizationRequest(TypedDict, closed=True):
     app_bundle_identifier: "aws_sdk_appfabric.types.identifier.Identifier"
     """<p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle that contains the app authorization to use for the request.</p>"""
     app_authorization_identifier: "aws_sdk_appfabric.types.identifier.Identifier"

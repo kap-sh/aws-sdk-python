@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#GetResourceDefinitionVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.resource_definition_version
 
 
-class GetResourceDefinitionVersionResponse(TypedDict):
+class GetResourceDefinitionVersionResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """Arn of the resource definition version."""
     creation_timestamp: NotRequired["aws_sdk_greengrass.types.__string.__string"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#BatchCreateChannelMembershipResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.batch_channel_memberships
     import aws_sdk_chime_sdk_messaging.types.batch_create_channel_membership_errors
 
 
-class BatchCreateChannelMembershipResponse(TypedDict):
+class BatchCreateChannelMembershipResponse(TypedDict, closed=True):
     batch_channel_memberships: NotRequired[
         "aws_sdk_chime_sdk_messaging.types.batch_channel_memberships.BatchChannelMemberships"
     ]

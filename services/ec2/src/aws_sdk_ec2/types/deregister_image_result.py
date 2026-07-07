@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeregisterImageResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -18,6 +18,7 @@ DeregisterImageResult = TypedDict(
             "aws_sdk_ec2.types.delete_snapshot_result_set.DeleteSnapshotResultSet"
         ],
     },
+    closed=True,
 )
 
 

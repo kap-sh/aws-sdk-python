@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#CategoryProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.category_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.tag_list
 
 
-class CategoryProperties(TypedDict):
+class CategoryProperties(TypedDict, closed=True):
     category_name: NotRequired["aws_sdk_transcribe.types.category_name.CategoryName"]
     """<p>The name of the Call Analytics category. Category names are case sensitive and must be unique within an Amazon Web Services account.</p>"""
     rules: NotRequired["aws_sdk_transcribe.types.rule_list.RuleList"]

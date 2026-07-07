@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#GetQuotaUtilizationReportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_quotas.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.report_id
 
 
-class GetQuotaUtilizationReportRequest(TypedDict):
+class GetQuotaUtilizationReportRequest(TypedDict, closed=True):
     report_id: "aws_sdk_service_quotas.types.report_id.ReportId"
     """<p>The unique identifier for the quota utilization report. This identifier is returned by the <code>StartQuotaUtilizationReport</code> operation.</p>"""
     next_token: NotRequired["aws_sdk_service_quotas.types.next_token.NextToken"]

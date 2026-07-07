@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ExternalSourcesGenerationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.additional_model_request_fields
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.prompt_template
 
 
-class ExternalSourcesGenerationConfiguration(TypedDict):
+class ExternalSourcesGenerationConfiguration(TypedDict, closed=True):
     prompt_template: NotRequired["aws_sdk_bedrock.types.prompt_template.PromptTemplate"]
     """<p>Contains the template for the prompt for the external source wrapper object.</p>"""
     guardrail_configuration: NotRequired[

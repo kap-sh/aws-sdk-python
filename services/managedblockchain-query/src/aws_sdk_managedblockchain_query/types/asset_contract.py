@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#AssetContract``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.query_token_standard
 
 
-class AssetContract(TypedDict):
+class AssetContract(TypedDict, closed=True):
     contract_identifier: (
         "aws_sdk_managedblockchain_query.types.contract_identifier.ContractIdentifier"
     )

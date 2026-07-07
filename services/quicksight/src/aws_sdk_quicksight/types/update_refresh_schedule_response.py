@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateRefreshScheduleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class UpdateRefreshScheduleResponse(TypedDict):
+class UpdateRefreshScheduleResponse(TypedDict, closed=True):
     status: "aws_sdk_quicksight.types.status_code.StatusCode"
     """<p>The HTTP status of the request.</p>"""
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]

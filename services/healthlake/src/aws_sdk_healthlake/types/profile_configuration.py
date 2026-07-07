@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#ProfileConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_healthlake.types.default_profiles
 
 
-class ProfileConfiguration(TypedDict):
+class ProfileConfiguration(TypedDict, closed=True):
     default_profiles: NotRequired[
         "aws_sdk_healthlake.types.default_profiles.DefaultProfiles"
     ]

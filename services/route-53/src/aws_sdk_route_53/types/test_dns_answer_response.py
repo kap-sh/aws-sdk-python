@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#TestDNSAnswerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -14,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.transport_protocol
 
 
-class TestDNSAnswerResponse(TypedDict):
+class TestDNSAnswerResponse(TypedDict, closed=True):
     nameserver: "aws_sdk_route_53.types.nameserver.Nameserver"
     """<p>The Amazon Route 53 name server used to respond to the request.</p>"""
     record_name: "aws_sdk_route_53.types.dns_name.DNSName"

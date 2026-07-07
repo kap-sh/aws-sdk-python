@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#VisualOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.limited_string
 
 
-class VisualOptions(TypedDict):
+class VisualOptions(TypedDict, closed=True):
     type: NotRequired["aws_sdk_quicksight.types.limited_string.LimitedString"]
     """<p>The type for a <code>VisualOptions</code>.</p>"""
 

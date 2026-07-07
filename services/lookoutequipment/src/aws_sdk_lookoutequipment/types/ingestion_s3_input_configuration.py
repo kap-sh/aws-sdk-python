@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#IngestionS3InputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.s3_prefix
 
 
-class IngestionS3InputConfiguration(TypedDict):
+class IngestionS3InputConfiguration(TypedDict, closed=True):
     bucket: "aws_sdk_lookoutequipment.types.s3_bucket.S3Bucket"
     """<p>The name of the S3 bucket used for the input data for the data ingestion. </p>"""
     prefix: NotRequired["aws_sdk_lookoutequipment.types.s3_prefix.S3Prefix"]

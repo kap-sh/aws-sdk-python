@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DuplicateTagKeysException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_direct_connect.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.error_message
 
 
-class DuplicateTagKeysException_(TypedDict):
+class DuplicateTagKeysException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_direct_connect.types.error_message.ErrorMessage"]
 
 

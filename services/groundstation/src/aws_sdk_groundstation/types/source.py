@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#Source``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.config_capability_type
     import aws_sdk_groundstation.types.config_details
 
 
-class Source(TypedDict):
+class Source(TypedDict, closed=True):
     config_type: NotRequired[
         "aws_sdk_groundstation.types.config_capability_type.ConfigCapabilityType"
     ]

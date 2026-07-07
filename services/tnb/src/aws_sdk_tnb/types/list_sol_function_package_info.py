@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#ListSolFunctionPackageInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_tnb.types.vnf_pkg_id
 
 
-class ListSolFunctionPackageInfo(TypedDict):
+class ListSolFunctionPackageInfo(TypedDict, closed=True):
     id: "aws_sdk_tnb.types.vnf_pkg_id.VnfPkgId"
     """<p>ID of the function package.</p>"""
     arn: "aws_sdk_tnb.types.vnf_pkg_arn.VnfPkgArn"

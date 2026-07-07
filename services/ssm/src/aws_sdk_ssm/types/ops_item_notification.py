@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#OpsItemNotification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class OpsItemNotification(TypedDict):
+class OpsItemNotification(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of an Amazon Simple Notification Service (Amazon SNS) topic where notifications are sent when this OpsItem is edited or changed.</p>"""
 

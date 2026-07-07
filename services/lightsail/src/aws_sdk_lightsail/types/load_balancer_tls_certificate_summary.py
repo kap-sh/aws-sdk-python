@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#LoadBalancerTlsCertificateSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
     import aws_sdk_lightsail.types.resource_name
 
 
-class LoadBalancerTlsCertificateSummary(TypedDict):
+class LoadBalancerTlsCertificateSummary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
     """<p>The name of the SSL/TLS certificate.</p>"""
     is_attached: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]

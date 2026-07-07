@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#SecurityIncidentResponseNotActiveException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError, ServiceError
 
 
-class SecurityIncidentResponseNotActiveException_(TypedDict):
+class SecurityIncidentResponseNotActiveException_(TypedDict, closed=True):
     message: "str"
     """<p>The exception message.</p>"""
 

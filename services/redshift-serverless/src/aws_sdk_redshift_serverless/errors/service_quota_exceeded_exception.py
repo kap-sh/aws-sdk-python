@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ServiceQuotaExceededException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError, ServiceError
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "str"
 
 

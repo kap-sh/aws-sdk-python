@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#DeleteStorageLensGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.storage_lens_group_name
 
 
-class DeleteStorageLensGroupRequest(TypedDict):
+class DeleteStorageLensGroupRequest(TypedDict, closed=True):
     name: "aws_sdk_s3_control.types.storage_lens_group_name.StorageLensGroupName"
     """<p> The name of the Storage Lens group that you're trying to delete. </p>"""
     account_id: "aws_sdk_s3_control.types.account_id.AccountId"

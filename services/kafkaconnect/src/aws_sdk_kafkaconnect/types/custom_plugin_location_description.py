@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#CustomPluginLocationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.s3_location_description
 
 
-class CustomPluginLocationDescription(TypedDict):
+class CustomPluginLocationDescription(TypedDict, closed=True):
     s3_location: NotRequired[
         "aws_sdk_kafkaconnect.types.s3_location_description.S3LocationDescription"
     ]

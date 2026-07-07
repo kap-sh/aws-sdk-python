@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#UpdateGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.group_type
 
 
-class UpdateGroupResponse(TypedDict):
+class UpdateGroupResponse(TypedDict, closed=True):
     group: NotRequired["aws_sdk_cognito_identity_provider.types.group_type.GroupType"]
     """<p>Contains the updated details of the group, including precedence, IAM role, and description.</p>"""
 

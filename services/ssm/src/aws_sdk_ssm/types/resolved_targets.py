@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ResolvedTargets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.boolean
     import aws_sdk_ssm.types.target_parameter_list
 
 
-class ResolvedTargets(TypedDict):
+class ResolvedTargets(TypedDict, closed=True):
     parameter_values: NotRequired[
         "aws_sdk_ssm.types.target_parameter_list.TargetParameterList"
     ]

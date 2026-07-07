@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#ListAppBundlesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.string2048
 
 
-class ListAppBundlesResponse(TypedDict):
+class ListAppBundlesResponse(TypedDict, closed=True):
     app_bundle_summary_list: (
         "aws_sdk_appfabric.types.app_bundle_summary_list.AppBundleSummaryList"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#ListEventSubscriptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.pagination_token
 
 
-class ListEventSubscriptionsRequest(TypedDict):
+class ListEventSubscriptionsRequest(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_inspector.types.arn.Arn"]
     """<p>The ARN of the assessment template for which you want to list the existing event subscriptions.</p>"""
     next_token: NotRequired["aws_sdk_inspector.types.pagination_token.PaginationToken"]

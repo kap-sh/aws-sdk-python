@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#ListIdentityPoolUsageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.identity_pool_usage_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.string
 
 
-class ListIdentityPoolUsageResponse(TypedDict):
+class ListIdentityPoolUsageResponse(TypedDict, closed=True):
     identity_pool_usages: NotRequired[
         "aws_sdk_cognito_sync.types.identity_pool_usage_list.IdentityPoolUsageList"
     ]

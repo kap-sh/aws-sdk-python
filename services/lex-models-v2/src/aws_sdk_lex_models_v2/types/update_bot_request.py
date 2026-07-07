@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UpdateBotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.session_ttl
 
 
-class UpdateBotRequest(TypedDict):
+class UpdateBotRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     r"""<p>The unique identifier of the bot to update. This identifier is returned by the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html\">CreateBot</a> operation.</p>"""
     bot_name: "aws_sdk_lex_models_v2.types.name.Name"

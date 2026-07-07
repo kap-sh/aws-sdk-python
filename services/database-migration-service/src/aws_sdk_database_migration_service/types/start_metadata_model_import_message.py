@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#StartMetadataModelImportMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class StartMetadataModelImportMessage(TypedDict):
+class StartMetadataModelImportMessage(TypedDict, closed=True):
     migration_project_identifier: "aws_sdk_database_migration_service.types.migration_project_identifier.MigrationProjectIdentifier"
     """<p>The migration project name or Amazon Resource Name (ARN).</p>"""
     selection_rules: "aws_sdk_database_migration_service.types.string.String"

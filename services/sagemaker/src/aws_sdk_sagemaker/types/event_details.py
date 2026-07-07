@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.event_metadata
 
 
-class EventDetails(TypedDict):
+class EventDetails(TypedDict, closed=True):
     event_metadata: NotRequired["aws_sdk_sagemaker.types.event_metadata.EventMetadata"]
     """<p>Metadata specific to the event, which may include information about the cluster, instance group, or instance involved.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DataProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
 
 
-class DataProperties(TypedDict):
+class DataProperties(TypedDict, closed=True):
     language_code: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """The language code of the data track, in three character ISO 639-3 format."""
 

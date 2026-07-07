@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#LambdaDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.vpc_config
 
 
-class LambdaDetails(TypedDict):
+class LambdaDetails(TypedDict, closed=True):
     function_arn: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Amazon Resource Name (ARN) of the Lambda function.</p>"""
     function_name: NotRequired["aws_sdk_guardduty.types.string.String"]

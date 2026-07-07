@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#ListAssociatedAttributeGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.attribute_group_ids
     import aws_sdk_service_catalog_appregistry.types.next_token
 
 
-class ListAssociatedAttributeGroupsResponse(TypedDict):
+class ListAssociatedAttributeGroupsResponse(TypedDict, closed=True):
     attribute_groups: NotRequired[
         "aws_sdk_service_catalog_appregistry.types.attribute_group_ids.AttributeGroupIds"
     ]

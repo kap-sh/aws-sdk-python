@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#Category``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_places.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class Category(TypedDict):
+class Category(TypedDict, closed=True):
     id: "aws_sdk_geo_places.types.sensitive_string.SensitiveString"
     """<p>The category ID.</p>"""
     name: "aws_sdk_geo_places.types.sensitive_string.SensitiveString"

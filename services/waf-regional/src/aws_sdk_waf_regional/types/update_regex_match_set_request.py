@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#UpdateRegexMatchSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.resource_id
 
 
-class UpdateRegexMatchSetRequest(TypedDict):
+class UpdateRegexMatchSetRequest(TypedDict, closed=True):
     regex_match_set_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to update. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>"""
     updates: "aws_sdk_waf_regional.types.regex_match_set_updates.RegexMatchSetUpdates"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#InvokeBrowserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.browser_session_id
 
 
-class InvokeBrowserResponse(TypedDict):
+class InvokeBrowserResponse(TypedDict, closed=True):
     result: "aws_sdk_bedrock_agentcore.types.browser_action_result.BrowserActionResult"
     """<p>The result of the browser action. The member set in the result corresponds to the action that was performed.</p>"""
     session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId"

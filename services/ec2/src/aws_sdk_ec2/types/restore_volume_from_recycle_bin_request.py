@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#RestoreVolumeFromRecycleBinRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.volume_id
 
 
-class RestoreVolumeFromRecycleBinRequest(TypedDict):
+class RestoreVolumeFromRecycleBinRequest(TypedDict, closed=True):
     volume_id: NotRequired["aws_sdk_ec2.types.volume_id.VolumeId"]
     """<p>The ID of the volume to restore.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

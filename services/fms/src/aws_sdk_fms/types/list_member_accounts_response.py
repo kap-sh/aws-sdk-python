@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListMemberAccountsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.member_accounts
     import aws_sdk_fms.types.pagination_token
 
 
-class ListMemberAccountsResponse(TypedDict):
+class ListMemberAccountsResponse(TypedDict, closed=True):
     member_accounts: NotRequired["aws_sdk_fms.types.member_accounts.MemberAccounts"]
     """<p>An array of account IDs.</p>"""
     next_token: NotRequired["aws_sdk_fms.types.pagination_token.PaginationToken"]

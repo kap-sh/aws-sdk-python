@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#FixedModeScheduleActionStartSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class FixedModeScheduleActionStartSettings(TypedDict):
+class FixedModeScheduleActionStartSettings(TypedDict, closed=True):
     time: NotRequired["aws_sdk_medialive.types.__string.__string"]
     r"""Start time for the action to start in the channel. (Not the time for the action to be added to the schedule: actions are always added to the schedule immediately.) UTC format: yyyy-mm-ddThh:mm:ss.nnnZ. All the letters are digits (for example, mm might be 01) except for the two constants \"T\" for time and \"Z\" for \"UTC format\"."""
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteTopicRuleDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.aws_arn
 
 
-class DeleteTopicRuleDestinationRequest(TypedDict):
+class DeleteTopicRuleDestinationRequest(TypedDict, closed=True):
     arn: "aws_sdk_iot.types.aws_arn.AwsArn"
     """<p>The ARN of the topic rule destination to delete.</p>"""
 

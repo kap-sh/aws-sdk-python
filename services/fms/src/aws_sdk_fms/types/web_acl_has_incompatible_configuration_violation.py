@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#WebACLHasIncompatibleConfigurationViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.length_bounded_string
     import aws_sdk_fms.types.resource_arn
 
 
-class WebACLHasIncompatibleConfigurationViolation(TypedDict):
+class WebACLHasIncompatibleConfigurationViolation(TypedDict, closed=True):
     web_acl_arn: NotRequired["aws_sdk_fms.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the web ACL. </p>"""
     description: NotRequired[

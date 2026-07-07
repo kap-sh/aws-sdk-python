@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#CommitmentPurchaseAnalysisConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.savings_plans_purchase_analysis_configuration
 
 
-class CommitmentPurchaseAnalysisConfiguration(TypedDict):
+class CommitmentPurchaseAnalysisConfiguration(TypedDict, closed=True):
     savings_plans_purchase_analysis_configuration: NotRequired[
         "aws_sdk_cost_explorer.types.savings_plans_purchase_analysis_configuration.SavingsPlansPurchaseAnalysisConfiguration"
     ]

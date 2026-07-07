@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SingularConnectorProfileProperties``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SingularConnectorProfileProperties(TypedDict):
+class SingularConnectorProfileProperties(TypedDict, closed=True):
     pass
 
 

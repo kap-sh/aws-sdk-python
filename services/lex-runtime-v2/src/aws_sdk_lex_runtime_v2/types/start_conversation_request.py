@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#StartConversationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.bot_alias_identifier
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.start_conversation_request_event_stream
 
 
-class StartConversationRequest(TypedDict):
+class StartConversationRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_runtime_v2.types.bot_identifier.BotIdentifier"
     """<p>The identifier of the bot to process the request.</p>"""
     bot_alias_id: "aws_sdk_lex_runtime_v2.types.bot_alias_identifier.BotAliasIdentifier"

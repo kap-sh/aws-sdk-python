@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#AttributeValueItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.string1_to255
 
 
-class AttributeValueItem(TypedDict):
+class AttributeValueItem(TypedDict, closed=True):
     value: NotRequired["aws_sdk_customer_profiles.types.string1_to255.string1To255"]
     """<p>An individual value belonging to the given attribute.</p>"""
 

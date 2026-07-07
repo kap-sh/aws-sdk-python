@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DeleteThemeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DeleteThemeResponse(TypedDict):
+class DeleteThemeResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]

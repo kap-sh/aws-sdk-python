@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#NotAcceptableException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError, ServiceError
 
 
-class NotAcceptableException_(TypedDict):
+class NotAcceptableException_(TypedDict, closed=True):
     message: "str"
 
 

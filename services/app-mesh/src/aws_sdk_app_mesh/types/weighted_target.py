@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#WeightedTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.resource_name
 
 
-class WeightedTarget(TypedDict):
+class WeightedTarget(TypedDict, closed=True):
     virtual_node: "aws_sdk_app_mesh.types.resource_name.ResourceName"
     """<p>The virtual node to associate with the weighted target.</p>"""
     weight: "aws_sdk_app_mesh.types.percent_int.PercentInt"

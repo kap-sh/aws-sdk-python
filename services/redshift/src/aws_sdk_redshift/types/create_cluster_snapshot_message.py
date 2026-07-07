@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#CreateClusterSnapshotMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.tag_list
 
 
-class CreateClusterSnapshotMessage(TypedDict):
+class CreateClusterSnapshotMessage(TypedDict, closed=True):
     snapshot_identifier: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.</p> <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to 255 alphanumeric characters or hyphens</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>"""
     cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]

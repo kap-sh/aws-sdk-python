@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#DeployAsApplicationConfigurationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.s3_content_base_location_update
 
 
-class DeployAsApplicationConfigurationUpdate(TypedDict):
+class DeployAsApplicationConfigurationUpdate(TypedDict, closed=True):
     s3_content_location_update: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.s3_content_base_location_update.S3ContentBaseLocationUpdate"
     ]

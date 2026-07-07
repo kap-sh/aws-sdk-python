@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#ListConnectionInvitationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.participant_type
 
 
-class ListConnectionInvitationsRequest(TypedDict):
+class ListConnectionInvitationsRequest(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_account.types.catalog.Catalog"
     """<p>The catalog identifier for the partner account.</p>"""
     next_token: NotRequired["aws_sdk_partnercentral_account.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#InAppCampaignSchedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.quiet_time
 
 
-class InAppCampaignSchedule(TypedDict):
+class InAppCampaignSchedule(TypedDict, closed=True):
     end_date: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The scheduled time after which the in-app message should not be shown. Timestamp is in ISO 8601 format.</p>"""
     event_filter: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#UpdateCostAllocationTagsStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.cost_allocation_tag_status_list
 
 
-class UpdateCostAllocationTagsStatusRequest(TypedDict):
+class UpdateCostAllocationTagsStatusRequest(TypedDict, closed=True):
     cost_allocation_tags_status: "aws_sdk_cost_explorer.types.cost_allocation_tag_status_list.CostAllocationTagStatusList"
     """<p>The list of <code>CostAllocationTagStatusEntry</code> objects that are used to update cost allocation tags status for this request. </p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ApprovalStateChangedEventMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.approval_state
     import aws_sdk_codecommit.types.revision_id
 
 
-class ApprovalStateChangedEventMetadata(TypedDict):
+class ApprovalStateChangedEventMetadata(TypedDict, closed=True):
     revision_id: NotRequired["aws_sdk_codecommit.types.revision_id.RevisionId"]
     """<p>The revision ID of the pull request when the approval state changed.</p>"""
     approval_status: NotRequired[

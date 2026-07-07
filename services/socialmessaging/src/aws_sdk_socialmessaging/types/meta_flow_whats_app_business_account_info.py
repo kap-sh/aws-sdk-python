@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#MetaFlowWhatsAppBusinessAccountInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.whats_app_business_account_name
 
 
-class MetaFlowWhatsAppBusinessAccountInfo(TypedDict):
+class MetaFlowWhatsAppBusinessAccountInfo(TypedDict, closed=True):
     id: "aws_sdk_socialmessaging.types.whats_app_business_account_id.WhatsAppBusinessAccountId"
     """<p>The WhatsApp Business Account ID from Meta.</p>"""
     name: "aws_sdk_socialmessaging.types.whats_app_business_account_name.WhatsAppBusinessAccountName"

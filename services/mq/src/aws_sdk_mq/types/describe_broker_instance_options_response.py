@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mq#DescribeBrokerInstanceOptionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__integer_min5_max100
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
 
 
-class DescribeBrokerInstanceOptionsResponse(TypedDict):
+class DescribeBrokerInstanceOptionsResponse(TypedDict, closed=True):
     broker_instance_options: NotRequired[
         "aws_sdk_mq.types.__list_of_broker_instance_option.__listOfBrokerInstanceOption"
     ]

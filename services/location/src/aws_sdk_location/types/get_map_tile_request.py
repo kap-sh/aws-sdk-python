@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetMapTileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.api_key
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.sensitive_string
 
 
-class GetMapTileRequest(TypedDict):
+class GetMapTileRequest(TypedDict, closed=True):
     map_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The map resource to retrieve the map tiles from.</p>"""
     z: "aws_sdk_location.types.sensitive_string.SensitiveString"

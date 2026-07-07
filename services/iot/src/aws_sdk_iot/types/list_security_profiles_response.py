@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListSecurityProfilesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
     import aws_sdk_iot.types.security_profile_identifiers
 
 
-class ListSecurityProfilesResponse(TypedDict):
+class ListSecurityProfilesResponse(TypedDict, closed=True):
     security_profile_identifiers: NotRequired[
         "aws_sdk_iot.types.security_profile_identifiers.SecurityProfileIdentifiers"
     ]

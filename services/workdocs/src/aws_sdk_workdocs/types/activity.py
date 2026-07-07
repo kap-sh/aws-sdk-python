@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#Activity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.activity_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.user_metadata
 
 
-class Activity(TypedDict):
+class Activity(TypedDict, closed=True):
     type: NotRequired["aws_sdk_workdocs.types.activity_type.ActivityType"]
     """<p>The activity type.</p>"""
     time_stamp: NotRequired["aws_sdk_workdocs.types.timestamp_type.TimestampType"]

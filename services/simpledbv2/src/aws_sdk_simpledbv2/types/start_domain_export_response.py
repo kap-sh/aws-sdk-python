@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.simpledbv2#StartDomainExportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_simpledbv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_simpledbv2.types.requested_at
 
 
-class StartDomainExportResponse(TypedDict):
+class StartDomainExportResponse(TypedDict, closed=True):
     client_token: "aws_sdk_simpledbv2.types.idempotency_token.IdempotencyToken"
     """The client token that was provided in the request."""
     export_arn: "aws_sdk_simpledbv2.types.export_arn.ExportArn"

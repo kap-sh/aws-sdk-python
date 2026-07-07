@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#Entitlement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.app_visibility
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.timestamp
 
 
-class Entitlement(TypedDict):
+class Entitlement(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>The name of the entitlement.</p>"""
     stack_name: NotRequired["aws_sdk_appstream.types.name.Name"]

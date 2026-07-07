@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#SingleMeasureMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.measure_value_type
 
 
-class SingleMeasureMapping(TypedDict):
+class SingleMeasureMapping(TypedDict, closed=True):
     measure_value: "aws_sdk_pipes.types.measure_value.MeasureValue"
     """<p>Dynamic path of the source field to map to the measure in the record.</p>"""
     measure_value_type: "aws_sdk_pipes.types.measure_value_type.MeasureValueType"

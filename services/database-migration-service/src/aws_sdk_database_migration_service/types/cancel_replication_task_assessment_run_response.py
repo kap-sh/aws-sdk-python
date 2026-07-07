@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#CancelReplicationTaskAssessmentRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.replication_task_assessment_run
 
 
-class CancelReplicationTaskAssessmentRunResponse(TypedDict):
+class CancelReplicationTaskAssessmentRunResponse(TypedDict, closed=True):
     replication_task_assessment_run: NotRequired[
         "aws_sdk_database_migration_service.types.replication_task_assessment_run.ReplicationTaskAssessmentRun"
     ]

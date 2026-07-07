@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#MoveKeys``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.move_key_entries
 
 
-class MoveKeys(TypedDict):
+class MoveKeys(TypedDict, closed=True):
     entries: "aws_sdk_cloudwatch_logs.types.move_key_entries.MoveKeyEntries"
     """<p>An array of objects, where each object contains the information about one key to move. </p>"""
 

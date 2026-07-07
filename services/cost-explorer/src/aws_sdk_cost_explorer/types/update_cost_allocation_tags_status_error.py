@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#UpdateCostAllocationTagsStatusError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.error_message
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.tag_key
 
 
-class UpdateCostAllocationTagsStatusError(TypedDict):
+class UpdateCostAllocationTagsStatusError(TypedDict, closed=True):
     tag_key: NotRequired["aws_sdk_cost_explorer.types.tag_key.TagKey"]
     """<p>The key for the cost allocation tag. </p>"""
     code: NotRequired["aws_sdk_cost_explorer.types.generic_string.GenericString"]

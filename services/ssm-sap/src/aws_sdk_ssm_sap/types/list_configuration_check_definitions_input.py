@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#ListConfigurationCheckDefinitionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.max_results
     import aws_sdk_ssm_sap.types.next_token
 
 
-class ListConfigurationCheckDefinitionsInput(TypedDict):
+class ListConfigurationCheckDefinitionsInput(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_ssm_sap.types.max_results.MaxResults"]
     """<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned nextToken value.</p>"""
     next_token: NotRequired["aws_sdk_ssm_sap.types.next_token.NextToken"]

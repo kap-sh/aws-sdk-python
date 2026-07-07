@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalScribeStreamDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.date_time
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.vocabulary_name
 
 
-class MedicalScribeStreamDetails(TypedDict):
+class MedicalScribeStreamDetails(TypedDict, closed=True):
     session_id: NotRequired["aws_sdk_transcribe_streaming.types.session_id.SessionId"]
     """<p>The identifier of the HealthScribe streaming session.</p>"""
     stream_created_at: NotRequired[

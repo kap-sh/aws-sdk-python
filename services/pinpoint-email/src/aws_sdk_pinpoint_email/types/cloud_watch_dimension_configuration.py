@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#CloudWatchDimensionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.dimension_value_source
 
 
-class CloudWatchDimensionConfiguration(TypedDict):
+class CloudWatchDimensionConfiguration(TypedDict, closed=True):
     dimension_name: "aws_sdk_pinpoint_email.types.dimension_name.DimensionName"
     """<p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name has to meet the following criteria:</p> <ul> <li> <p>It can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>It can contain no more than 256 characters.</p> </li> </ul>"""
     dimension_value_source: (

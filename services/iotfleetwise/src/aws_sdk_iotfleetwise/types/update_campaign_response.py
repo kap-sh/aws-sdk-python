@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#UpdateCampaignResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.campaign_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.campaign_status
 
 
-class UpdateCampaignResponse(TypedDict):
+class UpdateCampaignResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_iotfleetwise.types.campaign_arn.campaignArn"]
     """<p> The Amazon Resource Name (ARN) of the campaign. </p>"""
     name: NotRequired["aws_sdk_iotfleetwise.types.campaign_name.campaignName"]

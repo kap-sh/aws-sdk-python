@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#StartAudienceGenerationJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.audience_generation_job_arn
 
 
-class StartAudienceGenerationJobResponse(TypedDict):
+class StartAudienceGenerationJobResponse(TypedDict, closed=True):
     audience_generation_job_arn: "aws_sdk_cleanroomsml.types.audience_generation_job_arn.AudienceGenerationJobArn"
     """<p>The Amazon Resource Name (ARN) of the audience generation job.</p>"""
 

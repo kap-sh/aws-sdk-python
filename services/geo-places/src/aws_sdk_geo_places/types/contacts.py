@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#Contacts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.contact_details_list
 
 
-class Contacts(TypedDict):
+class Contacts(TypedDict, closed=True):
     phones: NotRequired[
         "aws_sdk_geo_places.types.contact_details_list.ContactDetailsList"
     ]

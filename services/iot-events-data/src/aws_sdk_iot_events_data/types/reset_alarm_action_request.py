@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#ResetAlarmActionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events_data.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.request_id
 
 
-class ResetAlarmActionRequest(TypedDict):
+class ResetAlarmActionRequest(TypedDict, closed=True):
     request_id: "aws_sdk_iot_events_data.types.request_id.RequestId"
     """<p>The request ID. Each ID must be unique within each batch.</p>"""
     alarm_model_name: "aws_sdk_iot_events_data.types.alarm_model_name.AlarmModelName"

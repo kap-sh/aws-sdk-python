@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#DeletePaymentSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.payment_session_status
 
 
-class DeletePaymentSessionResponse(TypedDict):
+class DeletePaymentSessionResponse(TypedDict, closed=True):
     status: (
         "aws_sdk_bedrock_agentcore.types.payment_session_status.PaymentSessionStatus"
     )

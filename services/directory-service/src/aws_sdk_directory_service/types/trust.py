@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#Trust``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.created_date_time
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.trust_type
 
 
-class Trust(TypedDict):
+class Trust(TypedDict, closed=True):
     directory_id: NotRequired[
         "aws_sdk_directory_service.types.directory_id.DirectoryId"
     ]

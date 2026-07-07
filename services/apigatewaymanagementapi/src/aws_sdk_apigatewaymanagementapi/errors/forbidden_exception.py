@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewaymanagementapi#ForbiddenException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_apigatewaymanagementapi.errors import ServiceError
 
 
-class ForbiddenException_(TypedDict):
+class ForbiddenException_(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.string1024
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "aws_sdk_emr_serverless.types.string1024.String1024"
 
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteUsageProfileResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteUsageProfileResponse(TypedDict):
+class DeleteUsageProfileResponse(TypedDict, closed=True):
     pass
 
 

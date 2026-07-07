@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#HeatMapAggregatedFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.heat_map_dimension_field_list
     import aws_sdk_quicksight.types.heat_map_measure_field_list
 
 
-class HeatMapAggregatedFieldWells(TypedDict):
+class HeatMapAggregatedFieldWells(TypedDict, closed=True):
     rows: NotRequired[
         "aws_sdk_quicksight.types.heat_map_dimension_field_list.HeatMapDimensionFieldList"
     ]

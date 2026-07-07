@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InstanceProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.activation_id
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.version
 
 
-class InstanceProperty(TypedDict):
+class InstanceProperty(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ssm.types.instance_name.InstanceName"]
     """<p>The value of the EC2 <code>Name</code> tag associated with the node. If a <code>Name</code> tag hasn't been applied to the node, this value is blank.</p>"""
     instance_id: NotRequired["aws_sdk_ssm.types.instance_id.InstanceId"]

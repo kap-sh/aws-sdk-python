@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DeleteAppBlockResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAppBlockResult(TypedDict):
+class DeleteAppBlockResult(TypedDict, closed=True):
     pass
 
 

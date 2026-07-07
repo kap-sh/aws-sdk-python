@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListClusterNodesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_instance_group_name
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListClusterNodesRequest(TypedDict):
+class ListClusterNodesRequest(TypedDict, closed=True):
     cluster_name: NotRequired[
         "aws_sdk_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
     ]

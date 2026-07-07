@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#OverrideDomainUnitOwnersPolicyGrantDetail``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class OverrideDomainUnitOwnersPolicyGrantDetail(TypedDict):
+class OverrideDomainUnitOwnersPolicyGrantDetail(TypedDict, closed=True):
     include_child_domain_units: NotRequired["bool"]
     """<p>Specifies whether the policy is inherited by child domain units.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#InAppMessageCampaign``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.in_app_message
 
 
-class InAppMessageCampaign(TypedDict):
+class InAppMessageCampaign(TypedDict, closed=True):
     campaign_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>Campaign id of the corresponding campaign.</p>"""
     daily_cap: NotRequired["aws_sdk_pinpoint.types.__integer.__integer"]

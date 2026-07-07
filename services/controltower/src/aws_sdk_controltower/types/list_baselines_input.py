@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#ListBaselinesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.list_baselines_max_results
 
 
-class ListBaselinesInput(TypedDict):
+class ListBaselinesInput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>A pagination token.</p>"""
     max_results: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#CallAnalyticsJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.call_analytics_job_details
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.language_code
 
 
-class CallAnalyticsJobSummary(TypedDict):
+class CallAnalyticsJobSummary(TypedDict, closed=True):
     call_analytics_job_name: NotRequired[
         "aws_sdk_transcribe.types.call_analytics_job_name.CallAnalyticsJobName"
     ]

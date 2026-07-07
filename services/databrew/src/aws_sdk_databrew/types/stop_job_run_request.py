@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#StopJobRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.job_name
     import aws_sdk_databrew.types.job_run_id
 
 
-class StopJobRunRequest(TypedDict):
+class StopJobRunRequest(TypedDict, closed=True):
     name: "aws_sdk_databrew.types.job_name.JobName"
     """<p>The name of the job to be stopped.</p>"""
     run_id: "aws_sdk_databrew.types.job_run_id.JobRunId"

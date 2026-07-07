@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#PutMessageFeedbackResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.message_id
 
 
-class PutMessageFeedbackResult(TypedDict):
+class PutMessageFeedbackResult(TypedDict, closed=True):
     message_id: "aws_sdk_pinpoint_sms_voice_v2.types.message_id.MessageId"
     """<p>The unique identifier for the message.</p>"""
     message_feedback_status: "aws_sdk_pinpoint_sms_voice_v2.types.message_feedback_status.MessageFeedbackStatus"

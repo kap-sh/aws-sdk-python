@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ComputeEnvironmentOrder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
     import aws_sdk_batch.types.string
 
 
-class ComputeEnvironmentOrder(TypedDict):
+class ComputeEnvironmentOrder(TypedDict, closed=True):
     order: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower <code>order</code> integer value is tried for job placement first.</p>"""
     compute_environment: NotRequired["aws_sdk_batch.types.string.String"]

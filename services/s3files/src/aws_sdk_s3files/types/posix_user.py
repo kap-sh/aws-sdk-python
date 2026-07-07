@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#PosixUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.uid
 
 
-class PosixUser(TypedDict):
+class PosixUser(TypedDict, closed=True):
     uid: "aws_sdk_s3files.types.uid.Uid"
     """<p>The POSIX user ID.</p>"""
     gid: "aws_sdk_s3files.types.gid.Gid"

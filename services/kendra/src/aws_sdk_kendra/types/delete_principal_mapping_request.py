@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DeletePrincipalMappingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.principal_ordering_id
 
 
-class DeletePrincipalMappingRequest(TypedDict):
+class DeletePrincipalMappingRequest(TypedDict, closed=True):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     """<p>The identifier of the index you want to delete a group from.</p>"""
     data_source_id: NotRequired["aws_sdk_kendra.types.data_source_id.DataSourceId"]

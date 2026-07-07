@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#Relevance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.document_metadata_boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.value_importance_map
 
 
-class Relevance(TypedDict):
+class Relevance(TypedDict, closed=True):
     freshness: NotRequired[
         "aws_sdk_kendra.types.document_metadata_boolean.DocumentMetadataBoolean"
     ]

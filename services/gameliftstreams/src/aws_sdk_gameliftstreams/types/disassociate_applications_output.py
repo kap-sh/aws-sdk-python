@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#DisassociateApplicationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.arn
     import aws_sdk_gameliftstreams.types.arn_list
 
 
-class DisassociateApplicationsOutput(TypedDict):
+class DisassociateApplicationsOutput(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_gameliftstreams.types.arn.Arn"]
     r"""<p>An <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. </p>"""
     application_arns: NotRequired["aws_sdk_gameliftstreams.types.arn_list.ArnList"]

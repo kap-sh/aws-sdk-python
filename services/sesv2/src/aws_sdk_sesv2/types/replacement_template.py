@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ReplacementTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_template_data
 
 
-class ReplacementTemplate(TypedDict):
+class ReplacementTemplate(TypedDict, closed=True):
     replacement_template_data: NotRequired[
         "aws_sdk_sesv2.types.email_template_data.EmailTemplateData"
     ]

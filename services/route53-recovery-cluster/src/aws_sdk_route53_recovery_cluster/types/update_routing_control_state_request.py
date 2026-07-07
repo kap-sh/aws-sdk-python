@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycluster#UpdateRoutingControlStateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53_recovery_cluster.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_cluster.types.routing_control_state
 
 
-class UpdateRoutingControlStateRequest(TypedDict):
+class UpdateRoutingControlStateRequest(TypedDict, closed=True):
     routing_control_arn: "aws_sdk_route53_recovery_cluster.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) for the routing control that you want to update the state for.</p>"""
     routing_control_state: "aws_sdk_route53_recovery_cluster.types.routing_control_state.RoutingControlState"

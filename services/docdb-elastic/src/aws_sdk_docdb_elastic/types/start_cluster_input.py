@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#StartClusterInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartClusterInput(TypedDict):
+class StartClusterInput(TypedDict, closed=True):
     cluster_arn: "str"
     """<p>The ARN identifier of the elastic cluster.</p>"""
 

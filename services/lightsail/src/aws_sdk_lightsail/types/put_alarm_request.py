@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#PutAlarmRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.treat_missing_data
 
 
-class PutAlarmRequest(TypedDict):
+class PutAlarmRequest(TypedDict, closed=True):
     alarm_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.</p>"""
     metric_name: "aws_sdk_lightsail.types.metric_name.MetricName"

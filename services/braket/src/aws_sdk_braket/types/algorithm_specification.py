@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.braket#AlgorithmSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_braket.types.container_image
     import aws_sdk_braket.types.script_mode_config
 
 
-class AlgorithmSpecification(TypedDict):
+class AlgorithmSpecification(TypedDict, closed=True):
     script_mode_config: NotRequired[
         "aws_sdk_braket.types.script_mode_config.ScriptModeConfig"
     ]

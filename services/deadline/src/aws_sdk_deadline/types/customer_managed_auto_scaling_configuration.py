@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#CustomerManagedAutoScalingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.min_one_max_integer
     import aws_sdk_deadline.types.min_zero_max_integer
 
 
-class CustomerManagedAutoScalingConfiguration(TypedDict):
+class CustomerManagedAutoScalingConfiguration(TypedDict, closed=True):
     standby_worker_count: NotRequired[
         "aws_sdk_deadline.types.min_zero_max_integer.MinZeroMaxInteger"
     ]

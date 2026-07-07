@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Hdr10Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0_max32768
 
 
-class Hdr10Settings(TypedDict):
+class Hdr10Settings(TypedDict, closed=True):
     max_cll: NotRequired[
         "aws_sdk_medialive.types.__integer_min0_max32768.__integerMin0Max32768"
     ]

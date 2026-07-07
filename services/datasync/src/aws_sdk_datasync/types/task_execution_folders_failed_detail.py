@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#TaskExecutionFoldersFailedDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.long
 
 
-class TaskExecutionFoldersFailedDetail(TypedDict):
+class TaskExecutionFoldersFailedDetail(TypedDict, closed=True):
     list: "aws_sdk_datasync.types.long.long"
     """<p>The number of directories that DataSync fails to list during your task execution.</p>"""
     prepare: "aws_sdk_datasync.types.long.long"

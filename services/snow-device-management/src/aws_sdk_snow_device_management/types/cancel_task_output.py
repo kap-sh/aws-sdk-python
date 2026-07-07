@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#CancelTaskOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CancelTaskOutput(TypedDict):
+class CancelTaskOutput(TypedDict, closed=True):
     task_id: NotRequired["str"]
     """<p>The ID of the task that you are attempting to cancel.</p>"""
 

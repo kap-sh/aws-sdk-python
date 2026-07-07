@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListMarketplaceModelEndpointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.marketplace_model_endpoint_summaries
     import aws_sdk_bedrock.types.pagination_token
 
 
-class ListMarketplaceModelEndpointsResponse(TypedDict):
+class ListMarketplaceModelEndpointsResponse(TypedDict, closed=True):
     marketplace_model_endpoints: NotRequired[
         "aws_sdk_bedrock.types.marketplace_model_endpoint_summaries.MarketplaceModelEndpointSummaries"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#RefreshTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.sensitive_string
 
 
-class RefreshTokenResponse(TypedDict):
+class RefreshTokenResponse(TypedDict, closed=True):
     access_token: "aws_sdk_amplifyuibuilder.types.sensitive_string.SensitiveString"
     """<p>The access token.</p>"""
     expires_in: "int"

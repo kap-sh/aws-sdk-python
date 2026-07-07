@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteDimensionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.dimension_name
 
 
-class DeleteDimensionRequest(TypedDict):
+class DeleteDimensionRequest(TypedDict, closed=True):
     name: "aws_sdk_iot.types.dimension_name.DimensionName"
     """<p>The unique identifier for the dimension that you want to delete.</p>"""
 

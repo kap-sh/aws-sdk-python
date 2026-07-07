@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#StrategySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.integer
     import aws_sdk_migrationhubstrategy.types.strategy
 
 
-class StrategySummary(TypedDict):
+class StrategySummary(TypedDict, closed=True):
     strategy: NotRequired["aws_sdk_migrationhubstrategy.types.strategy.Strategy"]
     """<p> The name of recommended strategy. </p>"""
     count: NotRequired["aws_sdk_migrationhubstrategy.types.integer.Integer"]

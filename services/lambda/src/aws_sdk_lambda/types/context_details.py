@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ContextDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.error_object
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.replay_children
 
 
-class ContextDetails(TypedDict):
+class ContextDetails(TypedDict, closed=True):
     replay_children: NotRequired["aws_sdk_lambda.types.replay_children.ReplayChildren"]
     """<p>Whether the state data of child operations of this completed context should be included in the invoke payload and <code>GetDurableExecutionState</code> response.</p>"""
     result: NotRequired["aws_sdk_lambda.types.operation_payload.OperationPayload"]

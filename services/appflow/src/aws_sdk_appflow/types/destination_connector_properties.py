@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#DestinationConnectorProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.custom_connector_destination_properties
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.zendesk_destination_properties
 
 
-class DestinationConnectorProperties(TypedDict):
+class DestinationConnectorProperties(TypedDict, closed=True):
     redshift: NotRequired[
         "aws_sdk_appflow.types.redshift_destination_properties.RedshiftDestinationProperties"
     ]

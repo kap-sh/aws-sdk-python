@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ReferenceFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.reference_name
 
 
-class ReferenceFilter(TypedDict):
+class ReferenceFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_omics.types.reference_name.ReferenceName"]
     """<p>A name to filter on.</p>"""
     md5: NotRequired["aws_sdk_omics.types.md5.Md5"]

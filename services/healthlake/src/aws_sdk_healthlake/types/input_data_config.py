@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#InputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.s3_uri
 
 
-class _InputDataConfig_S3Uri(TypedDict):
+class _InputDataConfig_S3Uri(TypedDict, closed=True):
     S3Uri: "aws_sdk_healthlake.types.s3_uri.S3Uri"
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#RuntimeHintValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.runtime_hint_phrase
 
 
-class RuntimeHintValue(TypedDict):
+class RuntimeHintValue(TypedDict, closed=True):
     phrase: "aws_sdk_lex_runtime_v2.types.runtime_hint_phrase.RuntimeHintPhrase"
     """<p>The phrase that Amazon Lex V2 should look for in the user's input to the bot.</p>"""
 

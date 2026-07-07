@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#CreateProgramResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__list_of_ad_break
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.clip_range
 
 
-class CreateProgramResponse(TypedDict):
+class CreateProgramResponse(TypedDict, closed=True):
     ad_breaks: NotRequired[
         "aws_sdk_mediatailor.types.__list_of_ad_break.__listOfAdBreak"
     ]

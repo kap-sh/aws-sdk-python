@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AWSDomainInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.region
 
 
-class AWSDomainInformation(TypedDict):
+class AWSDomainInformation(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_opensearch.types.owner_id.OwnerId"]
     """<p>The Amazon Web Services account ID of the domain owner.</p>"""
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2TransitGatewayDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsEc2TransitGatewayDetails(TypedDict):
+class AwsEc2TransitGatewayDetails(TypedDict, closed=True):
     id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The ID of the transit gateway. </p>"""
     description: NotRequired[

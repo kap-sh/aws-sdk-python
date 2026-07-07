@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#DeleteAppBundleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appfabric.types.identifier
 
 
-class DeleteAppBundleRequest(TypedDict):
+class DeleteAppBundleRequest(TypedDict, closed=True):
     app_bundle_identifier: "aws_sdk_appfabric.types.identifier.Identifier"
     """<p>The ID or Amazon Resource Name (ARN) of the app bundle that needs to be deleted.</p>"""
 

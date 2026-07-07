@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribeCertificateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.described_certificate
 
 
-class DescribeCertificateResponse(TypedDict):
+class DescribeCertificateResponse(TypedDict, closed=True):
     certificate: "aws_sdk_transfer.types.described_certificate.DescribedCertificate"
     """<p>The details for the specified certificate, returned as an object.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#GenerateAs2805KekValidationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.random_key_send_variant_mask
 
 
-class GenerateAs2805KekValidationInput(TypedDict):
+class GenerateAs2805KekValidationInput(TypedDict, closed=True):
     key_identifier: "aws_sdk_payment_cryptography_data.types.key_arn_or_key_alias_type.KeyArnOrKeyAliasType"
     """<p>The <code>keyARN</code> of sending KEK that Amazon Web Services Payment Cryptography uses for node-to-node initialization</p>"""
     kek_validation_type: "aws_sdk_payment_cryptography_data.types.as2805_kek_validation_type.As2805KekValidationType"

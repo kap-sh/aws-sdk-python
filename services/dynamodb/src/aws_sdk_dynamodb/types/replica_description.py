@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ReplicaDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.date
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_warm_throughput_description
 
 
-class ReplicaDescription(TypedDict):
+class ReplicaDescription(TypedDict, closed=True):
     region_name: NotRequired["aws_sdk_dynamodb.types.region_name.RegionName"]
     """<p>The name of the Region.</p>"""
     replica_status: NotRequired["aws_sdk_dynamodb.types.replica_status.ReplicaStatus"]

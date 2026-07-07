@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#BestPractice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.choice_id
     import aws_sdk_wellarchitected.types.choice_title
 
 
-class BestPractice(TypedDict):
+class BestPractice(TypedDict, closed=True):
     choice_id: NotRequired["aws_sdk_wellarchitected.types.choice_id.ChoiceId"]
     choice_title: NotRequired["aws_sdk_wellarchitected.types.choice_title.ChoiceTitle"]
 

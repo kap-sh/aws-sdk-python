@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amp#ComponentConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amp.types.string_map
 
 
-class ComponentConfig(TypedDict):
+class ComponentConfig(TypedDict, closed=True):
     options: NotRequired["aws_sdk_amp.types.string_map.StringMap"]
     """<p>Configuration options for the scraper component.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#GetSubscriptionDefinitionVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class GetSubscriptionDefinitionVersionRequest(TypedDict):
+class GetSubscriptionDefinitionVersionRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The token for the next set of results, or ''null'' if there are no additional results."""
     subscription_definition_id: "aws_sdk_greengrass.types.__string.__string"

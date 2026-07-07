@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ScanSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.iam_role_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.resource_types
 
 
-class ScanSetting(TypedDict):
+class ScanSetting(TypedDict, closed=True):
     malware_scanner: NotRequired["aws_sdk_backup.types.malware_scanner.MalwareScanner"]
     """<p>The malware scanner to use for scanning. Currently only <code>GUARDDUTY</code> is supported.</p>"""
     resource_types: NotRequired["aws_sdk_backup.types.resource_types.ResourceTypes"]

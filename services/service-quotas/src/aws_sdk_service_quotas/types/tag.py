@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_service_quotas.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_service_quotas.types.tag_key.TagKey"
     """<p>A string that contains a tag key. The string length should be between 1 and 128 characters. Valid characters include a-z, A-Z, 0-9, space, and the special characters _ - . : / = + @.</p>"""
     value: "aws_sdk_service_quotas.types.tag_value.TagValue"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateCoipPoolRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CreateCoipPoolRequest(TypedDict):
+class CreateCoipPoolRequest(TypedDict, closed=True):
     local_gateway_route_table_id: NotRequired[
         "aws_sdk_ec2.types.local_gateway_routetable_id.LocalGatewayRoutetableId"
     ]

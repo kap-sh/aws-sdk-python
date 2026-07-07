@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#CPU``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.double
     import aws_sdk_device_farm.types.string
 
 
-class CPU(TypedDict):
+class CPU(TypedDict, closed=True):
     frequency: NotRequired["aws_sdk_device_farm.types.string.String"]
     """<p>The CPU's frequency.</p>"""
     architecture: NotRequired["aws_sdk_device_farm.types.string.String"]

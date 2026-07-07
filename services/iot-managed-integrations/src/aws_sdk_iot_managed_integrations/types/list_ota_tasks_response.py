@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ListOtaTasksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.ota_next_token
     import aws_sdk_iot_managed_integrations.types.ota_task_list_definition
 
 
-class ListOtaTasksResponse(TypedDict):
+class ListOtaTasksResponse(TypedDict, closed=True):
     tasks: NotRequired[
         "aws_sdk_iot_managed_integrations.types.ota_task_list_definition.OtaTaskListDefinition"
     ]

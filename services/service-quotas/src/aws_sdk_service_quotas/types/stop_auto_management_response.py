@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#StopAutoManagementResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopAutoManagementResponse(TypedDict):
+class StopAutoManagementResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#GetProductInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.product_id
 
 
-class GetProductInput(TypedDict):
+class GetProductInput(TypedDict, closed=True):
     product_id: "aws_sdk_marketplace_discovery.types.product_id.ProductId"
     """<p>The unique identifier of the product to retrieve.</p>"""
 

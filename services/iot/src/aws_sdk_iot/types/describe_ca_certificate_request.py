@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeCACertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_id
 
 
-class DescribeCACertificateRequest(TypedDict):
+class DescribeCACertificateRequest(TypedDict, closed=True):
     certificate_id: "aws_sdk_iot.types.certificate_id.CertificateId"
     """<p>The CA certificate identifier.</p>"""
 

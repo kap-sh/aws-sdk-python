@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#LogsEncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.resource_arn
 
 
-class LogsEncryptionConfiguration(TypedDict):
+class LogsEncryptionConfiguration(TypedDict, closed=True):
     encryption_strategy: (
         "aws_sdk_observabilityadmin.types.encryption_strategy.EncryptionStrategy"
     )

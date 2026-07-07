@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#ListAssociatedGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.group_summary_list
     import aws_sdk_synthetics.types.pagination_token
 
 
-class ListAssociatedGroupsResponse(TypedDict):
+class ListAssociatedGroupsResponse(TypedDict, closed=True):
     groups: NotRequired["aws_sdk_synthetics.types.group_summary_list.GroupSummaryList"]
     """<p>An array of structures that contain information about the groups that this canary is associated with.</p>"""
     next_token: NotRequired["aws_sdk_synthetics.types.pagination_token.PaginationToken"]

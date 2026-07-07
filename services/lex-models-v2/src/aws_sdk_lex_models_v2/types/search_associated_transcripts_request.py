@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SearchAssociatedTranscriptsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.search_order
 
 
-class SearchAssociatedTranscriptsRequest(TypedDict):
+class SearchAssociatedTranscriptsRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The unique identifier of the bot associated with the transcripts that you are searching.</p>"""
     bot_version: "aws_sdk_lex_models_v2.types.bot_version.BotVersion"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#SecurityGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.text
 
 
-class SecurityGroup(TypedDict):
+class SecurityGroup(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_inspector.types.text.Text"]
     """<p>The name of the security group.</p>"""
     group_id: NotRequired["aws_sdk_inspector.types.text.Text"]

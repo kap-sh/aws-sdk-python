@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchUpdateWorkloadEstimateUsageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.resource_id
 
 
-class BatchUpdateWorkloadEstimateUsageRequest(TypedDict):
+class BatchUpdateWorkloadEstimateUsageRequest(TypedDict, closed=True):
     workload_estimate_id: "aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"
     """<p> The ID of the Workload estimate for which you want to modify the usage lines. </p>"""
     usage: "aws_sdk_bcm_pricing_calculator.types.batch_update_workload_estimate_usage_entries.BatchUpdateWorkloadEstimateUsageEntries"

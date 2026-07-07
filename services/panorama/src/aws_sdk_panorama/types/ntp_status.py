@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#NtpStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.ip_address
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.ntp_server_name
 
 
-class NtpStatus(TypedDict):
+class NtpStatus(TypedDict, closed=True):
     connection_status: NotRequired[
         "aws_sdk_panorama.types.network_connection_status.NetworkConnectionStatus"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#DeleteActivityOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteActivityOutput(TypedDict):
+class DeleteActivityOutput(TypedDict, closed=True):
     pass
 
 

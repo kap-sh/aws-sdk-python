@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#EvaluateCodeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.evaluate_code_error_detail
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.stash
 
 
-class EvaluateCodeResponse(TypedDict):
+class EvaluateCodeResponse(TypedDict, closed=True):
     evaluation_result: NotRequired[
         "aws_sdk_appsync.types.evaluation_result.EvaluationResult"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StartFaceDetectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.job_id
 
 
-class StartFaceDetectionResponse(TypedDict):
+class StartFaceDetectionResponse(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_rekognition.types.job_id.JobId"]
     """<p>The identifier for the face detection job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetFaceDetection</code>.</p>"""
 

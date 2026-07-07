@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AudioSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string_min1
     import aws_sdk_medialive.types.audio_selector_settings
 
 
-class AudioSelector(TypedDict):
+class AudioSelector(TypedDict, closed=True):
     name: NotRequired["aws_sdk_medialive.types.__string_min1.__stringMin1"]
     """The name of this AudioSelector. AudioDescriptions will use this name to uniquely identify this Selector. Selector names should be unique per input."""
     selector_settings: NotRequired[

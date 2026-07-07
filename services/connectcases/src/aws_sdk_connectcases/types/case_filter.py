@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#CaseFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.tag_filter
 
 
-class _CaseFilter_field(TypedDict):
+class _CaseFilter_field(TypedDict, closed=True):
     field: "aws_sdk_connectcases.types.field_filter.FieldFilter"
 
 
@@ -20,18 +22,19 @@ _CaseFilter_not = TypedDict(
     {
         "not": "aws_sdk_connectcases.types.case_filter.CaseFilter",
     },
+    closed=True,
 )
 
 
-class _CaseFilter_tag(TypedDict):
+class _CaseFilter_tag(TypedDict, closed=True):
     tag: "aws_sdk_connectcases.types.tag_filter.TagFilter"
 
 
-class _CaseFilter_andAll(TypedDict):
+class _CaseFilter_andAll(TypedDict, closed=True):
     andAll: "aws_sdk_connectcases.types.case_filter_list.CaseFilterList"
 
 
-class _CaseFilter_orAll(TypedDict):
+class _CaseFilter_orAll(TypedDict, closed=True):
     orAll: "aws_sdk_connectcases.types.case_filter_list.CaseFilterList"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#S3ReferenceDataSourceUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.bucket_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.role_arn
 
 
-class S3ReferenceDataSourceUpdate(TypedDict):
+class S3ReferenceDataSourceUpdate(TypedDict, closed=True):
     bucket_arn_update: NotRequired[
         "aws_sdk_kinesis_analytics.types.bucket_arn.BucketARN"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CertificateDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.t_stamp
 
 
-class CertificateDetails(TypedDict):
+class CertificateDetails(TypedDict, closed=True):
     ca_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The CA identifier of the CA certificate used for the DB instance's server certificate.</p>"""
     valid_till: NotRequired["aws_sdk_rds.types.t_stamp.TStamp"]

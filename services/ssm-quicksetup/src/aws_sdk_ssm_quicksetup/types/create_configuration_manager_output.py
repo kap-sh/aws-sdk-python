@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#CreateConfigurationManagerOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_quicksetup.errors import DeserializationError
 
 
-class CreateConfigurationManagerOutput(TypedDict):
+class CreateConfigurationManagerOutput(TypedDict, closed=True):
     manager_arn: "str"
     """<p>The ARN for the newly created configuration manager.</p>"""
 

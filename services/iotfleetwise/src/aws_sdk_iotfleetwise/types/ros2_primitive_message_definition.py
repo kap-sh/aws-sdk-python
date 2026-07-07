@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ROS2PrimitiveMessageDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.ros2_primitive_type
 
 
-class ROS2PrimitiveMessageDefinition(TypedDict):
+class ROS2PrimitiveMessageDefinition(TypedDict, closed=True):
     primitive_type: "aws_sdk_iotfleetwise.types.ros2_primitive_type.ROS2PrimitiveType"
     """<p>The primitive type (integer, floating point, boolean, etc.) for the ROS 2 primitive message definition.</p>"""
     offset: NotRequired["aws_sdk_iotfleetwise.types.double.double"]

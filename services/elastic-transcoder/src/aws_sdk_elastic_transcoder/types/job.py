@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#Job``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.id
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.user_metadata
 
 
-class Job(TypedDict):
+class Job(TypedDict, closed=True):
     id: NotRequired["aws_sdk_elastic_transcoder.types.id.Id"]
     """<p>The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job.</p>"""
     arn: NotRequired["aws_sdk_elastic_transcoder.types.string.String"]

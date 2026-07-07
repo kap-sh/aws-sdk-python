@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsecuretunneling#DestinationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsecuretunneling.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.thing_name
 
 
-class DestinationConfig(TypedDict):
+class DestinationConfig(TypedDict, closed=True):
     thing_name: NotRequired["aws_sdk_iotsecuretunneling.types.thing_name.ThingName"]
     """<p>The name of the IoT thing to which you want to connect.</p>"""
     services: "aws_sdk_iotsecuretunneling.types.service_list.ServiceList"

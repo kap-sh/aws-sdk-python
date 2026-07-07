@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#EnableVgwRoutePropagationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpn_gateway_id
 
 
-class EnableVgwRoutePropagationRequest(TypedDict):
+class EnableVgwRoutePropagationRequest(TypedDict, closed=True):
     gateway_id: NotRequired["aws_sdk_ec2.types.vpn_gateway_id.VpnGatewayId"]
     """<p>The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with. </p>"""
     route_table_id: NotRequired["aws_sdk_ec2.types.route_table_id.RouteTableId"]

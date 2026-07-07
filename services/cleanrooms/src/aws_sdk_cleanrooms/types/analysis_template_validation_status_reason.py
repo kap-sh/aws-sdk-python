@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#AnalysisTemplateValidationStatusReason``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
 
-class AnalysisTemplateValidationStatusReason(TypedDict):
+class AnalysisTemplateValidationStatusReason(TypedDict, closed=True):
     message: "str"
     """<p>The validation message.</p>"""
 

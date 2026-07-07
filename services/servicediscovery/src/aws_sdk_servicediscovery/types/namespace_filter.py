@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#NamespaceFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.namespace_filter_name
 
 
-class NamespaceFilter(TypedDict):
+class NamespaceFilter(TypedDict, closed=True):
     name: "aws_sdk_servicediscovery.types.namespace_filter_name.NamespaceFilterName"
     r"""<p>Specify the namespaces that you want to get using one of the following.</p> <ul> <li> <p> <code>TYPE</code>: Gets the namespaces of the specified type.</p> </li> <li> <p> <code>NAME</code>: Gets the namespaces with the specified name.</p> </li> <li> <p> <code>HTTP_NAME</code>: Gets the namespaces with the specified HTTP name.</p> </li> <li> <p> <code>RESOURCE_OWNER</code>: Gets the namespaces created by your Amazon Web Services account or by other accounts. This can be used to filter for shared namespaces. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p> </li> </ul>"""
     values: "aws_sdk_servicediscovery.types.filter_values.FilterValues"

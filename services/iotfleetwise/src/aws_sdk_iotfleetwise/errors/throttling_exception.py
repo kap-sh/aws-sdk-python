@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ThrottlingException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.string
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "aws_sdk_iotfleetwise.types.string.string"
     quota_code: NotRequired["aws_sdk_iotfleetwise.types.string.string"]
     """<p>The quota identifier of the applied throttling rules for this request.</p>"""

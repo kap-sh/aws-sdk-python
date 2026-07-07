@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PipelineRollbackMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.pipeline_execution_id
 
 
-class PipelineRollbackMetadata(TypedDict):
+class PipelineRollbackMetadata(TypedDict, closed=True):
     rollback_target_pipeline_execution_id: NotRequired[
         "aws_sdk_codepipeline.types.pipeline_execution_id.PipelineExecutionId"
     ]

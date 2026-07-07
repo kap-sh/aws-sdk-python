@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#UpdateClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.update_cluster_slurm_configuration_request
 
 
-class UpdateClusterRequest(TypedDict):
+class UpdateClusterRequest(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_pcs.types.cluster_identifier.ClusterIdentifier"
     """<p>The name or ID of the cluster to update.</p>"""
     client_token: NotRequired["aws_sdk_pcs.types.sb_client_token.SBClientToken"]

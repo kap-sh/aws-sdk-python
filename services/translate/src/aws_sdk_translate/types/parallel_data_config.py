@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.translate#ParallelDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.parallel_data_format
     import aws_sdk_translate.types.s3_uri
 
 
-class ParallelDataConfig(TypedDict):
+class ParallelDataConfig(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_translate.types.s3_uri.S3Uri"]
     """<p>The URI of the Amazon S3 folder that contains the parallel data input file. The folder must be in the same Region as the API endpoint you are calling.</p>"""
     format: NotRequired[

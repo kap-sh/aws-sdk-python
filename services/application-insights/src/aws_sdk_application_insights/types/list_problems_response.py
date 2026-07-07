@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#ListProblemsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_insights.types.resource_group_name
 
 
-class ListProblemsResponse(TypedDict):
+class ListProblemsResponse(TypedDict, closed=True):
     problem_list: NotRequired[
         "aws_sdk_application_insights.types.problem_list.ProblemList"
     ]

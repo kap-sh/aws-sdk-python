@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetCustomModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.model_identifier
 
 
-class GetCustomModelRequest(TypedDict):
+class GetCustomModelRequest(TypedDict, closed=True):
     model_identifier: "aws_sdk_bedrock.types.model_identifier.ModelIdentifier"
     """<p>Name or Amazon Resource Name (ARN) of the custom model.</p>"""
 

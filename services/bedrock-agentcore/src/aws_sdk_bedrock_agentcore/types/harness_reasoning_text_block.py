@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessReasoningTextBlock``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class HarnessReasoningTextBlock(TypedDict):
+class HarnessReasoningTextBlock(TypedDict, closed=True):
     text: "str"
     """<p>The reasoning text.</p>"""
     signature: NotRequired["str"]

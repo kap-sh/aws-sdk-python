@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#RecommendationEvaluationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.recommendation_evaluator_list
 
 
-class RecommendationEvaluationConfig(TypedDict):
+class RecommendationEvaluationConfig(TypedDict, closed=True):
     evaluators: "aws_sdk_bedrock_agentcore.types.recommendation_evaluator_list.RecommendationEvaluatorList"
     """<p>The list of evaluators to use for assessing recommendation quality.</p>"""
 

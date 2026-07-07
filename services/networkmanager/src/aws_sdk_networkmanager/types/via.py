@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#Via``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.network_function_group_list
     import aws_sdk_networkmanager.types.with_edge_overrides_list
 
 
-class Via(TypedDict):
+class Via(TypedDict, closed=True):
     network_function_groups: NotRequired[
         "aws_sdk_networkmanager.types.network_function_group_list.NetworkFunctionGroupList"
     ]

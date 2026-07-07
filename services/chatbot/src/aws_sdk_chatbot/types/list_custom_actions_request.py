@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#ListCustomActionsRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListCustomActionsRequest(TypedDict):
+class ListCustomActionsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>"""
     next_token: NotRequired["str"]

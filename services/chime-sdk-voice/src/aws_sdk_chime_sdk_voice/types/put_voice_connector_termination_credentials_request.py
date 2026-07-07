@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#PutVoiceConnectorTerminationCredentialsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.credential_list
     import aws_sdk_chime_sdk_voice.types.non_empty_string
 
 
-class PutVoiceConnectorTerminationCredentialsRequest(TypedDict):
+class PutVoiceConnectorTerminationCredentialsRequest(TypedDict, closed=True):
     voice_connector_id: "aws_sdk_chime_sdk_voice.types.non_empty_string.NonEmptyString"
     """<p>The Voice Connector ID.</p>"""
     credentials: NotRequired[

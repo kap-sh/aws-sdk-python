@@ -1,14 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntimehttp2#InternalStreamFailure``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_runtime_http2._protocol.eventstream import HeaderValue, Message
 from aws_sdk_sagemaker_runtime_http2.errors import ServiceError
 
 
-class InternalStreamFailure_(TypedDict):
+class InternalStreamFailure_(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>Error message.</p>"""
 

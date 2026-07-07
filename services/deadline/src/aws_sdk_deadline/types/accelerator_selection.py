@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#AcceleratorSelection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.accelerator_runtime
 
 
-class AcceleratorSelection(TypedDict):
+class AcceleratorSelection(TypedDict, closed=True):
     name: "aws_sdk_deadline.types.accelerator_name.AcceleratorName"
     """<p>The name of the chip used by the GPU accelerator.</p> <p>The available GPU accelerators are:</p> <ul> <li> <p> <code>t4</code> - NVIDIA T4 Tensor Core GPU (16 GiB memory)</p> </li> <li> <p> <code>a10g</code> - NVIDIA A10G Tensor Core GPU (24 GiB memory)</p> </li> <li> <p> <code>l4</code> - NVIDIA L4 Tensor Core GPU (24 GiB memory)</p> </li> <li> <p> <code>l40s</code> - NVIDIA L40S Tensor Core GPU (48 GiB memory)</p> </li> <li> <p> <code>rtx-pro-server-6000</code> - NVIDIA RTX PRO Server 6000 GPU (96 GiB memory)</p> </li> </ul>"""
     runtime: "aws_sdk_deadline.types.accelerator_runtime.AcceleratorRuntime"

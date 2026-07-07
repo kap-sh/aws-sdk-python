@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#UpdateCapacityManagerOrganizationsAccessRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class UpdateCapacityManagerOrganizationsAccessRequest(TypedDict):
+class UpdateCapacityManagerOrganizationsAccessRequest(TypedDict, closed=True):
     organizations_access: NotRequired["aws_sdk_ec2.types.boxed_boolean.BoxedBoolean"]
     """<p> Specifies whether to enable or disable cross-account access for Amazon Web Services Organizations. When enabled, Capacity Manager aggregates data from all accounts in your organization. </p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

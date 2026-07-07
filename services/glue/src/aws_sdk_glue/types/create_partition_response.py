@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreatePartitionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreatePartitionResponse(TypedDict):
+class CreatePartitionResponse(TypedDict, closed=True):
     pass
 
 

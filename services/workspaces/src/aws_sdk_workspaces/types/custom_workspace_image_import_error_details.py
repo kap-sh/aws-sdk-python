@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CustomWorkspaceImageImportErrorDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.error_code
     import aws_sdk_workspaces.types.image_error_message
 
 
-class CustomWorkspaceImageImportErrorDetails(TypedDict):
+class CustomWorkspaceImageImportErrorDetails(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_workspaces.types.error_code.ErrorCode"]
     """<p>The error code that is returned for the image import.</p>"""
     error_message: NotRequired[

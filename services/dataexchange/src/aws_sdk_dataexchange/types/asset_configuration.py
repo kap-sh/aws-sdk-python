@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#AssetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_tag
 
 
-class AssetConfiguration(TypedDict):
+class AssetConfiguration(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_dataexchange.types.list_of_tag.ListOfTag"]
     """<p>The tags to be applied to assets created by the job.</p>"""
 

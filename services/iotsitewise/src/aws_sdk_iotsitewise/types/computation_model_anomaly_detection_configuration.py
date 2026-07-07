@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ComputationModelAnomalyDetectionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.result_property
 
 
-class ComputationModelAnomalyDetectionConfiguration(TypedDict):
+class ComputationModelAnomalyDetectionConfiguration(TypedDict, closed=True):
     input_properties: "aws_sdk_iotsitewise.types.input_properties.InputProperties"
     """<p>Define the variable name associated with input properties, with the following format <code>${VariableName}</code>.</p>"""
     result_property: "aws_sdk_iotsitewise.types.result_property.ResultProperty"

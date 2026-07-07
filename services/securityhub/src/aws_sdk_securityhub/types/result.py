@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Result``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.account_id
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class Result(TypedDict):
+class Result(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_securityhub.types.account_id.AccountId"]
     """<p>An Amazon Web Services account ID of the account that was not processed.</p>"""
     processing_result: NotRequired[

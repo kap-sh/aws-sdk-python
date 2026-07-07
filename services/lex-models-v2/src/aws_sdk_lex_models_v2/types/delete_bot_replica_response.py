@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DeleteBotReplicaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_replica_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.replica_region
 
 
-class DeleteBotReplicaResponse(TypedDict):
+class DeleteBotReplicaResponse(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The unique bot ID of the replicated bot generated.</p>"""
     replica_region: NotRequired[

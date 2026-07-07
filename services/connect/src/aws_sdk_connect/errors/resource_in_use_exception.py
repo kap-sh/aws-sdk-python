@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ResourceInUseException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.resource_type
 
 
-class ResourceInUseException_(TypedDict):
+class ResourceInUseException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_connect.types.message.Message"]
     resource_type: NotRequired["aws_sdk_connect.types.resource_type.ResourceType"]
     """<p>The type of resource.</p>"""

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UpdateSecurityHubConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.control_finding_generator
 
 
-class UpdateSecurityHubConfigurationRequest(TypedDict):
+class UpdateSecurityHubConfigurationRequest(TypedDict, closed=True):
     auto_enable_controls: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether to automatically enable new controls when they are added to standards that are enabled.</p> <p>By default, this is set to <code>true</code>, and new controls are enabled automatically. To not automatically enable new controls, set this to <code>false</code>. </p> <p>When you automatically enable new controls, you can interact with the controls in the console and programmatically immediately after release. However, automatically enabled controls have a temporary default status of <code>DISABLED</code>. It can take up to several days for Security Hub CSPM to process the control release and designate the control as <code>ENABLED</code> in your account. During the processing period, you can manually enable or disable a control, and Security Hub CSPM will maintain that designation regardless of whether you have <code>AutoEnableControls</code> set to <code>true</code>.</p>"""
     control_finding_generator: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ForecastConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.forecast_scenario
     import aws_sdk_quicksight.types.time_based_forecast_properties
 
 
-class ForecastConfiguration(TypedDict):
+class ForecastConfiguration(TypedDict, closed=True):
     forecast_properties: NotRequired[
         "aws_sdk_quicksight.types.time_based_forecast_properties.TimeBasedForecastProperties"
     ]

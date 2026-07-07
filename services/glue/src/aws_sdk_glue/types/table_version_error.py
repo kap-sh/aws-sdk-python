@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TableVersionError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.error_detail
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.version_string
 
 
-class TableVersionError(TypedDict):
+class TableVersionError(TypedDict, closed=True):
     table_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the table in question.</p>"""
     version_id: NotRequired["aws_sdk_glue.types.version_string.VersionString"]

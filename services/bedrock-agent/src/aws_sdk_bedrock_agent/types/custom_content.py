@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#CustomContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.inline_content
 
 
-class CustomContent(TypedDict):
+class CustomContent(TypedDict, closed=True):
     custom_document_identifier: "aws_sdk_bedrock_agent.types.custom_document_identifier.CustomDocumentIdentifier"
     """<p>A unique identifier for the document.</p>"""
     source_type: "aws_sdk_bedrock_agent.types.custom_source_type.CustomSourceType"

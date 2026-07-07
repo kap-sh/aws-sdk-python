@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#LeadInvitationPayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.lead_invitation_interaction
 
 
-class LeadInvitationPayload(TypedDict):
+class LeadInvitationPayload(TypedDict, closed=True):
     customer: "aws_sdk_partnercentral_selling.types.lead_invitation_customer.LeadInvitationCustomer"
     """<p>Contains information about the customer associated with the lead invitation. This data helps partners understand the customer's profile, industry, and business context to assess the lead opportunity.</p>"""
     interaction: "aws_sdk_partnercentral_selling.types.lead_invitation_interaction.LeadInvitationInteraction"

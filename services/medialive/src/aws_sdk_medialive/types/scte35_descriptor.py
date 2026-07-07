@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Scte35Descriptor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.scte35_descriptor_settings
 
 
-class Scte35Descriptor(TypedDict):
+class Scte35Descriptor(TypedDict, closed=True):
     scte35_descriptor_settings: NotRequired[
         "aws_sdk_medialive.types.scte35_descriptor_settings.Scte35DescriptorSettings"
     ]

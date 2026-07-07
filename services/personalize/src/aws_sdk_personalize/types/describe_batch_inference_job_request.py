@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DescribeBatchInferenceJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class DescribeBatchInferenceJobRequest(TypedDict):
+class DescribeBatchInferenceJobRequest(TypedDict, closed=True):
     batch_inference_job_arn: "aws_sdk_personalize.types.arn.Arn"
     """<p>The ARN of the batch inference job to describe.</p>"""
 

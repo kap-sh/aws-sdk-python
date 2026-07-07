@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#CapabilityConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.argo_cd_config_request
 
 
-class CapabilityConfigurationRequest(TypedDict):
+class CapabilityConfigurationRequest(TypedDict, closed=True):
     argo_cd: NotRequired["aws_sdk_eks.types.argo_cd_config_request.ArgoCdConfigRequest"]
     """<p>Configuration settings specific to Argo CD capabilities. This field is only used when creating or updating an Argo CD capability.</p>"""
 

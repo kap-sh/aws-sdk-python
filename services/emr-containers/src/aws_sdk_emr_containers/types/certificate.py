@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#Certificate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.acm_cert_arn
     import aws_sdk_emr_containers.types.base64_encoded
 
 
-class Certificate(TypedDict):
+class Certificate(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_emr_containers.types.acm_cert_arn.ACMCertArn"]
     """<p>The ARN of the certificate generated for managed endpoint.</p>"""
     certificate_data: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.polly#LexiconDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.lexicon_attributes
     import aws_sdk_polly.types.lexicon_name
 
 
-class LexiconDescription(TypedDict):
+class LexiconDescription(TypedDict, closed=True):
     name: NotRequired["aws_sdk_polly.types.lexicon_name.LexiconName"]
     """<p>Name of the lexicon.</p>"""
     attributes: NotRequired["aws_sdk_polly.types.lexicon_attributes.LexiconAttributes"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ListAssessmentControlInsightsByControlDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.control_domain_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class ListAssessmentControlInsightsByControlDomainRequest(TypedDict):
+class ListAssessmentControlInsightsByControlDomainRequest(TypedDict, closed=True):
     control_domain_id: "aws_sdk_auditmanager.types.control_domain_id.ControlDomainId"
     r"""<p>The unique identifier for the control domain. </p> <p>Audit Manager supports the control domains that are provided by Amazon Web Services Control Catalog. For information about how to find a list of available control domains, see <a href=\"https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html\"> <code>ListDomains</code> </a> in the Amazon Web Services Control Catalog API Reference.</p>"""
     assessment_id: "aws_sdk_auditmanager.types.uuid.UUID"

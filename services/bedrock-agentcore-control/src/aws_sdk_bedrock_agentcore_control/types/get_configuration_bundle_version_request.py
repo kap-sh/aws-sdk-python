@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetConfigurationBundleVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.configuration_bundle_id
     import aws_sdk_bedrock_agentcore_control.types.configuration_bundle_version
 
 
-class GetConfigurationBundleVersionRequest(TypedDict):
+class GetConfigurationBundleVersionRequest(TypedDict, closed=True):
     bundle_id: "aws_sdk_bedrock_agentcore_control.types.configuration_bundle_id.ConfigurationBundleId"
     """<p>The unique identifier of the configuration bundle.</p>"""
     version_id: "aws_sdk_bedrock_agentcore_control.types.configuration_bundle_version.ConfigurationBundleVersion"

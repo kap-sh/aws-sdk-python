@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoMLProblemTypeResolvedAttributes``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,17 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.text_generation_resolved_attributes
 
 
-class _AutoMLProblemTypeResolvedAttributes_TabularResolvedAttributes(TypedDict):
+class _AutoMLProblemTypeResolvedAttributes_TabularResolvedAttributes(
+    TypedDict, closed=True
+):
     TabularResolvedAttributes: (
         "aws_sdk_sagemaker.types.tabular_resolved_attributes.TabularResolvedAttributes"
     )
 
 
-class _AutoMLProblemTypeResolvedAttributes_TextGenerationResolvedAttributes(TypedDict):
+class _AutoMLProblemTypeResolvedAttributes_TextGenerationResolvedAttributes(
+    TypedDict, closed=True
+):
     TextGenerationResolvedAttributes: "aws_sdk_sagemaker.types.text_generation_resolved_attributes.TextGenerationResolvedAttributes"
 
 

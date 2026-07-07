@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListComputationModelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.computation_model_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class ListComputationModelsRequest(TypedDict):
+class ListComputationModelsRequest(TypedDict, closed=True):
     computation_model_type: NotRequired[
         "aws_sdk_iotsitewise.types.computation_model_type.ComputationModelType"
     ]

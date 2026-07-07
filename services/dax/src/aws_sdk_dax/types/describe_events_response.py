@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dax#DescribeEventsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.event_list
     import aws_sdk_dax.types.string
 
 
-class DescribeEventsResponse(TypedDict):
+class DescribeEventsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_dax.types.string.String"]
     """<p>Provides an identifier to allow retrieval of paginated results.</p>"""
     events: NotRequired["aws_sdk_dax.types.event_list.EventList"]

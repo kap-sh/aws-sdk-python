@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#FileModes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.file_mode_type_enum
 
 
-class FileModes(TypedDict):
+class FileModes(TypedDict, closed=True):
     source: NotRequired["aws_sdk_codecommit.types.file_mode_type_enum.FileModeTypeEnum"]
     """<p>The file mode of a file in the source of a merge or pull request.</p>"""
     destination: NotRequired[

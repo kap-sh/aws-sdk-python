@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteEndpointConfigInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_config_name
 
 
-class DeleteEndpointConfigInput(TypedDict):
+class DeleteEndpointConfigInput(TypedDict, closed=True):
     endpoint_config_name: NotRequired[
         "aws_sdk_sagemaker.types.endpoint_config_name.EndpointConfigName"
     ]

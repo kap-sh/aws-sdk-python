@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#InferenceReceiverMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.account_id
 
 
-class InferenceReceiverMember(TypedDict):
+class InferenceReceiverMember(TypedDict, closed=True):
     account_id: "aws_sdk_cleanroomsml.types.account_id.AccountId"
     """<p>The account ID of the member that can receive inference results.</p>"""
 

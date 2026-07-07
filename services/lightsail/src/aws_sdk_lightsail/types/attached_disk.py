@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#AttachedDisk``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.integer
     import aws_sdk_lightsail.types.string
 
 
-class AttachedDisk(TypedDict):
+class AttachedDisk(TypedDict, closed=True):
     path: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The path of the disk (<code>/dev/xvdf</code>).</p>"""
     size_in_gb: NotRequired["aws_sdk_lightsail.types.integer.integer"]

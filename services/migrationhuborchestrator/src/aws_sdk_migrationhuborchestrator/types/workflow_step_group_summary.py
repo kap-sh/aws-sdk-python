@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#WorkflowStepGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.owner
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.string_list
 
 
-class WorkflowStepGroupSummary(TypedDict):
+class WorkflowStepGroupSummary(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The ID of the step group.</p>"""
     name: NotRequired["str"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GatewayPolicyEngineConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.gateway_policy_engine_mode
 
 
-class GatewayPolicyEngineConfiguration(TypedDict):
+class GatewayPolicyEngineConfiguration(TypedDict, closed=True):
     arn: "aws_sdk_bedrock_agentcore_control.types.gateway_policy_engine_arn.GatewayPolicyEngineArn"
     """<p>The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.</p>"""
     mode: "aws_sdk_bedrock_agentcore_control.types.gateway_policy_engine_mode.GatewayPolicyEngineMode"

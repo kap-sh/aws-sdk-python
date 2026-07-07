@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#SavingsPlansPurchaseAnalysisDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
     import aws_sdk_cost_explorer.types.metrics_over_lookback_period
 
 
-class SavingsPlansPurchaseAnalysisDetails(TypedDict):
+class SavingsPlansPurchaseAnalysisDetails(TypedDict, closed=True):
     currency_code: NotRequired[
         "aws_sdk_cost_explorer.types.generic_string.GenericString"
     ]

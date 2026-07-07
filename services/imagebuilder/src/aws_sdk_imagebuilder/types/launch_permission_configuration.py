@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LaunchPermissionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.account_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.string_list
 
 
-class LaunchPermissionConfiguration(TypedDict):
+class LaunchPermissionConfiguration(TypedDict, closed=True):
     user_ids: NotRequired["aws_sdk_imagebuilder.types.account_list.AccountList"]
     """<p>The Amazon Web Services account ID.</p>"""
     user_groups: NotRequired["aws_sdk_imagebuilder.types.string_list.StringList"]

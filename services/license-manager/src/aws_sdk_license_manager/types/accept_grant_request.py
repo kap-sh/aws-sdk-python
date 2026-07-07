@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#AcceptGrantRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.arn
 
 
-class AcceptGrantRequest(TypedDict):
+class AcceptGrantRequest(TypedDict, closed=True):
     grant_arn: "aws_sdk_license_manager.types.arn.Arn"
     """<p>Amazon Resource Name (ARN) of the grant.</p>"""
 

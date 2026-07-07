@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#PutEmailMonitoringConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.role_arn
 
 
-class PutEmailMonitoringConfigurationRequest(TypedDict):
+class PutEmailMonitoringConfigurationRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The ID of the organization for which the email monitoring configuration is set.</p>"""
     role_arn: NotRequired["aws_sdk_workmail.types.role_arn.RoleArn"]

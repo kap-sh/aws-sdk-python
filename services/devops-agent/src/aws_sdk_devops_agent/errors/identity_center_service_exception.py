@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#IdentityCenterServiceException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, ServiceError
 
 
-class IdentityCenterServiceException_(TypedDict):
+class IdentityCenterServiceException_(TypedDict, closed=True):
     message: "str"
     """<p>Detailed error message describing why the call fails</p>"""
     underlying_error_code: NotRequired["str"]

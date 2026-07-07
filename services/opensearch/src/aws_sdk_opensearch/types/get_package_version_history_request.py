@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#GetPackageVersionHistoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.package_id
 
 
-class GetPackageVersionHistoryRequest(TypedDict):
+class GetPackageVersionHistoryRequest(TypedDict, closed=True):
     package_id: "aws_sdk_opensearch.types.package_id.PackageID"
     """<p>The unique identifier of the package.</p>"""
     max_results: "aws_sdk_opensearch.types.max_results.MaxResults"

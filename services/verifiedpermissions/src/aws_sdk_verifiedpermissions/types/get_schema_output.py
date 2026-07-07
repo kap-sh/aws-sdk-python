@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#GetSchemaOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.timestamp_format
 
 
-class GetSchemaOutput(TypedDict):
+class GetSchemaOutput(TypedDict, closed=True):
     policy_store_id: "aws_sdk_verifiedpermissions.types.policy_store_id.PolicyStoreId"
     """<p>The ID of the policy store that contains the schema.</p>"""
     schema: "aws_sdk_verifiedpermissions.types.schema_json.SchemaJson"

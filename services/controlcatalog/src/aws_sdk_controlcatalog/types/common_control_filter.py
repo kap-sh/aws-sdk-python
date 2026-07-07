@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#CommonControlFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.objective_resource_filter_list
 
 
-class CommonControlFilter(TypedDict):
+class CommonControlFilter(TypedDict, closed=True):
     objectives: NotRequired[
         "aws_sdk_controlcatalog.types.objective_resource_filter_list.ObjectiveResourceFilterList"
     ]

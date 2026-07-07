@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#PutMetadataFlagBody``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
 
-class PutMetadataFlagBody(TypedDict):
+class PutMetadataFlagBody(TypedDict, closed=True):
     new_value: "str"
     """<p>The new information to store.</p>"""
 

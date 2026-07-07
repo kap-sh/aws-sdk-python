@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#UpdatePurchaseOrdersInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.purchase_orders
 
 
-class UpdatePurchaseOrdersInput(TypedDict):
+class UpdatePurchaseOrdersInput(TypedDict, closed=True):
     purchase_orders: (
         "aws_sdk_marketplace_agreement.types.purchase_orders.PurchaseOrders"
     )

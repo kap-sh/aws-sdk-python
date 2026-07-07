@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#NotificationResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.notification_resource_type
 
 
-class NotificationResource(TypedDict):
+class NotificationResource(TypedDict, closed=True):
     type: "aws_sdk_datazone.types.notification_resource_type.NotificationResourceType"
     """<p>The type of the resource mentioned in a notification.</p>"""
     id: "str"

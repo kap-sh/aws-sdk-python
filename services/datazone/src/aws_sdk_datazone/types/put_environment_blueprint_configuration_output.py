@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#PutEnvironmentBlueprintConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.role_arn
 
 
-class PutEnvironmentBlueprintConfigurationOutput(TypedDict):
+class PutEnvironmentBlueprintConfigurationOutput(TypedDict, closed=True):
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon DataZone domain.</p>"""
     environment_blueprint_id: (

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetDisksResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.disk_list
     import aws_sdk_lightsail.types.string
 
 
-class GetDisksResult(TypedDict):
+class GetDisksResult(TypedDict, closed=True):
     disks: NotRequired["aws_sdk_lightsail.types.disk_list.DiskList"]
     """<p>An array of objects containing information about all block storage disks.</p>"""
     next_page_token: NotRequired["aws_sdk_lightsail.types.string.string"]

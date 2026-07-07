@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#SearchForSuggestionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.sensitive_string
 
 
-class SearchForSuggestionsResult(TypedDict):
+class SearchForSuggestionsResult(TypedDict, closed=True):
     text: "aws_sdk_location.types.sensitive_string.SensitiveString"
     """<p>The text of the place suggestion, typically formatted as an address string.</p>"""
     place_id: NotRequired["aws_sdk_location.types.place_id.PlaceId"]

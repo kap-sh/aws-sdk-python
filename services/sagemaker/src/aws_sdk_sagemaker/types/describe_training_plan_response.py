@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeTrainingPlanResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.available_instance_count
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.unhealthy_instance_count
 
 
-class DescribeTrainingPlanResponse(TypedDict):
+class DescribeTrainingPlanResponse(TypedDict, closed=True):
     training_plan_arn: NotRequired[
         "aws_sdk_sagemaker.types.training_plan_arn.TrainingPlanArn"
     ]

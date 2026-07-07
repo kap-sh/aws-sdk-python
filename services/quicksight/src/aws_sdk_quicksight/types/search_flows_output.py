@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SearchFlowsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
 
 
-class SearchFlowsOutput(TypedDict):
+class SearchFlowsOutput(TypedDict, closed=True):
     flow_summary_list: "aws_sdk_quicksight.types.flow_summary_list.FlowSummaryList"
     """<p>The list of flows found against the search.</p>"""
     next_token: NotRequired["str"]

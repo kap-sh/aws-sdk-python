@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ProxyCredentials``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.basic_auth
 
 
-class _ProxyCredentials_basicAuth(TypedDict):
+class _ProxyCredentials_basicAuth(TypedDict, closed=True):
     basicAuth: "aws_sdk_bedrock_agentcore.types.basic_auth.BasicAuth"
 
 

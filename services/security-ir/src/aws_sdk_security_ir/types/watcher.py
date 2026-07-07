@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#Watcher``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.person_name
 
 
-class Watcher(TypedDict):
+class Watcher(TypedDict, closed=True):
     email: "aws_sdk_security_ir.types.email_address.EmailAddress"
     """<p/>"""
     name: NotRequired["aws_sdk_security_ir.types.person_name.PersonName"]

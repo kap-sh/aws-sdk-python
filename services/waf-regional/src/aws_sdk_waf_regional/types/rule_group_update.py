@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#RuleGroupUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.change_action
 
 
-class RuleGroupUpdate(TypedDict):
+class RuleGroupUpdate(TypedDict, closed=True):
     action: "aws_sdk_waf_regional.types.change_action.ChangeAction"
     """<p>Specify <code>INSERT</code> to add an <code>ActivatedRule</code> to a <code>RuleGroup</code>. Use <code>DELETE</code> to remove an <code>ActivatedRule</code> from a <code>RuleGroup</code>.</p>"""
     activated_rule: "aws_sdk_waf_regional.types.activated_rule.ActivatedRule"

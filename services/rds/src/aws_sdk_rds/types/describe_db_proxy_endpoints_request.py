@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DescribeDBProxyEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DescribeDBProxyEndpointsRequest(TypedDict):
+class DescribeDBProxyEndpointsRequest(TypedDict, closed=True):
     db_proxy_name: NotRequired["aws_sdk_rds.types.db_proxy_name.DBProxyName"]
     """<p>The name of the DB proxy whose endpoints you want to describe. If you omit this parameter, the output includes information about all DB proxy endpoints associated with all your DB proxies.</p>"""
     db_proxy_endpoint_name: NotRequired[

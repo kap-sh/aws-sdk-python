@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#IdentityCenterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.boxed_boolean
     import aws_sdk_athena.types.identity_center_instance_arn
 
 
-class IdentityCenterConfiguration(TypedDict):
+class IdentityCenterConfiguration(TypedDict, closed=True):
     enable_identity_center: NotRequired[
         "aws_sdk_athena.types.boxed_boolean.BoxedBoolean"
     ]

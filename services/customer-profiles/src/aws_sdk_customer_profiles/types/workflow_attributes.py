@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#WorkflowAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.appflow_integration_workflow_attributes
 
 
-class WorkflowAttributes(TypedDict):
+class WorkflowAttributes(TypedDict, closed=True):
     appflow_integration: NotRequired[
         "aws_sdk_customer_profiles.types.appflow_integration_workflow_attributes.AppflowIntegrationWorkflowAttributes"
     ]

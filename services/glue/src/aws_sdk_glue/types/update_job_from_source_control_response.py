@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpdateJobFromSourceControlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class UpdateJobFromSourceControlResponse(TypedDict):
+class UpdateJobFromSourceControlResponse(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the Glue job.</p>"""
 

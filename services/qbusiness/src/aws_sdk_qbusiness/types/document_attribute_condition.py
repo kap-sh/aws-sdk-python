@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentAttributeCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.document_enrichment_condition_operator
 
 
-class DocumentAttributeCondition(TypedDict):
+class DocumentAttributeCondition(TypedDict, closed=True):
     key: "aws_sdk_qbusiness.types.document_attribute_key.DocumentAttributeKey"
     """<p>The identifier of the document attribute used for the condition.</p> <p>For example, 'Source_URI' could be an identifier for the attribute or metadata field that contains source URIs associated with the documents.</p> <p>Amazon Q Business currently doesn't support <code>_document_body</code> as an attribute key used for the condition.</p>"""
     operator: "aws_sdk_qbusiness.types.document_enrichment_condition_operator.DocumentEnrichmentConditionOperator"

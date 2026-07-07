@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ExecutionTimeFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.timestamp
 
 
-class ExecutionTimeFilter(TypedDict):
+class ExecutionTimeFilter(TypedDict, closed=True):
     oldest_date: "aws_sdk_swf.types.timestamp.Timestamp"
     """<p>Specifies the oldest start or close date and time to return.</p>"""
     latest_date: NotRequired["aws_sdk_swf.types.timestamp.Timestamp"]

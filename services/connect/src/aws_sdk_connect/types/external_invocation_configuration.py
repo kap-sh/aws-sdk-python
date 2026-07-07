@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ExternalInvocationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
 
 
-class ExternalInvocationConfiguration(TypedDict):
+class ExternalInvocationConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_connect.types.boolean.Boolean"
     """<p>Enable external invocation.</p>"""
 

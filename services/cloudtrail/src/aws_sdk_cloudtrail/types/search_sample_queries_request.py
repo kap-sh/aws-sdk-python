@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#SearchSampleQueriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.search_sample_queries_search_phrase
 
 
-class SearchSampleQueriesRequest(TypedDict):
+class SearchSampleQueriesRequest(TypedDict, closed=True):
     search_phrase: "aws_sdk_cloudtrail.types.search_sample_queries_search_phrase.SearchSampleQueriesSearchPhrase"
     """<p> The natural language phrase to use for the semantic search. The phrase must be in English. The length constraint is in characters, not words.</p>"""
     max_results: NotRequired[

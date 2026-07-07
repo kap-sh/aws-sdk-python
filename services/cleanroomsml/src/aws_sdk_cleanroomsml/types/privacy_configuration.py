@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#PrivacyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.privacy_configuration_policies
 
 
-class PrivacyConfiguration(TypedDict):
+class PrivacyConfiguration(TypedDict, closed=True):
     policies: "aws_sdk_cleanroomsml.types.privacy_configuration_policies.PrivacyConfigurationPolicies"
     """<p>The privacy configuration policies for a configured model algorithm association.</p>"""
 

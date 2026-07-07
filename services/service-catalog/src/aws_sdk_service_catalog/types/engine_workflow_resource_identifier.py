@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#EngineWorkflowResourceIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.unique_tag_resource_identifier
 
 
-class EngineWorkflowResourceIdentifier(TypedDict):
+class EngineWorkflowResourceIdentifier(TypedDict, closed=True):
     unique_tag: NotRequired[
         "aws_sdk_service_catalog.types.unique_tag_resource_identifier.UniqueTagResourceIdentifier"
     ]

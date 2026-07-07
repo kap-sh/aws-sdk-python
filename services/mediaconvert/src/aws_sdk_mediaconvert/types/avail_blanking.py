@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AvailBlanking``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_min14_pattern_s3_bmp_bmp_png_png_https_bmp_bmp_png_png
 
 
-class AvailBlanking(TypedDict):
+class AvailBlanking(TypedDict, closed=True):
     avail_blanking_image: NotRequired[
         "aws_sdk_mediaconvert.types.__string_min14_pattern_s3_bmp_bmp_png_png_https_bmp_bmp_png_png.__stringMin14PatternS3BmpBMPPngPNGHttpsBmpBMPPngPNG"
     ]

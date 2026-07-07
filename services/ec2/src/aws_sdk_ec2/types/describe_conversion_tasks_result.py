@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeConversionTasksResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.describe_conversion_task_list
 
 
-class DescribeConversionTasksResult(TypedDict):
+class DescribeConversionTasksResult(TypedDict, closed=True):
     conversion_tasks: NotRequired[
         "aws_sdk_ec2.types.describe_conversion_task_list.DescribeConversionTaskList"
     ]

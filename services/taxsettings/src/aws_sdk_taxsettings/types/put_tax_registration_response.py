@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#PutTaxRegistrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.tax_registration_status
 
 
-class PutTaxRegistrationResponse(TypedDict):
+class PutTaxRegistrationResponse(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_taxsettings.types.tax_registration_status.TaxRegistrationStatus"
     ]

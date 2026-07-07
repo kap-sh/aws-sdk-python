@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateJobTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timeout_config
 
 
-class CreateJobTemplateRequest(TypedDict):
+class CreateJobTemplateRequest(TypedDict, closed=True):
     job_template_id: "aws_sdk_iot.types.job_template_id.JobTemplateId"
     r"""<p>A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, \"-\", and \"_\" are valid for use here.</p>"""
     job_arn: NotRequired["aws_sdk_iot.types.job_arn.JobArn"]

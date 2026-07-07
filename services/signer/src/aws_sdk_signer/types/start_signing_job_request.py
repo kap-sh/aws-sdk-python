@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#StartSigningJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_signer.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.source
 
 
-class StartSigningJobRequest(TypedDict):
+class StartSigningJobRequest(TypedDict, closed=True):
     source: "aws_sdk_signer.types.source.Source"
     """<p>The S3 bucket that contains the object to sign or a BLOB that contains your raw code.</p>"""
     destination: "aws_sdk_signer.types.destination.Destination"

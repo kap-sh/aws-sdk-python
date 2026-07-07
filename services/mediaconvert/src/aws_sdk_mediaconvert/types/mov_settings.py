@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#MovSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.mov_clap_atom
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.mov_reference
 
 
-class MovSettings(TypedDict):
+class MovSettings(TypedDict, closed=True):
     clap_atom: NotRequired["aws_sdk_mediaconvert.types.mov_clap_atom.MovClapAtom"]
     """When enabled, include 'clap' atom if appropriate for the video output settings."""
     cslg_atom: NotRequired["aws_sdk_mediaconvert.types.mov_cslg_atom.MovCslgAtom"]

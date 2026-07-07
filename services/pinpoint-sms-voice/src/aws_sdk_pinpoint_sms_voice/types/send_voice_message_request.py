@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoice#SendVoiceMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice.types.non_empty_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice.types.word_characters_with_delimiters
 
 
-class SendVoiceMessageRequest(TypedDict):
+class SendVoiceMessageRequest(TypedDict, closed=True):
     caller_id: NotRequired["aws_sdk_pinpoint_sms_voice.types.string.String"]
     """The phone number that appears on recipients' devices when they receive the message."""
     configuration_set_name: NotRequired[

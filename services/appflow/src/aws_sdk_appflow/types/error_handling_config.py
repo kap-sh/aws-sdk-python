@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ErrorHandlingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.bucket_prefix
 
 
-class ErrorHandlingConfig(TypedDict):
+class ErrorHandlingConfig(TypedDict, closed=True):
     fail_on_first_destination_error: "aws_sdk_appflow.types.boolean.Boolean"
     """<p> Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination. </p>"""
     bucket_prefix: NotRequired["aws_sdk_appflow.types.bucket_prefix.BucketPrefix"]

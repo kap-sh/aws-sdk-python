@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#CredentialsProvider``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.secrets_manager_credentials_provider
 
 
-class _CredentialsProvider_SecretsManagerCredentialsProvider(TypedDict):
+class _CredentialsProvider_SecretsManagerCredentialsProvider(TypedDict, closed=True):
     SecretsManagerCredentialsProvider: "aws_sdk_license_manager_user_subscriptions.types.secrets_manager_credentials_provider.SecretsManagerCredentialsProvider"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsBackupBackupPlanAdvancedBackupSettingsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.field_map
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsBackupBackupPlanAdvancedBackupSettingsDetails(TypedDict):
+class AwsBackupBackupPlanAdvancedBackupSettingsDetails(TypedDict, closed=True):
     backup_options: NotRequired["aws_sdk_securityhub.types.field_map.FieldMap"]
     """<p>Specifies the backup option for a selected resource. This option is only available for Windows Volume Shadow Copy Service (VSS) backup jobs. Valid values are as follows:</p> <ul> <li> <p>Set to <code>WindowsVSS: enabled</code> to enable the WindowsVSS backup option and create a Windows VSS backup.</p> </li> <li> <p>Set to <code>WindowsVSS: disabled</code> to create a regular backup. The <code>WindowsVSS</code> option is not enabled by default.</p> </li> </ul>"""
     resource_type: NotRequired[

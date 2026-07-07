@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#BelgiumAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.peppol_id
 
 
-class BelgiumAdditionalInfo(TypedDict):
+class BelgiumAdditionalInfo(TypedDict, closed=True):
     peppol_id: NotRequired["aws_sdk_taxsettings.types.peppol_id.PeppolId"]
     """<p>The Peppol ID for electronic invoicing in Belgium.</p>"""
     is_mercurius_box_enabled: NotRequired["bool"]

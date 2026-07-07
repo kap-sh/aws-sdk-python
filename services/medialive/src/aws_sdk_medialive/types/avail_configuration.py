@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AvailConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.avail_settings
     import aws_sdk_medialive.types.scte35_segmentation_scope
 
 
-class AvailConfiguration(TypedDict):
+class AvailConfiguration(TypedDict, closed=True):
     avail_settings: NotRequired["aws_sdk_medialive.types.avail_settings.AvailSettings"]
     """Controls how SCTE-35 messages create cues. Splice Insert mode treats all segmentation signals traditionally. With Time Signal APOS mode only Time Signal Placement Opportunity and Break messages create segment breaks. With ESAM mode, signals are forwarded to an ESAM server for possible update."""
     scte35_segmentation_scope: NotRequired[

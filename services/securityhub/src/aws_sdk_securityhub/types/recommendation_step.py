@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#RecommendationStep``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityhub.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.unused_permissions_recommendation_step
 
 
-class _RecommendationStep_UnusedPermissions(TypedDict):
+class _RecommendationStep_UnusedPermissions(TypedDict, closed=True):
     UnusedPermissions: "aws_sdk_securityhub.types.unused_permissions_recommendation_step.UnusedPermissionsRecommendationStep"
 
 

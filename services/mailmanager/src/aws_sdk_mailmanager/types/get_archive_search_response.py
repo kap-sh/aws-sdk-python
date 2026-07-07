@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#GetArchiveSearchResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.search_status
 
 
-class GetArchiveSearchResponse(TypedDict):
+class GetArchiveSearchResponse(TypedDict, closed=True):
     archive_id: NotRequired["aws_sdk_mailmanager.types.archive_id.ArchiveId"]
     """<p>The identifier of the archive the email search was performed in.</p>"""
     filters: NotRequired["aws_sdk_mailmanager.types.archive_filters.ArchiveFilters"]

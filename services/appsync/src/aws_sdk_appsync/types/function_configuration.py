@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#FunctionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.app_sync_runtime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.sync_config
 
 
-class FunctionConfiguration(TypedDict):
+class FunctionConfiguration(TypedDict, closed=True):
     function_id: NotRequired["aws_sdk_appsync.types.string.String"]
     """<p>A unique ID representing the <code>Function</code> object.</p>"""
     function_arn: NotRequired["aws_sdk_appsync.types.string.String"]

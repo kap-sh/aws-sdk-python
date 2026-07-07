@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EndpointInputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.environment_parameter_ranges
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.production_variant_serverless_config
 
 
-class EndpointInputConfiguration(TypedDict):
+class EndpointInputConfiguration(TypedDict, closed=True):
     instance_type: NotRequired[
         "aws_sdk_sagemaker.types.production_variant_instance_type.ProductionVariantInstanceType"
     ]

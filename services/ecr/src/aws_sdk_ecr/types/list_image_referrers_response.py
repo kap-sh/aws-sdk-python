@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ListImageReferrersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_referrer_list
     import aws_sdk_ecr.types.next_token
 
 
-class ListImageReferrersResponse(TypedDict):
+class ListImageReferrersResponse(TypedDict, closed=True):
     referrers: NotRequired["aws_sdk_ecr.types.image_referrer_list.ImageReferrerList"]
     """<p>The list of artifacts associated with the subject image.</p>"""
     next_token: NotRequired["aws_sdk_ecr.types.next_token.NextToken"]

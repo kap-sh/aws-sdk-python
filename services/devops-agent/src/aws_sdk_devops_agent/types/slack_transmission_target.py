@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SlackTransmissionTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.slack_channel
 
 
-class SlackTransmissionTarget(TypedDict):
+class SlackTransmissionTarget(TypedDict, closed=True):
     ops_oncall_target: "aws_sdk_devops_agent.types.slack_channel.SlackChannel"
     """<p>Destination for On-call Agent (Ops1)</p>"""
     ops_sre_target: NotRequired["aws_sdk_devops_agent.types.slack_channel.SlackChannel"]

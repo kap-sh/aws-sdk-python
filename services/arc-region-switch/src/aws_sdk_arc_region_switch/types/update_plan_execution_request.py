@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#UpdatePlanExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.update_plan_execution_action
 
 
-class UpdatePlanExecutionRequest(TypedDict):
+class UpdatePlanExecutionRequest(TypedDict, closed=True):
     plan_arn: "aws_sdk_arc_region_switch.types.plan_arn.PlanArn"
     """<p>The Amazon Resource Name (ARN) of the plan with the execution to update.</p>"""
     execution_id: "aws_sdk_arc_region_switch.types.execution_id.ExecutionId"

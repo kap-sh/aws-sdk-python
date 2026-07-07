@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#ValueWithServiceIds``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.annotation_value
     import aws_sdk_xray.types.service_ids
 
 
-class ValueWithServiceIds(TypedDict):
+class ValueWithServiceIds(TypedDict, closed=True):
     annotation_value: NotRequired["aws_sdk_xray.types.annotation_value.AnnotationValue"]
     """<p>Values of the annotation.</p>"""
     service_ids: NotRequired["aws_sdk_xray.types.service_ids.ServiceIds"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#Metrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.findings_count
     import aws_sdk_codeguru_reviewer.types.lines_of_code_count
 
 
-class Metrics(TypedDict):
+class Metrics(TypedDict, closed=True):
     metered_lines_of_code_count: NotRequired[
         "aws_sdk_codeguru_reviewer.types.lines_of_code_count.LinesOfCodeCount"
     ]

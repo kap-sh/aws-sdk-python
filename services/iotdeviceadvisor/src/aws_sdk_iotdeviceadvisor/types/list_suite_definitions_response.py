@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#ListSuiteDefinitionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.suite_definition_information_list
     import aws_sdk_iotdeviceadvisor.types.token
 
 
-class ListSuiteDefinitionsResponse(TypedDict):
+class ListSuiteDefinitionsResponse(TypedDict, closed=True):
     suite_definition_information_list: NotRequired[
         "aws_sdk_iotdeviceadvisor.types.suite_definition_information_list.SuiteDefinitionInformationList"
     ]

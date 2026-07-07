@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ListIdNamespacesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.id_namespace_list
     import aws_sdk_entityresolution.types.next_token
 
 
-class ListIdNamespacesOutput(TypedDict):
+class ListIdNamespacesOutput(TypedDict, closed=True):
     id_namespace_summaries: NotRequired[
         "aws_sdk_entityresolution.types.id_namespace_list.IdNamespaceList"
     ]

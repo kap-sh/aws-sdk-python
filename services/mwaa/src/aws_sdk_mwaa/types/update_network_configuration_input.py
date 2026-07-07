@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#UpdateNetworkConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mwaa.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.security_group_list
 
 
-class UpdateNetworkConfigurationInput(TypedDict):
+class UpdateNetworkConfigurationInput(TypedDict, closed=True):
     security_group_ids: "aws_sdk_mwaa.types.security_group_list.SecurityGroupList"
     r"""<p>A list of security group IDs. A security group must be attached to the same VPC as the subnets. For more information, refer to <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html\">Security in your VPC on Amazon MWAA</a>.</p>"""
 

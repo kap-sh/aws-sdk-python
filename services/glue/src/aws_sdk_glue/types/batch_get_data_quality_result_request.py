@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetDataQualityResultRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.data_quality_result_ids
 
 
-class BatchGetDataQualityResultRequest(TypedDict):
+class BatchGetDataQualityResultRequest(TypedDict, closed=True):
     result_ids: "aws_sdk_glue.types.data_quality_result_ids.DataQualityResultIds"
     """<p>A list of unique result IDs for the data quality results.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ResourceData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.access_key
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.s3_object
 
 
-class ResourceData(TypedDict):
+class ResourceData(TypedDict, closed=True):
     s3_bucket: NotRequired["aws_sdk_guardduty.types.s3_bucket.S3Bucket"]
     """<p>Contains information about the Amazon S3 bucket.</p>"""
     ec2_instance: NotRequired["aws_sdk_guardduty.types.ec2_instance.Ec2Instance"]

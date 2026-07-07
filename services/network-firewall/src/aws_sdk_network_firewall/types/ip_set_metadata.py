@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#IPSetMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.cidr_count
 
 
-class IPSetMetadata(TypedDict):
+class IPSetMetadata(TypedDict, closed=True):
     resolved_cidr_count: NotRequired[
         "aws_sdk_network_firewall.types.cidr_count.CIDRCount"
     ]

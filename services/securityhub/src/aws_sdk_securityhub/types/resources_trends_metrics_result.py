@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ResourcesTrendsMetricsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.resources_trends_values
     import aws_sdk_securityhub.types.timestamp
 
 
-class ResourcesTrendsMetricsResult(TypedDict):
+class ResourcesTrendsMetricsResult(TypedDict, closed=True):
     timestamp: NotRequired["aws_sdk_securityhub.types.timestamp.Timestamp"]
     """<p>The timestamp for this data point in the resources trend metrics.</p>"""
     trends_values: NotRequired[

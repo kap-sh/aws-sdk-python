@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailOutputContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_output_text
 
 
-class GuardrailOutputContent(TypedDict):
+class GuardrailOutputContent(TypedDict, closed=True):
     text: NotRequired[
         "aws_sdk_bedrock_runtime.types.guardrail_output_text.GuardrailOutputText"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#ListWorkloadEstimateUsageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.next_page_token
     import aws_sdk_bcm_pricing_calculator.types.workload_estimate_usage_items
 
 
-class ListWorkloadEstimateUsageResponse(TypedDict):
+class ListWorkloadEstimateUsageResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.workload_estimate_usage_items.WorkloadEstimateUsageItems"
     ]

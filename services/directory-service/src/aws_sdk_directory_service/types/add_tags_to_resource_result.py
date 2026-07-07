@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#AddTagsToResourceResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AddTagsToResourceResult(TypedDict):
+class AddTagsToResourceResult(TypedDict, closed=True):
     pass
 
 

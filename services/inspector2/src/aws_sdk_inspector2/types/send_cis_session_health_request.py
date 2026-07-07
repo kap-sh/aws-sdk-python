@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#SendCisSessionHealthRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.uuid
 
 
-class SendCisSessionHealthRequest(TypedDict):
+class SendCisSessionHealthRequest(TypedDict, closed=True):
     scan_job_id: "aws_sdk_inspector2.types.uuid.UUID"
     """<p>A unique identifier for the scan job.</p>"""
     session_token: "aws_sdk_inspector2.types.uuid.UUID"

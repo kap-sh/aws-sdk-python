@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#ListUserSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.pagination_token
     import aws_sdk_workspaces_web.types.user_settings_list
 
 
-class ListUserSettingsResponse(TypedDict):
+class ListUserSettingsResponse(TypedDict, closed=True):
     user_settings: NotRequired[
         "aws_sdk_workspaces_web.types.user_settings_list.UserSettingsList"
     ]

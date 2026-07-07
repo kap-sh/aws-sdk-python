@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#SAMLIdp``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.saml_metadata
 
 
-class SAMLIdp(TypedDict):
+class SAMLIdp(TypedDict, closed=True):
     metadata_content: "aws_sdk_elasticsearch_service.types.saml_metadata.SAMLMetadata"
     """<p>The Metadata of the SAML application in xml format.</p>"""
     entity_id: "aws_sdk_elasticsearch_service.types.saml_entity_id.SAMLEntityId"

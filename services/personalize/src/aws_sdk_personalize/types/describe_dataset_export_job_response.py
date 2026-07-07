@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DescribeDatasetExportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.dataset_export_job
 
 
-class DescribeDatasetExportJobResponse(TypedDict):
+class DescribeDatasetExportJobResponse(TypedDict, closed=True):
     dataset_export_job: NotRequired[
         "aws_sdk_personalize.types.dataset_export_job.DatasetExportJob"
     ]

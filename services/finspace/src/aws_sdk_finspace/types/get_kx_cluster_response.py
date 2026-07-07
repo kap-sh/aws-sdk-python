@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#GetKxClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.auto_scaling_configuration
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.vpc_configuration
 
 
-class GetKxClusterResponse(TypedDict):
+class GetKxClusterResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_finspace.types.kx_cluster_status.KxClusterStatus"]
     """<p>The status of cluster creation.</p> <ul> <li> <p>PENDING – The cluster is pending creation.</p> </li> <li> <p>CREATING – The cluster creation process is in progress.</p> </li> <li> <p>CREATE_FAILED – The cluster creation process has failed.</p> </li> <li> <p>RUNNING – The cluster creation process is running.</p> </li> <li> <p>UPDATING – The cluster is in the process of being updated.</p> </li> <li> <p>DELETING – The cluster is in the process of being deleted.</p> </li> <li> <p>DELETED – The cluster has been deleted.</p> </li> <li> <p>DELETE_FAILED – The cluster failed to delete.</p> </li> </ul>"""
     status_reason: NotRequired[

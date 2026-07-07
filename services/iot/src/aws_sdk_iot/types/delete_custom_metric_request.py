@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteCustomMetricRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.metric_name
 
 
-class DeleteCustomMetricRequest(TypedDict):
+class DeleteCustomMetricRequest(TypedDict, closed=True):
     metric_name: "aws_sdk_iot.types.metric_name.MetricName"
     """<p> The name of the custom metric. </p>"""
 

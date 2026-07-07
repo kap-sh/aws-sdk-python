@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#DescribeClustersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.clusters
     import aws_sdk_cloudhsm_v2.types.next_token
 
 
-class DescribeClustersResponse(TypedDict):
+class DescribeClustersResponse(TypedDict, closed=True):
     clusters: NotRequired["aws_sdk_cloudhsm_v2.types.clusters.Clusters"]
     """<p>A list of clusters.</p>"""
     next_token: NotRequired["aws_sdk_cloudhsm_v2.types.next_token.NextToken"]

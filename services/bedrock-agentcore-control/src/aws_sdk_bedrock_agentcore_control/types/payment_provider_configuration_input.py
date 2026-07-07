@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#PaymentProviderConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,15 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.stripe_privy_configuration_input
 
 
-class _PaymentProviderConfigurationInput_coinbaseCdpConfiguration(TypedDict):
+class _PaymentProviderConfigurationInput_coinbaseCdpConfiguration(
+    TypedDict, closed=True
+):
     coinbaseCdpConfiguration: "aws_sdk_bedrock_agentcore_control.types.coinbase_cdp_configuration_input.CoinbaseCdpConfigurationInput"
 
 
-class _PaymentProviderConfigurationInput_stripePrivyConfiguration(TypedDict):
+class _PaymentProviderConfigurationInput_stripePrivyConfiguration(
+    TypedDict, closed=True
+):
     stripePrivyConfiguration: "aws_sdk_bedrock_agentcore_control.types.stripe_privy_configuration_input.StripePrivyConfigurationInput"
 
 

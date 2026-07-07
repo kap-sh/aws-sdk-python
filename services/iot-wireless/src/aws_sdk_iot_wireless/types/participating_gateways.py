@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ParticipatingGateways``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.transmission_interval
 
 
-class ParticipatingGateways(TypedDict):
+class ParticipatingGateways(TypedDict, closed=True):
     downlink_mode: "aws_sdk_iot_wireless.types.downlink_mode.DownlinkMode"
     """<p>Indicates whether to send the downlink message in sequential mode or concurrent mode, or to use only the chosen gateways from the previous uplink message transmission.</p>"""
     gateway_list: "aws_sdk_iot_wireless.types.gateway_list.GatewayList"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#ManagedEndpointConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.eks_endpoints_configuration
 
 
-class _ManagedEndpointConfiguration_autoScalingGroups(TypedDict):
+class _ManagedEndpointConfiguration_autoScalingGroups(TypedDict, closed=True):
     autoScalingGroups: "aws_sdk_rtbfabric.types.auto_scaling_groups_configuration.AutoScalingGroupsConfiguration"
 
 
-class _ManagedEndpointConfiguration_eksEndpoints(TypedDict):
+class _ManagedEndpointConfiguration_eksEndpoints(TypedDict, closed=True):
     eksEndpoints: (
         "aws_sdk_rtbfabric.types.eks_endpoints_configuration.EksEndpointsConfiguration"
     )

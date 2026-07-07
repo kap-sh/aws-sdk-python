@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#AmazonRedshiftNodeData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.amazon_redshift_advanced_options
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.option_list
 
 
-class AmazonRedshiftNodeData(TypedDict):
+class AmazonRedshiftNodeData(TypedDict, closed=True):
     access_type: NotRequired[
         "aws_sdk_glue.types.generic_limited_string.GenericLimitedString"
     ]

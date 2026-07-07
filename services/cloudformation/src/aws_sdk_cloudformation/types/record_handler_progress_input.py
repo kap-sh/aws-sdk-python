@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#RecordHandlerProgressInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.status_message
 
 
-class RecordHandlerProgressInput(TypedDict):
+class RecordHandlerProgressInput(TypedDict, closed=True):
     bearer_token: NotRequired["aws_sdk_cloudformation.types.client_token.ClientToken"]
     r"""<p>Reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>.</p>"""
     operation_status: NotRequired[

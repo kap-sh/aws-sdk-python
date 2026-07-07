@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#UploadJobItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.expiration_days_integer
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.uuid
 
 
-class UploadJobItem(TypedDict):
+class UploadJobItem(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_customer_profiles.types.uuid.uuid"]
     """<p>The unique identifier of the upload job. </p>"""
     display_name: NotRequired[

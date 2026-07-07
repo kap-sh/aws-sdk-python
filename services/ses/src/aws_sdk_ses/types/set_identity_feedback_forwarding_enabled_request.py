@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#SetIdentityFeedbackForwardingEnabledRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.identity
 
 
-class SetIdentityFeedbackForwardingEnabledRequest(TypedDict):
+class SetIdentityFeedbackForwardingEnabledRequest(TypedDict, closed=True):
     identity: "aws_sdk_ses.types.identity.Identity"
     """<p>The identity for which to set bounce and complaint notification forwarding. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>"""
     forwarding_enabled: "aws_sdk_ses.types.enabled.Enabled"

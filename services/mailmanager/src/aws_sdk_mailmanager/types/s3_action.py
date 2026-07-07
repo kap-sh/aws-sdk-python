@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#S3Action``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.s3_prefix
 
 
-class S3Action(TypedDict):
+class S3Action(TypedDict, closed=True):
     action_failure_policy: NotRequired[
         "aws_sdk_mailmanager.types.action_failure_policy.ActionFailurePolicy"
     ]

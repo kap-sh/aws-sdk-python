@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#WisdomInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.ai_agents
     import aws_sdk_connect.types.arn
 
 
-class WisdomInfo(TypedDict):
+class WisdomInfo(TypedDict, closed=True):
     session_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) of the Wisdom session.</p>"""
     ai_agents: NotRequired["aws_sdk_connect.types.ai_agents.AiAgents"]

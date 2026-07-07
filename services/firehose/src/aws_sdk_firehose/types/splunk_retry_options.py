@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#SplunkRetryOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.splunk_retry_duration_in_seconds
 
 
-class SplunkRetryOptions(TypedDict):
+class SplunkRetryOptions(TypedDict, closed=True):
     duration_in_seconds: NotRequired[
         "aws_sdk_firehose.types.splunk_retry_duration_in_seconds.SplunkRetryDurationInSeconds"
     ]

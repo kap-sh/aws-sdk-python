@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#RegisteredNewRelicDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.new_relic_region
 
 
-class RegisteredNewRelicDetails(TypedDict):
+class RegisteredNewRelicDetails(TypedDict, closed=True):
     account_id: "str"
     """<p>The NewRelic account ID.</p>"""
     region: "aws_sdk_devops_agent.types.new_relic_region.NewRelicRegion"

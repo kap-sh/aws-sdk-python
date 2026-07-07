@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#DeleteDataCatalogInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.catalog_name_string
 
 
-class DeleteDataCatalogInput(TypedDict):
+class DeleteDataCatalogInput(TypedDict, closed=True):
     name: "aws_sdk_athena.types.catalog_name_string.CatalogNameString"
     """<p>The name of the data catalog to delete.</p>"""
     delete_catalog_only: "aws_sdk_athena.types.boolean.Boolean"

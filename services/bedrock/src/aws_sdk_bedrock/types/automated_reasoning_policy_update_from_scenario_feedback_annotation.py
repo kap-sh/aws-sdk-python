@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,9 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_scenario_expression
 
 
-class AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation(TypedDict):
+class AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation(
+    TypedDict, closed=True
+):
     rule_ids: NotRequired[
         "aws_sdk_bedrock.types.automated_reasoning_policy_definition_rule_id_list.AutomatedReasoningPolicyDefinitionRuleIdList"
     ]

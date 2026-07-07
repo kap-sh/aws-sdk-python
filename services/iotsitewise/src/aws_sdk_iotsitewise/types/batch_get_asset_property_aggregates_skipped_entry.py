@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#BatchGetAssetPropertyAggregatesSkippedEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.entry_id
 
 
-class BatchGetAssetPropertyAggregatesSkippedEntry(TypedDict):
+class BatchGetAssetPropertyAggregatesSkippedEntry(TypedDict, closed=True):
     entry_id: "aws_sdk_iotsitewise.types.entry_id.EntryId"
     """<p>The ID of the entry.</p>"""
     completion_status: "aws_sdk_iotsitewise.types.batch_entry_completion_status.BatchEntryCompletionStatus"

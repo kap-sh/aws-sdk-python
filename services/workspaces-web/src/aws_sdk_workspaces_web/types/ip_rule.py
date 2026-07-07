@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#IpRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.ip_range
 
 
-class IpRule(TypedDict):
+class IpRule(TypedDict, closed=True):
     ip_range: "aws_sdk_workspaces_web.types.ip_range.IpRange"
     """<p>The IP range of the IP rule.</p>"""
     description: NotRequired["aws_sdk_workspaces_web.types.description.Description"]

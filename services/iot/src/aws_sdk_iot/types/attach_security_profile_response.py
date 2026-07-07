@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AttachSecurityProfileResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AttachSecurityProfileResponse(TypedDict):
+class AttachSecurityProfileResponse(TypedDict, closed=True):
     pass
 
 

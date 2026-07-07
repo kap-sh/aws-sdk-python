@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessAgentCoreMemoryRetrievalConfig``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class HarnessAgentCoreMemoryRetrievalConfig(TypedDict):
+class HarnessAgentCoreMemoryRetrievalConfig(TypedDict, closed=True):
     top_k: NotRequired["int"]
     """<p>The maximum number of memory entries to retrieve.</p>"""
     relevance_score: NotRequired["float"]

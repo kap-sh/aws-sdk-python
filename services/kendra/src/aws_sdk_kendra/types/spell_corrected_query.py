@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SpellCorrectedQuery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.correction_list
     import aws_sdk_kendra.types.suggested_query_text
 
 
-class SpellCorrectedQuery(TypedDict):
+class SpellCorrectedQuery(TypedDict, closed=True):
     suggested_query_text: NotRequired[
         "aws_sdk_kendra.types.suggested_query_text.SuggestedQueryText"
     ]

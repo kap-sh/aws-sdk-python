@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#CreateRouteCalculatorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.tag_map
 
 
-class CreateRouteCalculatorRequest(TypedDict):
+class CreateRouteCalculatorRequest(TypedDict, closed=True):
     calculator_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the route calculator resource. </p> <p>Requirements:</p> <ul> <li> <p>Can use alphanumeric characters (A–Z, a–z, 0–9) , hyphens (-), periods (.), and underscores (_).</p> </li> <li> <p>Must be a unique Route calculator resource name.</p> </li> <li> <p>No spaces allowed. For example, <code>ExampleRouteCalculator</code>.</p> </li> </ul>"""
     data_source: "str"

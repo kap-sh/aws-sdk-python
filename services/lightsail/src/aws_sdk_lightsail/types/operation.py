@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#Operation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class Operation(TypedDict):
+class Operation(TypedDict, closed=True):
     id: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]
     """<p>The ID of the operation.</p>"""
     resource_name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CreateStreamProcessorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.tag_map
 
 
-class CreateStreamProcessorRequest(TypedDict):
+class CreateStreamProcessorRequest(TypedDict, closed=True):
     input: "aws_sdk_rekognition.types.stream_processor_input.StreamProcessorInput"
     """<p>Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is <code>StreamProcessorInput</code>. This is required for both face search and label detection stream processors.</p>"""
     output: "aws_sdk_rekognition.types.stream_processor_output.StreamProcessorOutput"

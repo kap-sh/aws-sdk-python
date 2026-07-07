@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#QuotaSharePreemptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.quota_share_in_share_preemption_state
 
 
-class QuotaSharePreemptionConfiguration(TypedDict):
+class QuotaSharePreemptionConfiguration(TypedDict, closed=True):
     in_share_preemption: NotRequired[
         "aws_sdk_batch.types.quota_share_in_share_preemption_state.QuotaShareInSharePreemptionState"
     ]

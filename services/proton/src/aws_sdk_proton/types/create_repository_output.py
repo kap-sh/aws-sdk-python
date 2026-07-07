@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#CreateRepositoryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.repository
 
 
-class CreateRepositoryOutput(TypedDict):
+class CreateRepositoryOutput(TypedDict, closed=True):
     repository: "aws_sdk_proton.types.repository.Repository"
     """<p>The repository link's detail data that's returned by Proton.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.m2#DeleteApplicationFromEnvironmentResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteApplicationFromEnvironmentResponse(TypedDict):
+class DeleteApplicationFromEnvironmentResponse(TypedDict, closed=True):
     pass
 
 

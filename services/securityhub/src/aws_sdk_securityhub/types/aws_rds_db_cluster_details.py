@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRdsDbClusterDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_rds_db_cluster_associated_roles
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_list
 
 
-class AwsRdsDbClusterDetails(TypedDict):
+class AwsRdsDbClusterDetails(TypedDict, closed=True):
     allocated_storage: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>For all database engines except Aurora, specifies the allocated storage size in gibibytes (GiB).</p>"""
     availability_zones: NotRequired["aws_sdk_securityhub.types.string_list.StringList"]

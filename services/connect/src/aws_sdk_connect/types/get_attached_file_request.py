@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetAttachedFileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.url_expiry_in_seconds
 
 
-class GetAttachedFileRequest(TypedDict):
+class GetAttachedFileRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     """<p>The unique identifier of the Connect Customer instance.</p>"""
     file_id: "aws_sdk_connect.types.file_id.FileId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetResourceOauth2TokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.access_token_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.session_status
 
 
-class GetResourceOauth2TokenResponse(TypedDict):
+class GetResourceOauth2TokenResponse(TypedDict, closed=True):
     authorization_url: NotRequired[
         "aws_sdk_bedrock_agentcore.types.authorization_url_type.AuthorizationUrlType"
     ]

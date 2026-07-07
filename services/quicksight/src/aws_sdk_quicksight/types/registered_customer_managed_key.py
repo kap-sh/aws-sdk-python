@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RegisteredCustomerManagedKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
     import aws_sdk_quicksight.types.string
 
 
-class RegisteredCustomerManagedKey(TypedDict):
+class RegisteredCustomerManagedKey(TypedDict, closed=True):
     key_arn: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The ARN of the KMS key that is registered to a Quick Sight account for encryption and decryption use.</p>"""
     default_key: "aws_sdk_quicksight.types.boolean.Boolean"

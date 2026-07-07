@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ListAppsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.next_token
 
 
-class ListAppsResponse(TypedDict):
+class ListAppsResponse(TypedDict, closed=True):
     app_summaries: "aws_sdk_resiliencehub.types.app_summary_list.AppSummaryList"
     """<p>Summaries for the Resilience Hub application.</p>"""
     next_token: NotRequired["aws_sdk_resiliencehub.types.next_token.NextToken"]

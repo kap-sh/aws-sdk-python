@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#EvaluationPrecomputedRagSourceConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,15 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.evaluation_precomputed_retrieve_source_config
 
 
-class _EvaluationPrecomputedRagSourceConfig_retrieveSourceConfig(TypedDict):
+class _EvaluationPrecomputedRagSourceConfig_retrieveSourceConfig(
+    TypedDict, closed=True
+):
     retrieveSourceConfig: "aws_sdk_bedrock.types.evaluation_precomputed_retrieve_source_config.EvaluationPrecomputedRetrieveSourceConfig"
 
 
-class _EvaluationPrecomputedRagSourceConfig_retrieveAndGenerateSourceConfig(TypedDict):
+class _EvaluationPrecomputedRagSourceConfig_retrieveAndGenerateSourceConfig(
+    TypedDict, closed=True
+):
     retrieveAndGenerateSourceConfig: "aws_sdk_bedrock.types.evaluation_precomputed_retrieve_and_generate_source_config.EvaluationPrecomputedRetrieveAndGenerateSourceConfig"
 
 

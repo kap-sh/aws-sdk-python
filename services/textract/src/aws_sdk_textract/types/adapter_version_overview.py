@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#AdapterVersionOverview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.adapter_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.feature_types
 
 
-class AdapterVersionOverview(TypedDict):
+class AdapterVersionOverview(TypedDict, closed=True):
     adapter_id: NotRequired["aws_sdk_textract.types.adapter_id.AdapterId"]
     """<p>A unique identifier for the adapter associated with a given adapter version.</p>"""
     adapter_version: NotRequired[

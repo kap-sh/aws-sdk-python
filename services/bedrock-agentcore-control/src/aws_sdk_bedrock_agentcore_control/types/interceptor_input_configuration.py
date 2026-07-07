@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#InterceptorInputConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
 
-class InterceptorInputConfiguration(TypedDict):
+class InterceptorInputConfiguration(TypedDict, closed=True):
     pass_request_headers: "bool"
     """<p>Indicates whether to pass request headers as input into the interceptor. When set to true, request headers will be passed.</p>"""
 

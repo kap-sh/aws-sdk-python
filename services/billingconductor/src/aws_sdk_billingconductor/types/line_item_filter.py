@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#LineItemFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.match_option
 
 
-class LineItemFilter(TypedDict):
+class LineItemFilter(TypedDict, closed=True):
     attribute: "aws_sdk_billingconductor.types.line_item_filter_attribute_name.LineItemFilterAttributeName"
     """<p>The attribute of the line item filter. This specifies what attribute that you can filter on.</p>"""
     match_option: "aws_sdk_billingconductor.types.match_option.MatchOption"

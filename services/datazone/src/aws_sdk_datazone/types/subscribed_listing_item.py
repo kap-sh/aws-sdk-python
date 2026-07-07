@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SubscribedListingItem``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.subscribed_product_listing
 
 
-class _SubscribedListingItem_assetListing(TypedDict):
+class _SubscribedListingItem_assetListing(TypedDict, closed=True):
     assetListing: (
         "aws_sdk_datazone.types.subscribed_asset_listing.SubscribedAssetListing"
     )
 
 
-class _SubscribedListingItem_productListing(TypedDict):
+class _SubscribedListingItem_productListing(TypedDict, closed=True):
     productListing: (
         "aws_sdk_datazone.types.subscribed_product_listing.SubscribedProductListing"
     )

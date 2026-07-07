@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#Host``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.state_details
 
 
-class Host(TypedDict):
+class Host(TypedDict, closed=True):
     host_name: NotRequired["aws_sdk_evs.types.host_name.HostName"]
     """<p>The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.</p>"""
     ip_address: NotRequired["aws_sdk_evs.types.ip_address.IpAddress"]

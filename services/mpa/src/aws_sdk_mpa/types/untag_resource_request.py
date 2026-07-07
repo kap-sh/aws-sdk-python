@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_mpa.types.string.String"
     """<p>Amazon Resource Name (ARN) for the resource you want to untag.</p>"""
     tag_keys: "aws_sdk_mpa.types.tag_key_list.TagKeyList"

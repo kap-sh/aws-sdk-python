@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#QueryOutputVector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3vectors.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.vector_metadata
 
 
-class QueryOutputVector(TypedDict):
+class QueryOutputVector(TypedDict, closed=True):
     distance: NotRequired["float"]
     """<p>The measure of similarity between the vector in the response and the query vector.</p>"""
     key: "aws_sdk_s3vectors.types.vector_key.VectorKey"

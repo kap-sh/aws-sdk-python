@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ResourceMapFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.resource_map_comparison
 
 
-class ResourceMapFilter(TypedDict):
+class ResourceMapFilter(TypedDict, closed=True):
     comparison: "aws_sdk_inspector2.types.resource_map_comparison.ResourceMapComparison"
     """<p>The filter's comparison.</p>"""
     key: "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#Remediation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.recommendation
     import aws_sdk_codeguru_security.types.suggested_fixes
 
 
-class Remediation(TypedDict):
+class Remediation(TypedDict, closed=True):
     recommendation: NotRequired[
         "aws_sdk_codeguru_security.types.recommendation.Recommendation"
     ]

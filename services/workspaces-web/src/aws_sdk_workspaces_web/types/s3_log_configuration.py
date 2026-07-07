@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#S3LogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.s3_key_prefix
 
 
-class S3LogConfiguration(TypedDict):
+class S3LogConfiguration(TypedDict, closed=True):
     bucket: "aws_sdk_workspaces_web.types.s3_bucket.S3Bucket"
     """<p>The S3 bucket name where logs are delivered.</p>"""
     key_prefix: NotRequired["aws_sdk_workspaces_web.types.s3_key_prefix.S3KeyPrefix"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LoRaWANGateway``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.beaconing
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.sub_bands
 
 
-class LoRaWANGateway(TypedDict):
+class LoRaWANGateway(TypedDict, closed=True):
     gateway_eui: NotRequired["aws_sdk_iot_wireless.types.gateway_eui.GatewayEui"]
     """<p>The gateway's EUI value.</p>"""
     rf_region: NotRequired["aws_sdk_iot_wireless.types.rf_region.RfRegion"]

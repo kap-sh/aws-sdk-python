@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeEventTypesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.event_type_list
     import aws_sdk_health.types.next_token
 
 
-class DescribeEventTypesResponse(TypedDict):
+class DescribeEventTypesResponse(TypedDict, closed=True):
     event_types: NotRequired["aws_sdk_health.types.event_type_list.EventTypeList"]
     """<p>A list of event types that match the filter criteria. Event types have a category (<code>issue</code>, <code>accountNotification</code>, or <code>scheduledChange</code>), a service (for example, <code>EC2</code>, <code>RDS</code>, <code>DATAPIPELINE</code>, <code>BILLING</code>), and a code (in the format <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i> </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>"""
     next_token: NotRequired["aws_sdk_health.types.next_token.nextToken"]

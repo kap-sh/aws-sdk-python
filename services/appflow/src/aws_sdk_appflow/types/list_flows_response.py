@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ListFlowsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.flow_list
     import aws_sdk_appflow.types.next_token
 
 
-class ListFlowsResponse(TypedDict):
+class ListFlowsResponse(TypedDict, closed=True):
     flows: NotRequired["aws_sdk_appflow.types.flow_list.FlowList"]
     """<p> The list of flows associated with your account. </p>"""
     next_token: NotRequired["aws_sdk_appflow.types.next_token.NextToken"]

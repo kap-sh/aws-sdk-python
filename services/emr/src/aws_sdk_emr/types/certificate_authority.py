@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#CertificateAuthority``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string
 
 
-class CertificateAuthority(TypedDict):
+class CertificateAuthority(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]
     """<p>The Amazon Resource Name (ARN) of the certificate authority in Amazon Web Services Private CA that issued the Spark Connect server certificate.</p>"""
     certificate_data: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]

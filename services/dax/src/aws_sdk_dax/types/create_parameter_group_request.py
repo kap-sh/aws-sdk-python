@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#CreateParameterGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dax.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.string
 
 
-class CreateParameterGroupRequest(TypedDict):
+class CreateParameterGroupRequest(TypedDict, closed=True):
     parameter_group_name: "aws_sdk_dax.types.string.String"
     """<p>The name of the parameter group to apply to all of the clusters in this replication group.</p>"""
     description: NotRequired["aws_sdk_dax.types.string.String"]

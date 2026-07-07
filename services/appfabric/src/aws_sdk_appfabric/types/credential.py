@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#Credential``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.oauth2_credential
 
 
-class _Credential_oauth2Credential(TypedDict):
+class _Credential_oauth2Credential(TypedDict, closed=True):
     oauth2Credential: "aws_sdk_appfabric.types.oauth2_credential.Oauth2Credential"
 
 
-class _Credential_apiKeyCredential(TypedDict):
+class _Credential_apiKeyCredential(TypedDict, closed=True):
     apiKeyCredential: "aws_sdk_appfabric.types.api_key_credential.ApiKeyCredential"
 
 

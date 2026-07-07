@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ConnectionPropertiesInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -21,75 +23,75 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.workflows_serverless_properties_input
 
 
-class _ConnectionPropertiesInput_athenaProperties(TypedDict):
+class _ConnectionPropertiesInput_athenaProperties(TypedDict, closed=True):
     athenaProperties: (
         "aws_sdk_datazone.types.athena_properties_input.AthenaPropertiesInput"
     )
 
 
-class _ConnectionPropertiesInput_glueProperties(TypedDict):
+class _ConnectionPropertiesInput_glueProperties(TypedDict, closed=True):
     glueProperties: "aws_sdk_datazone.types.glue_properties_input.GluePropertiesInput"
 
 
-class _ConnectionPropertiesInput_hyperPodProperties(TypedDict):
+class _ConnectionPropertiesInput_hyperPodProperties(TypedDict, closed=True):
     hyperPodProperties: (
         "aws_sdk_datazone.types.hyper_pod_properties_input.HyperPodPropertiesInput"
     )
 
 
-class _ConnectionPropertiesInput_iamProperties(TypedDict):
+class _ConnectionPropertiesInput_iamProperties(TypedDict, closed=True):
     iamProperties: "aws_sdk_datazone.types.iam_properties_input.IamPropertiesInput"
 
 
-class _ConnectionPropertiesInput_redshiftProperties(TypedDict):
+class _ConnectionPropertiesInput_redshiftProperties(TypedDict, closed=True):
     redshiftProperties: (
         "aws_sdk_datazone.types.redshift_properties_input.RedshiftPropertiesInput"
     )
 
 
-class _ConnectionPropertiesInput_sparkEmrProperties(TypedDict):
+class _ConnectionPropertiesInput_sparkEmrProperties(TypedDict, closed=True):
     sparkEmrProperties: (
         "aws_sdk_datazone.types.spark_emr_properties_input.SparkEmrPropertiesInput"
     )
 
 
-class _ConnectionPropertiesInput_sparkGlueProperties(TypedDict):
+class _ConnectionPropertiesInput_sparkGlueProperties(TypedDict, closed=True):
     sparkGlueProperties: (
         "aws_sdk_datazone.types.spark_glue_properties_input.SparkGluePropertiesInput"
     )
 
 
-class _ConnectionPropertiesInput_s3Properties(TypedDict):
+class _ConnectionPropertiesInput_s3Properties(TypedDict, closed=True):
     s3Properties: "aws_sdk_datazone.types.s3_properties_input.S3PropertiesInput"
 
 
-class _ConnectionPropertiesInput_amazonQProperties(TypedDict):
+class _ConnectionPropertiesInput_amazonQProperties(TypedDict, closed=True):
     amazonQProperties: (
         "aws_sdk_datazone.types.amazon_q_properties_input.AmazonQPropertiesInput"
     )
 
 
-class _ConnectionPropertiesInput_mlflowProperties(TypedDict):
+class _ConnectionPropertiesInput_mlflowProperties(TypedDict, closed=True):
     mlflowProperties: (
         "aws_sdk_datazone.types.mlflow_properties_input.MlflowPropertiesInput"
     )
 
 
-class _ConnectionPropertiesInput_workflowsMwaaProperties(TypedDict):
+class _ConnectionPropertiesInput_workflowsMwaaProperties(TypedDict, closed=True):
     workflowsMwaaProperties: "aws_sdk_datazone.types.workflows_mwaa_properties_input.WorkflowsMwaaPropertiesInput"
 
 
-class _ConnectionPropertiesInput_workflowsServerlessProperties(TypedDict):
+class _ConnectionPropertiesInput_workflowsServerlessProperties(TypedDict, closed=True):
     workflowsServerlessProperties: "aws_sdk_datazone.types.workflows_serverless_properties_input.WorkflowsServerlessPropertiesInput"
 
 
-class _ConnectionPropertiesInput_lakehouseProperties(TypedDict):
+class _ConnectionPropertiesInput_lakehouseProperties(TypedDict, closed=True):
     lakehouseProperties: (
         "aws_sdk_datazone.types.lakehouse_properties_input.LakehousePropertiesInput"
     )
 
 
-class _ConnectionPropertiesInput_vpcProperties(TypedDict):
+class _ConnectionPropertiesInput_vpcProperties(TypedDict, closed=True):
     vpcProperties: "aws_sdk_datazone.types.vpc_properties_input.VpcPropertiesInput"
 
 

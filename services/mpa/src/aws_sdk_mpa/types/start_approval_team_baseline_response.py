@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#StartApprovalTeamBaselineResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.session_arn
 
 
-class StartApprovalTeamBaselineResponse(TypedDict):
+class StartApprovalTeamBaselineResponse(TypedDict, closed=True):
     baseline_session_arn: NotRequired["aws_sdk_mpa.types.session_arn.SessionArn"]
     """<p>Amazon Resource Name (ARN) for the session.</p>"""
 

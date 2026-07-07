@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#WorkerCapabilities``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.worker_attribute_capability_list
 
 
-class WorkerCapabilities(TypedDict):
+class WorkerCapabilities(TypedDict, closed=True):
     amounts: "aws_sdk_deadline.types.worker_amount_capability_list.WorkerAmountCapabilityList"
     """<p>The worker capabilities amounts on a list of worker capabilities.</p>"""
     attributes: "aws_sdk_deadline.types.worker_attribute_capability_list.WorkerAttributeCapabilityList"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#DatabaseConnection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.database_connection_method
     import aws_sdk_ssm_sap.types.ssm_sap_arn
 
 
-class DatabaseConnection(TypedDict):
+class DatabaseConnection(TypedDict, closed=True):
     database_connection_method: NotRequired[
         "aws_sdk_ssm_sap.types.database_connection_method.DatabaseConnectionMethod"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#ResourceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.resource_type
 
 
-class ResourceSpecification(TypedDict):
+class ResourceSpecification(TypedDict, closed=True):
     reserved_bitrate: NotRequired["int"]
     """<p> The amount of outbound bandwidth that is discounted in the offering.</p>"""
     resource_type: NotRequired["aws_sdk_mediaconnect.types.resource_type.ResourceType"]

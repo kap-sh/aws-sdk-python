@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ActionTypePermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.allowed_accounts
 
 
-class ActionTypePermissions(TypedDict):
+class ActionTypePermissions(TypedDict, closed=True):
     allowed_accounts: "aws_sdk_codepipeline.types.allowed_accounts.AllowedAccounts"
     """<p>A list of Amazon Web Services account IDs with access to use the action type in their pipelines.</p>"""
 

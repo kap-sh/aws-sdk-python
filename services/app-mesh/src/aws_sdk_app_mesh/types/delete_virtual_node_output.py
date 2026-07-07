@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#DeleteVirtualNodeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_node_data
 
 
-class DeleteVirtualNodeOutput(TypedDict):
+class DeleteVirtualNodeOutput(TypedDict, closed=True):
     virtual_node: "aws_sdk_app_mesh.types.virtual_node_data.VirtualNodeData"
     """<p>The virtual node that was deleted.</p>"""
 

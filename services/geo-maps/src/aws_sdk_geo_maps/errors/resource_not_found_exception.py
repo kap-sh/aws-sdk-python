@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.geomaps#ResourceNotFoundException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_maps.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ActionState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.action_execution
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.url
 
 
-class ActionState(TypedDict):
+class ActionState(TypedDict, closed=True):
     action_name: NotRequired["aws_sdk_codepipeline.types.action_name.ActionName"]
     """<p>The name of the action.</p>"""
     current_revision: NotRequired[

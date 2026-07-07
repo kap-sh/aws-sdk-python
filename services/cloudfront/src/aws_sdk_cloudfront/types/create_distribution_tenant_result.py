@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CreateDistributionTenantResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class CreateDistributionTenantResult(TypedDict):
+class CreateDistributionTenantResult(TypedDict, closed=True):
     distribution_tenant: NotRequired[
         "aws_sdk_cloudfront.types.distribution_tenant.DistributionTenant"
     ]

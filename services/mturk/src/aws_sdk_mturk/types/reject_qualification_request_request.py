@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#RejectQualificationRequestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class RejectQualificationRequestRequest(TypedDict):
+class RejectQualificationRequestRequest(TypedDict, closed=True):
     qualification_request_id: "aws_sdk_mturk.types.string.String"
     """<p> The ID of the Qualification request, as returned by the <code>ListQualificationRequests</code> operation. </p>"""
     reason: NotRequired["aws_sdk_mturk.types.string.String"]

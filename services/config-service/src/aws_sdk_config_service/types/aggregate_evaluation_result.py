@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#AggregateEvaluationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string_with_char_limit256
 
 
-class AggregateEvaluationResult(TypedDict):
+class AggregateEvaluationResult(TypedDict, closed=True):
     evaluation_result_identifier: NotRequired[
         "aws_sdk_config_service.types.evaluation_result_identifier.EvaluationResultIdentifier"
     ]

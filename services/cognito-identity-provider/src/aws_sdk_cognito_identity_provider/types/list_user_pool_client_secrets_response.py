@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ListUserPoolClientSecretsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.client_secret_descriptor_list_type
     import aws_sdk_cognito_identity_provider.types.pagination_key
 
 
-class ListUserPoolClientSecretsResponse(TypedDict):
+class ListUserPoolClientSecretsResponse(TypedDict, closed=True):
     client_secrets: NotRequired[
         "aws_sdk_cognito_identity_provider.types.client_secret_descriptor_list_type.ClientSecretDescriptorListType"
     ]

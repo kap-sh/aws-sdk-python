@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessReasoningContentBlock``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_reasoning_text_block
 
 
-class _HarnessReasoningContentBlock_reasoningText(TypedDict):
+class _HarnessReasoningContentBlock_reasoningText(TypedDict, closed=True):
     reasoningText: "aws_sdk_bedrock_agentcore.types.harness_reasoning_text_block.HarnessReasoningTextBlock"
 
 
-class _HarnessReasoningContentBlock_redactedContent(TypedDict):
+class _HarnessReasoningContentBlock_redactedContent(TypedDict, closed=True):
     redactedContent: "bytes"
 
 

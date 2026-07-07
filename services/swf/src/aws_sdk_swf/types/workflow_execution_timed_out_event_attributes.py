@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowExecutionTimedOutEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_execution_timeout_type
 
 
-class WorkflowExecutionTimedOutEventAttributes(TypedDict):
+class WorkflowExecutionTimedOutEventAttributes(TypedDict, closed=True):
     timeout_type: (
         "aws_sdk_swf.types.workflow_execution_timeout_type.WorkflowExecutionTimeoutType"
     )

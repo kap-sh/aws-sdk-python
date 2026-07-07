@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#DescribePullThroughCacheRulesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.next_token
     import aws_sdk_ecr.types.pull_through_cache_rule_list
 
 
-class DescribePullThroughCacheRulesResponse(TypedDict):
+class DescribePullThroughCacheRulesResponse(TypedDict, closed=True):
     pull_through_cache_rules: NotRequired[
         "aws_sdk_ecr.types.pull_through_cache_rule_list.PullThroughCacheRuleList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PipelineTriggerDeclaration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.pipeline_trigger_provider_type
 
 
-class PipelineTriggerDeclaration(TypedDict):
+class PipelineTriggerDeclaration(TypedDict, closed=True):
     provider_type: "aws_sdk_codepipeline.types.pipeline_trigger_provider_type.PipelineTriggerProviderType"
     """<p>The source provider for the event, such as connections configured for a repository with Git tags, for the specified trigger configuration.</p>"""
     git_configuration: "aws_sdk_codepipeline.types.git_configuration.GitConfiguration"

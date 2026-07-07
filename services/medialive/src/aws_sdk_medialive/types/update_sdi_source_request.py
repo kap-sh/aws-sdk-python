@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#UpdateSdiSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.sdi_source_type
 
 
-class UpdateSdiSourceRequest(TypedDict):
+class UpdateSdiSourceRequest(TypedDict, closed=True):
     mode: NotRequired["aws_sdk_medialive.types.sdi_source_mode.SdiSourceMode"]
     """Include this parameter only if you want to change the name of the SdiSource. Specify a name that is unique in the AWS account. We recommend you assign a name that describes the source, for example curling-cameraA. Names are case-sensitive."""
     name: NotRequired["aws_sdk_medialive.types.__string.__string"]

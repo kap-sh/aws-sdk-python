@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.max_results
     import aws_sdk_resiliencehubv2.types.next_token
 
 
-class ListPoliciesRequest(TypedDict):
+class ListPoliciesRequest(TypedDict, closed=True):
     max_results: "aws_sdk_resiliencehubv2.types.max_results.MaxResults"
     next_token: NotRequired["aws_sdk_resiliencehubv2.types.next_token.NextToken"]
 

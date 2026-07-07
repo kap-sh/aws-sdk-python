@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterNetworkInterfaceFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -9,15 +11,15 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.string_list
 
 
-class _RouterNetworkInterfaceFilter_RegionNames(TypedDict):
+class _RouterNetworkInterfaceFilter_RegionNames(TypedDict, closed=True):
     RegionNames: "aws_sdk_mediaconnect.types.string_list.StringList"
 
 
-class _RouterNetworkInterfaceFilter_NetworkInterfaceTypes(TypedDict):
+class _RouterNetworkInterfaceFilter_NetworkInterfaceTypes(TypedDict, closed=True):
     NetworkInterfaceTypes: "aws_sdk_mediaconnect.types.router_network_interface_type_list.RouterNetworkInterfaceTypeList"
 
 
-class _RouterNetworkInterfaceFilter_NameContains(TypedDict):
+class _RouterNetworkInterfaceFilter_NameContains(TypedDict, closed=True):
     NameContains: "aws_sdk_mediaconnect.types.string_list.StringList"
 
 

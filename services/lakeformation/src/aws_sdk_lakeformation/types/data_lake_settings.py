@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#DataLakeSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.authorized_session_tag_value_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.trusted_resource_owners
 
 
-class DataLakeSettings(TypedDict):
+class DataLakeSettings(TypedDict, closed=True):
     data_lake_admins: NotRequired[
         "aws_sdk_lakeformation.types.data_lake_principal_list.DataLakePrincipalList"
     ]

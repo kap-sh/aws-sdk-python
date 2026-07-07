@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#GetLoggerDefinitionVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.logger_definition_version
 
 
-class GetLoggerDefinitionVersionResponse(TypedDict):
+class GetLoggerDefinitionVersionResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The ARN of the logger definition version."""
     creation_timestamp: NotRequired["aws_sdk_greengrass.types.__string.__string"]

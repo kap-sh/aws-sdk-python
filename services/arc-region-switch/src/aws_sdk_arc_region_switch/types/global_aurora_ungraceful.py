@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#GlobalAuroraUngraceful``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.global_aurora_ungraceful_behavior
 
 
-class GlobalAuroraUngraceful(TypedDict):
+class GlobalAuroraUngraceful(TypedDict, closed=True):
     ungraceful: NotRequired[
         "aws_sdk_arc_region_switch.types.global_aurora_ungraceful_behavior.GlobalAuroraUngracefulBehavior"
     ]

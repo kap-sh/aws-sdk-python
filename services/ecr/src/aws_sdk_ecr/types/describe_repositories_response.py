@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#DescribeRepositoriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.next_token
     import aws_sdk_ecr.types.repository_list
 
 
-class DescribeRepositoriesResponse(TypedDict):
+class DescribeRepositoriesResponse(TypedDict, closed=True):
     repositories: NotRequired["aws_sdk_ecr.types.repository_list.RepositoryList"]
     """<p>A list of repository objects corresponding to valid repositories.</p>"""
     next_token: NotRequired["aws_sdk_ecr.types.next_token.NextToken"]

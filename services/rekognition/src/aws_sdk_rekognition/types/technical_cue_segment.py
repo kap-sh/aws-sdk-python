@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#TechnicalCueSegment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.segment_confidence
     import aws_sdk_rekognition.types.technical_cue_type
 
 
-class TechnicalCueSegment(TypedDict):
+class TechnicalCueSegment(TypedDict, closed=True):
     type: NotRequired["aws_sdk_rekognition.types.technical_cue_type.TechnicalCueType"]
     """<p>The type of the technical cue.</p>"""
     confidence: NotRequired[

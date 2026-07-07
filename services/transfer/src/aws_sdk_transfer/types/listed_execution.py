@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListedExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.execution_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.service_metadata
 
 
-class ListedExecution(TypedDict):
+class ListedExecution(TypedDict, closed=True):
     execution_id: NotRequired["aws_sdk_transfer.types.execution_id.ExecutionId"]
     """<p>A unique identifier for the execution of a workflow.</p>"""
     initial_file_location: NotRequired[

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#PublicPolicyException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import ServiceError
 
 
-class PublicPolicyException_(TypedDict):
+class PublicPolicyException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

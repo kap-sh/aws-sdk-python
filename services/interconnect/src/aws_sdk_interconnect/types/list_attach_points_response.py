@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#ListAttachPointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.next_token
 
 
-class ListAttachPointsResponse(TypedDict):
+class ListAttachPointsResponse(TypedDict, closed=True):
     attach_points: "aws_sdk_interconnect.types.attach_point_descriptor_list.AttachPointDescriptorList"
     """<p>The valid <a>AttachPoint</a> </p>"""
     next_token: NotRequired["aws_sdk_interconnect.types.next_token.NextToken"]

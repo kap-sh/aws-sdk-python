@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#DeleteServiceLinkedRoleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.deletion_task_id_type
 
 
-class DeleteServiceLinkedRoleResponse(TypedDict):
+class DeleteServiceLinkedRoleResponse(TypedDict, closed=True):
     deletion_task_id: "aws_sdk_iam.types.deletion_task_id_type.DeletionTaskIdType"
     """<p>The deletion task identifier that you can use to check the status of the deletion. This identifier is returned in the format <code>task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid></code>.</p>"""
 

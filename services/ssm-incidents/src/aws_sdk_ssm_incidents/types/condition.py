@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#Condition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.attribute_value_list
 
 
-class _Condition_before(TypedDict):
+class _Condition_before(TypedDict, closed=True):
     before: "datetime.datetime"
 
 
-class _Condition_after(TypedDict):
+class _Condition_after(TypedDict, closed=True):
     after: "datetime.datetime"
 
 
-class _Condition_equals(TypedDict):
+class _Condition_equals(TypedDict, closed=True):
     equals: "aws_sdk_ssm_incidents.types.attribute_value_list.AttributeValueList"
 
 

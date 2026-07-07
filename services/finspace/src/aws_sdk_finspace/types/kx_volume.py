@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#KxVolume``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.availability_zone_ids
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.timestamp
 
 
-class KxVolume(TypedDict):
+class KxVolume(TypedDict, closed=True):
     volume_name: NotRequired["aws_sdk_finspace.types.kx_volume_name.KxVolumeName"]
     """<p>A unique identifier for the volume.</p>"""
     volume_type: NotRequired["aws_sdk_finspace.types.kx_volume_type.KxVolumeType"]

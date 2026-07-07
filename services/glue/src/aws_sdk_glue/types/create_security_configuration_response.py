@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateSecurityConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
     import aws_sdk_glue.types.timestamp_value
 
 
-class CreateSecurityConfigurationResponse(TypedDict):
+class CreateSecurityConfigurationResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name assigned to the new security configuration.</p>"""
     created_timestamp: NotRequired["aws_sdk_glue.types.timestamp_value.TimestampValue"]

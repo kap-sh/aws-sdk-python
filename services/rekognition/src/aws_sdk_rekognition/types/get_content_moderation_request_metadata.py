@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#GetContentModerationRequestMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.content_moderation_aggregate_by
     import aws_sdk_rekognition.types.content_moderation_sort_by
 
 
-class GetContentModerationRequestMetadata(TypedDict):
+class GetContentModerationRequestMetadata(TypedDict, closed=True):
     sort_by: NotRequired[
         "aws_sdk_rekognition.types.content_moderation_sort_by.ContentModerationSortBy"
     ]

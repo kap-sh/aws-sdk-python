@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#ListServicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.max_results
     import aws_sdk_service_quotas.types.next_token
 
 
-class ListServicesRequest(TypedDict):
+class ListServicesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_service_quotas.types.next_token.NextToken"]
     """<p>Specifies a value for receiving additional results after you receive a <code>NextToken</code> response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from.</p>"""
     max_results: NotRequired["aws_sdk_service_quotas.types.max_results.MaxResults"]

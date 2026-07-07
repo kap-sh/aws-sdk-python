@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ImagePipelineAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_pipeline_arn
     import aws_sdk_imagebuilder.types.severity_counts
 
 
-class ImagePipelineAggregation(TypedDict):
+class ImagePipelineAggregation(TypedDict, closed=True):
     image_pipeline_arn: NotRequired[
         "aws_sdk_imagebuilder.types.image_pipeline_arn.ImagePipelineArn"
     ]

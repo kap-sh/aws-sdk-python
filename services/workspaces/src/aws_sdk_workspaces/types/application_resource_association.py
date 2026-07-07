@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ApplicationResourceAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.application_associated_resource_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.work_space_application_id
 
 
-class ApplicationResourceAssociation(TypedDict):
+class ApplicationResourceAssociation(TypedDict, closed=True):
     application_id: NotRequired[
         "aws_sdk_workspaces.types.work_space_application_id.WorkSpaceApplicationId"
     ]

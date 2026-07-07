@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#S3PresignedUrl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.headers
 
 
-class S3PresignedUrl(TypedDict):
+class S3PresignedUrl(TypedDict, closed=True):
     url: "str"
     """<p>The presign url to the object.</p>"""
     headers: "aws_sdk_socialmessaging.types.headers.Headers"

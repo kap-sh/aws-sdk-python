@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#CdcSpecificationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.view_type
 
 
-class CdcSpecificationSummary(TypedDict):
+class CdcSpecificationSummary(TypedDict, closed=True):
     status: "aws_sdk_keyspaces.types.cdc_status.CdcStatus"
     """<p>The status of the CDC stream. Specifies if the table has a CDC stream.</p>"""
     view_type: NotRequired["aws_sdk_keyspaces.types.view_type.ViewType"]

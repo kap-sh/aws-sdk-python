@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#InstanceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.iam_instance_profile
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.tags
 
 
-class InstanceDetails(TypedDict):
+class InstanceDetails(TypedDict, closed=True):
     availability_zone: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The Availability Zone of the EC2 instance.</p>"""
     iam_instance_profile: NotRequired[

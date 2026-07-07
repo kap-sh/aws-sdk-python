@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.tag_map
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: "aws_sdk_ssm_incidents.types.tag_map.TagMap"
     """<p>A list of tags for the response plan or incident.</p>"""
 

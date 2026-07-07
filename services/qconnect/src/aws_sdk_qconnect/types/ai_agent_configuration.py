@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AIAgentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -16,39 +18,45 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.self_service_ai_agent_configuration
 
 
-class _AIAgentConfiguration_manualSearchAIAgentConfiguration(TypedDict):
+class _AIAgentConfiguration_manualSearchAIAgentConfiguration(TypedDict, closed=True):
     manualSearchAIAgentConfiguration: "aws_sdk_qconnect.types.manual_search_ai_agent_configuration.ManualSearchAIAgentConfiguration"
 
 
-class _AIAgentConfiguration_answerRecommendationAIAgentConfiguration(TypedDict):
+class _AIAgentConfiguration_answerRecommendationAIAgentConfiguration(
+    TypedDict, closed=True
+):
     answerRecommendationAIAgentConfiguration: "aws_sdk_qconnect.types.answer_recommendation_ai_agent_configuration.AnswerRecommendationAIAgentConfiguration"
 
 
-class _AIAgentConfiguration_selfServiceAIAgentConfiguration(TypedDict):
+class _AIAgentConfiguration_selfServiceAIAgentConfiguration(TypedDict, closed=True):
     selfServiceAIAgentConfiguration: "aws_sdk_qconnect.types.self_service_ai_agent_configuration.SelfServiceAIAgentConfiguration"
 
 
-class _AIAgentConfiguration_emailResponseAIAgentConfiguration(TypedDict):
+class _AIAgentConfiguration_emailResponseAIAgentConfiguration(TypedDict, closed=True):
     emailResponseAIAgentConfiguration: "aws_sdk_qconnect.types.email_response_ai_agent_configuration.EmailResponseAIAgentConfiguration"
 
 
-class _AIAgentConfiguration_emailOverviewAIAgentConfiguration(TypedDict):
+class _AIAgentConfiguration_emailOverviewAIAgentConfiguration(TypedDict, closed=True):
     emailOverviewAIAgentConfiguration: "aws_sdk_qconnect.types.email_overview_ai_agent_configuration.EmailOverviewAIAgentConfiguration"
 
 
-class _AIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration(TypedDict):
+class _AIAgentConfiguration_emailGenerativeAnswerAIAgentConfiguration(
+    TypedDict, closed=True
+):
     emailGenerativeAnswerAIAgentConfiguration: "aws_sdk_qconnect.types.email_generative_answer_ai_agent_configuration.EmailGenerativeAnswerAIAgentConfiguration"
 
 
-class _AIAgentConfiguration_orchestrationAIAgentConfiguration(TypedDict):
+class _AIAgentConfiguration_orchestrationAIAgentConfiguration(TypedDict, closed=True):
     orchestrationAIAgentConfiguration: "aws_sdk_qconnect.types.orchestration_ai_agent_configuration.OrchestrationAIAgentConfiguration"
 
 
-class _AIAgentConfiguration_noteTakingAIAgentConfiguration(TypedDict):
+class _AIAgentConfiguration_noteTakingAIAgentConfiguration(TypedDict, closed=True):
     noteTakingAIAgentConfiguration: "aws_sdk_qconnect.types.note_taking_ai_agent_configuration.NoteTakingAIAgentConfiguration"
 
 
-class _AIAgentConfiguration_caseSummarizationAIAgentConfiguration(TypedDict):
+class _AIAgentConfiguration_caseSummarizationAIAgentConfiguration(
+    TypedDict, closed=True
+):
     caseSummarizationAIAgentConfiguration: "aws_sdk_qconnect.types.case_summarization_ai_agent_configuration.CaseSummarizationAIAgentConfiguration"
 
 

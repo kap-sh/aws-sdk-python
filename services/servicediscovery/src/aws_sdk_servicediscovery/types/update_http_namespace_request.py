@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#UpdateHttpNamespaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.resource_id
 
 
-class UpdateHttpNamespaceRequest(TypedDict):
+class UpdateHttpNamespaceRequest(TypedDict, closed=True):
     id: "aws_sdk_servicediscovery.types.arn.Arn"
     """<p>The ID or Amazon Resource Name (ARN) of the namespace that you want to update.</p>"""
     updater_request_id: NotRequired[

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.tag_key_list
     import aws_sdk_lambda.types.taggable_resource
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource: "aws_sdk_lambda.types.taggable_resource.TaggableResource"
     """<p>The resource's Amazon Resource Name (ARN).</p>"""
     tag_keys: "aws_sdk_lambda.types.tag_key_list.TagKeyList"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#DeleteIPSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.scope
 
 
-class DeleteIPSetRequest(TypedDict):
+class DeleteIPSetRequest(TypedDict, closed=True):
     name: "aws_sdk_wafv2.types.entity_name.EntityName"
     """<p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>"""
     scope: "aws_sdk_wafv2.types.scope.Scope"

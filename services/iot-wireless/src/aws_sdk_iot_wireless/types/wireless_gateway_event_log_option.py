@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#WirelessGatewayEventLogOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_gateway_event
 
 
-class WirelessGatewayEventLogOption(TypedDict):
+class WirelessGatewayEventLogOption(TypedDict, closed=True):
     event: "aws_sdk_iot_wireless.types.wireless_gateway_event.WirelessGatewayEvent"
     log_level: "aws_sdk_iot_wireless.types.log_level.LogLevel"
 

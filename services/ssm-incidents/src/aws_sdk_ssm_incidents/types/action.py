@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#Action``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.ssm_automation
 
 
-class _Action_ssmAutomation(TypedDict):
+class _Action_ssmAutomation(TypedDict, closed=True):
     ssmAutomation: "aws_sdk_ssm_incidents.types.ssm_automation.SsmAutomation"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#ListChannelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.channel_ad_configuration_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.pagination_token
 
 
-class ListChannelsRequest(TypedDict):
+class ListChannelsRequest(TypedDict, closed=True):
     filter_by_name: NotRequired["aws_sdk_ivs.types.channel_name.ChannelName"]
     """<p>Filters the channel list to match the specified name.</p>"""
     filter_by_recording_configuration_arn: NotRequired[

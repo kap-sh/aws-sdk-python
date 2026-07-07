@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#CanaryRunConfigOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.ephemeral_storage_size
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.nullable_boolean
 
 
-class CanaryRunConfigOutput(TypedDict):
+class CanaryRunConfigOutput(TypedDict, closed=True):
     timeout_in_seconds: NotRequired[
         "aws_sdk_synthetics.types.max_fifteen_minutes_in_seconds.MaxFifteenMinutesInSeconds"
     ]

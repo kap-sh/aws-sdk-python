@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#UpdateArchiveRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.name
 
 
-class UpdateArchiveRuleRequest(TypedDict):
+class UpdateArchiveRuleRequest(TypedDict, closed=True):
     analyzer_name: "aws_sdk_accessanalyzer.types.analyzer_name.AnalyzerName"
     """<p>The name of the analyzer to update the archive rules for.</p>"""
     rule_name: "aws_sdk_accessanalyzer.types.name.Name"

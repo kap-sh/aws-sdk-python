@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsServicePlacementConstraintsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsServicePlacementConstraintsDetails(TypedDict):
+class AwsEcsServicePlacementConstraintsDetails(TypedDict, closed=True):
     expression: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>.</p>"""
     type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

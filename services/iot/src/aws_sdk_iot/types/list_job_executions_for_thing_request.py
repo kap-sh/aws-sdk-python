@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListJobExecutionsForThingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.job_execution_status
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_name
 
 
-class ListJobExecutionsForThingRequest(TypedDict):
+class ListJobExecutionsForThingRequest(TypedDict, closed=True):
     thing_name: "aws_sdk_iot.types.thing_name.ThingName"
     """<p>The thing name.</p>"""
     status: NotRequired["aws_sdk_iot.types.job_execution_status.JobExecutionStatus"]

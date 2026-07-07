@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#Commit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.additional_data
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.user_info
 
 
-class Commit(TypedDict):
+class Commit(TypedDict, closed=True):
     commit_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]
     """<p>The full SHA ID of the specified commit. </p>"""
     tree_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]

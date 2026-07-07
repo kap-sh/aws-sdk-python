@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ParseCloudfront``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.source
 
 
-class ParseCloudfront(TypedDict):
+class ParseCloudfront(TypedDict, closed=True):
     source: NotRequired["aws_sdk_cloudwatch_logs.types.source.Source"]
     """<p>Omit this parameter and the whole log message will be processed by this processor. No other value than <code>@message</code> is allowed for <code>source</code>.</p>"""
 

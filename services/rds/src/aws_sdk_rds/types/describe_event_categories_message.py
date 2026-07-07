@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DescribeEventCategoriesMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DescribeEventCategoriesMessage(TypedDict):
+class DescribeEventCategoriesMessage(TypedDict, closed=True):
     source_type: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The type of source that is generating the events. For RDS Proxy events, specify <code>db-proxy</code>.</p> <p>Valid Values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code> | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code> | <code>db-proxy</code> </p>"""
     filters: NotRequired["aws_sdk_rds.types.filter_list.FilterList"]

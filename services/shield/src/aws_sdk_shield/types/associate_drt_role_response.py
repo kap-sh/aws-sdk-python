@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.shield#AssociateDRTRoleResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateDRTRoleResponse(TypedDict):
+class AssociateDRTRoleResponse(TypedDict, closed=True):
     pass
 
 

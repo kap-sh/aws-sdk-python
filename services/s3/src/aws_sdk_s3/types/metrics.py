@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#Metrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.replication_time_value
 
 
-class Metrics(TypedDict):
+class Metrics(TypedDict, closed=True):
     status: "aws_sdk_s3.types.metrics_status.MetricsStatus"
     """<p> Specifies whether the replication metrics are enabled. </p>"""
     event_threshold: NotRequired[

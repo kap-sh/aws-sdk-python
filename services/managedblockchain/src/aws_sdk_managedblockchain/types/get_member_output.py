@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#GetMemberOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.member
 
 
-class GetMemberOutput(TypedDict):
+class GetMemberOutput(TypedDict, closed=True):
     member: NotRequired["aws_sdk_managedblockchain.types.member.Member"]
     """<p>The properties of a member.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ServiceHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.analyzed_resource_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.service_name
 
 
-class ServiceHealth(TypedDict):
+class ServiceHealth(TypedDict, closed=True):
     service_name: NotRequired["aws_sdk_devops_guru.types.service_name.ServiceName"]
     """<p>The name of the Amazon Web Services service.</p>"""
     insight: NotRequired[

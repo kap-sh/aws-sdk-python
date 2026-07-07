@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#Source``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Source(TypedDict):
+class Source(TypedDict, closed=True):
     type: NotRequired["str"]
     """<p>The plugin name of the source, such as <code>cloudwatch_logs</code> or <code>s3</code>.</p>"""
 

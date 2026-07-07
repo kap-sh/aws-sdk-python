@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#StepAutomationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.platform_command
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.target_type
 
 
-class StepAutomationConfiguration(TypedDict):
+class StepAutomationConfiguration(TypedDict, closed=True):
     script_location_s3_bucket: NotRequired["str"]
     """<p>The Amazon S3 bucket where the script is located.</p>"""
     script_location_s3_key: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#StopRelationalDatabaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class StopRelationalDatabaseRequest(TypedDict):
+class StopRelationalDatabaseRequest(TypedDict, closed=True):
     relational_database_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of your database to stop.</p>"""
     relational_database_snapshot_name: NotRequired[

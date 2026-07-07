@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListStageDevicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListStageDevicesRequest(TypedDict):
+class ListStageDevicesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]
     """<p>The response from the last list when returning a list large enough to neeed tokening.</p>"""
     max_results: NotRequired["aws_sdk_sagemaker.types.list_max_results.ListMaxResults"]

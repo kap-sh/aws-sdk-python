@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#CreateSecurityConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.security_config_detail
 
 
-class CreateSecurityConfigResponse(TypedDict):
+class CreateSecurityConfigResponse(TypedDict, closed=True):
     security_config_detail: NotRequired[
         "aws_sdk_opensearchserverless.types.security_config_detail.SecurityConfigDetail"
     ]

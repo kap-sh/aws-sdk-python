@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.comprehend_arn
     import aws_sdk_comprehend.types.tag_list
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_comprehend.types.comprehend_arn.ComprehendArn"]
     """<p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.</p>"""
     tags: NotRequired["aws_sdk_comprehend.types.tag_list.TagList"]

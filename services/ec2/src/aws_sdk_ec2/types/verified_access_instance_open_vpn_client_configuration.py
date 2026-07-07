@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VerifiedAccessInstanceOpenVpnClientConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.verified_access_instance_open_vpn_client_configuration_route_list
 
 
-class VerifiedAccessInstanceOpenVpnClientConfiguration(TypedDict):
+class VerifiedAccessInstanceOpenVpnClientConfiguration(TypedDict, closed=True):
     config: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The base64-encoded Open VPN client configuration.</p>"""
     routes: NotRequired[

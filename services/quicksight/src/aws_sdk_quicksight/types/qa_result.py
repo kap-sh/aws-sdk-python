@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#QAResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.dashboard_visual_result
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.qa_result_type
 
 
-class QAResult(TypedDict):
+class QAResult(TypedDict, closed=True):
     result_type: NotRequired["aws_sdk_quicksight.types.qa_result_type.QAResultType"]
     """<p>The type of QA result.</p>"""
     dashboard_visual: NotRequired[

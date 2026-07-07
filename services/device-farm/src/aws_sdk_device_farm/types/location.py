@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.double
 
 
-class Location(TypedDict):
+class Location(TypedDict, closed=True):
     latitude: "aws_sdk_device_farm.types.double.Double"
     """<p>The latitude.</p>"""
     longitude: "aws_sdk_device_farm.types.double.Double"

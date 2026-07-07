@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#CreateDBInstanceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.vpc_security_group_id_list
 
 
-class CreateDBInstanceMessage(TypedDict):
+class CreateDBInstanceMessage(TypedDict, closed=True):
     db_name: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>Not supported.</p>"""
     db_instance_identifier: NotRequired["aws_sdk_neptune.types.string.String"]

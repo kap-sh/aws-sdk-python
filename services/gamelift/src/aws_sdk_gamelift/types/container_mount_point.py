@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ContainerMountPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.container_mount_point_access_level
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.instance_path_string
 
 
-class ContainerMountPoint(TypedDict):
+class ContainerMountPoint(TypedDict, closed=True):
     instance_path: NotRequired[
         "aws_sdk_gamelift.types.instance_path_string.InstancePathString"
     ]

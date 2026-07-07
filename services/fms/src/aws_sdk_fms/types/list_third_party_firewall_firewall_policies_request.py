@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListThirdPartyFirewallFirewallPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.third_party_firewall
 
 
-class ListThirdPartyFirewallFirewallPoliciesRequest(TypedDict):
+class ListThirdPartyFirewallFirewallPoliciesRequest(TypedDict, closed=True):
     third_party_firewall: "aws_sdk_fms.types.third_party_firewall.ThirdPartyFirewall"
     """<p>The name of the third-party firewall vendor.</p>"""
     next_token: NotRequired["aws_sdk_fms.types.pagination_token.PaginationToken"]

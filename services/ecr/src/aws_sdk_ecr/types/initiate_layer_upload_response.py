@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#InitiateLayerUploadResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.part_size
     import aws_sdk_ecr.types.upload_id
 
 
-class InitiateLayerUploadResponse(TypedDict):
+class InitiateLayerUploadResponse(TypedDict, closed=True):
     upload_id: NotRequired["aws_sdk_ecr.types.upload_id.UploadId"]
     """<p>The upload ID for the layer upload. This parameter is passed to further <a>UploadLayerPart</a> and <a>CompleteLayerUpload</a> operations.</p>"""
     part_size: NotRequired["aws_sdk_ecr.types.part_size.PartSize"]

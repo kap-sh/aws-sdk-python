@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#VoiceRecordingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.ivr_recording_track
     import aws_sdk_connect.types.voice_recording_track
 
 
-class VoiceRecordingConfiguration(TypedDict):
+class VoiceRecordingConfiguration(TypedDict, closed=True):
     voice_recording_track: NotRequired[
         "aws_sdk_connect.types.voice_recording_track.VoiceRecordingTrack"
     ]

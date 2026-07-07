@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PhysicalTable``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.saa_s_table
 
 
-class _PhysicalTable_RelationalTable(TypedDict):
+class _PhysicalTable_RelationalTable(TypedDict, closed=True):
     RelationalTable: "aws_sdk_quicksight.types.relational_table.RelationalTable"
 
 
-class _PhysicalTable_CustomSql(TypedDict):
+class _PhysicalTable_CustomSql(TypedDict, closed=True):
     CustomSql: "aws_sdk_quicksight.types.custom_sql.CustomSql"
 
 
-class _PhysicalTable_S3Source(TypedDict):
+class _PhysicalTable_S3Source(TypedDict, closed=True):
     S3Source: "aws_sdk_quicksight.types.s3_source.S3Source"
 
 
-class _PhysicalTable_SaaSTable(TypedDict):
+class _PhysicalTable_SaaSTable(TypedDict, closed=True):
     SaaSTable: "aws_sdk_quicksight.types.saa_s_table.SaaSTable"
 
 

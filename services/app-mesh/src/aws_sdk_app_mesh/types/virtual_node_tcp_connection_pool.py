@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualNodeTcpConnectionPool``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.max_connections
 
 
-class VirtualNodeTcpConnectionPool(TypedDict):
+class VirtualNodeTcpConnectionPool(TypedDict, closed=True):
     max_connections: "aws_sdk_app_mesh.types.max_connections.MaxConnections"
     """<p>Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster.</p>"""
 

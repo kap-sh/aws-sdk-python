@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateLocationObjectStorageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.location_arn
 
 
-class CreateLocationObjectStorageResponse(TypedDict):
+class CreateLocationObjectStorageResponse(TypedDict, closed=True):
     location_arn: NotRequired["aws_sdk_datasync.types.location_arn.LocationArn"]
     """<p>Specifies the ARN of the object storage system location that you create.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetBackupPlanOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.advanced_backup_settings
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class GetBackupPlanOutput(TypedDict):
+class GetBackupPlanOutput(TypedDict, closed=True):
     backup_plan: NotRequired["aws_sdk_backup.types.backup_plan.BackupPlan"]
     """<p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or more sets of <code>Rules</code>.</p>"""
     backup_plan_id: NotRequired["aws_sdk_backup.types.string.string"]

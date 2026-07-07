@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#CreatePipeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.tag_map
 
 
-class CreatePipeRequest(TypedDict):
+class CreatePipeRequest(TypedDict, closed=True):
     name: "aws_sdk_pipes.types.pipe_name.PipeName"
     """<p>The name of the pipe.</p>"""
     description: NotRequired["aws_sdk_pipes.types.pipe_description.PipeDescription"]

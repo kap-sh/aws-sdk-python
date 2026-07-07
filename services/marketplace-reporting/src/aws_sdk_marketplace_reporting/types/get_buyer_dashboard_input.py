@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacereporting#GetBuyerDashboardInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_reporting.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_reporting.types.embedding_domains
 
 
-class GetBuyerDashboardInput(TypedDict):
+class GetBuyerDashboardInput(TypedDict, closed=True):
     dashboard_identifier: (
         "aws_sdk_marketplace_reporting.types.dashboard_identifier.DashboardIdentifier"
     )

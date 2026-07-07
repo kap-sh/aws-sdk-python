@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.simpledbv2#NoSuchExportException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_simpledbv2.errors import DeserializationError, ServiceError
 
 
-class NoSuchExportException_(TypedDict):
+class NoSuchExportException_(TypedDict, closed=True):
     message: "str"
 
 

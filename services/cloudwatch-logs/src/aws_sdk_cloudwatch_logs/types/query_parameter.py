@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#QueryParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.query_parameter_name
 
 
-class QueryParameter(TypedDict):
+class QueryParameter(TypedDict, closed=True):
     name: "aws_sdk_cloudwatch_logs.types.query_parameter_name.QueryParameterName"
     """<p>The name of the query parameter. A query parameter name must start with a letter or underscore, and contain only letters, digits, and underscores.</p>"""
     default_value: NotRequired[

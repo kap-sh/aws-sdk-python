@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#PutPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.aws_policy
 
 
-class PutPolicyRequest(TypedDict):
+class PutPolicyRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_acm_pca.types.arn.Arn"
     r"""<p>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The ARN of the CA can be found by calling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action.</p> <p/>"""
     policy: "aws_sdk_acm_pca.types.aws_policy.AWSPolicy"

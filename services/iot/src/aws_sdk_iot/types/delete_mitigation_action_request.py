@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteMitigationActionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.mitigation_action_name
 
 
-class DeleteMitigationActionRequest(TypedDict):
+class DeleteMitigationActionRequest(TypedDict, closed=True):
     action_name: "aws_sdk_iot.types.mitigation_action_name.MitigationActionName"
     """<p>The name of the mitigation action that you want to delete.</p>"""
 

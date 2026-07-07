@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#AssessmentFrameworkShareRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.account_id
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class AssessmentFrameworkShareRequest(TypedDict):
+class AssessmentFrameworkShareRequest(TypedDict, closed=True):
     id: NotRequired["aws_sdk_auditmanager.types.uuid.UUID"]
     """<p> The unique identifier for the share request. </p>"""
     framework_id: NotRequired["aws_sdk_auditmanager.types.uuid.UUID"]

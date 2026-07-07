@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#OpsResultAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ops_data_type_name
 
 
-class OpsResultAttribute(TypedDict):
+class OpsResultAttribute(TypedDict, closed=True):
     type_name: "aws_sdk_ssm.types.ops_data_type_name.OpsDataTypeName"
     """<p>Name of the data type. Valid value: <code>AWS:OpsItem</code>, <code>AWS:EC2InstanceInformation</code>, <code>AWS:OpsItemTrendline</code>, or <code>AWS:ComplianceSummary</code>.</p>"""
 

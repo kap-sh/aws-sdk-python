@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#S3Config``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.iam_role_arn
 
 
-class S3Config(TypedDict):
+class S3Config(TypedDict, closed=True):
     bucket_access_role_arn: "aws_sdk_datasync.types.iam_role_arn.IamRoleArn"
     """<p>Specifies the ARN of the IAM role that DataSync uses to access your S3 bucket.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#ListInvestigationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.case_id
 
 
-class ListInvestigationsRequest(TypedDict):
+class ListInvestigationsRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>Investigation performed by an agent for a security incident request</p>"""
     max_results: NotRequired["int"]

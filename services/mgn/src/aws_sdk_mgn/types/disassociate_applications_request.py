@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DisassociateApplicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.wave_id
 
 
-class DisassociateApplicationsRequest(TypedDict):
+class DisassociateApplicationsRequest(TypedDict, closed=True):
     wave_id: "aws_sdk_mgn.types.wave_id.WaveID"
     """<p>Wave ID.</p>"""
     application_i_ds: "aws_sdk_mgn.types.application_i_ds.ApplicationIDs"

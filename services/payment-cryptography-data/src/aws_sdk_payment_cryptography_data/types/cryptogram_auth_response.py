@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#CryptogramAuthResponse``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.cryptogram_verification_arpc_method2
 
 
-class _CryptogramAuthResponse_ArpcMethod1(TypedDict):
+class _CryptogramAuthResponse_ArpcMethod1(TypedDict, closed=True):
     ArpcMethod1: "aws_sdk_payment_cryptography_data.types.cryptogram_verification_arpc_method1.CryptogramVerificationArpcMethod1"
 
 
-class _CryptogramAuthResponse_ArpcMethod2(TypedDict):
+class _CryptogramAuthResponse_ArpcMethod2(TypedDict, closed=True):
     ArpcMethod2: "aws_sdk_payment_cryptography_data.types.cryptogram_verification_arpc_method2.CryptogramVerificationArpcMethod2"
 
 

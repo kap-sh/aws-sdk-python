@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#WorkflowSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.date_time
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.workflow_type
 
 
-class WorkflowSummary(TypedDict):
+class WorkflowSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_imagebuilder.types.workflow_name_arn.WorkflowNameArn"]
     """<p>The Amazon Resource Name (ARN) of the workflow resource.</p>"""
     name: NotRequired["aws_sdk_imagebuilder.types.resource_name.ResourceName"]

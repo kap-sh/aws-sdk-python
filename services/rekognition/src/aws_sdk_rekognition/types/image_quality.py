@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ImageQuality``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.float
 
 
-class ImageQuality(TypedDict):
+class ImageQuality(TypedDict, closed=True):
     brightness: NotRequired["aws_sdk_rekognition.types.float.Float"]
     """<p>Value representing brightness of the face. The service returns a value between 0 and 100 (inclusive). A higher value indicates a brighter face image.</p>"""
     sharpness: NotRequired["aws_sdk_rekognition.types.float.Float"]

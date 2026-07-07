@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#PutPermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.action
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.string
 
 
-class PutPermissionRequest(TypedDict):
+class PutPermissionRequest(TypedDict, closed=True):
     event_bus_name: NotRequired[
         "aws_sdk_cloudwatch_events.types.non_partner_event_bus_name.NonPartnerEventBusName"
     ]

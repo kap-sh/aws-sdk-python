@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#S3Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.access_control_policy_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
 
 
-class S3Location(TypedDict):
+class S3Location(TypedDict, closed=True):
     bucket_name: NotRequired["aws_sdk_glacier.types.string.string"]
     """<p>The name of the Amazon S3 bucket where the job results are stored.</p>"""
     prefix: NotRequired["aws_sdk_glacier.types.string.string"]

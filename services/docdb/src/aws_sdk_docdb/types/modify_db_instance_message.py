@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#ModifyDBInstanceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class ModifyDBInstanceMessage(TypedDict):
+class ModifyDBInstanceMessage(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The instance identifier. This value is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing <code>DBInstance</code>.</p> </li> </ul>"""
     db_instance_class: NotRequired["aws_sdk_docdb.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListContactListsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.max_items
     import aws_sdk_sesv2.types.next_token
 
 
-class ListContactListsRequest(TypedDict):
+class ListContactListsRequest(TypedDict, closed=True):
     page_size: NotRequired["aws_sdk_sesv2.types.max_items.MaxItems"]
     """<p>Maximum number of contact lists to return at once. Use this parameter to paginate results. If additional contact lists exist beyond the specified limit, the <code>NextToken</code> element is sent in the response. Use the <code>NextToken</code> value in subsequent requests to retrieve additional lists.</p>"""
     next_token: NotRequired["aws_sdk_sesv2.types.next_token.NextToken"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Criteria``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityhub.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.ocsf_finding_filters
 
 
-class _Criteria_OcsfFindingCriteria(TypedDict):
+class _Criteria_OcsfFindingCriteria(TypedDict, closed=True):
     OcsfFindingCriteria: (
         "aws_sdk_securityhub.types.ocsf_finding_filters.OcsfFindingFilters"
     )

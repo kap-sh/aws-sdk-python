@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodbstreams#ExpiredIteratorException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb_streams.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.error_message
 
 
-class ExpiredIteratorException_(TypedDict):
+class ExpiredIteratorException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_dynamodb_streams.types.error_message.ErrorMessage"]
     """<p>The provided iterator exceeds the maximum age allowed.</p>"""
 

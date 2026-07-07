@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StreamProcessorDataSharingPreference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.boolean
 
 
-class StreamProcessorDataSharingPreference(TypedDict):
+class StreamProcessorDataSharingPreference(TypedDict, closed=True):
     opt_in: "aws_sdk_rekognition.types.boolean.Boolean"
     """<p> If this option is set to true, you choose to share data with Rekognition to improve model performance. </p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#GetHubConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.hub_configuration_updated_at
     import aws_sdk_iot_managed_integrations.types.hub_token_timer_expiry_setting_in_seconds
 
 
-class GetHubConfigurationResponse(TypedDict):
+class GetHubConfigurationResponse(TypedDict, closed=True):
     hub_token_timer_expiry_setting_in_seconds: NotRequired[
         "aws_sdk_iot_managed_integrations.types.hub_token_timer_expiry_setting_in_seconds.HubTokenTimerExpirySettingInSeconds"
     ]

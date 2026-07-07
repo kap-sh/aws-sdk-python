@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class DescribeChannelRequest(TypedDict):
+class DescribeChannelRequest(TypedDict, closed=True):
     channel_id: "aws_sdk_medialive.types.__string.__string"
     """channel ID"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#Leg``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.step_list
 
 
-class Leg(TypedDict):
+class Leg(TypedDict, closed=True):
     start_position: "aws_sdk_location.types.position.Position"
     r"""<p>The starting position of the leg. Follows the format <code>[longitude,latitude]</code>.</p> <note> <p>If the <code>StartPosition</code> isn't located on a road, it's <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/snap-to-nearby-road.html\">snapped to a nearby road</a>. </p> </note>"""
     end_position: "aws_sdk_location.types.position.Position"

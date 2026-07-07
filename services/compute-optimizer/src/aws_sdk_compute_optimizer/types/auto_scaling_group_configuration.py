@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#AutoScalingGroupConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.allocation_strategy
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.nullable_instance_type
 
 
-class AutoScalingGroupConfiguration(TypedDict):
+class AutoScalingGroupConfiguration(TypedDict, closed=True):
     desired_capacity: "aws_sdk_compute_optimizer.types.desired_capacity.DesiredCapacity"
     """<p>The desired capacity, or number of instances, for the EC2 Auto Scaling group.</p>"""
     min_size: "aws_sdk_compute_optimizer.types.min_size.MinSize"

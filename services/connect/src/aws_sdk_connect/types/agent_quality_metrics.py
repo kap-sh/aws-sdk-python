@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AgentQualityMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.audio_quality_metrics_info
 
 
-class AgentQualityMetrics(TypedDict):
+class AgentQualityMetrics(TypedDict, closed=True):
     audio: NotRequired[
         "aws_sdk_connect.types.audio_quality_metrics_info.AudioQualityMetricsInfo"
     ]

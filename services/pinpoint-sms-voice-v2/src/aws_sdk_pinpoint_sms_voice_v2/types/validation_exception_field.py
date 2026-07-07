@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The name of the field.</p>"""
     message: "str"

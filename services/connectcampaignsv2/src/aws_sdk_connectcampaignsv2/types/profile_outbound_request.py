@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#ProfileOutboundRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.time_stamp
 
 
-class ProfileOutboundRequest(TypedDict):
+class ProfileOutboundRequest(TypedDict, closed=True):
     client_token: "aws_sdk_connectcampaignsv2.types.client_token.ClientToken"
     profile_id: "aws_sdk_connectcampaignsv2.types.profile_id.ProfileId"
     expiration_time: NotRequired[

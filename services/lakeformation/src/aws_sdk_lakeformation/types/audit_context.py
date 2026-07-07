@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#AuditContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.audit_context_string
 
 
-class AuditContext(TypedDict):
+class AuditContext(TypedDict, closed=True):
     additional_audit_context: NotRequired[
         "aws_sdk_lakeformation.types.audit_context_string.AuditContextString"
     ]

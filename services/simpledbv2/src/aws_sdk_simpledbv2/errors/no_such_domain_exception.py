@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.simpledbv2#NoSuchDomainException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_simpledbv2.errors import DeserializationError, ServiceError
 
 
-class NoSuchDomainException_(TypedDict):
+class NoSuchDomainException_(TypedDict, closed=True):
     message: "str"
 
 

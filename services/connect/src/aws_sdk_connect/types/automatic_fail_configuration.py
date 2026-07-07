@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AutomaticFailConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.reference_id
 
 
-class AutomaticFailConfiguration(TypedDict):
+class AutomaticFailConfiguration(TypedDict, closed=True):
     target_section: NotRequired["aws_sdk_connect.types.reference_id.ReferenceId"]
     """<p>The referenceId of the target section for auto failure.</p>"""
 

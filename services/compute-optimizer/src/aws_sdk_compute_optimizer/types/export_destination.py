@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ExportDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.s3_destination
 
 
-class ExportDestination(TypedDict):
+class ExportDestination(TypedDict, closed=True):
     s3: NotRequired["aws_sdk_compute_optimizer.types.s3_destination.S3Destination"]
     """<p>An object that describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and object keys of a recommendations export file, and its associated metadata file.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetQueryResultsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.token
 
 
-class GetQueryResultsInput(TypedDict):
+class GetQueryResultsInput(TypedDict, closed=True):
     query_execution_id: "aws_sdk_athena.types.query_execution_id.QueryExecutionId"
     """<p>The unique ID of the query execution.</p>"""
     next_token: NotRequired["aws_sdk_athena.types.token.Token"]

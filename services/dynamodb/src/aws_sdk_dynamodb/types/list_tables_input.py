@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ListTablesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.list_tables_input_limit
     import aws_sdk_dynamodb.types.table_name
 
 
-class ListTablesInput(TypedDict):
+class ListTablesInput(TypedDict, closed=True):
     exclusive_start_table_name: NotRequired[
         "aws_sdk_dynamodb.types.table_name.TableName"
     ]

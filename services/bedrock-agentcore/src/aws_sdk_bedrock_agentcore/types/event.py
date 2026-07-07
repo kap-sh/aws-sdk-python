@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#Event``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.session_id
 
 
-class Event(TypedDict):
+class Event(TypedDict, closed=True):
     memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId"
     """<p>The identifier of the AgentCore Memory resource containing the event.</p>"""
     actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId"

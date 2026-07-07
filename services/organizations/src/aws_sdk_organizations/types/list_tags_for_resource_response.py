@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.next_token
     import aws_sdk_organizations.types.tags
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_organizations.types.tags.Tags"]
     """<p>The tags that are assigned to the resource.</p>"""
     next_token: NotRequired["aws_sdk_organizations.types.next_token.NextToken"]

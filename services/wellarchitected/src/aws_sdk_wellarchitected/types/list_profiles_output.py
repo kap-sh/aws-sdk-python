@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListProfilesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.next_token
     import aws_sdk_wellarchitected.types.profile_summaries
 
 
-class ListProfilesOutput(TypedDict):
+class ListProfilesOutput(TypedDict, closed=True):
     profile_summaries: NotRequired[
         "aws_sdk_wellarchitected.types.profile_summaries.ProfileSummaries"
     ]

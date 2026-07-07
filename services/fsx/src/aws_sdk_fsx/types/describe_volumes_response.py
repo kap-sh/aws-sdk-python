@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeVolumesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.next_token
     import aws_sdk_fsx.types.volumes
 
 
-class DescribeVolumesResponse(TypedDict):
+class DescribeVolumesResponse(TypedDict, closed=True):
     volumes: NotRequired["aws_sdk_fsx.types.volumes.Volumes"]
     """<p>Returned after a successful <code>DescribeVolumes</code> operation, describing each volume.</p>"""
     next_token: NotRequired["aws_sdk_fsx.types.next_token.NextToken"]

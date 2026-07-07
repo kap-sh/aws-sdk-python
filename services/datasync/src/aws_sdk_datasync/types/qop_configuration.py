@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#QopConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.hdfs_data_transfer_protection
     import aws_sdk_datasync.types.hdfs_rpc_protection
 
 
-class QopConfiguration(TypedDict):
+class QopConfiguration(TypedDict, closed=True):
     rpc_protection: NotRequired[
         "aws_sdk_datasync.types.hdfs_rpc_protection.HdfsRpcProtection"
     ]

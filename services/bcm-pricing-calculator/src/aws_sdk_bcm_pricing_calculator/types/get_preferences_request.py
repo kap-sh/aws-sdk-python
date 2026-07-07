@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#GetPreferencesRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetPreferencesRequest(TypedDict):
+class GetPreferencesRequest(TypedDict, closed=True):
     pass
 
 

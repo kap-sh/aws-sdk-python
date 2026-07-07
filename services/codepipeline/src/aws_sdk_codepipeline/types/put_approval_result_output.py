@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PutApprovalResultOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.timestamp
 
 
-class PutApprovalResultOutput(TypedDict):
+class PutApprovalResultOutput(TypedDict, closed=True):
     approved_at: NotRequired["aws_sdk_codepipeline.types.timestamp.Timestamp"]
     """<p>The timestamp showing when the approval or rejection was submitted.</p>"""
 

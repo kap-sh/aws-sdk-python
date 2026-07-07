@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#DeleteResourceExplorerSetupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.region_list
 
 
-class DeleteResourceExplorerSetupInput(TypedDict):
+class DeleteResourceExplorerSetupInput(TypedDict, closed=True):
     region_list: NotRequired["aws_sdk_resource_explorer_2.types.region_list.RegionList"]
     """<p>A list of Amazon Web Services Regions from which to delete the Resource Explorer configuration. If not specified, the operation uses the <code>DeleteInAllRegions</code> parameter to determine scope.</p>"""
     delete_in_all_regions: NotRequired["bool"]

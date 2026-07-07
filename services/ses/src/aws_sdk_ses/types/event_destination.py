@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#EventDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.sns_destination
 
 
-class EventDestination(TypedDict):
+class EventDestination(TypedDict, closed=True):
     name: "aws_sdk_ses.types.event_destination_name.EventDestinationName"
     """<p>The name of the event destination. The name must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain 64 characters or fewer.</p> </li> </ul>"""
     enabled: "aws_sdk_ses.types.enabled.Enabled"

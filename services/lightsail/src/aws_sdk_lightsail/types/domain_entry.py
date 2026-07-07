@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DomainEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class DomainEntry(TypedDict):
+class DomainEntry(TypedDict, closed=True):
     id: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]
     """<p>The ID of the domain recordset entry.</p>"""
     name: NotRequired["aws_sdk_lightsail.types.domain_name.DomainName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#QueryStatisticsForDescribeQuery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.long
 
 
-class QueryStatisticsForDescribeQuery(TypedDict):
+class QueryStatisticsForDescribeQuery(TypedDict, closed=True):
     events_matched: NotRequired["aws_sdk_cloudtrail.types.long.Long"]
     """<p>The number of events that matched a query.</p>"""
     events_scanned: NotRequired["aws_sdk_cloudtrail.types.long.Long"]

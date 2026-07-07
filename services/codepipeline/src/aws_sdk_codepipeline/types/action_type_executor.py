@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ActionTypeExecutor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.policy_statements_template
 
 
-class ActionTypeExecutor(TypedDict):
+class ActionTypeExecutor(TypedDict, closed=True):
     configuration: (
         "aws_sdk_codepipeline.types.executor_configuration.ExecutorConfiguration"
     )

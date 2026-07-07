@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#StatelessRuleGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.network_firewall_resource_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.stateless_rule_group_priority
 
 
-class StatelessRuleGroup(TypedDict):
+class StatelessRuleGroup(TypedDict, closed=True):
     rule_group_name: NotRequired[
         "aws_sdk_fms.types.network_firewall_resource_name.NetworkFirewallResourceName"
     ]

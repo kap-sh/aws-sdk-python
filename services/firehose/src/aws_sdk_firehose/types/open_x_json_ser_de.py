@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#OpenXJsonSerDe``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.boolean_object
     import aws_sdk_firehose.types.column_to_json_key_mappings
 
 
-class OpenXJsonSerDe(TypedDict):
+class OpenXJsonSerDe(TypedDict, closed=True):
     convert_dots_in_json_keys_to_underscores: NotRequired[
         "aws_sdk_firehose.types.boolean_object.BooleanObject"
     ]

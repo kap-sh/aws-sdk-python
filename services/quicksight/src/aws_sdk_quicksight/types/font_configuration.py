@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FontConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.font_decoration
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.limited_string
 
 
-class FontConfiguration(TypedDict):
+class FontConfiguration(TypedDict, closed=True):
     font_size: NotRequired["aws_sdk_quicksight.types.font_size.FontSize"]
     """<p>The option that determines the text display size.</p>"""
     font_decoration: NotRequired[

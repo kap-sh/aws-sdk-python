@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#AlarmContributor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.timestamp
 
 
-class AlarmContributor(TypedDict):
+class AlarmContributor(TypedDict, closed=True):
     contributor_id: NotRequired["aws_sdk_cloudwatch.types.contributor_id.ContributorId"]
     """<p>The unique identifier for this alarm contributor.</p>"""
     contributor_attributes: NotRequired[

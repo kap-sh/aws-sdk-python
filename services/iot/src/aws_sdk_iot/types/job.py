@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#Job``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.abort_config
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timeout_config
 
 
-class Job(TypedDict):
+class Job(TypedDict, closed=True):
     job_arn: NotRequired["aws_sdk_iot.types.job_arn.JobArn"]
     r"""<p>An ARN identifying the job with format \"arn:aws:iot:region:account:job/jobId\".</p>"""
     job_id: NotRequired["aws_sdk_iot.types.job_id.JobId"]

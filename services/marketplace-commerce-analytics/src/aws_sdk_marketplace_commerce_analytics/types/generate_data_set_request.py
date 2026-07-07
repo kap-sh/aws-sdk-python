@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecommerceanalytics#GenerateDataSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_commerce_analytics.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_commerce_analytics.types.sns_topic_arn
 
 
-class GenerateDataSetRequest(TypedDict):
+class GenerateDataSetRequest(TypedDict, closed=True):
     data_set_type: (
         "aws_sdk_marketplace_commerce_analytics.types.data_set_type.DataSetType"
     )

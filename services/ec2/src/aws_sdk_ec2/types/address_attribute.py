@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AddressAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class AddressAttribute(TypedDict):
+class AddressAttribute(TypedDict, closed=True):
     public_ip: NotRequired["aws_sdk_ec2.types.public_ip_address.PublicIpAddress"]
     """<p>The public IP address.</p>"""
     allocation_id: NotRequired["aws_sdk_ec2.types.allocation_id.AllocationId"]

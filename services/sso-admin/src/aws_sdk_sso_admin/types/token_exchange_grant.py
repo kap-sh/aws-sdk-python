@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#TokenExchangeGrant``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class TokenExchangeGrant(TypedDict):
+class TokenExchangeGrant(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AmazonConnectGuideAssociationData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.generic_arn
 
 
-class AmazonConnectGuideAssociationData(TypedDict):
+class AmazonConnectGuideAssociationData(TypedDict, closed=True):
     flow_id: NotRequired["aws_sdk_qconnect.types.generic_arn.GenericArn"]
     """<p> The Amazon Resource Name (ARN) of an Amazon Connect flow. Step-by-step guides are a type of flow.</p>"""
 

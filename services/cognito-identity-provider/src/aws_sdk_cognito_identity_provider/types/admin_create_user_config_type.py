@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#AdminCreateUserConfigType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.admin_create_user_unused_account_validity_days_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.message_template_type
 
 
-class AdminCreateUserConfigType(TypedDict):
+class AdminCreateUserConfigType(TypedDict, closed=True):
     allow_admin_create_user_only: (
         "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
     )

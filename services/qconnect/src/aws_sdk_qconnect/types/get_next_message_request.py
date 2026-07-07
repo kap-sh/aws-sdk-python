@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GetNextMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.next_token
     import aws_sdk_qconnect.types.uuid_or_arn
 
 
-class GetNextMessageRequest(TypedDict):
+class GetNextMessageRequest(TypedDict, closed=True):
     assistant_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the Amazon Q in Connect assistant.</p>"""
     session_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"

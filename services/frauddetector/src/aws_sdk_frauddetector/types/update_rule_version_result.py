@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#UpdateRuleVersionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.rule
 
 
-class UpdateRuleVersionResult(TypedDict):
+class UpdateRuleVersionResult(TypedDict, closed=True):
     rule: NotRequired["aws_sdk_frauddetector.types.rule.Rule"]
     """<p>The new rule version that was created.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetDomainOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.updated_at
 
 
-class GetDomainOutput(TypedDict):
+class GetDomainOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the specified Amazon DataZone domain.</p>"""
     root_domain_unit_id: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#MergeHunk``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.is_hunk_conflict
     import aws_sdk_codecommit.types.merge_hunk_detail
 
 
-class MergeHunk(TypedDict):
+class MergeHunk(TypedDict, closed=True):
     is_conflict: "aws_sdk_codecommit.types.is_hunk_conflict.IsHunkConflict"
     """<p>A Boolean value indicating whether a combination of hunks contains a conflict. Conflicts occur when the same file or the same lines in a file were modified in both the source and destination of a merge or pull request. Valid values include true, false, and null. True when the hunk represents a conflict and one or more files contains a line conflict. File mode conflicts in a merge do not set this to true.</p>"""
     source: NotRequired["aws_sdk_codecommit.types.merge_hunk_detail.MergeHunkDetail"]

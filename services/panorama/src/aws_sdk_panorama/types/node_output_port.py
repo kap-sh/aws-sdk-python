@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#NodeOutputPort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.port_type
 
 
-class NodeOutputPort(TypedDict):
+class NodeOutputPort(TypedDict, closed=True):
     name: NotRequired["aws_sdk_panorama.types.port_name.PortName"]
     """<p>The output port's name.</p>"""
     description: NotRequired["aws_sdk_panorama.types.description.Description"]

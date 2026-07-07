@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#NoncurrentVersionExpiration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.version_count
 
 
-class NoncurrentVersionExpiration(TypedDict):
+class NoncurrentVersionExpiration(TypedDict, closed=True):
     noncurrent_days: NotRequired["aws_sdk_s3.types.days.Days"]
     r"""<p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. The value must be a non-zero positive integer. For information about the noncurrent days calculations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p> </note>"""
     newer_noncurrent_versions: NotRequired[

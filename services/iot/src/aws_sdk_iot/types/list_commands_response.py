@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListCommandsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.command_summary_list
     import aws_sdk_iot.types.next_token
 
 
-class ListCommandsResponse(TypedDict):
+class ListCommandsResponse(TypedDict, closed=True):
     commands: NotRequired["aws_sdk_iot.types.command_summary_list.CommandSummaryList"]
     """<p>The list of commands.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

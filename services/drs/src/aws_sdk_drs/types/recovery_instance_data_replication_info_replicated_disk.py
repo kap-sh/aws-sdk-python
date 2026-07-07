@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstanceDataReplicationInfoReplicatedDisk``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
     import aws_sdk_drs.types.positive_integer
 
 
-class RecoveryInstanceDataReplicationInfoReplicatedDisk(TypedDict):
+class RecoveryInstanceDataReplicationInfoReplicatedDisk(TypedDict, closed=True):
     device_name: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]
     """<p>The name of the device.</p>"""
     total_storage_bytes: "aws_sdk_drs.types.positive_integer.PositiveInteger"

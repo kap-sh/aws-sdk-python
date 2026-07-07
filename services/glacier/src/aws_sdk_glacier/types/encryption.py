@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#Encryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.encryption_type
     import aws_sdk_glacier.types.string
 
 
-class Encryption(TypedDict):
+class Encryption(TypedDict, closed=True):
     encryption_type: NotRequired["aws_sdk_glacier.types.encryption_type.EncryptionType"]
     """<p>The server-side encryption algorithm used when storing job results in Amazon S3, for example <code>AES256</code> or <code>aws:kms</code>.</p>"""
     kms_key_id: NotRequired["aws_sdk_glacier.types.string.string"]

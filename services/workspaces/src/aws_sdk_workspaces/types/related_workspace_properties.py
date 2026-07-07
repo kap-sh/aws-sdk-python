@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#RelatedWorkspaceProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.region
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_state
 
 
-class RelatedWorkspaceProperties(TypedDict):
+class RelatedWorkspaceProperties(TypedDict, closed=True):
     workspace_id: NotRequired["aws_sdk_workspaces.types.workspace_id.WorkspaceId"]
     """<p>The identifier of the related WorkSpace.</p>"""
     region: NotRequired["aws_sdk_workspaces.types.region.Region"]

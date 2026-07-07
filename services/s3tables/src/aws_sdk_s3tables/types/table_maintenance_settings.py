@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#TableMaintenanceSettings``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.iceberg_snapshot_management_settings
 
 
-class _TableMaintenanceSettings_icebergCompaction(TypedDict):
+class _TableMaintenanceSettings_icebergCompaction(TypedDict, closed=True):
     icebergCompaction: (
         "aws_sdk_s3tables.types.iceberg_compaction_settings.IcebergCompactionSettings"
     )
 
 
-class _TableMaintenanceSettings_icebergSnapshotManagement(TypedDict):
+class _TableMaintenanceSettings_icebergSnapshotManagement(TypedDict, closed=True):
     icebergSnapshotManagement: "aws_sdk_s3tables.types.iceberg_snapshot_management_settings.IcebergSnapshotManagementSettings"
 
 

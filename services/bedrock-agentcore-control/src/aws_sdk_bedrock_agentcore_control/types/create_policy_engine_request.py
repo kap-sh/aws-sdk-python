@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreatePolicyEngineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.tags_map
 
 
-class CreatePolicyEngineRequest(TypedDict):
+class CreatePolicyEngineRequest(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agentcore_control.types.policy_engine_name.PolicyEngineName"
     """<p>The customer-assigned immutable name for the policy engine. This name identifies the policy engine and cannot be changed after creation.</p>"""
     description: NotRequired[

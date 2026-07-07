@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#DescribeBudgetActionHistoriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.generic_string
 
 
-class DescribeBudgetActionHistoriesResponse(TypedDict):
+class DescribeBudgetActionHistoriesResponse(TypedDict, closed=True):
     action_histories: "aws_sdk_budgets.types.action_histories.ActionHistories"
     """<p> The historical record of the budget action resource. </p>"""
     next_token: NotRequired["aws_sdk_budgets.types.generic_string.GenericString"]

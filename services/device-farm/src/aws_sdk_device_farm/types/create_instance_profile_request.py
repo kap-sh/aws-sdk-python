@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#CreateInstanceProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.package_ids
 
 
-class CreateInstanceProfileRequest(TypedDict):
+class CreateInstanceProfileRequest(TypedDict, closed=True):
     name: "aws_sdk_device_farm.types.name.Name"
     """<p>The name of your instance profile.</p>"""
     description: NotRequired["aws_sdk_device_farm.types.message.Message"]

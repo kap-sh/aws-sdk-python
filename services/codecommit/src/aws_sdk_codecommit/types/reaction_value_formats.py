@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ReactionValueFormats``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.reaction_emoji
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.reaction_unicode
 
 
-class ReactionValueFormats(TypedDict):
+class ReactionValueFormats(TypedDict, closed=True):
     emoji: NotRequired["aws_sdk_codecommit.types.reaction_emoji.ReactionEmoji"]
     """<p>The Emoji Version 1.0 graphic of the reaction. These graphics are interpreted slightly differently on different operating systems.</p>"""
     short_code: NotRequired[

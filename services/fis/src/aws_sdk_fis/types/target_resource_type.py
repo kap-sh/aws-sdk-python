@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#TargetResourceType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.target_resource_type_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.target_resource_type_parameter_map
 
 
-class TargetResourceType(TypedDict):
+class TargetResourceType(TypedDict, closed=True):
     resource_type: NotRequired[
         "aws_sdk_fis.types.target_resource_type_id.TargetResourceTypeId"
     ]

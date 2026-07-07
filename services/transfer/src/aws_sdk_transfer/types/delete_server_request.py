@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DeleteServerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.server_id
 
 
-class DeleteServerRequest(TypedDict):
+class DeleteServerRequest(TypedDict, closed=True):
     server_id: "aws_sdk_transfer.types.server_id.ServerId"
     """<p>A unique system-assigned identifier for a server instance.</p>"""
 

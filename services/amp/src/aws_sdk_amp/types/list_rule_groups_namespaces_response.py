@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#ListRuleGroupsNamespacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.rule_groups_namespace_summary_list
 
 
-class ListRuleGroupsNamespacesResponse(TypedDict):
+class ListRuleGroupsNamespacesResponse(TypedDict, closed=True):
     rule_groups_namespaces: "aws_sdk_amp.types.rule_groups_namespace_summary_list.RuleGroupsNamespaceSummaryList"
     """<p>The returned list of rule groups namespaces.</p>"""
     next_token: NotRequired["aws_sdk_amp.types.pagination_token.PaginationToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#TimecodeBurninSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string_max255
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.timecode_burnin_position
 
 
-class TimecodeBurninSettings(TypedDict):
+class TimecodeBurninSettings(TypedDict, closed=True):
     font_size: NotRequired[
         "aws_sdk_medialive.types.timecode_burnin_font_size.TimecodeBurninFontSize"
     ]

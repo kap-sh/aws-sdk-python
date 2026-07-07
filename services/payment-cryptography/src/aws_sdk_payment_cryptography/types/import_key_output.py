@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ImportKeyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.key
 
 
-class ImportKeyOutput(TypedDict):
+class ImportKeyOutput(TypedDict, closed=True):
     key: "aws_sdk_payment_cryptography.types.key.Key"
     """<p>The <code>KeyARN</code> of the key material imported within Amazon Web Services Payment Cryptography.</p>"""
 

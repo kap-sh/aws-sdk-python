@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#EnableAddOnRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class EnableAddOnRequest(TypedDict):
+class EnableAddOnRequest(TypedDict, closed=True):
     resource_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of the source resource for which to enable or modify the add-on.</p>"""
     add_on_request: "aws_sdk_lightsail.types.add_on_request.AddOnRequest"

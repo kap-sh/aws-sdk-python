@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ListStorageConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.storage_configuration_summary_list
 
 
-class ListStorageConfigurationsResponse(TypedDict):
+class ListStorageConfigurationsResponse(TypedDict, closed=True):
     storage_configurations: "aws_sdk_ivs_realtime.types.storage_configuration_summary_list.StorageConfigurationSummaryList"
     """<p>List of the matching storage configurations.</p>"""
     next_token: NotRequired[

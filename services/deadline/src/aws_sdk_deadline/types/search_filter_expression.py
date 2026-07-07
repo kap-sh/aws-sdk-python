@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#SearchFilterExpression``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -13,33 +15,33 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string_list_filter_expression
 
 
-class _SearchFilterExpression_dateTimeFilter(TypedDict):
+class _SearchFilterExpression_dateTimeFilter(TypedDict, closed=True):
     dateTimeFilter: (
         "aws_sdk_deadline.types.date_time_filter_expression.DateTimeFilterExpression"
     )
 
 
-class _SearchFilterExpression_parameterFilter(TypedDict):
+class _SearchFilterExpression_parameterFilter(TypedDict, closed=True):
     parameterFilter: (
         "aws_sdk_deadline.types.parameter_filter_expression.ParameterFilterExpression"
     )
 
 
-class _SearchFilterExpression_searchTermFilter(TypedDict):
+class _SearchFilterExpression_searchTermFilter(TypedDict, closed=True):
     searchTermFilter: "aws_sdk_deadline.types.search_term_filter_expression.SearchTermFilterExpression"
 
 
-class _SearchFilterExpression_stringFilter(TypedDict):
+class _SearchFilterExpression_stringFilter(TypedDict, closed=True):
     stringFilter: (
         "aws_sdk_deadline.types.string_filter_expression.StringFilterExpression"
     )
 
 
-class _SearchFilterExpression_stringListFilter(TypedDict):
+class _SearchFilterExpression_stringListFilter(TypedDict, closed=True):
     stringListFilter: "aws_sdk_deadline.types.string_list_filter_expression.StringListFilterExpression"
 
 
-class _SearchFilterExpression_groupFilter(TypedDict):
+class _SearchFilterExpression_groupFilter(TypedDict, closed=True):
     groupFilter: "aws_sdk_deadline.types.search_grouped_filter_expressions.SearchGroupedFilterExpressions"
 
 

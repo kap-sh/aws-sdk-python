@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#AutonomousDatabaseCharacterSetSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AutonomousDatabaseCharacterSetSummary(TypedDict):
+class AutonomousDatabaseCharacterSetSummary(TypedDict, closed=True):
     character_set: NotRequired["str"]
     """<p>The name of the character set.</p>"""
 

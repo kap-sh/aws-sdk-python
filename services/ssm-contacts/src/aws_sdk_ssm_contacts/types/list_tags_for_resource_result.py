@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#ListTagsForResourceResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.tags_list
 
 
-class ListTagsForResourceResult(TypedDict):
+class ListTagsForResourceResult(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_ssm_contacts.types.tags_list.TagsList"]
     """<p>The tags related to the contact or escalation plan.</p>"""
 

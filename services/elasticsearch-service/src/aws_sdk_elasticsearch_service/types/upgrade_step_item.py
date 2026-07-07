@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#UpgradeStepItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.double
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.upgrade_step
 
 
-class UpgradeStepItem(TypedDict):
+class UpgradeStepItem(TypedDict, closed=True):
     upgrade_step: NotRequired[
         "aws_sdk_elasticsearch_service.types.upgrade_step.UpgradeStep"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#LocalSecondaryIndex``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.projection
 
 
-class LocalSecondaryIndex(TypedDict):
+class LocalSecondaryIndex(TypedDict, closed=True):
     index_name: "aws_sdk_dynamodb.types.index_name.IndexName"
     """<p>The name of the local secondary index. The name must be unique among all other indexes on this table.</p>"""
     key_schema: "aws_sdk_dynamodb.types.key_schema.KeySchema"

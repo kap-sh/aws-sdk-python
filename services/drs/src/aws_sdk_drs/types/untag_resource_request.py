@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.arn
     import aws_sdk_drs.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_drs.types.arn.ARN"
     """<p>ARN of the resource for which tags are to be removed.</p>"""
     tag_keys: "aws_sdk_drs.types.tag_keys.TagKeys"

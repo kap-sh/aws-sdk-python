@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#ListCustomPluginsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__string
     import aws_sdk_kafkaconnect.types.max_results
 
 
-class ListCustomPluginsRequest(TypedDict):
+class ListCustomPluginsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_kafkaconnect.types.max_results.MaxResults"]
     """<p>The maximum number of custom plugins to list in one response.</p>"""
     next_token: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]

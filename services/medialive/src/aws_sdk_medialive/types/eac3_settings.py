@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Eac3Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.eac3_surround_mode
 
 
-class Eac3Settings(TypedDict):
+class Eac3Settings(TypedDict, closed=True):
     attenuation_control: NotRequired[
         "aws_sdk_medialive.types.eac3_attenuation_control.Eac3AttenuationControl"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#PrefixLevelStorageMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.selection_criteria
 
 
-class PrefixLevelStorageMetrics(TypedDict):
+class PrefixLevelStorageMetrics(TypedDict, closed=True):
     is_enabled: "aws_sdk_s3_control.types.is_enabled.IsEnabled"
     """<p>A container for whether prefix-level storage metrics are enabled.</p>"""
     selection_criteria: NotRequired[

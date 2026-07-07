@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#UpdateProfileJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.validation_configuration_list
 
 
-class UpdateProfileJobRequest(TypedDict):
+class UpdateProfileJobRequest(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_databrew.types.profile_configuration.ProfileConfiguration"
     ]

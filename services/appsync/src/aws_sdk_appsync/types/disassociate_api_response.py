@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#DisassociateApiResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateApiResponse(TypedDict):
+class DisassociateApiResponse(TypedDict, closed=True):
     pass
 
 

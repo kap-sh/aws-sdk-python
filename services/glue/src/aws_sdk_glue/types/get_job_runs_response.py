@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetJobRunsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_string
     import aws_sdk_glue.types.job_run_list
 
 
-class GetJobRunsResponse(TypedDict):
+class GetJobRunsResponse(TypedDict, closed=True):
     job_runs: NotRequired["aws_sdk_glue.types.job_run_list.JobRunList"]
     """<p>A list of job-run metadata objects.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]

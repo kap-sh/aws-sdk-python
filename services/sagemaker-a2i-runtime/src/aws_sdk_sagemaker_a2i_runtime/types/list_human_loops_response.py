@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakera2iruntime#ListHumanLoopsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_a2i_runtime.types.human_loop_summaries
     import aws_sdk_sagemaker_a2i_runtime.types.next_token
 
 
-class ListHumanLoopsResponse(TypedDict):
+class ListHumanLoopsResponse(TypedDict, closed=True):
     human_loop_summaries: NotRequired[
         "aws_sdk_sagemaker_a2i_runtime.types.human_loop_summaries.HumanLoopSummaries"
     ]

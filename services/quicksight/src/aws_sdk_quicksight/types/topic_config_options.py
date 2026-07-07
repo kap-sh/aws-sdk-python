@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicConfigOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.nullable_boolean
 
 
-class TopicConfigOptions(TypedDict):
+class TopicConfigOptions(TypedDict, closed=True):
     q_business_insights_enabled: NotRequired[
         "aws_sdk_quicksight.types.nullable_boolean.NullableBoolean"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeBackupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.backup_ids
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.next_token
 
 
-class DescribeBackupsRequest(TypedDict):
+class DescribeBackupsRequest(TypedDict, closed=True):
     backup_ids: NotRequired["aws_sdk_fsx.types.backup_ids.BackupIds"]
     """<p>The IDs of the backups that you want to retrieve. This parameter value overrides any filters. If any IDs aren't found, a <code>BackupNotFound</code> error occurs.</p>"""
     filters: NotRequired["aws_sdk_fsx.types.filters.Filters"]

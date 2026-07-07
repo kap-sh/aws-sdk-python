@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#MetaFlowHealthStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.meta_flow_health_status_availability
 
 
-class MetaFlowHealthStatus(TypedDict):
+class MetaFlowHealthStatus(TypedDict, closed=True):
     can_send_message: "aws_sdk_socialmessaging.types.meta_flow_health_status_availability.MetaFlowHealthStatusAvailability"
     """<p>The overall messaging availability status (for example, AVAILABLE, LIMITED, or BLOCKED).</p>"""
     entities: NotRequired[

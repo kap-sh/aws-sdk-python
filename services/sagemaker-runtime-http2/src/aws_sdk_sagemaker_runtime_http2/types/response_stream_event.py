@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntimehttp2#ResponseStreamEvent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_runtime_http2._iter import AnyIterator
 from aws_sdk_sagemaker_runtime_http2._protocol.eventstream import Message
@@ -11,17 +13,17 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime_http2.types.response_payload_part
 
 
-class _ResponseStreamEvent_PayloadPart(TypedDict):
+class _ResponseStreamEvent_PayloadPart(TypedDict, closed=True):
     PayloadPart: "aws_sdk_sagemaker_runtime_http2.types.response_payload_part.ResponsePayloadPart"
 
 
-class _ResponseStreamEvent_ModelStreamError(TypedDict):
+class _ResponseStreamEvent_ModelStreamError(TypedDict, closed=True):
     ModelStreamError: (
         "aws_sdk_sagemaker_runtime_http2.errors.model_stream_error.ModelStreamError_"
     )
 
 
-class _ResponseStreamEvent_InternalStreamFailure(TypedDict):
+class _ResponseStreamEvent_InternalStreamFailure(TypedDict, closed=True):
     InternalStreamFailure: "aws_sdk_sagemaker_runtime_http2.errors.internal_stream_failure.InternalStreamFailure_"
 
 

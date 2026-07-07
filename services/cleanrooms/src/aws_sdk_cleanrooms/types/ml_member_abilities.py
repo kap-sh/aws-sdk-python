@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#MLMemberAbilities``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.custom_ml_member_abilities
 
 
-class MLMemberAbilities(TypedDict):
+class MLMemberAbilities(TypedDict, closed=True):
     custom_ml_member_abilities: (
         "aws_sdk_cleanrooms.types.custom_ml_member_abilities.CustomMLMemberAbilities"
     )

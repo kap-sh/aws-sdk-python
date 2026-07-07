@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ReplayDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.replay_destination_filters
 
 
-class ReplayDestination(TypedDict):
+class ReplayDestination(TypedDict, closed=True):
     arn: "aws_sdk_eventbridge.types.arn.Arn"
     """<p>The ARN of the event bus to replay event to. You can replay events only to the event bus specified to create the archive.</p>"""
     filter_arns: NotRequired[

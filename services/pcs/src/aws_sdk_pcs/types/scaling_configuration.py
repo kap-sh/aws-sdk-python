@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ScalingConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ScalingConfiguration(TypedDict):
+class ScalingConfiguration(TypedDict, closed=True):
     min_instance_count: "int"
     """<p>The lower bound of the number of instances allowed in the compute fleet.</p>"""
     max_instance_count: "int"

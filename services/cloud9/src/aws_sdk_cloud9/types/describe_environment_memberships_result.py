@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloud9#DescribeEnvironmentMembershipsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloud9.types.environment_members_list
     import aws_sdk_cloud9.types.string
 
 
-class DescribeEnvironmentMembershipsResult(TypedDict):
+class DescribeEnvironmentMembershipsResult(TypedDict, closed=True):
     memberships: NotRequired[
         "aws_sdk_cloud9.types.environment_members_list.EnvironmentMembersList"
     ]

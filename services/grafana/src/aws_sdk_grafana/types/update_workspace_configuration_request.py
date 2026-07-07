@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#UpdateWorkspaceConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_id
 
 
-class UpdateWorkspaceConfigurationRequest(TypedDict):
+class UpdateWorkspaceConfigurationRequest(TypedDict, closed=True):
     configuration: "aws_sdk_grafana.types.overridable_configuration_json.OverridableConfigurationJson"
     r"""<p>The new configuration string for the workspace. For more information about the format and configuration options available, see <a href=\"https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html\">Working in your Grafana workspace</a>.</p>"""
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"

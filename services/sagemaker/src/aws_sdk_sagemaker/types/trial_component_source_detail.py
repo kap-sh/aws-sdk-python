@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TrialComponentSourceDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.processing_job
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.trial_component_source_arn
 
 
-class TrialComponentSourceDetail(TypedDict):
+class TrialComponentSourceDetail(TypedDict, closed=True):
     source_arn: NotRequired[
         "aws_sdk_sagemaker.types.trial_component_source_arn.TrialComponentSourceArn"
     ]

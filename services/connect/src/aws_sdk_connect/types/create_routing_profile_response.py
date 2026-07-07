@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateRoutingProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.routing_profile_id
 
 
-class CreateRoutingProfileResponse(TypedDict):
+class CreateRoutingProfileResponse(TypedDict, closed=True):
     routing_profile_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) of the routing profile.</p>"""
     routing_profile_id: NotRequired[

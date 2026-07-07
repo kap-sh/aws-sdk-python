@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessSkillGitAuth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.api_key_arn
 
 
-class HarnessSkillGitAuth(TypedDict):
+class HarnessSkillGitAuth(TypedDict, closed=True):
     credential_arn: "aws_sdk_bedrock_agentcore_control.types.api_key_arn.ApiKeyArn"
     """<p>The ARN of the credential in AgentCore Identity containing the password or personal access token.</p>"""
     username: NotRequired["str"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#AssociateIpAccessSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
 
 
-class AssociateIpAccessSettingsResponse(TypedDict):
+class AssociateIpAccessSettingsResponse(TypedDict, closed=True):
     portal_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the web portal.</p>"""
     ip_access_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN"

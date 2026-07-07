@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#KnowledgeBaseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.vector_knowledge_base_configuration
 
 
-class KnowledgeBaseConfiguration(TypedDict):
+class KnowledgeBaseConfiguration(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent.types.knowledge_base_type.KnowledgeBaseType"
     """<p>The type of data that the data source is converted into for the knowledge base.</p>"""
     vector_knowledge_base_configuration: NotRequired[

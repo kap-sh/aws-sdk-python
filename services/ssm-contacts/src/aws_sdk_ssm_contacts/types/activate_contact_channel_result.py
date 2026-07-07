@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#ActivateContactChannelResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ActivateContactChannelResult(TypedDict):
+class ActivateContactChannelResult(TypedDict, closed=True):
     pass
 
 

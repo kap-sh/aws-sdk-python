@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreatePresignedMlflowAppUrlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.expires_in_seconds
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.session_expiration_duration_in_seconds
 
 
-class CreatePresignedMlflowAppUrlRequest(TypedDict):
+class CreatePresignedMlflowAppUrlRequest(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.mlflow_app_arn.MlflowAppArn"]
     """<p>The ARN of the MLflow App to connect to your MLflow UI.</p>"""
     expires_in_seconds: NotRequired[

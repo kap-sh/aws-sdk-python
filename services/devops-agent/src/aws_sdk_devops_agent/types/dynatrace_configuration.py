@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#DynatraceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.dynatrace_resource_list
 
 
-class DynatraceConfiguration(TypedDict):
+class DynatraceConfiguration(TypedDict, closed=True):
     env_id: "str"
     """<p>Dynatrace environment id</p>"""
     resources: NotRequired[

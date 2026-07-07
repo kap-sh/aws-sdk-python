@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#IdempotencyTokenInUseException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import ServiceError
 
 
-class IdempotencyTokenInUseException_(TypedDict):
+class IdempotencyTokenInUseException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

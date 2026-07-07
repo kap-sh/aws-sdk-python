@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#GetConsolidatedReportInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.get_consolidated_report_max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.report_format
 
 
-class GetConsolidatedReportInput(TypedDict):
+class GetConsolidatedReportInput(TypedDict, closed=True):
     format: NotRequired["aws_sdk_wellarchitected.types.report_format.ReportFormat"]
     """<p>The format of the consolidated report.</p> <p>For <code>PDF</code>, <code>Base64String</code> is returned. For <code>JSON</code>, <code>Metrics</code> is returned.</p>"""
     include_shared_resources: NotRequired[

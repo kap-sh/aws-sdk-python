@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#InvalidObjectState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import ServiceError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.storage_class
 
 
-class InvalidObjectState_(TypedDict):
+class InvalidObjectState_(TypedDict, closed=True):
     storage_class: NotRequired["aws_sdk_s3.types.storage_class.StorageClass"]
     access_tier: NotRequired[
         "aws_sdk_s3.types.intelligent_tiering_access_tier.IntelligentTieringAccessTier"

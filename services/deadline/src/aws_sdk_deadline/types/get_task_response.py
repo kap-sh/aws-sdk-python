@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#GetTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.updated_by
 
 
-class GetTaskResponse(TypedDict):
+class GetTaskResponse(TypedDict, closed=True):
     task_id: "aws_sdk_deadline.types.task_id.TaskId"
     """<p>The task ID.</p>"""
     created_at: "aws_sdk_deadline.types.created_at.CreatedAt"

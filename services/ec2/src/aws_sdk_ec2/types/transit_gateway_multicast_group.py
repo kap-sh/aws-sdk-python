@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#TransitGatewayMulticastGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.transit_gateway_attachment_resource_type
 
 
-class TransitGatewayMulticastGroup(TypedDict):
+class TransitGatewayMulticastGroup(TypedDict, closed=True):
     group_ip_address: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The IP address assigned to the transit gateway multicast group.</p>"""
     transit_gateway_attachment_id: NotRequired["aws_sdk_ec2.types.string.String"]

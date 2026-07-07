@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#CreateWorkspaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amp.types.idempotency_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_alias
 
 
-class CreateWorkspaceRequest(TypedDict):
+class CreateWorkspaceRequest(TypedDict, closed=True):
     alias: NotRequired["aws_sdk_amp.types.workspace_alias.WorkspaceAlias"]
     """<p>An alias that you assign to this workspace to help you identify it. It does not need to be unique.</p> <p>Blank spaces at the beginning or end of the alias that you specify will be trimmed from the value used.</p>"""
     client_token: NotRequired["aws_sdk_amp.types.idempotency_token.IdempotencyToken"]

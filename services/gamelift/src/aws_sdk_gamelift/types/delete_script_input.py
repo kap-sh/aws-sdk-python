@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteScriptInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.script_id_or_arn
 
 
-class DeleteScriptInput(TypedDict):
+class DeleteScriptInput(TypedDict, closed=True):
     script_id: NotRequired["aws_sdk_gamelift.types.script_id_or_arn.ScriptIdOrArn"]
     """<p>A unique identifier for the Realtime script to delete. You can use either the script ID or ARN value.</p>"""
 

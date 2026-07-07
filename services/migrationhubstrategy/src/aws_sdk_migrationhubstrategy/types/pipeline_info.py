@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#PipelineInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.pipeline_type
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class PipelineInfo(TypedDict):
+class PipelineInfo(TypedDict, closed=True):
     pipeline_type: NotRequired[
         "aws_sdk_migrationhubstrategy.types.pipeline_type.PipelineType"
     ]

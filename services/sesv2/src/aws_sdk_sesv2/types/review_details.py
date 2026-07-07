@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ReviewDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.case_id
     import aws_sdk_sesv2.types.review_status
 
 
-class ReviewDetails(TypedDict):
+class ReviewDetails(TypedDict, closed=True):
     status: NotRequired["aws_sdk_sesv2.types.review_status.ReviewStatus"]
     """<p>The status of the latest review of your account. The status can be one of the following:</p> <ul> <li> <p> <code>PENDING</code> – We have received your appeal and are in the process of reviewing it.</p> </li> <li> <p> <code>GRANTED</code> – Your appeal has been reviewed and your production access has been granted.</p> </li> <li> <p> <code>DENIED</code> – Your appeal has been reviewed and your production access has been denied.</p> </li> <li> <p> <code>FAILED</code> – An internal error occurred and we didn't receive your appeal. You can submit your appeal again.</p> </li> </ul>"""
     case_id: NotRequired["aws_sdk_sesv2.types.case_id.CaseId"]

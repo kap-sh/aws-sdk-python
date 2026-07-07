@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListSchemasResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_list_definition
     import aws_sdk_glue.types.schema_registry_token_string
 
 
-class ListSchemasResponse(TypedDict):
+class ListSchemasResponse(TypedDict, closed=True):
     schemas: NotRequired[
         "aws_sdk_glue.types.schema_list_definition.SchemaListDefinition"
     ]

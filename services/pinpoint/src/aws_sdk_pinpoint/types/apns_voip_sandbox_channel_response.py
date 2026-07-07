@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#APNSVoipSandboxChannelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class APNSVoipSandboxChannelResponse(TypedDict):
+class APNSVoipSandboxChannelResponse(TypedDict, closed=True):
     application_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The unique identifier for the application that the APNs VoIP sandbox channel applies to.</p>"""
     creation_date: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

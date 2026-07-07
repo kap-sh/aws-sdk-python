@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#BatchError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.resource_arn
 
 
-class BatchError(TypedDict):
+class BatchError(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_ivs.types.resource_arn.ResourceArn"]
     """<p>ARN of an IVS resource; e.g., channel.</p>"""
     code: NotRequired["aws_sdk_ivs.types.error_code.errorCode"]

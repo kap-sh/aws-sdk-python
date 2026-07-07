@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#InstancesToExclude``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.account_id_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.instance_id_list
 
 
-class InstancesToExclude(TypedDict):
+class InstancesToExclude(TypedDict, closed=True):
     instances: NotRequired["aws_sdk_outposts.types.instance_id_list.InstanceIdList"]
     """<p>List of user-specified instances that must not be stopped.</p>"""
     account_ids: NotRequired["aws_sdk_outposts.types.account_id_list.AccountIdList"]

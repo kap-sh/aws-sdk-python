@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#GetOutpostBillingInformationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.payment_option
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.token
 
 
-class GetOutpostBillingInformationOutput(TypedDict):
+class GetOutpostBillingInformationOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_outposts.types.token.Token"]
     subscriptions: NotRequired[
         "aws_sdk_outposts.types.subscription_list.SubscriptionList"

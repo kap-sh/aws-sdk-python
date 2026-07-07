@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#FirehoseDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivschat.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.delivery_stream_name
 
 
-class FirehoseDestinationConfiguration(TypedDict):
+class FirehoseDestinationConfiguration(TypedDict, closed=True):
     delivery_stream_name: (
         "aws_sdk_ivschat.types.delivery_stream_name.DeliveryStreamName"
     )

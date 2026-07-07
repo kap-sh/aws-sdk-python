@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#DescribeAssetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__list_of_egress_endpoint
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.tags
 
 
-class DescribeAssetResponse(TypedDict):
+class DescribeAssetResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mediapackage_vod.types.__string.__string"]
     """The ARN of the Asset."""
     created_at: NotRequired["aws_sdk_mediapackage_vod.types.__string.__string"]

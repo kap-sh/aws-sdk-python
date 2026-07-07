@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ApprovalRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.approval_rule_content
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.rule_content_sha256
 
 
-class ApprovalRule(TypedDict):
+class ApprovalRule(TypedDict, closed=True):
     approval_rule_id: NotRequired[
         "aws_sdk_codecommit.types.approval_rule_id.ApprovalRuleId"
     ]

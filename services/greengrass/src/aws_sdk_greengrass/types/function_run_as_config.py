@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#FunctionRunAsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__integer
 
 
-class FunctionRunAsConfig(TypedDict):
+class FunctionRunAsConfig(TypedDict, closed=True):
     gid: NotRequired["aws_sdk_greengrass.types.__integer.__integer"]
     """The group ID whose permissions are used to run a Lambda function."""
     uid: NotRequired["aws_sdk_greengrass.types.__integer.__integer"]

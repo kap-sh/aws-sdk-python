@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#LambdaTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.deployment_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.time
 
 
-class LambdaTarget(TypedDict):
+class LambdaTarget(TypedDict, closed=True):
     deployment_id: NotRequired["aws_sdk_codedeploy.types.deployment_id.DeploymentId"]
     """<p> The unique ID of a deployment. </p>"""
     target_id: NotRequired["aws_sdk_codedeploy.types.target_id.TargetId"]

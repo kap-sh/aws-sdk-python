@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DocumentKeyValuesFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.document_key_values_filter_key
     import aws_sdk_ssm.types.document_key_values_filter_values
 
 
-class DocumentKeyValuesFilter(TypedDict):
+class DocumentKeyValuesFilter(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_ssm.types.document_key_values_filter_key.DocumentKeyValuesFilterKey"
     ]

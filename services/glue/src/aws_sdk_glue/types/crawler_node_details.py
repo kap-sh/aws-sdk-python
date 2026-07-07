@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CrawlerNodeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.crawl_list
 
 
-class CrawlerNodeDetails(TypedDict):
+class CrawlerNodeDetails(TypedDict, closed=True):
     crawls: NotRequired["aws_sdk_glue.types.crawl_list.CrawlList"]
     """<p>A list of crawls represented by the crawl node.</p>"""
 

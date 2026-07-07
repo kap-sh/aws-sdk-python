@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#FrontOfQueueDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.front_of_queue_job_summary_list
     import aws_sdk_batch.types.long
 
 
-class FrontOfQueueDetail(TypedDict):
+class FrontOfQueueDetail(TypedDict, closed=True):
     jobs: NotRequired[
         "aws_sdk_batch.types.front_of_queue_job_summary_list.FrontOfQueueJobSummaryList"
     ]

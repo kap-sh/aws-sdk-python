@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateMaintenanceWindowTargetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class UpdateMaintenanceWindowTargetRequest(TypedDict):
+class UpdateMaintenanceWindowTargetRequest(TypedDict, closed=True):
     window_id: "aws_sdk_ssm.types.maintenance_window_id.MaintenanceWindowId"
     """<p>The maintenance window ID with which to modify the target.</p>"""
     window_target_id: (

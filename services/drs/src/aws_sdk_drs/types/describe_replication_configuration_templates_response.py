@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DescribeReplicationConfigurationTemplatesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.pagination_token
     import aws_sdk_drs.types.replication_configuration_templates
 
 
-class DescribeReplicationConfigurationTemplatesResponse(TypedDict):
+class DescribeReplicationConfigurationTemplatesResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_drs.types.replication_configuration_templates.ReplicationConfigurationTemplates"
     ]

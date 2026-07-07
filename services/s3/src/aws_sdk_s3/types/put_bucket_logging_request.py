@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#PutBucketLoggingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.content_md5
 
 
-class PutBucketLoggingRequest(TypedDict):
+class PutBucketLoggingRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     """<p>The name of the bucket for which to set the logging parameters.</p>"""
     bucket_logging_status: "aws_sdk_s3.types.bucket_logging_status.BucketLoggingStatus"

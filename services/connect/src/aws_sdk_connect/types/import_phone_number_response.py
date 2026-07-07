@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ImportPhoneNumberResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.phone_number_id
 
 
-class ImportPhoneNumberResponse(TypedDict):
+class ImportPhoneNumberResponse(TypedDict, closed=True):
     phone_number_id: NotRequired["aws_sdk_connect.types.phone_number_id.PhoneNumberId"]
     """<p>A unique identifier for the phone number.</p>"""
     phone_number_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

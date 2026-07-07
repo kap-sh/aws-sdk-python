@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsGuardDutyDetectorDataSourcesS3LogsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsGuardDutyDetectorDataSourcesS3LogsDetails(TypedDict):
+class AwsGuardDutyDetectorDataSourcesS3LogsDetails(TypedDict, closed=True):
     status: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> A value that describes whether S3 data event logs are automatically enabled for new members of an organization. </p>"""
 

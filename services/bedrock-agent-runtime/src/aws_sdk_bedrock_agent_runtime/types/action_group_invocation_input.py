@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ActionGroupInvocationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.action_group_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.verb
 
 
-class ActionGroupInvocationInput(TypedDict):
+class ActionGroupInvocationInput(TypedDict, closed=True):
     action_group_name: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.action_group_name.ActionGroupName"
     ]

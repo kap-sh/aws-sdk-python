@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#ListDetectorModelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.max_results
     import aws_sdk_iot_events.types.next_token
 
 
-class ListDetectorModelsRequest(TypedDict):
+class ListDetectorModelsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_iot_events.types.next_token.NextToken"]
     """<p>The token that you can use to return the next set of results.</p>"""
     max_results: NotRequired["aws_sdk_iot_events.types.max_results.MaxResults"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#CreateConnectionBasicAuthRequestParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.auth_header_parameters_sensitive
 
 
-class CreateConnectionBasicAuthRequestParameters(TypedDict):
+class CreateConnectionBasicAuthRequestParameters(TypedDict, closed=True):
     username: "aws_sdk_eventbridge.types.auth_header_parameters.AuthHeaderParameters"
     """<p>The user name to use for Basic authorization.</p>"""
     password: "aws_sdk_eventbridge.types.auth_header_parameters_sensitive.AuthHeaderParametersSensitive"

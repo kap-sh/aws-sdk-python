@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError, ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.conflict_exception_reason
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     """<p>A message describing the problem.</p>"""
     reason: NotRequired[

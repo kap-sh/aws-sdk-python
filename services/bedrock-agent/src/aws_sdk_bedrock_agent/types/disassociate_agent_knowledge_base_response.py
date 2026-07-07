@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#DisassociateAgentKnowledgeBaseResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateAgentKnowledgeBaseResponse(TypedDict):
+class DisassociateAgentKnowledgeBaseResponse(TypedDict, closed=True):
     pass
 
 

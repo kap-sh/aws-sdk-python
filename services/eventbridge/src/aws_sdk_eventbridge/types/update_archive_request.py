@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#UpdateArchiveRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.retention_days
 
 
-class UpdateArchiveRequest(TypedDict):
+class UpdateArchiveRequest(TypedDict, closed=True):
     archive_name: "aws_sdk_eventbridge.types.archive_name.ArchiveName"
     """<p>The name of the archive to update.</p>"""
     description: NotRequired[

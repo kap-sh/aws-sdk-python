@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.acm#CustomAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.string
 
 
-class CustomAttribute(TypedDict):
+class CustomAttribute(TypedDict, closed=True):
     object_identifier: NotRequired["aws_sdk_acm.types.string.String"]
     """<p>Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).</p>"""
     value: NotRequired["aws_sdk_acm.types.string.String"]

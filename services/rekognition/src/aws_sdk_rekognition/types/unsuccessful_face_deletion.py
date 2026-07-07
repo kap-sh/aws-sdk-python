@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#UnsuccessfulFaceDeletion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.face_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.user_id
 
 
-class UnsuccessfulFaceDeletion(TypedDict):
+class UnsuccessfulFaceDeletion(TypedDict, closed=True):
     face_id: NotRequired["aws_sdk_rekognition.types.face_id.FaceId"]
     """<p> A unique identifier assigned to the face.</p>"""
     user_id: NotRequired["aws_sdk_rekognition.types.user_id.UserId"]

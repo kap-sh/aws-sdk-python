@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#DeregisterOrganizationDelegatedAdminRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.account_id
 
 
-class DeregisterOrganizationDelegatedAdminRequest(TypedDict):
+class DeregisterOrganizationDelegatedAdminRequest(TypedDict, closed=True):
     delegated_admin_account_id: "aws_sdk_cloudtrail.types.account_id.AccountId"
     """<p>A delegated administrator account ID. This is a member account in an organization that is currently designated as a delegated administrator.</p>"""
 

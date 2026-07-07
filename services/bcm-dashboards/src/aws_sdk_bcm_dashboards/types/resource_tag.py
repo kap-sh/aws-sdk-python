@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#ResourceTag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.resource_tag_value
 
 
-class ResourceTag(TypedDict):
+class ResourceTag(TypedDict, closed=True):
     key: "aws_sdk_bcm_dashboards.types.resource_tag_key.ResourceTagKey"
     """<p>The key of the tag to be attached to the dashboard resource.</p>"""
     value: "aws_sdk_bcm_dashboards.types.resource_tag_value.ResourceTagValue"

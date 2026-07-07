@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#InferenceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.text_inference_config
 
 
-class InferenceConfig(TypedDict):
+class InferenceConfig(TypedDict, closed=True):
     text_inference_config: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.text_inference_config.TextInferenceConfig"
     ]

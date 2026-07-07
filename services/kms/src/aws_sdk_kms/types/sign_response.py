@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#SignResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.ciphertext_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.signing_algorithm_spec
 
 
-class SignResponse(TypedDict):
+class SignResponse(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
     r"""<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">key ARN</a>) of the asymmetric KMS key that was used to sign the message.</p>"""
     signature: NotRequired["aws_sdk_kms.types.ciphertext_type.CiphertextType"]

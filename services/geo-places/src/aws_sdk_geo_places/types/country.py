@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#Country``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.country_code2
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class Country(TypedDict):
+class Country(TypedDict, closed=True):
     code2: NotRequired["aws_sdk_geo_places.types.country_code2.CountryCode2"]
     """<p>Country, represented by its alpha 2-character code. </p>"""
     code3: NotRequired["aws_sdk_geo_places.types.country_code3.CountryCode3"]

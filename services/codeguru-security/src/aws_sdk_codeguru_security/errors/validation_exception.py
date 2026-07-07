@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguru_security.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.validation_exception_reason
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     error_code: "str"
     """<p>The identifier for the error.</p>"""
     message: "str"

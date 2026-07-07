@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ScheduleActivityTaskDecisionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.task_priority
 
 
-class ScheduleActivityTaskDecisionAttributes(TypedDict):
+class ScheduleActivityTaskDecisionAttributes(TypedDict, closed=True):
     activity_type: "aws_sdk_swf.types.activity_type.ActivityType"
     """<p> The type of the activity task to schedule.</p>"""
     activity_id: "aws_sdk_swf.types.activity_id.ActivityId"

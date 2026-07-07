@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#UpdateIntegratedResourcesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.integration_id
 
 
-class UpdateIntegratedResourcesInput(TypedDict):
+class UpdateIntegratedResourcesInput(TypedDict, closed=True):
     agent_space_id: "aws_sdk_securityagent.types.agent_space_id.AgentSpaceId"
     """<p>The unique identifier of the agent space.</p>"""
     integration_id: "aws_sdk_securityagent.types.integration_id.IntegrationId"

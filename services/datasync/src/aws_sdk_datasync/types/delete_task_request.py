@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#DeleteTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.task_arn
 
 
-class DeleteTaskRequest(TypedDict):
+class DeleteTaskRequest(TypedDict, closed=True):
     task_arn: "aws_sdk_datasync.types.task_arn.TaskArn"
     """<p>Specifies the Amazon Resource Name (ARN) of the task that you want to delete.</p>"""
 

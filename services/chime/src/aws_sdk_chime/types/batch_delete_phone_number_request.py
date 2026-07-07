@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#BatchDeletePhoneNumberRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.non_empty_string_list
 
 
-class BatchDeletePhoneNumberRequest(TypedDict):
+class BatchDeletePhoneNumberRequest(TypedDict, closed=True):
     phone_number_ids: "aws_sdk_chime.types.non_empty_string_list.NonEmptyStringList"
     """<p>List of phone number IDs.</p>"""
 

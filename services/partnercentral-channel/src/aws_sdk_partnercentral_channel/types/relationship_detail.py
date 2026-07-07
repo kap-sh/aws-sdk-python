@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#RelationshipDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.account_id
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.sector
 
 
-class RelationshipDetail(TypedDict):
+class RelationshipDetail(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_partnercentral_channel.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the relationship.</p>"""
     id: NotRequired[

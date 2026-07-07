@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ImageConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.image_config
     import aws_sdk_lambda.types.image_config_error
 
 
-class ImageConfigResponse(TypedDict):
+class ImageConfigResponse(TypedDict, closed=True):
     image_config: NotRequired["aws_sdk_lambda.types.image_config.ImageConfig"]
     """<p>Configuration values that override the container image Dockerfile.</p>"""
     error: NotRequired["aws_sdk_lambda.types.image_config_error.ImageConfigError"]

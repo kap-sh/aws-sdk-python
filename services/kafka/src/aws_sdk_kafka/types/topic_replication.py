@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#TopicReplication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.replication_topic_name_configuration
 
 
-class TopicReplication(TypedDict):
+class TopicReplication(TypedDict, closed=True):
     copy_access_control_lists_for_topics: NotRequired[
         "aws_sdk_kafka.types.__boolean.__boolean"
     ]

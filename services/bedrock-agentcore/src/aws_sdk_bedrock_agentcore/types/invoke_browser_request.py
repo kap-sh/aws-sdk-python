@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#InvokeBrowserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.browser_session_id
 
 
-class InvokeBrowserRequest(TypedDict):
+class InvokeBrowserRequest(TypedDict, closed=True):
     browser_identifier: "str"
     """<p>The unique identifier of the browser associated with the session. This must match the identifier used when creating the session with <code>StartBrowserSession</code>.</p>"""
     session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId"

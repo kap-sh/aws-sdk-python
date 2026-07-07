@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#StartCanaryDryRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.artifact_config_input
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.vpc_config_input
 
 
-class StartCanaryDryRunRequest(TypedDict):
+class StartCanaryDryRunRequest(TypedDict, closed=True):
     name: "aws_sdk_synthetics.types.canary_name.CanaryName"
     r"""<p>The name of the canary that you want to dry run. To find canary names, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.</p>"""
     code: NotRequired["aws_sdk_synthetics.types.canary_code_input.CanaryCodeInput"]

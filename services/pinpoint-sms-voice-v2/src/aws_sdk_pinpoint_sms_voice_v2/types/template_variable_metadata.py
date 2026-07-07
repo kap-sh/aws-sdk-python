@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#TemplateVariableMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.template_variable_type
 
 
-class TemplateVariableMetadata(TypedDict):
+class TemplateVariableMetadata(TypedDict, closed=True):
     type: "aws_sdk_pinpoint_sms_voice_v2.types.template_variable_type.TemplateVariableType"
     """<p>The type of the variable.</p>"""
     required: "bool"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LifecycleExecutionSnapshotResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.lifecycle_execution_resource_state
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class LifecycleExecutionSnapshotResource(TypedDict):
+class LifecycleExecutionSnapshotResource(TypedDict, closed=True):
     snapshot_id: NotRequired[
         "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
     ]

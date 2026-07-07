@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#Delete``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.quiet
 
 
-class Delete(TypedDict):
+class Delete(TypedDict, closed=True):
     objects: "aws_sdk_s3.types.object_identifier_list.ObjectIdentifierList"
     """<p>The object to delete.</p> <note> <p> <b>Directory buckets</b> - For directory buckets, an object that's composed entirely of whitespace characters is not supported by the <code>DeleteObjects</code> API operation. The request will receive a <code>400 Bad Request</code> error and none of the objects in the request will be deleted.</p> </note>"""
     quiet: NotRequired["aws_sdk_s3.types.quiet.Quiet"]

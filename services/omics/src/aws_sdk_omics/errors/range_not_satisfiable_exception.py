@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.omics#RangeNotSatisfiableException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError, ServiceError
 
 
-class RangeNotSatisfiableException_(TypedDict):
+class RangeNotSatisfiableException_(TypedDict, closed=True):
     message: "str"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ComputationModelStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.error_details
 
 
-class ComputationModelStatus(TypedDict):
+class ComputationModelStatus(TypedDict, closed=True):
     state: "aws_sdk_iotsitewise.types.computation_model_state.ComputationModelState"
     """<p>The current state of the computation model.</p>"""
     error: NotRequired["aws_sdk_iotsitewise.types.error_details.ErrorDetails"]

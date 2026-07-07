@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#UpdateCapacityProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.update_managed_instances_provider_configuration
 
 
-class UpdateCapacityProviderRequest(TypedDict):
+class UpdateCapacityProviderRequest(TypedDict, closed=True):
     name: "aws_sdk_ecs.types.string.String"
     """<p>The name of the capacity provider to update.</p>"""
     cluster: NotRequired["aws_sdk_ecs.types.string.String"]

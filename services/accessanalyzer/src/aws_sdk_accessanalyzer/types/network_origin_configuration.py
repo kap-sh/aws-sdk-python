@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#NetworkOriginConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.vpc_configuration
 
 
-class _NetworkOriginConfiguration_vpcConfiguration(TypedDict):
+class _NetworkOriginConfiguration_vpcConfiguration(TypedDict, closed=True):
     vpcConfiguration: "aws_sdk_accessanalyzer.types.vpc_configuration.VpcConfiguration"
 
 
-class _NetworkOriginConfiguration_internetConfiguration(TypedDict):
+class _NetworkOriginConfiguration_internetConfiguration(TypedDict, closed=True):
     internetConfiguration: (
         "aws_sdk_accessanalyzer.types.internet_configuration.InternetConfiguration"
     )

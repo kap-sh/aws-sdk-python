@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#OriginDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__string
 
 
-class OriginDetails(TypedDict):
+class OriginDetails(TypedDict, closed=True):
     product_id: NotRequired["aws_sdk_dataexchange.types.__string.__string"]
     """<p>The product ID of the origin of the data set.</p>"""
     data_grant_id: NotRequired["aws_sdk_dataexchange.types.__string.__string"]

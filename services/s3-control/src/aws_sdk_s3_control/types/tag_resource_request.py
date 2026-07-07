@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.tag_list
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     account_id: "aws_sdk_s3_control.types.account_id.AccountId"
     """<p> The Amazon Web Services account ID that created the S3 resource that you're trying to add tags to or the requester's account ID. </p>"""
     resource_arn: "aws_sdk_s3_control.types.s3_resource_arn.S3ResourceArn"

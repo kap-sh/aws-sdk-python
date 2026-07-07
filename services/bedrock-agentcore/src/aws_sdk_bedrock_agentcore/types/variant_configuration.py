@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#VariantConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.configuration_bundle_ref
     import aws_sdk_bedrock_agentcore.types.target_ref
 
 
-class VariantConfiguration(TypedDict):
+class VariantConfiguration(TypedDict, closed=True):
     configuration_bundle: NotRequired[
         "aws_sdk_bedrock_agentcore.types.configuration_bundle_ref.ConfigurationBundleRef"
     ]

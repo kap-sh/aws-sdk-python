@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#SimulationAppPortMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.port_number
 
 
-class SimulationAppPortMapping(TypedDict):
+class SimulationAppPortMapping(TypedDict, closed=True):
     declared: NotRequired["aws_sdk_simspaceweaver.types.port_number.PortNumber"]
     """<p>The TCP/UDP port number of the app, declared in the simulation schema. SimSpace Weaver maps the <code>Declared</code> port to the <code>Actual</code> port. The source code for the app should bind to the <code>Declared</code> port.</p>"""
     actual: NotRequired["aws_sdk_simspaceweaver.types.port_number.PortNumber"]

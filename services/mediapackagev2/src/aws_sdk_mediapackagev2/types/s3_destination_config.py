@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#S3DestinationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.s3_destination_path
 
 
-class S3DestinationConfig(TypedDict):
+class S3DestinationConfig(TypedDict, closed=True):
     bucket_name: "aws_sdk_mediapackagev2.types.s3_bucket_name.S3BucketName"
     """<p>The name of an S3 bucket within which harvested content will be exported.</p>"""
     destination_path: (

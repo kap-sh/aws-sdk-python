@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#VolumeiSCSIAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.boolean2
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.target_arn
 
 
-class VolumeiSCSIAttributes(TypedDict):
+class VolumeiSCSIAttributes(TypedDict, closed=True):
     target_arn: NotRequired["aws_sdk_storage_gateway.types.target_arn.TargetARN"]
     """<p>The Amazon Resource Name (ARN) of the volume target.</p>"""
     network_interface_id: NotRequired[

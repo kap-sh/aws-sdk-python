@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#MeasureField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.calculated_measure_field
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.numerical_measure_field
 
 
-class MeasureField(TypedDict):
+class MeasureField(TypedDict, closed=True):
     numerical_measure_field: NotRequired[
         "aws_sdk_quicksight.types.numerical_measure_field.NumericalMeasureField"
     ]

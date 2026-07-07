@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#VpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.subnets
 
 
-class VpcConfig(TypedDict):
+class VpcConfig(TypedDict, closed=True):
     security_group_ids: "aws_sdk_comprehend.types.security_group_ids.SecurityGroupIds"
     r"""<p>The ID number for a security group on an instance of your private VPC. Security groups on your VPC function serve as a virtual firewall to control inbound and outbound traffic and provides security for the resources that you’ll be accessing on the VPC. This ID number is preceded by \"sg-\", for instance: \"sg-03b388029b0a285ea\". For more information, see <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html\">Security Groups for your VPC</a>. </p>"""
     subnets: "aws_sdk_comprehend.types.subnets.Subnets"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#MetricStat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.stat
 
 
-class MetricStat(TypedDict):
+class MetricStat(TypedDict, closed=True):
     metric: "aws_sdk_application_signals.types.metric.Metric"
     """<p>The metric to use as the service level indicator, including the metric name, namespace, and dimensions.</p>"""
     period: "aws_sdk_application_signals.types.period.Period"

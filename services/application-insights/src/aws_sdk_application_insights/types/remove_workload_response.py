@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#RemoveWorkloadResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveWorkloadResponse(TypedDict):
+class RemoveWorkloadResponse(TypedDict, closed=True):
     pass
 
 

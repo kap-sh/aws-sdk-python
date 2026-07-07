@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#DeleteEnforcedGuardrailConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteEnforcedGuardrailConfigurationResponse(TypedDict):
+class DeleteEnforcedGuardrailConfigurationResponse(TypedDict, closed=True):
     pass
 
 

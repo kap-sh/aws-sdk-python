@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TuningJobCompletionCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.best_objective_not_improving
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.target_objective_metric_value
 
 
-class TuningJobCompletionCriteria(TypedDict):
+class TuningJobCompletionCriteria(TypedDict, closed=True):
     target_objective_metric_value: NotRequired[
         "aws_sdk_sagemaker.types.target_objective_metric_value.TargetObjectiveMetricValue"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AuthInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.resources
 
 
-class AuthInfo(TypedDict):
+class AuthInfo(TypedDict, closed=True):
     action_type: NotRequired["aws_sdk_iot.types.action_type.ActionType"]
     """<p>The type of action for which the principal is being authorized.</p>"""
     resources: "aws_sdk_iot.types.resources.Resources"

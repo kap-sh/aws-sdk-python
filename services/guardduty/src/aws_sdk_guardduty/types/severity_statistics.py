@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#SeverityStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.double
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.timestamp
 
 
-class SeverityStatistics(TypedDict):
+class SeverityStatistics(TypedDict, closed=True):
     last_generated_at: NotRequired["aws_sdk_guardduty.types.timestamp.Timestamp"]
     """<p>The timestamp at which a finding type for a specific severity was last generated.</p>"""
     severity: NotRequired["aws_sdk_guardduty.types.double.Double"]

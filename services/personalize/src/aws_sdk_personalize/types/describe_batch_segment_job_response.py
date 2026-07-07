@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DescribeBatchSegmentJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.batch_segment_job
 
 
-class DescribeBatchSegmentJobResponse(TypedDict):
+class DescribeBatchSegmentJobResponse(TypedDict, closed=True):
     batch_segment_job: NotRequired[
         "aws_sdk_personalize.types.batch_segment_job.BatchSegmentJob"
     ]

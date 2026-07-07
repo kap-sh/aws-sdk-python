@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#PutResourceSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.tag_list
 
 
-class PutResourceSetRequest(TypedDict):
+class PutResourceSetRequest(TypedDict, closed=True):
     resource_set: "aws_sdk_fms.types.resource_set.ResourceSet"
     """<p>Details about the resource set to be created or updated.></p>"""
     tag_list: NotRequired["aws_sdk_fms.types.tag_list.TagList"]

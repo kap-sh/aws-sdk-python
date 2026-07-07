@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#CreateOpenIDConnectProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.thumbprint_list_type
 
 
-class CreateOpenIDConnectProviderRequest(TypedDict):
+class CreateOpenIDConnectProviderRequest(TypedDict, closed=True):
     url: "aws_sdk_iam.types.open_id_connect_provider_url_type.OpenIDConnectProviderUrlType"
     """<p>The URL of the identity provider. The URL must begin with <code>https://</code> and should correspond to the <code>iss</code> claim in the provider's OpenID Connect ID tokens. Per the OIDC standard, path components are allowed but query parameters are not. Typically the URL consists of only a hostname, like <code>https://server.example.org</code> or <code>https://example.com</code>. The URL should not contain a port number. </p> <p>You cannot register the same provider multiple times in a single Amazon Web Services account. If you try to submit a URL that has already been used for an OpenID Connect provider in the Amazon Web Services account, you will get an error.</p>"""
     client_id_list: NotRequired[

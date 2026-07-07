@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#UpdateScheduledReportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.widget_id_list
 
 
-class UpdateScheduledReportRequest(TypedDict):
+class UpdateScheduledReportRequest(TypedDict, closed=True):
     arn: "aws_sdk_bcm_dashboards.types.scheduled_report_arn.ScheduledReportArn"
     """<p>The ARN of the scheduled report to update.</p>"""
     name: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ContactFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.channel_list
     import aws_sdk_connectcases.types.contact_arn
 
 
-class ContactFilter(TypedDict):
+class ContactFilter(TypedDict, closed=True):
     channel: NotRequired["aws_sdk_connectcases.types.channel_list.ChannelList"]
     """<p>A list of channels to filter on for related items of type <code>Contact</code>.</p>"""
     contact_arn: NotRequired["aws_sdk_connectcases.types.contact_arn.ContactArn"]

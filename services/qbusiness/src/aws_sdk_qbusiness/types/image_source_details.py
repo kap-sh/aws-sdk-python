@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ImageSourceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.media_id
     import aws_sdk_qbusiness.types.string
 
 
-class ImageSourceDetails(TypedDict):
+class ImageSourceDetails(TypedDict, closed=True):
     media_id: NotRequired["aws_sdk_qbusiness.types.media_id.MediaId"]
     """<p>Unique identifier for the image file.</p>"""
     media_mime_type: NotRequired["aws_sdk_qbusiness.types.string.String"]

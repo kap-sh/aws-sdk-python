@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#CreateServiceSpecificCredentialRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class CreateServiceSpecificCredentialRequest(TypedDict):
+class CreateServiceSpecificCredentialRequest(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.user_name_type.userNameType"
     r"""<p>The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     service_name: "aws_sdk_iam.types.service_name.serviceName"

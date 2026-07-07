@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#ListBillingViewsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billing.types.account_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.string_searches
 
 
-class ListBillingViewsRequest(TypedDict):
+class ListBillingViewsRequest(TypedDict, closed=True):
     active_time_range: NotRequired[
         "aws_sdk_billing.types.active_time_range.ActiveTimeRange"
     ]

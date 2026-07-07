@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#UpdateKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.timestamp
 
 
-class UpdateKeyResponse(TypedDict):
+class UpdateKeyResponse(TypedDict, closed=True):
     key_arn: "aws_sdk_location.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all Amazon Web Services.</p> <ul> <li> <p>Format example: <code>arn:aws:geo:region:account-id:key/ExampleKey</code> </p> </li> </ul>"""
     key_name: "aws_sdk_location.types.resource_name.ResourceName"

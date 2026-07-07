@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ExecutionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.error_info
     import aws_sdk_appflow.types.long
 
 
-class ExecutionResult(TypedDict):
+class ExecutionResult(TypedDict, closed=True):
     error_info: NotRequired["aws_sdk_appflow.types.error_info.ErrorInfo"]
     """<p> Provides any error message information related to the flow run. </p>"""
     bytes_processed: NotRequired["aws_sdk_appflow.types.long.Long"]

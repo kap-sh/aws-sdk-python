@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#S3Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.s3_uri
 
 
-class S3Configuration(TypedDict):
+class S3Configuration(TypedDict, closed=True):
     s3_uri: "aws_sdk_healthlake.types.s3_uri.S3Uri"
     """<p>The <code>S3Uri</code> is the user-specified S3 location of the FHIR data to be imported into AWS HealthLake.</p>"""
     kms_key_id: "aws_sdk_healthlake.types.encryption_key_id.EncryptionKeyID"

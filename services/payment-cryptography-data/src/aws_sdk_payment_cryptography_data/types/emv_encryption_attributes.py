@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#EmvEncryptionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.session_derivation_data_type
 
 
-class EmvEncryptionAttributes(TypedDict):
+class EmvEncryptionAttributes(TypedDict, closed=True):
     major_key_derivation_mode: "aws_sdk_payment_cryptography_data.types.emv_major_key_derivation_mode.EmvMajorKeyDerivationMode"
     """<p>The EMV derivation mode to use for ICC master key derivation as per EMV version 4.3 book 2.</p>"""
     primary_account_number: "aws_sdk_payment_cryptography_data.types.primary_account_number_type.PrimaryAccountNumberType"

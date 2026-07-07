@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FormStyleConfig``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError, SerializationError
 
 
-class _FormStyleConfig_tokenReference(TypedDict):
+class _FormStyleConfig_tokenReference(TypedDict, closed=True):
     tokenReference: "str"
 
 
-class _FormStyleConfig_value(TypedDict):
+class _FormStyleConfig_value(TypedDict, closed=True):
     value: "str"
 
 

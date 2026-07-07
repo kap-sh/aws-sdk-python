@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LakeFormationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.role_arn
     import aws_sdk_datazone.types.s3_location_list
 
 
-class LakeFormationConfiguration(TypedDict):
+class LakeFormationConfiguration(TypedDict, closed=True):
     location_registration_role: NotRequired["aws_sdk_datazone.types.role_arn.RoleArn"]
     """<p>The role that is used to manage read/write access to the chosen Amazon S3 bucket(s) for Data Lake using Amazon Web Services Lake Formation hybrid access mode.</p>"""
     location_registration_exclude_s3_locations: NotRequired[

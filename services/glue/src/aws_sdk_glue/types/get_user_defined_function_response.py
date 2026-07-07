@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetUserDefinedFunctionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.user_defined_function
 
 
-class GetUserDefinedFunctionResponse(TypedDict):
+class GetUserDefinedFunctionResponse(TypedDict, closed=True):
     user_defined_function: NotRequired[
         "aws_sdk_glue.types.user_defined_function.UserDefinedFunction"
     ]

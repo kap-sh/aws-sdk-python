@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#OpenIdIdpCommunicationErrorException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import ServiceError
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.open_id_idp_communication_error_exception_message
 
 
-class OpenIdIdpCommunicationErrorException_(TypedDict):
+class OpenIdIdpCommunicationErrorException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_iam.types.open_id_idp_communication_error_exception_message.openIdIdpCommunicationErrorExceptionMessage"
     ]

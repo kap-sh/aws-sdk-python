@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BuildArtifacts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.bucket_owner_access
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_boolean
 
 
-class BuildArtifacts(TypedDict):
+class BuildArtifacts(TypedDict, closed=True):
     location: NotRequired["aws_sdk_codebuild.types.string.String"]
     """<p>Information about the location of the build artifacts.</p>"""
     sha256sum: NotRequired["aws_sdk_codebuild.types.string.String"]

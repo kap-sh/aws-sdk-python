@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#UpdateAdapterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.adapter_description
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.feature_types
 
 
-class UpdateAdapterResponse(TypedDict):
+class UpdateAdapterResponse(TypedDict, closed=True):
     adapter_id: NotRequired["aws_sdk_textract.types.adapter_id.AdapterId"]
     """<p>A string containing a unique ID for the adapter that has been updated.</p>"""
     adapter_name: NotRequired["aws_sdk_textract.types.adapter_name.AdapterName"]

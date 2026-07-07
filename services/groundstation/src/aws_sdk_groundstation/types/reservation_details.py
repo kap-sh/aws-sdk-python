@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ReservationDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.maintenance_reservation_details
 
 
-class _ReservationDetails_maintenance(TypedDict):
+class _ReservationDetails_maintenance(TypedDict, closed=True):
     maintenance: "aws_sdk_groundstation.types.maintenance_reservation_details.MaintenanceReservationDetails"
 
 
-class _ReservationDetails_contact(TypedDict):
+class _ReservationDetails_contact(TypedDict, closed=True):
     contact: "aws_sdk_groundstation.types.contact_reservation_details.ContactReservationDetails"
 
 

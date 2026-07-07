@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#EnabledControlParameter``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
 
-class EnabledControlParameter(TypedDict):
+class EnabledControlParameter(TypedDict, closed=True):
     key: "str"
     """<p>The key of a key/value pair.</p>"""
     value: "object"

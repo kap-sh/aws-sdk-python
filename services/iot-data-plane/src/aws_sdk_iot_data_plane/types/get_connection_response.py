@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#GetConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.clean_session
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.vpc_endpoint_id
 
 
-class GetConnectionResponse(TypedDict):
+class GetConnectionResponse(TypedDict, closed=True):
     connected: "aws_sdk_iot_data_plane.types.connected.Connected"
     """<p>The connection state of the client. Returns <code>true</code> if the client is currently connected, or <code>false</code> if the client is not connected.</p>"""
     thing_name: NotRequired["aws_sdk_iot_data_plane.types.thing_name.ThingName"]

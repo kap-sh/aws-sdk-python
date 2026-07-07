@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#GetUploadStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotthingsgraph.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.upload_id
 
 
-class GetUploadStatusRequest(TypedDict):
+class GetUploadStatusRequest(TypedDict, closed=True):
     upload_id: "aws_sdk_iotthingsgraph.types.upload_id.UploadId"
     """<p>The ID of the upload. This value is returned by the <code>UploadEntityDefinitions</code> action.</p>"""
 

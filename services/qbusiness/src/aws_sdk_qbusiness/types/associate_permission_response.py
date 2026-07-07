@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AssociatePermissionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.string
 
 
-class AssociatePermissionResponse(TypedDict):
+class AssociatePermissionResponse(TypedDict, closed=True):
     statement: NotRequired["aws_sdk_qbusiness.types.string.String"]
     """<p>The JSON representation of the added permission statement.</p>"""
 

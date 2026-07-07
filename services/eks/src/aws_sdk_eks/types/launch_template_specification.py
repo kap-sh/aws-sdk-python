@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#LaunchTemplateSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class LaunchTemplateSpecification(TypedDict):
+class LaunchTemplateSpecification(TypedDict, closed=True):
     name: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The name of the launch template.</p> <p>You must specify either the launch template name or the launch template ID in the request, but not both. After node group creation, you cannot use a different name.</p>"""
     version: NotRequired["aws_sdk_eks.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ListChatsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.agent_space_id
     import aws_sdk_devops_agent.types.resource_id
 
 
-class ListChatsRequest(TypedDict):
+class ListChatsRequest(TypedDict, closed=True):
     agent_space_id: "aws_sdk_devops_agent.types.agent_space_id.AgentSpaceId"
     user_id: NotRequired["aws_sdk_devops_agent.types.resource_id.ResourceId"]
     """<p>The user identifier to list chats for. This field is deprecated and will be ignored — the service resolves user identity from the authenticated session.</p>"""

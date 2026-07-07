@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#UpdateIntegrationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.client_request_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_id
 
 
-class UpdateIntegrationInput(TypedDict):
+class UpdateIntegrationInput(TypedDict, closed=True):
     workload_id: "aws_sdk_wellarchitected.types.workload_id.WorkloadId"
     client_request_token: NotRequired[
         "aws_sdk_wellarchitected.types.client_request_token.ClientRequestToken"

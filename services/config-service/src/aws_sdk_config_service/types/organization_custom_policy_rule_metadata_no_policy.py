@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#OrganizationCustomPolicyRuleMetadataNoPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.debug_log_delivery_accounts
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string_with_char_limit1024
 
 
-class OrganizationCustomPolicyRuleMetadataNoPolicy(TypedDict):
+class OrganizationCustomPolicyRuleMetadataNoPolicy(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_config_service.types.string_with_char_limit256_min0.StringWithCharLimit256Min0"
     ]

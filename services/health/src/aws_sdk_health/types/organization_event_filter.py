@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#OrganizationEventFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.aws_account_ids_list
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.service_list
 
 
-class OrganizationEventFilter(TypedDict):
+class OrganizationEventFilter(TypedDict, closed=True):
     actionabilities: NotRequired[
         "aws_sdk_health.types.event_actionability_list.EventActionabilityList"
     ]

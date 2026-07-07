@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#LiveConnectorSinkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.live_connector_sink_type
 
 
-class LiveConnectorSinkConfiguration(TypedDict):
+class LiveConnectorSinkConfiguration(TypedDict, closed=True):
     sink_type: "aws_sdk_chime_sdk_media_pipelines.types.live_connector_sink_type.LiveConnectorSinkType"
     """<p>The sink configuration's sink type.</p>"""
     rtmp_configuration: "aws_sdk_chime_sdk_media_pipelines.types.live_connector_rtmp_configuration.LiveConnectorRTMPConfiguration"

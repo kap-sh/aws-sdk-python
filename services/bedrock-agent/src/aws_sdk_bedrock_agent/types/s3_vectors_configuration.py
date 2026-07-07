@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#S3VectorsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.index_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.vector_bucket_arn
 
 
-class S3VectorsConfiguration(TypedDict):
+class S3VectorsConfiguration(TypedDict, closed=True):
     vector_bucket_arn: NotRequired[
         "aws_sdk_bedrock_agent.types.vector_bucket_arn.VectorBucketArn"
     ]

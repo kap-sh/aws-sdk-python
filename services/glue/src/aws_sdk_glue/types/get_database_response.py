@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetDatabaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.database
 
 
-class GetDatabaseResponse(TypedDict):
+class GetDatabaseResponse(TypedDict, closed=True):
     database: NotRequired["aws_sdk_glue.types.database.Database"]
     """<p>The definition of the specified database in the Data Catalog.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#SalesforceAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.salesforce_token
 
 
-class SalesforceAction(TypedDict):
+class SalesforceAction(TypedDict, closed=True):
     token: "aws_sdk_iot.types.salesforce_token.SalesforceToken"
     """<p>The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.</p>"""
     url: "aws_sdk_iot.types.salesforce_endpoint.SalesforceEndpoint"

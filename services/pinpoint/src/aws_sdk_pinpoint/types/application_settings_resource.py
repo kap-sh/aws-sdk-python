@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#ApplicationSettingsResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.quiet_time
 
 
-class ApplicationSettingsResource(TypedDict):
+class ApplicationSettingsResource(TypedDict, closed=True):
     application_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>"""
     campaign_hook: NotRequired["aws_sdk_pinpoint.types.campaign_hook.CampaignHook"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#GroupingAttributeDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.grouping_string
 
 
-class GroupingAttributeDefinition(TypedDict):
+class GroupingAttributeDefinition(TypedDict, closed=True):
     grouping_name: "aws_sdk_application_signals.types.grouping_string.GroupingString"
     """<p>The friendly name for this grouping attribute, such as <code>BusinessUnit</code> or <code>Environment</code>. This name is used to identify the grouping in the console and APIs.</p>"""
     grouping_source_keys: NotRequired[

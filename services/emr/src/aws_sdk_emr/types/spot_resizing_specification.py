@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#SpotResizingSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.spot_provisioning_allocation_strategy
     import aws_sdk_emr.types.whole_number
 
 
-class SpotResizingSpecification(TypedDict):
+class SpotResizingSpecification(TypedDict, closed=True):
     timeout_duration_minutes: NotRequired["aws_sdk_emr.types.whole_number.WholeNumber"]
     """<p>Spot resize timeout in minutes. If Spot Instances are not provisioned within this time, the resize workflow will stop provisioning of Spot instances. Minimum value is 5 minutes and maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>"""
     allocation_strategy: NotRequired[

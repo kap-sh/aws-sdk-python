@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#GetMediaCapturePipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.guid_string
 
 
-class GetMediaCapturePipelineRequest(TypedDict):
+class GetMediaCapturePipelineRequest(TypedDict, closed=True):
     media_pipeline_id: "aws_sdk_chime_sdk_media_pipelines.types.guid_string.GuidString"
     """<p>The ID of the pipeline that you want to get.</p>"""
 

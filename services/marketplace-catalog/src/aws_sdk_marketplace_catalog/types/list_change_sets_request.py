@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#ListChangeSetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_catalog.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.sort
 
 
-class ListChangeSetsRequest(TypedDict):
+class ListChangeSetsRequest(TypedDict, closed=True):
     catalog: "aws_sdk_marketplace_catalog.types.catalog.Catalog"
     """<p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code> </p>"""
     filter_list: NotRequired["aws_sdk_marketplace_catalog.types.filter_list.FilterList"]

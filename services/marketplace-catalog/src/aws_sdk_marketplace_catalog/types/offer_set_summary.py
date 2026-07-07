@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#OfferSetSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.date_time_iso8601
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.offer_set_state_string
 
 
-class OfferSetSummary(TypedDict):
+class OfferSetSummary(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_marketplace_catalog.types.offer_set_name_string.OfferSetNameString"
     ]

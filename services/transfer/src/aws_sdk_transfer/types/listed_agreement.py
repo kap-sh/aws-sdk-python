@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListedAgreement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.agreement_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.server_id
 
 
-class ListedAgreement(TypedDict):
+class ListedAgreement(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_transfer.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the specified agreement.</p>"""
     agreement_id: NotRequired["aws_sdk_transfer.types.agreement_id.AgreementId"]

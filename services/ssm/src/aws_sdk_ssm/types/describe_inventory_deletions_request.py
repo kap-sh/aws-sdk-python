@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeInventoryDeletionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.uuid
 
 
-class DescribeInventoryDeletionsRequest(TypedDict):
+class DescribeInventoryDeletionsRequest(TypedDict, closed=True):
     deletion_id: NotRequired["aws_sdk_ssm.types.uuid.UUID"]
     """<p>Specify the delete inventory ID for which you want information. This ID was returned by the <code>DeleteInventory</code> operation.</p>"""
     next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]

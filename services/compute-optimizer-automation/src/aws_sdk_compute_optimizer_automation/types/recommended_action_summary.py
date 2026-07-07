@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#RecommendedActionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.recommended_action_total
 
 
-class RecommendedActionSummary(TypedDict):
+class RecommendedActionSummary(TypedDict, closed=True):
     key: "str"
     """<p>The grouping key used to categorize the recommended actions in this summary.</p>"""
     total: "aws_sdk_compute_optimizer_automation.types.recommended_action_total.RecommendedActionTotal"

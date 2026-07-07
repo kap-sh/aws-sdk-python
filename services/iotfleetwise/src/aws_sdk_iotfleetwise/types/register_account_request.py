@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#RegisterAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.iam_resources
     import aws_sdk_iotfleetwise.types.timestream_resources
 
 
-class RegisterAccountRequest(TypedDict):
+class RegisterAccountRequest(TypedDict, closed=True):
     timestream_resources: NotRequired[
         "aws_sdk_iotfleetwise.types.timestream_resources.TimestreamResources"
     ]

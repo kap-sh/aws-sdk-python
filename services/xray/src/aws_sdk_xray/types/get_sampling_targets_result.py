@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetSamplingTargetsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.sampling_target_document_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.unprocessed_statistics_list
 
 
-class GetSamplingTargetsResult(TypedDict):
+class GetSamplingTargetsResult(TypedDict, closed=True):
     sampling_target_documents: NotRequired[
         "aws_sdk_xray.types.sampling_target_document_list.SamplingTargetDocumentList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#IntentOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.name
     import aws_sdk_lex_models_v2.types.slot_value_override_map
 
 
-class IntentOverride(TypedDict):
+class IntentOverride(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lex_models_v2.types.name.Name"]
     """<p>The name of the intent. Only required when you're switching intents.</p>"""
     slots: NotRequired[

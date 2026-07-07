@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#Frequency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.frequency_units
 
 
-class Frequency(TypedDict):
+class Frequency(TypedDict, closed=True):
     value: "float"
     """<p>Frequency value. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.</p>"""
     units: "aws_sdk_groundstation.types.frequency_units.FrequencyUnits"

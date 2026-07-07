@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#OpenMonitoring``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.prometheus
 
 
-class OpenMonitoring(TypedDict):
+class OpenMonitoring(TypedDict, closed=True):
     prometheus: NotRequired["aws_sdk_kafka.types.prometheus.Prometheus"]
     """<p>Prometheus settings.</p>"""
 

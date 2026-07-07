@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CancelFindingsReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.report_id
 
 
-class CancelFindingsReportResponse(TypedDict):
+class CancelFindingsReportResponse(TypedDict, closed=True):
     report_id: "aws_sdk_inspector2.types.report_id.ReportId"
     """<p>The ID of the canceled report.</p>"""
 

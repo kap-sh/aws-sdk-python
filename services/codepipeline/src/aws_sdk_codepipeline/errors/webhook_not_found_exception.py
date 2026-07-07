@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#WebhookNotFoundException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import ServiceError
 
 
-class WebhookNotFoundException_(TypedDict):
+class WebhookNotFoundException_(TypedDict, closed=True):
     pass
 
 

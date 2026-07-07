@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#CustomResponseBody``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.response_content_type
 
 
-class CustomResponseBody(TypedDict):
+class CustomResponseBody(TypedDict, closed=True):
     content_type: "aws_sdk_wafv2.types.response_content_type.ResponseContentType"
     """<p>The type of content in the payload that you are defining in the <code>Content</code> string.</p>"""
     content: "aws_sdk_wafv2.types.response_content.ResponseContent"

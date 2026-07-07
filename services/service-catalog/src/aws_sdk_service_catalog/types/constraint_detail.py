@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ConstraintDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.id
 
 
-class ConstraintDetail(TypedDict):
+class ConstraintDetail(TypedDict, closed=True):
     constraint_id: NotRequired["aws_sdk_service_catalog.types.id.Id"]
     """<p>The identifier of the constraint.</p>"""
     type: NotRequired["aws_sdk_service_catalog.types.constraint_type.ConstraintType"]

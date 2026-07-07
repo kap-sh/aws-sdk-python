@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#SourceApiAssociationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.merge_type
 
 
-class SourceApiAssociationConfig(TypedDict):
+class SourceApiAssociationConfig(TypedDict, closed=True):
     merge_type: NotRequired["aws_sdk_appsync.types.merge_type.MergeType"]
     """<p>The property that indicates which merging option is enabled in the source API association.</p> <p>Valid merge types are <code>MANUAL_MERGE</code> (default) and <code>AUTO_MERGE</code>. Manual merges are the default behavior and require the user to trigger any changes from the source APIs to the merged API manually. Auto merges subscribe the merged API to the changes performed on the source APIs so that any change in the source APIs are also made to the merged API. Auto merges use <code>MergedApiExecutionRoleArn</code> to perform merge operations.</p>"""
 

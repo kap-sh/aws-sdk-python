@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#DeploymentIoTJobConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.io_t_job_abort_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.io_t_job_timeout_config
 
 
-class DeploymentIoTJobConfiguration(TypedDict):
+class DeploymentIoTJobConfiguration(TypedDict, closed=True):
     job_executions_rollout_config: NotRequired[
         "aws_sdk_greengrassv2.types.io_t_job_executions_rollout_config.IoTJobExecutionsRolloutConfig"
     ]

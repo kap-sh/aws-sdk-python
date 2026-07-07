@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
     retry_after_seconds: NotRequired["int"]
     """<p>The number of seconds to wait before retrying the request after being throttled.</p>"""

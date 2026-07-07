@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#BatchDeleteFeaturedResultsSetError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.featured_results_set_id
 
 
-class BatchDeleteFeaturedResultsSetError(TypedDict):
+class BatchDeleteFeaturedResultsSetError(TypedDict, closed=True):
     id: "aws_sdk_kendra.types.featured_results_set_id.FeaturedResultsSetId"
     """<p>The identifier of the set of featured results that couldn't be removed from the index.</p>"""
     error_code: "aws_sdk_kendra.types.error_code.ErrorCode"

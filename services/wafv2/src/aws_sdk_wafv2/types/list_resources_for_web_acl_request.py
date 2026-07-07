@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ListResourcesForWebACLRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.resource_type
 
 
-class ListResourcesForWebACLRequest(TypedDict):
+class ListResourcesForWebACLRequest(TypedDict, closed=True):
     web_acl_arn: "aws_sdk_wafv2.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the web ACL.</p>"""
     resource_type: NotRequired["aws_sdk_wafv2.types.resource_type.ResourceType"]

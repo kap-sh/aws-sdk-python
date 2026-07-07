@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#DeleteEndpointAccessResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.endpoint_access
 
 
-class DeleteEndpointAccessResponse(TypedDict):
+class DeleteEndpointAccessResponse(TypedDict, closed=True):
     endpoint: NotRequired[
         "aws_sdk_redshift_serverless.types.endpoint_access.EndpointAccess"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#Sort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.sort_by
     import aws_sdk_marketplace_agreement.types.sort_order
 
 
-class Sort(TypedDict):
+class Sort(TypedDict, closed=True):
     sort_by: NotRequired["aws_sdk_marketplace_agreement.types.sort_by.SortBy"]
     """<p>The attribute on which the data is grouped, which can be by <code>StartTime</code> and <code>EndTime</code>. The default value is <code>EndTime</code>.</p>"""
     sort_order: NotRequired["aws_sdk_marketplace_agreement.types.sort_order.SortOrder"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TimeRangeFilterValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.parameter_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.timestamp
 
 
-class TimeRangeFilterValue(TypedDict):
+class TimeRangeFilterValue(TypedDict, closed=True):
     static_value: NotRequired["aws_sdk_quicksight.types.timestamp.Timestamp"]
     """<p>The static input value.</p>"""
     rolling_date: NotRequired[

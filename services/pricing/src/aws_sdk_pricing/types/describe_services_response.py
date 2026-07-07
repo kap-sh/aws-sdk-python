@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pricing#DescribeServicesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pricing.types.format_version
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pricing.types.string
 
 
-class DescribeServicesResponse(TypedDict):
+class DescribeServicesResponse(TypedDict, closed=True):
     services: NotRequired["aws_sdk_pricing.types.service_list.ServiceList"]
     """<p>The service metadata for the service or services in the response.</p>"""
     format_version: NotRequired["aws_sdk_pricing.types.format_version.FormatVersion"]

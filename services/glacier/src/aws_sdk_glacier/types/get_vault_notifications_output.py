@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#GetVaultNotificationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.vault_notification_config
 
 
-class GetVaultNotificationsOutput(TypedDict):
+class GetVaultNotificationsOutput(TypedDict, closed=True):
     vault_notification_config: NotRequired[
         "aws_sdk_glacier.types.vault_notification_config.VaultNotificationConfig"
     ]

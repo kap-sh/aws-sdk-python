@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeletePackageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.client_token
     import aws_sdk_iot.types.package_name
 
 
-class DeletePackageRequest(TypedDict):
+class DeletePackageRequest(TypedDict, closed=True):
     package_name: "aws_sdk_iot.types.package_name.PackageName"
     """<p>The name of the target software package.</p>"""
     client_token: NotRequired["aws_sdk_iot.types.client_token.ClientToken"]

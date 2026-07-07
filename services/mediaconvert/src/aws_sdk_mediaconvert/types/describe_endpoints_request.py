@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DescribeEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.describe_endpoints_mode
 
 
-class DescribeEndpointsRequest(TypedDict):
+class DescribeEndpointsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]
     """Optional. Max number of endpoints, up to twenty, that will be returned at one time."""
     mode: NotRequired[

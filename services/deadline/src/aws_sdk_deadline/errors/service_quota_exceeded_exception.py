@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ServiceQuotaExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "aws_sdk_deadline.types.string.String"
     reason: "aws_sdk_deadline.types.service_quota_exceeded_exception_reason.ServiceQuotaExceededExceptionReason"
     """<p>A string that describes the reason the quota was exceeded.</p>"""

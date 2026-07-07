@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#CreateMonitorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.tags
 
 
-class CreateMonitorRequest(TypedDict):
+class CreateMonitorRequest(TypedDict, closed=True):
     monitor_name: "aws_sdk_forecast.types.name.Name"
     """<p>The name of the monitor resource.</p>"""
     resource_arn: "aws_sdk_forecast.types.arn.Arn"

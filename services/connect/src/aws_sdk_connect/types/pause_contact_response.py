@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PauseContactResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PauseContactResponse(TypedDict):
+class PauseContactResponse(TypedDict, closed=True):
     pass
 
 

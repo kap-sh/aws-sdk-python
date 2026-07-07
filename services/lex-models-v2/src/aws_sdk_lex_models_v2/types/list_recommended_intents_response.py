@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListRecommendedIntentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.draft_bot_version
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.recommended_intent_summary_list
 
 
-class ListRecommendedIntentsResponse(TypedDict):
+class ListRecommendedIntentsResponse(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The unique identifier of the bot associated with the recommended intent.</p>"""
     bot_version: NotRequired[

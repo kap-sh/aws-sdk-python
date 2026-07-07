@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#SavingsPlansPurchaseRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.account_scope
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.term_in_years
 
 
-class SavingsPlansPurchaseRecommendation(TypedDict):
+class SavingsPlansPurchaseRecommendation(TypedDict, closed=True):
     account_scope: NotRequired["aws_sdk_cost_explorer.types.account_scope.AccountScope"]
     """<p>The account scope that you want your recommendations for. Amazon Web Services calculates recommendations that include the management account and member accounts if the value is set to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are calculated for individual member accounts only.</p>"""
     savings_plans_type: NotRequired[

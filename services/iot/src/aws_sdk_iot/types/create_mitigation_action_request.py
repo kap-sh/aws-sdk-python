@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateMitigationActionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.tag_list
 
 
-class CreateMitigationActionRequest(TypedDict):
+class CreateMitigationActionRequest(TypedDict, closed=True):
     action_name: "aws_sdk_iot.types.mitigation_action_name.MitigationActionName"
     """<p>A friendly name for the action. Choose a friendly name that accurately describes the action (for example, <code>EnableLoggingAction</code>).</p>"""
     role_arn: "aws_sdk_iot.types.role_arn.RoleArn"

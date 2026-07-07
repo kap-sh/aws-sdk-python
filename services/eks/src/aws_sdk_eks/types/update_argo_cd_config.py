@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateArgoCdConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.argo_cd_network_access_config_request
     import aws_sdk_eks.types.update_role_mappings
 
 
-class UpdateArgoCdConfig(TypedDict):
+class UpdateArgoCdConfig(TypedDict, closed=True):
     rbac_role_mappings: NotRequired[
         "aws_sdk_eks.types.update_role_mappings.UpdateRoleMappings"
     ]

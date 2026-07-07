@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteMatrixAutoCircle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.distance_meters
 
 
-class RouteMatrixAutoCircle(TypedDict):
+class RouteMatrixAutoCircle(TypedDict, closed=True):
     margin: "aws_sdk_geo_routes.types.distance_meters.DistanceMeters"
     """<p>The minimal distance, in meters, between any waypoint and the perimeter of the circle auto-defined for the boundary. Some margin is usually recommended so that the routing has enough leeway to travel from one waypoint to another optimally without conflicting with the routing boundary.</p> <p>The total of <code>MaxRadius</code> and <code>Margin</code> must be less than or equal to 200,000 meters.</p>"""
     max_radius: "aws_sdk_geo_routes.types.distance_meters.DistanceMeters"

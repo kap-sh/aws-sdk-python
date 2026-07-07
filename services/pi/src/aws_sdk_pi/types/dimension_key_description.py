@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pi#DimensionKeyDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.additional_metrics_map
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pi.types.metric_values_list
 
 
-class DimensionKeyDescription(TypedDict):
+class DimensionKeyDescription(TypedDict, closed=True):
     dimensions: NotRequired["aws_sdk_pi.types.dimension_map.DimensionMap"]
     """<p>A map of name-value pairs for the dimensions in the group.</p>"""
     total: NotRequired["aws_sdk_pi.types.double.Double"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#MethodSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.unauthorized_cache_control_header_strategy
 
 
-class MethodSetting(TypedDict):
+class MethodSetting(TypedDict, closed=True):
     metrics_enabled: "aws_sdk_api_gateway.types.boolean.Boolean"
     """<p>Specifies whether Amazon CloudWatch metrics are enabled for this method.</p>"""
     logging_level: NotRequired["aws_sdk_api_gateway.types.string.String"]

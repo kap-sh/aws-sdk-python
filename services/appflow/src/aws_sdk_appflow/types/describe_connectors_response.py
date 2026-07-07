@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#DescribeConnectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.connector_configurations_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.next_token
 
 
-class DescribeConnectorsResponse(TypedDict):
+class DescribeConnectorsResponse(TypedDict, closed=True):
     connector_configurations: NotRequired[
         "aws_sdk_appflow.types.connector_configurations_map.ConnectorConfigurationsMap"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#UpdateLifecyclePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.copy_tags_nullable
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.settable_policy_state_values
 
 
-class UpdateLifecyclePolicyRequest(TypedDict):
+class UpdateLifecyclePolicyRequest(TypedDict, closed=True):
     policy_id: "aws_sdk_dlm.types.policy_id.PolicyId"
     """<p>The identifier of the lifecycle policy.</p>"""
     execution_role_arn: NotRequired[

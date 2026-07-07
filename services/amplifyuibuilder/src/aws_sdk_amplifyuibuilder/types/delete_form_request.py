@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#DeleteFormRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.uuid
 
 
-class DeleteFormRequest(TypedDict):
+class DeleteFormRequest(TypedDict, closed=True):
     app_id: "str"
     """<p>The unique ID of the Amplify app associated with the form to delete.</p>"""
     environment_name: "str"

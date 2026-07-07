@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AssociateOpsItemRelatedItemRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ops_item_related_item_association_type
 
 
-class AssociateOpsItemRelatedItemRequest(TypedDict):
+class AssociateOpsItemRelatedItemRequest(TypedDict, closed=True):
     ops_item_id: "aws_sdk_ssm.types.ops_item_id.OpsItemId"
     """<p>The ID of the OpsItem to which you want to associate a resource as a related item.</p>"""
     association_type: "aws_sdk_ssm.types.ops_item_related_item_association_type.OpsItemRelatedItemAssociationType"

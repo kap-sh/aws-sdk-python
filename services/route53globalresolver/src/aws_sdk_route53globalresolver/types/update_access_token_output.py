@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#UpdateAccessTokenOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_name_short
 
 
-class UpdateAccessTokenOutput(TypedDict):
+class UpdateAccessTokenOutput(TypedDict, closed=True):
     id: "aws_sdk_route53globalresolver.types.resource_id.ResourceId"
     """<p>The ID of the token.</p>"""
     name: "aws_sdk_route53globalresolver.types.resource_name_short.ResourceNameShort"

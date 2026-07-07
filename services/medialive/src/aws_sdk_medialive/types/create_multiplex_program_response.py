@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CreateMultiplexProgramResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.multiplex_program
 
 
-class CreateMultiplexProgramResponse(TypedDict):
+class CreateMultiplexProgramResponse(TypedDict, closed=True):
     multiplex_program: NotRequired[
         "aws_sdk_medialive.types.multiplex_program.MultiplexProgram"
     ]

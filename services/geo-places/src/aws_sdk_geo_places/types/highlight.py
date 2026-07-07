@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#Highlight``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class Highlight(TypedDict):
+class Highlight(TypedDict, closed=True):
     start_index: NotRequired["int"]
     """<p>Start index of the highlight.</p>"""
     end_index: NotRequired["int"]

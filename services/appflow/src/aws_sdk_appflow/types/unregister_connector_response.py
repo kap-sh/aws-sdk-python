@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#UnregisterConnectorResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UnregisterConnectorResponse(TypedDict):
+class UnregisterConnectorResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#UpdateChannelClassRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_output_destination
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.channel_class
 
 
-class UpdateChannelClassRequest(TypedDict):
+class UpdateChannelClassRequest(TypedDict, closed=True):
     channel_class: NotRequired["aws_sdk_medialive.types.channel_class.ChannelClass"]
     """The channel class that you wish to update this channel to use."""
     channel_id: "aws_sdk_medialive.types.__string.__string"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#TransitGatewayMulticastDomainOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.static_sources_support_value
 
 
-class TransitGatewayMulticastDomainOptions(TypedDict):
+class TransitGatewayMulticastDomainOptions(TypedDict, closed=True):
     igmpv2_support: NotRequired[
         "aws_sdk_ec2.types.igmpv2_support_value.Igmpv2SupportValue"
     ]

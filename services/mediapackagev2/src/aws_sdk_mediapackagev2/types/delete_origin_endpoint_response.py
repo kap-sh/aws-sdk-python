@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#DeleteOriginEndpointResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteOriginEndpointResponse(TypedDict):
+class DeleteOriginEndpointResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#FrozenFrames``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.state
 
 
-class FrozenFrames(TypedDict):
+class FrozenFrames(TypedDict, closed=True):
     state: NotRequired["aws_sdk_mediaconnect.types.state.State"]
     """<p>Indicates whether the <code>FrozenFrames</code> metric is enabled or disabled.</p>"""
     threshold_seconds: NotRequired["int"]

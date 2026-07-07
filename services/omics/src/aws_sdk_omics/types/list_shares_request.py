@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListSharesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.resource_owner
 
 
-class ListSharesRequest(TypedDict):
+class ListSharesRequest(TypedDict, closed=True):
     resource_owner: "aws_sdk_omics.types.resource_owner.ResourceOwner"
     """<p>The account that owns the resource shares.</p>"""
     filter: NotRequired["aws_sdk_omics.types.filter.Filter"]

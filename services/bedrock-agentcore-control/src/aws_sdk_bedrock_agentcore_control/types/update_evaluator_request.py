@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdateEvaluatorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.client_token
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.kms_key_arn
 
 
-class UpdateEvaluatorRequest(TypedDict):
+class UpdateEvaluatorRequest(TypedDict, closed=True):
     client_token: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.client_token.ClientToken"
     ]

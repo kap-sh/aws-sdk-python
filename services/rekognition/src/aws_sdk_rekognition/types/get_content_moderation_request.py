@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#GetContentModerationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.pagination_token
 
 
-class GetContentModerationRequest(TypedDict):
+class GetContentModerationRequest(TypedDict, closed=True):
     job_id: "aws_sdk_rekognition.types.job_id.JobId"
     """<p>The identifier for the inappropriate, unwanted, or offensive content moderation job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>"""
     max_results: NotRequired["aws_sdk_rekognition.types.max_results.MaxResults"]

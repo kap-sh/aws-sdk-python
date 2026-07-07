@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UserSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_username
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.user_id
 
 
-class UserSummary(TypedDict):
+class UserSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.user_id.UserId"]
     """<p>The identifier of the user account.</p>"""
     arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

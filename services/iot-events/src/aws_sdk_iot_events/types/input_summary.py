@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#InputSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.input_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.timestamp
 
 
-class InputSummary(TypedDict):
+class InputSummary(TypedDict, closed=True):
     input_name: NotRequired["aws_sdk_iot_events.types.input_name.InputName"]
     """<p>The name of the input.</p>"""
     input_description: NotRequired[

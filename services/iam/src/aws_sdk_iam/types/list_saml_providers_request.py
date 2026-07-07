@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListSAMLProvidersRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
 
-class ListSAMLProvidersRequest(TypedDict):
+class ListSAMLProvidersRequest(TypedDict, closed=True):
     pass
 
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#UpdateTelemetryPipelineOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateTelemetryPipelineOutput(TypedDict):
+class UpdateTelemetryPipelineOutput(TypedDict, closed=True):
     pass
 
 

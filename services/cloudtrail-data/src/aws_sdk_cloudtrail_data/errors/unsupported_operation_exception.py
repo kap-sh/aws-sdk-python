@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtraildata#UnsupportedOperationException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail_data.errors import ServiceError
 
 
-class UnsupportedOperationException_(TypedDict):
+class UnsupportedOperationException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

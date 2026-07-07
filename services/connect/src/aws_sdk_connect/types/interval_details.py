@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#IntervalDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.interval_period
     import aws_sdk_connect.types.string
 
 
-class IntervalDetails(TypedDict):
+class IntervalDetails(TypedDict, closed=True):
     time_zone: NotRequired["aws_sdk_connect.types.string.String"]
     """<p>The timezone applied to requested metrics.</p>"""
     interval_period: NotRequired["aws_sdk_connect.types.interval_period.IntervalPeriod"]

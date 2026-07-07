@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#NetworkBinding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.transport_protocol
 
 
-class NetworkBinding(TypedDict):
+class NetworkBinding(TypedDict, closed=True):
     bind_ip: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The IP address that the container is bound to on the container instance.</p>"""
     container_port: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateActionConnectorPermissionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.resource_permission_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
 
 
-class UpdateActionConnectorPermissionsResponse(TypedDict):
+class UpdateActionConnectorPermissionsResponse(TypedDict, closed=True):
     arn: NotRequired["str"]
     """<p>The Amazon Resource Name (ARN) of the action connector.</p>"""
     action_connector_id: NotRequired[

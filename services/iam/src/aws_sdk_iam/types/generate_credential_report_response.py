@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GenerateCredentialReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.report_state_type
 
 
-class GenerateCredentialReportResponse(TypedDict):
+class GenerateCredentialReportResponse(TypedDict, closed=True):
     state: NotRequired["aws_sdk_iam.types.report_state_type.ReportStateType"]
     """<p>Information about the state of the credential report.</p>"""
     description: NotRequired[

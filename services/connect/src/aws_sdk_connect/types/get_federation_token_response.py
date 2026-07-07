@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetFederationTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_resource_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.url
 
 
-class GetFederationTokenResponse(TypedDict):
+class GetFederationTokenResponse(TypedDict, closed=True):
     credentials: NotRequired["aws_sdk_connect.types.credentials.Credentials"]
     """<p>The credentials to use for federation.</p>"""
     sign_in_url: NotRequired["aws_sdk_connect.types.url.Url"]

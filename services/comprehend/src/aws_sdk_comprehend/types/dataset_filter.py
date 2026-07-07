@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DatasetFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.dataset_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.timestamp
 
 
-class DatasetFilter(TypedDict):
+class DatasetFilter(TypedDict, closed=True):
     status: NotRequired["aws_sdk_comprehend.types.dataset_status.DatasetStatus"]
     """<p>Filter the datasets based on the dataset status.</p>"""
     dataset_type: NotRequired["aws_sdk_comprehend.types.dataset_type.DatasetType"]

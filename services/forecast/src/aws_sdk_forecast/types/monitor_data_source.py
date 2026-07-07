@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#MonitorDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
 
 
-class MonitorDataSource(TypedDict):
+class MonitorDataSource(TypedDict, closed=True):
     dataset_import_job_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the dataset import job used to import the data that initiated the monitor evaluation.</p>"""
     forecast_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#DeleteSamplingRuleResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.sampling_rule_record
 
 
-class DeleteSamplingRuleResult(TypedDict):
+class DeleteSamplingRuleResult(TypedDict, closed=True):
     sampling_rule_record: NotRequired[
         "aws_sdk_xray.types.sampling_rule_record.SamplingRuleRecord"
     ]

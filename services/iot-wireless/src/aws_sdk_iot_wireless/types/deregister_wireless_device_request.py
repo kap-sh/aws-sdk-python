@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DeregisterWirelessDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.identifier
     import aws_sdk_iot_wireless.types.wireless_device_type
 
 
-class DeregisterWirelessDeviceRequest(TypedDict):
+class DeregisterWirelessDeviceRequest(TypedDict, closed=True):
     identifier: "aws_sdk_iot_wireless.types.identifier.Identifier"
     """<p>The identifier of the wireless device to deregister from AWS IoT Wireless.</p>"""
     wireless_device_type: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloud9#UpdateEnvironmentMembershipRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloud9.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloud9.types.user_arn
 
 
-class UpdateEnvironmentMembershipRequest(TypedDict):
+class UpdateEnvironmentMembershipRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_cloud9.types.environment_id.EnvironmentId"
     """<p>The ID of the environment for the environment member whose settings you want to change.</p>"""
     user_arn: "aws_sdk_cloud9.types.user_arn.UserArn"

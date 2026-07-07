@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DescribeEntitiesDetectionJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.entities_detection_job_properties
 
 
-class DescribeEntitiesDetectionJobResponse(TypedDict):
+class DescribeEntitiesDetectionJobResponse(TypedDict, closed=True):
     entities_detection_job_properties: NotRequired[
         "aws_sdk_comprehend.types.entities_detection_job_properties.EntitiesDetectionJobProperties"
     ]

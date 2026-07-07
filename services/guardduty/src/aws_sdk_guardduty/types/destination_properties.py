@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DestinationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class DestinationProperties(TypedDict):
+class DestinationProperties(TypedDict, closed=True):
     destination_arn: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The ARN of the resource to publish to.</p> <p>To specify an S3 bucket folder use the following format: <code>arn:aws:s3:::DOC-EXAMPLE-BUCKET/myFolder/</code> </p>"""
     kms_key_arn: NotRequired["aws_sdk_guardduty.types.string.String"]

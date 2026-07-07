@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SubnetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.subnet_id
 
 
-class SubnetConfiguration(TypedDict):
+class SubnetConfiguration(TypedDict, closed=True):
     subnet_id: NotRequired["aws_sdk_ec2.types.subnet_id.SubnetId"]
     """<p>The ID of the subnet.</p>"""
     ipv4: NotRequired["aws_sdk_ec2.types.string.String"]

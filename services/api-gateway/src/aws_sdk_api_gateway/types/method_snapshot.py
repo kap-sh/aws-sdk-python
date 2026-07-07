@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#MethodSnapshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.boolean
     import aws_sdk_api_gateway.types.string
 
 
-class MethodSnapshot(TypedDict):
+class MethodSnapshot(TypedDict, closed=True):
     authorization_type: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>"""
     api_key_required: "aws_sdk_api_gateway.types.boolean.Boolean"

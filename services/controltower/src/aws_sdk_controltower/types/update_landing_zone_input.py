@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#UpdateLandingZoneInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.remediation_types
 
 
-class UpdateLandingZoneInput(TypedDict):
+class UpdateLandingZoneInput(TypedDict, closed=True):
     version: "aws_sdk_controltower.types.landing_zone_version.LandingZoneVersion"
     """<p>The landing zone version, for example, 3.2.</p>"""
     remediation_types: NotRequired[

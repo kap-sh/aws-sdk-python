@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PaletteHeader``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
     import aws_sdk_connect.types.theme_string
 
 
-class PaletteHeader(TypedDict):
+class PaletteHeader(TypedDict, closed=True):
     background: NotRequired["aws_sdk_connect.types.theme_string.ThemeString"]
     """<p>The background color of the header.</p>"""
     text: NotRequired["aws_sdk_connect.types.theme_string.ThemeString"]

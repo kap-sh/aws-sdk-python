@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#VectorEnrichmentJobInputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.vector_enrichment_job_document_type
 
 
-class VectorEnrichmentJobInputConfig(TypedDict):
+class VectorEnrichmentJobInputConfig(TypedDict, closed=True):
     document_type: "aws_sdk_sagemaker_geospatial.types.vector_enrichment_job_document_type.VectorEnrichmentJobDocumentType"
     """<p>The input structure that defines the data source file type.</p>"""
     data_source_config: "aws_sdk_sagemaker_geospatial.types.vector_enrichment_job_data_source_config_input.VectorEnrichmentJobDataSourceConfigInput"

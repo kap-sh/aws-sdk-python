@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StringColumnStatisticsData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.non_negative_double
     import aws_sdk_glue.types.non_negative_long
 
 
-class StringColumnStatisticsData(TypedDict):
+class StringColumnStatisticsData(TypedDict, closed=True):
     maximum_length: "aws_sdk_glue.types.non_negative_long.NonNegativeLong"
     """<p>The size of the longest string in the column.</p>"""
     average_length: "aws_sdk_glue.types.non_negative_double.NonNegativeDouble"

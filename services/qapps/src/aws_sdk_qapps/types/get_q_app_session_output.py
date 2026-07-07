@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#GetQAppSessionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.session_name
 
 
-class GetQAppSessionOutput(TypedDict):
+class GetQAppSessionOutput(TypedDict, closed=True):
     session_id: "str"
     """<p>The unique identifier of the Q App session.</p>"""
     session_arn: "str"

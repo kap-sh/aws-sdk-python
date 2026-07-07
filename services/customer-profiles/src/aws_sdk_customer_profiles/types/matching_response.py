@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#MatchingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.auto_merging
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.optional_boolean
 
 
-class MatchingResponse(TypedDict):
+class MatchingResponse(TypedDict, closed=True):
     enabled: NotRequired[
         "aws_sdk_customer_profiles.types.optional_boolean.optionalBoolean"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#FirewallPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.tag_list
 
 
-class FirewallPolicyResponse(TypedDict):
+class FirewallPolicyResponse(TypedDict, closed=True):
     firewall_policy_name: "aws_sdk_network_firewall.types.resource_name.ResourceName"
     """<p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>"""
     firewall_policy_arn: "aws_sdk_network_firewall.types.resource_arn.ResourceArn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_group_schema_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DataSetConfiguration(TypedDict):
+class DataSetConfiguration(TypedDict, closed=True):
     placeholder: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>Placeholder.</p>"""
     data_set_schema: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ListTrafficPolicyInstancesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.rr_type
 
 
-class ListTrafficPolicyInstancesRequest(TypedDict):
+class ListTrafficPolicyInstancesRequest(TypedDict, closed=True):
     hosted_zone_id_marker: NotRequired["aws_sdk_route_53.types.resource_id.ResourceId"]
     """<p>If the value of <code>IsTruncated</code> in the previous response was <code>true</code>, you have more traffic policy instances. To get more traffic policy instances, submit another <code>ListTrafficPolicyInstances</code> request. For the value of <code>HostedZoneId</code>, specify the value of <code>HostedZoneIdMarker</code> from the previous response, which is the hosted zone ID of the first traffic policy instance in the next group of traffic policy instances.</p> <p>If the value of <code>IsTruncated</code> in the previous response was <code>false</code>, there are no more traffic policy instances to get.</p>"""
     traffic_policy_instance_name_marker: NotRequired[

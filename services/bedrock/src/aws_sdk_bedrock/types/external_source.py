@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ExternalSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.s3_object_doc
 
 
-class ExternalSource(TypedDict):
+class ExternalSource(TypedDict, closed=True):
     source_type: "aws_sdk_bedrock.types.external_source_type.ExternalSourceType"
     """<p>The source type of the external source wrapper object.</p>"""
     s3_location: NotRequired["aws_sdk_bedrock.types.s3_object_doc.S3ObjectDoc"]

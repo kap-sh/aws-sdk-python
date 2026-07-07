@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#AutoScalingGroupRecommendationOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.auto_scaling_group_configuration
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.savings_opportunity
 
 
-class AutoScalingGroupRecommendationOption(TypedDict):
+class AutoScalingGroupRecommendationOption(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_compute_optimizer.types.auto_scaling_group_configuration.AutoScalingGroupConfiguration"
     ]

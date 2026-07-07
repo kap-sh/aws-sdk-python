@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UserSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_mount_home_efs
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tensor_board_app_settings
 
 
-class UserSettings(TypedDict):
+class UserSettings(TypedDict, closed=True):
     execution_role: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]
     """<p>The execution role for the user.</p> <p>SageMaker applies this setting only to private spaces that the user creates in the domain. SageMaker doesn't apply this setting to shared spaces.</p>"""
     security_groups: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#S3ItemFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.long_condition_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.time_condition_list
 
 
-class S3ItemFilter(TypedDict):
+class S3ItemFilter(TypedDict, closed=True):
     object_keys: NotRequired[
         "aws_sdk_backupsearch.types.string_condition_list.StringConditionList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#SMSConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.sms_sender_id
 
 
-class SMSConfiguration(TypedDict):
+class SMSConfiguration(TypedDict, closed=True):
     sender_id: NotRequired["aws_sdk_iot_events.types.sms_sender_id.SMSSenderId"]
     """<p>The sender ID.</p>"""
     additional_message: NotRequired[

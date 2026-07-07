@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#LoggingOptionsPayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.log_level
 
 
-class LoggingOptionsPayload(TypedDict):
+class LoggingOptionsPayload(TypedDict, closed=True):
     role_arn: "aws_sdk_iot.types.aws_arn.AwsArn"
     """<p>The ARN of the IAM role that grants access.</p>"""
     log_level: NotRequired["aws_sdk_iot.types.log_level.LogLevel"]

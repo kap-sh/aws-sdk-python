@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ChangeProgressStatusDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.change_progress_stage_list
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.update_timestamp
 
 
-class ChangeProgressStatusDetails(TypedDict):
+class ChangeProgressStatusDetails(TypedDict, closed=True):
     change_id: NotRequired["aws_sdk_opensearch.types.guid.GUID"]
     """<p>The unique change identifier associated with a specific domain configuration change.</p>"""
     start_time: NotRequired["aws_sdk_opensearch.types.update_timestamp.UpdateTimestamp"]

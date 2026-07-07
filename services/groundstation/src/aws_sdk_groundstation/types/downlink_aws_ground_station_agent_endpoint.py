@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#DownlinkAwsGroundStationAgentEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.safe_name
 
 
-class DownlinkAwsGroundStationAgentEndpoint(TypedDict):
+class DownlinkAwsGroundStationAgentEndpoint(TypedDict, closed=True):
     name: "aws_sdk_groundstation.types.safe_name.SafeName"
     """<p>Downlink dataflow endpoint name</p>"""
     dataflow_details: (

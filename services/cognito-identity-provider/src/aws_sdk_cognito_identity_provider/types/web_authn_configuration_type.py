@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#WebAuthnConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.relying_party_id_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.web_authn_factor_configuration_type
 
 
-class WebAuthnConfigurationType(TypedDict):
+class WebAuthnConfigurationType(TypedDict, closed=True):
     relying_party_id: NotRequired[
         "aws_sdk_cognito_identity_provider.types.relying_party_id_type.RelyingPartyIdType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#DeleteAccessSourceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_name_short
 
 
-class DeleteAccessSourceOutput(TypedDict):
+class DeleteAccessSourceOutput(TypedDict, closed=True):
     arn: "aws_sdk_route53globalresolver.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the deleted access source.</p>"""
     cidr: "aws_sdk_route53globalresolver.types.cidr.Cidr"

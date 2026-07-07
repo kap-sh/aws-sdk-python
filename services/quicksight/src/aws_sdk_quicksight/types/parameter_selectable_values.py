@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ParameterSelectableValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_identifier
     import aws_sdk_quicksight.types.parameter_selectable_value_list
 
 
-class ParameterSelectableValues(TypedDict):
+class ParameterSelectableValues(TypedDict, closed=True):
     values: NotRequired[
         "aws_sdk_quicksight.types.parameter_selectable_value_list.ParameterSelectableValueList"
     ]

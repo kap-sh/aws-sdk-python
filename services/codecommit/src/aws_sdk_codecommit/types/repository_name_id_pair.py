@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#RepositoryNameIdPair``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_id
     import aws_sdk_codecommit.types.repository_name
 
 
-class RepositoryNameIdPair(TypedDict):
+class RepositoryNameIdPair(TypedDict, closed=True):
     repository_name: NotRequired[
         "aws_sdk_codecommit.types.repository_name.RepositoryName"
     ]

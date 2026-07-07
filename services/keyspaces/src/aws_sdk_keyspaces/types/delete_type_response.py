@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#DeleteTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.type_name
 
 
-class DeleteTypeResponse(TypedDict):
+class DeleteTypeResponse(TypedDict, closed=True):
     keyspace_arn: "aws_sdk_keyspaces.types.arn.ARN"
     """<p> The unique identifier of the keyspace from which the type was deleted in the format of an Amazon Resource Name (ARN). </p>"""
     type_name: "aws_sdk_keyspaces.types.type_name.TypeName"

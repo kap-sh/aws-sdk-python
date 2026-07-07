@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateAssetTypePolicyGrantDetail``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CreateAssetTypePolicyGrantDetail(TypedDict):
+class CreateAssetTypePolicyGrantDetail(TypedDict, closed=True):
     include_child_domain_units: NotRequired["bool"]
     """<p>Specifies whether the policy grant is applied to child domain units.</p>"""
 

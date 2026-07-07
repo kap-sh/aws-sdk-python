@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#ListSuiteRunsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.suite_runs_list
     import aws_sdk_iotdeviceadvisor.types.token
 
 
-class ListSuiteRunsResponse(TypedDict):
+class ListSuiteRunsResponse(TypedDict, closed=True):
     suite_runs_list: NotRequired[
         "aws_sdk_iotdeviceadvisor.types.suite_runs_list.SuiteRunsList"
     ]

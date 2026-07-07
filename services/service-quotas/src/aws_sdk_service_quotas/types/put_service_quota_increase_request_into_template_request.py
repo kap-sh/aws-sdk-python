@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#PutServiceQuotaIncreaseRequestIntoTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_service_quotas.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.service_code
 
 
-class PutServiceQuotaIncreaseRequestIntoTemplateRequest(TypedDict):
+class PutServiceQuotaIncreaseRequestIntoTemplateRequest(TypedDict, closed=True):
     quota_code: "aws_sdk_service_quotas.types.quota_code.QuotaCode"
     """<p>Specifies the quota identifier. To find the quota code for a specific quota, use the <a>ListServiceQuotas</a> operation, and look for the <code>QuotaCode</code> response in the output for the quota you want.</p>"""
     service_code: "aws_sdk_service_quotas.types.service_code.ServiceCode"

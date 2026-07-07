@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterInputTransitEncryptionKeyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.secrets_manager_encryption_key_configuration
 
 
-class _RouterInputTransitEncryptionKeyConfiguration_SecretsManager(TypedDict):
+class _RouterInputTransitEncryptionKeyConfiguration_SecretsManager(
+    TypedDict, closed=True
+):
     SecretsManager: "aws_sdk_mediaconnect.types.secrets_manager_encryption_key_configuration.SecretsManagerEncryptionKeyConfiguration"
 
 
-class _RouterInputTransitEncryptionKeyConfiguration_Automatic(TypedDict):
+class _RouterInputTransitEncryptionKeyConfiguration_Automatic(TypedDict, closed=True):
     Automatic: "aws_sdk_mediaconnect.types.automatic_encryption_key_configuration.AutomaticEncryptionKeyConfiguration"
 
 

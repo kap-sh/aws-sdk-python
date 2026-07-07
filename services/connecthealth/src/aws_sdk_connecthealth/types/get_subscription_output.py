@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#GetSubscriptionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.subscription_description
 
 
-class GetSubscriptionOutput(TypedDict):
+class GetSubscriptionOutput(TypedDict, closed=True):
     subscription: NotRequired[
         "aws_sdk_connecthealth.types.subscription_description.SubscriptionDescription"
     ]

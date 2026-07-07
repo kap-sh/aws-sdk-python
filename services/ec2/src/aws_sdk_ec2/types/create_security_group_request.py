@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateSecurityGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_id
 
 
-class CreateSecurityGroupRequest(TypedDict):
+class CreateSecurityGroupRequest(TypedDict, closed=True):
     description: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>A description for the security group.</p> <p>Constraints: Up to 255 characters in length</p> <p>Valid characters: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*</p>"""
     group_name: NotRequired["aws_sdk_ec2.types.string.String"]

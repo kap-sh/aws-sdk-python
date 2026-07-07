@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateTrialComponentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.experiment_entity_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.trial_component_status
 
 
-class CreateTrialComponentRequest(TypedDict):
+class CreateTrialComponentRequest(TypedDict, closed=True):
     trial_component_name: NotRequired[
         "aws_sdk_sagemaker.types.experiment_entity_name.ExperimentEntityName"
     ]

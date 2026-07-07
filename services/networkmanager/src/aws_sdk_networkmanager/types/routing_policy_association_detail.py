@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#RoutingPolicyAssociationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.constrained_string_list
 
 
-class RoutingPolicyAssociationDetail(TypedDict):
+class RoutingPolicyAssociationDetail(TypedDict, closed=True):
     routing_policy_names: NotRequired[
         "aws_sdk_networkmanager.types.constrained_string_list.ConstrainedStringList"
     ]

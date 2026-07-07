@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#AssertionUpdatedMetadata``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AssertionUpdatedMetadata(TypedDict):
+class AssertionUpdatedMetadata(TypedDict, closed=True):
     assertion_id: NotRequired["str"]
     """<p>The unique identifier of the updated assertion.</p>"""
     assertion_name: NotRequired["str"]

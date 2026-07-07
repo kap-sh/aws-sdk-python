@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetRunTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.image_details
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.task_timestamp
 
 
-class GetRunTaskResponse(TypedDict):
+class GetRunTaskResponse(TypedDict, closed=True):
     task_id: NotRequired["aws_sdk_omics.types.task_id.TaskId"]
     """<p>The task's ID.</p>"""
     status: NotRequired["aws_sdk_omics.types.task_status.TaskStatus"]

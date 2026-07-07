@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CompleteResourceTokenAuthResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CompleteResourceTokenAuthResponse(TypedDict):
+class CompleteResourceTokenAuthResponse(TypedDict, closed=True):
     pass
 
 

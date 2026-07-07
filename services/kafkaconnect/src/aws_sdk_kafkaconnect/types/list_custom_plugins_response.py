@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#ListCustomPluginsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__list_of_custom_plugin_summary
     import aws_sdk_kafkaconnect.types.__string
 
 
-class ListCustomPluginsResponse(TypedDict):
+class ListCustomPluginsResponse(TypedDict, closed=True):
     custom_plugins: NotRequired[
         "aws_sdk_kafkaconnect.types.__list_of_custom_plugin_summary.__listOfCustomPluginSummary"
     ]

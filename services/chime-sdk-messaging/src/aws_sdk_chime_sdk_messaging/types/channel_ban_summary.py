@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ChannelBanSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.identity
 
 
-class ChannelBanSummary(TypedDict):
+class ChannelBanSummary(TypedDict, closed=True):
     member: NotRequired["aws_sdk_chime_sdk_messaging.types.identity.Identity"]
     """<p>The member being banned from a channel.</p>"""
 

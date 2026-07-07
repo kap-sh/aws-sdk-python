@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListWorkflowsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.restricted_integer
 
 
-class ListWorkflowsRequest(TypedDict):
+class ListWorkflowsRequest(TypedDict, closed=True):
     owner: NotRequired["aws_sdk_imagebuilder.types.ownership.Ownership"]
     """<p>Used to get a list of workflow build version filtered by the identity of the creator.</p>"""
     filters: NotRequired["aws_sdk_imagebuilder.types.filter_list.FilterList"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#TransitioningImageTotalCount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_count
     import aws_sdk_ecr.types.lifecycle_policy_target_storage_class
 
 
-class TransitioningImageTotalCount(TypedDict):
+class TransitioningImageTotalCount(TypedDict, closed=True):
     target_storage_class: NotRequired[
         "aws_sdk_ecr.types.lifecycle_policy_target_storage_class.LifecyclePolicyTargetStorageClass"
     ]

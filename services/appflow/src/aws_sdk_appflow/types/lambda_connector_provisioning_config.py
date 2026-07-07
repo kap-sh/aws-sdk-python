@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#LambdaConnectorProvisioningConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.arn
 
 
-class LambdaConnectorProvisioningConfig(TypedDict):
+class LambdaConnectorProvisioningConfig(TypedDict, closed=True):
     lambda_arn: "aws_sdk_appflow.types.arn.ARN"
     """<p>Lambda ARN of the connector being registered.</p>"""
 

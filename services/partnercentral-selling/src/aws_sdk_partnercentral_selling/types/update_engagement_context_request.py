@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#UpdateEngagementContextRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.update_engagement_context_payload
 
 
-class UpdateEngagementContextRequest(TypedDict):
+class UpdateEngagementContextRequest(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier"
     """<p>Specifies the catalog associated with the engagement context update request. This field takes a string value from a predefined list: <code>AWS</code> or <code>Sandbox</code>. The catalog determines which environment the engagement context is updated in.</p>"""
     engagement_identifier: "aws_sdk_partnercentral_selling.types.engagement_arn_or_identifier.EngagementArnOrIdentifier"

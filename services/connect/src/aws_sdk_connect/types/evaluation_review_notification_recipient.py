@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationReviewNotificationRecipient``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_review_notification_recipient_value
 
 
-class EvaluationReviewNotificationRecipient(TypedDict):
+class EvaluationReviewNotificationRecipient(TypedDict, closed=True):
     type: "aws_sdk_connect.types.evaluation_review_notification_recipient_type.EvaluationReviewNotificationRecipientType"
     """<p>The type of notification recipient.</p>"""
     value: "aws_sdk_connect.types.evaluation_review_notification_recipient_value.EvaluationReviewNotificationRecipientValue"

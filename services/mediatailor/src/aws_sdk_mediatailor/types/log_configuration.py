@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#LogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.manifest_service_interaction_log
 
 
-class LogConfiguration(TypedDict):
+class LogConfiguration(TypedDict, closed=True):
     percent_enabled: "aws_sdk_mediatailor.types.__integer.__integer"
     r"""<p>The percentage of session logs that MediaTailor sends to your configured log destination. For example, if your playback configuration has 1000 sessions and <code>percentEnabled</code> is set to <code>60</code>, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href=\"https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html\">debug log mode</a>.</p> <p>Valid values: <code>0</code> - <code>100</code> </p>"""
     enabled_logging_strategies: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pi#Recommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.markdown_string
     import aws_sdk_pi.types.string
 
 
-class Recommendation(TypedDict):
+class Recommendation(TypedDict, closed=True):
     recommendation_id: NotRequired["aws_sdk_pi.types.string.String"]
     """<p>The unique identifier for the recommendation.</p>"""
     recommendation_description: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#RenderMessageTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.message_template_attachment_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.message_template_source_configuration_summary
 
 
-class RenderMessageTemplateResponse(TypedDict):
+class RenderMessageTemplateResponse(TypedDict, closed=True):
     content: NotRequired[
         "aws_sdk_qconnect.types.message_template_content_provider.MessageTemplateContentProvider"
     ]

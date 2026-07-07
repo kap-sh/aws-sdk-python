@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
     service_code: NotRequired["str"]
     """<p>The service code that exceeded the throttling limit.</p>"""

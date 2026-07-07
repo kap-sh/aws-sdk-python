@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DeleteFacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.face_id_list
     import aws_sdk_rekognition.types.unsuccessful_face_deletions_list
 
 
-class DeleteFacesResponse(TypedDict):
+class DeleteFacesResponse(TypedDict, closed=True):
     deleted_faces: NotRequired["aws_sdk_rekognition.types.face_id_list.FaceIdList"]
     """<p>An array of strings (face IDs) of the faces that were deleted.</p>"""
     unsuccessful_face_deletions: NotRequired[

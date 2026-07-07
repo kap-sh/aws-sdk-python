@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ResponseStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise._iter import AnyIterator
 from aws_sdk_iotsitewise._protocol.eventstream import Message
@@ -17,45 +19,45 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.trace
 
 
-class _ResponseStream_trace(TypedDict):
+class _ResponseStream_trace(TypedDict, closed=True):
     trace: "aws_sdk_iotsitewise.types.trace.Trace"
 
 
-class _ResponseStream_output(TypedDict):
+class _ResponseStream_output(TypedDict, closed=True):
     output: "aws_sdk_iotsitewise.types.invocation_output.InvocationOutput"
 
 
-class _ResponseStream_accessDeniedException(TypedDict):
+class _ResponseStream_accessDeniedException(TypedDict, closed=True):
     accessDeniedException: (
         "aws_sdk_iotsitewise.errors.access_denied_exception.AccessDeniedException_"
     )
 
 
-class _ResponseStream_conflictingOperationException(TypedDict):
+class _ResponseStream_conflictingOperationException(TypedDict, closed=True):
     conflictingOperationException: "aws_sdk_iotsitewise.errors.conflicting_operation_exception.ConflictingOperationException_"
 
 
-class _ResponseStream_internalFailureException(TypedDict):
+class _ResponseStream_internalFailureException(TypedDict, closed=True):
     internalFailureException: "aws_sdk_iotsitewise.errors.internal_failure_exception.InternalFailureException_"
 
 
-class _ResponseStream_invalidRequestException(TypedDict):
+class _ResponseStream_invalidRequestException(TypedDict, closed=True):
     invalidRequestException: (
         "aws_sdk_iotsitewise.errors.invalid_request_exception.InvalidRequestException_"
     )
 
 
-class _ResponseStream_limitExceededException(TypedDict):
+class _ResponseStream_limitExceededException(TypedDict, closed=True):
     limitExceededException: (
         "aws_sdk_iotsitewise.errors.limit_exceeded_exception.LimitExceededException_"
     )
 
 
-class _ResponseStream_resourceNotFoundException(TypedDict):
+class _ResponseStream_resourceNotFoundException(TypedDict, closed=True):
     resourceNotFoundException: "aws_sdk_iotsitewise.errors.resource_not_found_exception.ResourceNotFoundException_"
 
 
-class _ResponseStream_throttlingException(TypedDict):
+class _ResponseStream_throttlingException(TypedDict, closed=True):
     throttlingException: (
         "aws_sdk_iotsitewise.errors.throttling_exception.ThrottlingException_"
     )

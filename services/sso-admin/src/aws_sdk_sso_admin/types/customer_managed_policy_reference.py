@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#CustomerManagedPolicyReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.managed_policy_path
 
 
-class CustomerManagedPolicyReference(TypedDict):
+class CustomerManagedPolicyReference(TypedDict, closed=True):
     name: "aws_sdk_sso_admin.types.managed_policy_name.ManagedPolicyName"
     """<p>The name of the IAM policy that you have configured in each account where you want to deploy your permission set.</p>"""
     path: NotRequired["aws_sdk_sso_admin.types.managed_policy_path.ManagedPolicyPath"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#SuppressionListDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.suppression_list_import_action
 
 
-class SuppressionListDestination(TypedDict):
+class SuppressionListDestination(TypedDict, closed=True):
     suppression_list_import_action: (
         "aws_sdk_sesv2.types.suppression_list_import_action.SuppressionListImportAction"
     )

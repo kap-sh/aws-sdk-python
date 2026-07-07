@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialLayerMapConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_map_layer_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_interaction_options
 
 
-class GeospatialLayerMapConfiguration(TypedDict):
+class GeospatialLayerMapConfiguration(TypedDict, closed=True):
     legend: NotRequired["aws_sdk_quicksight.types.legend_options.LegendOptions"]
     map_layers: NotRequired[
         "aws_sdk_quicksight.types.geospatial_map_layer_list.GeospatialMapLayerList"

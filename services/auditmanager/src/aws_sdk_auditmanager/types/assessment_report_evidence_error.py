@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#AssessmentReportEvidenceError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class AssessmentReportEvidenceError(TypedDict):
+class AssessmentReportEvidenceError(TypedDict, closed=True):
     evidence_id: NotRequired["aws_sdk_auditmanager.types.uuid.UUID"]
     """<p> The identifier for the evidence. </p>"""
     error_code: NotRequired["aws_sdk_auditmanager.types.error_code.ErrorCode"]

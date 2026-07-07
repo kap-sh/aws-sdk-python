@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.kms#DeleteCustomKeyStoreResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCustomKeyStoreResponse(TypedDict):
+class DeleteCustomKeyStoreResponse(TypedDict, closed=True):
     pass
 
 

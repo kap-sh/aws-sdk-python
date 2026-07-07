@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#BatchUnsuspendUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.user_error_list
 
 
-class BatchUnsuspendUserResponse(TypedDict):
+class BatchUnsuspendUserResponse(TypedDict, closed=True):
     user_errors: NotRequired["aws_sdk_chime.types.user_error_list.UserErrorList"]
     """<p>If the <a>BatchUnsuspendUser</a> action fails for one or more of the user IDs in the request, a list of the user IDs is returned, along with error codes and error messages.</p>"""
 

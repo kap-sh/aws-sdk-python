@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#PackageDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.created_at
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.package_version
 
 
-class PackageDetails(TypedDict):
+class PackageDetails(TypedDict, closed=True):
     package_id: NotRequired["aws_sdk_elasticsearch_service.types.package_id.PackageID"]
     """<p>Internal ID of the package.</p>"""
     package_name: NotRequired[

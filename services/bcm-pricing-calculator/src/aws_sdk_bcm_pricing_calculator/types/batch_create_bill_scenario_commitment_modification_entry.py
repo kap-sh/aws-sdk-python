@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchCreateBillScenarioCommitmentModificationEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.usage_group
 
 
-class BatchCreateBillScenarioCommitmentModificationEntry(TypedDict):
+class BatchCreateBillScenarioCommitmentModificationEntry(TypedDict, closed=True):
     key: "aws_sdk_bcm_pricing_calculator.types.key.Key"
     """<p> A unique identifier for this entry in the batch operation. This can be any valid string. This key is useful to identify errors associated with any commitment entry as any error is returned with this key. </p>"""
     group: NotRequired["aws_sdk_bcm_pricing_calculator.types.usage_group.UsageGroup"]

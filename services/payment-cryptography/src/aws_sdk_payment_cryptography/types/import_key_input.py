@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ImportKeyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.tags
 
 
-class ImportKeyInput(TypedDict):
+class ImportKeyInput(TypedDict, closed=True):
     key_material: (
         "aws_sdk_payment_cryptography.types.import_key_material.ImportKeyMaterial"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateFileCacheRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.client_request_token
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.tags
 
 
-class CreateFileCacheRequest(TypedDict):
+class CreateFileCacheRequest(TypedDict, closed=True):
     client_request_token: NotRequired[
         "aws_sdk_fsx.types.client_request_token.ClientRequestToken"
     ]

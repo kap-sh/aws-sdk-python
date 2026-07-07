@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#ListAssociatedResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.next_token
     import aws_sdk_service_catalog_appregistry.types.resources
 
 
-class ListAssociatedResourcesResponse(TypedDict):
+class ListAssociatedResourcesResponse(TypedDict, closed=True):
     resources: NotRequired[
         "aws_sdk_service_catalog_appregistry.types.resources.Resources"
     ]

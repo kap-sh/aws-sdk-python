@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ListEventsFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.event_class
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.resource_collection
 
 
-class ListEventsFilters(TypedDict):
+class ListEventsFilters(TypedDict, closed=True):
     insight_id: NotRequired["aws_sdk_devops_guru.types.insight_id.InsightId"]
     """<p> An ID of an insight that is related to the events you want to filter for. </p>"""
     event_time_range: NotRequired[

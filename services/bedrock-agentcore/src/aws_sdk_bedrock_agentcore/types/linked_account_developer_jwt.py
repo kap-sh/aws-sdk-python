@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#LinkedAccountDeveloperJwt``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.jwt_key_id
 
 
-class LinkedAccountDeveloperJwt(TypedDict):
+class LinkedAccountDeveloperJwt(TypedDict, closed=True):
     kid: "aws_sdk_bedrock_agentcore.types.jwt_key_id.JwtKeyId"
     """<p>The key ID (kid) from the JWT header. Identifies which key was used to sign the JWT.</p>"""
     sub: "str"

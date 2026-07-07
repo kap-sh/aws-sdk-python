@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#DeleteClusterSnapshotMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class DeleteClusterSnapshotMessage(TypedDict):
+class DeleteClusterSnapshotMessage(TypedDict, closed=True):
     snapshot_identifier: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The unique identifier of the manual snapshot to be deleted.</p> <p>Constraints: Must be the name of an existing snapshot that is in the <code>available</code>, <code>failed</code>, or <code>cancelled</code> state.</p>"""
     snapshot_cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]

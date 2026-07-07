@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#SAMLOptionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.backend_role
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.username
 
 
-class SAMLOptionsInput(TypedDict):
+class SAMLOptionsInput(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_opensearch.types.boolean.Boolean"]
     """<p>True to enable SAML authentication for a domain.</p>"""
     idp: NotRequired["aws_sdk_opensearch.types.saml_idp.SAMLIdp"]

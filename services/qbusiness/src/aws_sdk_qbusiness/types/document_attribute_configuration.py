@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentAttributeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.attribute_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.status
 
 
-class DocumentAttributeConfiguration(TypedDict):
+class DocumentAttributeConfiguration(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_qbusiness.types.document_metadata_configuration_name.DocumentMetadataConfigurationName"
     ]

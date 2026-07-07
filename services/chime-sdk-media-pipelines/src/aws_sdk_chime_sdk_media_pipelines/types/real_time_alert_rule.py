@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#RealTimeAlertRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.sentiment_configuration
 
 
-class RealTimeAlertRule(TypedDict):
+class RealTimeAlertRule(TypedDict, closed=True):
     type: "aws_sdk_chime_sdk_media_pipelines.types.real_time_alert_rule_type.RealTimeAlertRuleType"
     """<p>The type of alert rule.</p>"""
     keyword_match_configuration: NotRequired[

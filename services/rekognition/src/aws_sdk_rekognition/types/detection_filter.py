@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DetectionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.bounding_box_height
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.percent
 
 
-class DetectionFilter(TypedDict):
+class DetectionFilter(TypedDict, closed=True):
     min_confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]
     """<p>Sets the confidence of word detection. Words with detection confidence below this will be excluded from the result. Values should be between 0 and 100. The default MinConfidence is 80.</p>"""
     min_bounding_box_height: NotRequired[

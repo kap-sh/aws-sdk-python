@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#WorkflowRunStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.integer_value
 
 
-class WorkflowRunStatistics(TypedDict):
+class WorkflowRunStatistics(TypedDict, closed=True):
     total_actions: "aws_sdk_glue.types.integer_value.IntegerValue"
     """<p>Total number of Actions in the workflow run.</p>"""
     timeout_actions: "aws_sdk_glue.types.integer_value.IntegerValue"

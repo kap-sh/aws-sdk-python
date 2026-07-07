@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateAndAttachS3AccessPointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.client_request_token
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.s3_access_point_attachment_type
 
 
-class CreateAndAttachS3AccessPointRequest(TypedDict):
+class CreateAndAttachS3AccessPointRequest(TypedDict, closed=True):
     client_request_token: NotRequired[
         "aws_sdk_fsx.types.client_request_token.ClientRequestToken"
     ]

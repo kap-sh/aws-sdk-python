@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ProductionVariantServerlessUpdateConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.serverless_max_concurrency
     import aws_sdk_sagemaker.types.serverless_provisioned_concurrency
 
 
-class ProductionVariantServerlessUpdateConfig(TypedDict):
+class ProductionVariantServerlessUpdateConfig(TypedDict, closed=True):
     max_concurrency: NotRequired[
         "aws_sdk_sagemaker.types.serverless_max_concurrency.ServerlessMaxConcurrency"
     ]

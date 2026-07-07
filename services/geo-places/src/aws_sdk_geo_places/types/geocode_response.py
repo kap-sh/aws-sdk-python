@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#GeocodeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.geocode_result_item_list
 
 
-class GeocodeResponse(TypedDict):
+class GeocodeResponse(TypedDict, closed=True):
     pricing_bucket: "str"
     r"""<p>The pricing bucket for which the query is charged at, or the maximum pricing bucket when the query is charged per item within the query.</p> <p>For more information on pricing, please visit <a href=\"https://aws.amazon.com/location/pricing/\">Amazon Location Service Pricing</a>.</p>"""
     result_items: NotRequired[

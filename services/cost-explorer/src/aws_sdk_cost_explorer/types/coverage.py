@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#Coverage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.coverage_cost
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.coverage_normalized_units
 
 
-class Coverage(TypedDict):
+class Coverage(TypedDict, closed=True):
     coverage_hours: NotRequired[
         "aws_sdk_cost_explorer.types.coverage_hours.CoverageHours"
     ]

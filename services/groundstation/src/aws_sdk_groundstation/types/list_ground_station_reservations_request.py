@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ListGroundStationReservationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.reservation_type_filter_list
 
 
-class ListGroundStationReservationsRequest(TypedDict):
+class ListGroundStationReservationsRequest(TypedDict, closed=True):
     ground_station_id: (
         "aws_sdk_groundstation.types.ground_station_name.GroundStationName"
     )

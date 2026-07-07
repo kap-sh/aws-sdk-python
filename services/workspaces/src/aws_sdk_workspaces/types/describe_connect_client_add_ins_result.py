@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeConnectClientAddInsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.connect_client_add_in_list
     import aws_sdk_workspaces.types.pagination_token
 
 
-class DescribeConnectClientAddInsResult(TypedDict):
+class DescribeConnectClientAddInsResult(TypedDict, closed=True):
     add_ins: NotRequired[
         "aws_sdk_workspaces.types.connect_client_add_in_list.ConnectClientAddInList"
     ]

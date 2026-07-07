@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentAclUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.membership_type
     import aws_sdk_qbusiness.types.string
 
 
-class DocumentAclUser(TypedDict):
+class DocumentAclUser(TypedDict, closed=True):
     id: NotRequired["aws_sdk_qbusiness.types.string.String"]
     """<p>The unique identifier of the user in the document's ACL. This is used to identify the user when applying access rules.</p>"""
     type: NotRequired["aws_sdk_qbusiness.types.membership_type.MembershipType"]

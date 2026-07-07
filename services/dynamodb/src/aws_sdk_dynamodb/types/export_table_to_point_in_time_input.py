@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ExportTableToPointInTimeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_arn
 
 
-class ExportTableToPointInTimeInput(TypedDict):
+class ExportTableToPointInTimeInput(TypedDict, closed=True):
     table_arn: "aws_sdk_dynamodb.types.table_arn.TableArn"
     """<p>The Amazon Resource Name (ARN) associated with the table to export.</p>"""
     export_time: NotRequired["aws_sdk_dynamodb.types.export_time.ExportTime"]

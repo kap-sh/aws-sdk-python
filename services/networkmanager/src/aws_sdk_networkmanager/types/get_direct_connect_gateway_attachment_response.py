@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetDirectConnectGatewayAttachmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.direct_connect_gateway_attachment
 
 
-class GetDirectConnectGatewayAttachmentResponse(TypedDict):
+class GetDirectConnectGatewayAttachmentResponse(TypedDict, closed=True):
     direct_connect_gateway_attachment: NotRequired[
         "aws_sdk_networkmanager.types.direct_connect_gateway_attachment.DirectConnectGatewayAttachment"
     ]

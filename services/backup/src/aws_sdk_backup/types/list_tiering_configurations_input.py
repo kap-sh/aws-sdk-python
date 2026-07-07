@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListTieringConfigurationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.max_results
     import aws_sdk_backup.types.string
 
 
-class ListTieringConfigurationsInput(TypedDict):
+class ListTieringConfigurationsInput(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_backup.types.max_results.MaxResults"]
     """<p>The maximum number of items to be returned.</p>"""
     next_token: NotRequired["aws_sdk_backup.types.string.string"]

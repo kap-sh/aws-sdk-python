@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#DeleteDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.client_token
     import aws_sdk_workspaces_thin_client.types.device_id
 
 
-class DeleteDeviceRequest(TypedDict):
+class DeleteDeviceRequest(TypedDict, closed=True):
     id: "aws_sdk_workspaces_thin_client.types.device_id.DeviceId"
     """<p>The ID of the device to delete.</p>"""
     client_token: NotRequired[

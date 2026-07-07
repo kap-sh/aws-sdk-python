@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateEnvironmentActionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.environment_id
 
 
-class UpdateEnvironmentActionOutput(TypedDict):
+class UpdateEnvironmentActionOutput(TypedDict, closed=True):
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The domain ID of the environment action.</p>"""
     environment_id: "aws_sdk_datazone.types.environment_id.EnvironmentId"

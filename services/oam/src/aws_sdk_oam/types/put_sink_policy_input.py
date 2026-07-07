@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.oam#PutSinkPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_oam.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_oam.types.sink_policy
 
 
-class PutSinkPolicyInput(TypedDict):
+class PutSinkPolicyInput(TypedDict, closed=True):
     sink_identifier: "aws_sdk_oam.types.resource_identifier.ResourceIdentifier"
     """<p>The ARN of the sink to attach this policy to.</p>"""
     policy: "aws_sdk_oam.types.sink_policy.SinkPolicy"

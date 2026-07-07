@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteFileCacheRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.client_request_token
     import aws_sdk_fsx.types.file_cache_id
 
 
-class DeleteFileCacheRequest(TypedDict):
+class DeleteFileCacheRequest(TypedDict, closed=True):
     file_cache_id: NotRequired["aws_sdk_fsx.types.file_cache_id.FileCacheId"]
     """<p>The ID of the cache that's being deleted.</p>"""
     client_request_token: NotRequired[

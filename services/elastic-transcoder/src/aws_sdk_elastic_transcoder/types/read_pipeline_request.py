@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#ReadPipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.id
 
 
-class ReadPipelineRequest(TypedDict):
+class ReadPipelineRequest(TypedDict, closed=True):
     id: "aws_sdk_elastic_transcoder.types.id.Id"
     """<p>The identifier of the pipeline to read.</p>"""
 

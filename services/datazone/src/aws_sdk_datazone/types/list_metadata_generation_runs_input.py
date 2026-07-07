@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListMetadataGenerationRunsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.pagination_token
 
 
-class ListMetadataGenerationRunsInput(TypedDict):
+class ListMetadataGenerationRunsInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain where you want to list metadata generation runs.</p>"""
     status: NotRequired[

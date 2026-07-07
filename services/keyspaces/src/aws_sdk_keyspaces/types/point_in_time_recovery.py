@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#PointInTimeRecovery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.point_in_time_recovery_status
 
 
-class PointInTimeRecovery(TypedDict):
+class PointInTimeRecovery(TypedDict, closed=True):
     status: "aws_sdk_keyspaces.types.point_in_time_recovery_status.PointInTimeRecoveryStatus"
     """<p>The options are:</p> <ul> <li> <p> <code>status=ENABLED</code> </p> </li> <li> <p> <code>status=DISABLED</code> </p> </li> </ul>"""
 

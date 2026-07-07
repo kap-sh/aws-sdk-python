@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InstanceAggregatedAssociationOverview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.instance_association_status_aggregated_count
     import aws_sdk_ssm.types.status_name
 
 
-class InstanceAggregatedAssociationOverview(TypedDict):
+class InstanceAggregatedAssociationOverview(TypedDict, closed=True):
     detailed_status: NotRequired["aws_sdk_ssm.types.status_name.StatusName"]
     """<p>Detailed status information about the aggregated associations.</p>"""
     instance_association_status_aggregated_count: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#DeleteAssetFileResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAssetFileResponse(TypedDict):
+class DeleteAssetFileResponse(TypedDict, closed=True):
     pass
 
 

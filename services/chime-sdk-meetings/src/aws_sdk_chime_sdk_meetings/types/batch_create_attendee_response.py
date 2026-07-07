@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#BatchCreateAttendeeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.attendee_list
     import aws_sdk_chime_sdk_meetings.types.batch_create_attendee_error_list
 
 
-class BatchCreateAttendeeResponse(TypedDict):
+class BatchCreateAttendeeResponse(TypedDict, closed=True):
     attendees: NotRequired[
         "aws_sdk_chime_sdk_meetings.types.attendee_list.AttendeeList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#IngestionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.tenant_identifier
 
 
-class IngestionSummary(TypedDict):
+class IngestionSummary(TypedDict, closed=True):
     arn: "aws_sdk_appfabric.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the ingestion.</p>"""
     app: "aws_sdk_appfabric.types.string255.String255"

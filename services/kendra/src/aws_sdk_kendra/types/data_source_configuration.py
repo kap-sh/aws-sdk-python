@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DataSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.alfresco_configuration
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.work_docs_configuration
 
 
-class DataSourceConfiguration(TypedDict):
+class DataSourceConfiguration(TypedDict, closed=True):
     s3_configuration: NotRequired[
         "aws_sdk_kendra.types.s3_data_source_configuration.S3DataSourceConfiguration"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MediaPackageOutputDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string_min1
 
 
-class MediaPackageOutputDestinationSettings(TypedDict):
+class MediaPackageOutputDestinationSettings(TypedDict, closed=True):
     channel_id: NotRequired["aws_sdk_medialive.types.__string_min1.__stringMin1"]
     """ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region."""
     channel_group: NotRequired["aws_sdk_medialive.types.__string_min1.__stringMin1"]

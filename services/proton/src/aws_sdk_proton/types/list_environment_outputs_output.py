@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListEnvironmentOutputsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.outputs_list
 
 
-class ListEnvironmentOutputsOutput(TypedDict):
+class ListEnvironmentOutputsOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_proton.types.empty_next_token.EmptyNextToken"]
     """<p>A token that indicates the location of the next environment output in the array of environment outputs, after the current requested list of environment outputs.</p>"""
     outputs: "aws_sdk_proton.types.outputs_list.OutputsList"

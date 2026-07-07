@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AudioFillerSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.audio_filler_delay_in_milliseconds
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.boolean
 
 
-class AudioFillerSettings(TypedDict):
+class AudioFillerSettings(TypedDict, closed=True):
     enabled: "aws_sdk_lex_models_v2.types.boolean.Boolean"
     """<p>Specifies whether audio filler playback is enabled for the bot locale. Set to <code>true</code> to play filler audio while Amazon Lex processes a user utterance. Set to <code>false</code> to disable filler audio.</p>"""
     audio_type: NotRequired[

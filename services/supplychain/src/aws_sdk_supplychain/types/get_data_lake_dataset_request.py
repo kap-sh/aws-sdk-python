@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#GetDataLakeDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_lake_dataset_name
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.uuid
 
 
-class GetDataLakeDatasetRequest(TypedDict):
+class GetDataLakeDatasetRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_supplychain.types.uuid.UUID"
     """<p>The Amazon Web Services Supply Chain instance identifier.</p>"""
     namespace: (

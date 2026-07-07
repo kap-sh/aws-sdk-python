@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#FirewallDomainListsItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_name
 
 
-class FirewallDomainListsItem(TypedDict):
+class FirewallDomainListsItem(TypedDict, closed=True):
     arn: "aws_sdk_route53globalresolver.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the firewall domain list.</p>"""
     global_resolver_id: "aws_sdk_route53globalresolver.types.resource_id.ResourceId"

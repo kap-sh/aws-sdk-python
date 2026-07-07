@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#AnalysisReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.analysis_report_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.status
 
 
-class AnalysisReport(TypedDict):
+class AnalysisReport(TypedDict, closed=True):
     analysis_report_id: NotRequired[
         "aws_sdk_network_firewall.types.analysis_report_id.AnalysisReportId"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#GetConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.connection_id
 
 
-class GetConnectionRequest(TypedDict):
+class GetConnectionRequest(TypedDict, closed=True):
     identifier: "aws_sdk_interconnect.types.connection_id.ConnectionId"
     """<p>The identifier of the requested <a>Connection</a> </p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ServiceDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
@@ -18,59 +20,59 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.service_now_service_details
 
 
-class _ServiceDetails_dynatrace(TypedDict):
+class _ServiceDetails_dynatrace(TypedDict, closed=True):
     dynatrace: (
         "aws_sdk_devops_agent.types.dynatrace_service_details.DynatraceServiceDetails"
     )
 
 
-class _ServiceDetails_servicenow(TypedDict):
+class _ServiceDetails_servicenow(TypedDict, closed=True):
     servicenow: "aws_sdk_devops_agent.types.service_now_service_details.ServiceNowServiceDetails"
 
 
-class _ServiceDetails_mcpserverdatadog(TypedDict):
+class _ServiceDetails_mcpserverdatadog(TypedDict, closed=True):
     mcpserverdatadog: (
         "aws_sdk_devops_agent.types.datadog_service_details.DatadogServiceDetails"
     )
 
 
-class _ServiceDetails_mcpserver(TypedDict):
+class _ServiceDetails_mcpserver(TypedDict, closed=True):
     mcpserver: "aws_sdk_devops_agent.types.mcp_server_details.MCPServerDetails"
 
 
-class _ServiceDetails_gitlab(TypedDict):
+class _ServiceDetails_gitlab(TypedDict, closed=True):
     gitlab: "aws_sdk_devops_agent.types.git_lab_details.GitLabDetails"
 
 
-class _ServiceDetails_mcpserversplunk(TypedDict):
+class _ServiceDetails_mcpserversplunk(TypedDict, closed=True):
     mcpserversplunk: "aws_sdk_devops_agent.types.mcp_server_details.MCPServerDetails"
 
 
-class _ServiceDetails_mcpservernewrelic(TypedDict):
+class _ServiceDetails_mcpservernewrelic(TypedDict, closed=True):
     mcpservernewrelic: (
         "aws_sdk_devops_agent.types.new_relic_service_details.NewRelicServiceDetails"
     )
 
 
-class _ServiceDetails_eventChannel(TypedDict):
+class _ServiceDetails_eventChannel(TypedDict, closed=True):
     eventChannel: "aws_sdk_devops_agent.types.event_channel_details.EventChannelDetails"
 
 
-class _ServiceDetails_mcpservergrafana(TypedDict):
+class _ServiceDetails_mcpservergrafana(TypedDict, closed=True):
     mcpservergrafana: (
         "aws_sdk_devops_agent.types.grafana_service_details.GrafanaServiceDetails"
     )
 
 
-class _ServiceDetails_pagerduty(TypedDict):
+class _ServiceDetails_pagerduty(TypedDict, closed=True):
     pagerduty: "aws_sdk_devops_agent.types.pager_duty_details.PagerDutyDetails"
 
 
-class _ServiceDetails_azureidentity(TypedDict):
+class _ServiceDetails_azureidentity(TypedDict, closed=True):
     azureidentity: "aws_sdk_devops_agent.types.registered_azure_identity_details.RegisteredAzureIdentityDetails"
 
 
-class _ServiceDetails_mcpserversigv4(TypedDict):
+class _ServiceDetails_mcpserversigv4(TypedDict, closed=True):
     mcpserversigv4: "aws_sdk_devops_agent.types.mcp_server_sig_v4_service_details.MCPServerSigV4ServiceDetails"
 
 

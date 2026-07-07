@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ListFlowsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.max_results
     import aws_sdk_appflow.types.next_token
 
 
-class ListFlowsRequest(TypedDict):
+class ListFlowsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_appflow.types.max_results.MaxResults"]
     """<p> Specifies the maximum number of items that should be returned in the result set. </p>"""
     next_token: NotRequired["aws_sdk_appflow.types.next_token.NextToken"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetDevEndpointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.dev_endpoint_list
     import aws_sdk_glue.types.dev_endpoint_names
 
 
-class BatchGetDevEndpointsResponse(TypedDict):
+class BatchGetDevEndpointsResponse(TypedDict, closed=True):
     dev_endpoints: NotRequired["aws_sdk_glue.types.dev_endpoint_list.DevEndpointList"]
     """<p>A list of <code>DevEndpoint</code> definitions.</p>"""
     dev_endpoints_not_found: NotRequired[

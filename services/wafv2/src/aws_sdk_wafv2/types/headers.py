@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#Headers``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.oversize_handling
 
 
-class Headers(TypedDict):
+class Headers(TypedDict, closed=True):
     match_pattern: "aws_sdk_wafv2.types.header_match_pattern.HeaderMatchPattern"
     r"""<p>The filter to use to identify the subset of headers to inspect in a web request. </p> <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedHeaders</code>, or <code>ExcludedHeaders</code>.</p> <p>Example JSON: <code>\"MatchPattern\": { \"ExcludedHeaders\": [ \"KeyToExclude1\", \"KeyToExclude2\" ] }</code> </p>"""
     match_scope: "aws_sdk_wafv2.types.map_match_scope.MapMatchScope"

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#InternalServerException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_instances.errors import DeserializationError, ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
     """<p>Description of the internal server error.</p>"""
     retry_after_seconds: NotRequired["int"]

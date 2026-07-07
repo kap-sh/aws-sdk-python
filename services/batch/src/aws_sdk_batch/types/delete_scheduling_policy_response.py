@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.batch#DeleteSchedulingPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSchedulingPolicyResponse(TypedDict):
+class DeleteSchedulingPolicyResponse(TypedDict, closed=True):
     pass
 
 

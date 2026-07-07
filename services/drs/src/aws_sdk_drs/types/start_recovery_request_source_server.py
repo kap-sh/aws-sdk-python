@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#StartRecoveryRequestSourceServer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.source_server_id
 
 
-class StartRecoveryRequestSourceServer(TypedDict):
+class StartRecoveryRequestSourceServer(TypedDict, closed=True):
     source_server_id: "aws_sdk_drs.types.source_server_id.SourceServerID"
     """<p>The ID of the Source Server you want to recover.</p>"""
     recovery_snapshot_id: NotRequired[

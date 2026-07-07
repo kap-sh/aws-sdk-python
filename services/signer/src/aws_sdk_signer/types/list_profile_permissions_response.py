@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#ListProfilePermissionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.permissions
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.string
 
 
-class ListProfilePermissionsResponse(TypedDict):
+class ListProfilePermissionsResponse(TypedDict, closed=True):
     revision_id: NotRequired["aws_sdk_signer.types.string.String"]
     """<p>The identifier for the current revision of profile permissions.</p>"""
     policy_size_bytes: "aws_sdk_signer.types.policy_size_bytes.PolicySizeBytes"

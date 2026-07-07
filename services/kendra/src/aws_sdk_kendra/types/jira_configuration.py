@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#JiraConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.secret_arn
 
 
-class JiraConfiguration(TypedDict):
+class JiraConfiguration(TypedDict, closed=True):
     jira_account_url: "aws_sdk_kendra.types.jira_account_url.JiraAccountUrl"
     """<p>The URL of the Jira account. For example, <i>company.atlassian.net</i>.</p>"""
     secret_arn: "aws_sdk_kendra.types.secret_arn.SecretArn"

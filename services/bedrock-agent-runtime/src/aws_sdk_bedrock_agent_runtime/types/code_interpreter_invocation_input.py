@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#CodeInterpreterInvocationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.files
 
 
-class CodeInterpreterInvocationInput(TypedDict):
+class CodeInterpreterInvocationInput(TypedDict, closed=True):
     code: NotRequired["str"]
     """<p>The code for the code interpreter to use.</p>"""
     files: NotRequired["aws_sdk_bedrock_agent_runtime.types.files.Files"]

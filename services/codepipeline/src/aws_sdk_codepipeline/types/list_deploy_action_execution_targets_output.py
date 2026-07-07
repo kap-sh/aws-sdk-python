@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ListDeployActionExecutionTargetsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.deploy_action_execution_target_list
     import aws_sdk_codepipeline.types.next_token
 
 
-class ListDeployActionExecutionTargetsOutput(TypedDict):
+class ListDeployActionExecutionTargetsOutput(TypedDict, closed=True):
     targets: NotRequired[
         "aws_sdk_codepipeline.types.deploy_action_execution_target_list.DeployActionExecutionTargetList"
     ]

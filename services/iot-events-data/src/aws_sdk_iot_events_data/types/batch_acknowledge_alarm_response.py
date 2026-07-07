@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#BatchAcknowledgeAlarmResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.batch_alarm_action_error_entries
 
 
-class BatchAcknowledgeAlarmResponse(TypedDict):
+class BatchAcknowledgeAlarmResponse(TypedDict, closed=True):
     error_entries: NotRequired[
         "aws_sdk_iot_events_data.types.batch_alarm_action_error_entries.BatchAlarmActionErrorEntries"
     ]

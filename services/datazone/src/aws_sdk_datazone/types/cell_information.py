@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CellInformation``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CellInformation(TypedDict):
+class CellInformation(TypedDict, closed=True):
     pass
 
 

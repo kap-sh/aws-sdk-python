@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#NeighborConnectionDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_discovery_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.string
 
 
-class NeighborConnectionDetail(TypedDict):
+class NeighborConnectionDetail(TypedDict, closed=True):
     source_server_id: (
         "aws_sdk_application_discovery_service.types.configuration_id.ConfigurationId"
     )

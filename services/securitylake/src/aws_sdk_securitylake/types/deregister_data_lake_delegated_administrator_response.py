@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DeregisterDataLakeDelegatedAdministratorResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeregisterDataLakeDelegatedAdministratorResponse(TypedDict):
+class DeregisterDataLakeDelegatedAdministratorResponse(TypedDict, closed=True):
     pass
 
 

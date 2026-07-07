@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#HealthCheck``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.connector_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.timestamp
 
 
-class HealthCheck(TypedDict):
+class HealthCheck(TypedDict, closed=True):
     connector_status: NotRequired[
         "aws_sdk_securityhub.types.connector_status.ConnectorStatus"
     ]

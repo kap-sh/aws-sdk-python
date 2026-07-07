@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ComputationModelSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.version
 
 
-class ComputationModelSummary(TypedDict):
+class ComputationModelSummary(TypedDict, closed=True):
     id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the computation model.</p>"""
     arn: "aws_sdk_iotsitewise.types.arn.ARN"

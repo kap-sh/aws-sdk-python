@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ListConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of_configuration
     import aws_sdk_kafka.types.__string
 
 
-class ListConfigurationsResponse(TypedDict):
+class ListConfigurationsResponse(TypedDict, closed=True):
     configurations: NotRequired[
         "aws_sdk_kafka.types.__list_of_configuration.__listOfConfiguration"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#Revision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.sha
 
 
-class Revision(TypedDict):
+class Revision(TypedDict, closed=True):
     branch: "aws_sdk_codestar_connections.types.branch_name.BranchName"
     """<p>The branch name for a specific revision.</p>"""
     directory: "aws_sdk_codestar_connections.types.directory.Directory"

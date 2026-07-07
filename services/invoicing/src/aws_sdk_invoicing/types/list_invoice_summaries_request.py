@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#ListInvoiceSummariesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.next_token_string
 
 
-class ListInvoiceSummariesRequest(TypedDict):
+class ListInvoiceSummariesRequest(TypedDict, closed=True):
     selector: (
         "aws_sdk_invoicing.types.invoice_summaries_selector.InvoiceSummariesSelector"
     )

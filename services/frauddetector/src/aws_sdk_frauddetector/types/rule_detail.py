@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#RuleDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.description
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.whole_number_version_string
 
 
-class RuleDetail(TypedDict):
+class RuleDetail(TypedDict, closed=True):
     rule_id: NotRequired["aws_sdk_frauddetector.types.identifier.identifier"]
     """<p>The rule ID.</p>"""
     description: NotRequired["aws_sdk_frauddetector.types.description.description"]

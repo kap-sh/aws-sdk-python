@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#LifecycleConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class LifecycleConfiguration(TypedDict):
+class LifecycleConfiguration(TypedDict, closed=True):
     idle_runtime_session_timeout: NotRequired["int"]
     """<p>Timeout in seconds for idle runtime sessions. When a session remains idle for this duration, it will be automatically terminated. Default: 900 seconds (15 minutes).</p>"""
     max_lifetime: NotRequired["int"]

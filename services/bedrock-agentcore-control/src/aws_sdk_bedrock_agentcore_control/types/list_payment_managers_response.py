@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListPaymentManagersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.payment_manager_summaries
 
 
-class ListPaymentManagersResponse(TypedDict):
+class ListPaymentManagersResponse(TypedDict, closed=True):
     payment_managers: "aws_sdk_bedrock_agentcore_control.types.payment_manager_summaries.PaymentManagerSummaries"
     """<p>The list of payment manager summaries. For details about the fields in each summary, see the <code>PaymentManagerSummary</code> data type.</p>"""
     next_token: NotRequired[

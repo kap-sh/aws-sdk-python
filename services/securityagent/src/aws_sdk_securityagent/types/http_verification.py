@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#HttpVerification``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class HttpVerification(TypedDict):
+class HttpVerification(TypedDict, closed=True):
     token: NotRequired["str"]
     """<p>The verification token to serve at the specified route path.</p>"""
     route_path: NotRequired["str"]

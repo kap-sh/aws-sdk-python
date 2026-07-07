@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#DisableHostedZoneDNSSECRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.resource_id
 
 
-class DisableHostedZoneDNSSECRequest(TypedDict):
+class DisableHostedZoneDNSSECRequest(TypedDict, closed=True):
     hosted_zone_id: "aws_sdk_route_53.types.resource_id.ResourceId"
     """<p>A unique string used to identify a hosted zone.</p>"""
 

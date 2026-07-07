@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#CustomAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.string1_to256
 
 
-class CustomAttribute(TypedDict):
+class CustomAttribute(TypedDict, closed=True):
     object_identifier: (
         "aws_sdk_acm_pca.types.custom_object_identifier.CustomObjectIdentifier"
     )

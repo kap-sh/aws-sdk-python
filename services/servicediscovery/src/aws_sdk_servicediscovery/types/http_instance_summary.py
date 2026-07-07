@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#HttpInstanceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.attributes
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.service_name
 
 
-class HttpInstanceSummary(TypedDict):
+class HttpInstanceSummary(TypedDict, closed=True):
     instance_id: NotRequired["aws_sdk_servicediscovery.types.resource_id.ResourceId"]
     """<p>The ID of an instance that matches the values that you specified in the request.</p>"""
     namespace_name: NotRequired[

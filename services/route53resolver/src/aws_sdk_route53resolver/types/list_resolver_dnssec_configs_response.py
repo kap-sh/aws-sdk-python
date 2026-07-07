@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListResolverDnssecConfigsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.next_token
     import aws_sdk_route53resolver.types.resolver_dnssec_config_list
 
 
-class ListResolverDnssecConfigsResponse(TypedDict):
+class ListResolverDnssecConfigsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_route53resolver.types.next_token.NextToken"]
     r"""<p>If a response includes the last of the DNSSEC configurations that are associated with the current Amazon Web Services account, <code>NextToken</code> doesn't appear in the response.</p> <p>If a response doesn't include the last of the configurations, you can get more configurations by submitting another <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResolverDnssecConfigs.html\">ListResolverDnssecConfigs</a> request. Get the value of <code>NextToken</code> that Amazon Route 53 returned in the previous response and include it in <code>NextToken</code> in the next request.</p>"""
     resolver_dnssec_configs: NotRequired[

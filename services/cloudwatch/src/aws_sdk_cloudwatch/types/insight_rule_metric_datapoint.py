@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#InsightRuleMetricDatapoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.timestamp
 
 
-class InsightRuleMetricDatapoint(TypedDict):
+class InsightRuleMetricDatapoint(TypedDict, closed=True):
     timestamp: NotRequired["aws_sdk_cloudwatch.types.timestamp.Timestamp"]
     """<p>The timestamp of the data point.</p>"""
     unique_contributors: NotRequired[

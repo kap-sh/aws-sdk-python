@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#StartReadSetImportJobSourceItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.tag_map
 
 
-class StartReadSetImportJobSourceItem(TypedDict):
+class StartReadSetImportJobSourceItem(TypedDict, closed=True):
     source_files: "aws_sdk_omics.types.source_files.SourceFiles"
     """<p>The source files' location in Amazon S3.</p>"""
     source_file_type: "aws_sdk_omics.types.file_type.FileType"

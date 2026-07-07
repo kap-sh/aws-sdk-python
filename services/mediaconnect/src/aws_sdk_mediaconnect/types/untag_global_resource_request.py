@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#UntagGlobalResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_string
 
 
-class UntagGlobalResourceRequest(TypedDict):
+class UntagGlobalResourceRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the global resource to remove tags from.</p>"""
     tag_keys: NotRequired["aws_sdk_mediaconnect.types.__list_of_string.__listOfString"]

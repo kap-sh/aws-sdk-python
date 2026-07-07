@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#MetadataFormEnforcementDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.required_metadata_form_list
 
 
-class MetadataFormEnforcementDetail(TypedDict):
+class MetadataFormEnforcementDetail(TypedDict, closed=True):
     required_metadata_forms: NotRequired[
         "aws_sdk_datazone.types.required_metadata_form_list.RequiredMetadataFormList"
     ]

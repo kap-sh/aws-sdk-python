@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetCollaborationPrivacyBudgetTemplateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.collaboration_privacy_budget_template
 
 
-class GetCollaborationPrivacyBudgetTemplateOutput(TypedDict):
+class GetCollaborationPrivacyBudgetTemplateOutput(TypedDict, closed=True):
     collaboration_privacy_budget_template: "aws_sdk_cleanrooms.types.collaboration_privacy_budget_template.CollaborationPrivacyBudgetTemplate"
     """<p>Returns the details of the privacy budget template that you requested.</p>"""
 

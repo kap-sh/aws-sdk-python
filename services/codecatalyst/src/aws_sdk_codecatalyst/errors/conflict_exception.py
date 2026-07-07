@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
 
 

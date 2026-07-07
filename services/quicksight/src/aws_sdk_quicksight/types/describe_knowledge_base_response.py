@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeKnowledgeBaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DescribeKnowledgeBaseResponse(TypedDict):
+class DescribeKnowledgeBaseResponse(TypedDict, closed=True):
     knowledge_base: "aws_sdk_quicksight.types.knowledge_base.KnowledgeBase"
     """<p>The knowledge base.</p>"""
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]

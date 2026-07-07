@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelCardExportArtifacts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class ModelCardExportArtifacts(TypedDict):
+class ModelCardExportArtifacts(TypedDict, closed=True):
     s3_export_artifacts: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     """<p>The Amazon S3 URI of the exported model artifacts.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#EphemerisErrorReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.error_string
 
 
-class EphemerisErrorReason(TypedDict):
+class EphemerisErrorReason(TypedDict, closed=True):
     error_code: "aws_sdk_groundstation.types.ephemeris_error_code.EphemerisErrorCode"
     r"""<p>The error code identifying the type of validation failure.</p> <p>See the <a href=\"https://docs.aws.amazon.com/ground-station/latest/ug/troubleshooting-invalid-ephemerides.html\">Troubleshooting Invalid Ephemerides guide</a> for error code details.</p>"""
     error_message: "aws_sdk_groundstation.types.error_string.ErrorString"

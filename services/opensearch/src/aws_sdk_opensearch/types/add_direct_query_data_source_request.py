@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AddDirectQueryDataSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.tag_list
 
 
-class AddDirectQueryDataSourceRequest(TypedDict):
+class AddDirectQueryDataSourceRequest(TypedDict, closed=True):
     data_source_name: "aws_sdk_opensearch.types.direct_query_data_source_name.DirectQueryDataSourceName"
     """<p> A unique, user-defined label to identify the data source within your OpenSearch Service environment. </p>"""
     data_source_type: "aws_sdk_opensearch.types.direct_query_data_source_type.DirectQueryDataSourceType"

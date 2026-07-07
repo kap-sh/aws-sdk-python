@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#StartCopyJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.boolean2
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class StartCopyJobOutput(TypedDict):
+class StartCopyJobOutput(TypedDict, closed=True):
     copy_job_id: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>Uniquely identifies a copy job.</p>"""
     creation_date: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]

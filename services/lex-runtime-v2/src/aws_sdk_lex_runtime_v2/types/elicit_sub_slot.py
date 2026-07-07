@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#ElicitSubSlot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.non_empty_string
 
 
-class ElicitSubSlot(TypedDict):
+class ElicitSubSlot(TypedDict, closed=True):
     name: "aws_sdk_lex_runtime_v2.types.non_empty_string.NonEmptyString"
     """<p>The name of the slot that should be elicited from the user.</p>"""
     sub_slot_to_elicit: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ExpireSessionResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ExpireSessionResult(TypedDict):
+class ExpireSessionResult(TypedDict, closed=True):
     pass
 
 

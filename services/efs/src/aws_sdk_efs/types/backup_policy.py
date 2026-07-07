@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#BackupPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.status
 
 
-class BackupPolicy(TypedDict):
+class BackupPolicy(TypedDict, closed=True):
     status: "aws_sdk_efs.types.status.Status"
     """<p>Describes the status of the file system's backup policy.</p> <ul> <li> <p> <b> <code>ENABLED</code> </b> – EFS is automatically backing up the file system.</p> </li> <li> <p> <b> <code>ENABLING</code> </b> – EFS is turning on automatic backups for the file system.</p> </li> <li> <p> <b> <code>DISABLED</code> </b> – Automatic back ups are turned off for the file system.</p> </li> <li> <p> <b> <code>DISABLING</code> </b> – EFS is turning off automatic backups for the file system.</p> </li> </ul>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ErrorInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.non_empty_string64
     import aws_sdk_sagemaker.types.non_empty_string256
 
 
-class ErrorInfo(TypedDict):
+class ErrorInfo(TypedDict, closed=True):
     code: NotRequired["aws_sdk_sagemaker.types.non_empty_string64.NonEmptyString64"]
     """<p>The error code for an invalid or failed operation.</p>"""
     reason: NotRequired["aws_sdk_sagemaker.types.non_empty_string256.NonEmptyString256"]

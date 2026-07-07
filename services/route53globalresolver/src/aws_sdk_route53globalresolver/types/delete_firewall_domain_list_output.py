@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#DeleteFirewallDomainListOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_name
 
 
-class DeleteFirewallDomainListOutput(TypedDict):
+class DeleteFirewallDomainListOutput(TypedDict, closed=True):
     arn: "aws_sdk_route53globalresolver.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the deleted firewall domain list.</p>"""
     id: "aws_sdk_route53globalresolver.types.resource_id.ResourceId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateRuleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.rule_type
 
 
-class CreateRuleOutput(TypedDict):
+class CreateRuleOutput(TypedDict, closed=True):
     identifier: "aws_sdk_datazone.types.rule_id.RuleId"
     """<p>The ID of the rule.</p>"""
     name: "aws_sdk_datazone.types.rule_name.RuleName"

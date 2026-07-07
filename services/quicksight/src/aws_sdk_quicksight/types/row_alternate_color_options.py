@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RowAlternateColorOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.row_alternate_color_list
     import aws_sdk_quicksight.types.widget_status
 
 
-class RowAlternateColorOptions(TypedDict):
+class RowAlternateColorOptions(TypedDict, closed=True):
     status: NotRequired["aws_sdk_quicksight.types.widget_status.WidgetStatus"]
     """<p>Determines the widget status.</p>"""
     row_alternate_colors: NotRequired[

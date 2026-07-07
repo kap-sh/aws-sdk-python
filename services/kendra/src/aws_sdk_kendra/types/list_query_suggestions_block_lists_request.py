@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListQuerySuggestionsBlockListsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.next_token
 
 
-class ListQuerySuggestionsBlockListsRequest(TypedDict):
+class ListQuerySuggestionsBlockListsRequest(TypedDict, closed=True):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     r"""<p>The identifier of the index for a list of all block lists that exist for that index.</p> <p>For information on the current quota limits for block lists, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/quotas.html\">Quotas for Amazon Kendra</a>.</p>"""
     next_token: NotRequired["aws_sdk_kendra.types.next_token.NextToken"]

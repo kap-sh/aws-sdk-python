@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AmazonQSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.feature_status
     import aws_sdk_sagemaker.types.q_profile_arn
 
 
-class AmazonQSettings(TypedDict):
+class AmazonQSettings(TypedDict, closed=True):
     status: NotRequired["aws_sdk_sagemaker.types.feature_status.FeatureStatus"]
     """<p>Whether Amazon Q has been enabled within the domain.</p>"""
     q_profile_arn: NotRequired["aws_sdk_sagemaker.types.q_profile_arn.QProfileArn"]

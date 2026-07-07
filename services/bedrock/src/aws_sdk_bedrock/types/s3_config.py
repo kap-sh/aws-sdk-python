@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#S3Config``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.key_prefix
 
 
-class S3Config(TypedDict):
+class S3Config(TypedDict, closed=True):
     bucket_name: "aws_sdk_bedrock.types.bucket_name.BucketName"
     """<p>S3 bucket name.</p>"""
     key_prefix: NotRequired["aws_sdk_bedrock.types.key_prefix.KeyPrefix"]

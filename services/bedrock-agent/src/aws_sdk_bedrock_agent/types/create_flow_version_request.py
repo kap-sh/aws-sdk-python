@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#CreateFlowVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_identifier
 
 
-class CreateFlowVersionRequest(TypedDict):
+class CreateFlowVersionRequest(TypedDict, closed=True):
     flow_identifier: "aws_sdk_bedrock_agent.types.flow_identifier.FlowIdentifier"
     """<p>The unique identifier of the flow that you want to create a version of.</p>"""
     description: NotRequired[

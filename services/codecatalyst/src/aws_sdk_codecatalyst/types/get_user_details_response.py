@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#GetUserDetailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.email_address
 
 
-class GetUserDetailsResponse(TypedDict):
+class GetUserDetailsResponse(TypedDict, closed=True):
     user_id: NotRequired["str"]
     """<p>The system-generated unique ID of the user.</p>"""
     user_name: NotRequired["str"]

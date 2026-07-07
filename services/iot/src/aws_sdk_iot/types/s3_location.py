@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#S3Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.s3_bucket
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.s3_version
 
 
-class S3Location(TypedDict):
+class S3Location(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_iot.types.s3_bucket.S3Bucket"]
     """<p>The S3 bucket.</p>"""
     key: NotRequired["aws_sdk_iot.types.s3_key.S3Key"]

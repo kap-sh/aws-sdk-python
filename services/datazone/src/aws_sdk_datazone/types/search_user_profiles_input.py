@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SearchUserProfilesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.user_search_type
 
 
-class SearchUserProfilesInput(TypedDict):
+class SearchUserProfilesInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon DataZone domain in which you want to search user profiles.</p>"""
     user_type: "aws_sdk_datazone.types.user_search_type.UserSearchType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_amazon_mq_broker_details
@@ -107,7 +107,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.field_map
 
 
-class ResourceDetails(TypedDict):
+class ResourceDetails(TypedDict, closed=True):
     aws_auto_scaling_auto_scaling_group: NotRequired[
         "aws_sdk_securityhub.types.aws_auto_scaling_auto_scaling_group_details.AwsAutoScalingAutoScalingGroupDetails"
     ]

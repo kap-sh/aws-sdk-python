@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#ListLinksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.gateway_id
 
 
-class ListLinksRequest(TypedDict):
+class ListLinksRequest(TypedDict, closed=True):
     gateway_id: "aws_sdk_rtbfabric.types.gateway_id.GatewayId"
     """<p>The unique identifier of the gateway.</p>"""
     next_token: NotRequired["str"]

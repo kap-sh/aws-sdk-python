@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MonitoringAlertHistorySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.monitoring_alert_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class MonitoringAlertHistorySummary(TypedDict):
+class MonitoringAlertHistorySummary(TypedDict, closed=True):
     monitoring_schedule_name: NotRequired[
         "aws_sdk_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName"
     ]

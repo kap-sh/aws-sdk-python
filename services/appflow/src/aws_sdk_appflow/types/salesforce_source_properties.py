@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SalesforceSourceProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.salesforce_data_transfer_api
 
 
-class SalesforceSourceProperties(TypedDict):
+class SalesforceSourceProperties(TypedDict, closed=True):
     object: "aws_sdk_appflow.types.object.Object"
     """<p> The object specified in the Salesforce flow source. </p>"""
     enable_dynamic_field_update: "aws_sdk_appflow.types.boolean.Boolean"

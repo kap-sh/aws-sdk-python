@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StopCrawlerScheduleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class StopCrawlerScheduleRequest(TypedDict):
+class StopCrawlerScheduleRequest(TypedDict, closed=True):
     crawler_name: "aws_sdk_glue.types.name_string.NameString"
     """<p>Name of the crawler whose schedule state to set.</p>"""
 

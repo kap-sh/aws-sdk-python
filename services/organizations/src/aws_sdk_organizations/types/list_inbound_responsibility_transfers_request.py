@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ListInboundResponsibilityTransfersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.responsibility_transfer_type
 
 
-class ListInboundResponsibilityTransfersRequest(TypedDict):
+class ListInboundResponsibilityTransfersRequest(TypedDict, closed=True):
     type: "aws_sdk_organizations.types.responsibility_transfer_type.ResponsibilityTransferType"
     """<p>The type of responsibility. Currently, only <code>BILLING</code> is supported.</p>"""
     id: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#StartParticipantReplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.string
 
 
-class StartParticipantReplicationResponse(TypedDict):
+class StartParticipantReplicationResponse(TypedDict, closed=True):
     access_control_allow_origin: NotRequired["aws_sdk_ivs_realtime.types.string.String"]
     r"""<p>See <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin\">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>"""
     access_control_expose_headers: NotRequired[

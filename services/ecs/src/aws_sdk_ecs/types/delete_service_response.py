@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DeleteServiceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.service
 
 
-class DeleteServiceResponse(TypedDict):
+class DeleteServiceResponse(TypedDict, closed=True):
     service: NotRequired["aws_sdk_ecs.types.service.Service"]
     """<p>The full description of the deleted service.</p>"""
 

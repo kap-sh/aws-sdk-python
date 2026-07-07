@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#CustomerMeCollectorInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.integer
 
 
-class CustomerMeCollectorInfo(TypedDict):
+class CustomerMeCollectorInfo(TypedDict, closed=True):
     active_me_collectors: "aws_sdk_application_discovery_service.types.integer.Integer"
     """<p> The number of active Migration Evaluator collectors. </p>"""
     healthy_me_collectors: "aws_sdk_application_discovery_service.types.integer.Integer"

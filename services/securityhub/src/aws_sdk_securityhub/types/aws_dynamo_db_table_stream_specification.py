@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsDynamoDbTableStreamSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsDynamoDbTableStreamSpecification(TypedDict):
+class AwsDynamoDbTableStreamSpecification(TypedDict, closed=True):
     stream_enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Indicates whether DynamoDB Streams is enabled on the table.</p>"""
     stream_view_type: NotRequired[

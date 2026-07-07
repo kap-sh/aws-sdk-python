@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#CreateReplicationConfigMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.tag_list
 
 
-class CreateReplicationConfigMessage(TypedDict):
+class CreateReplicationConfigMessage(TypedDict, closed=True):
     replication_config_identifier: (
         "aws_sdk_database_migration_service.types.string.String"
     )

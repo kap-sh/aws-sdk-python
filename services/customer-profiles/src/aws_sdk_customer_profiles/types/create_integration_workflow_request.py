@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#CreateIntegrationWorkflowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.workflow_type
 
 
-class CreateIntegrationWorkflowRequest(TypedDict):
+class CreateIntegrationWorkflowRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_customer_profiles.types.name.name"
     """<p>The unique name of the domain.</p>"""
     workflow_type: "aws_sdk_customer_profiles.types.workflow_type.WorkflowType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FilterAggMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.agg_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_sort_direction
 
 
-class FilterAggMetrics(TypedDict):
+class FilterAggMetrics(TypedDict, closed=True):
     metric_operand: NotRequired["aws_sdk_quicksight.types.identifier.Identifier"]
     """<p>The metric operand of the <code>FilterAggMetrics</code>.</p>"""
     function: NotRequired["aws_sdk_quicksight.types.agg_type.AggType"]

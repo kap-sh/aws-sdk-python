@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#DescribeReleaseLabelOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.os_release_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.string
 
 
-class DescribeReleaseLabelOutput(TypedDict):
+class DescribeReleaseLabelOutput(TypedDict, closed=True):
     release_label: NotRequired["aws_sdk_emr.types.string.String"]
     """<p>The target release label described in the response.</p>"""
     applications: NotRequired[

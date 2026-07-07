@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ConditionalFormattingColor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.conditional_formatting_gradient_color
     import aws_sdk_quicksight.types.conditional_formatting_solid_color
 
 
-class ConditionalFormattingColor(TypedDict):
+class ConditionalFormattingColor(TypedDict, closed=True):
     solid: NotRequired[
         "aws_sdk_quicksight.types.conditional_formatting_solid_color.ConditionalFormattingSolidColor"
     ]

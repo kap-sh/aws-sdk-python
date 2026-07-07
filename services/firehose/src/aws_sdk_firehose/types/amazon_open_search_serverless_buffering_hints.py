@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#AmazonOpenSearchServerlessBufferingHints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.amazon_open_search_serverless_buffering_interval_in_seconds
     import aws_sdk_firehose.types.amazon_open_search_serverless_buffering_size_in_m_bs
 
 
-class AmazonOpenSearchServerlessBufferingHints(TypedDict):
+class AmazonOpenSearchServerlessBufferingHints(TypedDict, closed=True):
     interval_in_seconds: NotRequired[
         "aws_sdk_firehose.types.amazon_open_search_serverless_buffering_interval_in_seconds.AmazonOpenSearchServerlessBufferingIntervalInSeconds"
     ]

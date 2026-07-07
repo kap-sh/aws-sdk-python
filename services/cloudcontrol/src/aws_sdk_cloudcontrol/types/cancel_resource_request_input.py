@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudcontrol#CancelResourceRequestInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudcontrol.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.request_token
 
 
-class CancelResourceRequestInput(TypedDict):
+class CancelResourceRequestInput(TypedDict, closed=True):
     request_token: "aws_sdk_cloudcontrol.types.request_token.RequestToken"
     """<p>The <code>RequestToken</code> of the <code>ProgressEvent</code> object returned by the resource operation request.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#MCPServerAuthorizationConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
@@ -12,23 +14,23 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.mcp_server_o_auth_client_credentials_config
 
 
-class _MCPServerAuthorizationConfig_oAuthClientCredentials(TypedDict):
+class _MCPServerAuthorizationConfig_oAuthClientCredentials(TypedDict, closed=True):
     oAuthClientCredentials: "aws_sdk_devops_agent.types.mcp_server_o_auth_client_credentials_config.MCPServerOAuthClientCredentialsConfig"
 
 
-class _MCPServerAuthorizationConfig_oAuth3LO(TypedDict):
+class _MCPServerAuthorizationConfig_oAuth3LO(TypedDict, closed=True):
     oAuth3LO: "aws_sdk_devops_agent.types.mcp_server_o_auth3_lo_config.MCPServerOAuth3LOConfig"
 
 
-class _MCPServerAuthorizationConfig_apiKey(TypedDict):
+class _MCPServerAuthorizationConfig_apiKey(TypedDict, closed=True):
     apiKey: "aws_sdk_devops_agent.types.mcp_server_api_key_config.MCPServerAPIKeyConfig"
 
 
-class _MCPServerAuthorizationConfig_bearerToken(TypedDict):
+class _MCPServerAuthorizationConfig_bearerToken(TypedDict, closed=True):
     bearerToken: "aws_sdk_devops_agent.types.mcp_server_bearer_token_config.MCPServerBearerTokenConfig"
 
 
-class _MCPServerAuthorizationConfig_authorizationDiscovery(TypedDict):
+class _MCPServerAuthorizationConfig_authorizationDiscovery(TypedDict, closed=True):
     authorizationDiscovery: "aws_sdk_devops_agent.types.mcp_server_authorization_discovery_config.MCPServerAuthorizationDiscoveryConfig"
 
 

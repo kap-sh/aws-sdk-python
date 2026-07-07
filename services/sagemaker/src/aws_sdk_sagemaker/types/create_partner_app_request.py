@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreatePartnerAppRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.boolean
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreatePartnerAppRequest(TypedDict):
+class CreatePartnerAppRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sagemaker.types.partner_app_name.PartnerAppName"]
     """<p>The name to give the SageMaker Partner AI App.</p>"""
     type: NotRequired["aws_sdk_sagemaker.types.partner_app_type.PartnerAppType"]

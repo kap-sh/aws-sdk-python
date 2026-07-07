@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetResourcesStatisticsV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.max_statistic_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.sort_order
 
 
-class GetResourcesStatisticsV2Request(TypedDict):
+class GetResourcesStatisticsV2Request(TypedDict, closed=True):
     group_by_rules: NotRequired[
         "aws_sdk_securityhub.types.resource_group_by_rules.ResourceGroupByRules"
     ]

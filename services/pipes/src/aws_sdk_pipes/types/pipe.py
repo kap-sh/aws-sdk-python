@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#Pipe``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.timestamp
 
 
-class Pipe(TypedDict):
+class Pipe(TypedDict, closed=True):
     name: NotRequired["aws_sdk_pipes.types.pipe_name.PipeName"]
     """<p>The name of the pipe.</p>"""
     arn: NotRequired["aws_sdk_pipes.types.pipe_arn.PipeArn"]

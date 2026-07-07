@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#UntagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeconnections.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.tag_key_list
 
 
-class UntagResourceInput(TypedDict):
+class UntagResourceInput(TypedDict, closed=True):
     resource_arn: (
         "aws_sdk_codeconnections.types.amazon_resource_name.AmazonResourceName"
     )

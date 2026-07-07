@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ListMapRunsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.page_token
 
 
-class ListMapRunsOutput(TypedDict):
+class ListMapRunsOutput(TypedDict, closed=True):
     map_runs: "aws_sdk_sfn.types.map_run_list.MapRunList"
     """<p>An array that lists information related to a Map Run, such as the Amazon Resource Name (ARN) of the Map Run and the ARN of the state machine that started the Map Run.</p>"""
     next_token: NotRequired["aws_sdk_sfn.types.page_token.PageToken"]

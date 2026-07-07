@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#Unit``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class Unit(TypedDict):
+class Unit(TypedDict, closed=True):
     pass
 
 

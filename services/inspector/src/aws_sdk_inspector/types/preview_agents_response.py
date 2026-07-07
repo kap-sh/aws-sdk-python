@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#PreviewAgentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.pagination_token
 
 
-class PreviewAgentsResponse(TypedDict):
+class PreviewAgentsResponse(TypedDict, closed=True):
     agent_previews: "aws_sdk_inspector.types.agent_preview_list.AgentPreviewList"
     """<p>The resulting list of agents.</p>"""
     next_token: NotRequired["aws_sdk_inspector.types.pagination_token.PaginationToken"]

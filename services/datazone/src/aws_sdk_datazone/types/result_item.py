@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ResultItem``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.lineage_node_item
 
 
-class _ResultItem_lineageNode(TypedDict):
+class _ResultItem_lineageNode(TypedDict, closed=True):
     lineageNode: "aws_sdk_datazone.types.lineage_node_item.LineageNodeItem"
 
 

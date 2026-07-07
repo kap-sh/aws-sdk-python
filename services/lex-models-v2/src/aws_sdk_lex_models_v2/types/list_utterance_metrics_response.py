@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListUtteranceMetricsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_utterance_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.next_token
 
 
-class ListUtteranceMetricsResponse(TypedDict):
+class ListUtteranceMetricsResponse(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The identifier for the bot for which you retrieved utterance metrics.</p>"""
     results: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CopyDBSnapshotMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class CopyDBSnapshotMessage(TypedDict):
+class CopyDBSnapshotMessage(TypedDict, closed=True):
     source_db_snapshot_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     r"""<p>The identifier for the source DB snapshot.</p> <p>If the source snapshot is in the same Amazon Web Services Region as the copy, specify a valid DB snapshot identifier. For example, you might specify <code>rds:mysql-instance1-snapshot-20130805</code>.</p> <p>If you are copying from a shared manual DB snapshot, this parameter must be the Amazon Resource Name (ARN) of the shared DB snapshot.</p> <p>If the source snapshot is in a different Amazon Web Services Region than the copy, specify a valid DB snapshot ARN. You can also specify an ARN of a snapshot that is in a different account and a different Amazon Web Services Region. For example, you might specify <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code>.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid source snapshot in the \"available\" state.</p> </li> </ul> <p>Example: <code>rds:mydb-2012-04-02-00-01</code> </p> <p>Example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20130805</code> </p>"""
     target_db_snapshot_identifier: NotRequired["aws_sdk_rds.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeAccountResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.dedicated_tenancy_account_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.message
 
 
-class DescribeAccountResult(TypedDict):
+class DescribeAccountResult(TypedDict, closed=True):
     dedicated_tenancy_support: NotRequired[
         "aws_sdk_workspaces.types.dedicated_tenancy_support_result_enum.DedicatedTenancySupportResultEnum"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#PrivateNetworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.vpc_endpoint_id
 
 
-class PrivateNetworkConfiguration(TypedDict):
+class PrivateNetworkConfiguration(TypedDict, closed=True):
     vpc_endpoint_id: "aws_sdk_mailmanager.types.vpc_endpoint_id.VpcEndpointId"
     """<p>The identifier of the VPC endpoint to associate with this private ingress point.</p>"""
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ListSupportedPhoneNumberCountriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.phone_number_product_type
 
 
-class ListSupportedPhoneNumberCountriesRequest(TypedDict):
+class ListSupportedPhoneNumberCountriesRequest(TypedDict, closed=True):
     product_type: (
         "aws_sdk_chime_sdk_voice.types.phone_number_product_type.PhoneNumberProductType"
     )

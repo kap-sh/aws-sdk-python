@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ListIdNamespaceAssociationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.pagination_token
 
 
-class ListIdNamespaceAssociationsOutput(TypedDict):
+class ListIdNamespaceAssociationsOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cleanrooms.types.pagination_token.PaginationToken"]
     """<p>The token value provided to access the next page of results.</p>"""
     id_namespace_association_summaries: "aws_sdk_cleanrooms.types.id_namespace_association_summary_list.IdNamespaceAssociationSummaryList"

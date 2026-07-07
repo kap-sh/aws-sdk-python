@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#BlockPublicAccessConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.string_map
 
 
-class BlockPublicAccessConfiguration(TypedDict):
+class BlockPublicAccessConfiguration(TypedDict, closed=True):
     block_public_security_group_rules: NotRequired["aws_sdk_emr.types.boolean.Boolean"]
     """<p>Indicates whether Amazon EMR block public access is enabled (<code>true</code>) or disabled (<code>false</code>). By default, the value is <code>false</code> for accounts that have created Amazon EMR clusters before July 2019. For accounts created after this, the default is <code>true</code>.</p>"""
     permitted_public_security_group_rule_ranges: NotRequired[

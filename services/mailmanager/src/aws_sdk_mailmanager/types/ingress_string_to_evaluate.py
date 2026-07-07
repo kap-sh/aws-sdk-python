@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#IngressStringToEvaluate``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.ingress_string_email_attribute
 
 
-class _IngressStringToEvaluate_Attribute(TypedDict):
+class _IngressStringToEvaluate_Attribute(TypedDict, closed=True):
     Attribute: "aws_sdk_mailmanager.types.ingress_string_email_attribute.IngressStringEmailAttribute"
 
 
-class _IngressStringToEvaluate_Analysis(TypedDict):
+class _IngressStringToEvaluate_Analysis(TypedDict, closed=True):
     Analysis: "aws_sdk_mailmanager.types.ingress_analysis.IngressAnalysis"
 
 

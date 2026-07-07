@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#CreateTrainingDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.tag_map
 
 
-class CreateTrainingDatasetRequest(TypedDict):
+class CreateTrainingDatasetRequest(TypedDict, closed=True):
     name: "aws_sdk_cleanroomsml.types.name_string.NameString"
     """<p>The name of the training dataset. This name must be unique in your account and region.</p>"""
     role_arn: "aws_sdk_cleanroomsml.types.iam_role_arn.IamRoleArn"

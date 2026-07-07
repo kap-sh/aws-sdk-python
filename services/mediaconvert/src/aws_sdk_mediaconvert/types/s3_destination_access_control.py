@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#S3DestinationAccessControl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.s3_object_canned_acl
 
 
-class S3DestinationAccessControl(TypedDict):
+class S3DestinationAccessControl(TypedDict, closed=True):
     canned_acl: NotRequired[
         "aws_sdk_mediaconvert.types.s3_object_canned_acl.S3ObjectCannedAcl"
     ]

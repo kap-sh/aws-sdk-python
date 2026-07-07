@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CancelCommandRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.instance_id_list
 
 
-class CancelCommandRequest(TypedDict):
+class CancelCommandRequest(TypedDict, closed=True):
     command_id: "aws_sdk_ssm.types.command_id.CommandId"
     """<p>The ID of the command you want to cancel.</p>"""
     instance_ids: NotRequired["aws_sdk_ssm.types.instance_id_list.InstanceIdList"]

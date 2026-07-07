@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ElasticsearchClusterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.zone_awareness_config
 
 
-class ElasticsearchClusterConfig(TypedDict):
+class ElasticsearchClusterConfig(TypedDict, closed=True):
     instance_type: NotRequired[
         "aws_sdk_elasticsearch_service.types.es_partition_instance_type.ESPartitionInstanceType"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#RecommenderSchemaSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.timestamp
 
 
-class RecommenderSchemaSummary(TypedDict):
+class RecommenderSchemaSummary(TypedDict, closed=True):
     recommender_schema_name: "aws_sdk_customer_profiles.types.name.name"
     """<p>The name of the recommender schema.</p>"""
     fields: "aws_sdk_customer_profiles.types.recommender_schema_fields.RecommenderSchemaFields"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#UpdateSchemaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_schemas.types.tags
 
 
-class UpdateSchemaResponse(TypedDict):
+class UpdateSchemaResponse(TypedDict, closed=True):
     description: NotRequired["aws_sdk_schemas.types.__string.__string"]
     """<p>The description of the schema.</p>"""
     last_modified: NotRequired[

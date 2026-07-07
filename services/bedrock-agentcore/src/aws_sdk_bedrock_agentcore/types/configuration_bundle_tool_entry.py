@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ConfigurationBundleToolEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.recommendation_tool_name
 
 
-class ConfigurationBundleToolEntry(TypedDict):
+class ConfigurationBundleToolEntry(TypedDict, closed=True):
     tool_name: "aws_sdk_bedrock_agentcore.types.recommendation_tool_name.RecommendationToolName"
     """<p>The name of the tool.</p>"""
     tool_description_json_path: "str"

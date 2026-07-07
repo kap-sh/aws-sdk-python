@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#DeleteDashboardRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.dashboard_arn
 
 
-class DeleteDashboardRequest(TypedDict):
+class DeleteDashboardRequest(TypedDict, closed=True):
     arn: "aws_sdk_bcm_dashboards.types.dashboard_arn.DashboardArn"
     """<p>The ARN of the dashboard to be deleted.</p>"""
 

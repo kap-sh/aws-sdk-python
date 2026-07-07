@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#GetScalingConfigurationRecommendationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.dynamic_scaling_configuration
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.utilization_percentage_per_core
 
 
-class GetScalingConfigurationRecommendationResponse(TypedDict):
+class GetScalingConfigurationRecommendationResponse(TypedDict, closed=True):
     inference_recommendations_job_name: NotRequired[
         "aws_sdk_sagemaker.types.recommendation_job_name.RecommendationJobName"
     ]

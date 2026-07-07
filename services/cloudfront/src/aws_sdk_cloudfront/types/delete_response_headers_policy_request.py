@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#DeleteResponseHeadersPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class DeleteResponseHeadersPolicyRequest(TypedDict):
+class DeleteResponseHeadersPolicyRequest(TypedDict, closed=True):
     id: "aws_sdk_cloudfront.types.string.string"
     """<p>The identifier for the response headers policy that you are deleting.</p> <p>To get the identifier, you can use <code>ListResponseHeadersPolicies</code>.</p>"""
     if_match: NotRequired["aws_sdk_cloudfront.types.string.string"]

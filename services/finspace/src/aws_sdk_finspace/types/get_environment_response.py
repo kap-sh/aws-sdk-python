@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#GetEnvironmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.environment
 
 
-class GetEnvironmentResponse(TypedDict):
+class GetEnvironmentResponse(TypedDict, closed=True):
     environment: NotRequired["aws_sdk_finspace.types.environment.Environment"]
     """<p>The name of the FinSpace environment.</p>"""
 

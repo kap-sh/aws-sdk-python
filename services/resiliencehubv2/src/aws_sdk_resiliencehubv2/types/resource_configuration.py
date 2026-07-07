@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ResourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError, SerializationError
 
@@ -11,23 +13,23 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.s3_url
 
 
-class _ResourceConfiguration_resourceTags(TypedDict):
+class _ResourceConfiguration_resourceTags(TypedDict, closed=True):
     resourceTags: "aws_sdk_resiliencehubv2.types.resource_tag_list.ResourceTagList"
 
 
-class _ResourceConfiguration_cfnStackArn(TypedDict):
+class _ResourceConfiguration_cfnStackArn(TypedDict, closed=True):
     cfnStackArn: "aws_sdk_resiliencehubv2.types.arn.Arn"
 
 
-class _ResourceConfiguration_tfStateFileUrl(TypedDict):
+class _ResourceConfiguration_tfStateFileUrl(TypedDict, closed=True):
     tfStateFileUrl: "aws_sdk_resiliencehubv2.types.s3_url.S3Url"
 
 
-class _ResourceConfiguration_eks(TypedDict):
+class _ResourceConfiguration_eks(TypedDict, closed=True):
     eks: "aws_sdk_resiliencehubv2.types.eks_source.EksSource"
 
 
-class _ResourceConfiguration_designFileS3Url(TypedDict):
+class _ResourceConfiguration_designFileS3Url(TypedDict, closed=True):
     designFileS3Url: "aws_sdk_resiliencehubv2.types.s3_url.S3Url"
 
 

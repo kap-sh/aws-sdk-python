@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SubSlotTypeComposition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.name
 
 
-class SubSlotTypeComposition(TypedDict):
+class SubSlotTypeComposition(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>Name of a constituent sub slot inside a composite slot.</p>"""
     slot_type_id: "aws_sdk_lex_models_v2.types.built_in_or_custom_slot_type_id.BuiltInOrCustomSlotTypeId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#EcsTaskOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.arn_or_json_path
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.string
 
 
-class EcsTaskOverride(TypedDict):
+class EcsTaskOverride(TypedDict, closed=True):
     container_overrides: NotRequired[
         "aws_sdk_pipes.types.ecs_container_override_list.EcsContainerOverrideList"
     ]

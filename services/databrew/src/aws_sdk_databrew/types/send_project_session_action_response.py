@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#SendProjectSessionActionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.result
 
 
-class SendProjectSessionActionResponse(TypedDict):
+class SendProjectSessionActionResponse(TypedDict, closed=True):
     result: NotRequired["aws_sdk_databrew.types.result.Result"]
     """<p>A message indicating the result of performing the action.</p>"""
     name: "aws_sdk_databrew.types.project_name.ProjectName"

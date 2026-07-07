@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.arn
     import aws_sdk_gameliftstreams.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_gameliftstreams.types.arn.Arn"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> of the Amazon GameLift Streams resource that you want to remove tags from.</p>"""
     tag_keys: "aws_sdk_gameliftstreams.types.tag_key_list.TagKeyList"

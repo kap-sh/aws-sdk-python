@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#DetectEntitiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehendmedical.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.unmapped_attribute_list
 
 
-class DetectEntitiesResponse(TypedDict):
+class DetectEntitiesResponse(TypedDict, closed=True):
     entities: "aws_sdk_comprehendmedical.types.entity_list.EntityList"
     """<p>The collection of medical entities extracted from the input text and their associated information. For each entity, the response provides the entity text, the entity category, where the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the detection and analysis. Attributes and traits of the entity are also returned.</p>"""
     unmapped_attributes: NotRequired[

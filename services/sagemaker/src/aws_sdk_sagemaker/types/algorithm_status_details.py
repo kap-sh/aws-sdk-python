@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AlgorithmStatusDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.algorithm_status_item_list
 
 
-class AlgorithmStatusDetails(TypedDict):
+class AlgorithmStatusDetails(TypedDict, closed=True):
     validation_statuses: NotRequired[
         "aws_sdk_sagemaker.types.algorithm_status_item_list.AlgorithmStatusItemList"
     ]

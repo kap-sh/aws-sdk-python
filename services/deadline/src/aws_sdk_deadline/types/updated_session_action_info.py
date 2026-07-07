@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#UpdatedSessionActionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.completed_status
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.timestamp
 
 
-class UpdatedSessionActionInfo(TypedDict):
+class UpdatedSessionActionInfo(TypedDict, closed=True):
     completed_status: NotRequired[
         "aws_sdk_deadline.types.completed_status.CompletedStatus"
     ]

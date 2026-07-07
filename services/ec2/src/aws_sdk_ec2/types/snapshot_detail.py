@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SnapshotDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.user_bucket_details
 
 
-class SnapshotDetail(TypedDict):
+class SnapshotDetail(TypedDict, closed=True):
     description: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>A description for the snapshot.</p>"""
     device_name: NotRequired["aws_sdk_ec2.types.string.String"]

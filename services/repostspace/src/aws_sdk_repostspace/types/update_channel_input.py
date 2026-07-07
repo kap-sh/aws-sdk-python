@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#UpdateChannelInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_repostspace.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_repostspace.types.space_id
 
 
-class UpdateChannelInput(TypedDict):
+class UpdateChannelInput(TypedDict, closed=True):
     space_id: "aws_sdk_repostspace.types.space_id.SpaceId"
     """<p>The unique ID of the private re:Post.</p>"""
     channel_id: "aws_sdk_repostspace.types.channel_id.ChannelId"

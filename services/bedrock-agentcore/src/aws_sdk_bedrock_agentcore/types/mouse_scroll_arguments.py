@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#MouseScrollArguments``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class MouseScrollArguments(TypedDict):
+class MouseScrollArguments(TypedDict, closed=True):
     x: "int"
     """<p>The X coordinate on screen where the scroll occurs.</p>"""
     y: "int"

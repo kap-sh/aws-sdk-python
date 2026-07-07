@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#CPUUtilization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.nullable_double
 
 
-class CPUUtilization(TypedDict):
+class CPUUtilization(TypedDict, closed=True):
     user: NotRequired["aws_sdk_elastic_beanstalk.types.nullable_double.NullableDouble"]
     """<p>Percentage of time that the CPU has spent in the <code>User</code> state over the last 10 seconds.</p>"""
     nice: NotRequired["aws_sdk_elastic_beanstalk.types.nullable_double.NullableDouble"]

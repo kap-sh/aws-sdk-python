@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#UpdateBillingGroupAccountGrouping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.responsibility_transfer_arn
 
 
-class UpdateBillingGroupAccountGrouping(TypedDict):
+class UpdateBillingGroupAccountGrouping(TypedDict, closed=True):
     auto_associate: NotRequired["bool"]
     """<p>Specifies if this billing group will automatically associate newly added Amazon Web Services accounts that join your consolidated billing family.</p>"""
     responsibility_transfer_arn: NotRequired[

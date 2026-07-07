@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ActionParameters``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.aws_console_link_parameters
 
 
-class _ActionParameters_awsConsoleLink(TypedDict):
+class _ActionParameters_awsConsoleLink(TypedDict, closed=True):
     awsConsoleLink: (
         "aws_sdk_datazone.types.aws_console_link_parameters.AwsConsoleLinkParameters"
     )

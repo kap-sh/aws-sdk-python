@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#StartSnapshotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ebs.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ebs.types.volume_size
 
 
-class StartSnapshotRequest(TypedDict):
+class StartSnapshotRequest(TypedDict, closed=True):
     volume_size: "aws_sdk_ebs.types.volume_size.VolumeSize"
     """<p>The size of the volume, in GiB. The maximum size is <code>65536</code> GiB (64 TiB).</p>"""
     parent_snapshot_id: NotRequired["aws_sdk_ebs.types.snapshot_id.SnapshotId"]

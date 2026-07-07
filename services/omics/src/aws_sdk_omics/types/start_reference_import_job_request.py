@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#StartReferenceImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.start_reference_import_job_source_list
 
 
-class StartReferenceImportJobRequest(TypedDict):
+class StartReferenceImportJobRequest(TypedDict, closed=True):
     reference_store_id: "aws_sdk_omics.types.reference_store_id.ReferenceStoreId"
     """<p>The job's reference store ID.</p>"""
     role_arn: "aws_sdk_omics.types.role_arn.RoleArn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#RegisterConnectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.client_token
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.description
 
 
-class RegisterConnectorRequest(TypedDict):
+class RegisterConnectorRequest(TypedDict, closed=True):
     connector_label: NotRequired["aws_sdk_appflow.types.connector_label.ConnectorLabel"]
     """<p> The name of the connector. The name is unique for each <code>ConnectorRegistration</code> in your Amazon Web Services account.</p>"""
     description: NotRequired["aws_sdk_appflow.types.description.Description"]

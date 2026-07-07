@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#OptimizeWaypointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.waypoint_optimization_waypoint_list
 
 
-class OptimizeWaypointsRequest(TypedDict):
+class OptimizeWaypointsRequest(TypedDict, closed=True):
     avoid: NotRequired[
         "aws_sdk_geo_routes.types.waypoint_optimization_avoidance_options.WaypointOptimizationAvoidanceOptions"
     ]

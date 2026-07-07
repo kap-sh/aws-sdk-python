@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListPodIdentityAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.pod_identity_association_summaries
     import aws_sdk_eks.types.string
 
 
-class ListPodIdentityAssociationsResponse(TypedDict):
+class ListPodIdentityAssociationsResponse(TypedDict, closed=True):
     associations: NotRequired[
         "aws_sdk_eks.types.pod_identity_association_summaries.PodIdentityAssociationSummaries"
     ]

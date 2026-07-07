@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#GetIndexResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.index_schema
 
 
-class GetIndexResponse(TypedDict):
+class GetIndexResponse(TypedDict, closed=True):
     index_schema: "aws_sdk_opensearch.types.index_schema.IndexSchema"
     """<p>The JSON schema of the index including mappings, settings, and semantic enrichment configuration.</p>"""
 

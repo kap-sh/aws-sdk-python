@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#BatchGetAssetPropertyValueHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class BatchGetAssetPropertyValueHistoryResponse(TypedDict):
+class BatchGetAssetPropertyValueHistoryResponse(TypedDict, closed=True):
     error_entries: "aws_sdk_iotsitewise.types.batch_get_asset_property_value_history_error_entries.BatchGetAssetPropertyValueHistoryErrorEntries"
     """<p>A list of the errors (if any) associated with the batch request. Each error entry contains the <code>entryId</code> of the entry that failed.</p>"""
     success_entries: "aws_sdk_iotsitewise.types.batch_get_asset_property_value_history_success_entries.BatchGetAssetPropertyValueHistorySuccessEntries"

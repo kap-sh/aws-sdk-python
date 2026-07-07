@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#RenewalSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.domain_validation_record_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.renewal_status_reason
 
 
-class RenewalSummary(TypedDict):
+class RenewalSummary(TypedDict, closed=True):
     domain_validation_records: NotRequired[
         "aws_sdk_lightsail.types.domain_validation_record_list.DomainValidationRecordList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetUsageTotalsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_usage_total
     import aws_sdk_macie2.types.time_range
 
 
-class GetUsageTotalsResponse(TypedDict):
+class GetUsageTotalsResponse(TypedDict, closed=True):
     time_range: NotRequired["aws_sdk_macie2.types.time_range.TimeRange"]
     """<p>The inclusive time period that the usage data applies to. Possible values are: MONTH_TO_DATE, for the current calendar month to date; and, PAST_30_DAYS, for the preceding 30 days.</p>"""
     usage_totals: NotRequired[

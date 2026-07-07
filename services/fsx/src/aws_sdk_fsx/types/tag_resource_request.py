@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.resource_arn
     import aws_sdk_fsx.types.tags
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_fsx.types.resource_arn.ResourceARN"]
     """<p>The Amazon Resource Name (ARN) of the Amazon FSx resource that you want to tag.</p>"""
     tags: NotRequired["aws_sdk_fsx.types.tags.Tags"]

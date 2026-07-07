@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#PutResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rum.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.policy_revision_id
 
 
-class PutResourcePolicyRequest(TypedDict):
+class PutResourcePolicyRequest(TypedDict, closed=True):
     name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName"
     r"""<p>The name of the app monitor that you want to apply this resource-based policy to. To find the names of your app monitors, you can use the <a href=\"https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html\">ListAppMonitors</a> operation.</p>"""
     policy_document: "str"

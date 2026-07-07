@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AuditFinding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_check_name
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestamp
 
 
-class AuditFinding(TypedDict):
+class AuditFinding(TypedDict, closed=True):
     finding_id: NotRequired["aws_sdk_iot.types.finding_id.FindingId"]
     """<p>A unique identifier for this set of audit findings. This identifier is used to apply mitigation tasks to one or more sets of findings.</p>"""
     task_id: NotRequired["aws_sdk_iot.types.audit_task_id.AuditTaskId"]

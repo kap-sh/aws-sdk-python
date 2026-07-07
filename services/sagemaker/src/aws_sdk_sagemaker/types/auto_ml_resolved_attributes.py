@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoMLResolvedAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_ml_job_completion_criteria
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_ml_problem_type_resolved_attributes
 
 
-class AutoMLResolvedAttributes(TypedDict):
+class AutoMLResolvedAttributes(TypedDict, closed=True):
     auto_ml_job_objective: NotRequired[
         "aws_sdk_sagemaker.types.auto_ml_job_objective.AutoMLJobObjective"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#WeeklySetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.hand_off_time
 
 
-class WeeklySetting(TypedDict):
+class WeeklySetting(TypedDict, closed=True):
     day_of_week: "aws_sdk_ssm_contacts.types.day_of_week.DayOfWeek"
     """<p>The day of the week when weekly recurring on-call shift rotations begins.</p>"""
     hand_off_time: "aws_sdk_ssm_contacts.types.hand_off_time.HandOffTime"

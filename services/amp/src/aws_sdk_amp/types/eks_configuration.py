@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#EksConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.subnet_ids
 
 
-class EksConfiguration(TypedDict):
+class EksConfiguration(TypedDict, closed=True):
     cluster_arn: "aws_sdk_amp.types.cluster_arn.ClusterArn"
     """<p>ARN of the Amazon EKS cluster.</p>"""
     security_group_ids: NotRequired[

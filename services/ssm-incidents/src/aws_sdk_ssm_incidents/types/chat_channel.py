@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#ChatChannel``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.empty_chat_channel
 
 
-class _ChatChannel_empty(TypedDict):
+class _ChatChannel_empty(TypedDict, closed=True):
     empty: "aws_sdk_ssm_incidents.types.empty_chat_channel.EmptyChatChannel"
 
 
-class _ChatChannel_chatbotSns(TypedDict):
+class _ChatChannel_chatbotSns(TypedDict, closed=True):
     chatbotSns: "aws_sdk_ssm_incidents.types.chatbot_sns_configuration_set.ChatbotSnsConfigurationSet"
 
 

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RemoveBridgeOutputResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RemoveBridgeOutputResponse(TypedDict):
+class RemoveBridgeOutputResponse(TypedDict, closed=True):
     bridge_arn: NotRequired["str"]
     """<p> The ARN of the bridge from which the output was removed. </p>"""
     output_name: NotRequired["str"]

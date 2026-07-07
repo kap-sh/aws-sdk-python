@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#TagHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.analyzed_resource_count
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.tag_value
 
 
-class TagHealth(TypedDict):
+class TagHealth(TypedDict, closed=True):
     app_boundary_key: NotRequired[
         "aws_sdk_devops_guru.types.app_boundary_key.AppBoundaryKey"
     ]

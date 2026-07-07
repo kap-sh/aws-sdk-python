@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DomainUnitUserProperties``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DomainUnitUserProperties(TypedDict):
+class DomainUnitUserProperties(TypedDict, closed=True):
     user_id: NotRequired["str"]
     """<p>The ID of teh domain unit user.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetCommentsForPullRequestOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.comments_for_pull_request_data
     import aws_sdk_codecommit.types.next_token
 
 
-class GetCommentsForPullRequestOutput(TypedDict):
+class GetCommentsForPullRequestOutput(TypedDict, closed=True):
     comments_for_pull_request_data: NotRequired[
         "aws_sdk_codecommit.types.comments_for_pull_request_data.CommentsForPullRequestData"
     ]

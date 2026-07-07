@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#ThrottlingException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "aws_sdk_mpa.types.string.String"
     """<p>Message for the <code>ThrottlingException</code> error.</p>"""
 

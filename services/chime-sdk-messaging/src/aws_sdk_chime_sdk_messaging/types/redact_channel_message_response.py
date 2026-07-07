@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#RedactChannelMessageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.chime_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.sub_channel_id
 
 
-class RedactChannelMessageResponse(TypedDict):
+class RedactChannelMessageResponse(TypedDict, closed=True):
     channel_arn: NotRequired["aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"]
     """<p>The ARN of the channel containing the messages that you want to redact.</p>"""
     message_id: NotRequired["aws_sdk_chime_sdk_messaging.types.message_id.MessageId"]

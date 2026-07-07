@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ListAvailableManagementCidrRangesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.pagination_token
 
 
-class ListAvailableManagementCidrRangesRequest(TypedDict):
+class ListAvailableManagementCidrRangesRequest(TypedDict, closed=True):
     management_cidr_range_constraint: "aws_sdk_workspaces.types.management_cidr_range_constraint.ManagementCidrRangeConstraint"
     """<p>The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).</p>"""
     max_results: NotRequired[

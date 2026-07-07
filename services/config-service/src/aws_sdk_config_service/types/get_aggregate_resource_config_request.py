@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#GetAggregateResourceConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.configuration_aggregator_name
 
 
-class GetAggregateResourceConfigRequest(TypedDict):
+class GetAggregateResourceConfigRequest(TypedDict, closed=True):
     configuration_aggregator_name: "aws_sdk_config_service.types.configuration_aggregator_name.ConfigurationAggregatorName"
     """<p>The name of the configuration aggregator.</p>"""
     resource_identifier: "aws_sdk_config_service.types.aggregate_resource_identifier.AggregateResourceIdentifier"

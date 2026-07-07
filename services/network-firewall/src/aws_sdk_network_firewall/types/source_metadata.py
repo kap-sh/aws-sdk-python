@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#SourceMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.resource_arn
     import aws_sdk_network_firewall.types.update_token
 
 
-class SourceMetadata(TypedDict):
+class SourceMetadata(TypedDict, closed=True):
     source_arn: NotRequired["aws_sdk_network_firewall.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the rule group that your own rule group is copied from.</p>"""
     source_update_token: NotRequired[

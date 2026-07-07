@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#EnableAwsNetworkPerformanceMetricSubscriptionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class EnableAwsNetworkPerformanceMetricSubscriptionRequest(TypedDict):
+class EnableAwsNetworkPerformanceMetricSubscriptionRequest(TypedDict, closed=True):
     source: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The source Region (like <code>us-east-1</code>) or Availability Zone ID (like <code>use1-az1</code>) that the metric subscription is enabled for. If you use Availability Zone IDs, the Source and Destination Availability Zones must be in the same Region.</p>"""
     destination: NotRequired["aws_sdk_ec2.types.string.String"]

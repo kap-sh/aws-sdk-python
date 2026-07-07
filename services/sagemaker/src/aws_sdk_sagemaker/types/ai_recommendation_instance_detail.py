@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIRecommendationInstanceDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_recommendation_copy_count_per_instance
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_recommendation_instance_type
 
 
-class AIRecommendationInstanceDetail(TypedDict):
+class AIRecommendationInstanceDetail(TypedDict, closed=True):
     instance_type: NotRequired[
         "aws_sdk_sagemaker.types.ai_recommendation_instance_type.AIRecommendationInstanceType"
     ]

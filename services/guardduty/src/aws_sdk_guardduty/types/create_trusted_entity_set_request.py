@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#CreateTrustedEntitySetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.trusted_entity_set_format
 
 
-class CreateTrustedEntitySetRequest(TypedDict):
+class CreateTrustedEntitySetRequest(TypedDict, closed=True):
     detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
     r"""<p>The unique ID of the detector of the GuardDuty account for which you want to create a trusted entity set.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
     name: NotRequired["aws_sdk_guardduty.types.name.Name"]

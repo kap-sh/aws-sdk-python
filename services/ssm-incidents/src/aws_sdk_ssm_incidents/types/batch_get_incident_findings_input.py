@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#BatchGetIncidentFindingsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.finding_id_list
 
 
-class BatchGetIncidentFindingsInput(TypedDict):
+class BatchGetIncidentFindingsInput(TypedDict, closed=True):
     incident_record_arn: "aws_sdk_ssm_incidents.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the incident for which you want to view finding details.</p>"""
     finding_ids: "aws_sdk_ssm_incidents.types.finding_id_list.FindingIdList"

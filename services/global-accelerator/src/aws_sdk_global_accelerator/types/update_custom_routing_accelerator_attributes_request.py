@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#UpdateCustomRoutingAcceleratorAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_global_accelerator.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.generic_string
 
 
-class UpdateCustomRoutingAcceleratorAttributesRequest(TypedDict):
+class UpdateCustomRoutingAcceleratorAttributesRequest(TypedDict, closed=True):
     accelerator_arn: "aws_sdk_global_accelerator.types.generic_string.GenericString"
     """<p>The Amazon Resource Name (ARN) of the custom routing accelerator to update attributes for.</p>"""
     flow_logs_enabled: NotRequired[

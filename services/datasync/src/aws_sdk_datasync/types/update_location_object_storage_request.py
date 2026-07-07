@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#UpdateLocationObjectStorageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.server_hostname
 
 
-class UpdateLocationObjectStorageRequest(TypedDict):
+class UpdateLocationObjectStorageRequest(TypedDict, closed=True):
     location_arn: "aws_sdk_datasync.types.location_arn.LocationArn"
     """<p>Specifies the ARN of the object storage system location that you're updating.</p>"""
     server_port: NotRequired[

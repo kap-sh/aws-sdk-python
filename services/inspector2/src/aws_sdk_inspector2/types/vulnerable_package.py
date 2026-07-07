@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#VulnerablePackage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.vulnerable_package_remediation
 
 
-class VulnerablePackage(TypedDict):
+class VulnerablePackage(TypedDict, closed=True):
     name: "aws_sdk_inspector2.types.package_name.PackageName"
     """<p>The name of the vulnerable package.</p>"""
     version: "aws_sdk_inspector2.types.package_version.PackageVersion"

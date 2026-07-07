@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#DeleteDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.dataset_name
 
 
-class DeleteDatasetRequest(TypedDict):
+class DeleteDatasetRequest(TypedDict, closed=True):
     name: "aws_sdk_databrew.types.dataset_name.DatasetName"
     """<p>The name of the dataset to be deleted.</p>"""
 

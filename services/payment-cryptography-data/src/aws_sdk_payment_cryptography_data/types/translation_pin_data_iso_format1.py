@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#TranslationPinDataIsoFormat1``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class TranslationPinDataIsoFormat1(TypedDict):
+class TranslationPinDataIsoFormat1(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideosignaling#GetIceServerConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_signaling.types.ice_server_list
 
 
-class GetIceServerConfigResponse(TypedDict):
+class GetIceServerConfigResponse(TypedDict, closed=True):
     ice_server_list: NotRequired[
         "aws_sdk_kinesis_video_signaling.types.ice_server_list.IceServerList"
     ]

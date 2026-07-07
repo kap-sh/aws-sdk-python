@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetCrawlersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.page_size
     import aws_sdk_glue.types.token
 
 
-class GetCrawlersRequest(TypedDict):
+class GetCrawlersRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_glue.types.page_size.PageSize"]
     """<p>The number of crawlers to return on each call.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.token.Token"]

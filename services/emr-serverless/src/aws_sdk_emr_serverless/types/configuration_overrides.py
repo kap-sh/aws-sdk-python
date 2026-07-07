@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#ConfigurationOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.configuration_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.monitoring_configuration
 
 
-class ConfigurationOverrides(TypedDict):
+class ConfigurationOverrides(TypedDict, closed=True):
     application_configuration: NotRequired[
         "aws_sdk_emr_serverless.types.configuration_list.ConfigurationList"
     ]

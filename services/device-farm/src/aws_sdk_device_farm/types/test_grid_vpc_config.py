@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#TestGridVpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.subnet_ids
 
 
-class TestGridVpcConfig(TypedDict):
+class TestGridVpcConfig(TypedDict, closed=True):
     security_group_ids: "aws_sdk_device_farm.types.security_group_ids.SecurityGroupIds"
     """<p>A list of VPC security group IDs in your Amazon VPC.</p>"""
     subnet_ids: "aws_sdk_device_farm.types.subnet_ids.SubnetIds"

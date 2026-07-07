@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterInputSourceMetadataDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_input_metadata
 
 
-class RouterInputSourceMetadataDetails(TypedDict):
+class RouterInputSourceMetadataDetails(TypedDict, closed=True):
     source_metadata_messages: (
         "aws_sdk_mediaconnect.types.router_input_messages.RouterInputMessages"
     )

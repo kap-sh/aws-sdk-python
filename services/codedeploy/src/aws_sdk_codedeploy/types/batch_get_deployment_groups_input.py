@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#BatchGetDeploymentGroupsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codedeploy.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.deployment_groups_list
 
 
-class BatchGetDeploymentGroupsInput(TypedDict):
+class BatchGetDeploymentGroupsInput(TypedDict, closed=True):
     application_name: "aws_sdk_codedeploy.types.application_name.ApplicationName"
     """<p>The name of an CodeDeploy application associated with the applicable user or Amazon Web Services account.</p>"""
     deployment_group_names: (

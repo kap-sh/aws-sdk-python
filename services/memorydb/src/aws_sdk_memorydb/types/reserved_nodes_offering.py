@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ReservedNodesOffering``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.double
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class ReservedNodesOffering(TypedDict):
+class ReservedNodesOffering(TypedDict, closed=True):
     reserved_nodes_offering_id: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The offering identifier.</p>"""
     node_type: NotRequired["aws_sdk_memorydb.types.string.String"]

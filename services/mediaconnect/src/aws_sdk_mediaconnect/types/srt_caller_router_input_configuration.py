@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#SrtCallerRouterInputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.srt_decryption_configuration
 
 
-class SrtCallerRouterInputConfiguration(TypedDict):
+class SrtCallerRouterInputConfiguration(TypedDict, closed=True):
     source_address: "str"
     """<p>The source IP address for the SRT protocol in caller mode.</p>"""
     source_port: "int"

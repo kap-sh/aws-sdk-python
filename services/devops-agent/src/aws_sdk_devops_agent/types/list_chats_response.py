@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ListChatsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.chat_execution_list
 
 
-class ListChatsResponse(TypedDict):
+class ListChatsResponse(TypedDict, closed=True):
     executions: "aws_sdk_devops_agent.types.chat_execution_list.ChatExecutionList"
     """<p>List of recent chat executions</p>"""
     next_token: NotRequired["str"]

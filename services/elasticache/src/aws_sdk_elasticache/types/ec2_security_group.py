@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#EC2SecurityGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class EC2SecurityGroup(TypedDict):
+class EC2SecurityGroup(TypedDict, closed=True):
     status: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The status of the Amazon EC2 security group.</p>"""
     ec2_security_group_name: NotRequired["aws_sdk_elasticache.types.string.String"]

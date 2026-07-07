@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AgentStatusReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_status_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class AgentStatusReference(TypedDict):
+class AgentStatusReference(TypedDict, closed=True):
     status_start_timestamp: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]
     """<p>The start timestamp of the agent's status.</p>"""
     status_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

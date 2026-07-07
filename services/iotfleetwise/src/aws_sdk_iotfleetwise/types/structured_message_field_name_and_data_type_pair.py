@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#StructuredMessageFieldNameAndDataTypePair``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.structured_message
 
 
-class StructuredMessageFieldNameAndDataTypePair(TypedDict):
+class StructuredMessageFieldNameAndDataTypePair(TypedDict, closed=True):
     field_name: "aws_sdk_iotfleetwise.types.structure_message_name.StructureMessageName"
     """<p>The field name of the structured message. It determines how a data value is referenced in the target language. </p>"""
     data_type: "aws_sdk_iotfleetwise.types.structured_message.StructuredMessage"

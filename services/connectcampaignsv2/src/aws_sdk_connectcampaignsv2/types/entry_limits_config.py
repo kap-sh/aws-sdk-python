@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#EntryLimitsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.iso8601_duration
 
 
-class EntryLimitsConfig(TypedDict):
+class EntryLimitsConfig(TypedDict, closed=True):
     max_entry_count: "int"
     """Maximum number of times a participant can enter the campaign. A value of 0 indicates unlimited entries. Values of 1 or greater specify the exact number of entries allowed."""
     min_entry_interval: (

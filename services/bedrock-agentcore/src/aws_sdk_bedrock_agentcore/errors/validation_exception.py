@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, ServiceError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.validation_exception_reason
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: "str"
     reason: "aws_sdk_bedrock_agentcore.types.validation_exception_reason.ValidationExceptionReason"
     field_list: NotRequired[

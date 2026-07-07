@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#ThrottledException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_groups_tagging_api.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.exception_message
 
 
-class ThrottledException_(TypedDict):
+class ThrottledException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_resource_groups_tagging_api.types.exception_message.ExceptionMessage"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableSideBorderOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_border_options
 
 
-class TableSideBorderOptions(TypedDict):
+class TableSideBorderOptions(TypedDict, closed=True):
     inner_vertical: NotRequired[
         "aws_sdk_quicksight.types.table_border_options.TableBorderOptions"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_simspaceweaver.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.non_empty_string
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_simspaceweaver.types.non_empty_string.NonEmptyString"]
 
 

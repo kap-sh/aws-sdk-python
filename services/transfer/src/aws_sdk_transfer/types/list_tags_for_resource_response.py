@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.tags
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_transfer.types.arn.Arn"]
     """<p>The ARN you specified to list the tags of.</p>"""
     next_token: NotRequired["aws_sdk_transfer.types.next_token.NextToken"]

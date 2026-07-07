@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DashIsoGroupSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double_min0_max2147483647
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.destination_settings
 
 
-class DashIsoGroupSettings(TypedDict):
+class DashIsoGroupSettings(TypedDict, closed=True):
     additional_manifests: NotRequired[
         "aws_sdk_mediaconvert.types.__list_of_dash_additional_manifest.__listOfDashAdditionalManifest"
     ]

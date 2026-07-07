@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ListDatasetEntriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.dataset_entries
     import aws_sdk_rekognition.types.extended_pagination_token
 
 
-class ListDatasetEntriesResponse(TypedDict):
+class ListDatasetEntriesResponse(TypedDict, closed=True):
     dataset_entries: NotRequired[
         "aws_sdk_rekognition.types.dataset_entries.DatasetEntries"
     ]

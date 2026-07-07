@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#CreateChannelNamespaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.tag_map
 
 
-class CreateChannelNamespaceRequest(TypedDict):
+class CreateChannelNamespaceRequest(TypedDict, closed=True):
     api_id: "aws_sdk_appsync.types.string.String"
     """<p>The <code>Api</code> ID.</p>"""
     name: "aws_sdk_appsync.types.namespace.Namespace"

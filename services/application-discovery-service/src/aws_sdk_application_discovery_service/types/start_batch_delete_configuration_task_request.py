@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#StartBatchDeleteConfigurationTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_discovery_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.deletion_configuration_item_type
 
 
-class StartBatchDeleteConfigurationTaskRequest(TypedDict):
+class StartBatchDeleteConfigurationTaskRequest(TypedDict, closed=True):
     configuration_type: "aws_sdk_application_discovery_service.types.deletion_configuration_item_type.DeletionConfigurationItemType"
     """<p> The type of configuration item to delete. Supported types are: SERVER. </p>"""
     configuration_ids: "aws_sdk_application_discovery_service.types.configuration_id_list.ConfigurationIdList"

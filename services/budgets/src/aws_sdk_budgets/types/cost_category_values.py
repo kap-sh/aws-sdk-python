@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#CostCategoryValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_budgets.types.cost_category_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.values
 
 
-class CostCategoryValues(TypedDict):
+class CostCategoryValues(TypedDict, closed=True):
     key: NotRequired["aws_sdk_budgets.types.cost_category_name.CostCategoryName"]
     """<p>The unique name of the cost category.</p>"""
     values: NotRequired["aws_sdk_budgets.types.values.Values"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#MonitoredRequestCountMetricDataQueries``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError, SerializationError
 
@@ -8,13 +10,13 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.metric_data_queries
 
 
-class _MonitoredRequestCountMetricDataQueries_GoodCountMetric(TypedDict):
+class _MonitoredRequestCountMetricDataQueries_GoodCountMetric(TypedDict, closed=True):
     GoodCountMetric: (
         "aws_sdk_application_signals.types.metric_data_queries.MetricDataQueries"
     )
 
 
-class _MonitoredRequestCountMetricDataQueries_BadCountMetric(TypedDict):
+class _MonitoredRequestCountMetricDataQueries_BadCountMetric(TypedDict, closed=True):
     BadCountMetric: (
         "aws_sdk_application_signals.types.metric_data_queries.MetricDataQueries"
     )

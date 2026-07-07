@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#CoreDefinitionVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__list_of_core
 
 
-class CoreDefinitionVersion(TypedDict):
+class CoreDefinitionVersion(TypedDict, closed=True):
     cores: NotRequired["aws_sdk_greengrass.types.__list_of_core.__listOfCore"]
     """A list of cores in the core definition version."""
 

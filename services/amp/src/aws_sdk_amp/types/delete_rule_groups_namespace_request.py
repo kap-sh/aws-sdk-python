@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#DeleteRuleGroupsNamespaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amp.types.idempotency_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_id
 
 
-class DeleteRuleGroupsNamespaceRequest(TypedDict):
+class DeleteRuleGroupsNamespaceRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_amp.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace containing the rule groups namespace and definition to delete.</p>"""
     name: "aws_sdk_amp.types.rule_groups_namespace_name.RuleGroupsNamespaceName"

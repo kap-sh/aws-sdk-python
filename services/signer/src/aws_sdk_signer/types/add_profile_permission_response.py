@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.signer#AddProfilePermissionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.string
 
 
-class AddProfilePermissionResponse(TypedDict):
+class AddProfilePermissionResponse(TypedDict, closed=True):
     revision_id: NotRequired["aws_sdk_signer.types.string.String"]
     """<p>A unique identifier for the current profile revision.</p>"""
 

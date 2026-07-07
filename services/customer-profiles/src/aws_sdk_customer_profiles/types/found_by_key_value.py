@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#FoundByKeyValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.name
     import aws_sdk_customer_profiles.types.request_value_list
 
 
-class FoundByKeyValue(TypedDict):
+class FoundByKeyValue(TypedDict, closed=True):
     key_name: NotRequired["aws_sdk_customer_profiles.types.name.name"]
     """<p>A searchable identifier of a customer profile.</p>"""
     values: NotRequired[

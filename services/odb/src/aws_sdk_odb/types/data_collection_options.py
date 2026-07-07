@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DataCollectionOptions``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DataCollectionOptions(TypedDict):
+class DataCollectionOptions(TypedDict, closed=True):
     is_diagnostics_events_enabled: NotRequired["bool"]
     """<p>Indicates whether diagnostic collection is enabled for the VM cluster.</p>"""
     is_health_monitoring_enabled: NotRequired["bool"]

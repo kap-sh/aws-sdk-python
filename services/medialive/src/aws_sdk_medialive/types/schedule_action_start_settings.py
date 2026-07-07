@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ScheduleActionStartSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.fixed_mode_schedule_action_start_settings
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.immediate_mode_schedule_action_start_settings
 
 
-class ScheduleActionStartSettings(TypedDict):
+class ScheduleActionStartSettings(TypedDict, closed=True):
     fixed_mode_schedule_action_start_settings: NotRequired[
         "aws_sdk_medialive.types.fixed_mode_schedule_action_start_settings.FixedModeScheduleActionStartSettings"
     ]

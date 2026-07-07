@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListUserProfilesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
     import aws_sdk_sagemaker.types.user_profile_list
 
 
-class ListUserProfilesResponse(TypedDict):
+class ListUserProfilesResponse(TypedDict, closed=True):
     user_profiles: NotRequired[
         "aws_sdk_sagemaker.types.user_profile_list.UserProfileList"
     ]

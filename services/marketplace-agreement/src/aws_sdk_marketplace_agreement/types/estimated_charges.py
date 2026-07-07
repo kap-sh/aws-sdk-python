@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#EstimatedCharges``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.bounded_string
     import aws_sdk_marketplace_agreement.types.currency_code
 
 
-class EstimatedCharges(TypedDict):
+class EstimatedCharges(TypedDict, closed=True):
     currency_code: NotRequired[
         "aws_sdk_marketplace_agreement.types.currency_code.CurrencyCode"
     ]

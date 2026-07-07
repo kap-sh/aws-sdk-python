@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#DeletePeeringResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.peering
 
 
-class DeletePeeringResponse(TypedDict):
+class DeletePeeringResponse(TypedDict, closed=True):
     peering: NotRequired["aws_sdk_networkmanager.types.peering.Peering"]
     """<p>Information about a deleted peering connection.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#PackageGroupOriginRestriction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.long_optional
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_group_reference
 
 
-class PackageGroupOriginRestriction(TypedDict):
+class PackageGroupOriginRestriction(TypedDict, closed=True):
     mode: NotRequired[
         "aws_sdk_codeartifact.types.package_group_origin_restriction_mode.PackageGroupOriginRestrictionMode"
     ]

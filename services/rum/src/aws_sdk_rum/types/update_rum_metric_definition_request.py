@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#UpdateRumMetricDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rum.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.metric_destination
 
 
-class UpdateRumMetricDefinitionRequest(TypedDict):
+class UpdateRumMetricDefinitionRequest(TypedDict, closed=True):
     app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName"
     """<p>The name of the CloudWatch RUM app monitor that sends these metrics.</p>"""
     destination: "aws_sdk_rum.types.metric_destination.MetricDestination"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CreateDeviceProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.device_profile_arn
     import aws_sdk_iot_wireless.types.device_profile_id
 
 
-class CreateDeviceProfileResponse(TypedDict):
+class CreateDeviceProfileResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_iot_wireless.types.device_profile_arn.DeviceProfileArn"]
     """<p>The Amazon Resource Name of the new resource.</p>"""
     id: NotRequired["aws_sdk_iot_wireless.types.device_profile_id.DeviceProfileId"]

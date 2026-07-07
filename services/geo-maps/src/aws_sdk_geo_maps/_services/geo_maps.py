@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.geomaps#MapsService``."""
 
 import warnings
-from typing import Any, Iterable, Optional, TypedDict
+from typing import Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 from aws_sdk_geo_maps._auth._identity import Credentials
@@ -23,7 +23,7 @@ from aws_sdk_geo_maps._services._pipeline import (
 )
 
 
-class GeoMapsClientConfig(TypedDict, total=False):
+class GeoMapsClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     use_dual_stack: bool | None

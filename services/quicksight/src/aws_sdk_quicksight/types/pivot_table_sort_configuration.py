@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotTableSortConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pivot_field_sort_options_list
 
 
-class PivotTableSortConfiguration(TypedDict):
+class PivotTableSortConfiguration(TypedDict, closed=True):
     field_sort_options: NotRequired[
         "aws_sdk_quicksight.types.pivot_field_sort_options_list.PivotFieldSortOptionsList"
     ]

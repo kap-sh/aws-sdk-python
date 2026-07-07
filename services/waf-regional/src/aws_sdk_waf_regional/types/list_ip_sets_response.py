@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#ListIPSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.ip_set_summaries
     import aws_sdk_waf_regional.types.next_marker
 
 
-class ListIPSetsResponse(TypedDict):
+class ListIPSetsResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_waf_regional.types.next_marker.NextMarker"]
     """<p>To list more <code>IPSet</code> objects, submit another <code>ListIPSets</code> request, and in the next request use the <code>NextMarker</code> response value as the <code>NextMarker</code> value.</p>"""
     ip_sets: NotRequired["aws_sdk_waf_regional.types.ip_set_summaries.IPSetSummaries"]

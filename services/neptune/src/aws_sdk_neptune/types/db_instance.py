@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#DBInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.vpc_security_group_membership_list
 
 
-class DBInstance(TypedDict):
+class DBInstance(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>Contains a user-supplied database identifier. This identifier is the unique key that identifies a DB instance.</p>"""
     db_instance_class: NotRequired["aws_sdk_neptune.types.string.String"]

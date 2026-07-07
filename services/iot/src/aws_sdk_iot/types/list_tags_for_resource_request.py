@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
     import aws_sdk_iot.types.resource_arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_iot.types.resource_arn.ResourceArn"
     """<p>The ARN of the resource.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

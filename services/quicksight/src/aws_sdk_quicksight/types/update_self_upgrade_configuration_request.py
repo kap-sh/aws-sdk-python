@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateSelfUpgradeConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.self_upgrade_status
 
 
-class UpdateSelfUpgradeConfigurationRequest(TypedDict):
+class UpdateSelfUpgradeConfigurationRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account that contains the Quick self-upgrade configuration that you want to update.</p>"""
     namespace: "aws_sdk_quicksight.types.namespace.Namespace"

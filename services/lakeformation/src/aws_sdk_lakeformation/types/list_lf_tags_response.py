@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#ListLFTagsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.lf_tags_list
     import aws_sdk_lakeformation.types.token
 
 
-class ListLFTagsResponse(TypedDict):
+class ListLFTagsResponse(TypedDict, closed=True):
     lf_tags: NotRequired["aws_sdk_lakeformation.types.lf_tags_list.LFTagsList"]
     """<p>A list of LF-tags that the requested has permission to view.</p>"""
     next_token: NotRequired["aws_sdk_lakeformation.types.token.Token"]

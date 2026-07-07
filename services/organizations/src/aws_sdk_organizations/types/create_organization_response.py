@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#CreateOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.organization
 
 
-class CreateOrganizationResponse(TypedDict):
+class CreateOrganizationResponse(TypedDict, closed=True):
     organization: NotRequired["aws_sdk_organizations.types.organization.Organization"]
     """<p>A structure that contains details about the newly created organization.</p>"""
 

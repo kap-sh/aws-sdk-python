@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#DeleteEventRuleResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteEventRuleResponse(TypedDict):
+class DeleteEventRuleResponse(TypedDict, closed=True):
     pass
 
 

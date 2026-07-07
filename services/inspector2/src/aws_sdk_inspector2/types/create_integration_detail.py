@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CreateIntegrationDetail``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.create_git_lab_self_managed_integration_detail
 
 
-class _CreateIntegrationDetail_gitlabSelfManaged(TypedDict):
+class _CreateIntegrationDetail_gitlabSelfManaged(TypedDict, closed=True):
     gitlabSelfManaged: "aws_sdk_inspector2.types.create_git_lab_self_managed_integration_detail.CreateGitLabSelfManagedIntegrationDetail"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ApplySecurityGroupsToClientVpnTargetNetworkResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.client_vpn_security_group_id_set
 
 
-class ApplySecurityGroupsToClientVpnTargetNetworkResult(TypedDict):
+class ApplySecurityGroupsToClientVpnTargetNetworkResult(TypedDict, closed=True):
     security_group_ids: NotRequired[
         "aws_sdk_ec2.types.client_vpn_security_group_id_set.ClientVpnSecurityGroupIdSet"
     ]

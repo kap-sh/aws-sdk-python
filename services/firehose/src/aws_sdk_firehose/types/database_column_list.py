@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#DatabaseColumnList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.database_column_include_or_exclude_list
 
 
-class DatabaseColumnList(TypedDict):
+class DatabaseColumnList(TypedDict, closed=True):
     include: NotRequired[
         "aws_sdk_firehose.types.database_column_include_or_exclude_list.DatabaseColumnIncludeOrExcludeList"
     ]

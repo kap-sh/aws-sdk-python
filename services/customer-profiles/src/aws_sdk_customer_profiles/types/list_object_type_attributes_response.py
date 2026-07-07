@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListObjectTypeAttributesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.list_object_type_attributes_list
     import aws_sdk_customer_profiles.types.token
 
 
-class ListObjectTypeAttributesResponse(TypedDict):
+class ListObjectTypeAttributesResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_customer_profiles.types.list_object_type_attributes_list.ListObjectTypeAttributesList"
     ]

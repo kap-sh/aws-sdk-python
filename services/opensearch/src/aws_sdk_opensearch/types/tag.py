@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_opensearch.types.tag_key.TagKey"
     """<p>The tag key. Tag keys must be unique for the domain to which they are attached.</p>"""
     value: "aws_sdk_opensearch.types.tag_value.TagValue"

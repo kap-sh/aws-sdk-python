@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#S3Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.s3_bucket
     import aws_sdk_appstream.types.s3_key
 
 
-class S3Location(TypedDict):
+class S3Location(TypedDict, closed=True):
     s3_bucket: NotRequired["aws_sdk_appstream.types.s3_bucket.S3Bucket"]
     """<p>The S3 bucket of the S3 object.</p>"""
     s3_key: NotRequired["aws_sdk_appstream.types.s3_key.S3Key"]

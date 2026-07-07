@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#EvaluationDatasetMetricConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.evaluation_task_type
 
 
-class EvaluationDatasetMetricConfig(TypedDict):
+class EvaluationDatasetMetricConfig(TypedDict, closed=True):
     task_type: "aws_sdk_bedrock.types.evaluation_task_type.EvaluationTaskType"
     """<p>The the type of task you want to evaluate for your evaluation job. This applies only to model evaluation jobs and is ignored for knowledge base evaluation jobs.</p>"""
     dataset: "aws_sdk_bedrock.types.evaluation_dataset.EvaluationDataset"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CreatePresignedNotebookUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.string
 
 
-class CreatePresignedNotebookUrlResponse(TypedDict):
+class CreatePresignedNotebookUrlResponse(TypedDict, closed=True):
     notebook_url: "aws_sdk_athena.types.string.String"
     """<p>The URL of the notebook. The URL includes the authentication token and notebook file name and points directly to the opened notebook.</p>"""
     auth_token: "aws_sdk_athena.types.auth_token.AuthToken"

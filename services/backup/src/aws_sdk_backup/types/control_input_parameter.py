@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ControlInputParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.parameter_name
     import aws_sdk_backup.types.parameter_value
 
 
-class ControlInputParameter(TypedDict):
+class ControlInputParameter(TypedDict, closed=True):
     parameter_name: NotRequired["aws_sdk_backup.types.parameter_name.ParameterName"]
     """<p>The name of a parameter, for example, <code>BackupPlanFrequency</code>.</p>"""
     parameter_value: NotRequired["aws_sdk_backup.types.parameter_value.ParameterValue"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Entity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.category
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.is_parent_entity
 
 
-class Entity(TypedDict):
+class Entity(TypedDict, closed=True):
     entity_name: NotRequired["aws_sdk_glue.types.entity_name.EntityName"]
     """<p>The name of the entity.</p>"""
     label: NotRequired["aws_sdk_glue.types.entity_label.EntityLabel"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#UpdateInputDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.input_device_configurable_settings
 
 
-class UpdateInputDeviceRequest(TypedDict):
+class UpdateInputDeviceRequest(TypedDict, closed=True):
     hd_device_settings: NotRequired[
         "aws_sdk_medialive.types.input_device_configurable_settings.InputDeviceConfigurableSettings"
     ]

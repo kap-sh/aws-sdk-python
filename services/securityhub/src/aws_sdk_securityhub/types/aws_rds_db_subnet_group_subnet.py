@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRdsDbSubnetGroupSubnet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_rds_db_subnet_group_subnet_availability_zone
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsRdsDbSubnetGroupSubnet(TypedDict):
+class AwsRdsDbSubnetGroupSubnet(TypedDict, closed=True):
     subnet_identifier: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

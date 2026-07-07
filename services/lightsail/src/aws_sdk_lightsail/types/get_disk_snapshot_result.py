@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetDiskSnapshotResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.disk_snapshot
 
 
-class GetDiskSnapshotResult(TypedDict):
+class GetDiskSnapshotResult(TypedDict, closed=True):
     disk_snapshot: NotRequired["aws_sdk_lightsail.types.disk_snapshot.DiskSnapshot"]
     """<p>An object containing information about the disk snapshot.</p>"""
 

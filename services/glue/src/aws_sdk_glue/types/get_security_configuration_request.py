@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetSecurityConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class GetSecurityConfigurationRequest(TypedDict):
+class GetSecurityConfigurationRequest(TypedDict, closed=True):
     name: "aws_sdk_glue.types.name_string.NameString"
     """<p>The name of the security configuration to retrieve.</p>"""
 

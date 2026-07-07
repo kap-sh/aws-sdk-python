@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#TableCell``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.boolean
     import aws_sdk_kendra.types.string
 
 
-class TableCell(TypedDict):
+class TableCell(TypedDict, closed=True):
     value: NotRequired["aws_sdk_kendra.types.string.String"]
     """<p>The actual value or content within a table cell. A table cell could contain a date value of a year, or a string value of text, for example.</p>"""
     top_answer: "aws_sdk_kendra.types.boolean.Boolean"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#NetworkFirewallInvalidRouteConfigurationViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.routes
 
 
-class NetworkFirewallInvalidRouteConfigurationViolation(TypedDict):
+class NetworkFirewallInvalidRouteConfigurationViolation(TypedDict, closed=True):
     affected_subnets: NotRequired["aws_sdk_fms.types.resource_id_list.ResourceIdList"]
     """<p>The subnets that are affected.</p>"""
     route_table_id: NotRequired["aws_sdk_fms.types.resource_id.ResourceId"]

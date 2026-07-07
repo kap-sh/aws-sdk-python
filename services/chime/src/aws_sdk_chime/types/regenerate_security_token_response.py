@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#RegenerateSecurityTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.bot
 
 
-class RegenerateSecurityTokenResponse(TypedDict):
+class RegenerateSecurityTokenResponse(TypedDict, closed=True):
     bot: NotRequired["aws_sdk_chime.types.bot.Bot"]
     """<p>A resource that allows Enterprise account administrators to configure an interface that receives events from Amazon Chime.</p>"""
 

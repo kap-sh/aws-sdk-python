@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#CreateTemplateMessageBody``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class CreateTemplateMessageBody(TypedDict):
+class CreateTemplateMessageBody(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of the message template that was created.</p>"""
     message: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

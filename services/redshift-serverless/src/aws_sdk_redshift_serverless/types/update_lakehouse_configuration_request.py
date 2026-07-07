@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#UpdateLakehouseConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.namespace_name
 
 
-class UpdateLakehouseConfigurationRequest(TypedDict):
+class UpdateLakehouseConfigurationRequest(TypedDict, closed=True):
     namespace_name: "aws_sdk_redshift_serverless.types.namespace_name.NamespaceName"
     """<p>The name of the namespace whose lakehouse configuration you want to modify.</p>"""
     lakehouse_registration: NotRequired[

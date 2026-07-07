@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelCardVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_card_version_summary_list
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListModelCardVersionsResponse(TypedDict):
+class ListModelCardVersionsResponse(TypedDict, closed=True):
     model_card_version_summary_list: NotRequired[
         "aws_sdk_sagemaker.types.model_card_version_summary_list.ModelCardVersionSummaryList"
     ]

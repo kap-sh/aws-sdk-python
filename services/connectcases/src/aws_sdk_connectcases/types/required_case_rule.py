@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#RequiredCaseRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.boolean_condition_list
 
 
-class RequiredCaseRule(TypedDict):
+class RequiredCaseRule(TypedDict, closed=True):
     default_value: "bool"
     """<p>The value of the rule (that is, whether the field is required) should none of the conditions evaluate to true.</p>"""
     conditions: "aws_sdk_connectcases.types.boolean_condition_list.BooleanConditionList"

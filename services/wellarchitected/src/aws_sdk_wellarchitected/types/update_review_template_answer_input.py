@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#UpdateReviewTemplateAnswerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.answer_reason
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.template_arn
 
 
-class UpdateReviewTemplateAnswerInput(TypedDict):
+class UpdateReviewTemplateAnswerInput(TypedDict, closed=True):
     template_arn: "aws_sdk_wellarchitected.types.template_arn.TemplateArn"
     """<p>The review template ARN.</p>"""
     lens_alias: "aws_sdk_wellarchitected.types.lens_alias.LensAlias"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#ListTrackerConsumersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
     import aws_sdk_location.types.token
 
 
-class ListTrackerConsumersRequest(TypedDict):
+class ListTrackerConsumersRequest(TypedDict, closed=True):
     tracker_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The tracker resource whose associated geofence collections you want to list.</p>"""
     max_results: NotRequired["int"]

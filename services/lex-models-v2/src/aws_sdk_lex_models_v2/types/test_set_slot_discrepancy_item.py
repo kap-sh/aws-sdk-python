@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#TestSetSlotDiscrepancyItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.string
 
 
-class TestSetSlotDiscrepancyItem(TypedDict):
+class TestSetSlotDiscrepancyItem(TypedDict, closed=True):
     intent_name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>The name of the intent associated with the slot in the discrepancy report.</p>"""
     slot_name: "aws_sdk_lex_models_v2.types.name.Name"

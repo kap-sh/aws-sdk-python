@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#PutDeliveryChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.delivery_channel
 
 
-class PutDeliveryChannelRequest(TypedDict):
+class PutDeliveryChannelRequest(TypedDict, closed=True):
     delivery_channel: "aws_sdk_config_service.types.delivery_channel.DeliveryChannel"
     """<p>An object for the delivery channel. A delivery channel sends notifications and updated configuration states. </p>"""
 

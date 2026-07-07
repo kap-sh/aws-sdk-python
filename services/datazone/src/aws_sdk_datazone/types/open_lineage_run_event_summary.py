@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#OpenLineageRunEventSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.name_identifier
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.open_lineage_run_state
 
 
-class OpenLineageRunEventSummary(TypedDict):
+class OpenLineageRunEventSummary(TypedDict, closed=True):
     event_type: NotRequired[
         "aws_sdk_datazone.types.open_lineage_run_state.OpenLineageRunState"
     ]

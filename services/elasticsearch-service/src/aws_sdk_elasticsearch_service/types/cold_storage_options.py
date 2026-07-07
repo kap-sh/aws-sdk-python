@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ColdStorageOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.boolean
 
 
-class ColdStorageOptions(TypedDict):
+class ColdStorageOptions(TypedDict, closed=True):
     enabled: "aws_sdk_elasticsearch_service.types.boolean.Boolean"
     """<p>Enable cold storage option. Accepted values true or false</p>"""
 

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SendMessageUsageInfo``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SendMessageUsageInfo(TypedDict):
+class SendMessageUsageInfo(TypedDict, closed=True):
     input_tokens: NotRequired["int"]
     """<p>Number of input tokens</p>"""
     output_tokens: NotRequired["int"]

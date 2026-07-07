@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateLocationFsxWindowsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.smb_user
 
 
-class CreateLocationFsxWindowsRequest(TypedDict):
+class CreateLocationFsxWindowsRequest(TypedDict, closed=True):
     subdirectory: NotRequired[
         "aws_sdk_datasync.types.fsx_windows_subdirectory.FsxWindowsSubdirectory"
     ]

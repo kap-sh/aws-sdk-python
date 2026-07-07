@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ClusterSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.cluster_setting_name
     import aws_sdk_ecs.types.string
 
 
-class ClusterSetting(TypedDict):
+class ClusterSetting(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ecs.types.cluster_setting_name.ClusterSettingName"]
     """<p>The name of the cluster setting. The value is <code>containerInsights</code>.</p>"""
     value: NotRequired["aws_sdk_ecs.types.string.String"]

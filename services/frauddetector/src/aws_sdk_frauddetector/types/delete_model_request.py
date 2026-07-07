@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#DeleteModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.model_type_enum
 
 
-class DeleteModelRequest(TypedDict):
+class DeleteModelRequest(TypedDict, closed=True):
     model_id: "aws_sdk_frauddetector.types.model_identifier.modelIdentifier"
     """<p>The model ID of the model to delete.</p>"""
     model_type: "aws_sdk_frauddetector.types.model_type_enum.ModelTypeEnum"

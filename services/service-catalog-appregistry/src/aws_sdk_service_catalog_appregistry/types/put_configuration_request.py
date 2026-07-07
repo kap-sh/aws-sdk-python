@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#PutConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_service_catalog_appregistry.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.app_registry_configuration
 
 
-class PutConfigurationRequest(TypedDict):
+class PutConfigurationRequest(TypedDict, closed=True):
     configuration: "aws_sdk_service_catalog_appregistry.types.app_registry_configuration.AppRegistryConfiguration"
     """<p> Associates a <code>TagKey</code> configuration to an account. </p>"""
 

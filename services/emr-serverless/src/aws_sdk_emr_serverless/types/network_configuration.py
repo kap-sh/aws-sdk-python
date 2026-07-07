@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#NetworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.security_group_ids
     import aws_sdk_emr_serverless.types.subnet_ids
 
 
-class NetworkConfiguration(TypedDict):
+class NetworkConfiguration(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_emr_serverless.types.subnet_ids.SubnetIds"]
     """<p>The array of subnet Ids for customer VPC connectivity.</p>"""
     security_group_ids: NotRequired[

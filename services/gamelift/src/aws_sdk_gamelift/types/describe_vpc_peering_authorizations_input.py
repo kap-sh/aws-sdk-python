@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeVpcPeeringAuthorizationsInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeVpcPeeringAuthorizationsInput(TypedDict):
+class DescribeVpcPeeringAuthorizationsInput(TypedDict, closed=True):
     pass
 
 

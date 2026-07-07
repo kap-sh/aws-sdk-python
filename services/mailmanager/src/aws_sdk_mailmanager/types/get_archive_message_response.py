@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#GetArchiveMessageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.envelope
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.s3_presigned_url
 
 
-class GetArchiveMessageResponse(TypedDict):
+class GetArchiveMessageResponse(TypedDict, closed=True):
     message_download_link: NotRequired[
         "aws_sdk_mailmanager.types.s3_presigned_url.S3PresignedURL"
     ]

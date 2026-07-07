@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DocumentMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.integer
     import aws_sdk_comprehend.types.list_of_extracted_characters
 
 
-class DocumentMetadata(TypedDict):
+class DocumentMetadata(TypedDict, closed=True):
     pages: NotRequired["aws_sdk_comprehend.types.integer.Integer"]
     """<p>Number of pages in the document.</p>"""
     extracted_characters: NotRequired[

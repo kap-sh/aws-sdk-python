@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#AuthConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.auth_materials
     import aws_sdk_iot_managed_integrations.types.o_auth_config
 
 
-class AuthConfig(TypedDict):
+class AuthConfig(TypedDict, closed=True):
     o_auth: NotRequired[
         "aws_sdk_iot_managed_integrations.types.o_auth_config.OAuthConfig"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.location#DeletePlaceIndexResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePlaceIndexResponse(TypedDict):
+class DeletePlaceIndexResponse(TypedDict, closed=True):
     pass
 
 

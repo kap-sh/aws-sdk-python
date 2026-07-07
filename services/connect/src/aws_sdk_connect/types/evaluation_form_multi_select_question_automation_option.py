@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormMultiSelectQuestionAutomationOption``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.multi_select_question_rule_category_automation
 
 
-class _EvaluationFormMultiSelectQuestionAutomationOption_RuleCategory(TypedDict):
+class _EvaluationFormMultiSelectQuestionAutomationOption_RuleCategory(
+    TypedDict, closed=True
+):
     RuleCategory: "aws_sdk_connect.types.multi_select_question_rule_category_automation.MultiSelectQuestionRuleCategoryAutomation"
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.osis#PipelineBlueprint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.string
 
 
-class PipelineBlueprint(TypedDict):
+class PipelineBlueprint(TypedDict, closed=True):
     blueprint_name: NotRequired["aws_sdk_osis.types.string.String"]
     """<p>The name of the blueprint.</p>"""
     pipeline_configuration_body: NotRequired["aws_sdk_osis.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#SchemaVersionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__string
     import aws_sdk_schemas.types.type
 
 
-class SchemaVersionSummary(TypedDict):
+class SchemaVersionSummary(TypedDict, closed=True):
     schema_arn: NotRequired["aws_sdk_schemas.types.__string.__string"]
     """<p>The ARN of the schema version.</p>"""
     schema_name: NotRequired["aws_sdk_schemas.types.__string.__string"]

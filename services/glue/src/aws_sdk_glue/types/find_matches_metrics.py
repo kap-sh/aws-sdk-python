@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#FindMatchesMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.column_importance_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_bounded_double
 
 
-class FindMatchesMetrics(TypedDict):
+class FindMatchesMetrics(TypedDict, closed=True):
     area_under_pr_curve: NotRequired[
         "aws_sdk_glue.types.generic_bounded_double.GenericBoundedDouble"
     ]

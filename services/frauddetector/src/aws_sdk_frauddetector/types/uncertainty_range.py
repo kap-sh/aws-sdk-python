@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#UncertaintyRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.float
 
 
-class UncertaintyRange(TypedDict):
+class UncertaintyRange(TypedDict, closed=True):
     lower_bound_value: "aws_sdk_frauddetector.types.float.float"
     """<p> The lower bound value of the area under curve (auc). </p>"""
     upper_bound_value: "aws_sdk_frauddetector.types.float.float"

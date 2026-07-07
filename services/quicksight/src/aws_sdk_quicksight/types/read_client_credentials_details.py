@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ReadClientCredentialsDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.read_client_credentials_grant_details
 
 
-class _ReadClientCredentialsDetails_ReadClientCredentialsGrantDetails(TypedDict):
+class _ReadClientCredentialsDetails_ReadClientCredentialsGrantDetails(
+    TypedDict, closed=True
+):
     ReadClientCredentialsGrantDetails: "aws_sdk_quicksight.types.read_client_credentials_grant_details.ReadClientCredentialsGrantDetails"
 
 

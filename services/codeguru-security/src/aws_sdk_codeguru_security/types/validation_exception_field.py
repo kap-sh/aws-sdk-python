@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguru_security.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The name of the exception.</p>"""
     message: "str"

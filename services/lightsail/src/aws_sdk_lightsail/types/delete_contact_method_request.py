@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DeleteContactMethodRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.contact_protocol
 
 
-class DeleteContactMethodRequest(TypedDict):
+class DeleteContactMethodRequest(TypedDict, closed=True):
     protocol: "aws_sdk_lightsail.types.contact_protocol.ContactProtocol"
     """<p>The protocol that will be deleted, such as <code>Email</code> or <code>SMS</code> (text messaging).</p> <note> <p>To delete an <code>Email</code> and an <code>SMS</code> contact method if you added both, you must run separate <code>DeleteContactMethod</code> actions to delete each protocol.</p> </note>"""
 

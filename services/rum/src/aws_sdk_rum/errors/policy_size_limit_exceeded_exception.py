@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rum#PolicySizeLimitExceededException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_rum.errors import DeserializationError, ServiceError
 
 
-class PolicySizeLimitExceededException_(TypedDict):
+class PolicySizeLimitExceededException_(TypedDict, closed=True):
     message: "str"
 
 

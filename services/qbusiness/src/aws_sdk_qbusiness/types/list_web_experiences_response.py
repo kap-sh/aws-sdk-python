@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListWebExperiencesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.next_token
     import aws_sdk_qbusiness.types.web_experiences
 
 
-class ListWebExperiencesResponse(TypedDict):
+class ListWebExperiencesResponse(TypedDict, closed=True):
     web_experiences: NotRequired[
         "aws_sdk_qbusiness.types.web_experiences.WebExperiences"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#MLSyntheticDataParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.max_membership_inference_attack_score
 
 
-class MLSyntheticDataParameters(TypedDict):
+class MLSyntheticDataParameters(TypedDict, closed=True):
     epsilon: "float"
     """<p>The epsilon value for differential privacy when generating synthetic data. Lower values provide stronger privacy guarantees but may reduce data utility.</p>"""
     max_membership_inference_attack_score: "aws_sdk_cleanrooms.types.max_membership_inference_attack_score.MaxMembershipInferenceAttackScore"

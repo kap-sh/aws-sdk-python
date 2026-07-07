@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#UniqueAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_identitystore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_identitystore.types.attribute_value
 
 
-class UniqueAttribute(TypedDict):
+class UniqueAttribute(TypedDict, closed=True):
     attribute_path: "aws_sdk_identitystore.types.attribute_path.AttributePath"
     """<p>A string representation of the path to a given attribute or sub-attribute. Supports JMESPath.</p>"""
     attribute_value: "aws_sdk_identitystore.types.attribute_value.AttributeValue"

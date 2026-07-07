@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#UpdateHostedZoneCommentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.resource_id
 
 
-class UpdateHostedZoneCommentRequest(TypedDict):
+class UpdateHostedZoneCommentRequest(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.resource_id.ResourceId"
     """<p>The ID for the hosted zone that you want to update the comment for.</p>"""
     comment: NotRequired[

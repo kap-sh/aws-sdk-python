@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#PortMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.application_protocol
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.transport_protocol
 
 
-class PortMapping(TypedDict):
+class PortMapping(TypedDict, closed=True):
     container_port: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]
     """<p>The port number on the container that's bound to the user-specified or automatically assigned host port.</p> <p>If you use containers in a task with the <code>awsvpc</code> or <code>host</code> network mode, specify the exposed ports using <code>containerPort</code>.</p> <p>If you use containers in a task with the <code>bridge</code> network mode and you specify a container port and not a host port, your container automatically receives a host port in the ephemeral port range. For more information, see <code>hostPort</code>. Port mappings that are automatically assigned in this way do not count toward the 100 reserved ports limit of a container instance.</p>"""
     host_port: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]

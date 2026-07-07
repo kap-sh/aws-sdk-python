@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ListPeeringsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.next_token
     import aws_sdk_networkmanager.types.peering_list
 
 
-class ListPeeringsResponse(TypedDict):
+class ListPeeringsResponse(TypedDict, closed=True):
     peerings: NotRequired["aws_sdk_networkmanager.types.peering_list.PeeringList"]
     """<p>Lists the transit gateway peerings for the <code>ListPeerings</code> request.</p>"""
     next_token: NotRequired["aws_sdk_networkmanager.types.next_token.NextToken"]

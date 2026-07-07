@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#ListDomainsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.filter_conditions
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.sort_condition
 
 
-class ListDomainsRequest(TypedDict):
+class ListDomainsRequest(TypedDict, closed=True):
     filter_conditions: NotRequired[
         "aws_sdk_route_53_domains.types.filter_conditions.FilterConditions"
     ]

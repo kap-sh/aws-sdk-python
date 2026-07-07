@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#InAppTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.template_type
 
 
-class InAppTemplateResponse(TypedDict):
+class InAppTemplateResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The resource arn of the template.</p>"""
     content: NotRequired[

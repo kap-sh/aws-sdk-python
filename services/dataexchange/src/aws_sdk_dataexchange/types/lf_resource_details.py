@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#LFResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.database_lf_tag_policy
     import aws_sdk_dataexchange.types.table_lf_tag_policy
 
 
-class LFResourceDetails(TypedDict):
+class LFResourceDetails(TypedDict, closed=True):
     database: NotRequired[
         "aws_sdk_dataexchange.types.database_lf_tag_policy.DatabaseLFTagPolicy"
     ]

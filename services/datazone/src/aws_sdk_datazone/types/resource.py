@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#Resource``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     provider: NotRequired["str"]
     """<p>The provider of a provisioned resource of this Amazon DataZone environment.</p>"""
     name: NotRequired["str"]

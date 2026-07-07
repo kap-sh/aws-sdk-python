@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ResultAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_item_type_name
 
 
-class ResultAttribute(TypedDict):
+class ResultAttribute(TypedDict, closed=True):
     type_name: "aws_sdk_ssm.types.inventory_item_type_name.InventoryItemTypeName"
     """<p>Name of the inventory item type. Valid value: <code>AWS:InstanceInformation</code>. Default Value: <code>AWS:InstanceInformation</code>.</p>"""
 

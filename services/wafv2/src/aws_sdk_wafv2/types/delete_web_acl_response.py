@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#DeleteWebACLResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteWebACLResponse(TypedDict):
+class DeleteWebACLResponse(TypedDict, closed=True):
     pass
 
 

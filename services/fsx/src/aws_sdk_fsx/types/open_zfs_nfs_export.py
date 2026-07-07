@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#OpenZFSNfsExport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.open_zfs_client_configurations
 
 
-class OpenZFSNfsExport(TypedDict):
+class OpenZFSNfsExport(TypedDict, closed=True):
     client_configurations: NotRequired[
         "aws_sdk_fsx.types.open_zfs_client_configurations.OpenZFSClientConfigurations"
     ]

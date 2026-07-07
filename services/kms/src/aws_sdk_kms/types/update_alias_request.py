@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#UpdateAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.key_id_type
 
 
-class UpdateAliasRequest(TypedDict):
+class UpdateAliasRequest(TypedDict, closed=True):
     alias_name: "aws_sdk_kms.types.alias_name_type.AliasNameType"
     """<p>Identifies the alias that is changing its KMS key. This value must begin with <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>. You cannot use <code>UpdateAlias</code> to change the alias name.</p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>"""
     target_key_id: "aws_sdk_kms.types.key_id_type.KeyIdType"

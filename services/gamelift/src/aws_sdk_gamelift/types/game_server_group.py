@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#GameServerGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.auto_scaling_group_arn
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.timestamp
 
 
-class GameServerGroup(TypedDict):
+class GameServerGroup(TypedDict, closed=True):
     game_server_group_name: NotRequired[
         "aws_sdk_gamelift.types.game_server_group_name.GameServerGroupName"
     ]

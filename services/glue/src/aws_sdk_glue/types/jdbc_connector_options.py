@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#JDBCConnectorOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boxed_non_negative_long
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.jdbc_data_type_mapping
 
 
-class JDBCConnectorOptions(TypedDict):
+class JDBCConnectorOptions(TypedDict, closed=True):
     filter_predicate: NotRequired[
         "aws_sdk_glue.types.enclosed_in_string_property.EnclosedInStringProperty"
     ]

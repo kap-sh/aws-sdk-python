@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#NetworkFirewallPolicyModifiedViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.network_firewall_policy_description
     import aws_sdk_fms.types.violation_target
 
 
-class NetworkFirewallPolicyModifiedViolation(TypedDict):
+class NetworkFirewallPolicyModifiedViolation(TypedDict, closed=True):
     violation_target: NotRequired["aws_sdk_fms.types.violation_target.ViolationTarget"]
     """<p>The ID of the Network Firewall or VPC resource that's in violation.</p>"""
     current_policy_description: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RegisteredUserConsoleFeatureConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.amazon_q_in_quick_sight_console_configurations
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.threshold_alerts_configurations
 
 
-class RegisteredUserConsoleFeatureConfigurations(TypedDict):
+class RegisteredUserConsoleFeatureConfigurations(TypedDict, closed=True):
     state_persistence: NotRequired[
         "aws_sdk_quicksight.types.state_persistence_configurations.StatePersistenceConfigurations"
     ]

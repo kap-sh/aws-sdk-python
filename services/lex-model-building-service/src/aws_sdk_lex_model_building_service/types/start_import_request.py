@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#StartImportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.tag_list
 
 
-class StartImportRequest(TypedDict):
+class StartImportRequest(TypedDict, closed=True):
     payload: "aws_sdk_lex_model_building_service.types.blob.Blob"
     """<p>A zip archive in binary format. The archive should contain one file, a JSON file containing the resource to import. The resource should match the type specified in the <code>resourceType</code> field.</p>"""
     resource_type: "aws_sdk_lex_model_building_service.types.resource_type.ResourceType"

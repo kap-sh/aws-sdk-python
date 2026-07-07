@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#GetObjectRetentionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.object_lock_retention
 
 
-class GetObjectRetentionOutput(TypedDict):
+class GetObjectRetentionOutput(TypedDict, closed=True):
     retention: NotRequired["aws_sdk_s3.types.object_lock_retention.ObjectLockRetention"]
     """<p>The container element for an object's retention settings.</p>"""
 

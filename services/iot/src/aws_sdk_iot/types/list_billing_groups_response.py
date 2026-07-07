@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListBillingGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.billing_group_name_and_arn_list
     import aws_sdk_iot.types.next_token
 
 
-class ListBillingGroupsResponse(TypedDict):
+class ListBillingGroupsResponse(TypedDict, closed=True):
     billing_groups: NotRequired[
         "aws_sdk_iot.types.billing_group_name_and_arn_list.BillingGroupNameAndArnList"
     ]

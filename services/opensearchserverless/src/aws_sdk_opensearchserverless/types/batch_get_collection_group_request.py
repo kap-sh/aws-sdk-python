@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#BatchGetCollectionGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.collection_group_ids
     import aws_sdk_opensearchserverless.types.collection_group_names
 
 
-class BatchGetCollectionGroupRequest(TypedDict):
+class BatchGetCollectionGroupRequest(TypedDict, closed=True):
     ids: NotRequired[
         "aws_sdk_opensearchserverless.types.collection_group_ids.CollectionGroupIds"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#S3BucketTranscriptSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.transcript_format
 
 
-class S3BucketTranscriptSource(TypedDict):
+class S3BucketTranscriptSource(TypedDict, closed=True):
     s3_bucket_name: "aws_sdk_lex_models_v2.types.s3_bucket_name.S3BucketName"
     """<p>The name of the bucket containing the transcript and the associated metadata.</p>"""
     path_format: NotRequired["aws_sdk_lex_models_v2.types.path_format.PathFormat"]

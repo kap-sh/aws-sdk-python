@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#ListRegexMatchSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.next_marker
     import aws_sdk_waf_regional.types.regex_match_set_summaries
 
 
-class ListRegexMatchSetsResponse(TypedDict):
+class ListRegexMatchSetsResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_waf_regional.types.next_marker.NextMarker"]
     """<p>If you have more <code>RegexMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>RegexMatchSet</code> objects, submit another <code>ListRegexMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>"""
     regex_match_sets: NotRequired[

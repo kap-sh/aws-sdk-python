@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#TagFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.key
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.value
 
 
-class TagFilter(TypedDict):
+class TagFilter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_codedeploy.types.key.Key"]
     """<p>The on-premises instance tag filter key.</p>"""
     value: NotRequired["aws_sdk_codedeploy.types.value.Value"]

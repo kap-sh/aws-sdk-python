@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#PoolOriginationIdentitiesFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.pool_origination_identities_filter_name
 
 
-class PoolOriginationIdentitiesFilter(TypedDict):
+class PoolOriginationIdentitiesFilter(TypedDict, closed=True):
     name: "aws_sdk_pinpoint_sms_voice_v2.types.pool_origination_identities_filter_name.PoolOriginationIdentitiesFilterName"
     """<p>The name of the attribute to filter on.</p>"""
     values: "aws_sdk_pinpoint_sms_voice_v2.types.filter_value_list.FilterValueList"

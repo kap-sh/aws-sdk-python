@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListWorkloadSharesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.list_workload_shares_max_results
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_id
 
 
-class ListWorkloadSharesInput(TypedDict):
+class ListWorkloadSharesInput(TypedDict, closed=True):
     workload_id: "aws_sdk_wellarchitected.types.workload_id.WorkloadId"
     shared_with_prefix: NotRequired[
         "aws_sdk_wellarchitected.types.shared_with_prefix.SharedWithPrefix"

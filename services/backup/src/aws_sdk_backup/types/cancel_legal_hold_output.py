@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CancelLegalHoldOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelLegalHoldOutput(TypedDict):
+class CancelLegalHoldOutput(TypedDict, closed=True):
     pass
 
 

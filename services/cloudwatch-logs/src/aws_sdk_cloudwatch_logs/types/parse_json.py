@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ParseJSON``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.destination_field
     import aws_sdk_cloudwatch_logs.types.source
 
 
-class ParseJSON(TypedDict):
+class ParseJSON(TypedDict, closed=True):
     source: NotRequired["aws_sdk_cloudwatch_logs.types.source.Source"]
     """<p>Path to the field in the log event that will be parsed. Use dot notation to access child fields. For example, <code>store.book</code> </p>"""
     destination: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RecommendationJobCompiledOutputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class RecommendationJobCompiledOutputConfig(TypedDict):
+class RecommendationJobCompiledOutputConfig(TypedDict, closed=True):
     s3_output_uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     """<p>Identifies the Amazon S3 bucket where you want SageMaker to store the compiled model artifacts.</p>"""
 

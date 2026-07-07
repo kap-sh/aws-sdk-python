@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRoute53HostedZoneVpcDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsRoute53HostedZoneVpcDetails(TypedDict):
+class AwsRoute53HostedZoneVpcDetails(TypedDict, closed=True):
     id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The identifier of an Amazon VPC. </p>"""
     region: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

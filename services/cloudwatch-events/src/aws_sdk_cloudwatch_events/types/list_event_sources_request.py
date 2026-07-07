@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#ListEventSourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.event_source_name_prefix
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.next_token
 
 
-class ListEventSourcesRequest(TypedDict):
+class ListEventSourcesRequest(TypedDict, closed=True):
     name_prefix: NotRequired[
         "aws_sdk_cloudwatch_events.types.event_source_name_prefix.EventSourceNamePrefix"
     ]

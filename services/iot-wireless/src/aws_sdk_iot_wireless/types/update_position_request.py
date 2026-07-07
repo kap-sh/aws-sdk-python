@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdatePositionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.position_resource_type
 
 
-class UpdatePositionRequest(TypedDict):
+class UpdatePositionRequest(TypedDict, closed=True):
     resource_identifier: "aws_sdk_iot_wireless.types.position_resource_identifier.PositionResourceIdentifier"
     """<p>Resource identifier of the resource for which position is updated.</p>"""
     resource_type: (

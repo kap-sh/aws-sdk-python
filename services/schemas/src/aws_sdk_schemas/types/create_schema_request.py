@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#CreateSchemaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_schemas.types.type
 
 
-class CreateSchemaRequest(TypedDict):
+class CreateSchemaRequest(TypedDict, closed=True):
     content: NotRequired[
         "aws_sdk_schemas.types.__string_min1_max100000.__stringMin1Max100000"
     ]

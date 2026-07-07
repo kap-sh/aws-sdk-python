@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#GetBucketWebsiteRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.bucket_name
 
 
-class GetBucketWebsiteRequest(TypedDict):
+class GetBucketWebsiteRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     """<p>The bucket name for which to get the website configuration.</p>"""
     expected_bucket_owner: NotRequired["aws_sdk_s3.types.account_id.AccountId"]

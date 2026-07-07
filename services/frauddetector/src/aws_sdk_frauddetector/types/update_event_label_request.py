@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#UpdateEventLabelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.utc_timestamp_iso8601
 
 
-class UpdateEventLabelRequest(TypedDict):
+class UpdateEventLabelRequest(TypedDict, closed=True):
     event_id: "aws_sdk_frauddetector.types.identifier.identifier"
     """<p>The ID of the event associated with the label to update.</p>"""
     event_type_name: "aws_sdk_frauddetector.types.identifier.identifier"

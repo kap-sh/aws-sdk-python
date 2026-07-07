@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#EncryptionState``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 
@@ -8,13 +10,13 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.kms_encryption_state
 
 
-class _EncryptionState_kmsEncryptionState(TypedDict):
+class _EncryptionState_kmsEncryptionState(TypedDict, closed=True):
     kmsEncryptionState: (
         "aws_sdk_verifiedpermissions.types.kms_encryption_state.KmsEncryptionState"
     )
 
 
-class _EncryptionState_default(TypedDict):
+class _EncryptionState_default(TypedDict, closed=True):
     default: "None"
 
 

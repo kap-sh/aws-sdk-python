@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#InspectorScoreDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cvss_score_details
 
 
-class InspectorScoreDetails(TypedDict):
+class InspectorScoreDetails(TypedDict, closed=True):
     adjusted_cvss: NotRequired[
         "aws_sdk_inspector2.types.cvss_score_details.CvssScoreDetails"
     ]

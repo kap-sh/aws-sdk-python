@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#KekValidationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.as2805_random_key_material
 
 
-class KekValidationResponse(TypedDict):
+class KekValidationResponse(TypedDict, closed=True):
     random_key_send: "aws_sdk_payment_cryptography_data.types.as2805_random_key_material.As2805RandomKeyMaterial"
     """<p>The random key send value received from the initiating node to generate a KEK validation response.</p>"""
 

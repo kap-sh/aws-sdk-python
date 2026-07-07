@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetClassificationScopeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.classification_scope_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.s3_classification_scope
 
 
-class GetClassificationScopeResponse(TypedDict):
+class GetClassificationScopeResponse(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_macie2.types.classification_scope_id.ClassificationScopeId"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#CreateAPIKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.api_key
 
 
-class CreateAPIKeyResponse(TypedDict):
+class CreateAPIKeyResponse(TypedDict, closed=True):
     api_key: NotRequired["aws_sdk_wafv2.types.api_key.APIKey"]
     """<p>The generated, encrypted API key. You can copy this for use in your JavaScript CAPTCHA integration. </p>"""
 

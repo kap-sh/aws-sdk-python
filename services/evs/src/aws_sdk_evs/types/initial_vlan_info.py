@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#InitialVlanInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.cidr
 
 
-class InitialVlanInfo(TypedDict):
+class InitialVlanInfo(TypedDict, closed=True):
     cidr: "aws_sdk_evs.types.cidr.Cidr"
     """<p> The CIDR block that you provide to create an Amazon EVS VLAN subnet. Amazon EVS VLAN subnets have a minimum CIDR block size of /28 and a maximum size of /24. Amazon EVS VLAN subnet CIDR blocks must not overlap with other subnets in the VPC.</p>"""
 

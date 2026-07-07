@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#PublicAccessConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.public_access_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.public_bucket_restrict_behavior
 
 
-class PublicAccessConfiguration(TypedDict):
+class PublicAccessConfiguration(TypedDict, closed=True):
     public_acl_access: NotRequired[
         "aws_sdk_guardduty.types.public_access_status.PublicAccessStatus"
     ]

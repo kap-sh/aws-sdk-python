@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#SoftwareUpdateOptionsStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.option_status
     import aws_sdk_opensearch.types.software_update_options
 
 
-class SoftwareUpdateOptionsStatus(TypedDict):
+class SoftwareUpdateOptionsStatus(TypedDict, closed=True):
     options: NotRequired[
         "aws_sdk_opensearch.types.software_update_options.SoftwareUpdateOptions"
     ]

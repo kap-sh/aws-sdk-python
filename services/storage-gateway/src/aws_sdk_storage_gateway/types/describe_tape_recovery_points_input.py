@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeTapeRecoveryPointsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.positive_int_object
 
 
-class DescribeTapeRecoveryPointsInput(TypedDict):
+class DescribeTapeRecoveryPointsInput(TypedDict, closed=True):
     gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"
     marker: NotRequired["aws_sdk_storage_gateway.types.marker.Marker"]
     """<p>An opaque string that indicates the position at which to begin describing the virtual tape recovery points.</p>"""

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ListMetricsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.row_list
 
 
-class ListMetricsResponse(TypedDict):
+class ListMetricsResponse(TypedDict, closed=True):
     rows: "aws_sdk_resiliencehub.types.row_list.RowList"
     """<p>Specifies all the list of metric values for each row of metrics.</p>"""
     next_token: NotRequired["aws_sdk_resiliencehub.types.next_token.NextToken"]

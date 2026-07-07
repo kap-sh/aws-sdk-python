@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#OutputGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of_output
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.output_group_settings
 
 
-class OutputGroup(TypedDict):
+class OutputGroup(TypedDict, closed=True):
     automated_encoding_settings: NotRequired[
         "aws_sdk_mediaconvert.types.automated_encoding_settings.AutomatedEncodingSettings"
     ]

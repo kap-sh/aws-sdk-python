@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListAuditMitigationActionsTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_mitigation_actions_task_status
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestamp
 
 
-class ListAuditMitigationActionsTasksRequest(TypedDict):
+class ListAuditMitigationActionsTasksRequest(TypedDict, closed=True):
     audit_task_id: NotRequired["aws_sdk_iot.types.audit_task_id.AuditTaskId"]
     """<p>Specify this filter to limit results to tasks that were applied to results for a specific audit.</p>"""
     finding_id: NotRequired["aws_sdk_iot.types.finding_id.FindingId"]

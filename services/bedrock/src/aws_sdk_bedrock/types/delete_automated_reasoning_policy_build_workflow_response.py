@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#DeleteAutomatedReasoningPolicyBuildWorkflowResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAutomatedReasoningPolicyBuildWorkflowResponse(TypedDict):
+class DeleteAutomatedReasoningPolicyBuildWorkflowResponse(TypedDict, closed=True):
     pass
 
 

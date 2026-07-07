@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#TitleAggregationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.severity_counts
 
 
-class TitleAggregationResponse(TypedDict):
+class TitleAggregationResponse(TypedDict, closed=True):
     title: "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"
     """<p>The title that the findings were aggregated on.</p>"""
     vulnerability_id: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ListPromptsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.prompt_identifier
 
 
-class ListPromptsRequest(TypedDict):
+class ListPromptsRequest(TypedDict, closed=True):
     prompt_identifier: NotRequired[
         "aws_sdk_bedrock_agent.types.prompt_identifier.PromptIdentifier"
     ]

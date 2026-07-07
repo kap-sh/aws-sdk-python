@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#ListIdentityProvidersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.identity_provider_summary_list
 
 
-class ListIdentityProvidersResponse(TypedDict):
+class ListIdentityProvidersResponse(TypedDict, closed=True):
     identity_provider_summaries: "aws_sdk_license_manager_user_subscriptions.types.identity_provider_summary_list.IdentityProviderSummaryList"
     """<p>An array of <code>IdentityProviderSummary</code> resources that contain details about the Active Directory identity providers that meet the request criteria.</p>"""
     next_token: NotRequired["str"]

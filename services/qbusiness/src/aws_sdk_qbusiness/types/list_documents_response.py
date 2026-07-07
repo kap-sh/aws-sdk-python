@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListDocumentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.document_detail_list
     import aws_sdk_qbusiness.types.next_token
 
 
-class ListDocumentsResponse(TypedDict):
+class ListDocumentsResponse(TypedDict, closed=True):
     document_detail_list: NotRequired[
         "aws_sdk_qbusiness.types.document_detail_list.DocumentDetailList"
     ]

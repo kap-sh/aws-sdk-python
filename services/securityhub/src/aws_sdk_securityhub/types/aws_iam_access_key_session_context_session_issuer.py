@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsIamAccessKeySessionContextSessionIssuer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsIamAccessKeySessionContextSessionIssuer(TypedDict):
+class AwsIamAccessKeySessionContextSessionIssuer(TypedDict, closed=True):
     type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The type of principal (user, role, or group) that created the session.</p>"""
     principal_id: NotRequired[

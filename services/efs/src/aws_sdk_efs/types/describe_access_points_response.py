@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeAccessPointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.access_point_descriptions
     import aws_sdk_efs.types.token
 
 
-class DescribeAccessPointsResponse(TypedDict):
+class DescribeAccessPointsResponse(TypedDict, closed=True):
     access_points: NotRequired[
         "aws_sdk_efs.types.access_point_descriptions.AccessPointDescriptions"
     ]

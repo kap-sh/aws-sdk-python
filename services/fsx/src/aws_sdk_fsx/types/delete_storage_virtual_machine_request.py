@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteStorageVirtualMachineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.client_request_token
     import aws_sdk_fsx.types.storage_virtual_machine_id
 
 
-class DeleteStorageVirtualMachineRequest(TypedDict):
+class DeleteStorageVirtualMachineRequest(TypedDict, closed=True):
     client_request_token: NotRequired[
         "aws_sdk_fsx.types.client_request_token.ClientRequestToken"
     ]

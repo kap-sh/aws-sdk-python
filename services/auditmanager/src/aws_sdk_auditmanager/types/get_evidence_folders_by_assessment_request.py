@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetEvidenceFoldersByAssessmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class GetEvidenceFoldersByAssessmentRequest(TypedDict):
+class GetEvidenceFoldersByAssessmentRequest(TypedDict, closed=True):
     assessment_id: "aws_sdk_auditmanager.types.uuid.UUID"
     """<p> The unique identifier for the assessment. </p>"""
     next_token: NotRequired["aws_sdk_auditmanager.types.token.Token"]

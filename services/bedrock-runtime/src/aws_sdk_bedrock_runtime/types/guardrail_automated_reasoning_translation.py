@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailAutomatedReasoningTranslation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_input_text_reference_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_translation_confidence
 
 
-class GuardrailAutomatedReasoningTranslation(TypedDict):
+class GuardrailAutomatedReasoningTranslation(TypedDict, closed=True):
     premises: NotRequired[
         "aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_statement_list.GuardrailAutomatedReasoningStatementList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#CreateBackendEnvironmentResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.backend_environment
 
 
-class CreateBackendEnvironmentResult(TypedDict):
+class CreateBackendEnvironmentResult(TypedDict, closed=True):
     backend_environment: "aws_sdk_amplify.types.backend_environment.BackendEnvironment"
     """<p>Describes the backend environment for an Amplify app. </p>"""
 

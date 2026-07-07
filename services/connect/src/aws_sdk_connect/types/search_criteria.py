@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.active_region_list
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.searchable_segment_attributes
 
 
-class SearchCriteria(TypedDict):
+class SearchCriteria(TypedDict, closed=True):
     name: NotRequired["aws_sdk_connect.types.name_criteria.NameCriteria"]
     """<p>Name of the contact.</p>"""
     agent_ids: NotRequired[

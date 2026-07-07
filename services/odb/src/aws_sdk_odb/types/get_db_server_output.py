@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetDbServerOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.db_server
 
 
-class GetDbServerOutput(TypedDict):
+class GetDbServerOutput(TypedDict, closed=True):
     db_server: NotRequired["aws_sdk_odb.types.db_server.DbServer"]
     """<p>The details of the requested database server.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#DescribeResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.resource_arn_string
 
 
-class DescribeResourceRequest(TypedDict):
+class DescribeResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_lakeformation.types.resource_arn_string.ResourceArnString"
     """<p>The resource ARN.</p>"""
 

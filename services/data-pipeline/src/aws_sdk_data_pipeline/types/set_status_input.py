@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#SetStatusInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_data_pipeline.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.string
 
 
-class SetStatusInput(TypedDict):
+class SetStatusInput(TypedDict, closed=True):
     pipeline_id: "aws_sdk_data_pipeline.types.id.id"
     """<p>The ID of the pipeline that contains the objects.</p>"""
     object_ids: "aws_sdk_data_pipeline.types.id_list.idList"

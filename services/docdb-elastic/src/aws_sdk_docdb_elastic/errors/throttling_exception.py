@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
     retry_after_seconds: NotRequired["int"]
     """<p>The number of seconds to wait before retrying the operation.</p>"""

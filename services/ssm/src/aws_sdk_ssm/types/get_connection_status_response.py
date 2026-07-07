@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetConnectionStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.connection_status
     import aws_sdk_ssm.types.session_target
 
 
-class GetConnectionStatusResponse(TypedDict):
+class GetConnectionStatusResponse(TypedDict, closed=True):
     target: NotRequired["aws_sdk_ssm.types.session_target.SessionTarget"]
     """<p>The ID of the managed node to check connection status. </p>"""
     status: NotRequired["aws_sdk_ssm.types.connection_status.ConnectionStatus"]

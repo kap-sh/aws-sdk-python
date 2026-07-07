@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ExecutionRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.date
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.metadata_catalog_details
 
 
-class ExecutionRecord(TypedDict):
+class ExecutionRecord(TypedDict, closed=True):
     execution_id: NotRequired["aws_sdk_appflow.types.execution_id.ExecutionId"]
     """<p> Specifies the identifier of the given flow run. </p>"""
     execution_status: NotRequired[

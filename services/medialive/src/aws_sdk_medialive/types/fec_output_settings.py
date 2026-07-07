@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#FecOutputSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1_max20
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.fec_output_include_fec
 
 
-class FecOutputSettings(TypedDict):
+class FecOutputSettings(TypedDict, closed=True):
     column_depth: NotRequired[
         "aws_sdk_medialive.types.__integer_min4_max20.__integerMin4Max20"
     ]

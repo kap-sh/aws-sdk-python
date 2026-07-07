@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListCheckDetailsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.choice_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_id
 
 
-class ListCheckDetailsInput(TypedDict):
+class ListCheckDetailsInput(TypedDict, closed=True):
     workload_id: "aws_sdk_wellarchitected.types.workload_id.WorkloadId"
     next_token: NotRequired["aws_sdk_wellarchitected.types.next_token.NextToken"]
     max_results: NotRequired["aws_sdk_wellarchitected.types.max_results.MaxResults"]

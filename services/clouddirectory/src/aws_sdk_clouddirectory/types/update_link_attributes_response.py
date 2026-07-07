@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#UpdateLinkAttributesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateLinkAttributesResponse(TypedDict):
+class UpdateLinkAttributesResponse(TypedDict, closed=True):
     pass
 
 

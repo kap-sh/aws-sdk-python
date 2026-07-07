@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AnalyticsPathFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_filter_values
 
 
-class AnalyticsPathFilter(TypedDict):
+class AnalyticsPathFilter(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.analytics_common_filter_name.AnalyticsCommonFilterName"
     """<p>The category by which to filter the intent paths. The descriptions for each option are as follows:</p> <ul> <li> <p> <code>BotAlias</code> – The name of the bot alias.</p> </li> <li> <p> <code>BotVersion</code> – The version of the bot.</p> </li> <li> <p> <code>LocaleId</code> – The locale of the bot.</p> </li> <li> <p> <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p> </li> <li> <p> <code>Channel</code> – The channel that the bot is integrated with.</p> </li> </ul>"""
     operator: (

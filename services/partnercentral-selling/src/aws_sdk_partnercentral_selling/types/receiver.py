@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#Receiver``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.account_receiver
 
 
-class _Receiver_Account(TypedDict):
+class _Receiver_Account(TypedDict, closed=True):
     Account: "aws_sdk_partnercentral_selling.types.account_receiver.AccountReceiver"
 
 

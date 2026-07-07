@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.location#LocationService``."""
 
 import warnings
-from typing import Any, Iterable, Optional, TypedDict
+from typing import Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 from aws_sdk_location._auth._identity import Credentials
@@ -42,7 +42,7 @@ from aws_sdk_location._services._pipeline import (
 )
 
 
-class AsyncLocationClientConfig(TypedDict, total=False):
+class AsyncLocationClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

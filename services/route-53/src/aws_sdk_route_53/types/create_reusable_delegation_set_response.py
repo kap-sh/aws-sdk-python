@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CreateReusableDelegationSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.resource_uri
 
 
-class CreateReusableDelegationSetResponse(TypedDict):
+class CreateReusableDelegationSetResponse(TypedDict, closed=True):
     delegation_set: "aws_sdk_route_53.types.delegation_set.DelegationSet"
     """<p>A complex type that contains name server information.</p>"""
     location: "aws_sdk_route_53.types.resource_uri.ResourceURI"

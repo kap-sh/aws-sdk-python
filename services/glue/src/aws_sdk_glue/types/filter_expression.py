@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#FilterExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.filter_values
 
 
-class FilterExpression(TypedDict):
+class FilterExpression(TypedDict, closed=True):
     operation: "aws_sdk_glue.types.filter_operation.FilterOperation"
     """<p>The type of operation to perform in the expression.</p>"""
     negated: NotRequired["aws_sdk_glue.types.boxed_boolean.BoxedBoolean"]

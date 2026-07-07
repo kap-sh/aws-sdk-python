@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#CreateSourceNetworkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.vpc_id
 
 
-class CreateSourceNetworkRequest(TypedDict):
+class CreateSourceNetworkRequest(TypedDict, closed=True):
     vpc_id: "aws_sdk_drs.types.vpc_id.VpcID"
     """<p>Which VPC ID to protect.</p>"""
     origin_account_id: "aws_sdk_drs.types.account_id.AccountID"

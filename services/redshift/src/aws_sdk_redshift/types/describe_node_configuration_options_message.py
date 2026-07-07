@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#DescribeNodeConfigurationOptionsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class DescribeNodeConfigurationOptionsMessage(TypedDict):
+class DescribeNodeConfigurationOptionsMessage(TypedDict, closed=True):
     action_type: NotRequired["aws_sdk_redshift.types.action_type.ActionType"]
     r"""<p>The action type to evaluate for possible node configurations. Specify \"restore-cluster\" to get configuration combinations based on an existing snapshot. Specify \"recommend-node-config\" to get configuration recommendations based on an existing cluster or snapshot. Specify \"resize-cluster\" to get configuration combinations for elastic resize based on an existing cluster. </p>"""
     cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]

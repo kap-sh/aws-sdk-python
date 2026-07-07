@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#CreateGraphUsingImportTaskOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.task_id
 
 
-class CreateGraphUsingImportTaskOutput(TypedDict):
+class CreateGraphUsingImportTaskOutput(TypedDict, closed=True):
     graph_id: NotRequired["aws_sdk_neptune_graph.types.graph_id.GraphId"]
     """<p>The unique identifier of the Neptune Analytics graph.</p>"""
     task_id: "aws_sdk_neptune_graph.types.task_id.TaskId"

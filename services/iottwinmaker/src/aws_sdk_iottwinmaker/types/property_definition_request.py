@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#PropertyDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.property_display_name
 
 
-class PropertyDefinitionRequest(TypedDict):
+class PropertyDefinitionRequest(TypedDict, closed=True):
     data_type: NotRequired["aws_sdk_iottwinmaker.types.data_type.DataType"]
     """<p>An object that contains information about the data type.</p>"""
     is_required_in_entity: NotRequired["aws_sdk_iottwinmaker.types.boolean.Boolean"]

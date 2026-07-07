@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#CreateAutomatedReasoningPolicyVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.timestamp
 
 
-class CreateAutomatedReasoningPolicyVersionResponse(TypedDict):
+class CreateAutomatedReasoningPolicyVersionResponse(TypedDict, closed=True):
     policy_arn: "aws_sdk_bedrock.types.automated_reasoning_policy_arn.AutomatedReasoningPolicyArn"
     """<p>The versioned Amazon Resource Name (ARN) of the policy version.</p>"""
     version: "aws_sdk_bedrock.types.automated_reasoning_policy_version.AutomatedReasoningPolicyVersion"

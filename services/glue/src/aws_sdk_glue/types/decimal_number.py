@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DecimalNumber``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.integer
 
 
-class DecimalNumber(TypedDict):
+class DecimalNumber(TypedDict, closed=True):
     unscaled_value: "aws_sdk_glue.types.blob.Blob"
     """<p>The unscaled numeric value.</p>"""
     scale: "aws_sdk_glue.types.integer.Integer"

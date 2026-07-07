@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DetectSentimentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.sentiment_score
     import aws_sdk_comprehend.types.sentiment_type
 
 
-class DetectSentimentResponse(TypedDict):
+class DetectSentimentResponse(TypedDict, closed=True):
     sentiment: NotRequired["aws_sdk_comprehend.types.sentiment_type.SentimentType"]
     """<p>The inferred sentiment that Amazon Comprehend has the highest level of confidence in.</p>"""
     sentiment_score: NotRequired[

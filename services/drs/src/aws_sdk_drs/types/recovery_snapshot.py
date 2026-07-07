@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoverySnapshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.source_server_id
 
 
-class RecoverySnapshot(TypedDict):
+class RecoverySnapshot(TypedDict, closed=True):
     snapshot_id: "aws_sdk_drs.types.recovery_snapshot_id.RecoverySnapshotID"
     """<p>The ID of the Recovery Snapshot.</p>"""
     source_server_id: "aws_sdk_drs.types.source_server_id.SourceServerID"

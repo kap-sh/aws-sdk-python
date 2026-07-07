@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#StartImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wisdom.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.uuid_or_arn
 
 
-class StartImportJobRequest(TypedDict):
+class StartImportJobRequest(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_wisdom.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom Content resource to it. Can be either the ID or the ARN. URLs cannot contain the ARN.</p> <ul> <li> <p>For importing Wisdom quick responses, this should be a <code>QUICK_RESPONSES</code> type knowledge base.</p> </li> </ul>"""
     import_job_type: "aws_sdk_wisdom.types.import_job_type.ImportJobType"

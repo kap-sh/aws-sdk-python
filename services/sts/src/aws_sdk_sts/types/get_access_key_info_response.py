@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#GetAccessKeyInfoResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.account_type
 
 
-class GetAccessKeyInfoResponse(TypedDict):
+class GetAccessKeyInfoResponse(TypedDict, closed=True):
     account: NotRequired["aws_sdk_sts.types.account_type.accountType"]
     """<p>The number used to identify the Amazon Web Services account.</p>"""
 

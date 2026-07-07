@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeAccountPreferencesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.resource_id_preference
     import aws_sdk_efs.types.token
 
 
-class DescribeAccountPreferencesResponse(TypedDict):
+class DescribeAccountPreferencesResponse(TypedDict, closed=True):
     resource_id_preference: NotRequired[
         "aws_sdk_efs.types.resource_id_preference.ResourceIdPreference"
     ]

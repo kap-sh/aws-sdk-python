@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#AutoTuneStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.update_timestamp
 
 
-class AutoTuneStatus(TypedDict):
+class AutoTuneStatus(TypedDict, closed=True):
     creation_date: (
         "aws_sdk_elasticsearch_service.types.update_timestamp.UpdateTimestamp"
     )

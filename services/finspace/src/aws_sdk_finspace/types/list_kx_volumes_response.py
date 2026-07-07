@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#ListKxVolumesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_volumes
     import aws_sdk_finspace.types.pagination_token
 
 
-class ListKxVolumesResponse(TypedDict):
+class ListKxVolumesResponse(TypedDict, closed=True):
     kx_volume_summaries: NotRequired["aws_sdk_finspace.types.kx_volumes.KxVolumes"]
     """<p> A summary of volumes. </p>"""
     next_token: NotRequired["aws_sdk_finspace.types.pagination_token.PaginationToken"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetResourcesSummaryInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetResourcesSummaryInput(TypedDict):
+class GetResourcesSummaryInput(TypedDict, closed=True):
     pass
 
 

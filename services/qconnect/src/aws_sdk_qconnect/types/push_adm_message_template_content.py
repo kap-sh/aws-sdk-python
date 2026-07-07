@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#PushADMMessageTemplateContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.message_template_body_content_provider
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.push_message_action
 
 
-class PushADMMessageTemplateContent(TypedDict):
+class PushADMMessageTemplateContent(TypedDict, closed=True):
     title: NotRequired[
         "aws_sdk_qconnect.types.non_empty_unlimited_string.NonEmptyUnlimitedString"
     ]

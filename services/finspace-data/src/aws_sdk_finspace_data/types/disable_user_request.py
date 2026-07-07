@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#DisableUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.client_token
     import aws_sdk_finspace_data.types.user_id
 
 
-class DisableUserRequest(TypedDict):
+class DisableUserRequest(TypedDict, closed=True):
     user_id: "aws_sdk_finspace_data.types.user_id.UserId"
     """<p>The unique identifier for the user that you want to deactivate.</p>"""
     client_token: NotRequired["aws_sdk_finspace_data.types.client_token.ClientToken"]

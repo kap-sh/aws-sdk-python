@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#ServiceQuotaExceededException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pca_connector_scep.errors import DeserializationError, ServiceError
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "str"
     resource_type: "str"
     """<p>The resource type, which can be either <code>Connector</code> or <code>Challenge</code>.</p>"""

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyAddTypeMutation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_definition_type
 
 
-class AutomatedReasoningPolicyAddTypeMutation(TypedDict):
+class AutomatedReasoningPolicyAddTypeMutation(TypedDict, closed=True):
     type: "aws_sdk_bedrock.types.automated_reasoning_policy_definition_type.AutomatedReasoningPolicyDefinitionType"
     """<p>The type definition that specifies the name, description, and possible values for the new custom type being added to the policy.</p>"""
 

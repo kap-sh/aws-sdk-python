@@ -3,9 +3,9 @@
 import warnings
 from collections.abc import Generator, Iterator
 from contextlib import contextmanager
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_connecthealth._auth._signers
@@ -86,7 +86,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.user_context
 
 
-class ConnectHealthClientConfig(TypedDict, total=False):
+class ConnectHealthClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     use_fips: bool | None

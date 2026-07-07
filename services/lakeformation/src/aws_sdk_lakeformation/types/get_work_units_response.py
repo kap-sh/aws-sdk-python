@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#GetWorkUnitsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.work_unit_range_list
 
 
-class GetWorkUnitsResponse(TypedDict):
+class GetWorkUnitsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_lakeformation.types.token.Token"]
     """<p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>"""
     query_id: "aws_sdk_lakeformation.types.query_id_string.QueryIdString"

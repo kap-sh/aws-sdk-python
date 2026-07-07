@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#DeleteTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_discovery_service.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.tag_set
 
 
-class DeleteTagsRequest(TypedDict):
+class DeleteTagsRequest(TypedDict, closed=True):
     configuration_ids: "aws_sdk_application_discovery_service.types.configuration_id_list.ConfigurationIdList"
     """<p>A list of configuration items with tags that you want to delete.</p>"""
     tags: NotRequired["aws_sdk_application_discovery_service.types.tag_set.TagSet"]

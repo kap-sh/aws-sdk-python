@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListImportFileEnrichmentsFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.import_file_enrichments_i_ds_filter
 
 
-class ListImportFileEnrichmentsFilters(TypedDict):
+class ListImportFileEnrichmentsFilters(TypedDict, closed=True):
     job_i_ds: NotRequired[
         "aws_sdk_mgn.types.import_file_enrichments_i_ds_filter.ImportFileEnrichmentsIDsFilter"
     ]

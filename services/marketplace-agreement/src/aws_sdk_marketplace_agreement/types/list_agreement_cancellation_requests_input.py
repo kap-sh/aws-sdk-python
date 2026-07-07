@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ListAgreementCancellationRequestsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.party_type
 
 
-class ListAgreementCancellationRequestsInput(TypedDict):
+class ListAgreementCancellationRequestsInput(TypedDict, closed=True):
     party_type: "aws_sdk_marketplace_agreement.types.party_type.PartyType"
     """<p>The party type for the cancellation requests. Required parameter. Use <code>Proposer</code> to list cancellation requests where you are the seller, or <code>Acceptor</code> to list cancellation requests where you are the buyer.</p>"""
     agreement_id: NotRequired[

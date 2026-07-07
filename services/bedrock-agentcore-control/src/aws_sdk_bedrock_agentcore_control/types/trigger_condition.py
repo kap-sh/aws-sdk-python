@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#TriggerCondition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -13,17 +15,17 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.token_based_trigger
 
 
-class _TriggerCondition_messageBasedTrigger(TypedDict):
+class _TriggerCondition_messageBasedTrigger(TypedDict, closed=True):
     messageBasedTrigger: "aws_sdk_bedrock_agentcore_control.types.message_based_trigger.MessageBasedTrigger"
 
 
-class _TriggerCondition_tokenBasedTrigger(TypedDict):
+class _TriggerCondition_tokenBasedTrigger(TypedDict, closed=True):
     tokenBasedTrigger: (
         "aws_sdk_bedrock_agentcore_control.types.token_based_trigger.TokenBasedTrigger"
     )
 
 
-class _TriggerCondition_timeBasedTrigger(TypedDict):
+class _TriggerCondition_timeBasedTrigger(TypedDict, closed=True):
     timeBasedTrigger: (
         "aws_sdk_bedrock_agentcore_control.types.time_based_trigger.TimeBasedTrigger"
     )

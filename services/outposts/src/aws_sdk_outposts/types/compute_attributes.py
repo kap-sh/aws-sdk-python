@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ComputeAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.asset_instance_capacity_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.vcpu_count
 
 
-class ComputeAttributes(TypedDict):
+class ComputeAttributes(TypedDict, closed=True):
     host_id: NotRequired["aws_sdk_outposts.types.host_id.HostId"]
     """<p> The host ID of the Dedicated Host on the asset. </p>"""
     state: NotRequired["aws_sdk_outposts.types.compute_asset_state.ComputeAssetState"]

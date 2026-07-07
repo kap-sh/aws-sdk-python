@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#PutPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.policy
     import aws_sdk_fms.types.resource_arn
 
 
-class PutPolicyResponse(TypedDict):
+class PutPolicyResponse(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_fms.types.policy.Policy"]
     """<p>The details of the Firewall Manager policy.</p>"""
     policy_arn: NotRequired["aws_sdk_fms.types.resource_arn.ResourceArn"]

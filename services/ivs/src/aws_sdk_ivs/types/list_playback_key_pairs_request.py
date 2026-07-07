@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#ListPlaybackKeyPairsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.max_playback_key_pair_results
     import aws_sdk_ivs.types.pagination_token
 
 
-class ListPlaybackKeyPairsRequest(TypedDict):
+class ListPlaybackKeyPairsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_ivs.types.pagination_token.PaginationToken"]
     """<p>The first key pair to retrieve. This is used for pagination; see the <code>nextToken</code> response field.</p>"""
     max_results: NotRequired[

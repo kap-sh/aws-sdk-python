@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ListIntegrationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.integration_summaries
 
 
-class ListIntegrationsResponse(TypedDict):
+class ListIntegrationsResponse(TypedDict, closed=True):
     integration_summaries: NotRequired[
         "aws_sdk_cloudwatch_logs.types.integration_summaries.IntegrationSummaries"
     ]

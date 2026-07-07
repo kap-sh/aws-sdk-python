@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#PredictInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.vip_url
 
 
-class PredictInput(TypedDict):
+class PredictInput(TypedDict, closed=True):
     ml_model_id: "aws_sdk_machine_learning.types.entity_id.EntityId"
     """<p>A unique identifier of the <code>MLModel</code>.</p>"""
     record: "aws_sdk_machine_learning.types.record.Record"

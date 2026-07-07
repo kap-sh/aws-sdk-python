@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListImportFailuresResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.import_failure_list
     import aws_sdk_cloudtrail.types.pagination_token
 
 
-class ListImportFailuresResponse(TypedDict):
+class ListImportFailuresResponse(TypedDict, closed=True):
     failures: NotRequired[
         "aws_sdk_cloudtrail.types.import_failure_list.ImportFailureList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#AssociateTagOptionWithResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.tag_option_id
 
 
-class AssociateTagOptionWithResourceInput(TypedDict):
+class AssociateTagOptionWithResourceInput(TypedDict, closed=True):
     resource_id: "aws_sdk_service_catalog.types.resource_id.ResourceId"
     """<p>The resource identifier.</p>"""
     tag_option_id: "aws_sdk_service_catalog.types.tag_option_id.TagOptionId"

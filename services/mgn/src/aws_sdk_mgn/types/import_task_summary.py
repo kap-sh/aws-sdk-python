@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ImportTaskSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.import_task_summary_applications
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.import_task_summary_waves
 
 
-class ImportTaskSummary(TypedDict):
+class ImportTaskSummary(TypedDict, closed=True):
     waves: NotRequired[
         "aws_sdk_mgn.types.import_task_summary_waves.ImportTaskSummaryWaves"
     ]

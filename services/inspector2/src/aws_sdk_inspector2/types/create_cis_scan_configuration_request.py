@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CreateCisScanConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.schedule
 
 
-class CreateCisScanConfigurationRequest(TypedDict):
+class CreateCisScanConfigurationRequest(TypedDict, closed=True):
     scan_name: "aws_sdk_inspector2.types.cis_scan_name.CisScanName"
     """<p>The scan name for the CIS scan configuration.</p>"""
     security_level: "aws_sdk_inspector2.types.cis_security_level.CisSecurityLevel"

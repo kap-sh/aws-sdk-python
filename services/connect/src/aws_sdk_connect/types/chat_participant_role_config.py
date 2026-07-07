@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ChatParticipantRoleConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.participant_timer_config_list
 
 
-class ChatParticipantRoleConfig(TypedDict):
+class ChatParticipantRoleConfig(TypedDict, closed=True):
     participant_timer_config_list: (
         "aws_sdk_connect.types.participant_timer_config_list.ParticipantTimerConfigList"
     )

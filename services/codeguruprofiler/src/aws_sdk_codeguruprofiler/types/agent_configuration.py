@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#AgentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.agent_parameters
 
 
-class AgentConfiguration(TypedDict):
+class AgentConfiguration(TypedDict, closed=True):
     should_profile: "bool"
     """<p> A <code>Boolean</code> that specifies whether the profiling agent collects profiling data or not. Set to <code>true</code> to enable profiling. </p>"""
     period_in_seconds: "int"

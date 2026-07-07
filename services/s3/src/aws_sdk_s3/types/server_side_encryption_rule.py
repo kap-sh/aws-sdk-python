@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ServerSideEncryptionRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.server_side_encryption_by_default
 
 
-class ServerSideEncryptionRule(TypedDict):
+class ServerSideEncryptionRule(TypedDict, closed=True):
     apply_server_side_encryption_by_default: NotRequired[
         "aws_sdk_s3.types.server_side_encryption_by_default.ServerSideEncryptionByDefault"
     ]

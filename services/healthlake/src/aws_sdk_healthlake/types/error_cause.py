@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#ErrorCause``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_healthlake.types.error_category
     import aws_sdk_healthlake.types.error_message
 
 
-class ErrorCause(TypedDict):
+class ErrorCause(TypedDict, closed=True):
     error_message: NotRequired["aws_sdk_healthlake.types.error_message.ErrorMessage"]
     """<p>The error message text for <code>ErrorCause</code>.</p>"""
     error_category: NotRequired["aws_sdk_healthlake.types.error_category.ErrorCategory"]

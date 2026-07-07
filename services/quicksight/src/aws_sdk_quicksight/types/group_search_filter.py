@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GroupSearchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class GroupSearchFilter(TypedDict):
+class GroupSearchFilter(TypedDict, closed=True):
     operator: "aws_sdk_quicksight.types.group_filter_operator.GroupFilterOperator"
     r"""<p>The comparison operator that you want to use as a filter, for example <code>\"Operator\": \"StartsWith\"</code>. Currently, the only supported operator is <code>StartsWith</code>.</p>"""
     name: "aws_sdk_quicksight.types.group_filter_attribute.GroupFilterAttribute"

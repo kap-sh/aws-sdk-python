@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfigdata#ResourceNotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appconfigdata.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfigdata.types.string_map
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_appconfigdata.types.string.String"]
     resource_type: NotRequired["aws_sdk_appconfigdata.types.resource_type.ResourceType"]
     """<p>The type of resource that was not found.</p>"""

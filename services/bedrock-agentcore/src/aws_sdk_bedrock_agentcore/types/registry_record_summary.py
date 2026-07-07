@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#RegistryRecordSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.registry_record_version
 
 
-class RegistryRecordSummary(TypedDict):
+class RegistryRecordSummary(TypedDict, closed=True):
     registry_arn: "aws_sdk_bedrock_agentcore.types.registry_arn.RegistryArn"
     """<p> The Amazon Resource Name (ARN) of the registry that this record belongs to.</p>"""
     record_arn: "aws_sdk_bedrock_agentcore.types.registry_record_arn.RegistryRecordArn"

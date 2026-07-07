@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#UpdateTrustAnchorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.resource_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.uuid
 
 
-class UpdateTrustAnchorRequest(TypedDict):
+class UpdateTrustAnchorRequest(TypedDict, closed=True):
     trust_anchor_id: "aws_sdk_rolesanywhere.types.uuid.Uuid"
     """<p>The unique identifier of the trust anchor.</p>"""
     name: NotRequired["aws_sdk_rolesanywhere.types.resource_name.ResourceName"]

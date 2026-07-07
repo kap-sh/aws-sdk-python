@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.generic_v2_arn
     import aws_sdk_greengrassv2.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_greengrassv2.types.generic_v2_arn.GenericV2ARN"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the resource to untag.</p>"""
     tag_keys: "aws_sdk_greengrassv2.types.tag_key_list.TagKeyList"

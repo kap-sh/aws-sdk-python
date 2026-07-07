@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ListApplicationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.next_token
 
 
-class ListApplicationsResponse(TypedDict):
+class ListApplicationsResponse(TypedDict, closed=True):
     applications: "aws_sdk_m2.types.application_summary_list.ApplicationSummaryList"
     """<p>Returns a list of summary details for all the applications in a runtime environment.</p>"""
     next_token: NotRequired["aws_sdk_m2.types.next_token.NextToken"]

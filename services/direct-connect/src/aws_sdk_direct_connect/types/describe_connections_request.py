@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DescribeConnectionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.connection_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.pagination_token
 
 
-class DescribeConnectionsRequest(TypedDict):
+class DescribeConnectionsRequest(TypedDict, closed=True):
     connection_id: NotRequired[
         "aws_sdk_direct_connect.types.connection_id.ConnectionId"
     ]

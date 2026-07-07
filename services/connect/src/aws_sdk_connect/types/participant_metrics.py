@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ParticipantMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.count
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class ParticipantMetrics(TypedDict):
+class ParticipantMetrics(TypedDict, closed=True):
     participant_id: NotRequired["aws_sdk_connect.types.participant_id.ParticipantId"]
     """<p>The Participant's ID.</p>"""
     participant_type: NotRequired[

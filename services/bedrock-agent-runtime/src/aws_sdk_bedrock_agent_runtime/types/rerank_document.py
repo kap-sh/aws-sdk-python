@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RerankDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.rerank_text_document
 
 
-class RerankDocument(TypedDict):
+class RerankDocument(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent_runtime.types.rerank_document_type.RerankDocumentType"
     """<p>The type of document to rerank.</p>"""
     text_document: NotRequired[

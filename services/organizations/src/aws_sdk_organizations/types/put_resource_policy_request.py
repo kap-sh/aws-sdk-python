@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#PutResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.tags
 
 
-class PutResourcePolicyRequest(TypedDict):
+class PutResourcePolicyRequest(TypedDict, closed=True):
     content: "aws_sdk_organizations.types.resource_policy_content.ResourcePolicyContent"
     r"""<p>If provided, the new content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html\">SCP syntax</a> in the <i>Organizations User Guide</i>.</p>"""
     tags: NotRequired["aws_sdk_organizations.types.tags.Tags"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#TagResourceResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class TagResourceResult(TypedDict):
+class TagResourceResult(TypedDict, closed=True):
     pass
 
 

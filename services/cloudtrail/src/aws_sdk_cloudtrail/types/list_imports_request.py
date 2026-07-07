@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListImportsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.event_data_store_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.pagination_token
 
 
-class ListImportsRequest(TypedDict):
+class ListImportsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_cloudtrail.types.list_imports_max_results_count.ListImportsMaxResultsCount"
     ]

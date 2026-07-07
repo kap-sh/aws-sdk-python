@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#InfluxDBv3CoreParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.data_fusion_runtime_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.percent_or_absolute_long
 
 
-class InfluxDBv3CoreParameters(TypedDict):
+class InfluxDBv3CoreParameters(TypedDict, closed=True):
     query_file_limit: NotRequired["int"]
     """<p>Limits the number of Parquet files a query can access. If a query attempts to read more than this limit, InfluxDB 3 returns an error.</p> <p>Default: 432</p>"""
     query_log_size: NotRequired["int"]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#ClientLocation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_internetmonitor.errors import DeserializationError
 
 
-class ClientLocation(TypedDict):
+class ClientLocation(TypedDict, closed=True):
     as_name: "str"
     """<p>The name of the internet service provider (ISP) or network (ASN).</p>"""
     as_number: "int"

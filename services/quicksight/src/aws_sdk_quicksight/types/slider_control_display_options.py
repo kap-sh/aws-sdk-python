@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SliderControlDisplayOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.label_options
     import aws_sdk_quicksight.types.sheet_control_info_icon_label_options
 
 
-class SliderControlDisplayOptions(TypedDict):
+class SliderControlDisplayOptions(TypedDict, closed=True):
     title_options: NotRequired["aws_sdk_quicksight.types.label_options.LabelOptions"]
     """<p>The options to configure the title visibility, name, and font size.</p>"""
     info_icon_label_options: NotRequired[

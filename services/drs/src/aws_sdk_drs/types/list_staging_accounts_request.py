@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ListStagingAccountsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.pagination_token
 
 
-class ListStagingAccountsRequest(TypedDict):
+class ListStagingAccountsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of staging Accounts to retrieve.</p>"""
     next_token: NotRequired["aws_sdk_drs.types.pagination_token.PaginationToken"]

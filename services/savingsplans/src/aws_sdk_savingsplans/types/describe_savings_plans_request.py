@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.savingsplans#DescribeSavingsPlansRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_savingsplans.types.max_results
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_savingsplans.types.savings_plan_state_list
 
 
-class DescribeSavingsPlansRequest(TypedDict):
+class DescribeSavingsPlansRequest(TypedDict, closed=True):
     savings_plan_arns: NotRequired[
         "aws_sdk_savingsplans.types.savings_plan_arn_list.SavingsPlanArnList"
     ]

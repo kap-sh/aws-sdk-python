@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateLocationSmbRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.smb_user
 
 
-class CreateLocationSmbRequest(TypedDict):
+class CreateLocationSmbRequest(TypedDict, closed=True):
     subdirectory: "aws_sdk_datasync.types.smb_subdirectory.SmbSubdirectory"
     r"""<p>Specifies the name of the share exported by your SMB file server where DataSync will read or write data. You can include a subdirectory in the share path (for example, <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network can also mount this path.</p> <p>To copy all data in the subdirectory, DataSync must be able to mount the SMB share and access all of its data. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions\">Providing DataSync access to SMB file servers</a>.</p>"""
     server_hostname: "aws_sdk_datasync.types.server_hostname.ServerHostname"

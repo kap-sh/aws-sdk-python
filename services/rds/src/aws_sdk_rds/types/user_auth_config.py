@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#UserAuthConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.iam_auth_mode
 
 
-class UserAuthConfig(TypedDict):
+class UserAuthConfig(TypedDict, closed=True):
     description: NotRequired["aws_sdk_rds.types.description.Description"]
     """<p>A user-specified description about the authentication used by a proxy to log in as a specific database user.</p>"""
     user_name: NotRequired["aws_sdk_rds.types.auth_user_name.AuthUserName"]

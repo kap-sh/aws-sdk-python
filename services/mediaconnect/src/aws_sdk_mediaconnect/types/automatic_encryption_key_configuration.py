@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#AutomaticEncryptionKeyConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AutomaticEncryptionKeyConfiguration(TypedDict):
+class AutomaticEncryptionKeyConfiguration(TypedDict, closed=True):
     pass
 
 

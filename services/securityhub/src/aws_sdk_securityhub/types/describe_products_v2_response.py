@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DescribeProductsV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.next_token
     import aws_sdk_securityhub.types.products_v2_list
 
 
-class DescribeProductsV2Response(TypedDict):
+class DescribeProductsV2Response(TypedDict, closed=True):
     products_v2: NotRequired[
         "aws_sdk_securityhub.types.products_v2_list.ProductsV2List"
     ]

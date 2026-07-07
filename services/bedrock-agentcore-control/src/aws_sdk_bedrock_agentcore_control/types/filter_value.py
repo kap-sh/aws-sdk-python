@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#FilterValue``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -8,15 +10,15 @@ from aws_sdk_bedrock_agentcore_control.errors import (
 )
 
 
-class _FilterValue_stringValue(TypedDict):
+class _FilterValue_stringValue(TypedDict, closed=True):
     stringValue: "str"
 
 
-class _FilterValue_doubleValue(TypedDict):
+class _FilterValue_doubleValue(TypedDict, closed=True):
     doubleValue: "float"
 
 
-class _FilterValue_booleanValue(TypedDict):
+class _FilterValue_booleanValue(TypedDict, closed=True):
     booleanValue: "bool"
 
 

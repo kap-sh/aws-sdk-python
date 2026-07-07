@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ErrorInfo``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ErrorInfo(TypedDict):
+class ErrorInfo(TypedDict, closed=True):
     code: NotRequired["str"]
     """<p>The short-form error code.</p>"""
     message: NotRequired["str"]

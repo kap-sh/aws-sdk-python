@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeDeviceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.device_arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class DescribeDeviceResponse(TypedDict):
+class DescribeDeviceResponse(TypedDict, closed=True):
     device_arn: NotRequired["aws_sdk_sagemaker.types.device_arn.DeviceArn"]
     """<p>The Amazon Resource Name (ARN) of the device.</p>"""
     device_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]

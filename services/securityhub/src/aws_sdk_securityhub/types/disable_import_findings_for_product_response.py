@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DisableImportFindingsForProductResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisableImportFindingsForProductResponse(TypedDict):
+class DisableImportFindingsForProductResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UpdateAllowListRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.allow_list_criteria
 
 
-class UpdateAllowListRequest(TypedDict):
+class UpdateAllowListRequest(TypedDict, closed=True):
     criteria: NotRequired["aws_sdk_macie2.types.allow_list_criteria.AllowListCriteria"]
     """<p>The criteria that specify the text or text pattern to ignore. The criteria can be the location and name of an S3 object that lists specific text to ignore (s3WordsList), or a regular expression that defines a text pattern to ignore (regex).</p> <p>You can change a list's underlying criteria, such as the name of the S3 object or the regular expression to use. However, you can't change the type from s3WordsList to regex or the other way around.</p>"""
     description: NotRequired[

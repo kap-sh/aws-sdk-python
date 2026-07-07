@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#ListAccessPoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.access_policy_summaries
 
 
-class ListAccessPoliciesResponse(TypedDict):
+class ListAccessPoliciesResponse(TypedDict, closed=True):
     access_policy_summaries: NotRequired[
         "aws_sdk_opensearchserverless.types.access_policy_summaries.AccessPolicySummaries"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ListInstanceTypeDetailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.instance_type_details_list
     import aws_sdk_opensearch.types.next_token
 
 
-class ListInstanceTypeDetailsResponse(TypedDict):
+class ListInstanceTypeDetailsResponse(TypedDict, closed=True):
     instance_type_details: NotRequired[
         "aws_sdk_opensearch.types.instance_type_details_list.InstanceTypeDetailsList"
     ]

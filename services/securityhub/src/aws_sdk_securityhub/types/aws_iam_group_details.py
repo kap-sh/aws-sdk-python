@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsIamGroupDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_iam_attached_managed_policy_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsIamGroupDetails(TypedDict):
+class AwsIamGroupDetails(TypedDict, closed=True):
     attached_managed_policies: NotRequired[
         "aws_sdk_securityhub.types.aws_iam_attached_managed_policy_list.AwsIamAttachedManagedPolicyList"
     ]

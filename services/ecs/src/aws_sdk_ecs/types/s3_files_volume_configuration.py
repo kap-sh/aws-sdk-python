@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#S3FilesVolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class S3FilesVolumeConfiguration(TypedDict):
+class S3FilesVolumeConfiguration(TypedDict, closed=True):
     file_system_arn: "aws_sdk_ecs.types.string.String"
     """<p>The full ARN of the S3 Files file system to mount.</p>"""
     root_directory: NotRequired["aws_sdk_ecs.types.string.String"]

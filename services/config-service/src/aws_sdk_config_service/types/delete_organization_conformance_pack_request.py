@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DeleteOrganizationConformancePackRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.organization_conformance_pack_name
 
 
-class DeleteOrganizationConformancePackRequest(TypedDict):
+class DeleteOrganizationConformancePackRequest(TypedDict, closed=True):
     organization_conformance_pack_name: "aws_sdk_config_service.types.organization_conformance_pack_name.OrganizationConformancePackName"
     """<p>The name of organization conformance pack that you want to delete.</p>"""
 

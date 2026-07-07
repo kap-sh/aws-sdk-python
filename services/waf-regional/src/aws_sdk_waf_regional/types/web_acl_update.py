@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#WebACLUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.change_action
 
 
-class WebACLUpdate(TypedDict):
+class WebACLUpdate(TypedDict, closed=True):
     action: "aws_sdk_waf_regional.types.change_action.ChangeAction"
     """<p>Specifies whether to insert a <code>Rule</code> into or delete a <code>Rule</code> from a <code>WebACL</code>.</p>"""
     activated_rule: "aws_sdk_waf_regional.types.activated_rule.ActivatedRule"

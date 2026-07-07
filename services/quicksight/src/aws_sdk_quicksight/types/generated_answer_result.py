@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeneratedAnswerResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.answer_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_id
 
 
-class GeneratedAnswerResult(TypedDict):
+class GeneratedAnswerResult(TypedDict, closed=True):
     question_text: NotRequired["aws_sdk_quicksight.types.qa_query_text.QAQueryText"]
     """<p>The question text.</p>"""
     answer_status: NotRequired[

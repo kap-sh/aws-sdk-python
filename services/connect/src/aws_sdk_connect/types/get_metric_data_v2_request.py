@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetMetricDataV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class GetMetricDataV2Request(TypedDict):
+class GetMetricDataV2Request(TypedDict, closed=True):
     resource_arn: "aws_sdk_connect.types.arn.ARN"
     """<p>The Amazon Resource Name (ARN) of the resource. This includes the <code>instanceId</code> an Connect Customer instance.</p>"""
     start_time: "aws_sdk_connect.types.timestamp.Timestamp"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#Image``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
     import aws_sdk_iotsitewise.types.image_file
 
 
-class Image(TypedDict):
+class Image(TypedDict, closed=True):
     id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]
     """<p>The ID of an existing image. Specify this parameter to keep an existing image.</p>"""
     file: NotRequired["aws_sdk_iotsitewise.types.image_file.ImageFile"]

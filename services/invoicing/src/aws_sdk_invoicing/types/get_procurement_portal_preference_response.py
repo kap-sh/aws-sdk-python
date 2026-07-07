@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#GetProcurementPortalPreferenceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.procurement_portal_preference
 
 
-class GetProcurementPortalPreferenceResponse(TypedDict):
+class GetProcurementPortalPreferenceResponse(TypedDict, closed=True):
     procurement_portal_preference: "aws_sdk_invoicing.types.procurement_portal_preference.ProcurementPortalPreference"
     """<p>The detailed configuration of the requested procurement portal preference.</p>"""
 

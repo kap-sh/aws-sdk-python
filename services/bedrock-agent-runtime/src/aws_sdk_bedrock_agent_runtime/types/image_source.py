@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ImageSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -11,11 +13,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.s3_location
 
 
-class _ImageSource_bytes(TypedDict):
+class _ImageSource_bytes(TypedDict, closed=True):
     bytes: "bytes"
 
 
-class _ImageSource_s3Location(TypedDict):
+class _ImageSource_s3Location(TypedDict, closed=True):
     s3Location: "aws_sdk_bedrock_agent_runtime.types.s3_location.S3Location"
 
 

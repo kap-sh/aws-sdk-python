@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#OrganizationsDecisionDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.boolean_type
 
 
-class OrganizationsDecisionDetail(TypedDict):
+class OrganizationsDecisionDetail(TypedDict, closed=True):
     allowed_by_organizations: "aws_sdk_iam.types.boolean_type.booleanType"
     """<p>Specifies whether the simulated operation is allowed by the Organizations service control policies that impact the simulated user's account.</p>"""
 

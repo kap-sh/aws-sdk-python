@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#CreateListenerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_global_accelerator.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.protocol
 
 
-class CreateListenerRequest(TypedDict):
+class CreateListenerRequest(TypedDict, closed=True):
     accelerator_arn: "aws_sdk_global_accelerator.types.generic_string.GenericString"
     """<p>The Amazon Resource Name (ARN) of your accelerator.</p>"""
     port_ranges: "aws_sdk_global_accelerator.types.port_ranges.PortRanges"

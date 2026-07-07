@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#MqttHeaders``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.content_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.user_properties
 
 
-class MqttHeaders(TypedDict):
+class MqttHeaders(TypedDict, closed=True):
     payload_format_indicator: NotRequired[
         "aws_sdk_iot.types.payload_format_indicator.PayloadFormatIndicator"
     ]

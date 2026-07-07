@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#CloudFormationTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.cloud_formation_resource_type
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.traffic_weight
 
 
-class CloudFormationTarget(TypedDict):
+class CloudFormationTarget(TypedDict, closed=True):
     deployment_id: NotRequired["aws_sdk_codedeploy.types.deployment_id.DeploymentId"]
     """<p>The unique ID of an CloudFormation blue/green deployment.</p>"""
     target_id: NotRequired["aws_sdk_codedeploy.types.target_id.TargetId"]

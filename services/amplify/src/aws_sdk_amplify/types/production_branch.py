@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#ProductionBranch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplify.types.branch_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.thumbnail_url
 
 
-class ProductionBranch(TypedDict):
+class ProductionBranch(TypedDict, closed=True):
     last_deploy_time: NotRequired[
         "aws_sdk_amplify.types.last_deploy_time.LastDeployTime"
     ]

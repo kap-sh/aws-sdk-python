@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#UpdateFirewallRuleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_name
 
 
-class UpdateFirewallRuleOutput(TypedDict):
+class UpdateFirewallRuleOutput(TypedDict, closed=True):
     action: (
         "aws_sdk_route53globalresolver.types.firewall_rule_action.FirewallRuleAction"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualGatewayTlsValidationContextAcmTrust``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_gateway_certificate_authority_arns
 
 
-class VirtualGatewayTlsValidationContextAcmTrust(TypedDict):
+class VirtualGatewayTlsValidationContextAcmTrust(TypedDict, closed=True):
     certificate_authority_arns: "aws_sdk_app_mesh.types.virtual_gateway_certificate_authority_arns.VirtualGatewayCertificateAuthorityArns"
     """<p>One or more ACM Amazon Resource Name (ARN)s.</p>"""
 

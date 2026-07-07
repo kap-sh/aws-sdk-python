@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateSnapshotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.volume_id
 
 
-class CreateSnapshotRequest(TypedDict):
+class CreateSnapshotRequest(TypedDict, closed=True):
     description: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>A description for the snapshot.</p>"""
     outpost_arn: NotRequired["aws_sdk_ec2.types.string.String"]

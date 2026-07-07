@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#GetEndpointAccessRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
 
-class GetEndpointAccessRequest(TypedDict):
+class GetEndpointAccessRequest(TypedDict, closed=True):
     endpoint_name: "str"
     """<p>The name of the VPC endpoint to return information for.</p>"""
 

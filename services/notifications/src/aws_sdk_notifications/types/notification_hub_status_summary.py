@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#NotificationHubStatusSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.notification_hub_status_reason
 
 
-class NotificationHubStatusSummary(TypedDict):
+class NotificationHubStatusSummary(TypedDict, closed=True):
     status: "aws_sdk_notifications.types.notification_hub_status.NotificationHubStatus"
     """<p>Status information about the <code>NotificationHub</code>.</p> <ul> <li> <p>Values:</p> <ul> <li> <p> <code>ACTIVE</code> </p> <ul> <li> <p>Incoming <code>NotificationEvents</code> are replicated to this <code>NotificationHub</code>.</p> </li> </ul> </li> <li> <p> <code>REGISTERING</code> </p> <ul> <li> <p>The <code>NotificationConfiguration</code> is initializing. A <code>NotificationConfiguration</code> with this status can't be deregistered.</p> </li> </ul> </li> <li> <p> <code>DEREGISTERING</code> </p> <ul> <li> <p>The <code>NotificationConfiguration</code> is being deleted. You can't register additional <code>NotificationHubs</code> in the same Region as a <code>NotificationConfiguration</code> with this status.</p> </li> </ul> </li> </ul> </li> </ul>"""
     reason: "aws_sdk_notifications.types.notification_hub_status_reason.NotificationHubStatusReason"

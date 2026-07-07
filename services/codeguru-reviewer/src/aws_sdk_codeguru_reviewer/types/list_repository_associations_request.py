@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#ListRepositoryAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.max_results
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.repository_association_states
 
 
-class ListRepositoryAssociationsRequest(TypedDict):
+class ListRepositoryAssociationsRequest(TypedDict, closed=True):
     provider_types: NotRequired[
         "aws_sdk_codeguru_reviewer.types.provider_types.ProviderTypes"
     ]

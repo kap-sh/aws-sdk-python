@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#Positioning``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.f_port
 
 
-class Positioning(TypedDict):
+class Positioning(TypedDict, closed=True):
     clock_sync: NotRequired["aws_sdk_iot_wireless.types.f_port.FPort"]
     stream: NotRequired["aws_sdk_iot_wireless.types.f_port.FPort"]
     gnss: NotRequired["aws_sdk_iot_wireless.types.f_port.FPort"]

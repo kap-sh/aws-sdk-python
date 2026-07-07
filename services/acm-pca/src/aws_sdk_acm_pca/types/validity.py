@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#Validity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.validity_period_type
 
 
-class Validity(TypedDict):
+class Validity(TypedDict, closed=True):
     value: "aws_sdk_acm_pca.types.positive_long.PositiveLong"
     """<p>A long integer interpreted according to the value of <code>Type</code>, below.</p>"""
     type: "aws_sdk_acm_pca.types.validity_period_type.ValidityPeriodType"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ContactSearchSummaryAgentInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_resource_id
     import aws_sdk_connect.types.timestamp
 
 
-class ContactSearchSummaryAgentInfo(TypedDict):
+class ContactSearchSummaryAgentInfo(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.agent_resource_id.AgentResourceId"]
     """<p>The identifier of the agent who accepted the contact.</p>"""
     connected_to_agent_timestamp: NotRequired[

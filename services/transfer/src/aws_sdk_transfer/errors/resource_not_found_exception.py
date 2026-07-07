@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ResourceNotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError, ServiceError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.resource_type
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "aws_sdk_transfer.types.message.Message"
     resource: "aws_sdk_transfer.types.resource.Resource"
     resource_type: "aws_sdk_transfer.types.resource_type.ResourceType"

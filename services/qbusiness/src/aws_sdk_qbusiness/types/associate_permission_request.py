@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AssociatePermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.statement_id
 
 
-class AssociatePermissionRequest(TypedDict):
+class AssociatePermissionRequest(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The unique identifier of the Amazon Q Business application.</p>"""
     statement_id: "aws_sdk_qbusiness.types.statement_id.StatementId"

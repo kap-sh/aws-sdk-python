@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#Node``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.endpoint
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.t_stamp
 
 
-class Node(TypedDict):
+class Node(TypedDict, closed=True):
     node_id: NotRequired["aws_sdk_dax.types.string.String"]
     """<p>A system-generated identifier for the node.</p>"""
     endpoint: NotRequired["aws_sdk_dax.types.endpoint.Endpoint"]

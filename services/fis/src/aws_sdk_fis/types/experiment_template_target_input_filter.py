@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentTemplateTargetInputFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_fis.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.experiment_template_target_filter_values
 
 
-class ExperimentTemplateTargetInputFilter(TypedDict):
+class ExperimentTemplateTargetInputFilter(TypedDict, closed=True):
     path: "aws_sdk_fis.types.experiment_template_target_filter_path.ExperimentTemplateTargetFilterPath"
     """<p>The attribute path for the filter.</p>"""
     values: "aws_sdk_fis.types.experiment_template_target_filter_values.ExperimentTemplateTargetFilterValues"

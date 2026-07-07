@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ListWebhooksOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.next_token
     import aws_sdk_codepipeline.types.webhook_list
 
 
-class ListWebhooksOutput(TypedDict):
+class ListWebhooksOutput(TypedDict, closed=True):
     webhooks: NotRequired["aws_sdk_codepipeline.types.webhook_list.WebhookList"]
     """<p>The JSON detail returned for each webhook in the list output for the ListWebhooks call.</p>"""
     next_token: NotRequired["aws_sdk_codepipeline.types.next_token.NextToken"]

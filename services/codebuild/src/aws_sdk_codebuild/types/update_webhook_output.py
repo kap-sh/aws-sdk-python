@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#UpdateWebhookOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.webhook
 
 
-class UpdateWebhookOutput(TypedDict):
+class UpdateWebhookOutput(TypedDict, closed=True):
     webhook: NotRequired["aws_sdk_codebuild.types.webhook.Webhook"]
     """<p> Information about a repository's webhook that is associated with a project in CodeBuild. </p>"""
 

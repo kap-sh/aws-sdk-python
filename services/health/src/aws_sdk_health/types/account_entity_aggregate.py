@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#AccountEntityAggregate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.event_arn
 
 
-class AccountEntityAggregate(TypedDict):
+class AccountEntityAggregate(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_health.types.event_arn.eventArn"]
     """<p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>"""
     count: "aws_sdk_health.types.count.count"

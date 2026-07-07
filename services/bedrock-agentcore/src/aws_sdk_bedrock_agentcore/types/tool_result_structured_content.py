@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ToolResultStructuredContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.task_status
 
 
-class ToolResultStructuredContent(TypedDict):
+class ToolResultStructuredContent(TypedDict, closed=True):
     task_id: NotRequired["str"]
     """<p>The identifier of the task that produced the result.</p>"""
     task_status: NotRequired["aws_sdk_bedrock_agentcore.types.task_status.TaskStatus"]

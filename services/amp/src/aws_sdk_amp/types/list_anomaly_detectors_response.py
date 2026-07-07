@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#ListAnomalyDetectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.pagination_token
 
 
-class ListAnomalyDetectorsResponse(TypedDict):
+class ListAnomalyDetectorsResponse(TypedDict, closed=True):
     anomaly_detectors: (
         "aws_sdk_amp.types.anomaly_detector_summary_list.AnomalyDetectorSummaryList"
     )

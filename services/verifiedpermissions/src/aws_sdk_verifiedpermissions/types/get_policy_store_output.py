@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#GetPolicyStoreOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.validation_settings
 
 
-class GetPolicyStoreOutput(TypedDict):
+class GetPolicyStoreOutput(TypedDict, closed=True):
     policy_store_id: "aws_sdk_verifiedpermissions.types.policy_store_id.PolicyStoreId"
     """<p>The ID of the policy store;</p>"""
     arn: "aws_sdk_verifiedpermissions.types.resource_arn.ResourceArn"

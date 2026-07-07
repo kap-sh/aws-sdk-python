@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#EventDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.sns_destination
 
 
-class EventDestination(TypedDict):
+class EventDestination(TypedDict, closed=True):
     name: "aws_sdk_pinpoint_email.types.event_destination_name.EventDestinationName"
     """<p>A name that identifies the event destination.</p>"""
     enabled: "aws_sdk_pinpoint_email.types.enabled.Enabled"

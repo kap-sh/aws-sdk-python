@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#CreateAliasResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateAliasResponse(TypedDict):
+class CreateAliasResponse(TypedDict, closed=True):
     pass
 
 

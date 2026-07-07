@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#AssetModelStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.error_details
 
 
-class AssetModelStatus(TypedDict):
+class AssetModelStatus(TypedDict, closed=True):
     state: "aws_sdk_iotsitewise.types.asset_model_state.AssetModelState"
     """<p>The current state of the asset model.</p>"""
     error: NotRequired["aws_sdk_iotsitewise.types.error_details.ErrorDetails"]

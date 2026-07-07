@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#IsolineSideOfStreetOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.side_of_street_matching_strategy
 
 
-class IsolineSideOfStreetOptions(TypedDict):
+class IsolineSideOfStreetOptions(TypedDict, closed=True):
     position: "aws_sdk_geo_routes.types.position.Position"
     """<p>The <code>[longitude, latitude]</code> coordinates of the point that should be matched to a specific side of the street.</p>"""
     use_with: NotRequired[

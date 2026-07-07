@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DeleteS3AccessPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteS3AccessPolicyResponse(TypedDict):
+class DeleteS3AccessPolicyResponse(TypedDict, closed=True):
     pass
 
 

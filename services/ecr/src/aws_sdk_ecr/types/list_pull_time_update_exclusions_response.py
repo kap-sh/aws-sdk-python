@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ListPullTimeUpdateExclusionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.next_token
     import aws_sdk_ecr.types.pull_time_update_exclusion_list
 
 
-class ListPullTimeUpdateExclusionsResponse(TypedDict):
+class ListPullTimeUpdateExclusionsResponse(TypedDict, closed=True):
     pull_time_update_exclusions: NotRequired[
         "aws_sdk_ecr.types.pull_time_update_exclusion_list.PullTimeUpdateExclusionList"
     ]

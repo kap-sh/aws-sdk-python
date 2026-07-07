@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#GetDevicePoolCompatibilityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.test_type
 
 
-class GetDevicePoolCompatibilityRequest(TypedDict):
+class GetDevicePoolCompatibilityRequest(TypedDict, closed=True):
     device_pool_arn: "aws_sdk_device_farm.types.amazon_resource_name.AmazonResourceName"
     """<p>The device pool's ARN.</p>"""
     app_arn: NotRequired[

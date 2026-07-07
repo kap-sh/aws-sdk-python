@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PipelineExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.artifact_revision_list
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.resolved_pipeline_variable_list
 
 
-class PipelineExecution(TypedDict):
+class PipelineExecution(TypedDict, closed=True):
     pipeline_name: NotRequired["aws_sdk_codepipeline.types.pipeline_name.PipelineName"]
     """<p>The name of the pipeline with the specified pipeline execution.</p>"""
     pipeline_version: NotRequired[

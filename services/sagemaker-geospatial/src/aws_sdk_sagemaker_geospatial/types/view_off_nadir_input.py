@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ViewOffNadirInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
 
-class ViewOffNadirInput(TypedDict):
+class ViewOffNadirInput(TypedDict, closed=True):
     lower_bound: "float"
     """<p>The minimum value for ViewOffNadir property filter. This filters items having ViewOffNadir greater than or equal to this value. </p>"""
     upper_bound: "float"

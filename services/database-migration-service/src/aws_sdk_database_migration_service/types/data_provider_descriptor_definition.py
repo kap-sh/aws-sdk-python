@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DataProviderDescriptorDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class DataProviderDescriptorDefinition(TypedDict):
+class DataProviderDescriptorDefinition(TypedDict, closed=True):
     data_provider_identifier: "aws_sdk_database_migration_service.types.string.String"
     """<p>The name or Amazon Resource Name (ARN) of the data provider.</p>"""
     secrets_manager_secret_id: NotRequired[

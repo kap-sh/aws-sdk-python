@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ServiceRegistry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
     import aws_sdk_ecs.types.string
 
 
-class ServiceRegistry(TypedDict):
+class ServiceRegistry(TypedDict, closed=True):
     registry_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     r"""<p>The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is Cloud Map. For more information, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html\">CreateService</a>.</p>"""
     port: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CheckSchemaVersionValidityInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_definition_string
 
 
-class CheckSchemaVersionValidityInput(TypedDict):
+class CheckSchemaVersionValidityInput(TypedDict, closed=True):
     data_format: "aws_sdk_glue.types.data_format.DataFormat"
     """<p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>"""
     schema_definition: (

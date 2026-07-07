@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AttachThingPrincipalResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AttachThingPrincipalResponse(TypedDict):
+class AttachThingPrincipalResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#KeyTypeResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.browser_action_status
 
 
-class KeyTypeResult(TypedDict):
+class KeyTypeResult(TypedDict, closed=True):
     status: "aws_sdk_bedrock_agentcore.types.browser_action_status.BrowserActionStatus"
     """<p>The status of the action execution.</p>"""
     error: NotRequired["str"]

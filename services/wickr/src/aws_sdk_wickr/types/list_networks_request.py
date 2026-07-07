@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#ListNetworksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
     import aws_sdk_wickr.types.sort_direction
 
 
-class ListNetworksRequest(TypedDict):
+class ListNetworksRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of networks to return in a single page. Valid range is 1-100. Default is 10.</p>"""
     sort_fields: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

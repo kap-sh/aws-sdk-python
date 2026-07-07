@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#StartActiveApprovalTeamDeletionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.approval_team_arn
 
 
-class StartActiveApprovalTeamDeletionRequest(TypedDict):
+class StartActiveApprovalTeamDeletionRequest(TypedDict, closed=True):
     pending_window_days: NotRequired["int"]
     """<p>Number of days between when the team approves the delete request and when the team is deleted.</p>"""
     arn: "aws_sdk_mpa.types.approval_team_arn.ApprovalTeamArn"

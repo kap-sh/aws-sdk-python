@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#UpdateGraphqlApiResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.graphql_api
 
 
-class UpdateGraphqlApiResponse(TypedDict):
+class UpdateGraphqlApiResponse(TypedDict, closed=True):
     graphql_api: NotRequired["aws_sdk_appsync.types.graphql_api.GraphqlApi"]
     """<p>The updated <code>GraphqlApi</code> object.</p>"""
 

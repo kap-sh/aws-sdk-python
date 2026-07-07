@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#StopOTelEnrichmentOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
 
-class StopOTelEnrichmentOutput(TypedDict):
+class StopOTelEnrichmentOutput(TypedDict, closed=True):
     pass
 
 

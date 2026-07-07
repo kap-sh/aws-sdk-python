@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#UrlEndpointSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.uri
 
 
-class UrlEndpointSummary(TypedDict):
+class UrlEndpointSummary(TypedDict, closed=True):
     url: NotRequired["aws_sdk_migration_hub_refactor_spaces.types.uri.Uri"]
     r"""<p> The URL to route traffic to. The URL must be an <a href=\"https://datatracker.ietf.org/doc/html/rfc3986\">rfc3986-formatted URL</a>. If the host is a domain name, the name must be resolvable over the public internet. If the scheme is <code>https</code>, the top level domain of the host must be listed in the <a href=\"https://www.iana.org/domains/root/db\">IANA root zone database</a>. </p>"""
     health_url: NotRequired["aws_sdk_migration_hub_refactor_spaces.types.uri.Uri"]

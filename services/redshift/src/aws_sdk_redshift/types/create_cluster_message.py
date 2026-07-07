@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#CreateClusterMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.vpc_security_group_id_list
 
 
-class CreateClusterMessage(TypedDict):
+class CreateClusterMessage(TypedDict, closed=True):
     db_name: NotRequired["aws_sdk_redshift.types.string.String"]
     r"""<p>The name of the first database to be created when the cluster is created.</p> <p>To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html\">Create a Database</a> in the Amazon Redshift Database Developer Guide. </p> <p>Default: <code>dev</code> </p> <p>Constraints:</p> <ul> <li> <p>Must contain 1 to 64 alphanumeric characters.</p> </li> <li> <p>Must contain only lowercase letters.</p> </li> <li> <p>Cannot be a word that is reserved by the service. A list of reserved words can be found in <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words</a> in the Amazon Redshift Database Developer Guide. </p> </li> </ul>"""
     cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]

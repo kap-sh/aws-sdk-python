@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DataSourceConfigurationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.cloud_trail_configuration_result
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.s3_logs_configuration_result
 
 
-class DataSourceConfigurationsResult(TypedDict):
+class DataSourceConfigurationsResult(TypedDict, closed=True):
     cloud_trail: NotRequired[
         "aws_sdk_guardduty.types.cloud_trail_configuration_result.CloudTrailConfigurationResult"
     ]

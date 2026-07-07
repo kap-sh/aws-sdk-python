@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53profiles#DisassociateResourceFromProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53profiles.types.arn
     import aws_sdk_route53profiles.types.resource_id
 
 
-class DisassociateResourceFromProfileRequest(TypedDict):
+class DisassociateResourceFromProfileRequest(TypedDict, closed=True):
     profile_id: "aws_sdk_route53profiles.types.resource_id.ResourceId"
     """<p> The ID of the Profile. </p>"""
     resource_arn: "aws_sdk_route53profiles.types.arn.Arn"

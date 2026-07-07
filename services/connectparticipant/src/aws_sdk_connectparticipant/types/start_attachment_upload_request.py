@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#StartAttachmentUploadRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectparticipant.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.participant_token
 
 
-class StartAttachmentUploadRequest(TypedDict):
+class StartAttachmentUploadRequest(TypedDict, closed=True):
     content_type: "aws_sdk_connectparticipant.types.content_type.ContentType"
     r"""<p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html\">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>"""
     attachment_size_in_bytes: "aws_sdk_connectparticipant.types.attachment_size_in_bytes.AttachmentSizeInBytes"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ImageTagMutabilityExclusionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_tag_mutability_exclusion_filter_value
 
 
-class ImageTagMutabilityExclusionFilter(TypedDict):
+class ImageTagMutabilityExclusionFilter(TypedDict, closed=True):
     filter_type: "aws_sdk_ecr.types.image_tag_mutability_exclusion_filter_type.ImageTagMutabilityExclusionFilterType"
     """<p>The type of filter to apply for excluding image tags from mutability settings.</p>"""
     filter: "aws_sdk_ecr.types.image_tag_mutability_exclusion_filter_value.ImageTagMutabilityExclusionFilterValue"

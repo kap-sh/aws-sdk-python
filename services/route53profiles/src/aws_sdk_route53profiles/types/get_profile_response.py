@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53profiles#GetProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53profiles.types.profile
 
 
-class GetProfileResponse(TypedDict):
+class GetProfileResponse(TypedDict, closed=True):
     profile: NotRequired["aws_sdk_route53profiles.types.profile.Profile"]
     """<p> Information about the Profile, including the status of the Profile. </p>"""
 

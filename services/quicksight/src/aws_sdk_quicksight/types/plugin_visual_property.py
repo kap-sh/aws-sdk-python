@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PluginVisualProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class PluginVisualProperty(TypedDict):
+class PluginVisualProperty(TypedDict, closed=True):
     name: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The name of the plugin visual property.</p>"""
     value: NotRequired["aws_sdk_quicksight.types.string.String"]

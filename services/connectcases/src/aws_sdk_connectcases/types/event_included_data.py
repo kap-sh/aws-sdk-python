@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#EventIncludedData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.case_event_included_data
     import aws_sdk_connectcases.types.related_item_event_included_data
 
 
-class EventIncludedData(TypedDict):
+class EventIncludedData(TypedDict, closed=True):
     case_data: NotRequired[
         "aws_sdk_connectcases.types.case_event_included_data.CaseEventIncludedData"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#Deployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.deployment_status
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.timestamp
 
 
-class Deployment(TypedDict):
+class Deployment(TypedDict, closed=True):
     target_arn: NotRequired["aws_sdk_greengrassv2.types.target_arn.TargetARN"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target IoT thing or thing group. When creating a subdeployment, the targetARN can only be a thing group.</p>"""
     revision_id: NotRequired[

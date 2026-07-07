@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#UnusedPermissionsRecommendedStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.timestamp
 
 
-class UnusedPermissionsRecommendedStep(TypedDict):
+class UnusedPermissionsRecommendedStep(TypedDict, closed=True):
     policy_updated_at: NotRequired["aws_sdk_accessanalyzer.types.timestamp.Timestamp"]
     """<p>The time at which the existing policy for the unused permissions finding was last updated.</p>"""
     recommended_action: "aws_sdk_accessanalyzer.types.recommended_remediation_action.RecommendedRemediationAction"

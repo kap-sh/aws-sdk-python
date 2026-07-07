@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#DescribePredictorBacktestExportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
 
 
-class DescribePredictorBacktestExportJobRequest(TypedDict):
+class DescribePredictorBacktestExportJobRequest(TypedDict, closed=True):
     predictor_backtest_export_job_arn: "aws_sdk_forecast.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>"""
 

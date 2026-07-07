@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateFormTypeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
 
 
-class CreateFormTypeInput(TypedDict):
+class CreateFormTypeInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain in which this metadata form type is created.</p>"""
     name: "aws_sdk_datazone.types.form_type_name.FormTypeName"

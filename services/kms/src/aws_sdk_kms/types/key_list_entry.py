@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kms#KeyListEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.arn_type
     import aws_sdk_kms.types.key_id_type
 
 
-class KeyListEntry(TypedDict):
+class KeyListEntry(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
     """<p>Unique identifier of the key.</p>"""
     key_arn: NotRequired["aws_sdk_kms.types.arn_type.ArnType"]

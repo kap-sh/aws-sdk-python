@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#StartStreamSessionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.web_sdk_protocol_url
 
 
-class StartStreamSessionOutput(TypedDict):
+class StartStreamSessionOutput(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_gameliftstreams.types.arn.Arn"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> that's assigned to a stream session resource. When combined with the stream group resource ID, this value uniquely identifies the stream session across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamsession/[stream group resource ID]/[stream session resource ID]</code>.</p>"""
     description: NotRequired["aws_sdk_gameliftstreams.types.description.Description"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#SetIdentityNotificationTopicRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.notification_type
 
 
-class SetIdentityNotificationTopicRequest(TypedDict):
+class SetIdentityNotificationTopicRequest(TypedDict, closed=True):
     identity: "aws_sdk_ses.types.identity.Identity"
     """<p>The identity (email address or domain) for the Amazon SNS topic.</p> <important> <p>You can only specify a verified identity for this parameter.</p> </important> <p>You can specify an identity by using its name or by using its Amazon Resource Name (ARN). The following examples are all valid identities: <code>sender@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>"""
     notification_type: "aws_sdk_ses.types.notification_type.NotificationType"

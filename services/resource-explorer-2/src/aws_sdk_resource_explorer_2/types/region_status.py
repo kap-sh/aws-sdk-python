@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#RegionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.index_status
     import aws_sdk_resource_explorer_2.types.view_status
 
 
-class RegionStatus(TypedDict):
+class RegionStatus(TypedDict, closed=True):
     region: NotRequired["str"]
     """<p>The Amazon Web Services Region for which this status information applies.</p>"""
     index: NotRequired["aws_sdk_resource_explorer_2.types.index_status.IndexStatus"]

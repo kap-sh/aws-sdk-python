@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#CreateVaultOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
 
 
-class CreateVaultOutput(TypedDict):
+class CreateVaultOutput(TypedDict, closed=True):
     location: NotRequired["aws_sdk_glacier.types.string.string"]
     """<p>The URI of the vault that was created.</p>"""
 

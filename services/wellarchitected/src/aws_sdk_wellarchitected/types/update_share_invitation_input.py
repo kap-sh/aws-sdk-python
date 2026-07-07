@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#UpdateShareInvitationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.share_invitation_action
     import aws_sdk_wellarchitected.types.share_invitation_id
 
 
-class UpdateShareInvitationInput(TypedDict):
+class UpdateShareInvitationInput(TypedDict, closed=True):
     share_invitation_id: (
         "aws_sdk_wellarchitected.types.share_invitation_id.ShareInvitationId"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ProfileNextStepsHistory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.date_time
 
 
-class ProfileNextStepsHistory(TypedDict):
+class ProfileNextStepsHistory(TypedDict, closed=True):
     value: "str"
     """<p>Represents the details of the next step recorded, such as follow-up actions or decisions made. This field helps in tracking progress and ensuring alignment with project goals.</p>"""
     time: "aws_sdk_partnercentral_selling.types.date_time.DateTime"

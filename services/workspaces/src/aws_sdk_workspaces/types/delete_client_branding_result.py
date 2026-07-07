@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DeleteClientBrandingResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteClientBrandingResult(TypedDict):
+class DeleteClientBrandingResult(TypedDict, closed=True):
     pass
 
 

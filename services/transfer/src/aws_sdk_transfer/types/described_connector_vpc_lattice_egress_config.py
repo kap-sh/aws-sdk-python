@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribedConnectorVpcLatticeEgressConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.vpc_lattice_resource_configuration_arn
 
 
-class DescribedConnectorVpcLatticeEgressConfig(TypedDict):
+class DescribedConnectorVpcLatticeEgressConfig(TypedDict, closed=True):
     resource_configuration_arn: "aws_sdk_transfer.types.vpc_lattice_resource_configuration_arn.VpcLatticeResourceConfigurationArn"
     """<p>ARN of the VPC_LATTICE Resource Configuration currently used by the connector. This Resource Configuration defines the network path to the SFTP server through the customer's VPC.</p>"""
     port_number: NotRequired["aws_sdk_transfer.types.sftp_port.SftpPort"]

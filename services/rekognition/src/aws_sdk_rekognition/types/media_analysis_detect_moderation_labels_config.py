@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#MediaAnalysisDetectModerationLabelsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.percent
     import aws_sdk_rekognition.types.project_version_id
 
 
-class MediaAnalysisDetectModerationLabelsConfig(TypedDict):
+class MediaAnalysisDetectModerationLabelsConfig(TypedDict, closed=True):
     min_confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]
     """<p>Specifies the minimum confidence level for the moderation labels to return. Amazon Rekognition doesn't return any labels with a confidence level lower than this specified value. </p>"""
     project_version: NotRequired[

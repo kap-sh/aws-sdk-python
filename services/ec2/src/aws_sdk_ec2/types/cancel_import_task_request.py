@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CancelImportTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class CancelImportTaskRequest(TypedDict):
+class CancelImportTaskRequest(TypedDict, closed=True):
     cancel_reason: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The reason for canceling the task.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

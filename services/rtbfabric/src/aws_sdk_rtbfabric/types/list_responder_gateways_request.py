@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#ListResponderGatewaysRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListResponderGatewaysRequest(TypedDict):
+class ListResponderGatewaysRequest(TypedDict, closed=True):
     max_results: "int"
     """<p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>"""
     next_token: NotRequired["str"]

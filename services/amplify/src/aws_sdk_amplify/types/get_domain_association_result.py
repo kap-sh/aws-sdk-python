@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#GetDomainAssociationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.domain_association
 
 
-class GetDomainAssociationResult(TypedDict):
+class GetDomainAssociationResult(TypedDict, closed=True):
     domain_association: "aws_sdk_amplify.types.domain_association.DomainAssociation"
     """<p> Describes the structure of a domain association, which associates a custom domain with an Amplify app. </p>"""
 

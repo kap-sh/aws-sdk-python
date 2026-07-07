@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelVariantConfigSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_infrastructure_config
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_variant_status
 
 
-class ModelVariantConfigSummary(TypedDict):
+class ModelVariantConfigSummary(TypedDict, closed=True):
     model_name: NotRequired["aws_sdk_sagemaker.types.model_name.ModelName"]
     """<p>The name of the Amazon SageMaker Model entity.</p>"""
     variant_name: NotRequired[

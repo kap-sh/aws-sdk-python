@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#StartTestSetGenerationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.description
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class StartTestSetGenerationResponse(TypedDict):
+class StartTestSetGenerationResponse(TypedDict, closed=True):
     test_set_generation_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The unique identifier of the test set generation to describe.</p>"""
     creation_date_time: NotRequired["aws_sdk_lex_models_v2.types.timestamp.Timestamp"]

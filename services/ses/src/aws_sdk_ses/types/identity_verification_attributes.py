@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#IdentityVerificationAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.verification_token
 
 
-class IdentityVerificationAttributes(TypedDict):
+class IdentityVerificationAttributes(TypedDict, closed=True):
     verification_status: "aws_sdk_ses.types.verification_status.VerificationStatus"
     r"""<p>The verification status of the identity: \"Pending\", \"Success\", \"Failed\", or \"TemporaryFailure\".</p>"""
     verification_token: NotRequired[

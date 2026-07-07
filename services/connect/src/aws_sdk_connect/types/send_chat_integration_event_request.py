@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SendChatIntegrationEventRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.subtype
 
 
-class SendChatIntegrationEventRequest(TypedDict):
+class SendChatIntegrationEventRequest(TypedDict, closed=True):
     source_id: "aws_sdk_connect.types.source_id.SourceId"
     """<p>External identifier of chat customer participant, used in part to uniquely identify a chat. For SMS, this is the E164 phone number of the chat customer participant.</p>"""
     destination_id: "aws_sdk_connect.types.destination_id.DestinationId"

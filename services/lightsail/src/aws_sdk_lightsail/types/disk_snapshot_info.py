@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DiskSnapshotInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.integer
 
 
-class DiskSnapshotInfo(TypedDict):
+class DiskSnapshotInfo(TypedDict, closed=True):
     size_in_gb: NotRequired["aws_sdk_lightsail.types.integer.integer"]
     """<p>The size of the disk in GB (<code>32</code>).</p>"""
 

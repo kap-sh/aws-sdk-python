@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#Deserializer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.hive_json_ser_de
     import aws_sdk_firehose.types.open_x_json_ser_de
 
 
-class Deserializer(TypedDict):
+class Deserializer(TypedDict, closed=True):
     open_x_json_ser_de: NotRequired[
         "aws_sdk_firehose.types.open_x_json_ser_de.OpenXJsonSerDe"
     ]

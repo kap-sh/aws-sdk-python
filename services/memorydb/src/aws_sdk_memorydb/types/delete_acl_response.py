@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DeleteACLResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.acl
 
 
-class DeleteACLResponse(TypedDict):
+class DeleteACLResponse(TypedDict, closed=True):
     acl: NotRequired["aws_sdk_memorydb.types.acl.ACL"]
     """<p>The Access Control List object that has been deleted.</p>"""
 

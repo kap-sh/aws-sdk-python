@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#StartNetworkMigrationAnalysisRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.network_migration_execution_id
 
 
-class StartNetworkMigrationAnalysisRequest(TypedDict):
+class StartNetworkMigrationAnalysisRequest(TypedDict, closed=True):
     network_migration_execution_id: (
         "aws_sdk_mgn.types.network_migration_execution_id.NetworkMigrationExecutionID"
     )

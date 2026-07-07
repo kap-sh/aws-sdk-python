@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#PresignedUrlAccessConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.boolean
     import aws_sdk_sagemaker.types.s3_model_uri
 
 
-class PresignedUrlAccessConfig(TypedDict):
+class PresignedUrlAccessConfig(TypedDict, closed=True):
     accept_eula: NotRequired["aws_sdk_sagemaker.types.boolean.Boolean"]
     """<p>Indicates acceptance of the End User License Agreement (EULA) for gated models. Set to true to acknowledge acceptance of the license terms required for accessing gated content.</p>"""
     expected_s3_url: NotRequired["aws_sdk_sagemaker.types.s3_model_uri.S3ModelUri"]

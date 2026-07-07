@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetFoundationModelAvailabilityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.region_availability
 
 
-class GetFoundationModelAvailabilityResponse(TypedDict):
+class GetFoundationModelAvailabilityResponse(TypedDict, closed=True):
     model_id: "aws_sdk_bedrock.types.bedrock_model_id.BedrockModelId"
     """<p>The model Id of the foundation model.</p>"""
     agreement_availability: (

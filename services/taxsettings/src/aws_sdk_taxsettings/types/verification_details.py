@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#VerificationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.date_of_birth
     import aws_sdk_taxsettings.types.tax_registration_documents
 
 
-class VerificationDetails(TypedDict):
+class VerificationDetails(TypedDict, closed=True):
     date_of_birth: NotRequired["aws_sdk_taxsettings.types.date_of_birth.DateOfBirth"]
     """<p>Date of birth to verify your submitted TRN. Use the <code>YYYY-MM-DD</code> format.</p>"""
     tax_registration_documents: NotRequired[

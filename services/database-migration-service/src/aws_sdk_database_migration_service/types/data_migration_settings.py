@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DataMigrationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.boolean_optional
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.secret_string
 
 
-class DataMigrationSettings(TypedDict):
+class DataMigrationSettings(TypedDict, closed=True):
     number_of_jobs: NotRequired[
         "aws_sdk_database_migration_service.types.integer_optional.IntegerOptional"
     ]

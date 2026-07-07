@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeThumbnailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class DescribeThumbnailsRequest(TypedDict):
+class DescribeThumbnailsRequest(TypedDict, closed=True):
     channel_id: "aws_sdk_medialive.types.__string.__string"
     """Unique ID of the channel"""
     pipeline_id: NotRequired["aws_sdk_medialive.types.__string.__string"]

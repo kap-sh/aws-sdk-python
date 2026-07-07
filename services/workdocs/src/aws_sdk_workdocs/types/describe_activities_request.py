@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#DescribeActivitiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.activity_names_filter_type
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.timestamp_type
 
 
-class DescribeActivitiesRequest(TypedDict):
+class DescribeActivitiesRequest(TypedDict, closed=True):
     authentication_token: NotRequired[
         "aws_sdk_workdocs.types.authentication_header_type.AuthenticationHeaderType"
     ]

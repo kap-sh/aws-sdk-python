@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DescribeSubscriptionFiltersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.next_token
     import aws_sdk_cloudwatch_logs.types.subscription_filters
 
 
-class DescribeSubscriptionFiltersResponse(TypedDict):
+class DescribeSubscriptionFiltersResponse(TypedDict, closed=True):
     subscription_filters: NotRequired[
         "aws_sdk_cloudwatch_logs.types.subscription_filters.SubscriptionFilters"
     ]

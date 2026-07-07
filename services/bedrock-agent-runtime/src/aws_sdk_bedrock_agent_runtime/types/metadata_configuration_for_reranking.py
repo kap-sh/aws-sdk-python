@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#MetadataConfigurationForReranking``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.reranking_metadata_selective_mode_configuration
 
 
-class MetadataConfigurationForReranking(TypedDict):
+class MetadataConfigurationForReranking(TypedDict, closed=True):
     selection_mode: "aws_sdk_bedrock_agent_runtime.types.reranking_metadata_selection_mode.RerankingMetadataSelectionMode"
     """<p>Specifies whether to consider all metadata when reranking, or only the metadata that you select. If you specify <code>SELECTIVE</code>, include the <code>selectiveModeConfiguration</code> field.</p>"""
     selective_mode_configuration: NotRequired[

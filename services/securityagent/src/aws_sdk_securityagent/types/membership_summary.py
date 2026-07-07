@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#MembershipSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.membership_type
 
 
-class MembershipSummary(TypedDict):
+class MembershipSummary(TypedDict, closed=True):
     membership_id: "aws_sdk_securityagent.types.membership_id.MembershipId"
     """<p>The unique identifier of the membership.</p>"""
     application_id: "aws_sdk_securityagent.types.application_id.ApplicationId"

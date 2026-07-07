@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#RegistrationAttachmentsInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.attachment_upload_error_reason
 
 
-class RegistrationAttachmentsInformation(TypedDict):
+class RegistrationAttachmentsInformation(TypedDict, closed=True):
     registration_attachment_arn: "str"
     """<p>The Amazon Resource Name (ARN) for the registration attachment.</p>"""
     registration_attachment_id: "str"

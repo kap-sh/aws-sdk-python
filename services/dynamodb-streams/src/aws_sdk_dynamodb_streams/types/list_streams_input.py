@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodbstreams#ListStreamsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.positive_integer_object
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.table_name
 
 
-class ListStreamsInput(TypedDict):
+class ListStreamsInput(TypedDict, closed=True):
     table_name: NotRequired["aws_sdk_dynamodb_streams.types.table_name.TableName"]
     """<p>If this parameter is provided, then only the streams associated with this table name are returned.</p>"""
     limit: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ListTableRestoreStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.pagination_token
     import aws_sdk_redshift_serverless.types.table_restore_status_list
 
 
-class ListTableRestoreStatusResponse(TypedDict):
+class ListTableRestoreStatusResponse(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_redshift_serverless.types.pagination_token.PaginationToken"
     ]

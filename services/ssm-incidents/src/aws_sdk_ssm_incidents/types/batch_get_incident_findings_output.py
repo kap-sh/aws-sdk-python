@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#BatchGetIncidentFindingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.finding_list
 
 
-class BatchGetIncidentFindingsOutput(TypedDict):
+class BatchGetIncidentFindingsOutput(TypedDict, closed=True):
     findings: "aws_sdk_ssm_incidents.types.finding_list.FindingList"
     """<p>Information about the requested findings.</p>"""
     errors: "aws_sdk_ssm_incidents.types.batch_get_incident_findings_error_list.BatchGetIncidentFindingsErrorList"

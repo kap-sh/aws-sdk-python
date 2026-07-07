@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#Origination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.boolean
     import aws_sdk_chime_sdk_voice.types.origination_route_list
 
 
-class Origination(TypedDict):
+class Origination(TypedDict, closed=True):
     routes: NotRequired[
         "aws_sdk_chime_sdk_voice.types.origination_route_list.OriginationRouteList"
     ]

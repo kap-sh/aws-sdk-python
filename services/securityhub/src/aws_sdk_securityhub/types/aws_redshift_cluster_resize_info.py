@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRedshiftClusterResizeInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsRedshiftClusterResizeInfo(TypedDict):
+class AwsRedshiftClusterResizeInfo(TypedDict, closed=True):
     allow_cancel_resize: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Indicates whether the resize operation can be canceled.</p>"""
     resize_type: NotRequired[

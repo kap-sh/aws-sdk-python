@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#DeleteEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.environment_id
 
 
-class DeleteEnvironmentRequest(TypedDict):
+class DeleteEnvironmentRequest(TypedDict, closed=True):
     environment_identifier: (
         "aws_sdk_migration_hub_refactor_spaces.types.environment_id.EnvironmentId"
     )

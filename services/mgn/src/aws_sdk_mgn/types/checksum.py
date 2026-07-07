@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#Checksum``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.encryption_algorithm
     import aws_sdk_mgn.types.hash
 
 
-class Checksum(TypedDict):
+class Checksum(TypedDict, closed=True):
     encryption_algorithm: NotRequired[
         "aws_sdk_mgn.types.encryption_algorithm.EncryptionAlgorithm"
     ]

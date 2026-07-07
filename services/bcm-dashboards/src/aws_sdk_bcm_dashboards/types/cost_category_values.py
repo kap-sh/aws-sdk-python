@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#CostCategoryValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.match_options
     import aws_sdk_bcm_dashboards.types.string_list
 
 
-class CostCategoryValues(TypedDict):
+class CostCategoryValues(TypedDict, closed=True):
     key: NotRequired["str"]
     """<p>The key of the cost category to filter on.</p>"""
     values: NotRequired["aws_sdk_bcm_dashboards.types.string_list.StringList"]

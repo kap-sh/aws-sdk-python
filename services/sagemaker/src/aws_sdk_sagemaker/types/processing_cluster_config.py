@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ProcessingClusterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.kms_key_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.processing_volume_size_in_gb
 
 
-class ProcessingClusterConfig(TypedDict):
+class ProcessingClusterConfig(TypedDict, closed=True):
     instance_count: NotRequired[
         "aws_sdk_sagemaker.types.processing_instance_count.ProcessingInstanceCount"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#CancellationReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.attribute_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.error_message
 
 
-class CancellationReason(TypedDict):
+class CancellationReason(TypedDict, closed=True):
     item: NotRequired["aws_sdk_dynamodb.types.attribute_map.AttributeMap"]
     """<p>Item in the request which caused the transaction to get cancelled.</p>"""
     code: NotRequired["aws_sdk_dynamodb.types.code.Code"]

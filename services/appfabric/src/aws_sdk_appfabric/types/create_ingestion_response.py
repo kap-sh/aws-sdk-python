@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#CreateIngestionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.ingestion
 
 
-class CreateIngestionResponse(TypedDict):
+class CreateIngestionResponse(TypedDict, closed=True):
     ingestion: "aws_sdk_appfabric.types.ingestion.Ingestion"
     """<p>Contains information about an ingestion.</p>"""
 

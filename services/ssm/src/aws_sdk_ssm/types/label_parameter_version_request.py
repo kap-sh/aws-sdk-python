@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#LabelParameterVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ps_parameter_version
 
 
-class LabelParameterVersionRequest(TypedDict):
+class LabelParameterVersionRequest(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.ps_parameter_name.PSParameterName"
     """<p>The parameter name on which you want to attach one or more labels.</p> <note> <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name itself.</p> </note>"""
     parameter_version: NotRequired[

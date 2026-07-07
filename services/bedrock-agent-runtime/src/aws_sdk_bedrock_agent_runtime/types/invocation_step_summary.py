@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#InvocationStepSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.uuid
 
 
-class InvocationStepSummary(TypedDict):
+class InvocationStepSummary(TypedDict, closed=True):
     session_id: "aws_sdk_bedrock_agent_runtime.types.uuid.Uuid"
     """<p>The unique identifier for the session associated with the invocation step.</p>"""
     invocation_id: "aws_sdk_bedrock_agent_runtime.types.uuid.Uuid"

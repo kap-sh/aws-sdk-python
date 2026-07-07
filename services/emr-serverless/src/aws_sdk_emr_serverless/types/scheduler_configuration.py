@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#SchedulerConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SchedulerConfiguration(TypedDict):
+class SchedulerConfiguration(TypedDict, closed=True):
     queue_timeout_minutes: NotRequired["int"]
     """<p>The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.</p>"""
     max_concurrent_runs: NotRequired["int"]

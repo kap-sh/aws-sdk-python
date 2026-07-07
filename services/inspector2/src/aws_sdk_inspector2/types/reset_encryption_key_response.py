@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ResetEncryptionKeyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ResetEncryptionKeyResponse(TypedDict):
+class ResetEncryptionKeyResponse(TypedDict, closed=True):
     pass
 
 

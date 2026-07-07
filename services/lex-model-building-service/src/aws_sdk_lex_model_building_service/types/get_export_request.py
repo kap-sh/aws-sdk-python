@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetExportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.export_type
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.resource_type
 
 
-class GetExportRequest(TypedDict):
+class GetExportRequest(TypedDict, closed=True):
     name: "aws_sdk_lex_model_building_service.types.name.Name"
     """<p>The name of the bot to export.</p>"""
     version: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowTypeInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_type
 
 
-class WorkflowTypeInfo(TypedDict):
+class WorkflowTypeInfo(TypedDict, closed=True):
     workflow_type: "aws_sdk_swf.types.workflow_type.WorkflowType"
     """<p>The workflow type this information is about.</p>"""
     status: "aws_sdk_swf.types.registration_status.RegistrationStatus"

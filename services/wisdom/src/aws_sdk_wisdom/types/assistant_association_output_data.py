@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#AssistantAssociationOutputData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wisdom.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.knowledge_base_association_data
 
 
-class _AssistantAssociationOutputData_knowledgeBaseAssociation(TypedDict):
+class _AssistantAssociationOutputData_knowledgeBaseAssociation(TypedDict, closed=True):
     knowledgeBaseAssociation: "aws_sdk_wisdom.types.knowledge_base_association_data.KnowledgeBaseAssociationData"
 
 

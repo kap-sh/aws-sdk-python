@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#GetEntitiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotthingsgraph.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.version
 
 
-class GetEntitiesRequest(TypedDict):
+class GetEntitiesRequest(TypedDict, closed=True):
     ids: "aws_sdk_iotthingsgraph.types.urns.Urns"
     """<p>An array of entity IDs.</p> <p>The IDs should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:device:DEVICENAME</code> </p>"""
     namespace_version: NotRequired["aws_sdk_iotthingsgraph.types.version.Version"]

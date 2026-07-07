@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsStepFunctionStateMachineTracingConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
 
 
-class AwsStepFunctionStateMachineTracingConfigurationDetails(TypedDict):
+class AwsStepFunctionStateMachineTracingConfigurationDetails(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p> When set to true, X-Ray tracing is enabled. </p>"""
 

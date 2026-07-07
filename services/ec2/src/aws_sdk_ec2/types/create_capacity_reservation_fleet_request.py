@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateCapacityReservationFleetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CreateCapacityReservationFleetRequest(TypedDict):
+class CreateCapacityReservationFleetRequest(TypedDict, closed=True):
     allocation_strategy: NotRequired["aws_sdk_ec2.types.string.String"]
     r"""<p>The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the <code>prioritized</code> allocation strategy is supported. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy\"> Allocation strategy</a> in the <i>Amazon EC2 User Guide</i>.</p> <p>Valid values: <code>prioritized</code> </p>"""
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]

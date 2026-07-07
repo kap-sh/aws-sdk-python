@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#EnableResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.failed_account_list
 
 
-class EnableResponse(TypedDict):
+class EnableResponse(TypedDict, closed=True):
     accounts: "aws_sdk_inspector2.types.account_list.AccountList"
     """<p>Information on the accounts that have had Amazon Inspector scans successfully enabled. Details are provided for each account.</p>"""
     failed_accounts: NotRequired[

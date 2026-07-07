@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ProvisionedThroughputExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.throttling_reason_list
 
 
-class ProvisionedThroughputExceededException_(TypedDict):
+class ProvisionedThroughputExceededException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_dynamodb.types.error_message.ErrorMessage"]
     """<p>You exceeded your maximum allowed provisioned throughput.</p>"""
     throttling_reasons: NotRequired[

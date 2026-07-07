@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#CreateDataAutomationLibraryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.tag_list
 
 
-class CreateDataAutomationLibraryRequest(TypedDict):
+class CreateDataAutomationLibraryRequest(TypedDict, closed=True):
     library_name: "aws_sdk_bedrock_data_automation.types.data_automation_library_name.DataAutomationLibraryName"
     library_description: NotRequired[
         "aws_sdk_bedrock_data_automation.types.data_automation_library_description.DataAutomationLibraryDescription"

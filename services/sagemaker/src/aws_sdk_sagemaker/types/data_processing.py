@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DataProcessing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.join_source
     import aws_sdk_sagemaker.types.json_path
 
 
-class DataProcessing(TypedDict):
+class DataProcessing(TypedDict, closed=True):
     input_filter: NotRequired["aws_sdk_sagemaker.types.json_path.JsonPath"]
     r"""<p>A <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#data-processing-operators\">JSONPath</a> expression used to select a portion of the input data to pass to the algorithm. Use the <code>InputFilter</code> parameter to exclude fields, such as an ID column, from the input. If you want SageMaker to pass the entire input dataset to the algorithm, accept the default value <code>$</code>.</p> <p>Examples: <code>\"$\"</code>, <code>\"$[1:]\"</code>, <code>\"$.features\"</code> </p>"""
     output_filter: NotRequired["aws_sdk_sagemaker.types.json_path.JsonPath"]

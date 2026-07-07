@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#UpdateInstanceCustomHealthStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.resource_id
 
 
-class UpdateInstanceCustomHealthStatusRequest(TypedDict):
+class UpdateInstanceCustomHealthStatusRequest(TypedDict, closed=True):
     service_id: "aws_sdk_servicediscovery.types.arn.Arn"
     r"""<p>The ID or Amazon Resource Name (ARN) of the service that includes the configuration for the custom health check that you want to change the status for. For services created in a shared namespace, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>"""
     instance_id: "aws_sdk_servicediscovery.types.resource_id.ResourceId"

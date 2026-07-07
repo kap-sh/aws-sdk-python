@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#DeleteCaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.case_id
     import aws_sdk_connectcases.types.domain_id
 
 
-class DeleteCaseRequest(TypedDict):
+class DeleteCaseRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_connectcases.types.domain_id.DomainId"
     """<p>A unique identifier of the Cases domain.</p>"""
     case_id: "aws_sdk_connectcases.types.case_id.CaseId"

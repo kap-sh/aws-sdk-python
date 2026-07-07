@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#CreateApiKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.long
     import aws_sdk_appsync.types.string
 
 
-class CreateApiKeyRequest(TypedDict):
+class CreateApiKeyRequest(TypedDict, closed=True):
     api_id: "aws_sdk_appsync.types.string.String"
     """<p>The ID for your GraphQL API.</p>"""
     description: NotRequired["aws_sdk_appsync.types.string.String"]

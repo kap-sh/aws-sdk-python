@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#FilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.location_list
 
 
-class FilterConfiguration(TypedDict):
+class FilterConfiguration(TypedDict, closed=True):
     allowed_locations: NotRequired["aws_sdk_gamelift.types.location_list.LocationList"]
     """<p> A list of locations to allow game session placement in, in the form of Amazon Web Services Region codes such as <code>us-west-2</code>. </p>"""
 

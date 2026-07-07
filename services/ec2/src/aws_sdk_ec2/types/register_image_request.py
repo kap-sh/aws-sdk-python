@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#RegisterImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tpm_support_values
 
 
-class RegisterImageRequest(TypedDict):
+class RegisterImageRequest(TypedDict, closed=True):
     image_location: NotRequired["aws_sdk_ec2.types.string.String"]
     r"""<p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the <code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be accessed by Amazon EC2. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl\">Canned ACL</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>"""
     billing_products: NotRequired[

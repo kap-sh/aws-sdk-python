@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#CreatePresetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_transcoder.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.video_parameters
 
 
-class CreatePresetRequest(TypedDict):
+class CreatePresetRequest(TypedDict, closed=True):
     name: "aws_sdk_elastic_transcoder.types.name.Name"
     """<p>The name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.</p>"""
     description: NotRequired["aws_sdk_elastic_transcoder.types.description.Description"]

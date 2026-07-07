@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#DeletePolicyStatementInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.statement_id
     import aws_sdk_entityresolution.types.venice_global_arn
 
 
-class DeletePolicyStatementInput(TypedDict):
+class DeletePolicyStatementInput(TypedDict, closed=True):
     arn: "aws_sdk_entityresolution.types.venice_global_arn.VeniceGlobalArn"
     """<p>The ARN of the resource for which the policy need to be deleted.</p>"""
     statement_id: "aws_sdk_entityresolution.types.statement_id.StatementId"

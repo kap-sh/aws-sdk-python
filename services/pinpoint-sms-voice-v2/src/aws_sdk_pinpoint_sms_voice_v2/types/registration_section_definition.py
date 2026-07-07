@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#RegistrationSectionDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.section_path
 
 
-class RegistrationSectionDefinition(TypedDict):
+class RegistrationSectionDefinition(TypedDict, closed=True):
     section_path: "aws_sdk_pinpoint_sms_voice_v2.types.section_path.SectionPath"
     """<p>The path to the section of the registration.</p>"""
     display_hints: "aws_sdk_pinpoint_sms_voice_v2.types.registration_section_display_hints.RegistrationSectionDisplayHints"

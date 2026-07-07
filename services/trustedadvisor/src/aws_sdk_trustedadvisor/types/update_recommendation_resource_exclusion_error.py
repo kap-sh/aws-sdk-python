@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.trustedadvisor#UpdateRecommendationResourceExclusionError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_trustedadvisor.types.recommendation_resource_arn
 
 
-class UpdateRecommendationResourceExclusionError(TypedDict):
+class UpdateRecommendationResourceExclusionError(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_trustedadvisor.types.recommendation_resource_arn.RecommendationResourceArn"
     ]

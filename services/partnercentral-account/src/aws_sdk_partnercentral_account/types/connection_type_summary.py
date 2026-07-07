@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#ConnectionTypeSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.participant
 
 
-class ConnectionTypeSummary(TypedDict):
+class ConnectionTypeSummary(TypedDict, closed=True):
     status: "aws_sdk_partnercentral_account.types.connection_type_status.ConnectionTypeStatus"
     """<p>The current status of this connection type (active, canceled, etc.).</p>"""
     other_participant: "aws_sdk_partnercentral_account.types.participant.Participant"

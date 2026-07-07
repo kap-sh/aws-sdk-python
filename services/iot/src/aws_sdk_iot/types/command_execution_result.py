@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CommandExecutionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.binary_command_execution_result
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.string_command_execution_result
 
 
-class CommandExecutionResult(TypedDict):
+class CommandExecutionResult(TypedDict, closed=True):
     s: NotRequired[
         "aws_sdk_iot.types.string_command_execution_result.StringCommandExecutionResult"
     ]

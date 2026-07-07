@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#StagingSourceServer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.tags_map
 
 
-class StagingSourceServer(TypedDict):
+class StagingSourceServer(TypedDict, closed=True):
     hostname: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]
     """<p>Hostname of staging source server.</p>"""
     arn: NotRequired["aws_sdk_drs.types.source_server_arn.SourceServerARN"]

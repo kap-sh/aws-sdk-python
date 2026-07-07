@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#MetricStat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.xml_string_metric_stat
 
 
-class MetricStat(TypedDict):
+class MetricStat(TypedDict, closed=True):
     metric: NotRequired["aws_sdk_auto_scaling.types.metric.Metric"]
     r"""<p>The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html\">Metric</a> object that is returned by a call to <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html\">ListMetrics</a>.</p>"""
     stat: NotRequired[

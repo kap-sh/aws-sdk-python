@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#StorageMinimumTimeToLive``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.storage_minimum_time_to_live_value
 
 
-class StorageMinimumTimeToLive(TypedDict):
+class StorageMinimumTimeToLive(TypedDict, closed=True):
     unit: "aws_sdk_iotfleetwise.types.storage_minimum_time_to_live_unit.StorageMinimumTimeToLiveUnit"
     """<p>The time increment type.</p>"""
     value: "aws_sdk_iotfleetwise.types.storage_minimum_time_to_live_value.StorageMinimumTimeToLiveValue"

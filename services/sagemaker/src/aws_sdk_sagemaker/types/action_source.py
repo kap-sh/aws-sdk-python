@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ActionSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.source_uri
     import aws_sdk_sagemaker.types.string256
 
 
-class ActionSource(TypedDict):
+class ActionSource(TypedDict, closed=True):
     source_uri: NotRequired["aws_sdk_sagemaker.types.source_uri.SourceUri"]
     """<p>The URI of the source.</p>"""
     source_type: NotRequired["aws_sdk_sagemaker.types.string256.String256"]

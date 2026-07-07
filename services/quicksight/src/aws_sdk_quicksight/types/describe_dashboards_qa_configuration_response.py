@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeDashboardsQAConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.dashboards_qa_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DescribeDashboardsQAConfigurationResponse(TypedDict):
+class DescribeDashboardsQAConfigurationResponse(TypedDict, closed=True):
     dashboards_qa_status: NotRequired[
         "aws_sdk_quicksight.types.dashboards_qa_status.DashboardsQAStatus"
     ]

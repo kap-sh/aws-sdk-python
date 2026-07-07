@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentS3LogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.s3_bucket_name
     import aws_sdk_fis.types.s3_object_key
 
 
-class ExperimentS3LogConfiguration(TypedDict):
+class ExperimentS3LogConfiguration(TypedDict, closed=True):
     bucket_name: NotRequired["aws_sdk_fis.types.s3_bucket_name.S3BucketName"]
     """<p>The name of the destination bucket.</p>"""
     prefix: NotRequired["aws_sdk_fis.types.s3_object_key.S3ObjectKey"]

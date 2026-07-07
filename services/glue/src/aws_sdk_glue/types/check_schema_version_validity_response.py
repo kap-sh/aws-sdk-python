@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CheckSchemaVersionValidityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.is_version_valid
     import aws_sdk_glue.types.schema_validation_error
 
 
-class CheckSchemaVersionValidityResponse(TypedDict):
+class CheckSchemaVersionValidityResponse(TypedDict, closed=True):
     valid: "aws_sdk_glue.types.is_version_valid.IsVersionValid"
     """<p>Return true, if the schema is valid and false otherwise.</p>"""
     error: NotRequired[

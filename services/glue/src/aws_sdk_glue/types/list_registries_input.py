@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListRegistriesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.max_results_number
     import aws_sdk_glue.types.schema_registry_token_string
 
 
-class ListRegistriesInput(TypedDict):
+class ListRegistriesInput(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_glue.types.max_results_number.MaxResultsNumber"]
     """<p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>"""
     next_token: NotRequired[

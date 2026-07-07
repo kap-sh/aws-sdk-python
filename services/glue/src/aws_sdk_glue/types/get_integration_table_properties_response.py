@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetIntegrationTablePropertiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.source_table_config
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.target_table_config
 
 
-class GetIntegrationTablePropertiesResponse(TypedDict):
+class GetIntegrationTablePropertiesResponse(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_glue.types.string512.String512"]
     """<p>The Amazon Resource Name (ARN) of the target table for which to retrieve integration table properties. Currently, this API only supports retrieving properties for target tables, and the provided ARN should be the ARN of the target table in the Glue Data Catalog. Support for retrieving integration table properties for source connections (using the connection ARN) is not yet implemented and will be added in a future release. </p>"""
     table_name: NotRequired["aws_sdk_glue.types.string128.String128"]

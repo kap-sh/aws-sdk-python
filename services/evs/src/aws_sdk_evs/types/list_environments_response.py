@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.evs#ListEnvironmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_evs.types.environment_summary_list
     import aws_sdk_evs.types.pagination_token
 
 
-class ListEnvironmentsResponse(TypedDict):
+class ListEnvironmentsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_evs.types.pagination_token.PaginationToken"]
     """<p>A unique pagination token for next page results. Make the call again using this token to retrieve the next page.</p>"""
     environment_summaries: NotRequired[

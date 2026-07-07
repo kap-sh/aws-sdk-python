@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#DeleteResolverQueryLogConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resolver_query_log_config
 
 
-class DeleteResolverQueryLogConfigResponse(TypedDict):
+class DeleteResolverQueryLogConfigResponse(TypedDict, closed=True):
     resolver_query_log_config: NotRequired[
         "aws_sdk_route53resolver.types.resolver_query_log_config.ResolverQueryLogConfig"
     ]

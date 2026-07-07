@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#DeleteFindingsFilterResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteFindingsFilterResponse(TypedDict):
+class DeleteFindingsFilterResponse(TypedDict, closed=True):
     pass
 
 

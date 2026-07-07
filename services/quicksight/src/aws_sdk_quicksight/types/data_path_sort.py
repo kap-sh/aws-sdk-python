@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataPathSort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sort_direction
 
 
-class DataPathSort(TypedDict):
+class DataPathSort(TypedDict, closed=True):
     direction: "aws_sdk_quicksight.types.sort_direction.SortDirection"
     """<p>Determines the sort direction.</p>"""
     sort_paths: "aws_sdk_quicksight.types.data_path_value_list.DataPathValueList"

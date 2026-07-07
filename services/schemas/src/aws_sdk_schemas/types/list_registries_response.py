@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#ListRegistriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__list_of_registry_summary
     import aws_sdk_schemas.types.__string
 
 
-class ListRegistriesResponse(TypedDict):
+class ListRegistriesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_schemas.types.__string.__string"]
     """<p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>"""
     registries: NotRequired[

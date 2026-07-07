@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ses#SetIdentityNotificationTopicResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
 
-class SetIdentityNotificationTopicResponse(TypedDict):
+class SetIdentityNotificationTopicResponse(TypedDict, closed=True):
     pass
 
 

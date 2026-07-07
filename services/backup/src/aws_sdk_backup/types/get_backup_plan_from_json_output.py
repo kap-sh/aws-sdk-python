@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetBackupPlanFromJSONOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_plan
 
 
-class GetBackupPlanFromJSONOutput(TypedDict):
+class GetBackupPlanFromJSONOutput(TypedDict, closed=True):
     backup_plan: NotRequired["aws_sdk_backup.types.backup_plan.BackupPlan"]
     """<p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or more sets of <code>Rules</code>.</p>"""
 

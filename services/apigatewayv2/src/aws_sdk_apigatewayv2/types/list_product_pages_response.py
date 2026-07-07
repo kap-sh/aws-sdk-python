@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#ListProductPagesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__list_of_product_page_summary_no_body
     import aws_sdk_apigatewayv2.types.__string_min1_max2048
 
 
-class ListProductPagesResponse(TypedDict):
+class ListProductPagesResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_apigatewayv2.types.__list_of_product_page_summary_no_body.__listOfProductPageSummaryNoBody"
     ]

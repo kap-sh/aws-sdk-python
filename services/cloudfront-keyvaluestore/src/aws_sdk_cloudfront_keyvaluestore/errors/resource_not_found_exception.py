@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfrontkeyvaluestore#ResourceNotFoundException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront_keyvaluestore.errors import ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

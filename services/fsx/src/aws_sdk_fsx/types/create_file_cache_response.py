@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateFileCacheResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.file_cache_creating
 
 
-class CreateFileCacheResponse(TypedDict):
+class CreateFileCacheResponse(TypedDict, closed=True):
     file_cache: NotRequired["aws_sdk_fsx.types.file_cache_creating.FileCacheCreating"]
     """<p>A description of the cache that was created.</p>"""
 

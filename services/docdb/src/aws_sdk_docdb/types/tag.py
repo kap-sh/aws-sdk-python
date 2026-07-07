@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: NotRequired["aws_sdk_docdb.types.string.String"]
     r"""<p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with \"<code>aws:</code>\" or \"<code>rds:</code>\". The string can contain only the set of Unicode letters, digits, white space, '_', '.', '/', '=', '+', '-' (Java regex: \"^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$\").</p>"""
     value: NotRequired["aws_sdk_docdb.types.string.String"]

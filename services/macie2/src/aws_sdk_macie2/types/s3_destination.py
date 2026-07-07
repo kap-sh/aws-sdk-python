@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#S3Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class S3Destination(TypedDict):
+class S3Destination(TypedDict, closed=True):
     bucket_name: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The name of the bucket. This must be the name of an existing general purpose bucket.</p>"""
     expected_bucket_owner: NotRequired["aws_sdk_macie2.types.__string.__string"]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#InternalServerException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError, ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
     resource_id: NotRequired["str"]
     """<p/>"""

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UpdateFindingsFilterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.findings_filter_action
 
 
-class UpdateFindingsFilterRequest(TypedDict):
+class UpdateFindingsFilterRequest(TypedDict, closed=True):
     action: NotRequired[
         "aws_sdk_macie2.types.findings_filter_action.FindingsFilterAction"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#AssumeFleetRoleForReadResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.aws_credentials
 
 
-class AssumeFleetRoleForReadResponse(TypedDict):
+class AssumeFleetRoleForReadResponse(TypedDict, closed=True):
     credentials: "aws_sdk_deadline.types.aws_credentials.AwsCredentials"
     """<p>The credentials for the fleet role.</p>"""
 

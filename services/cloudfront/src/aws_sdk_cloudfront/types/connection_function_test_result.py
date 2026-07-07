@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ConnectionFunctionTestResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class ConnectionFunctionTestResult(TypedDict):
+class ConnectionFunctionTestResult(TypedDict, closed=True):
     connection_function_summary: NotRequired[
         "aws_sdk_cloudfront.types.connection_function_summary.ConnectionFunctionSummary"
     ]

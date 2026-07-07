@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListUserProficienciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.next_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.user_proficiency_list
 
 
-class ListUserProficienciesResponse(TypedDict):
+class ListUserProficienciesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]
     """<p>If there are additional results, this is the token for the next set of results.</p>"""
     user_proficiency_list: NotRequired[

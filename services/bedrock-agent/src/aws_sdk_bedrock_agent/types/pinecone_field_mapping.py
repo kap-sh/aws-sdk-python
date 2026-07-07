@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PineconeFieldMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.field_name
 
 
-class PineconeFieldMapping(TypedDict):
+class PineconeFieldMapping(TypedDict, closed=True):
     text_field: "aws_sdk_bedrock_agent.types.field_name.FieldName"
     """<p>The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.</p>"""
     metadata_field: "aws_sdk_bedrock_agent.types.field_name.FieldName"

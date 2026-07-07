@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListSecurityProfileApplicationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.applications
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class ListSecurityProfileApplicationsResponse(TypedDict):
+class ListSecurityProfileApplicationsResponse(TypedDict, closed=True):
     applications: NotRequired["aws_sdk_connect.types.applications.Applications"]
     """<p>A list of the third-party application's metadata.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]

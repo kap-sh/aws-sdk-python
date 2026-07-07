@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ListKeyPhrasesDetectionJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.key_phrases_detection_job_properties_list
     import aws_sdk_comprehend.types.string
 
 
-class ListKeyPhrasesDetectionJobsResponse(TypedDict):
+class ListKeyPhrasesDetectionJobsResponse(TypedDict, closed=True):
     key_phrases_detection_job_properties_list: NotRequired[
         "aws_sdk_comprehend.types.key_phrases_detection_job_properties_list.KeyPhrasesDetectionJobPropertiesList"
     ]

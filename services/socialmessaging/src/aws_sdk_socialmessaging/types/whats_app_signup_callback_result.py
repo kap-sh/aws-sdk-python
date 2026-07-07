@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#WhatsAppSignupCallbackResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.associate_in_progress_token
     import aws_sdk_socialmessaging.types.linked_account_with_incomplete_setup
 
 
-class WhatsAppSignupCallbackResult(TypedDict):
+class WhatsAppSignupCallbackResult(TypedDict, closed=True):
     associate_in_progress_token: NotRequired[
         "aws_sdk_socialmessaging.types.associate_in_progress_token.AssociateInProgressToken"
     ]

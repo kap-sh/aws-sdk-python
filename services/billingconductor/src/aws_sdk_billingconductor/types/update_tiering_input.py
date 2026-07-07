@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#UpdateTieringInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.update_free_tier_config
 
 
-class UpdateTieringInput(TypedDict):
+class UpdateTieringInput(TypedDict, closed=True):
     free_tier: (
         "aws_sdk_billingconductor.types.update_free_tier_config.UpdateFreeTierConfig"
     )

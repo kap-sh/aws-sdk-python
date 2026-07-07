@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#PricingOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.quote_pricing_type
     import aws_sdk_outposts.types.subscription_pricing_details
 
 
-class PricingOption(TypedDict):
+class PricingOption(TypedDict, closed=True):
     pricing_type: NotRequired[
         "aws_sdk_outposts.types.quote_pricing_type.QuotePricingType"
     ]

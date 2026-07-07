@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#CreateFleetInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.vpc_config
 
 
-class CreateFleetInput(TypedDict):
+class CreateFleetInput(TypedDict, closed=True):
     name: "aws_sdk_codebuild.types.fleet_name.FleetName"
     """<p>The name of the compute fleet.</p>"""
     base_capacity: "aws_sdk_codebuild.types.fleet_capacity.FleetCapacity"

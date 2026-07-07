@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#BedrockEvaluatorModelConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.model_id
 
 
-class BedrockEvaluatorModelConfig(TypedDict):
+class BedrockEvaluatorModelConfig(TypedDict, closed=True):
     model_id: "aws_sdk_bedrock_agentcore_control.types.model_id.ModelId"
     """<p> The identifier of the Amazon Bedrock model to use for evaluation. Must be a supported foundation model available in your region. </p>"""
     inference_config: NotRequired[

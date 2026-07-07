@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateSchemaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.compatibility
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.version_long_number
 
 
-class CreateSchemaResponse(TypedDict):
+class CreateSchemaResponse(TypedDict, closed=True):
     registry_name: NotRequired[
         "aws_sdk_glue.types.schema_registry_name_string.SchemaRegistryNameString"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeIpamResourceDiscoveryAssociationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.next_token
 
 
-class DescribeIpamResourceDiscoveryAssociationsResult(TypedDict):
+class DescribeIpamResourceDiscoveryAssociationsResult(TypedDict, closed=True):
     ipam_resource_discovery_associations: NotRequired[
         "aws_sdk_ec2.types.ipam_resource_discovery_association_set.IpamResourceDiscoveryAssociationSet"
     ]

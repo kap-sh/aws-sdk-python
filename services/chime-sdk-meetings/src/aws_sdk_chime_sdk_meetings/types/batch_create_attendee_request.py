@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#BatchCreateAttendeeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_meetings.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.guid_string
 
 
-class BatchCreateAttendeeRequest(TypedDict):
+class BatchCreateAttendeeRequest(TypedDict, closed=True):
     meeting_id: "aws_sdk_chime_sdk_meetings.types.guid_string.GuidString"
     """<p>The Amazon Chime SDK ID of the meeting to which you're adding attendees.</p>"""
     attendees: "aws_sdk_chime_sdk_meetings.types.create_attendee_request_item_list.CreateAttendeeRequestItemList"

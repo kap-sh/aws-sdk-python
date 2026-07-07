@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetRelationalDatabaseSnapshotResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.relational_database_snapshot
 
 
-class GetRelationalDatabaseSnapshotResult(TypedDict):
+class GetRelationalDatabaseSnapshotResult(TypedDict, closed=True):
     relational_database_snapshot: NotRequired[
         "aws_sdk_lightsail.types.relational_database_snapshot.RelationalDatabaseSnapshot"
     ]

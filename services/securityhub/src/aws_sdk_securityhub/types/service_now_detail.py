@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ServiceNowDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.connector_auth_status
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class ServiceNowDetail(TypedDict):
+class ServiceNowDetail(TypedDict, closed=True):
     instance_name: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

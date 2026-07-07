@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#GetServiceViewInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
 
-class GetServiceViewInput(TypedDict):
+class GetServiceViewInput(TypedDict, closed=True):
     service_view_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the service view to retrieve details for.</p>"""
 

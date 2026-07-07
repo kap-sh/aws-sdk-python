@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#RestConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.entity_configuration_map
     import aws_sdk_glue.types.source_configuration
 
 
-class RestConfiguration(TypedDict):
+class RestConfiguration(TypedDict, closed=True):
     global_source_configuration: NotRequired[
         "aws_sdk_glue.types.source_configuration.SourceConfiguration"
     ]

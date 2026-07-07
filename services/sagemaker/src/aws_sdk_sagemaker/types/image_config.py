@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ImageConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.repository_access_mode
     import aws_sdk_sagemaker.types.repository_auth_config
 
 
-class ImageConfig(TypedDict):
+class ImageConfig(TypedDict, closed=True):
     repository_access_mode: NotRequired[
         "aws_sdk_sagemaker.types.repository_access_mode.RepositoryAccessMode"
     ]

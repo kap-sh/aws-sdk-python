@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.braket#DeviceOfflineException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import ServiceError
 
 
-class DeviceOfflineException_(TypedDict):
+class DeviceOfflineException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

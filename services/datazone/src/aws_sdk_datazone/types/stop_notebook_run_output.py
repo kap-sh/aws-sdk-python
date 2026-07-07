@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#StopNotebookRunOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
 
 
-class StopNotebookRunOutput(TypedDict):
+class StopNotebookRunOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.notebook_run_id.NotebookRunId"
     """<p>The identifier of the notebook run.</p>"""
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#MSKAccessCredentials``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.secret_manager_arn
 
 
-class _MSKAccessCredentials_SaslScram512Auth(TypedDict):
+class _MSKAccessCredentials_SaslScram512Auth(TypedDict, closed=True):
     SaslScram512Auth: "aws_sdk_pipes.types.secret_manager_arn.SecretManagerArn"
 
 
-class _MSKAccessCredentials_ClientCertificateTlsAuth(TypedDict):
+class _MSKAccessCredentials_ClientCertificateTlsAuth(TypedDict, closed=True):
     ClientCertificateTlsAuth: "aws_sdk_pipes.types.secret_manager_arn.SecretManagerArn"
 
 

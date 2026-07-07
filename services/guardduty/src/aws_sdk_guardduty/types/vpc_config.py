@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#VpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.security_groups
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.subnet_ids
 
 
-class VpcConfig(TypedDict):
+class VpcConfig(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_guardduty.types.subnet_ids.SubnetIds"]
     """<p>The identifiers of the subnets that are associated with your Lambda function.</p>"""
     vpc_id: NotRequired["aws_sdk_guardduty.types.string.String"]

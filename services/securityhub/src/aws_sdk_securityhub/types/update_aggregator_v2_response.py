@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UpdateAggregatorV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.string_list
 
 
-class UpdateAggregatorV2Response(TypedDict):
+class UpdateAggregatorV2Response(TypedDict, closed=True):
     aggregator_v2_arn: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

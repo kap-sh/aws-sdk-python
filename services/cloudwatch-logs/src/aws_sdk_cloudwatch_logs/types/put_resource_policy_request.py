@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#PutResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.policy_name
 
 
-class PutResourcePolicyRequest(TypedDict):
+class PutResourcePolicyRequest(TypedDict, closed=True):
     policy_name: NotRequired["aws_sdk_cloudwatch_logs.types.policy_name.PolicyName"]
     """<p>Name of the new policy. This parameter is required.</p>"""
     policy_document: NotRequired[

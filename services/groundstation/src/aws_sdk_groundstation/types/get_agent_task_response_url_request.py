@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#GetAgentTaskResponseUrlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
 
 
-class GetAgentTaskResponseUrlRequest(TypedDict):
+class GetAgentTaskResponseUrlRequest(TypedDict, closed=True):
     agent_id: "aws_sdk_groundstation.types.uuid.Uuid"
     """<p>UUID of agent requesting the response URL.</p>"""
     task_id: "aws_sdk_groundstation.types.uuid.Uuid"

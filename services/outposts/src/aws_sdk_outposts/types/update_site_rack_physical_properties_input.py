@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#UpdateSiteRackPhysicalPropertiesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.fiber_optic_cable_type
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.uplink_gbps
 
 
-class UpdateSiteRackPhysicalPropertiesInput(TypedDict):
+class UpdateSiteRackPhysicalPropertiesInput(TypedDict, closed=True):
     site_id: "aws_sdk_outposts.types.site_id.SiteId"
     """<p> The ID or the Amazon Resource Name (ARN) of the site. </p>"""
     power_draw_kva: NotRequired["aws_sdk_outposts.types.power_draw_kva.PowerDrawKva"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#ShredderSettings``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ShredderSettings(TypedDict):
+class ShredderSettings(TypedDict, closed=True):
     can_process_manually: NotRequired["bool"]
     """<p>Specifies whether users can manually trigger the shredder to delete content.</p>"""
     intensity: NotRequired["int"]

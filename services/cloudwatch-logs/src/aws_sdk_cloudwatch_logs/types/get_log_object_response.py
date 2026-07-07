@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GetLogObjectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.get_log_object_response_stream
 
 
-class GetLogObjectResponse(TypedDict):
+class GetLogObjectResponse(TypedDict, closed=True):
     field_stream: NotRequired[
         "aws_sdk_cloudwatch_logs.types.get_log_object_response_stream.GetLogObjectResponseStream"
     ]

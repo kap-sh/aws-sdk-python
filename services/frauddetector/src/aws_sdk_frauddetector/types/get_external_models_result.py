@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetExternalModelsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.external_model_list
     import aws_sdk_frauddetector.types.string
 
 
-class GetExternalModelsResult(TypedDict):
+class GetExternalModelsResult(TypedDict, closed=True):
     external_models: NotRequired[
         "aws_sdk_frauddetector.types.external_model_list.ExternalModelList"
     ]

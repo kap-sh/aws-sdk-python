@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#GameServerContainerGroupCounts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.whole_number
 
 
-class GameServerContainerGroupCounts(TypedDict):
+class GameServerContainerGroupCounts(TypedDict, closed=True):
     pending: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]
     """<p> The number of container groups that are starting up but haven't yet registered. </p>"""
     active: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]

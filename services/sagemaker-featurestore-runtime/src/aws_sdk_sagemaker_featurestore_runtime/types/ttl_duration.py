@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerfeaturestoreruntime#TtlDuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_featurestore_runtime.types.ttl_duration_unit
     import aws_sdk_sagemaker_featurestore_runtime.types.ttl_duration_value
 
 
-class TtlDuration(TypedDict):
+class TtlDuration(TypedDict, closed=True):
     unit: NotRequired[
         "aws_sdk_sagemaker_featurestore_runtime.types.ttl_duration_unit.TtlDurationUnit"
     ]

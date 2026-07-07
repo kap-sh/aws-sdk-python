@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ListAgreementChargesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.agreement_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.resource_id
 
 
-class ListAgreementChargesInput(TypedDict):
+class ListAgreementChargesInput(TypedDict, closed=True):
     catalog: NotRequired["aws_sdk_marketplace_agreement.types.catalog.Catalog"]
     """<p>The catalog in which the charges were created.</p>"""
     agreement_id: NotRequired[

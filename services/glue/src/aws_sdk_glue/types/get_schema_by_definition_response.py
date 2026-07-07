@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetSchemaByDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.created_timestamp
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_version_status
 
 
-class GetSchemaByDefinitionResponse(TypedDict):
+class GetSchemaByDefinitionResponse(TypedDict, closed=True):
     schema_version_id: NotRequired[
         "aws_sdk_glue.types.schema_version_id_string.SchemaVersionIdString"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.tags_map
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_glue.types.glue_resource_arn.GlueResourceArn"
     r"""<p>The ARN of the Glue resource to which to add the tags. For more information about Glue resource ARNs, see the <a href=\"https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id\">Glue ARN string pattern</a>.</p>"""
     tags_to_add: "aws_sdk_glue.types.tags_map.TagsMap"

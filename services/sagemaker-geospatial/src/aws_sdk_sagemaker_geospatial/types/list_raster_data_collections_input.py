@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ListRasterDataCollectionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.next_token
 
 
-class ListRasterDataCollectionsInput(TypedDict):
+class ListRasterDataCollectionsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sagemaker_geospatial.types.next_token.NextToken"]
     """<p>If the previous response was truncated, you receive this token. Use it in your next request to receive the next set of results.</p>"""
     max_results: NotRequired["int"]

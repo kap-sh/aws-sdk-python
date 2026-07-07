@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#FilterTimestamp``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class FilterTimestamp(TypedDict):
+class FilterTimestamp(TypedDict, closed=True):
     after_timestamp: NotRequired["datetime.datetime"]
     """<p> Include results after this timestamp. </p>"""
     before_timestamp: NotRequired["datetime.datetime"]

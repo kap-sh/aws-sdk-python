@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#JobOutputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.string2048
 
 
-class JobOutputDataConfig(TypedDict):
+class JobOutputDataConfig(TypedDict, closed=True):
     kms_key_id: NotRequired["aws_sdk_braket.types.string2048.String2048"]
     """<p>The AWS Key Management Service (AWS KMS) key that Amazon Braket uses to encrypt the hybrid job training artifacts at rest using Amazon S3 server-side encryption.</p>"""
     s3_path: "aws_sdk_braket.types.s3_path.S3Path"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#ComprehendMedicalAsyncJobFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.job_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.timestamp
 
 
-class ComprehendMedicalAsyncJobFilter(TypedDict):
+class ComprehendMedicalAsyncJobFilter(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_comprehendmedical.types.job_name.JobName"]
     """<p>Filters on the name of the job.</p>"""
     job_status: NotRequired["aws_sdk_comprehendmedical.types.job_status.JobStatus"]

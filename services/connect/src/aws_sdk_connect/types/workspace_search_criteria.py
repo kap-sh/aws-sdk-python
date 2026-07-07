@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#WorkspaceSearchCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.string_condition
     import aws_sdk_connect.types.workspace_search_condition_list
 
 
-class WorkspaceSearchCriteria(TypedDict):
+class WorkspaceSearchCriteria(TypedDict, closed=True):
     or_conditions: NotRequired[
         "aws_sdk_connect.types.workspace_search_condition_list.WorkspaceSearchConditionList"
     ]

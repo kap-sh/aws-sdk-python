@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ListDelegatedAdministratorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.service_principal
 
 
-class ListDelegatedAdministratorsRequest(TypedDict):
+class ListDelegatedAdministratorsRequest(TypedDict, closed=True):
     service_principal: NotRequired[
         "aws_sdk_organizations.types.service_principal.ServicePrincipal"
     ]

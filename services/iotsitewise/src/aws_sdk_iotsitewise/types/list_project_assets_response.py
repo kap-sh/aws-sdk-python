@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListProjectAssetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class ListProjectAssetsResponse(TypedDict):
+class ListProjectAssetsResponse(TypedDict, closed=True):
     asset_ids: "aws_sdk_iotsitewise.types.asset_i_ds.AssetIDs"
     """<p>A list that contains the IDs of each asset associated with the project.</p>"""
     next_token: NotRequired["aws_sdk_iotsitewise.types.next_token.NextToken"]

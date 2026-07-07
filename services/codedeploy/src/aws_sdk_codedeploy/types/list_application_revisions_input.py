@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#ListApplicationRevisionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codedeploy.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.sort_order
 
 
-class ListApplicationRevisionsInput(TypedDict):
+class ListApplicationRevisionsInput(TypedDict, closed=True):
     application_name: "aws_sdk_codedeploy.types.application_name.ApplicationName"
     """<p> The name of an CodeDeploy application associated with the user or Amazon Web Services account. </p>"""
     sort_by: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#StartMonitorDeploymentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__boolean
     import aws_sdk_medialive.types.__string
 
 
-class StartMonitorDeploymentRequest(TypedDict):
+class StartMonitorDeploymentRequest(TypedDict, closed=True):
     dry_run: NotRequired["aws_sdk_medialive.types.__boolean.__boolean"]
     identifier: "aws_sdk_medialive.types.__string.__string"
     """A signal map's identifier. Can be either be its id or current name."""

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsDynamoDbTableProjection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.string_list
 
 
-class AwsDynamoDbTableProjection(TypedDict):
+class AwsDynamoDbTableProjection(TypedDict, closed=True):
     non_key_attributes: NotRequired["aws_sdk_securityhub.types.string_list.StringList"]
     """<p>The nonkey attributes that are projected into the index. For each attribute, provide the attribute name.</p>"""
     projection_type: NotRequired[

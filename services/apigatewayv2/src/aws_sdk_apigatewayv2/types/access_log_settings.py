@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#AccessLogSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.arn
     import aws_sdk_apigatewayv2.types.string_with_length_between1_and1024
 
 
-class AccessLogSettings(TypedDict):
+class AccessLogSettings(TypedDict, closed=True):
     destination_arn: NotRequired["aws_sdk_apigatewayv2.types.arn.Arn"]
     """<p>The ARN of the CloudWatch Logs log group to receive access logs.</p>"""
     format: NotRequired[

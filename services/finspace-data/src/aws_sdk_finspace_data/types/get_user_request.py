@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#GetUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.user_id
 
 
-class GetUserRequest(TypedDict):
+class GetUserRequest(TypedDict, closed=True):
     user_id: "aws_sdk_finspace_data.types.user_id.UserId"
     """<p>The unique identifier of the user to get data for.</p>"""
 

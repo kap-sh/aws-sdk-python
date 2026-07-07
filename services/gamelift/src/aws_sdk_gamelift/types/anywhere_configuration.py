@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#AnywhereConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_negative_limited_length_double
 
 
-class AnywhereConfiguration(TypedDict):
+class AnywhereConfiguration(TypedDict, closed=True):
     cost: NotRequired[
         "aws_sdk_gamelift.types.non_negative_limited_length_double.NonNegativeLimitedLengthDouble"
     ]

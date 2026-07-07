@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#NetworkImpairment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_internetmonitor.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.triangulation_event_type
 
 
-class NetworkImpairment(TypedDict):
+class NetworkImpairment(TypedDict, closed=True):
     networks: "aws_sdk_internetmonitor.types.network_list.NetworkList"
     """<p>The networks that could be impacted by a network impairment event.</p>"""
     as_path: "aws_sdk_internetmonitor.types.network_list.NetworkList"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#Backend``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplify.types.stack_arn
 
 
-class Backend(TypedDict):
+class Backend(TypedDict, closed=True):
     stack_arn: NotRequired["aws_sdk_amplify.types.stack_arn.StackArn"]
     """<p>The Amazon Resource Name (ARN) for the CloudFormation stack.</p>"""
 

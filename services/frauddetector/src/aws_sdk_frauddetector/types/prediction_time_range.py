@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#PredictionTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.time
 
 
-class PredictionTimeRange(TypedDict):
+class PredictionTimeRange(TypedDict, closed=True):
     start_time: "aws_sdk_frauddetector.types.time.time"
     """<p> The start time of the time period for when the predictions were generated. </p>"""
     end_time: "aws_sdk_frauddetector.types.time.time"

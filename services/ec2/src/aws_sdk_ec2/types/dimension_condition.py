@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DimensionCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.filter_by_dimension
 
 
-class DimensionCondition(TypedDict):
+class DimensionCondition(TypedDict, closed=True):
     dimension: NotRequired["aws_sdk_ec2.types.filter_by_dimension.FilterByDimension"]
     """<p> The name of the dimension to filter by. </p>"""
     comparison: NotRequired["aws_sdk_ec2.types.comparison.Comparison"]

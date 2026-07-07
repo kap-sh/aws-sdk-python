@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#SearchResourcesSimpleCriterion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.search_resources_simple_criterion_key
 
 
-class SearchResourcesSimpleCriterion(TypedDict):
+class SearchResourcesSimpleCriterion(TypedDict, closed=True):
     comparator: NotRequired[
         "aws_sdk_macie2.types.search_resources_comparator.SearchResourcesComparator"
     ]

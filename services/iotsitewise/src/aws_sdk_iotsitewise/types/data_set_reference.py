@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DataSetReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.source
     import aws_sdk_iotsitewise.types.string
 
 
-class DataSetReference(TypedDict):
+class DataSetReference(TypedDict, closed=True):
     dataset_arn: NotRequired["aws_sdk_iotsitewise.types.string.String"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">ARN</a> of the dataset. The format is <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dataset/${DatasetId}</code>.</p>"""
     source: NotRequired["aws_sdk_iotsitewise.types.source.Source"]

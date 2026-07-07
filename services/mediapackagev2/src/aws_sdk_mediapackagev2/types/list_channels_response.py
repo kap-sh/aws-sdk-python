@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#ListChannelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.channel_list
 
 
-class ListChannelsResponse(TypedDict):
+class ListChannelsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_mediapackagev2.types.channel_list.ChannelList"]
     """<p>The objects being returned.</p>"""
     next_token: NotRequired["str"]

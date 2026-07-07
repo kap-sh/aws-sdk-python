@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ArcAxisDisplayRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.double
 
 
-class ArcAxisDisplayRange(TypedDict):
+class ArcAxisDisplayRange(TypedDict, closed=True):
     min: NotRequired["aws_sdk_quicksight.types.double.Double"]
     """<p>The minimum value of the arc axis range.</p>"""
     max: NotRequired["aws_sdk_quicksight.types.double.Double"]

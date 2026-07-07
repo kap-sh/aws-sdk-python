@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.evs#DeleteEnvironmentHostResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_evs.types.environment_summary
     import aws_sdk_evs.types.host
 
 
-class DeleteEnvironmentHostResponse(TypedDict):
+class DeleteEnvironmentHostResponse(TypedDict, closed=True):
     environment_summary: NotRequired[
         "aws_sdk_evs.types.environment_summary.EnvironmentSummary"
     ]

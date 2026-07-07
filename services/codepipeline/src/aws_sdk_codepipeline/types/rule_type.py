@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#RuleType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.rule_type_settings
 
 
-class RuleType(TypedDict):
+class RuleType(TypedDict, closed=True):
     id: "aws_sdk_codepipeline.types.rule_type_id.RuleTypeId"
     """<p>Represents information about a rule type.</p>"""
     settings: NotRequired[

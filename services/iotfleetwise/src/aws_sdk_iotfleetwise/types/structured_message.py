@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#StructuredMessage``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.structured_message_list_definition
 
 
-class _StructuredMessage_primitiveMessageDefinition(TypedDict):
+class _StructuredMessage_primitiveMessageDefinition(TypedDict, closed=True):
     primitiveMessageDefinition: "aws_sdk_iotfleetwise.types.primitive_message_definition.PrimitiveMessageDefinition"
 
 
-class _StructuredMessage_structuredMessageListDefinition(TypedDict):
+class _StructuredMessage_structuredMessageListDefinition(TypedDict, closed=True):
     structuredMessageListDefinition: "aws_sdk_iotfleetwise.types.structured_message_list_definition.StructuredMessageListDefinition"
 
 
-class _StructuredMessage_structuredMessageDefinition(TypedDict):
+class _StructuredMessage_structuredMessageDefinition(TypedDict, closed=True):
     structuredMessageDefinition: "aws_sdk_iotfleetwise.types.structured_message_definition.StructuredMessageDefinition"
 
 

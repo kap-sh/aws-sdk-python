@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#BatchUnameSuccessResponseItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.uname
 
 
-class BatchUnameSuccessResponseItem(TypedDict):
+class BatchUnameSuccessResponseItem(TypedDict, closed=True):
     uname: "aws_sdk_wickr.types.uname.Uname"
     """<p>The username hash that was successfully resolved.</p>"""
     username: "aws_sdk_wickr.types.generic_string.GenericString"

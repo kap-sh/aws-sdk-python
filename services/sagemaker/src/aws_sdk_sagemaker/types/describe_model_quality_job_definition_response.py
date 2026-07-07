@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeModelQualityJobDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_quality_app_specification
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class DescribeModelQualityJobDefinitionResponse(TypedDict):
+class DescribeModelQualityJobDefinitionResponse(TypedDict, closed=True):
     job_definition_arn: NotRequired[
         "aws_sdk_sagemaker.types.monitoring_job_definition_arn.MonitoringJobDefinitionArn"
     ]

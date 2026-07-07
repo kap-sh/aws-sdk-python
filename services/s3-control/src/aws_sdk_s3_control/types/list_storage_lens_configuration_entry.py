@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#ListStorageLensConfigurationEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.storage_lens_arn
 
 
-class ListStorageLensConfigurationEntry(TypedDict):
+class ListStorageLensConfigurationEntry(TypedDict, closed=True):
     id: "aws_sdk_s3_control.types.config_id.ConfigId"
     """<p>A container for the S3 Storage Lens configuration ID.</p>"""
     storage_lens_arn: "aws_sdk_s3_control.types.storage_lens_arn.StorageLensArn"

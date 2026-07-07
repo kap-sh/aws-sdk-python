@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#GetResourceDashboardRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.application_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.resource_type
 
 
-class GetResourceDashboardRequest(TypedDict):
+class GetResourceDashboardRequest(TypedDict, closed=True):
     application_id: "aws_sdk_emr_serverless.types.application_id.ApplicationId"
     """<p>The ID of the application that the resource belongs to.</p>"""
     resource_id: "aws_sdk_emr_serverless.types.resource_id.ResourceId"

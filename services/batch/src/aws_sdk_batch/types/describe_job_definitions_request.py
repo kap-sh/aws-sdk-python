@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#DescribeJobDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string_list
 
 
-class DescribeJobDefinitionsRequest(TypedDict):
+class DescribeJobDefinitionsRequest(TypedDict, closed=True):
     job_definitions: NotRequired["aws_sdk_batch.types.string_list.StringList"]
     """<p>A list of up to 100 job definitions. Each entry in the list can either be an ARN in the format <code>arn:aws:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</code> or a short version using the form <code>${JobDefinitionName}:${Revision}</code>. This parameter can't be used with other parameters.</p>"""
     max_results: NotRequired["aws_sdk_batch.types.integer.Integer"]

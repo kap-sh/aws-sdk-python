@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#GetLifecycleExecutionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.lifecycle_execution
 
 
-class GetLifecycleExecutionResponse(TypedDict):
+class GetLifecycleExecutionResponse(TypedDict, closed=True):
     lifecycle_execution: NotRequired[
         "aws_sdk_imagebuilder.types.lifecycle_execution.LifecycleExecution"
     ]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ServiceQuotaExceededException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError, ServiceError
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "str"
     resource_id: NotRequired["str"]
     """<p>The resource ID.</p>"""

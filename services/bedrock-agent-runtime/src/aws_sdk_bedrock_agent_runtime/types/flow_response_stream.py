@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowResponseStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime._iter import AnyIterator
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import Message
@@ -21,67 +23,67 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.flow_trace_event
 
 
-class _FlowResponseStream_flowOutputEvent(TypedDict):
+class _FlowResponseStream_flowOutputEvent(TypedDict, closed=True):
     flowOutputEvent: (
         "aws_sdk_bedrock_agent_runtime.types.flow_output_event.FlowOutputEvent"
     )
 
 
-class _FlowResponseStream_flowCompletionEvent(TypedDict):
+class _FlowResponseStream_flowCompletionEvent(TypedDict, closed=True):
     flowCompletionEvent: (
         "aws_sdk_bedrock_agent_runtime.types.flow_completion_event.FlowCompletionEvent"
     )
 
 
-class _FlowResponseStream_flowTraceEvent(TypedDict):
+class _FlowResponseStream_flowTraceEvent(TypedDict, closed=True):
     flowTraceEvent: (
         "aws_sdk_bedrock_agent_runtime.types.flow_trace_event.FlowTraceEvent"
     )
 
 
-class _FlowResponseStream_internalServerException(TypedDict):
+class _FlowResponseStream_internalServerException(TypedDict, closed=True):
     internalServerException: "aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException_"
 
 
-class _FlowResponseStream_validationException(TypedDict):
+class _FlowResponseStream_validationException(TypedDict, closed=True):
     validationException: (
         "aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException_"
     )
 
 
-class _FlowResponseStream_resourceNotFoundException(TypedDict):
+class _FlowResponseStream_resourceNotFoundException(TypedDict, closed=True):
     resourceNotFoundException: "aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException_"
 
 
-class _FlowResponseStream_serviceQuotaExceededException(TypedDict):
+class _FlowResponseStream_serviceQuotaExceededException(TypedDict, closed=True):
     serviceQuotaExceededException: "aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException_"
 
 
-class _FlowResponseStream_throttlingException(TypedDict):
+class _FlowResponseStream_throttlingException(TypedDict, closed=True):
     throttlingException: (
         "aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException_"
     )
 
 
-class _FlowResponseStream_accessDeniedException(TypedDict):
+class _FlowResponseStream_accessDeniedException(TypedDict, closed=True):
     accessDeniedException: "aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException_"
 
 
-class _FlowResponseStream_conflictException(TypedDict):
+class _FlowResponseStream_conflictException(TypedDict, closed=True):
     conflictException: (
         "aws_sdk_bedrock_agent_runtime.errors.conflict_exception.ConflictException_"
     )
 
 
-class _FlowResponseStream_dependencyFailedException(TypedDict):
+class _FlowResponseStream_dependencyFailedException(TypedDict, closed=True):
     dependencyFailedException: "aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.DependencyFailedException_"
 
 
-class _FlowResponseStream_badGatewayException(TypedDict):
+class _FlowResponseStream_badGatewayException(TypedDict, closed=True):
     badGatewayException: "aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.BadGatewayException_"
 
 
-class _FlowResponseStream_flowMultiTurnInputRequestEvent(TypedDict):
+class _FlowResponseStream_flowMultiTurnInputRequestEvent(TypedDict, closed=True):
     flowMultiTurnInputRequestEvent: "aws_sdk_bedrock_agent_runtime.types.flow_multi_turn_input_request_event.FlowMultiTurnInputRequestEvent"
 
 

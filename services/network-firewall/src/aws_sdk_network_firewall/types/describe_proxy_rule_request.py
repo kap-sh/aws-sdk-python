@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#DescribeProxyRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.resource_name
 
 
-class DescribeProxyRuleRequest(TypedDict):
+class DescribeProxyRuleRequest(TypedDict, closed=True):
     proxy_rule_name: "aws_sdk_network_firewall.types.resource_name.ResourceName"
     """<p>The descriptive name of the proxy rule. You can't change the name of a proxy rule after you create it.</p>"""
     proxy_rule_group_name: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetResourcesV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.max_results
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.sort_criteria
 
 
-class GetResourcesV2Request(TypedDict):
+class GetResourcesV2Request(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_securityhub.types.resources_filters.ResourcesFilters"]
     """<p>Filters resources based on a set of criteria.</p>"""
     scopes: NotRequired["aws_sdk_securityhub.types.resource_scopes.ResourceScopes"]

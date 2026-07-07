@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#PipelineObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_data_pipeline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.id
 
 
-class PipelineObject(TypedDict):
+class PipelineObject(TypedDict, closed=True):
     id: "aws_sdk_data_pipeline.types.id.id"
     """<p>The ID of the object.</p>"""
     name: "aws_sdk_data_pipeline.types.id.id"

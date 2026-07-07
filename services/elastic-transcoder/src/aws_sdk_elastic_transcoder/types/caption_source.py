@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#CaptionSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.encryption
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.time_offset
 
 
-class CaptionSource(TypedDict):
+class CaptionSource(TypedDict, closed=True):
     key: NotRequired["aws_sdk_elastic_transcoder.types.long_key.LongKey"]
     """<p>The name of the sidecar caption file that you want Elastic Transcoder to include in the output file.</p>"""
     language: NotRequired["aws_sdk_elastic_transcoder.types.key.Key"]

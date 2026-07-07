@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LaunchIntoInstanceProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.ec2_instance_id
 
 
-class LaunchIntoInstanceProperties(TypedDict):
+class LaunchIntoInstanceProperties(TypedDict, closed=True):
     launch_into_ec2_instance_id: NotRequired[
         "aws_sdk_drs.types.ec2_instance_id.EC2InstanceID"
     ]

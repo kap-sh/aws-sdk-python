@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ListRuleGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.scope
 
 
-class ListRuleGroupsRequest(TypedDict):
+class ListRuleGroupsRequest(TypedDict, closed=True):
     scope: "aws_sdk_wafv2.types.scope.Scope"
     """<p>Specifies whether this is for a global resource type, such as a Amazon CloudFront distribution. For an Amplify application, use <code>CLOUDFRONT</code>.</p> <p>To work with CloudFront, you must also specify the Region US East (N. Virginia) as follows: </p> <ul> <li> <p>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT --region=us-east-1</code>. </p> </li> <li> <p>API and SDKs - For all calls, use the Region endpoint us-east-1. </p> </li> </ul>"""
     next_marker: NotRequired["aws_sdk_wafv2.types.next_marker.NextMarker"]

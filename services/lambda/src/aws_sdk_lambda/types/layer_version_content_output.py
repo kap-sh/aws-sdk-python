@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#LayerVersionContentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.long
     import aws_sdk_lambda.types.string
 
 
-class LayerVersionContentOutput(TypedDict):
+class LayerVersionContentOutput(TypedDict, closed=True):
     location: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>A link to the layer archive in Amazon S3 that is valid for 10 minutes.</p>"""
     code_sha256: NotRequired["aws_sdk_lambda.types.string.String"]

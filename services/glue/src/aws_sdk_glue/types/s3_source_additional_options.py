@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#S3SourceAdditionalOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boxed_long
 
 
-class S3SourceAdditionalOptions(TypedDict):
+class S3SourceAdditionalOptions(TypedDict, closed=True):
     bounded_size: NotRequired["aws_sdk_glue.types.boxed_long.BoxedLong"]
     """<p>Sets the upper limit for the target size of the dataset in bytes that will be processed.</p>"""
     bounded_files: NotRequired["aws_sdk_glue.types.boxed_long.BoxedLong"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ListCaseRulesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.next_token
 
 
-class ListCaseRulesResponse(TypedDict):
+class ListCaseRulesResponse(TypedDict, closed=True):
     case_rules: "aws_sdk_connectcases.types.case_rule_summary_list.CaseRuleSummaryList"
     """<p>A list of field summary objects.</p>"""
     next_token: NotRequired["aws_sdk_connectcases.types.next_token.NextToken"]

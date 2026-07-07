@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#CreateDataIntegrationAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.client_association_metadata
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.object_configuration
 
 
-class CreateDataIntegrationAssociationRequest(TypedDict):
+class CreateDataIntegrationAssociationRequest(TypedDict, closed=True):
     data_integration_identifier: "aws_sdk_appintegrations.types.identifier.Identifier"
     """<p>A unique identifier for the DataIntegration.</p>"""
     client_id: NotRequired["aws_sdk_appintegrations.types.client_id.ClientId"]

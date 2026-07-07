@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoMLJobCompletionCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_auto_ml_job_runtime_in_seconds
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_runtime_per_training_job_in_seconds
 
 
-class AutoMLJobCompletionCriteria(TypedDict):
+class AutoMLJobCompletionCriteria(TypedDict, closed=True):
     max_candidates: NotRequired["aws_sdk_sagemaker.types.max_candidates.MaxCandidates"]
     """<p>The maximum number of times a training job is allowed to run.</p> <p>For text and image classification, time-series forecasting, as well as text generation (LLMs fine-tuning) problem types, the supported value is 1. For tabular problem types, the maximum value is 750.</p>"""
     max_runtime_per_training_job_in_seconds: NotRequired[

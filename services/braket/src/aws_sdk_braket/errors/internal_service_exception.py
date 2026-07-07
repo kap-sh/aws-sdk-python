@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.braket#InternalServiceException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import ServiceError
 
 
-class InternalServiceException_(TypedDict):
+class InternalServiceException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

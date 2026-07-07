@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DnsRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.string
 
 
-class DnsRecord(TypedDict):
+class DnsRecord(TypedDict, closed=True):
     type: NotRequired["aws_sdk_workmail.types.string.String"]
     """<p>The RFC 1035 record type. Possible values: <code>CNAME</code>, <code>A</code>, <code>MX</code>.</p>"""
     hostname: NotRequired["aws_sdk_workmail.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#JobUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.code_gen_configuration_nodes
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.worker_type
 
 
-class JobUpdate(TypedDict):
+class JobUpdate(TypedDict, closed=True):
     job_mode: NotRequired["aws_sdk_glue.types.job_mode.JobMode"]
     """<p>A mode that describes how a job was created. Valid values are:</p> <ul> <li> <p> <code>SCRIPT</code> - The job was created using the Glue Studio script editor.</p> </li> <li> <p> <code>VISUAL</code> - The job was created using the Glue Studio visual editor.</p> </li> <li> <p> <code>NOTEBOOK</code> - The job was created using an interactive sessions notebook.</p> </li> </ul> <p>When the <code>JobMode</code> field is missing or null, <code>SCRIPT</code> is assigned as the default value.</p>"""
     job_run_queuing_enabled: NotRequired[

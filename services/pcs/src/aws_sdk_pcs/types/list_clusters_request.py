@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ListClustersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pcs.types.max_results
 
 
-class ListClustersRequest(TypedDict):
+class ListClustersRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The value of <code>nextToken</code> is a unique pagination token for each page of results returned. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token returns an <code>HTTP 400 InvalidToken</code> error.</p>"""
     max_results: "aws_sdk_pcs.types.max_results.MaxResults"

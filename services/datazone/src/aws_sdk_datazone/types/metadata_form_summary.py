@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#MetadataFormSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class MetadataFormSummary(TypedDict):
+class MetadataFormSummary(TypedDict, closed=True):
     form_name: NotRequired["aws_sdk_datazone.types.form_name.FormName"]
     """<p>The form name of the metadata form.</p>"""
     type_name: "aws_sdk_datazone.types.form_type_name.FormTypeName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#AwsOpportunityLifeCycle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.aws_closed_lost_reason
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.profile_next_steps_histories
 
 
-class AwsOpportunityLifeCycle(TypedDict):
+class AwsOpportunityLifeCycle(TypedDict, closed=True):
     target_close_date: NotRequired["aws_sdk_partnercentral_selling.types.date.Date"]
     """<p>Indicates the expected date by which the opportunity is projected to close. This field helps in planning resources and timelines for both the partner and AWS.</p>"""
     closed_lost_reason: NotRequired[

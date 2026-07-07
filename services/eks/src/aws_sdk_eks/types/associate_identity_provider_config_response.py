@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#AssociateIdentityProviderConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.tag_map
     import aws_sdk_eks.types.update
 
 
-class AssociateIdentityProviderConfigResponse(TypedDict):
+class AssociateIdentityProviderConfigResponse(TypedDict, closed=True):
     update: NotRequired["aws_sdk_eks.types.update.Update"]
     tags: NotRequired["aws_sdk_eks.types.tag_map.TagMap"]
     """<p>The tags for the resource.</p>"""

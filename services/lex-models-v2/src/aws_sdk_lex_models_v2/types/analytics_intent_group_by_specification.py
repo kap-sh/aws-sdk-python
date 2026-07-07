@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AnalyticsIntentGroupBySpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_intent_field
 
 
-class AnalyticsIntentGroupBySpecification(TypedDict):
+class AnalyticsIntentGroupBySpecification(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.analytics_intent_field.AnalyticsIntentField"
     """<p>Specifies whether to group the intent stages by their name or their end state.</p>"""
 

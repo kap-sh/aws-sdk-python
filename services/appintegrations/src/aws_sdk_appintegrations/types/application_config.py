@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#ApplicationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.contact_handling
 
 
-class ApplicationConfig(TypedDict):
+class ApplicationConfig(TypedDict, closed=True):
     contact_handling: NotRequired[
         "aws_sdk_appintegrations.types.contact_handling.ContactHandling"
     ]

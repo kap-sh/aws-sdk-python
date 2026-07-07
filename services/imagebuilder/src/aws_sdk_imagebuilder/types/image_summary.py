@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ImageSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.build_type
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.version_number
 
 
-class ImageSummary(TypedDict):
+class ImageSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_imagebuilder.types.image_builder_arn.ImageBuilderArn"]
     """<p>The Amazon Resource Name (ARN) of the image.</p>"""
     name: NotRequired["aws_sdk_imagebuilder.types.resource_name.ResourceName"]

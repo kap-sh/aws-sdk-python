@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
     """<p>Error description.</p>"""
     service_code: NotRequired["str"]

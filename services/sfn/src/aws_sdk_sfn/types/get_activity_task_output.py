@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#GetActivityTaskOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.sensitive_data_job_input
     import aws_sdk_sfn.types.task_token
 
 
-class GetActivityTaskOutput(TypedDict):
+class GetActivityTaskOutput(TypedDict, closed=True):
     task_token: NotRequired["aws_sdk_sfn.types.task_token.TaskToken"]
     """<p>A token that identifies the scheduled task. This token must be copied and included in subsequent calls to <a>SendTaskHeartbeat</a>, <a>SendTaskSuccess</a> or <a>SendTaskFailure</a> in order to report the progress or completion of the task.</p>"""
     input: NotRequired[

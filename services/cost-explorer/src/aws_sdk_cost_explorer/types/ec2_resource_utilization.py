@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#EC2ResourceUtilization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.disk_resource_utilization
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.network_resource_utilization
 
 
-class EC2ResourceUtilization(TypedDict):
+class EC2ResourceUtilization(TypedDict, closed=True):
     max_cpu_utilization_percentage: NotRequired[
         "aws_sdk_cost_explorer.types.generic_string.GenericString"
     ]

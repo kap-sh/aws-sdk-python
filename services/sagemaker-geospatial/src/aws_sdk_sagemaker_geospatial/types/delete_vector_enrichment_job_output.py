@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#DeleteVectorEnrichmentJobOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteVectorEnrichmentJobOutput(TypedDict):
+class DeleteVectorEnrichmentJobOutput(TypedDict, closed=True):
     pass
 
 

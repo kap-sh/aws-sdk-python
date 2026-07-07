@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#UpdateAnalyzerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.analyzer_configuration
     import aws_sdk_accessanalyzer.types.analyzer_name
 
 
-class UpdateAnalyzerRequest(TypedDict):
+class UpdateAnalyzerRequest(TypedDict, closed=True):
     analyzer_name: "aws_sdk_accessanalyzer.types.analyzer_name.AnalyzerName"
     """<p>The name of the analyzer to modify.</p>"""
     configuration: NotRequired[

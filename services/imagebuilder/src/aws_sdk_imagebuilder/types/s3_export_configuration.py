@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#S3ExportConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class S3ExportConfiguration(TypedDict):
+class S3ExportConfiguration(TypedDict, closed=True):
     role_name: "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
     """<p>The name of the role that grants VM Import/Export permission to export images to your S3 bucket.</p>"""
     disk_image_format: "aws_sdk_imagebuilder.types.disk_image_format.DiskImageFormat"

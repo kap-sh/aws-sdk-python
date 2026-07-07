@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeNetworkInterfacePermissionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeNetworkInterfacePermissionsRequest(TypedDict):
+class DescribeNetworkInterfacePermissionsRequest(TypedDict, closed=True):
     network_interface_permission_ids: NotRequired[
         "aws_sdk_ec2.types.network_interface_permission_id_list.NetworkInterfacePermissionIdList"
     ]

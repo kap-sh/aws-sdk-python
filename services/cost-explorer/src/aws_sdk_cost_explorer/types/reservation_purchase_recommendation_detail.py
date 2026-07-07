@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ReservationPurchaseRecommendationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.reserved_capacity_details
 
 
-class ReservationPurchaseRecommendationDetail(TypedDict):
+class ReservationPurchaseRecommendationDetail(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_cost_explorer.types.generic_string.GenericString"]
     """<p>The account that this Reserved Instance (RI) recommendation is for.</p>"""
     instance_details: NotRequired[

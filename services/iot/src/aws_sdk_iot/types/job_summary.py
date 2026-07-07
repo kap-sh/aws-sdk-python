@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#JobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.boolean_wrapper_object
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_group_id
 
 
-class JobSummary(TypedDict):
+class JobSummary(TypedDict, closed=True):
     job_arn: NotRequired["aws_sdk_iot.types.job_arn.JobArn"]
     """<p>The job ARN.</p>"""
     job_id: NotRequired["aws_sdk_iot.types.job_id.JobId"]

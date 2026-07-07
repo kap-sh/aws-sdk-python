@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#RevokeIpRulesResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RevokeIpRulesResult(TypedDict):
+class RevokeIpRulesResult(TypedDict, closed=True):
     pass
 
 

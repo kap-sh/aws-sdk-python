@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError, ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.validation_exception_field_list
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: "str"
     field_list: NotRequired[
         "aws_sdk_resource_explorer_2.types.validation_exception_field_list.ValidationExceptionFieldList"

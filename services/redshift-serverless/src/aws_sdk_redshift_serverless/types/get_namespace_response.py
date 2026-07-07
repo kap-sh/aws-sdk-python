@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#GetNamespaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.namespace
 
 
-class GetNamespaceResponse(TypedDict):
+class GetNamespaceResponse(TypedDict, closed=True):
     namespace: "aws_sdk_redshift_serverless.types.namespace.Namespace"
     """<p>The returned namespace object.</p>"""
 

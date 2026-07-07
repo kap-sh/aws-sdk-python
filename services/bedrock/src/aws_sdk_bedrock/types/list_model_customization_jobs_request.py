@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListModelCustomizationJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.fine_tuning_job_status
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.timestamp
 
 
-class ListModelCustomizationJobsRequest(TypedDict):
+class ListModelCustomizationJobsRequest(TypedDict, closed=True):
     creation_time_after: NotRequired["aws_sdk_bedrock.types.timestamp.Timestamp"]
     """<p>Return customization jobs created after the specified time. </p>"""
     creation_time_before: NotRequired["aws_sdk_bedrock.types.timestamp.Timestamp"]

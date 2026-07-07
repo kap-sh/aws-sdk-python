@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeEventsForOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.next_token
     import aws_sdk_health.types.organization_event_list
 
 
-class DescribeEventsForOrganizationResponse(TypedDict):
+class DescribeEventsForOrganizationResponse(TypedDict, closed=True):
     events: NotRequired[
         "aws_sdk_health.types.organization_event_list.OrganizationEventList"
     ]

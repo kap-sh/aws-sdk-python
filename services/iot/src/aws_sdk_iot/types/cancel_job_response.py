@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CancelJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.job_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.job_id
 
 
-class CancelJobResponse(TypedDict):
+class CancelJobResponse(TypedDict, closed=True):
     job_arn: NotRequired["aws_sdk_iot.types.job_arn.JobArn"]
     """<p>The job ARN.</p>"""
     job_id: NotRequired["aws_sdk_iot.types.job_id.JobId"]

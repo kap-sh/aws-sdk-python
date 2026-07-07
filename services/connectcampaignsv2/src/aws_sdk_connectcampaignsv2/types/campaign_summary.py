@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#CampaignSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.schedule
 
 
-class CampaignSummary(TypedDict):
+class CampaignSummary(TypedDict, closed=True):
     id: "aws_sdk_connectcampaignsv2.types.campaign_id.CampaignId"
     arn: "aws_sdk_connectcampaignsv2.types.campaign_arn.CampaignArn"
     name: "aws_sdk_connectcampaignsv2.types.campaign_name.CampaignName"

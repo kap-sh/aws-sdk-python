@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdatedA2aDescriptor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.a2a_descriptor
 
 
-class UpdatedA2aDescriptor(TypedDict):
+class UpdatedA2aDescriptor(TypedDict, closed=True):
     optional_value: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.a2a_descriptor.A2aDescriptor"
     ]

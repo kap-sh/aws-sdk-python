@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetUnfilteredPartitionsMetadataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.value_string
 
 
-class GetUnfilteredPartitionsMetadataRequest(TypedDict):
+class GetUnfilteredPartitionsMetadataRequest(TypedDict, closed=True):
     region: NotRequired["aws_sdk_glue.types.value_string.ValueString"]
     """<p>Specified only if the base tables belong to a different Amazon Web Services Region.</p>"""
     catalog_id: "aws_sdk_glue.types.catalog_id_string.CatalogIdString"

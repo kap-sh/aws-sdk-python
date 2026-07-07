@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#KPIFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.dimension_field_list
     import aws_sdk_quicksight.types.measure_field_list
 
 
-class KPIFieldWells(TypedDict):
+class KPIFieldWells(TypedDict, closed=True):
     values: NotRequired["aws_sdk_quicksight.types.measure_field_list.MeasureFieldList"]
     """<p>The value field wells of a KPI visual.</p>"""
     target_values: NotRequired[

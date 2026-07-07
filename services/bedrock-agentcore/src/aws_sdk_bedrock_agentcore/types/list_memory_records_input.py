@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ListMemoryRecordsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.max_results
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.pagination_token
 
 
-class ListMemoryRecordsInput(TypedDict):
+class ListMemoryRecordsInput(TypedDict, closed=True):
     memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId"
     """<p>The identifier of the AgentCore Memory resource for which to list memory records.</p>"""
     namespace: NotRequired["aws_sdk_bedrock_agentcore.types.namespace.Namespace"]

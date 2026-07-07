@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#DkimAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.dkim_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.enabled
 
 
-class DkimAttributes(TypedDict):
+class DkimAttributes(TypedDict, closed=True):
     signing_enabled: "aws_sdk_pinpoint_email.types.enabled.Enabled"
     """<p>If the value is <code>true</code>, then the messages that Amazon Pinpoint sends from the identity are DKIM-signed. If the value is <code>false</code>, then the messages that Amazon Pinpoint sends from the identity aren't DKIM-signed.</p>"""
     status: NotRequired["aws_sdk_pinpoint_email.types.dkim_status.DkimStatus"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ControlMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.mapping_type
 
 
-class ControlMapping(TypedDict):
+class ControlMapping(TypedDict, closed=True):
     control_arn: "aws_sdk_controlcatalog.types.control_arn.ControlArn"
     """<p>The Amazon Resource Name (ARN) that identifies the control in the mapping.</p>"""
     mapping_type: "aws_sdk_controlcatalog.types.mapping_type.MappingType"

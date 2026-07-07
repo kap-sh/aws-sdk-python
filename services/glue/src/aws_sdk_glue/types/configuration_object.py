@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ConfigurationObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.allowed_values_string_list
     import aws_sdk_glue.types.config_value_string
 
 
-class ConfigurationObject(TypedDict):
+class ConfigurationObject(TypedDict, closed=True):
     default_value: NotRequired[
         "aws_sdk_glue.types.config_value_string.ConfigValueString"
     ]

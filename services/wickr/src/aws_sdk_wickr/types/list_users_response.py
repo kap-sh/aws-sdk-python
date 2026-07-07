@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#ListUsersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
     import aws_sdk_wickr.types.users
 
 
-class ListUsersResponse(TypedDict):
+class ListUsersResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>The token to use for retrieving the next page of results. If this is not present, there are no more results.</p>"""
     users: NotRequired["aws_sdk_wickr.types.users.Users"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteImageResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteImageResponse(TypedDict):
+class DeleteImageResponse(TypedDict, closed=True):
     pass
 
 

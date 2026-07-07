@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationReviewConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.integer
 
 
-class EvaluationReviewConfiguration(TypedDict):
+class EvaluationReviewConfiguration(TypedDict, closed=True):
     review_notification_recipients: "aws_sdk_connect.types.evaluation_review_notification_recipient_list.EvaluationReviewNotificationRecipientList"
     """<p>List of recipients who should be notified when a review is requested.</p>"""
     eligibility_days: "aws_sdk_connect.types.integer.Integer"

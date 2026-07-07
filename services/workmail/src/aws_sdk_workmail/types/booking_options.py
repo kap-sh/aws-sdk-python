@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#BookingOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.boolean
 
 
-class BookingOptions(TypedDict):
+class BookingOptions(TypedDict, closed=True):
     auto_accept_requests: "aws_sdk_workmail.types.boolean.Boolean"
     """<p>The resource's ability to automatically reply to requests. If disabled, delegates must be associated to the resource.</p>"""
     auto_decline_recurring_requests: "aws_sdk_workmail.types.boolean.Boolean"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AssetPropertyValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.asset_property_variant
 
 
-class AssetPropertyValue(TypedDict):
+class AssetPropertyValue(TypedDict, closed=True):
     value: "aws_sdk_iot.types.asset_property_variant.AssetPropertyVariant"
     """<p>The value of the asset property.</p>"""
     timestamp: "aws_sdk_iot.types.asset_property_timestamp.AssetPropertyTimestamp"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Queue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class Queue(TypedDict):
+class Queue(TypedDict, closed=True):
     name: NotRequired["aws_sdk_connect.types.common_name_length127.CommonNameLength127"]
     """<p>The name of the queue.</p>"""
     queue_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

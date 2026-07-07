@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DescribeDeliveryDestinationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.delivery_destinations
     import aws_sdk_cloudwatch_logs.types.next_token
 
 
-class DescribeDeliveryDestinationsResponse(TypedDict):
+class DescribeDeliveryDestinationsResponse(TypedDict, closed=True):
     delivery_destinations: NotRequired[
         "aws_sdk_cloudwatch_logs.types.delivery_destinations.DeliveryDestinations"
     ]

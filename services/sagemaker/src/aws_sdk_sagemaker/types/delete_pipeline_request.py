@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeletePipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.idempotency_token
     import aws_sdk_sagemaker.types.pipeline_name
 
 
-class DeletePipelineRequest(TypedDict):
+class DeletePipelineRequest(TypedDict, closed=True):
     pipeline_name: NotRequired["aws_sdk_sagemaker.types.pipeline_name.PipelineName"]
     """<p>The name of the pipeline to delete.</p>"""
     client_request_token: NotRequired[

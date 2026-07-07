@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#GetFindingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.status
 
 
-class GetFindingsRequest(TypedDict):
+class GetFindingsRequest(TypedDict, closed=True):
     scan_name: "aws_sdk_codeguru_security.types.scan_name.ScanName"
     """<p>The name of the scan you want to retrieve findings from.</p>"""
     next_token: NotRequired["aws_sdk_codeguru_security.types.next_token.NextToken"]

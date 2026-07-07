@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#GetTargetAccountConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.target_account_configuration
 
 
-class GetTargetAccountConfigurationResponse(TypedDict):
+class GetTargetAccountConfigurationResponse(TypedDict, closed=True):
     target_account_configuration: NotRequired[
         "aws_sdk_fis.types.target_account_configuration.TargetAccountConfiguration"
     ]

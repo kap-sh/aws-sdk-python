@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EventDimensions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of_attribute_dimension
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.set_dimension
 
 
-class EventDimensions(TypedDict):
+class EventDimensions(TypedDict, closed=True):
     attributes: NotRequired[
         "aws_sdk_pinpoint.types.map_of_attribute_dimension.MapOfAttributeDimension"
     ]

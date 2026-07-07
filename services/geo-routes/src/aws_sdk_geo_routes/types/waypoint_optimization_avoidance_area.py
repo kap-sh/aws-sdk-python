@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationAvoidanceArea``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.waypoint_optimization_avoidance_area_geometry
 
 
-class WaypointOptimizationAvoidanceArea(TypedDict):
+class WaypointOptimizationAvoidanceArea(TypedDict, closed=True):
     geometry: "aws_sdk_geo_routes.types.waypoint_optimization_avoidance_area_geometry.WaypointOptimizationAvoidanceAreaGeometry"
     """<p>Geometry of the area to be avoided.</p>"""
 

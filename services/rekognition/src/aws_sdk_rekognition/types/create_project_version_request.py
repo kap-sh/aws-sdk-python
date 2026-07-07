@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CreateProjectVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.version_name
 
 
-class CreateProjectVersionRequest(TypedDict):
+class CreateProjectVersionRequest(TypedDict, closed=True):
     project_arn: "aws_sdk_rekognition.types.project_arn.ProjectArn"
     """<p>The ARN of the Amazon Rekognition project that will manage the project version you want to train.</p>"""
     version_name: "aws_sdk_rekognition.types.version_name.VersionName"

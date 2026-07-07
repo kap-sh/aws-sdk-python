@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#ActiveTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billing.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class ActiveTimeRange(TypedDict):
+class ActiveTimeRange(TypedDict, closed=True):
     active_after_inclusive: "datetime.datetime"
     """<p>The inclusive time range start date.</p>"""
     active_before_inclusive: "datetime.datetime"

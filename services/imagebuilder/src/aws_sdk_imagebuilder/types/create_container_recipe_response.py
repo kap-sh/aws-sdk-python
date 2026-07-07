@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#CreateContainerRecipeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.client_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class CreateContainerRecipeResponse(TypedDict):
+class CreateContainerRecipeResponse(TypedDict, closed=True):
     request_id: NotRequired[
         "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
     ]

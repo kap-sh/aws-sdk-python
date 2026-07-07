@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ParameterConstraints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.allowed_values
     import aws_sdk_service_catalog.types.string
 
 
-class ParameterConstraints(TypedDict):
+class ParameterConstraints(TypedDict, closed=True):
     allowed_values: NotRequired[
         "aws_sdk_service_catalog.types.allowed_values.AllowedValues"
     ]

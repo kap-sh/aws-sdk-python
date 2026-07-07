@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AuthorizationCodeGrantCredentialsDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
 
 
 class _AuthorizationCodeGrantCredentialsDetails_AuthorizationCodeGrantDetails(
-    TypedDict
+    TypedDict, closed=True
 ):
     AuthorizationCodeGrantDetails: "aws_sdk_quicksight.types.authorization_code_grant_details.AuthorizationCodeGrantDetails"
 

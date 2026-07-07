@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#PrivacyImpact``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.differential_privacy_privacy_impact
 
 
-class _PrivacyImpact_differentialPrivacy(TypedDict):
+class _PrivacyImpact_differentialPrivacy(TypedDict, closed=True):
     differentialPrivacy: "aws_sdk_cleanrooms.types.differential_privacy_privacy_impact.DifferentialPrivacyPrivacyImpact"
 
 

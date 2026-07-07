@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#FileCacheDataRepositoryAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.archive_path
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.sub_directories_paths
 
 
-class FileCacheDataRepositoryAssociation(TypedDict):
+class FileCacheDataRepositoryAssociation(TypedDict, closed=True):
     file_cache_path: NotRequired["aws_sdk_fsx.types.namespace.Namespace"]
     """<p>A path on the cache that points to a high-level directory (such as <code>/ns1/</code>) or subdirectory (such as <code>/ns1/subdir/</code>) that will be mapped 1-1 with <code>DataRepositoryPath</code>. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path <code>/ns1/</code>, then you cannot link another data repository with cache path <code>/ns1/ns2</code>.</p> <p>This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory.</p> <note> <p>The cache path can only be set to root (/) on an NFS DRA when <code>DataRepositorySubdirectories</code> is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache.</p> <p>The cache path cannot be set to root (/) for an S3 DRA.</p> </note>"""
     data_repository_path: NotRequired["aws_sdk_fsx.types.archive_path.ArchivePath"]

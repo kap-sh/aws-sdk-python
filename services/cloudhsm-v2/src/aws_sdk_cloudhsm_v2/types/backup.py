@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#Backup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudhsm_v2.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.timestamp
 
 
-class Backup(TypedDict):
+class Backup(TypedDict, closed=True):
     backup_id: "aws_sdk_cloudhsm_v2.types.backup_id.BackupId"
     """<p>The identifier (ID) of the backup.</p>"""
     backup_arn: NotRequired["aws_sdk_cloudhsm_v2.types.backup_arn.BackupArn"]

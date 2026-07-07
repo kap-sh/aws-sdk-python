@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#AccessScope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.access_scope_type
     import aws_sdk_eks.types.string_list
 
 
-class AccessScope(TypedDict):
+class AccessScope(TypedDict, closed=True):
     type: NotRequired["aws_sdk_eks.types.access_scope_type.AccessScopeType"]
     """<p>The scope type of an access policy.</p>"""
     namespaces: NotRequired["aws_sdk_eks.types.string_list.StringList"]

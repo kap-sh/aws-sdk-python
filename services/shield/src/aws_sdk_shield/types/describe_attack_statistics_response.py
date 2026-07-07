@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DescribeAttackStatisticsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.time_range
 
 
-class DescribeAttackStatisticsResponse(TypedDict):
+class DescribeAttackStatisticsResponse(TypedDict, closed=True):
     time_range: "aws_sdk_shield.types.time_range.TimeRange"
     """<p>The time range of the attack.</p>"""
     data_items: (

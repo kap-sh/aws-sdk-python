@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#ListSearchJobResultsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.results
 
 
-class ListSearchJobResultsOutput(TypedDict):
+class ListSearchJobResultsOutput(TypedDict, closed=True):
     results: "aws_sdk_backupsearch.types.results.Results"
     """<p>The results consist of either EBSResultItem or S3ResultItem.</p>"""
     next_token: NotRequired["str"]

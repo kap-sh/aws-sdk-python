@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#DeleteResourcesByExternalIdOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteResourcesByExternalIdOutput(TypedDict):
+class DeleteResourcesByExternalIdOutput(TypedDict, closed=True):
     pass
 
 

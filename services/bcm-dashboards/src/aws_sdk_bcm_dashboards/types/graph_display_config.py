@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#GraphDisplayConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.visual_type
 
 
-class GraphDisplayConfig(TypedDict):
+class GraphDisplayConfig(TypedDict, closed=True):
     visual_type: "aws_sdk_bcm_dashboards.types.visual_type.VisualType"
     """<p>The type of visualization to use for the data.</p>"""
 

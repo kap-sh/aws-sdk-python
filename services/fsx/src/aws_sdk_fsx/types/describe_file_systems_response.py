@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeFileSystemsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.file_systems
     import aws_sdk_fsx.types.next_token
 
 
-class DescribeFileSystemsResponse(TypedDict):
+class DescribeFileSystemsResponse(TypedDict, closed=True):
     file_systems: NotRequired["aws_sdk_fsx.types.file_systems.FileSystems"]
     """<p>An array of file system descriptions.</p>"""
     next_token: NotRequired["aws_sdk_fsx.types.next_token.NextToken"]

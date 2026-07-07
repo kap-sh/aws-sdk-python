@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#PredictionTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.timestamp
 
 
-class PredictionTimeRange(TypedDict):
+class PredictionTimeRange(TypedDict, closed=True):
     start_time: "aws_sdk_devops_guru.types.timestamp.Timestamp"
     """<p> The time range during which a metric limit is expected to be exceeded. This applies to proactive insights only. </p>"""
     end_time: NotRequired["aws_sdk_devops_guru.types.timestamp.Timestamp"]

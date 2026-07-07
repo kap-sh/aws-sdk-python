@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HyperParameterTuningJobSearchEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.failure_reason
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.training_job_status_counters
 
 
-class HyperParameterTuningJobSearchEntity(TypedDict):
+class HyperParameterTuningJobSearchEntity(TypedDict, closed=True):
     hyper_parameter_tuning_job_name: NotRequired[
         "aws_sdk_sagemaker.types.hyper_parameter_tuning_job_name.HyperParameterTuningJobName"
     ]

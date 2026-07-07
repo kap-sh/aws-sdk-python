@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#SortCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.order_by
     import aws_sdk_guardduty.types.string
 
 
-class SortCriteria(TypedDict):
+class SortCriteria(TypedDict, closed=True):
     attribute_name: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Represents the finding attribute, such as <code>accountId</code>, that sorts the findings.</p>"""
     order_by: NotRequired["aws_sdk_guardduty.types.order_by.OrderBy"]

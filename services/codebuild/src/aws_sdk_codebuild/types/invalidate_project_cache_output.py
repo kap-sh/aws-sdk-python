@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#InvalidateProjectCacheOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class InvalidateProjectCacheOutput(TypedDict):
+class InvalidateProjectCacheOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteFlowDefinitionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteFlowDefinitionResponse(TypedDict):
+class DeleteFlowDefinitionResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#GetSolFunctionPackageDescriptorOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.descriptor_content_type
 
 
-class GetSolFunctionPackageDescriptorOutput(TypedDict):
+class GetSolFunctionPackageDescriptorOutput(TypedDict, closed=True):
     content_type: NotRequired[
         "aws_sdk_tnb.types.descriptor_content_type.DescriptorContentType"
     ]

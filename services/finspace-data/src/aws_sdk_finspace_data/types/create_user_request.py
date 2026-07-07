@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#CreateUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_finspace_data.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.user_type
 
 
-class CreateUserRequest(TypedDict):
+class CreateUserRequest(TypedDict, closed=True):
     email_address: "aws_sdk_finspace_data.types.email.Email"
     """<p>The email address of the user that you want to register. The email address serves as a uniquer identifier for each user and cannot be changed after it's created.</p>"""
     type: "aws_sdk_finspace_data.types.user_type.UserType"

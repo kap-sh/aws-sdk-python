@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#DeleteRemoteAccessSessionResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRemoteAccessSessionResult(TypedDict):
+class DeleteRemoteAccessSessionResult(TypedDict, closed=True):
     pass
 
 

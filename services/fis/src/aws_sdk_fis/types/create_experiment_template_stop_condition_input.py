@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#CreateExperimentTemplateStopConditionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fis.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.stop_condition_value
 
 
-class CreateExperimentTemplateStopConditionInput(TypedDict):
+class CreateExperimentTemplateStopConditionInput(TypedDict, closed=True):
     source: "aws_sdk_fis.types.stop_condition_source.StopConditionSource"
     """<p>The source for the stop condition. Specify <code>aws:cloudwatch:alarm</code> if the stop condition is defined by a CloudWatch alarm. Specify <code>none</code> if there is no stop condition.</p>"""
     value: NotRequired["aws_sdk_fis.types.stop_condition_value.StopConditionValue"]

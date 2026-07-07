@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceentitlementservice#GetEntitlementsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_entitlement_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_entitlement_service.types.product_code
 
 
-class GetEntitlementsRequest(TypedDict):
+class GetEntitlementsRequest(TypedDict, closed=True):
     product_code: (
         "aws_sdk_marketplace_entitlement_service.types.product_code.ProductCode"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#UpdateSessionDataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class UpdateSessionDataResponse(TypedDict):
+class UpdateSessionDataResponse(TypedDict, closed=True):
     session_arn: "aws_sdk_qconnect.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the session.</p>"""
     session_id: "aws_sdk_qconnect.types.uuid.Uuid"

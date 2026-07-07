@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#ContentTooLargeException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError, ServiceError
 
 
-class ContentTooLargeException_(TypedDict):
+class ContentTooLargeException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p>The unique identifier of the resource</p>"""

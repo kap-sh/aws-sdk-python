@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeHostReservationOfferingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeHostReservationOfferingsRequest(TypedDict):
+class DescribeHostReservationOfferingsRequest(TypedDict, closed=True):
     filter: NotRequired["aws_sdk_ec2.types.filter_list.FilterList"]
     """<p>The filters.</p> <ul> <li> <p> <code>instance-family</code> - The instance family of the offering (for example, <code>m4</code>).</p> </li> <li> <p> <code>payment-option</code> - The payment option (<code>NoUpfront</code> | <code>PartialUpfront</code> | <code>AllUpfront</code>).</p> </li> </ul>"""
     max_duration: NotRequired["aws_sdk_ec2.types.integer.Integer"]

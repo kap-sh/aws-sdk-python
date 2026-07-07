@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetEffectivePoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.effective_policies
 
 
-class GetEffectivePoliciesResponse(TypedDict):
+class GetEffectivePoliciesResponse(TypedDict, closed=True):
     effective_policies: NotRequired[
         "aws_sdk_iot.types.effective_policies.EffectivePolicies"
     ]

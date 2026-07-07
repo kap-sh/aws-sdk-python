@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ImportKeyMaterial``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError, SerializationError
 
@@ -14,37 +16,37 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.trusted_certificate_public_key
 
 
-class _ImportKeyMaterial_RootCertificatePublicKey(TypedDict):
+class _ImportKeyMaterial_RootCertificatePublicKey(TypedDict, closed=True):
     RootCertificatePublicKey: "aws_sdk_payment_cryptography.types.root_certificate_public_key.RootCertificatePublicKey"
 
 
-class _ImportKeyMaterial_TrustedCertificatePublicKey(TypedDict):
+class _ImportKeyMaterial_TrustedCertificatePublicKey(TypedDict, closed=True):
     TrustedCertificatePublicKey: "aws_sdk_payment_cryptography.types.trusted_certificate_public_key.TrustedCertificatePublicKey"
 
 
-class _ImportKeyMaterial_Tr31KeyBlock(TypedDict):
+class _ImportKeyMaterial_Tr31KeyBlock(TypedDict, closed=True):
     Tr31KeyBlock: (
         "aws_sdk_payment_cryptography.types.import_tr31_key_block.ImportTr31KeyBlock"
     )
 
 
-class _ImportKeyMaterial_Tr34KeyBlock(TypedDict):
+class _ImportKeyMaterial_Tr34KeyBlock(TypedDict, closed=True):
     Tr34KeyBlock: (
         "aws_sdk_payment_cryptography.types.import_tr34_key_block.ImportTr34KeyBlock"
     )
 
 
-class _ImportKeyMaterial_KeyCryptogram(TypedDict):
+class _ImportKeyMaterial_KeyCryptogram(TypedDict, closed=True):
     KeyCryptogram: (
         "aws_sdk_payment_cryptography.types.import_key_cryptogram.ImportKeyCryptogram"
     )
 
 
-class _ImportKeyMaterial_DiffieHellmanTr31KeyBlock(TypedDict):
+class _ImportKeyMaterial_DiffieHellmanTr31KeyBlock(TypedDict, closed=True):
     DiffieHellmanTr31KeyBlock: "aws_sdk_payment_cryptography.types.import_diffie_hellman_tr31_key_block.ImportDiffieHellmanTr31KeyBlock"
 
 
-class _ImportKeyMaterial_As2805KeyCryptogram(TypedDict):
+class _ImportKeyMaterial_As2805KeyCryptogram(TypedDict, closed=True):
     As2805KeyCryptogram: "aws_sdk_payment_cryptography.types.import_as2805_key_cryptogram.ImportAs2805KeyCryptogram"
 
 

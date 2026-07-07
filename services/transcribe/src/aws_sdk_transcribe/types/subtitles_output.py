@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#SubtitlesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.subtitle_file_uris
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.subtitle_output_start_index
 
 
-class SubtitlesOutput(TypedDict):
+class SubtitlesOutput(TypedDict, closed=True):
     formats: NotRequired["aws_sdk_transcribe.types.subtitle_formats.SubtitleFormats"]
     """<p>Provides the format of your subtitle files. If your request included both WebVTT (<code>vtt</code>) and SubRip (<code>srt</code>) formats, both formats are shown.</p>"""
     subtitle_file_uris: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#PutApplicationSessionConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutApplicationSessionConfigurationResponse(TypedDict):
+class PutApplicationSessionConfigurationResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#MetadataConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3vectors.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.non_filterable_metadata_keys
 
 
-class MetadataConfiguration(TypedDict):
+class MetadataConfiguration(TypedDict, closed=True):
     non_filterable_metadata_keys: (
         "aws_sdk_s3vectors.types.non_filterable_metadata_keys.NonFilterableMetadataKeys"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#GetAwsOpportunitySummaryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.visibility
 
 
-class GetAwsOpportunitySummaryResponse(TypedDict):
+class GetAwsOpportunitySummaryResponse(TypedDict, closed=True):
     related_opportunity_id: NotRequired[
         "aws_sdk_partnercentral_selling.types.opportunity_identifier.OpportunityIdentifier"
     ]

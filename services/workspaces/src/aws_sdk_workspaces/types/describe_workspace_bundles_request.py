@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeWorkspaceBundlesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.bundle_id_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.pagination_token
 
 
-class DescribeWorkspaceBundlesRequest(TypedDict):
+class DescribeWorkspaceBundlesRequest(TypedDict, closed=True):
     bundle_ids: NotRequired["aws_sdk_workspaces.types.bundle_id_list.BundleIdList"]
     """<p>The identifiers of the bundles. You cannot combine this parameter with any other filter.</p>"""
     owner: NotRequired["aws_sdk_workspaces.types.bundle_owner.BundleOwner"]

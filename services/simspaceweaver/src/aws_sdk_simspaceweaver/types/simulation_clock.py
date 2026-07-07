@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#SimulationClock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.clock_status
     import aws_sdk_simspaceweaver.types.clock_target_status
 
 
-class SimulationClock(TypedDict):
+class SimulationClock(TypedDict, closed=True):
     status: NotRequired["aws_sdk_simspaceweaver.types.clock_status.ClockStatus"]
     """<p>The current status of the simulation clock.</p>"""
     target_status: NotRequired[

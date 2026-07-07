@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#GetDefaultApplicationSettingRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetDefaultApplicationSettingRequest(TypedDict):
+class GetDefaultApplicationSettingRequest(TypedDict, closed=True):
     pass
 
 

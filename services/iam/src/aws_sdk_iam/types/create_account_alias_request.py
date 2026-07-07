@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#CreateAccountAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.account_alias_type
 
 
-class CreateAccountAliasRequest(TypedDict):
+class CreateAccountAliasRequest(TypedDict, closed=True):
     account_alias: "aws_sdk_iam.types.account_alias_type.accountAliasType"
     r"""<p>The account alias to create.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DescribeConfigurationAggregatorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.configuration_aggregator_name_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class DescribeConfigurationAggregatorsRequest(TypedDict):
+class DescribeConfigurationAggregatorsRequest(TypedDict, closed=True):
     configuration_aggregator_names: NotRequired[
         "aws_sdk_config_service.types.configuration_aggregator_name_list.ConfigurationAggregatorNameList"
     ]

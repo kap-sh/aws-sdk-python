@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#AwsProductInsights``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.payment_frequency
 
 
-class AwsProductInsights(TypedDict):
+class AwsProductInsights(TypedDict, closed=True):
     currency_code: "aws_sdk_partnercentral_selling.types.currency_code.CurrencyCode"
     """<p>ISO 4217 currency code. Supported values are <code>USD</code> and <code>EUR</code>. Returns <code>EUR</code> when the opportunity is in the <code>aws-eusc</code> (AWS European Sovereign Cloud) partition.</p>"""
     frequency: "aws_sdk_partnercentral_selling.types.payment_frequency.PaymentFrequency"

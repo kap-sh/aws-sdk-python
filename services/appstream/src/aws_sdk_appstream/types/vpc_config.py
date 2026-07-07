@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#VpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.security_group_id_list
     import aws_sdk_appstream.types.subnet_id_list
 
 
-class VpcConfig(TypedDict):
+class VpcConfig(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_appstream.types.subnet_id_list.SubnetIdList"]
     """<p>The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.</p>"""
     security_group_ids: NotRequired[

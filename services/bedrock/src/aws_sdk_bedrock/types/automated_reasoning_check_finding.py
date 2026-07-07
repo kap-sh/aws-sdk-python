@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningCheckFinding``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -14,31 +16,31 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_check_valid_finding
 
 
-class _AutomatedReasoningCheckFinding_valid(TypedDict):
+class _AutomatedReasoningCheckFinding_valid(TypedDict, closed=True):
     valid: "aws_sdk_bedrock.types.automated_reasoning_check_valid_finding.AutomatedReasoningCheckValidFinding"
 
 
-class _AutomatedReasoningCheckFinding_invalid(TypedDict):
+class _AutomatedReasoningCheckFinding_invalid(TypedDict, closed=True):
     invalid: "aws_sdk_bedrock.types.automated_reasoning_check_invalid_finding.AutomatedReasoningCheckInvalidFinding"
 
 
-class _AutomatedReasoningCheckFinding_satisfiable(TypedDict):
+class _AutomatedReasoningCheckFinding_satisfiable(TypedDict, closed=True):
     satisfiable: "aws_sdk_bedrock.types.automated_reasoning_check_satisfiable_finding.AutomatedReasoningCheckSatisfiableFinding"
 
 
-class _AutomatedReasoningCheckFinding_impossible(TypedDict):
+class _AutomatedReasoningCheckFinding_impossible(TypedDict, closed=True):
     impossible: "aws_sdk_bedrock.types.automated_reasoning_check_impossible_finding.AutomatedReasoningCheckImpossibleFinding"
 
 
-class _AutomatedReasoningCheckFinding_translationAmbiguous(TypedDict):
+class _AutomatedReasoningCheckFinding_translationAmbiguous(TypedDict, closed=True):
     translationAmbiguous: "aws_sdk_bedrock.types.automated_reasoning_check_translation_ambiguous_finding.AutomatedReasoningCheckTranslationAmbiguousFinding"
 
 
-class _AutomatedReasoningCheckFinding_tooComplex(TypedDict):
+class _AutomatedReasoningCheckFinding_tooComplex(TypedDict, closed=True):
     tooComplex: "aws_sdk_bedrock.types.automated_reasoning_check_too_complex_finding.AutomatedReasoningCheckTooComplexFinding"
 
 
-class _AutomatedReasoningCheckFinding_noTranslations(TypedDict):
+class _AutomatedReasoningCheckFinding_noTranslations(TypedDict, closed=True):
     noTranslations: "aws_sdk_bedrock.types.automated_reasoning_check_no_translations_finding.AutomatedReasoningCheckNoTranslationsFinding"
 
 

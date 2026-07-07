@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#GetComplianceDetailRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.policy_id
 
 
-class GetComplianceDetailRequest(TypedDict):
+class GetComplianceDetailRequest(TypedDict, closed=True):
     policy_id: "aws_sdk_fms.types.policy_id.PolicyId"
     """<p>The ID of the policy that you want to get the details for. <code>PolicyId</code> is returned by <code>PutPolicy</code> and by <code>ListPolicies</code>.</p>"""
     member_account: "aws_sdk_fms.types.aws_account_id.AWSAccountId"

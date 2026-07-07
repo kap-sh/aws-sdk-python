@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CreateQueryLoggingConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.resource_id
 
 
-class CreateQueryLoggingConfigRequest(TypedDict):
+class CreateQueryLoggingConfigRequest(TypedDict, closed=True):
     hosted_zone_id: "aws_sdk_route_53.types.resource_id.ResourceId"
     """<p>The ID of the hosted zone that you want to log queries for. You can log queries only for public hosted zones.</p>"""
     cloud_watch_logs_log_group_arn: "aws_sdk_route_53.types.cloud_watch_logs_log_group_arn.CloudWatchLogsLogGroupArn"

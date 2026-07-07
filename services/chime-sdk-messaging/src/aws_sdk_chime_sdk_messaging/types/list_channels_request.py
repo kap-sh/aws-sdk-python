@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ListChannelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.channel_privacy
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.next_token
 
 
-class ListChannelsRequest(TypedDict):
+class ListChannelsRequest(TypedDict, closed=True):
     app_instance_arn: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
     """<p>The ARN of the <code>AppInstance</code>.</p>"""
     privacy: NotRequired[

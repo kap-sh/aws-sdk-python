@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ContentRedirection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.url_redirection_config
 
 
-class ContentRedirection(TypedDict):
+class ContentRedirection(TypedDict, closed=True):
     host_to_client: NotRequired[
         "aws_sdk_appstream.types.url_redirection_config.UrlRedirectionConfig"
     ]

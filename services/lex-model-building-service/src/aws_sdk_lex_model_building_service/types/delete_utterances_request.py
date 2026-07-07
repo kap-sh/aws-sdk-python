@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#DeleteUtterancesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.bot_name
     import aws_sdk_lex_model_building_service.types.user_id
 
 
-class DeleteUtterancesRequest(TypedDict):
+class DeleteUtterancesRequest(TypedDict, closed=True):
     bot_name: "aws_sdk_lex_model_building_service.types.bot_name.BotName"
     """<p>The name of the bot that stored the utterances.</p>"""
     user_id: "aws_sdk_lex_model_building_service.types.user_id.UserId"

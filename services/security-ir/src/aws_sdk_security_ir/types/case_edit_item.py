@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#CaseEditItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.case_edit_message
 
 
-class CaseEditItem(TypedDict):
+class CaseEditItem(TypedDict, closed=True):
     event_timestamp: NotRequired["datetime.datetime"]
     """<p/>"""
     principal: NotRequired["str"]

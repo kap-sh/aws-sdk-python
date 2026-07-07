@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#DescribeClusterOperationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
 
 
-class DescribeClusterOperationRequest(TypedDict):
+class DescribeClusterOperationRequest(TypedDict, closed=True):
     cluster_operation_arn: "aws_sdk_kafka.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) that uniquely identifies the MSK cluster operation.</p>"""
 

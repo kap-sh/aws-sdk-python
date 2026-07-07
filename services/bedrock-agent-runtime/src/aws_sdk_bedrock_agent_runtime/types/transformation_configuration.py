@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#TransformationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.text_to_sql_configuration
 
 
-class TransformationConfiguration(TypedDict):
+class TransformationConfiguration(TypedDict, closed=True):
     mode: "aws_sdk_bedrock_agent_runtime.types.query_transformation_mode.QueryTransformationMode"
     """<p>The mode of the transformation.</p>"""
     text_to_sql_configuration: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ListTableMetadataOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.table_metadata_list
     import aws_sdk_athena.types.token
 
 
-class ListTableMetadataOutput(TypedDict):
+class ListTableMetadataOutput(TypedDict, closed=True):
     table_metadata_list: NotRequired[
         "aws_sdk_athena.types.table_metadata_list.TableMetadataList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#GetAddressListRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.address_list_id
 
 
-class GetAddressListRequest(TypedDict):
+class GetAddressListRequest(TypedDict, closed=True):
     address_list_id: "aws_sdk_mailmanager.types.address_list_id.AddressListId"
     """<p>The identifier of an existing address list resource to be retrieved.</p>"""
 

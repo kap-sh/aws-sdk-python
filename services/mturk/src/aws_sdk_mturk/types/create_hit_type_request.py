@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#CreateHITTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class CreateHITTypeRequest(TypedDict):
+class CreateHITTypeRequest(TypedDict, closed=True):
     auto_approval_delay_in_seconds: NotRequired["aws_sdk_mturk.types.long.Long"]
     """<p> The number of seconds after an assignment for the HIT has been submitted, after which the assignment is considered Approved automatically unless the Requester explicitly rejects it. </p>"""
     assignment_duration_in_seconds: "aws_sdk_mturk.types.long.Long"

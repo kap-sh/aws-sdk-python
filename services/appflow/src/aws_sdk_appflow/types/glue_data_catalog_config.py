@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#GlueDataCatalogConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.glue_data_catalog_table_prefix
 
 
-class GlueDataCatalogConfig(TypedDict):
+class GlueDataCatalogConfig(TypedDict, closed=True):
     role_arn: "aws_sdk_appflow.types.glue_data_catalog_iam_role.GlueDataCatalogIAMRole"
     r"""<p>The Amazon Resource Name (ARN) of an IAM role that grants Amazon AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.</p> <p>For an example IAM policy that has the required permissions, see <a href=\"https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_id-based-policy-examples.html\">Identity-based policy examples for Amazon AppFlow</a>.</p>"""
     database_name: "aws_sdk_appflow.types.glue_data_catalog_database_name.GlueDataCatalogDatabaseName"

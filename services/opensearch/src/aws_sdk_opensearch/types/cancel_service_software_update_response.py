@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CancelServiceSoftwareUpdateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.service_software_options
 
 
-class CancelServiceSoftwareUpdateResponse(TypedDict):
+class CancelServiceSoftwareUpdateResponse(TypedDict, closed=True):
     service_software_options: NotRequired[
         "aws_sdk_opensearch.types.service_software_options.ServiceSoftwareOptions"
     ]

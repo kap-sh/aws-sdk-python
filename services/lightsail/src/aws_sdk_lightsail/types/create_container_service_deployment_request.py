@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CreateContainerServiceDeploymentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.container_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.endpoint_request
 
 
-class CreateContainerServiceDeploymentRequest(TypedDict):
+class CreateContainerServiceDeploymentRequest(TypedDict, closed=True):
     service_name: "aws_sdk_lightsail.types.container_service_name.ContainerServiceName"
     """<p>The name of the container service for which to create the deployment.</p>"""
     containers: NotRequired["aws_sdk_lightsail.types.container_map.ContainerMap"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeAssociationExecutionTargetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class DescribeAssociationExecutionTargetsRequest(TypedDict):
+class DescribeAssociationExecutionTargetsRequest(TypedDict, closed=True):
     association_id: "aws_sdk_ssm.types.association_id.AssociationId"
     """<p>The association ID that includes the execution for which you want to view details.</p>"""
     execution_id: "aws_sdk_ssm.types.association_execution_id.AssociationExecutionId"

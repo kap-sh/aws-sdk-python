@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EdgeDeploymentConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.failure_handling_policy
 
 
-class EdgeDeploymentConfig(TypedDict):
+class EdgeDeploymentConfig(TypedDict, closed=True):
     failure_handling_policy: NotRequired[
         "aws_sdk_sagemaker.types.failure_handling_policy.FailureHandlingPolicy"
     ]

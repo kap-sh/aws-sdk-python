@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListRecoveryPointsByBackupVaultOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.recovery_point_by_backup_vault_list
     import aws_sdk_backup.types.string
 
 
-class ListRecoveryPointsByBackupVaultOutput(TypedDict):
+class ListRecoveryPointsByBackupVaultOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>"""
     recovery_points: NotRequired[

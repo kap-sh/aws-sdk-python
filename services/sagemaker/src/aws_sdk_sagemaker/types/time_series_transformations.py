@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TimeSeriesTransformations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.aggregation_transformations
     import aws_sdk_sagemaker.types.filling_transformations
 
 
-class TimeSeriesTransformations(TypedDict):
+class TimeSeriesTransformations(TypedDict, closed=True):
     filling: NotRequired[
         "aws_sdk_sagemaker.types.filling_transformations.FillingTransformations"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#BatchGetTokenBalanceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.batch_get_token_balance_output_list
 
 
-class BatchGetTokenBalanceOutput(TypedDict):
+class BatchGetTokenBalanceOutput(TypedDict, closed=True):
     token_balances: "aws_sdk_managedblockchain_query.types.batch_get_token_balance_output_list.BatchGetTokenBalanceOutputList"
     """<p>An array of <code>BatchGetTokenBalanceOutputItem</code> objects returned by the response.</p>"""
     errors: "aws_sdk_managedblockchain_query.types.batch_get_token_balance_errors.BatchGetTokenBalanceErrors"

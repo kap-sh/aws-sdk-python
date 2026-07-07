@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#CrossRegionCopyDeprecateRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.interval
     import aws_sdk_dlm.types.retention_interval_unit_values
 
 
-class CrossRegionCopyDeprecateRule(TypedDict):
+class CrossRegionCopyDeprecateRule(TypedDict, closed=True):
     interval: NotRequired["aws_sdk_dlm.types.interval.Interval"]
     """<p>The period after which to deprecate the cross-Region AMI copies. The period must be less than or equal to the cross-Region AMI copy retention period, and it can't be greater than 10 years. This is equivalent to 120 months, 520 weeks, or 3650 days.</p>"""
     interval_unit: NotRequired[

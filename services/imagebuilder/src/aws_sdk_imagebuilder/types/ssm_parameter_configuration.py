@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#SsmParameterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.ssm_parameter_name
 
 
-class SsmParameterConfiguration(TypedDict):
+class SsmParameterConfiguration(TypedDict, closed=True):
     ami_account_id: NotRequired["aws_sdk_imagebuilder.types.account_id.AccountId"]
     """<p>Specify the account that will own the Parameter in a given Region. During distribution, this account must be specified in distribution settings as a target account for the Region.</p>"""
     parameter_name: "aws_sdk_imagebuilder.types.ssm_parameter_name.SsmParameterName"

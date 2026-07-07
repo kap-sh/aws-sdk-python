@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetPlanResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.python_script
     import aws_sdk_glue.types.scala_code
 
 
-class GetPlanResponse(TypedDict):
+class GetPlanResponse(TypedDict, closed=True):
     python_script: NotRequired["aws_sdk_glue.types.python_script.PythonScript"]
     """<p>A Python script to perform the mapping.</p>"""
     scala_code: NotRequired["aws_sdk_glue.types.scala_code.ScalaCode"]

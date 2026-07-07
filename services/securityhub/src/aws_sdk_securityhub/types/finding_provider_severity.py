@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#FindingProviderSeverity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.severity_label
 
 
-class FindingProviderSeverity(TypedDict):
+class FindingProviderSeverity(TypedDict, closed=True):
     label: NotRequired["aws_sdk_securityhub.types.severity_label.SeverityLabel"]
     """<p>The severity label assigned to the finding by the finding provider.</p>"""
     original: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

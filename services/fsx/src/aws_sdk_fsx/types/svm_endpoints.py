@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#SvmEndpoints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.svm_endpoint
 
 
-class SvmEndpoints(TypedDict):
+class SvmEndpoints(TypedDict, closed=True):
     iscsi: NotRequired["aws_sdk_fsx.types.svm_endpoint.SvmEndpoint"]
     """<p>An endpoint for connecting using the Internet Small Computer Systems Interface (iSCSI) protocol.</p>"""
     management: NotRequired["aws_sdk_fsx.types.svm_endpoint.SvmEndpoint"]

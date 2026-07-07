@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationFlowTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_flow_target_type
 
 
-class DataIntegrationFlowTarget(TypedDict):
+class DataIntegrationFlowTarget(TypedDict, closed=True):
     target_type: "aws_sdk_supplychain.types.data_integration_flow_target_type.DataIntegrationFlowTargetType"
     """<p>The DataIntegrationFlow target type.</p>"""
     s3_target: NotRequired[

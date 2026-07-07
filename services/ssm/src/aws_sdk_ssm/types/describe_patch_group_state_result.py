@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribePatchGroupStateResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.instances_count
     import aws_sdk_ssm.types.integer
 
 
-class DescribePatchGroupStateResult(TypedDict):
+class DescribePatchGroupStateResult(TypedDict, closed=True):
     instances: "aws_sdk_ssm.types.integer.Integer"
     """<p>The number of managed nodes in the patch group.</p>"""
     instances_with_installed_patches: "aws_sdk_ssm.types.integer.Integer"

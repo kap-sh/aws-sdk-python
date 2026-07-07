@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#BaldrApiService``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_cloudhsm_v2._auth._signers
@@ -90,7 +90,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.untag_resource_response
 
 
-class AsyncCloudHSMV2ClientConfig(TypedDict, total=False):
+class AsyncCloudHSMV2ClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

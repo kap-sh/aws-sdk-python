@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CustomPattern``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.regex
 
 
-class CustomPattern(TypedDict):
+class CustomPattern(TypedDict, closed=True):
     pattern_name: "aws_sdk_workspaces_web.types.pattern_name.PatternName"
     """<p>The pattern name for the custom pattern.</p>"""
     pattern_regex: "aws_sdk_workspaces_web.types.regex.Regex"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#MicrosoftEntraConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.microsoft_entra_config_tenant_id
     import aws_sdk_workspaces.types.secrets_manager_arn
 
 
-class MicrosoftEntraConfig(TypedDict):
+class MicrosoftEntraConfig(TypedDict, closed=True):
     tenant_id: NotRequired[
         "aws_sdk_workspaces.types.microsoft_entra_config_tenant_id.MicrosoftEntraConfigTenantId"
     ]

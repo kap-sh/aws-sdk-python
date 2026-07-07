@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ExecutionResults``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.execution_step_results
 
 
-class ExecutionResults(TypedDict):
+class ExecutionResults(TypedDict, closed=True):
     steps: NotRequired[
         "aws_sdk_transfer.types.execution_step_results.ExecutionStepResults"
     ]

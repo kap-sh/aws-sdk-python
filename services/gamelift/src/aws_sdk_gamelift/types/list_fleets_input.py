@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ListFleetsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.build_id_or_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.script_id_or_arn
 
 
-class ListFleetsInput(TypedDict):
+class ListFleetsInput(TypedDict, closed=True):
     build_id: NotRequired["aws_sdk_gamelift.types.build_id_or_arn.BuildIdOrArn"]
     """<p>A unique identifier for the build to request fleets for. Use this parameter to return only fleets using a specified build. Use either the build ID or ARN value.</p>"""
     script_id: NotRequired["aws_sdk_gamelift.types.script_id_or_arn.ScriptIdOrArn"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DeleteConnectClientAddInRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.directory_id
 
 
-class DeleteConnectClientAddInRequest(TypedDict):
+class DeleteConnectClientAddInRequest(TypedDict, closed=True):
     add_in_id: "aws_sdk_workspaces.types.amazon_uuid.AmazonUuid"
     """<p>The identifier of the client add-in to delete.</p>"""
     resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId"

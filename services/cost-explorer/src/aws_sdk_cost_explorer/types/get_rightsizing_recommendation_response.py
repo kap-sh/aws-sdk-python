@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetRightsizingRecommendationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.next_page_token
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.rightsizing_recommendation_summary
 
 
-class GetRightsizingRecommendationResponse(TypedDict):
+class GetRightsizingRecommendationResponse(TypedDict, closed=True):
     metadata: NotRequired[
         "aws_sdk_cost_explorer.types.rightsizing_recommendation_metadata.RightsizingRecommendationMetadata"
     ]

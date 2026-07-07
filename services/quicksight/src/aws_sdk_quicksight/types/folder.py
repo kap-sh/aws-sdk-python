@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Folder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.timestamp
 
 
-class Folder(TypedDict):
+class Folder(TypedDict, closed=True):
     folder_id: NotRequired[
         "aws_sdk_quicksight.types.restrictive_resource_id.RestrictiveResourceId"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ListBatchJobExecutionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.batch_job_execution_status
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.timestamp
 
 
-class ListBatchJobExecutionsRequest(TypedDict):
+class ListBatchJobExecutionsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_m2.types.next_token.NextToken"]
     """<p>A pagination token to control the number of batch job executions displayed in the list.</p>"""
     max_results: NotRequired["aws_sdk_m2.types.max_results.MaxResults"]

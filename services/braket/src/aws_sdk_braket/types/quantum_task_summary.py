@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#QuantumTaskSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.tags_map
 
 
-class QuantumTaskSummary(TypedDict):
+class QuantumTaskSummary(TypedDict, closed=True):
     quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn"
     """<p>The ARN of the quantum task.</p>"""
     status: "aws_sdk_braket.types.quantum_task_status.QuantumTaskStatus"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#FailoverConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.secondary
 
 
-class FailoverConfig(TypedDict):
+class FailoverConfig(TypedDict, closed=True):
     primary: "aws_sdk_eventbridge.types.primary.Primary"
     """<p>The main Region of the endpoint.</p>"""
     secondary: "aws_sdk_eventbridge.types.secondary.Secondary"

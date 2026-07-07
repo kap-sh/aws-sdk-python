@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#TestExecutionResultFilterBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_result_type_filter
 
 
-class TestExecutionResultFilterBy(TypedDict):
+class TestExecutionResultFilterBy(TypedDict, closed=True):
     result_type_filter: (
         "aws_sdk_lex_models_v2.types.test_result_type_filter.TestResultTypeFilter"
     )

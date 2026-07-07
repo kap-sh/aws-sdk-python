@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdatePredefinedAttributeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.input_predefined_attribute_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.predefined_attribute_values
 
 
-class UpdatePredefinedAttributeRequest(TypedDict):
+class UpdatePredefinedAttributeRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     """<p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>"""
     name: "aws_sdk_connect.types.predefined_attribute_name.PredefinedAttributeName"

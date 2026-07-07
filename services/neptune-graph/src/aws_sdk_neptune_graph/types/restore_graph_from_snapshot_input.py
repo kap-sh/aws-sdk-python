@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#RestoreGraphFromSnapshotInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.tag_map
 
 
-class RestoreGraphFromSnapshotInput(TypedDict):
+class RestoreGraphFromSnapshotInput(TypedDict, closed=True):
     snapshot_identifier: (
         "aws_sdk_neptune_graph.types.snapshot_identifier.SnapshotIdentifier"
     )

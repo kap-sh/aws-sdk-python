@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ValueMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.form_input_value_property
 
 
-class ValueMapping(TypedDict):
+class ValueMapping(TypedDict, closed=True):
     display_value: NotRequired[
         "aws_sdk_amplifyuibuilder.types.form_input_value_property.FormInputValueProperty"
     ]

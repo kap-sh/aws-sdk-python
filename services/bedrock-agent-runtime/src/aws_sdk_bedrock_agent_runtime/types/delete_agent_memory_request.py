@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#DeleteAgentMemoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.agent_alias_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.session_id
 
 
-class DeleteAgentMemoryRequest(TypedDict):
+class DeleteAgentMemoryRequest(TypedDict, closed=True):
     agent_id: "aws_sdk_bedrock_agent_runtime.types.agent_id.AgentId"
     """<p>The unique identifier of the agent to which the alias belongs.</p>"""
     agent_alias_id: "aws_sdk_bedrock_agent_runtime.types.agent_alias_id.AgentAliasId"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#NumericAxisOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.axis_display_range
     import aws_sdk_quicksight.types.axis_scale
 
 
-class NumericAxisOptions(TypedDict):
+class NumericAxisOptions(TypedDict, closed=True):
     scale: NotRequired["aws_sdk_quicksight.types.axis_scale.AxisScale"]
     """<p>The scale setup of a numeric axis.</p>"""
     range: NotRequired["aws_sdk_quicksight.types.axis_display_range.AxisDisplayRange"]

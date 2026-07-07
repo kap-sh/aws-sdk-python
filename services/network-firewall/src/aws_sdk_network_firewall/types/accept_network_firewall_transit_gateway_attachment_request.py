@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#AcceptNetworkFirewallTransitGatewayAttachmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.transit_gateway_attachment_id
 
 
-class AcceptNetworkFirewallTransitGatewayAttachmentRequest(TypedDict):
+class AcceptNetworkFirewallTransitGatewayAttachmentRequest(TypedDict, closed=True):
     transit_gateway_attachment_id: "aws_sdk_network_firewall.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
     """<p>Required. The unique identifier of the transit gateway attachment to accept. This ID is returned in the response when creating a transit gateway-attached firewall.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#DeleteGraphqlApiResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteGraphqlApiResponse(TypedDict):
+class DeleteGraphqlApiResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#RegexPatternSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_name
 
 
-class RegexPatternSet(TypedDict):
+class RegexPatternSet(TypedDict, closed=True):
     regex_pattern_set_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The identifier for the <code>RegexPatternSet</code>. You use <code>RegexPatternSetId</code> to get information about a <code>RegexPatternSet</code>, update a <code>RegexPatternSet</code>, remove a <code>RegexPatternSet</code> from a <code>RegexMatchSet</code>, and delete a <code>RegexPatternSet</code> from AWS WAF.</p> <p> <code>RegexMatchSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>"""
     name: NotRequired["aws_sdk_waf.types.resource_name.ResourceName"]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ResourceNotFoundException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_channel.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
     """<p>A message describing the resource not found error.</p>"""
     resource_id: NotRequired["str"]

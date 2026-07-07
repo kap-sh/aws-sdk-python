@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#UpdateReportGroupOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.report_group
 
 
-class UpdateReportGroupOutput(TypedDict):
+class UpdateReportGroupOutput(TypedDict, closed=True):
     report_group: NotRequired["aws_sdk_codebuild.types.report_group.ReportGroup"]
     """<p> Information about the updated report group. </p>"""
 

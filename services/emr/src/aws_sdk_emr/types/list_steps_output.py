@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListStepsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.marker
     import aws_sdk_emr.types.step_summary_list
 
 
-class ListStepsOutput(TypedDict):
+class ListStepsOutput(TypedDict, closed=True):
     steps: NotRequired["aws_sdk_emr.types.step_summary_list.StepSummaryList"]
     """<p>The filtered list of steps for the cluster.</p>"""
     marker: NotRequired["aws_sdk_emr.types.marker.Marker"]

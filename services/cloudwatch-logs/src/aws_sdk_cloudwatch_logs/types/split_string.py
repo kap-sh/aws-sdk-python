@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#SplitString``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.split_string_entries
 
 
-class SplitString(TypedDict):
+class SplitString(TypedDict, closed=True):
     entries: "aws_sdk_cloudwatch_logs.types.split_string_entries.SplitStringEntries"
     """<p>An array of <code>SplitStringEntry</code> objects, where each object contains the information about one field to split. </p>"""
 

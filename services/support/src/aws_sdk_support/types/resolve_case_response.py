@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.support#ResolveCaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.case_status
 
 
-class ResolveCaseResponse(TypedDict):
+class ResolveCaseResponse(TypedDict, closed=True):
     initial_case_status: NotRequired["aws_sdk_support.types.case_status.CaseStatus"]
     """<p>The status of the case when the <a>ResolveCase</a> request was sent.</p>"""
     final_case_status: NotRequired["aws_sdk_support.types.case_status.CaseStatus"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ValidateAssessmentReportIntegrityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_auditmanager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.s3_url
 
 
-class ValidateAssessmentReportIntegrityRequest(TypedDict):
+class ValidateAssessmentReportIntegrityRequest(TypedDict, closed=True):
     s3_relative_path: "aws_sdk_auditmanager.types.s3_url.S3Url"
     """<p> The relative path of the Amazon S3 bucket that the assessment report is stored in. </p>"""
 

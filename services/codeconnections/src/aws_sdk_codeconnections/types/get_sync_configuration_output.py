@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#GetSyncConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeconnections.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.sync_configuration
 
 
-class GetSyncConfigurationOutput(TypedDict):
+class GetSyncConfigurationOutput(TypedDict, closed=True):
     sync_configuration: (
         "aws_sdk_codeconnections.types.sync_configuration.SyncConfiguration"
     )

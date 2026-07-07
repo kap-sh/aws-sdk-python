@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#DescribeHapgRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudhsm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.hapg_arn
 
 
-class DescribeHapgRequest(TypedDict):
+class DescribeHapgRequest(TypedDict, closed=True):
     hapg_arn: "aws_sdk_cloudhsm.types.hapg_arn.HapgArn"
     """<p>The ARN of the high-availability partition group to describe.</p>"""
 

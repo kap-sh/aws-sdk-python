@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateAppImageConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.app_image_config_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateAppImageConfigRequest(TypedDict):
+class CreateAppImageConfigRequest(TypedDict, closed=True):
     app_image_config_name: NotRequired[
         "aws_sdk_sagemaker.types.app_image_config_name.AppImageConfigName"
     ]

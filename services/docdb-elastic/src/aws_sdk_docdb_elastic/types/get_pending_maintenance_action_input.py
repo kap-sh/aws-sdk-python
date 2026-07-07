@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#GetPendingMaintenanceActionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.input_string
 
 
-class GetPendingMaintenanceActionInput(TypedDict):
+class GetPendingMaintenanceActionInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_docdb_elastic.types.input_string.InputString"
     """<p>Retrieves pending maintenance actions for a specific Amazon Resource Name (ARN).</p>"""
 

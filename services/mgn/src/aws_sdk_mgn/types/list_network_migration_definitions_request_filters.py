@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListNetworkMigrationDefinitionsRequestFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.network_migration_defintions_i_ds_filter
 
 
-class ListNetworkMigrationDefinitionsRequestFilters(TypedDict):
+class ListNetworkMigrationDefinitionsRequestFilters(TypedDict, closed=True):
     network_migration_definition_i_ds: NotRequired[
         "aws_sdk_mgn.types.network_migration_defintions_i_ds_filter.NetworkMigrationDefintionsIDsFilter"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#ListCallAnalyticsCategoriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.max_results
     import aws_sdk_transcribe.types.next_token
 
 
-class ListCallAnalyticsCategoriesRequest(TypedDict):
+class ListCallAnalyticsCategoriesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_transcribe.types.next_token.NextToken"]
     """<p>If your <code>ListCallAnalyticsCategories</code> request returns more results than can be displayed, <code>NextToken</code> is displayed in the response with an associated string. To get the next page of results, copy this string and repeat your request, including <code>NextToken</code> with the value of the copied string. Repeat as needed to view all your results.</p>"""
     max_results: NotRequired["aws_sdk_transcribe.types.max_results.MaxResults"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_internetmonitor.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.tag_map
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_internetmonitor.types.monitor_arn.MonitorArn"
     """<p>The Amazon Resource Name (ARN) for a tag that you add to a resource. Tags are supported only for monitors in Amazon CloudWatch Internet Monitor.</p>"""
     tags: "aws_sdk_internetmonitor.types.tag_map.TagMap"

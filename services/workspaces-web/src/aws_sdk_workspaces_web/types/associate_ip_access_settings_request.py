@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#AssociateIpAccessSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
 
 
-class AssociateIpAccessSettingsRequest(TypedDict):
+class AssociateIpAccessSettingsRequest(TypedDict, closed=True):
     portal_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the web portal.</p>"""
     ip_access_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN"

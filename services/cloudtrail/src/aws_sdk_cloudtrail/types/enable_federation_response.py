@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#EnableFederationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.event_data_store_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.federation_status
 
 
-class EnableFederationResponse(TypedDict):
+class EnableFederationResponse(TypedDict, closed=True):
     event_data_store_arn: NotRequired[
         "aws_sdk_cloudtrail.types.event_data_store_arn.EventDataStoreArn"
     ]

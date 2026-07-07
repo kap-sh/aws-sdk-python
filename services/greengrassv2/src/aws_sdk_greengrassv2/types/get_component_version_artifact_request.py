@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#GetComponentVersionArtifactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.component_version_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.s3_endpoint_type
 
 
-class GetComponentVersionArtifactRequest(TypedDict):
+class GetComponentVersionArtifactRequest(TypedDict, closed=True):
     arn: "aws_sdk_greengrassv2.types.component_version_arn.ComponentVersionARN"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component version. Specify the ARN of a public or a Lambda component version.</p>"""
     artifact_name: "aws_sdk_greengrassv2.types.non_empty_string.NonEmptyString"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.group_summary_list
     import aws_sdk_qbusiness.types.next_token
 
 
-class ListGroupsResponse(TypedDict):
+class ListGroupsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_qbusiness.types.next_token.NextToken"]
     """<p>If the response is truncated, Amazon Q Business returns this token that you can use in the subsequent request to retrieve the next set of groups that are mapped to users.</p>"""
     items: NotRequired["aws_sdk_qbusiness.types.group_summary_list.GroupSummaryList"]

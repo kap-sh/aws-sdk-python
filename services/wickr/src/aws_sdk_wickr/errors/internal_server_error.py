@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#InternalServerError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class InternalServerError_(TypedDict):
+class InternalServerError_(TypedDict, closed=True):
     message: "aws_sdk_wickr.types.generic_string.GenericString"
     """<p>A message describing the internal server error that occurred.</p>"""
 

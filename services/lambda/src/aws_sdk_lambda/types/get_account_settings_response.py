@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetAccountSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.account_limit
     import aws_sdk_lambda.types.account_usage
 
 
-class GetAccountSettingsResponse(TypedDict):
+class GetAccountSettingsResponse(TypedDict, closed=True):
     account_limit: NotRequired["aws_sdk_lambda.types.account_limit.AccountLimit"]
     """<p>Limits that are related to concurrency and code storage.</p>"""
     account_usage: NotRequired["aws_sdk_lambda.types.account_usage.AccountUsage"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#PathMappingRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string
 
 
-class PathMappingRule(TypedDict):
+class PathMappingRule(TypedDict, closed=True):
     source_path_format: "aws_sdk_deadline.types.path_format.PathFormat"
     """<p>The source path format.</p>"""
     source_path: "aws_sdk_deadline.types.string.String"

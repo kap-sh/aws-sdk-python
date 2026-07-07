@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListCodeRepositoriesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.code_repository_summary_list
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListCodeRepositoriesOutput(TypedDict):
+class ListCodeRepositoriesOutput(TypedDict, closed=True):
     code_repository_summary_list: NotRequired[
         "aws_sdk_sagemaker.types.code_repository_summary_list.CodeRepositorySummaryList"
     ]

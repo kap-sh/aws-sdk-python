@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#DeleteAddressListResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAddressListResponse(TypedDict):
+class DeleteAddressListResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ProjectInformation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ProjectInformation(TypedDict):
+class ProjectInformation(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the project in the space.</p>"""
     project_id: NotRequired["str"]

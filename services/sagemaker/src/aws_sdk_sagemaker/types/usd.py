@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#USD``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cents
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tenth_fractions_of_a_cent
 
 
-class USD(TypedDict):
+class USD(TypedDict, closed=True):
     dollars: NotRequired["aws_sdk_sagemaker.types.dollars.Dollars"]
     """<p>The whole number of dollars in the amount.</p>"""
     cents: NotRequired["aws_sdk_sagemaker.types.cents.Cents"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#LoggingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.application_log_level
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.system_log_level
 
 
-class LoggingConfig(TypedDict):
+class LoggingConfig(TypedDict, closed=True):
     log_format: NotRequired["aws_sdk_lambda.types.log_format.LogFormat"]
     """<p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.</p>"""
     application_log_level: NotRequired[

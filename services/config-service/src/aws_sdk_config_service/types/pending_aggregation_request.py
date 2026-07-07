@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#PendingAggregationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.account_id
     import aws_sdk_config_service.types.aws_region
 
 
-class PendingAggregationRequest(TypedDict):
+class PendingAggregationRequest(TypedDict, closed=True):
     requester_account_id: NotRequired[
         "aws_sdk_config_service.types.account_id.AccountId"
     ]

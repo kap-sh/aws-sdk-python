@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#StandbyWorkspacesProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.data_replication
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_id
 
 
-class StandbyWorkspacesProperties(TypedDict):
+class StandbyWorkspacesProperties(TypedDict, closed=True):
     standby_workspace_id: NotRequired[
         "aws_sdk_workspaces.types.workspace_id.WorkspaceId"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#RegistrationMetadataItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.registration_metadata_value
 
 
-class RegistrationMetadataItem(TypedDict):
+class RegistrationMetadataItem(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.registration_metadata_key.RegistrationMetadataKey"
     """<p>Reserved for internal use.</p>"""
     value: "aws_sdk_ssm.types.registration_metadata_value.RegistrationMetadataValue"

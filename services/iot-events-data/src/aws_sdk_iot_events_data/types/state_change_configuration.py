@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#StateChangeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.trigger_type
 
 
-class StateChangeConfiguration(TypedDict):
+class StateChangeConfiguration(TypedDict, closed=True):
     trigger_type: NotRequired["aws_sdk_iot_events_data.types.trigger_type.TriggerType"]
     """<p>The trigger type. If the value is <code>SNOOZE_TIMEOUT</code>, the snooze duration ends and the alarm automatically changes to the <code>NORMAL</code> state.</p>"""
 

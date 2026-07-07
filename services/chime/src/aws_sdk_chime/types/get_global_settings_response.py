@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chime#GetGlobalSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.business_calling_settings
     import aws_sdk_chime.types.voice_connector_settings
 
 
-class GetGlobalSettingsResponse(TypedDict):
+class GetGlobalSettingsResponse(TypedDict, closed=True):
     business_calling: NotRequired[
         "aws_sdk_chime.types.business_calling_settings.BusinessCallingSettings"
     ]

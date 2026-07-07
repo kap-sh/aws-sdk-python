@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rum#CwLog``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CwLog(TypedDict):
+class CwLog(TypedDict, closed=True):
     cw_log_enabled: NotRequired["bool"]
     """<p>Indicated whether the app monitor stores copies of the data that RUM collects in CloudWatch Logs.</p>"""
     cw_log_group: NotRequired["str"]

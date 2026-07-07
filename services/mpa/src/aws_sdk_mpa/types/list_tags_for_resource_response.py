@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.tags
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_mpa.types.tags.Tags"]
     """<p>Tags attached to the resource.</p>"""
 

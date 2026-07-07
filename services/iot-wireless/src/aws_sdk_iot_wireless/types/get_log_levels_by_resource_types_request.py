@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetLogLevelsByResourceTypesRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetLogLevelsByResourceTypesRequest(TypedDict):
+class GetLogLevelsByResourceTypesRequest(TypedDict, closed=True):
     pass
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kms#MultiRegionKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.arn_type
     import aws_sdk_kms.types.region_type
 
 
-class MultiRegionKey(TypedDict):
+class MultiRegionKey(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_kms.types.arn_type.ArnType"]
     """<p>Displays the key ARN of a primary or replica key of a multi-Region key.</p>"""
     region: NotRequired["aws_sdk_kms.types.region_type.RegionType"]

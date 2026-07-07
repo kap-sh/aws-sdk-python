@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#X12SplitOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.x12_split_by
 
 
-class X12SplitOptions(TypedDict):
+class X12SplitOptions(TypedDict, closed=True):
     split_by: "aws_sdk_b2bi.types.x12_split_by.X12SplitBy"
     """<p>Specifies the method used to split X12 EDI files. Valid values include <code>TRANSACTION</code> (split by individual transaction sets), or <code>NONE</code> (no splitting).</p>"""
 

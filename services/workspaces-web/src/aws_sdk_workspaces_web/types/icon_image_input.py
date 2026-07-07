@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#IconImageInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.s3_uri
 
 
-class _IconImageInput_blob(TypedDict):
+class _IconImageInput_blob(TypedDict, closed=True):
     blob: "aws_sdk_workspaces_web.types.icon_image.IconImage"
 
 
-class _IconImageInput_s3Uri(TypedDict):
+class _IconImageInput_s3Uri(TypedDict, closed=True):
     s3Uri: "aws_sdk_workspaces_web.types.s3_uri.S3Uri"
 
 

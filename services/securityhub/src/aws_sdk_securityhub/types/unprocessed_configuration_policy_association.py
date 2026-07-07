@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UnprocessedConfigurationPolicyAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.configuration_policy_association
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class UnprocessedConfigurationPolicyAssociation(TypedDict):
+class UnprocessedConfigurationPolicyAssociation(TypedDict, closed=True):
     configuration_policy_association_identifiers: NotRequired[
         "aws_sdk_securityhub.types.configuration_policy_association.ConfigurationPolicyAssociation"
     ]

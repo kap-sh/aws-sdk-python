@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#RecommendationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class RecommendationError(TypedDict):
+class RecommendationError(TypedDict, closed=True):
     code: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The error code for a failed retrieval of a recommended policy for a finding.</p>"""
     message: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

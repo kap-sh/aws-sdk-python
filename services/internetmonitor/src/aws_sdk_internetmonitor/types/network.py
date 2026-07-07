@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#Network``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_internetmonitor.errors import DeserializationError
 
 
-class Network(TypedDict):
+class Network(TypedDict, closed=True):
     as_name: "str"
     """<p>The name of the internet service provider (ISP) or network (ASN).</p>"""
     as_number: "int"

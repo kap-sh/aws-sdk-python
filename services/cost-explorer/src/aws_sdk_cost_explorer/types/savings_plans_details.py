@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#SavingsPlansDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
 
 
-class SavingsPlansDetails(TypedDict):
+class SavingsPlansDetails(TypedDict, closed=True):
     region: NotRequired["aws_sdk_cost_explorer.types.generic_string.GenericString"]
     """<p>A collection of Amazon Web Services resources in a geographic area. Each Amazon Web Services Region is isolated and independent of the other Regions.</p>"""
     instance_family: NotRequired[

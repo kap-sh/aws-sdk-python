@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#UpdateSolutionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class UpdateSolutionResponse(TypedDict):
+class UpdateSolutionResponse(TypedDict, closed=True):
     solution_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The same solution Amazon Resource Name (ARN) as given in the request.</p>"""
 

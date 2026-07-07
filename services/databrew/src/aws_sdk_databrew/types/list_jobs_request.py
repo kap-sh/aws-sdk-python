@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ListJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.dataset_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.project_name
 
 
-class ListJobsRequest(TypedDict):
+class ListJobsRequest(TypedDict, closed=True):
     dataset_name: NotRequired["aws_sdk_databrew.types.dataset_name.DatasetName"]
     """<p>The name of a dataset. Using this parameter indicates to return only those jobs that act on the specified dataset.</p>"""
     max_results: NotRequired["aws_sdk_databrew.types.max_results100.MaxResults100"]

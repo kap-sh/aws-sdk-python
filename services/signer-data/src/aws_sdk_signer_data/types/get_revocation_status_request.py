@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signerdata#GetRevocationStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer_data.types.platform_id
 
 
-class GetRevocationStatusRequest(TypedDict):
+class GetRevocationStatusRequest(TypedDict, closed=True):
     signature_timestamp: "datetime.datetime"
     """<p>The timestamp when the artifact was signed, in ISO 8601 format.</p>"""
     platform_id: "aws_sdk_signer_data.types.platform_id.PlatformId"

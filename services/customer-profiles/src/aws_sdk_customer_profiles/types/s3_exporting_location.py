@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#S3ExportingLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.s3_bucket_name
     import aws_sdk_customer_profiles.types.s3_key_name
 
 
-class S3ExportingLocation(TypedDict):
+class S3ExportingLocation(TypedDict, closed=True):
     s3_bucket_name: NotRequired[
         "aws_sdk_customer_profiles.types.s3_bucket_name.s3BucketName"
     ]

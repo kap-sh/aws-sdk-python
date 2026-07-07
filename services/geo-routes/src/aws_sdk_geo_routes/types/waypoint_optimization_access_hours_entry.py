@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationAccessHoursEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.time_of_day
 
 
-class WaypointOptimizationAccessHoursEntry(TypedDict):
+class WaypointOptimizationAccessHoursEntry(TypedDict, closed=True):
     day_of_week: "aws_sdk_geo_routes.types.day_of_week.DayOfWeek"
     """<p>Day of the week.</p>"""
     time_of_day: "aws_sdk_geo_routes.types.time_of_day.TimeOfDay"

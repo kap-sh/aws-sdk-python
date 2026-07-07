@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TemplatedMessageConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.template_attributes
 
 
-class TemplatedMessageConfig(TypedDict):
+class TemplatedMessageConfig(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_connect.types.message_template_knowledge_base_id.MessageTemplateKnowledgeBaseId"
     """<p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>"""
     message_template_id: "aws_sdk_connect.types.message_template_id.MessageTemplateId"

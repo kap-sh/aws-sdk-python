@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#GetDashboardResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.dashboard_arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.widget_list
 
 
-class GetDashboardResponse(TypedDict):
+class GetDashboardResponse(TypedDict, closed=True):
     dashboard_arn: NotRequired["aws_sdk_cloudtrail.types.dashboard_arn.DashboardArn"]
     """<p> The ARN for the dashboard. </p>"""
     type: NotRequired["aws_sdk_cloudtrail.types.dashboard_type.DashboardType"]

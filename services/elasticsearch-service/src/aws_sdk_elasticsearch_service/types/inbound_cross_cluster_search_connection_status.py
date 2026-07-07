@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#InboundCrossClusterSearchConnectionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.cross_cluster_search_connection_status_message
     import aws_sdk_elasticsearch_service.types.inbound_cross_cluster_search_connection_status_code
 
 
-class InboundCrossClusterSearchConnectionStatus(TypedDict):
+class InboundCrossClusterSearchConnectionStatus(TypedDict, closed=True):
     status_code: NotRequired[
         "aws_sdk_elasticsearch_service.types.inbound_cross_cluster_search_connection_status_code.InboundCrossClusterSearchConnectionStatusCode"
     ]

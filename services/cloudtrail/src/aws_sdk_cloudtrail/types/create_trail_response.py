@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#CreateTrailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.boolean
     import aws_sdk_cloudtrail.types.string
 
 
-class CreateTrailResponse(TypedDict):
+class CreateTrailResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>Specifies the name of the trail.</p>"""
     s3_bucket_name: NotRequired["aws_sdk_cloudtrail.types.string.String"]

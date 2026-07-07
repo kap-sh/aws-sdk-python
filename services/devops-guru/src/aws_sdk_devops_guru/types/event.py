@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#Event``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.event_class
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.timestamp
 
 
-class Event(TypedDict):
+class Event(TypedDict, closed=True):
     resource_collection: NotRequired[
         "aws_sdk_devops_guru.types.resource_collection.ResourceCollection"
     ]

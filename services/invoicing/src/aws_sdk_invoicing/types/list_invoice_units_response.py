@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#ListInvoiceUnitsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.invoice_units
     import aws_sdk_invoicing.types.next_token_string
 
 
-class ListInvoiceUnitsResponse(TypedDict):
+class ListInvoiceUnitsResponse(TypedDict, closed=True):
     invoice_units: NotRequired["aws_sdk_invoicing.types.invoice_units.InvoiceUnits"]
     """<p> An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. </p>"""
     next_token: NotRequired["aws_sdk_invoicing.types.next_token_string.NextTokenString"]

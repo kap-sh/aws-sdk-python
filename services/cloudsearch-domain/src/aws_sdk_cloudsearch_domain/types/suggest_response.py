@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#SuggestResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.suggest_model
     import aws_sdk_cloudsearch_domain.types.suggest_status
 
 
-class SuggestResponse(TypedDict):
+class SuggestResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_cloudsearch_domain.types.suggest_status.SuggestStatus"]
     """<p>The status of a <code>SuggestRequest</code>. Contains the resource ID (<code>rid</code>) and how long it took to process the request (<code>timems</code>).</p>"""
     suggest: NotRequired["aws_sdk_cloudsearch_domain.types.suggest_model.SuggestModel"]

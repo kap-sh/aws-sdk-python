@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UsageRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_usage_by_account
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.__timestamp_iso8601
 
 
-class UsageRecord(TypedDict):
+class UsageRecord(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The unique identifier for the Amazon Web Services account that the data applies to.</p>"""
     automated_discovery_free_trial_start_date: NotRequired[

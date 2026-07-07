@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListActionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class ListActionsResponse(TypedDict):
+class ListActionsResponse(TypedDict, closed=True):
     action_summaries: "aws_sdk_iotsitewise.types.action_summaries.ActionSummaries"
     """<p>A list that summarizes the actions associated with the specified asset.</p>"""
     next_token: "aws_sdk_iotsitewise.types.next_token.NextToken"

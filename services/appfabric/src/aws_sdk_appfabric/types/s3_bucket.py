@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#S3Bucket``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.string120
 
 
-class S3Bucket(TypedDict):
+class S3Bucket(TypedDict, closed=True):
     bucket_name: "aws_sdk_appfabric.types.string63.String63"
     """<p>The name of the Amazon S3 bucket.</p>"""
     prefix: NotRequired["aws_sdk_appfabric.types.string120.String120"]

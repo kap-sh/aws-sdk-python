@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#Ec2Ungraceful``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
 
-class Ec2Ungraceful(TypedDict):
+class Ec2Ungraceful(TypedDict, closed=True):
     minimum_success_percentage: "int"
     """<p>The minimum success percentage that you specify for EC2 Auto Scaling groups.</p>"""
 

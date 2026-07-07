@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ComponentChild``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.component_properties
 
 
-class ComponentChild(TypedDict):
+class ComponentChild(TypedDict, closed=True):
     component_type: "str"
     """<p>The type of the child component. </p>"""
     name: "str"

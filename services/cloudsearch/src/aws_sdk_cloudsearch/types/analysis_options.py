@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#AnalysisOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.string
 
 
-class AnalysisOptions(TypedDict):
+class AnalysisOptions(TypedDict, closed=True):
     synonyms: NotRequired["aws_sdk_cloudsearch.types.string.String"]
     r"""<p>A JSON object that defines synonym groups and aliases. A synonym group is an array of arrays, where each sub-array is a group of terms where each term in the group is considered a synonym of every other term in the group. The aliases value is an object that contains a collection of string:value pairs where the string specifies a term and the array of values specifies each of the aliases for that term. An alias is considered a synonym of the specified term, but the term is not considered a synonym of the alias. For more information about specifying synonyms, see <a href=\"http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms\">Synonyms</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>"""
     stopwords: NotRequired["aws_sdk_cloudsearch.types.string.String"]

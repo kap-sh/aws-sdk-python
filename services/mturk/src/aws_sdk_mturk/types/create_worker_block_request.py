@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#CreateWorkerBlockRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class CreateWorkerBlockRequest(TypedDict):
+class CreateWorkerBlockRequest(TypedDict, closed=True):
     worker_id: "aws_sdk_mturk.types.customer_id.CustomerId"
     """<p>The ID of the Worker to block.</p>"""
     reason: "aws_sdk_mturk.types.string.String"

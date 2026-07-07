@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#StartStreamTranscriptionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.audio_stream
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.vocabulary_names
 
 
-class StartStreamTranscriptionRequest(TypedDict):
+class StartStreamTranscriptionRequest(TypedDict, closed=True):
     language_code: NotRequired[
         "aws_sdk_transcribe_streaming.types.language_code.LanguageCode"
     ]

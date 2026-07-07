@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#ResourceTagMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.compliance_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.tag_list
 
 
-class ResourceTagMapping(TypedDict):
+class ResourceTagMapping(TypedDict, closed=True):
     resource_arn: NotRequired[
         "aws_sdk_resource_groups_tagging_api.types.resource_arn.ResourceARN"
     ]

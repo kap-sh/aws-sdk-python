@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListDomainsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.domain_list
     import aws_sdk_customer_profiles.types.token
 
 
-class ListDomainsResponse(TypedDict):
+class ListDomainsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_customer_profiles.types.domain_list.DomainList"]
     """<p>The list of ListDomains instances.</p>"""
     next_token: NotRequired["aws_sdk_customer_profiles.types.token.token"]

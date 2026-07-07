@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#ClusterParameterGroupDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class ClusterParameterGroupDetails(TypedDict):
+class ClusterParameterGroupDetails(TypedDict, closed=True):
     parameters: NotRequired["aws_sdk_redshift.types.parameters_list.ParametersList"]
     """<p>A list of <a>Parameter</a> instances. Each instance lists the parameters of one cluster parameter group. </p>"""
     marker: NotRequired["aws_sdk_redshift.types.string.String"]

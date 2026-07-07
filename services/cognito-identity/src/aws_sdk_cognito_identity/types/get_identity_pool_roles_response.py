@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#GetIdentityPoolRolesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.identity_pool_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.roles_map
 
 
-class GetIdentityPoolRolesResponse(TypedDict):
+class GetIdentityPoolRolesResponse(TypedDict, closed=True):
     identity_pool_id: NotRequired[
         "aws_sdk_cognito_identity.types.identity_pool_id.IdentityPoolId"
     ]

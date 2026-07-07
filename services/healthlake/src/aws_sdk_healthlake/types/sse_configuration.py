@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#SseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.kms_encryption_config
 
 
-class SseConfiguration(TypedDict):
+class SseConfiguration(TypedDict, closed=True):
     kms_encryption_config: (
         "aws_sdk_healthlake.types.kms_encryption_config.KmsEncryptionConfig"
     )

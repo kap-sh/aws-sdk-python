@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DocumentOutputTextFormat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.document_output_text_format_types
 
 
-class DocumentOutputTextFormat(TypedDict):
+class DocumentOutputTextFormat(TypedDict, closed=True):
     types: NotRequired[
         "aws_sdk_bedrock_data_automation.types.document_output_text_format_types.DocumentOutputTextFormatTypes"
     ]

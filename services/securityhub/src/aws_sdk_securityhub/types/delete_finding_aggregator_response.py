@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DeleteFindingAggregatorResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteFindingAggregatorResponse(TypedDict):
+class DeleteFindingAggregatorResponse(TypedDict, closed=True):
     pass
 
 

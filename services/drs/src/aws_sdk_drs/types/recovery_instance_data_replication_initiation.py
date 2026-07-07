@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstanceDataReplicationInitiation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.iso8601_datetime_string
     import aws_sdk_drs.types.recovery_instance_data_replication_initiation_steps
 
 
-class RecoveryInstanceDataReplicationInitiation(TypedDict):
+class RecoveryInstanceDataReplicationInitiation(TypedDict, closed=True):
     start_date_time: NotRequired[
         "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
     ]

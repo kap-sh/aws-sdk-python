@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__map_of__string
     import aws_sdk_mediapackage_vod.types.__string
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_mediapackage_vod.types.__string.__string"
     """The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource."""
     tags: NotRequired["aws_sdk_mediapackage_vod.types.__map_of__string.__mapOf__string"]

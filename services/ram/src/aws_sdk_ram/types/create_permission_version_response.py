@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#CreatePermissionVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.resource_share_permission_detail
     import aws_sdk_ram.types.string
 
 
-class CreatePermissionVersionResponse(TypedDict):
+class CreatePermissionVersionResponse(TypedDict, closed=True):
     permission: NotRequired[
         "aws_sdk_ram.types.resource_share_permission_detail.ResourceSharePermissionDetail"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#GeoMatchParams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.country
 
 
-class GeoMatchParams(TypedDict):
+class GeoMatchParams(TypedDict, closed=True):
     country: "aws_sdk_chime_sdk_voice.types.country.Country"
     """<p>The country.</p>"""
     area_code: "aws_sdk_chime_sdk_voice.types.area_code.AreaCode"

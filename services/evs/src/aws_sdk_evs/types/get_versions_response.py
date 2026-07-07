@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#GetVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.vcf_version_list
 
 
-class GetVersionsResponse(TypedDict):
+class GetVersionsResponse(TypedDict, closed=True):
     vcf_versions: "aws_sdk_evs.types.vcf_version_list.VcfVersionList"
     """<p>A list of VCF versions with their availability status, default ESX version, and instance types.</p>"""
     instance_type_esx_versions: (

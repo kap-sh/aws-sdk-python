@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceComponentDataCacheConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.enable_caching
 
 
-class InferenceComponentDataCacheConfig(TypedDict):
+class InferenceComponentDataCacheConfig(TypedDict, closed=True):
     enable_caching: NotRequired["aws_sdk_sagemaker.types.enable_caching.EnableCaching"]
     """<p>Sets whether the endpoint that hosts the inference component caches the model artifacts and container image.</p> <p>With caching enabled, the endpoint caches this data in each instance that it provisions for the inference component. That way, the inference component deploys faster during the auto scaling process. If caching isn't enabled, the inference component takes longer to deploy because of the time it spends downloading the data.</p>"""
 

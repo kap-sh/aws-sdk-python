@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#TargetHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.target_state
 
 
-class TargetHealth(TypedDict):
+class TargetHealth(TypedDict, closed=True):
     state: NotRequired["aws_sdk_rds.types.target_state.TargetState"]
     """<p>The current state of the connection health lifecycle for the RDS Proxy target. The following is a typical lifecycle example for the states of an RDS Proxy target:</p> <p> <code>registering</code> &gt; <code>unavailable</code> &gt; <code>available</code> &gt; <code>unavailable</code> &gt; <code>available</code> </p>"""
     reason: NotRequired["aws_sdk_rds.types.target_health_reason.TargetHealthReason"]

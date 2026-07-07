@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ProductViewSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.has_default_path
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.support_url
 
 
-class ProductViewSummary(TypedDict):
+class ProductViewSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_service_catalog.types.id.Id"]
     """<p>The product view identifier.</p>"""
     product_id: NotRequired["aws_sdk_service_catalog.types.id.Id"]

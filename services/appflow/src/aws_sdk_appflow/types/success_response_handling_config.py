@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SuccessResponseHandlingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.bucket_name
     import aws_sdk_appflow.types.bucket_prefix
 
 
-class SuccessResponseHandlingConfig(TypedDict):
+class SuccessResponseHandlingConfig(TypedDict, closed=True):
     bucket_prefix: NotRequired["aws_sdk_appflow.types.bucket_prefix.BucketPrefix"]
     """<p>The Amazon S3 bucket prefix.</p>"""
     bucket_name: NotRequired["aws_sdk_appflow.types.bucket_name.BucketName"]

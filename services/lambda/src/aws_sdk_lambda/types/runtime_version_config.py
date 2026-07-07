@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#RuntimeVersionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.runtime_version_arn
     import aws_sdk_lambda.types.runtime_version_error
 
 
-class RuntimeVersionConfig(TypedDict):
+class RuntimeVersionConfig(TypedDict, closed=True):
     runtime_version_arn: NotRequired[
         "aws_sdk_lambda.types.runtime_version_arn.RuntimeVersionArn"
     ]

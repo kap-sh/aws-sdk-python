@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterOrchestrator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_orchestrator_eks_config
     import aws_sdk_sagemaker.types.cluster_orchestrator_slurm_config
 
 
-class ClusterOrchestrator(TypedDict):
+class ClusterOrchestrator(TypedDict, closed=True):
     eks: NotRequired[
         "aws_sdk_sagemaker.types.cluster_orchestrator_eks_config.ClusterOrchestratorEksConfig"
     ]

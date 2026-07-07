@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#DescribeComponentConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.component_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_insights.types.tier
 
 
-class DescribeComponentConfigurationResponse(TypedDict):
+class DescribeComponentConfigurationResponse(TypedDict, closed=True):
     monitor: NotRequired["aws_sdk_application_insights.types.monitor.Monitor"]
     """<p>Indicates whether the application component is monitored.</p>"""
     tier: NotRequired["aws_sdk_application_insights.types.tier.Tier"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#OrganizationS3LogsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
 
 
-class OrganizationS3LogsConfiguration(TypedDict):
+class OrganizationS3LogsConfiguration(TypedDict, closed=True):
     auto_enable: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>A value that contains information on whether S3 data event logs will be enabled automatically as a data source for the organization.</p>"""
 

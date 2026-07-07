@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#DescribeClusterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cluster
 
 
-class DescribeClusterOutput(TypedDict):
+class DescribeClusterOutput(TypedDict, closed=True):
     cluster: NotRequired["aws_sdk_emr.types.cluster.Cluster"]
     """<p>This output contains the details for the requested cluster.</p>"""
 

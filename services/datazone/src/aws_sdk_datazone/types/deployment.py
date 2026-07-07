@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#Deployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.deployment_messages_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.environment_error
 
 
-class Deployment(TypedDict):
+class Deployment(TypedDict, closed=True):
     deployment_id: NotRequired["str"]
     """<p>The identifier of the last deployment of the environment.</p>"""
     deployment_type: NotRequired[

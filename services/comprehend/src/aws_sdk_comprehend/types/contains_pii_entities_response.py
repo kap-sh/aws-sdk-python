@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ContainsPiiEntitiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.list_of_entity_labels
 
 
-class ContainsPiiEntitiesResponse(TypedDict):
+class ContainsPiiEntitiesResponse(TypedDict, closed=True):
     labels: NotRequired[
         "aws_sdk_comprehend.types.list_of_entity_labels.ListOfEntityLabels"
     ]

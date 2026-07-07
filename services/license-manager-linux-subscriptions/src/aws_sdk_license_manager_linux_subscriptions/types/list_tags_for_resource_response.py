@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerlinuxsubscriptions#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager_linux_subscriptions.types.tags
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_license_manager_linux_subscriptions.types.tags.Tags"]
     """<p>The metadata tags for the requested resource.</p>"""
 

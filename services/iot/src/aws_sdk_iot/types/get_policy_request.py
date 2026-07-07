@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.policy_name
 
 
-class GetPolicyRequest(TypedDict):
+class GetPolicyRequest(TypedDict, closed=True):
     policy_name: "aws_sdk_iot.types.policy_name.PolicyName"
     """<p>The name of the policy.</p>"""
 

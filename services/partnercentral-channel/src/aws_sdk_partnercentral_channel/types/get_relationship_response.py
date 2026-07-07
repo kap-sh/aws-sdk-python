@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#GetRelationshipResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.relationship_detail
 
 
-class GetRelationshipResponse(TypedDict):
+class GetRelationshipResponse(TypedDict, closed=True):
     relationship_detail: NotRequired[
         "aws_sdk_partnercentral_channel.types.relationship_detail.RelationshipDetail"
     ]

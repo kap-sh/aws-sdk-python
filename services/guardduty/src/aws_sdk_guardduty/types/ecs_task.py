@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#EcsTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.container_uids
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.timestamp
 
 
-class EcsTask(TypedDict):
+class EcsTask(TypedDict, closed=True):
     created_at: NotRequired["aws_sdk_guardduty.types.timestamp.Timestamp"]
     """<p>The timestamp indicating when the Amazon ECS task was created, in UTC format.</p>"""
     task_definition_arn: NotRequired["aws_sdk_guardduty.types.string.String"]

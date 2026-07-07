@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#GetServerDetailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.associated_applications
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class GetServerDetailsResponse(TypedDict):
+class GetServerDetailsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_migrationhubstrategy.types.string.String"]
     """<p> The token you use to retrieve the next set of results, or null if there are no more results. </p>"""
     server_detail: NotRequired[

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#BlockStoragePerformanceConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class BlockStoragePerformanceConfiguration(TypedDict):
+class BlockStoragePerformanceConfiguration(TypedDict, closed=True):
     iops: NotRequired["float"]
     """<p>The number of I/O operations per second.</p>"""
     throughput: NotRequired["float"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#MCPServerNewRelicConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class MCPServerNewRelicConfiguration(TypedDict):
+class MCPServerNewRelicConfiguration(TypedDict, closed=True):
     account_id: "str"
     """<p>New Relic Account ID</p>"""
     endpoint: "str"

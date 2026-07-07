@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MediaLiveInputRouterOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.media_live_transit_encryption
 
 
-class MediaLiveInputRouterOutputConfiguration(TypedDict):
+class MediaLiveInputRouterOutputConfiguration(TypedDict, closed=True):
     media_live_input_arn: NotRequired[
         "aws_sdk_mediaconnect.types.media_live_input_arn.MediaLiveInputArn"
     ]

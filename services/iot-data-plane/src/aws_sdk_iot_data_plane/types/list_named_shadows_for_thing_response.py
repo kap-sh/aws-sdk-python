@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#ListNamedShadowsForThingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.named_shadow_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.timestamp
 
 
-class ListNamedShadowsForThingResponse(TypedDict):
+class ListNamedShadowsForThingResponse(TypedDict, closed=True):
     results: NotRequired[
         "aws_sdk_iot_data_plane.types.named_shadow_list.NamedShadowList"
     ]

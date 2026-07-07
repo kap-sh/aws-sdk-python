@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#GetSolVnfcResourceInfoMetadata``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetSolVnfcResourceInfoMetadata(TypedDict):
+class GetSolVnfcResourceInfoMetadata(TypedDict, closed=True):
     node_group: NotRequired["str"]
     """<p>Information about the node group.</p>"""
     cluster: NotRequired["str"]

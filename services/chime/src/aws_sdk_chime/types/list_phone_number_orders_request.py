@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chime#ListPhoneNumberOrdersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.result_max
     import aws_sdk_chime.types.string
 
 
-class ListPhoneNumberOrdersRequest(TypedDict):
+class ListPhoneNumberOrdersRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_chime.types.string.String"]
     """<p>The token to use to retrieve the next page of results.</p>"""
     max_results: NotRequired["aws_sdk_chime.types.result_max.ResultMax"]

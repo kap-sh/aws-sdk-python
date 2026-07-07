@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#GetAuthPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.auth_policy_state
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.timestamp
 
 
-class GetAuthPolicyResponse(TypedDict):
+class GetAuthPolicyResponse(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_vpc_lattice.types.auth_policy_string.AuthPolicyString"]
     """<p>The auth policy.</p>"""
     state: NotRequired["aws_sdk_vpc_lattice.types.auth_policy_state.AuthPolicyState"]

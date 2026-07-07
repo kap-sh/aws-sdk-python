@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#Api``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.api_name
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.timestamp
 
 
-class Api(TypedDict):
+class Api(TypedDict, closed=True):
     api_id: NotRequired["aws_sdk_appsync.types.string.String"]
     """<p>The <code>Api</code> ID.</p>"""
     name: NotRequired["aws_sdk_appsync.types.api_name.ApiName"]

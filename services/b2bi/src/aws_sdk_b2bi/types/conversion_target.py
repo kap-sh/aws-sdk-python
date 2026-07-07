@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#ConversionTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.output_sample_file_source
 
 
-class ConversionTarget(TypedDict):
+class ConversionTarget(TypedDict, closed=True):
     file_format: "aws_sdk_b2bi.types.conversion_target_format.ConversionTargetFormat"
     """<p>Currently, only X12 format is supported.</p>"""
     format_details: NotRequired[

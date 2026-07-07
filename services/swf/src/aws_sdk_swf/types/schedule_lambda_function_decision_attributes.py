@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ScheduleLambdaFunctionDecisionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.function_name
 
 
-class ScheduleLambdaFunctionDecisionAttributes(TypedDict):
+class ScheduleLambdaFunctionDecisionAttributes(TypedDict, closed=True):
     id: "aws_sdk_swf.types.function_id.FunctionId"
     """<p>A string that identifies the Lambda function execution in the event history.</p>"""
     name: "aws_sdk_swf.types.function_name.FunctionName"

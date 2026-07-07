@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DatabaseInstanceSoftwareDetailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.integer_optional
     import aws_sdk_database_migration_service.types.string
 
 
-class DatabaseInstanceSoftwareDetailsResponse(TypedDict):
+class DatabaseInstanceSoftwareDetailsResponse(TypedDict, closed=True):
     engine: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The database engine of a database in a Fleet Advisor collector inventory, for example <code>Microsoft SQL Server</code>.</p>"""
     engine_version: NotRequired[

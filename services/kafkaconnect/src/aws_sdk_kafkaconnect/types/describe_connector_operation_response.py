@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#DescribeConnectorOperationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__list_of_connector_operation_step
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.worker_setting
 
 
-class DescribeConnectorOperationResponse(TypedDict):
+class DescribeConnectorOperationResponse(TypedDict, closed=True):
     connector_arn: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of the connector.</p>"""
     connector_operation_arn: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#StartMemoryExtractionJobOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class StartMemoryExtractionJobOutput(TypedDict):
+class StartMemoryExtractionJobOutput(TypedDict, closed=True):
     job_id: "str"
     """<p>Extraction Job ID that was attempted to start.</p>"""
 

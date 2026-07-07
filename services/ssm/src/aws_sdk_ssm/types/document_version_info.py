@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DocumentVersionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.boolean
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.review_status
 
 
-class DocumentVersionInfo(TypedDict):
+class DocumentVersionInfo(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ssm.types.document_name.DocumentName"]
     """<p>The document name.</p>"""
     display_name: NotRequired[

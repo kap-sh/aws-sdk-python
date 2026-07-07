@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#SyncBlockerContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.sync_blocker_context_value
 
 
-class SyncBlockerContext(TypedDict):
+class SyncBlockerContext(TypedDict, closed=True):
     key: "aws_sdk_codestar_connections.types.sync_blocker_context_key.SyncBlockerContextKey"
     """<p>The key provided for a context key-value pair for a specific sync blocker.</p>"""
     value: "aws_sdk_codestar_connections.types.sync_blocker_context_value.SyncBlockerContextValue"

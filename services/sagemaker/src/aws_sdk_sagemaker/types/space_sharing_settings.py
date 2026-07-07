@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#SpaceSharingSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.sharing_type
 
 
-class SpaceSharingSettings(TypedDict):
+class SpaceSharingSettings(TypedDict, closed=True):
     sharing_type: NotRequired["aws_sdk_sagemaker.types.sharing_type.SharingType"]
     """<p>Specifies the sharing type of the space.</p>"""
 

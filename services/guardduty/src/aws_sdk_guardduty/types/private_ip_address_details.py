@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#PrivateIpAddressDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.sensitive_string
     import aws_sdk_guardduty.types.string
 
 
-class PrivateIpAddressDetails(TypedDict):
+class PrivateIpAddressDetails(TypedDict, closed=True):
     private_dns_name: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The private DNS name of the EC2 instance.</p>"""
     private_ip_address: NotRequired[

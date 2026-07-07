@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SearchGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.group_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class SearchGroupsResponse(TypedDict):
+class SearchGroupsResponse(TypedDict, closed=True):
     group_list: NotRequired["aws_sdk_quicksight.types.group_list.GroupList"]
     """<p>A list of groups in a specified namespace that match the filters you set in your <code>SearchGroups</code> request.</p>"""
     next_token: NotRequired["aws_sdk_quicksight.types.string.String"]

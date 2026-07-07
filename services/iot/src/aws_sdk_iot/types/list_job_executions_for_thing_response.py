@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListJobExecutionsForThingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.job_execution_summary_for_thing_list
     import aws_sdk_iot.types.next_token
 
 
-class ListJobExecutionsForThingResponse(TypedDict):
+class ListJobExecutionsForThingResponse(TypedDict, closed=True):
     execution_summaries: NotRequired[
         "aws_sdk_iot.types.job_execution_summary_for_thing_list.JobExecutionSummaryForThingList"
     ]

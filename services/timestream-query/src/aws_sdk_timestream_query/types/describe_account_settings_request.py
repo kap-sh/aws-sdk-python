@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#DescribeAccountSettingsRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeAccountSettingsRequest(TypedDict):
+class DescribeAccountSettingsRequest(TypedDict, closed=True):
     pass
 
 

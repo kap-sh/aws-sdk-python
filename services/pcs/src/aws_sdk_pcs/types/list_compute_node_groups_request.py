@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ListComputeNodeGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.max_results
 
 
-class ListComputeNodeGroupsRequest(TypedDict):
+class ListComputeNodeGroupsRequest(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_pcs.types.cluster_identifier.ClusterIdentifier"
     """<p>The name or ID of the cluster to list compute node groups for.</p>"""
     next_token: NotRequired["str"]

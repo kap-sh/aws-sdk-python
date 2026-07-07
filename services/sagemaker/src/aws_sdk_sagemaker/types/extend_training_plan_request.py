@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ExtendTrainingPlanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.training_plan_extension_offering_id
 
 
-class ExtendTrainingPlanRequest(TypedDict):
+class ExtendTrainingPlanRequest(TypedDict, closed=True):
     training_plan_extension_offering_id: NotRequired[
         "aws_sdk_sagemaker.types.training_plan_extension_offering_id.TrainingPlanExtensionOfferingId"
     ]

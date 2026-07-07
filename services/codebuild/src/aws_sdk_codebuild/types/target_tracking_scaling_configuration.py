@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#TargetTrackingScalingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.fleet_scaling_metric_type
     import aws_sdk_codebuild.types.wrapper_double
 
 
-class TargetTrackingScalingConfiguration(TypedDict):
+class TargetTrackingScalingConfiguration(TypedDict, closed=True):
     metric_type: NotRequired[
         "aws_sdk_codebuild.types.fleet_scaling_metric_type.FleetScalingMetricType"
     ]

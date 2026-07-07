@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#DeleteGraphSnapshotInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.snapshot_identifier
 
 
-class DeleteGraphSnapshotInput(TypedDict):
+class DeleteGraphSnapshotInput(TypedDict, closed=True):
     snapshot_identifier: (
         "aws_sdk_neptune_graph.types.snapshot_identifier.SnapshotIdentifier"
     )

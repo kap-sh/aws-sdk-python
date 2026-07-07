@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#FailureConditions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.condition_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.retry_configuration
 
 
-class FailureConditions(TypedDict):
+class FailureConditions(TypedDict, closed=True):
     result: NotRequired["aws_sdk_codepipeline.types.result.Result"]
     """<p>The specified result for when the failure conditions are met, such as rolling back the stage.</p>"""
     retry_configuration: NotRequired[

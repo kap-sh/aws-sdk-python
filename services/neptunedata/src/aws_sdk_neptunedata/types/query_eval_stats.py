@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#QueryEvalStats``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class QueryEvalStats(TypedDict):
+class QueryEvalStats(TypedDict, closed=True):
     waited: NotRequired["int"]
     """<p>Indicates how long the query waited, in milliseconds.</p>"""
     elapsed: NotRequired["int"]

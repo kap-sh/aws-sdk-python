@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#DataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.s3_data_source
 
 
-class DataSource(TypedDict):
+class DataSource(TypedDict, closed=True):
     s3_data_source: "aws_sdk_braket.types.s3_data_source.S3DataSource"
     """<p>Amazon S3 path of the input data used by the hybrid job.</p>"""
 

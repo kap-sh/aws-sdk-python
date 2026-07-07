@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeEventAggregatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_health.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.next_token
 
 
-class DescribeEventAggregatesRequest(TypedDict):
+class DescribeEventAggregatesRequest(TypedDict, closed=True):
     filter: NotRequired["aws_sdk_health.types.event_filter.EventFilter"]
     """<p>Values to narrow the results returned.</p>"""
     aggregate_field: "aws_sdk_health.types.event_aggregate_field.eventAggregateField"

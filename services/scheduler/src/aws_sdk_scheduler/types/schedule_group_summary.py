@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#ScheduleGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_scheduler.types.creation_date
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_scheduler.types.schedule_group_state
 
 
-class ScheduleGroupSummary(TypedDict):
+class ScheduleGroupSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_scheduler.types.schedule_group_arn.ScheduleGroupArn"]
     """<p>The Amazon Resource Name (ARN) of the schedule group.</p>"""
     name: NotRequired["aws_sdk_scheduler.types.schedule_group_name.ScheduleGroupName"]

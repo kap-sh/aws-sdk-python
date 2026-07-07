@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#EbsVolumesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.data_source_status
     import aws_sdk_guardduty.types.string
 
 
-class EbsVolumesResult(TypedDict):
+class EbsVolumesResult(TypedDict, closed=True):
     status: NotRequired["aws_sdk_guardduty.types.data_source_status.DataSourceStatus"]
     """<p>Describes whether scanning EBS volumes is enabled as a data source.</p>"""
     reason: NotRequired["aws_sdk_guardduty.types.string.String"]

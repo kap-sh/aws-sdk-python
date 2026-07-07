@@ -1,14 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.double
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails(TypedDict):
+class AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails(
+    TypedDict, closed=True
+):
     max: NotRequired["aws_sdk_securityhub.types.double.Double"]
     """<p> The maximum amount of total local storage, in GB. </p>"""
     min: NotRequired["aws_sdk_securityhub.types.double.Double"]

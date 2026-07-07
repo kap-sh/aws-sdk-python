@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#StartFuotaTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.fuota_task_id
     import aws_sdk_iot_wireless.types.lo_ra_wan_start_fuota_task
 
 
-class StartFuotaTaskRequest(TypedDict):
+class StartFuotaTaskRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.fuota_task_id.FuotaTaskId"
     lo_ra_wan: NotRequired[
         "aws_sdk_iot_wireless.types.lo_ra_wan_start_fuota_task.LoRaWANStartFuotaTask"

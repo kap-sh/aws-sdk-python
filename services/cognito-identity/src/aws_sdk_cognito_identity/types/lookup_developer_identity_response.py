@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#LookupDeveloperIdentityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.developer_user_identifier_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.pagination_key
 
 
-class LookupDeveloperIdentityResponse(TypedDict):
+class LookupDeveloperIdentityResponse(TypedDict, closed=True):
     identity_id: NotRequired["aws_sdk_cognito_identity.types.identity_id.IdentityId"]
     """<p>A unique identifier in the format REGION:GUID.</p>"""
     developer_user_identifier_list: NotRequired[

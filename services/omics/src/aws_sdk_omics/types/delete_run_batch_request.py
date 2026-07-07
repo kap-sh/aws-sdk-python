@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DeleteRunBatchRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.batch_id
 
 
-class DeleteRunBatchRequest(TypedDict):
+class DeleteRunBatchRequest(TypedDict, closed=True):
     batch_id: "aws_sdk_omics.types.batch_id.BatchId"
     """<p>The identifier portion of the run batch ARN.</p>"""
 

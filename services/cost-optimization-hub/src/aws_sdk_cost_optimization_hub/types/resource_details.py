@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_optimization_hub.errors import (
     DeserializationError,
@@ -35,113 +37,113 @@ if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.work_spaces
 
 
-class _ResourceDetails_lambdaFunction(TypedDict):
+class _ResourceDetails_lambdaFunction(TypedDict, closed=True):
     lambdaFunction: "aws_sdk_cost_optimization_hub.types.lambda_function.LambdaFunction"
 
 
-class _ResourceDetails_ecsService(TypedDict):
+class _ResourceDetails_ecsService(TypedDict, closed=True):
     ecsService: "aws_sdk_cost_optimization_hub.types.ecs_service.EcsService"
 
 
-class _ResourceDetails_ec2Instance(TypedDict):
+class _ResourceDetails_ec2Instance(TypedDict, closed=True):
     ec2Instance: "aws_sdk_cost_optimization_hub.types.ec2_instance.Ec2Instance"
 
 
-class _ResourceDetails_ebsVolume(TypedDict):
+class _ResourceDetails_ebsVolume(TypedDict, closed=True):
     ebsVolume: "aws_sdk_cost_optimization_hub.types.ebs_volume.EbsVolume"
 
 
-class _ResourceDetails_ec2AutoScalingGroup(TypedDict):
+class _ResourceDetails_ec2AutoScalingGroup(TypedDict, closed=True):
     ec2AutoScalingGroup: (
         "aws_sdk_cost_optimization_hub.types.ec2_auto_scaling_group.Ec2AutoScalingGroup"
     )
 
 
-class _ResourceDetails_ec2ReservedInstances(TypedDict):
+class _ResourceDetails_ec2ReservedInstances(TypedDict, closed=True):
     ec2ReservedInstances: "aws_sdk_cost_optimization_hub.types.ec2_reserved_instances.Ec2ReservedInstances"
 
 
-class _ResourceDetails_rdsReservedInstances(TypedDict):
+class _ResourceDetails_rdsReservedInstances(TypedDict, closed=True):
     rdsReservedInstances: "aws_sdk_cost_optimization_hub.types.rds_reserved_instances.RdsReservedInstances"
 
 
-class _ResourceDetails_elastiCacheReservedInstances(TypedDict):
+class _ResourceDetails_elastiCacheReservedInstances(TypedDict, closed=True):
     elastiCacheReservedInstances: "aws_sdk_cost_optimization_hub.types.elasti_cache_reserved_instances.ElastiCacheReservedInstances"
 
 
-class _ResourceDetails_openSearchReservedInstances(TypedDict):
+class _ResourceDetails_openSearchReservedInstances(TypedDict, closed=True):
     openSearchReservedInstances: "aws_sdk_cost_optimization_hub.types.open_search_reserved_instances.OpenSearchReservedInstances"
 
 
-class _ResourceDetails_redshiftReservedInstances(TypedDict):
+class _ResourceDetails_redshiftReservedInstances(TypedDict, closed=True):
     redshiftReservedInstances: "aws_sdk_cost_optimization_hub.types.redshift_reserved_instances.RedshiftReservedInstances"
 
 
-class _ResourceDetails_ec2InstanceSavingsPlans(TypedDict):
+class _ResourceDetails_ec2InstanceSavingsPlans(TypedDict, closed=True):
     ec2InstanceSavingsPlans: "aws_sdk_cost_optimization_hub.types.ec2_instance_savings_plans.Ec2InstanceSavingsPlans"
 
 
-class _ResourceDetails_computeSavingsPlans(TypedDict):
+class _ResourceDetails_computeSavingsPlans(TypedDict, closed=True):
     computeSavingsPlans: (
         "aws_sdk_cost_optimization_hub.types.compute_savings_plans.ComputeSavingsPlans"
     )
 
 
-class _ResourceDetails_sageMakerSavingsPlans(TypedDict):
+class _ResourceDetails_sageMakerSavingsPlans(TypedDict, closed=True):
     sageMakerSavingsPlans: "aws_sdk_cost_optimization_hub.types.sage_maker_savings_plans.SageMakerSavingsPlans"
 
 
-class _ResourceDetails_rdsDbInstance(TypedDict):
+class _ResourceDetails_rdsDbInstance(TypedDict, closed=True):
     rdsDbInstance: "aws_sdk_cost_optimization_hub.types.rds_db_instance.RdsDbInstance"
 
 
-class _ResourceDetails_rdsDbInstanceStorage(TypedDict):
+class _ResourceDetails_rdsDbInstanceStorage(TypedDict, closed=True):
     rdsDbInstanceStorage: "aws_sdk_cost_optimization_hub.types.rds_db_instance_storage.RdsDbInstanceStorage"
 
 
-class _ResourceDetails_auroraDbClusterStorage(TypedDict):
+class _ResourceDetails_auroraDbClusterStorage(TypedDict, closed=True):
     auroraDbClusterStorage: "aws_sdk_cost_optimization_hub.types.aurora_db_cluster_storage.AuroraDbClusterStorage"
 
 
-class _ResourceDetails_dynamoDbReservedCapacity(TypedDict):
+class _ResourceDetails_dynamoDbReservedCapacity(TypedDict, closed=True):
     dynamoDbReservedCapacity: "aws_sdk_cost_optimization_hub.types.dynamo_db_reserved_capacity.DynamoDbReservedCapacity"
 
 
-class _ResourceDetails_memoryDbReservedInstances(TypedDict):
+class _ResourceDetails_memoryDbReservedInstances(TypedDict, closed=True):
     memoryDbReservedInstances: "aws_sdk_cost_optimization_hub.types.memory_db_reserved_instances.MemoryDbReservedInstances"
 
 
-class _ResourceDetails_natGateway(TypedDict):
+class _ResourceDetails_natGateway(TypedDict, closed=True):
     natGateway: "aws_sdk_cost_optimization_hub.types.nat_gateway.NatGateway"
 
 
-class _ResourceDetails_dynamoDbTable(TypedDict):
+class _ResourceDetails_dynamoDbTable(TypedDict, closed=True):
     dynamoDbTable: "aws_sdk_cost_optimization_hub.types.dynamo_db_table.DynamoDbTable"
 
 
-class _ResourceDetails_elastiCacheCluster(TypedDict):
+class _ResourceDetails_elastiCacheCluster(TypedDict, closed=True):
     elastiCacheCluster: (
         "aws_sdk_cost_optimization_hub.types.elasti_cache_cluster.ElastiCacheCluster"
     )
 
 
-class _ResourceDetails_memoryDbCluster(TypedDict):
+class _ResourceDetails_memoryDbCluster(TypedDict, closed=True):
     memoryDbCluster: (
         "aws_sdk_cost_optimization_hub.types.memory_db_cluster.MemoryDbCluster"
     )
 
 
-class _ResourceDetails_documentDbCluster(TypedDict):
+class _ResourceDetails_documentDbCluster(TypedDict, closed=True):
     documentDbCluster: (
         "aws_sdk_cost_optimization_hub.types.document_db_cluster.DocumentDbCluster"
     )
 
 
-class _ResourceDetails_workSpaces(TypedDict):
+class _ResourceDetails_workSpaces(TypedDict, closed=True):
     workSpaces: "aws_sdk_cost_optimization_hub.types.work_spaces.WorkSpaces"
 
 
-class _ResourceDetails_sageMakerEndpoint(TypedDict):
+class _ResourceDetails_sageMakerEndpoint(TypedDict, closed=True):
     sageMakerEndpoint: (
         "aws_sdk_cost_optimization_hub.types.sage_maker_endpoint.SageMakerEndpoint"
     )

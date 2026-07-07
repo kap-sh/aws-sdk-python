@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#DeleteDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.device_id
     import aws_sdk_networkmanager.types.global_network_id
 
 
-class DeleteDeviceRequest(TypedDict):
+class DeleteDeviceRequest(TypedDict, closed=True):
     global_network_id: "aws_sdk_networkmanager.types.global_network_id.GlobalNetworkId"
     """<p>The ID of the global network.</p>"""
     device_id: "aws_sdk_networkmanager.types.device_id.DeviceId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#UpdateAgentSpaceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.agent_space_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.locale
 
 
-class UpdateAgentSpaceInput(TypedDict):
+class UpdateAgentSpaceInput(TypedDict, closed=True):
     agent_space_id: "aws_sdk_devops_agent.types.agent_space_id.AgentSpaceId"
     """<p>The unique identifier of the AgentSpace</p>"""
     name: NotRequired["aws_sdk_devops_agent.types.agent_space_name.AgentSpaceName"]

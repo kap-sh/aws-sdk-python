@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#AddTagsToResourceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.tag_list
 
 
-class AddTagsToResourceMessage(TypedDict):
+class AddTagsToResourceMessage(TypedDict, closed=True):
     resource_name: NotRequired["aws_sdk_neptune.types.string.String"]
     r"""<p>The Amazon Neptune resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p>"""
     tags: NotRequired["aws_sdk_neptune.types.tag_list.TagList"]

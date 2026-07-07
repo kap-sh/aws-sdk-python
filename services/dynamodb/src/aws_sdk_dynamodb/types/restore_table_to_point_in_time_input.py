@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#RestoreTableToPointInTimeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_name
 
 
-class RestoreTableToPointInTimeInput(TypedDict):
+class RestoreTableToPointInTimeInput(TypedDict, closed=True):
     source_table_arn: NotRequired["aws_sdk_dynamodb.types.table_arn.TableArn"]
     """<p>The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).</p>"""
     source_table_name: NotRequired["aws_sdk_dynamodb.types.table_name.TableName"]

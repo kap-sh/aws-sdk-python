@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.amp#AnomalyDetectorMissingDataAction``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError, SerializationError
 
 
-class _AnomalyDetectorMissingDataAction_markAsAnomaly(TypedDict):
+class _AnomalyDetectorMissingDataAction_markAsAnomaly(TypedDict, closed=True):
     markAsAnomaly: "bool"
 
 
-class _AnomalyDetectorMissingDataAction_skip(TypedDict):
+class _AnomalyDetectorMissingDataAction_skip(TypedDict, closed=True):
     skip: "bool"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails(TypedDict):
+class AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails(TypedDict, closed=True):
     hard_limit: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The hard limit for the ulimit type.</p>"""
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

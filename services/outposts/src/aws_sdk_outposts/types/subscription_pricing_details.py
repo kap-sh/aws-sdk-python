@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#SubscriptionPricingDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.currency_code
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.payment_term
 
 
-class SubscriptionPricingDetails(TypedDict):
+class SubscriptionPricingDetails(TypedDict, closed=True):
     payment_option: NotRequired["aws_sdk_outposts.types.payment_option.PaymentOption"]
     """<p>The payment option.</p>"""
     payment_term: NotRequired["aws_sdk_outposts.types.payment_term.PaymentTerm"]

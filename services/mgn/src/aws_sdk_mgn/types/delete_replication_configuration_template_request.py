@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DeleteReplicationConfigurationTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.replication_configuration_template_id
 
 
-class DeleteReplicationConfigurationTemplateRequest(TypedDict):
+class DeleteReplicationConfigurationTemplateRequest(TypedDict, closed=True):
     replication_configuration_template_id: "aws_sdk_mgn.types.replication_configuration_template_id.ReplicationConfigurationTemplateID"
     """<p>Request to delete Replication Configuration Template from service by Replication Configuration Template ID.</p>"""
 

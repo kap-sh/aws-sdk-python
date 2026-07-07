@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#BaselineEbsBandwidthMbpsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
 
 
-class BaselineEbsBandwidthMbpsRequest(TypedDict):
+class BaselineEbsBandwidthMbpsRequest(TypedDict, closed=True):
     min: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]
     """<p>The minimum baseline Amazon EBS bandwidth in Mbps. Instance types with lower Amazon EBS bandwidth are excluded from selection.</p>"""
     max: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]

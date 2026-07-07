@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3outposts#Outpost``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.aws_account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.s3_outpost_arn
 
 
-class Outpost(TypedDict):
+class Outpost(TypedDict, closed=True):
     outpost_arn: NotRequired["aws_sdk_s3outposts.types.outpost_arn.OutpostArn"]
     """<p>Specifies the unique Amazon Resource Name (ARN) for the outpost.</p>"""
     s3_outpost_arn: NotRequired["aws_sdk_s3outposts.types.s3_outpost_arn.S3OutpostArn"]

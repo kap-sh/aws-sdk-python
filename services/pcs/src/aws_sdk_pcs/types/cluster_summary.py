@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ClusterSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.cluster_status
 
 
-class ClusterSummary(TypedDict):
+class ClusterSummary(TypedDict, closed=True):
     name: "str"
     """<p>The name that identifies the cluster.</p>"""
     id: "str"

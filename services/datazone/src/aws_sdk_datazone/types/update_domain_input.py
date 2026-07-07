@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateDomainInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.single_sign_on
 
 
-class UpdateDomainInput(TypedDict):
+class UpdateDomainInput(TypedDict, closed=True):
     identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon Web Services domain that is to be updated.</p>"""
     description: NotRequired["str"]

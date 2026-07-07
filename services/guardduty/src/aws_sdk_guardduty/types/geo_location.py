@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#GeoLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.double
 
 
-class GeoLocation(TypedDict):
+class GeoLocation(TypedDict, closed=True):
     lat: NotRequired["aws_sdk_guardduty.types.double.Double"]
     """<p>The latitude information of the remote IP address.</p>"""
     lon: NotRequired["aws_sdk_guardduty.types.double.Double"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetInstanceMetricDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.timestamp
 
 
-class GetInstanceMetricDataRequest(TypedDict):
+class GetInstanceMetricDataRequest(TypedDict, closed=True):
     instance_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of the instance for which you want to get metrics data.</p>"""
     metric_name: "aws_sdk_lightsail.types.instance_metric_name.InstanceMetricName"

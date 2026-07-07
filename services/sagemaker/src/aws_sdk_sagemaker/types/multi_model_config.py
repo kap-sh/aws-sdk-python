@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MultiModelConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_cache_setting
 
 
-class MultiModelConfig(TypedDict):
+class MultiModelConfig(TypedDict, closed=True):
     model_cache_setting: NotRequired[
         "aws_sdk_sagemaker.types.model_cache_setting.ModelCacheSetting"
     ]

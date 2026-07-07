@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ListInferenceSchedulersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.inference_scheduler_identifier
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.next_token
 
 
-class ListInferenceSchedulersRequest(TypedDict):
+class ListInferenceSchedulersRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_lookoutequipment.types.next_token.NextToken"]
     """<p> An opaque pagination token indicating where to continue the listing of inference schedulers. </p>"""
     max_results: NotRequired["aws_sdk_lookoutequipment.types.max_results.MaxResults"]

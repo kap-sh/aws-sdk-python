@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DeleteRcsAgentResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.two_way_channel_arn
 
 
-class DeleteRcsAgentResult(TypedDict):
+class DeleteRcsAgentResult(TypedDict, closed=True):
     rcs_agent_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the deleted RCS agent.</p>"""
     rcs_agent_id: "str"

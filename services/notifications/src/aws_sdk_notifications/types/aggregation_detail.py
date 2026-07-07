@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#AggregationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.summarization_dimension_details
 
 
-class AggregationDetail(TypedDict):
+class AggregationDetail(TypedDict, closed=True):
     summarization_dimensions: NotRequired[
         "aws_sdk_notifications.types.summarization_dimension_details.SummarizationDimensionDetails"
     ]

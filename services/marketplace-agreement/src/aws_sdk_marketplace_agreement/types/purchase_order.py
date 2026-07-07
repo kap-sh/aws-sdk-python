@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#PurchaseOrder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.resource_id
 
 
-class PurchaseOrder(TypedDict):
+class PurchaseOrder(TypedDict, closed=True):
     charge_id: "aws_sdk_marketplace_agreement.types.resource_id.ResourceId"
     """<p>The unique identifier of the charge to associate the purchase order with.</p>"""
     charge_revision: NotRequired[

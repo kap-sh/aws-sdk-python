@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#PayloadType``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.memory_document
 
 
-class _PayloadType_conversational(TypedDict):
+class _PayloadType_conversational(TypedDict, closed=True):
     conversational: "aws_sdk_bedrock_agentcore.types.conversational.Conversational"
 
 
-class _PayloadType_blob(TypedDict):
+class _PayloadType_blob(TypedDict, closed=True):
     blob: "aws_sdk_bedrock_agentcore.types.memory_document.MemoryDocument"
 
 

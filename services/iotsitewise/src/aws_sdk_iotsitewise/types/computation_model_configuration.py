@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ComputationModelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.computation_model_anomaly_detection_configuration
 
 
-class ComputationModelConfiguration(TypedDict):
+class ComputationModelConfiguration(TypedDict, closed=True):
     anomaly_detection: NotRequired[
         "aws_sdk_iotsitewise.types.computation_model_anomaly_detection_configuration.ComputationModelAnomalyDetectionConfiguration"
     ]

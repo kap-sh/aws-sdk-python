@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#ListPlatformApplicationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class ListPlatformApplicationsResponse(TypedDict):
+class ListPlatformApplicationsResponse(TypedDict, closed=True):
     platform_applications: NotRequired[
         "aws_sdk_sns.types.list_of_platform_applications.ListOfPlatformApplications"
     ]

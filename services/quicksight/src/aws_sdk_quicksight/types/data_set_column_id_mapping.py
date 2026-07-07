@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetColumnIdMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_id
 
 
-class DataSetColumnIdMapping(TypedDict):
+class DataSetColumnIdMapping(TypedDict, closed=True):
     source_column_id: "aws_sdk_quicksight.types.column_id.ColumnId"
     """<p>Source column ID.</p>"""
     target_column_id: "aws_sdk_quicksight.types.column_id.ColumnId"

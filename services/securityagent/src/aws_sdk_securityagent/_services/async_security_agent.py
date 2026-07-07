@@ -2,9 +2,9 @@
 
 import warnings
 from collections.abc import AsyncIterator
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_securityagent._auth._signers
@@ -174,7 +174,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.vpc_config
 
 
-class AsyncSecurityAgentClientConfig(TypedDict, total=False):
+class AsyncSecurityAgentClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     use_fips: bool | None

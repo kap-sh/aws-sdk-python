@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#Block``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ebs.types.block_index
     import aws_sdk_ebs.types.block_token
 
 
-class Block(TypedDict):
+class Block(TypedDict, closed=True):
     block_index: NotRequired["aws_sdk_ebs.types.block_index.BlockIndex"]
     """<p>The block index.</p>"""
     block_token: NotRequired["aws_sdk_ebs.types.block_token.BlockToken"]

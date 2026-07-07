@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.account#ValidationExceptionField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_account.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_account.types.sensitive_string
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The field name where the invalid entry was detected.</p>"""
     message: "aws_sdk_account.types.sensitive_string.SensitiveString"

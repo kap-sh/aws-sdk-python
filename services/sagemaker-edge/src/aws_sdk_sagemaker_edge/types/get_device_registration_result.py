@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakeredge#GetDeviceRegistrationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.cache_ttl_seconds
     import aws_sdk_sagemaker_edge.types.device_registration
 
 
-class GetDeviceRegistrationResult(TypedDict):
+class GetDeviceRegistrationResult(TypedDict, closed=True):
     device_registration: NotRequired[
         "aws_sdk_sagemaker_edge.types.device_registration.DeviceRegistration"
     ]

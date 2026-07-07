@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#LakeFormationDataPermissionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.lf_tag_policy_details
 
 
-class LakeFormationDataPermissionDetails(TypedDict):
+class LakeFormationDataPermissionDetails(TypedDict, closed=True):
     lf_tag_policy: NotRequired[
         "aws_sdk_dataexchange.types.lf_tag_policy_details.LFTagPolicyDetails"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsecuretunneling#Tunnel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.connection_state
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.tunnel_status
 
 
-class Tunnel(TypedDict):
+class Tunnel(TypedDict, closed=True):
     tunnel_id: NotRequired["aws_sdk_iotsecuretunneling.types.tunnel_id.TunnelId"]
     """<p>A unique alpha-numeric ID that identifies a tunnel.</p>"""
     tunnel_arn: NotRequired["aws_sdk_iotsecuretunneling.types.tunnel_arn.TunnelArn"]

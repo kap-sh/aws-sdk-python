@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RedshiftLineageSyncConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.lineage_sync_schedule
 
 
-class RedshiftLineageSyncConfigurationOutput(TypedDict):
+class RedshiftLineageSyncConfigurationOutput(TypedDict, closed=True):
     lineage_job_id: NotRequired["str"]
     """<p>The lineage job ID of the Amaon Redshift lineage sync configuration.</p>"""
     enabled: NotRequired["bool"]

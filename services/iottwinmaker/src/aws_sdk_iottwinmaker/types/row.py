@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#Row``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.row_data
 
 
-class Row(TypedDict):
+class Row(TypedDict, closed=True):
     row_data: NotRequired["aws_sdk_iottwinmaker.types.row_data.RowData"]
     """<p>The data in a row of query results.</p>"""
 

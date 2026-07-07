@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DescribeEntityRecognizerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.entity_recognizer_properties
 
 
-class DescribeEntityRecognizerResponse(TypedDict):
+class DescribeEntityRecognizerResponse(TypedDict, closed=True):
     entity_recognizer_properties: NotRequired[
         "aws_sdk_comprehend.types.entity_recognizer_properties.EntityRecognizerProperties"
     ]

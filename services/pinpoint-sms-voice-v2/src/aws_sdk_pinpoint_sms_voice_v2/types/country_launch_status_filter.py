@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#CountryLaunchStatusFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.filter_value_list
 
 
-class CountryLaunchStatusFilter(TypedDict):
+class CountryLaunchStatusFilter(TypedDict, closed=True):
     name: "aws_sdk_pinpoint_sms_voice_v2.types.country_launch_status_filter_name.CountryLaunchStatusFilterName"
     """<p>The name of the attribute to filter on.</p>"""
     values: "aws_sdk_pinpoint_sms_voice_v2.types.filter_value_list.FilterValueList"

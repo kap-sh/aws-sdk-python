@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ConfigureLogsForChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.log_types
 
 
-class ConfigureLogsForChannelRequest(TypedDict):
+class ConfigureLogsForChannelRequest(TypedDict, closed=True):
     channel_name: "aws_sdk_mediatailor.types.__string.__string"
     """<p>The name of the channel.</p>"""
     log_types: "aws_sdk_mediatailor.types.log_types.LogTypes"

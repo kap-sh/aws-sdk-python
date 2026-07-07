@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#DeleteMembersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.account_id_list
     import aws_sdk_detective.types.unprocessed_account_list
 
 
-class DeleteMembersResponse(TypedDict):
+class DeleteMembersResponse(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_detective.types.account_id_list.AccountIdList"]
     """<p>The list of Amazon Web Services account identifiers for the member accounts that Detective successfully removed from the behavior graph.</p>"""
     unprocessed_accounts: NotRequired[

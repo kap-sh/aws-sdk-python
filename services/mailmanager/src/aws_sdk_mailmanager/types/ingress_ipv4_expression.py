@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#IngressIpv4Expression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.ipv4_cidrs
 
 
-class IngressIpv4Expression(TypedDict):
+class IngressIpv4Expression(TypedDict, closed=True):
     evaluate: "aws_sdk_mailmanager.types.ingress_ip_to_evaluate.IngressIpToEvaluate"
     """<p>The left hand side argument of an IP condition expression.</p>"""
     operator: "aws_sdk_mailmanager.types.ingress_ip_operator.IngressIpOperator"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ReservationPlanSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.renewal_type
 
 
-class ReservationPlanSettings(TypedDict):
+class ReservationPlanSettings(TypedDict, closed=True):
     commitment: NotRequired["aws_sdk_mediaconvert.types.commitment.Commitment"]
     """The length of the term of your reserved queue pricing plan commitment."""
     renewal_type: NotRequired["aws_sdk_mediaconvert.types.renewal_type.RenewalType"]

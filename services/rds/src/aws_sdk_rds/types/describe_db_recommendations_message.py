@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DescribeDBRecommendationsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.t_stamp
 
 
-class DescribeDBRecommendationsMessage(TypedDict):
+class DescribeDBRecommendationsMessage(TypedDict, closed=True):
     last_updated_after: NotRequired["aws_sdk_rds.types.t_stamp.TStamp"]
     """<p>A filter to include only the recommendations that were updated after this specified time.</p>"""
     last_updated_before: NotRequired["aws_sdk_rds.types.t_stamp.TStamp"]

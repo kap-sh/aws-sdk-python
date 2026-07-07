@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#ReferenceDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.source_schema
 
 
-class ReferenceDataSource(TypedDict):
+class ReferenceDataSource(TypedDict, closed=True):
     table_name: "aws_sdk_kinesis_analytics.types.in_app_table_name.InAppTableName"
     """<p>Name of the in-application table to create.</p>"""
     s3_reference_data_source: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListHostKeysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.server_id
 
 
-class ListHostKeysRequest(TypedDict):
+class ListHostKeysRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_transfer.types.max_results.MaxResults"]
     """<p>The maximum number of items to return.</p>"""
     next_token: NotRequired["aws_sdk_transfer.types.next_token.NextToken"]

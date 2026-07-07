@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#ListVmEntitlementsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.pagination_token
 
 
-class ListVmEntitlementsRequest(TypedDict):
+class ListVmEntitlementsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_evs.types.pagination_token.PaginationToken"]
     """<p>A unique pagination token for each page. If <code>nextToken</code> is returned, there are more results available. Make the call again using the returned token with all other arguments unchanged to retrieve the next page. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>"""
     max_results: NotRequired["aws_sdk_evs.types.max_results.MaxResults"]

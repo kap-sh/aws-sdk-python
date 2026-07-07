@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#ListModelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.model_summaries
 
 
-class ListModelsResponse(TypedDict):
+class ListModelsResponse(TypedDict, closed=True):
     model_summaries: "aws_sdk_nova_act.types.model_summaries.ModelSummaries"
     """<p>A list of available AI models with their status and compatibility information.</p>"""
     model_aliases: "aws_sdk_nova_act.types.model_aliases.ModelAliases"

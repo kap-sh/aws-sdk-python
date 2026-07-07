@@ -2,9 +2,9 @@
 
 import warnings
 from collections.abc import Iterator
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_route53_recovery_control_config._auth._signers
@@ -99,7 +99,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.update_safety_rule_response
 
 
-class Route53RecoveryControlConfigClientConfig(TypedDict, total=False):
+class Route53RecoveryControlConfigClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     use_dual_stack: bool | None

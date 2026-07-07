@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#ListLinksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.link_list
 
 
-class ListLinksResponse(TypedDict):
+class ListLinksResponse(TypedDict, closed=True):
     links: NotRequired["aws_sdk_rtbfabric.types.link_list.LinkList"]
     """<p>Information about created links.</p>"""
     next_token: NotRequired["str"]

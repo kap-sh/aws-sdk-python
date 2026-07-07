@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Input``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max5
@@ -34,7 +34,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.video_selector
 
 
-class Input(TypedDict):
+class Input(TypedDict, closed=True):
     advanced_input_filter: NotRequired[
         "aws_sdk_mediaconvert.types.advanced_input_filter.AdvancedInputFilter"
     ]

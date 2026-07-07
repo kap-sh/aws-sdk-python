@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#PostProcessingParsedResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.output_string
 
 
-class PostProcessingParsedResponse(TypedDict):
+class PostProcessingParsedResponse(TypedDict, closed=True):
     text: NotRequired["aws_sdk_bedrock_agent_runtime.types.output_string.OutputString"]
     """<p>The text returned by the parser.</p>"""
 

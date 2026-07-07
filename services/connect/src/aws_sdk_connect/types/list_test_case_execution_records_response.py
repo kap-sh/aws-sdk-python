@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListTestCaseExecutionRecordsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.execution_record_list
     import aws_sdk_connect.types.large_next_token
 
 
-class ListTestCaseExecutionRecordsResponse(TypedDict):
+class ListTestCaseExecutionRecordsResponse(TypedDict, closed=True):
     execution_records: NotRequired[
         "aws_sdk_connect.types.execution_record_list.ExecutionRecordList"
     ]

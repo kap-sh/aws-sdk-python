@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#CreateCacheClusterMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.tag_list
 
 
-class CreateCacheClusterMessage(TypedDict):
+class CreateCacheClusterMessage(TypedDict, closed=True):
     cache_cluster_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The node group (shard) identifier. This parameter is stored as a lowercase string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1 to 50 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"""
     replication_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]

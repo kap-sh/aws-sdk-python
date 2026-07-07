@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetHostReservationPurchasePreviewRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.request_host_id_set
 
 
-class GetHostReservationPurchasePreviewRequest(TypedDict):
+class GetHostReservationPurchasePreviewRequest(TypedDict, closed=True):
     host_id_set: NotRequired["aws_sdk_ec2.types.request_host_id_set.RequestHostIdSet"]
     """<p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>"""
     offering_id: NotRequired["aws_sdk_ec2.types.offering_id.OfferingId"]

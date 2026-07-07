@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BatchDeleteTopicReviewedAnswerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.answer_ids
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_id
 
 
-class BatchDeleteTopicReviewedAnswerRequest(TypedDict):
+class BatchDeleteTopicReviewedAnswerRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account that you want to delete a reviewed answers in.</p>"""
     topic_id: "aws_sdk_quicksight.types.topic_id.TopicId"

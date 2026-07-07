@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#EnableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.enable_resource_type_list
 
 
-class EnableRequest(TypedDict):
+class EnableRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_inspector2.types.account_id_set.AccountIdSet"]
     """<p>A list of account IDs you want to enable Amazon Inspector scans for.</p>"""
     resource_types: (

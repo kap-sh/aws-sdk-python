@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetInvitationsCountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
 
 
-class GetInvitationsCountResponse(TypedDict):
+class GetInvitationsCountResponse(TypedDict, closed=True):
     invitations_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of all membership invitations sent to this Security Hub CSPM member account, not including the currently accepted invitation.</p>"""
 

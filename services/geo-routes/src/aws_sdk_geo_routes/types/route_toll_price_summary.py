@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteTollPriceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_double
 
 
-class RouteTollPriceSummary(TypedDict):
+class RouteTollPriceSummary(TypedDict, closed=True):
     currency: "aws_sdk_geo_routes.types.currency_code.CurrencyCode"
     """<p>Currency code corresponding to the price. This is the same as Currency specified in the request.</p>"""
     estimate: "aws_sdk_geo_routes.types.sensitive_boolean.SensitiveBoolean"

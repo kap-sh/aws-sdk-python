@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#EndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class EndpointRequest(TypedDict):
+class EndpointRequest(TypedDict, closed=True):
     container_name: "aws_sdk_lightsail.types.string.string"
     """<p>The name of the container for the endpoint.</p>"""
     container_port: "aws_sdk_lightsail.types.integer.integer"

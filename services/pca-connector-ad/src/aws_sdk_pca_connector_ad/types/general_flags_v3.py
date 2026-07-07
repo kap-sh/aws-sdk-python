@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#GeneralFlagsV3``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GeneralFlagsV3(TypedDict):
+class GeneralFlagsV3(TypedDict, closed=True):
     auto_enrollment: NotRequired["bool"]
     """<p>Allows certificate issuance using autoenrollment. Set to TRUE to allow autoenrollment.</p>"""
     machine_type: NotRequired["bool"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#KmsKeyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.kms_grant_configurations_list
     import aws_sdk_accessanalyzer.types.kms_key_policies_map
 
 
-class KmsKeyConfiguration(TypedDict):
+class KmsKeyConfiguration(TypedDict, closed=True):
     key_policies: NotRequired[
         "aws_sdk_accessanalyzer.types.kms_key_policies_map.KmsKeyPoliciesMap"
     ]

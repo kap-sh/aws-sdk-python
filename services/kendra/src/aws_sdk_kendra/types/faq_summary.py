@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#FaqSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.faq_file_format
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.timestamp
 
 
-class FaqSummary(TypedDict):
+class FaqSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_kendra.types.faq_id.FaqId"]
     """<p>The identifier of the FAQ.</p>"""
     name: NotRequired["aws_sdk_kendra.types.faq_name.FaqName"]

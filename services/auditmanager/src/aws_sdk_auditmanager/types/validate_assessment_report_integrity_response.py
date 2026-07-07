@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ValidateAssessmentReportIntegrityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.validation_errors
 
 
-class ValidateAssessmentReportIntegrityResponse(TypedDict):
+class ValidateAssessmentReportIntegrityResponse(TypedDict, closed=True):
     signature_valid: NotRequired["aws_sdk_auditmanager.types.boolean.Boolean"]
     """<p> Specifies whether the signature key is valid. </p>"""
     signature_algorithm: NotRequired["aws_sdk_auditmanager.types.string.String"]

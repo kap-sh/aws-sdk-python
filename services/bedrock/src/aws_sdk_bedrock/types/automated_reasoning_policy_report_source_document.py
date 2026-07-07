@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyReportSourceDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_document_sha256
 
 
-class AutomatedReasoningPolicyReportSourceDocument(TypedDict):
+class AutomatedReasoningPolicyReportSourceDocument(TypedDict, closed=True):
     document_name: "aws_sdk_bedrock.types.automated_reasoning_policy_build_document_name.AutomatedReasoningPolicyBuildDocumentName"
     """<p>The name of the source document that was analyzed.</p>"""
     document_hash: "aws_sdk_bedrock.types.automated_reasoning_policy_document_sha256.AutomatedReasoningPolicyDocumentSha256"

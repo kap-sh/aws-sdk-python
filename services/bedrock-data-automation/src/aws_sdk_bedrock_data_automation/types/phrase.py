@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#Phrase``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.phrase_text
 
 
-class Phrase(TypedDict):
+class Phrase(TypedDict, closed=True):
     text: "aws_sdk_bedrock_data_automation.types.phrase_text.PhraseText"
     display_as_text: NotRequired[
         "aws_sdk_bedrock_data_automation.types.phrase_display_as_text.PhraseDisplayAsText"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ListLaunchPathsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.launch_path_summaries
     import aws_sdk_service_catalog.types.page_token
 
 
-class ListLaunchPathsOutput(TypedDict):
+class ListLaunchPathsOutput(TypedDict, closed=True):
     launch_path_summaries: NotRequired[
         "aws_sdk_service_catalog.types.launch_path_summaries.LaunchPathSummaries"
     ]

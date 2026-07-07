@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#TooManyRequestException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError, ServiceError
 
 
-class TooManyRequestException_(TypedDict):
+class TooManyRequestException_(TypedDict, closed=True):
     message: "str"
 
 

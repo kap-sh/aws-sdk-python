@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DeclineInvitationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.account_id_list
 
 
-class DeclineInvitationsRequest(TypedDict):
+class DeclineInvitationsRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_securityhub.types.account_id_list.AccountIdList"]
     """<p>The list of prospective member account IDs for which to decline an invitation.</p>"""
 

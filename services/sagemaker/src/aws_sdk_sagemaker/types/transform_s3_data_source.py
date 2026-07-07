@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TransformS3DataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_data_type
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class TransformS3DataSource(TypedDict):
+class TransformS3DataSource(TypedDict, closed=True):
     s3_data_type: NotRequired["aws_sdk_sagemaker.types.s3_data_type.S3DataType"]
     """<p>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name prefix. Amazon SageMaker uses all objects with the specified key name prefix for batch transform. </p> <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object that is a manifest file containing a list of object keys that you want Amazon SageMaker to use for batch transform. </p> <p>The following values are compatible: <code>ManifestFile</code>, <code>S3Prefix</code> </p> <p>The following value is not compatible: <code>AugmentedManifestFile</code> </p>"""
     s3_uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]

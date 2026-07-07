@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ControlPlaneAttributeFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.common_attribute_and_condition
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.tag_condition
 
 
-class ControlPlaneAttributeFilter(TypedDict):
+class ControlPlaneAttributeFilter(TypedDict, closed=True):
     or_conditions: NotRequired[
         "aws_sdk_connect.types.common_attribute_or_condition_list.CommonAttributeOrConditionList"
     ]

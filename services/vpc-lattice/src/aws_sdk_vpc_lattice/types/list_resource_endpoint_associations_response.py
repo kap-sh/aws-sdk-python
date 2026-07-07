@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ListResourceEndpointAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.resource_endpoint_association_list
 
 
-class ListResourceEndpointAssociationsResponse(TypedDict):
+class ListResourceEndpointAssociationsResponse(TypedDict, closed=True):
     items: "aws_sdk_vpc_lattice.types.resource_endpoint_association_list.ResourceEndpointAssociationList"
     """<p>Information about the VPC endpoint associations.</p>"""
     next_token: NotRequired["aws_sdk_vpc_lattice.types.next_token.NextToken"]

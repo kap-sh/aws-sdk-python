@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#GetTelemetryEvaluationStatusForOrganizationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.failure_reason
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.status
 
 
-class GetTelemetryEvaluationStatusForOrganizationOutput(TypedDict):
+class GetTelemetryEvaluationStatusForOrganizationOutput(TypedDict, closed=True):
     status: NotRequired["aws_sdk_observabilityadmin.types.status.Status"]
     """<p> The onboarding status of the telemetry config feature for the organization. </p>"""
     failure_reason: NotRequired[

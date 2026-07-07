@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rum#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.arn
     import aws_sdk_rum.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_rum.types.arn.Arn"
     """<p>The ARN of the CloudWatch RUM resource that you're removing tags from.</p>"""
     tag_keys: "aws_sdk_rum.types.tag_key_list.TagKeyList"

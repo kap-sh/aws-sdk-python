@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#StartThingRegistrationTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.template_body
 
 
-class StartThingRegistrationTaskRequest(TypedDict):
+class StartThingRegistrationTaskRequest(TypedDict, closed=True):
     template_body: "aws_sdk_iot.types.template_body.TemplateBody"
     """<p>The provisioning template.</p>"""
     input_file_bucket: "aws_sdk_iot.types.registry_s3_bucket_name.RegistryS3BucketName"

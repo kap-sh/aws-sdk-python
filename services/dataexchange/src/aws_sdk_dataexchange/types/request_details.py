@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#RequestDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.create_s3_data_access_from_s3_bucket_request_details
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.import_assets_from_s3_request_details
 
 
-class RequestDetails(TypedDict):
+class RequestDetails(TypedDict, closed=True):
     export_asset_to_signed_url: NotRequired[
         "aws_sdk_dataexchange.types.export_asset_to_signed_url_request_details.ExportAssetToSignedUrlRequestDetails"
     ]

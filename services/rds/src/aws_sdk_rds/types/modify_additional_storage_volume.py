@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ModifyAdditionalStorageVolume``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class ModifyAdditionalStorageVolume(TypedDict):
+class ModifyAdditionalStorageVolume(TypedDict, closed=True):
     volume_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name of the additional storage volume that you want to modify.</p> <p>Valid Values: <code>RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4</code> </p>"""
     allocated_storage: NotRequired["aws_sdk_rds.types.integer_optional.IntegerOptional"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ISO8601TimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class ISO8601TimeRange(TypedDict):
+class ISO8601TimeRange(TypedDict, closed=True):
     start_time: "datetime.datetime"
     """<p>Start time in ISO 8601 format in Coordinated Universal Time (UTC).</p> <p>Example: <code>2026-11-15T10:28:48.000Z</code> </p>"""
     end_time: "datetime.datetime"

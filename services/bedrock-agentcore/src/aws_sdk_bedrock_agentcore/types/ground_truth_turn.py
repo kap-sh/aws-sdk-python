@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GroundTruthTurn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.evaluation_content
     import aws_sdk_bedrock_agentcore.types.ground_truth_turn_input
 
 
-class GroundTruthTurn(TypedDict):
+class GroundTruthTurn(TypedDict, closed=True):
     input: NotRequired[
         "aws_sdk_bedrock_agentcore.types.ground_truth_turn_input.GroundTruthTurnInput"
     ]

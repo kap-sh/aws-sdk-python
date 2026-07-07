@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#CreateWorkflowDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.workflow_definition_status
 
 
-class CreateWorkflowDefinitionResponse(TypedDict):
+class CreateWorkflowDefinitionResponse(TypedDict, closed=True):
     status: "aws_sdk_nova_act.types.workflow_definition_status.WorkflowDefinitionStatus"
     """<p>The current status of the workflow definition after creation.</p>"""
 

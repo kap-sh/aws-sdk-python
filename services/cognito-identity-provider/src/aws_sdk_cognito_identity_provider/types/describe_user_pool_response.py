@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#DescribeUserPoolResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_pool_type
 
 
-class DescribeUserPoolResponse(TypedDict):
+class DescribeUserPoolResponse(TypedDict, closed=True):
     user_pool: NotRequired[
         "aws_sdk_cognito_identity_provider.types.user_pool_type.UserPoolType"
     ]

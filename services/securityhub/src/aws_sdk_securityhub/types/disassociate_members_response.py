@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DisassociateMembersResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateMembersResponse(TypedDict):
+class DisassociateMembersResponse(TypedDict, closed=True):
     pass
 
 

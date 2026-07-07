@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CreateOutboundConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.connection_alias
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.outbound_connection_status
 
 
-class CreateOutboundConnectionResponse(TypedDict):
+class CreateOutboundConnectionResponse(TypedDict, closed=True):
     local_domain_info: NotRequired[
         "aws_sdk_opensearch.types.domain_information_container.DomainInformationContainer"
     ]

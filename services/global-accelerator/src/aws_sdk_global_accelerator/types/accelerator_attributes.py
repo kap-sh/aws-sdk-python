@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#AcceleratorAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.generic_boolean
     import aws_sdk_global_accelerator.types.generic_string
 
 
-class AcceleratorAttributes(TypedDict):
+class AcceleratorAttributes(TypedDict, closed=True):
     flow_logs_enabled: NotRequired[
         "aws_sdk_global_accelerator.types.generic_boolean.GenericBoolean"
     ]

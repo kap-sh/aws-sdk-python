@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetSpotPlacementScoresRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.target_capacity_unit_type
 
 
-class GetSpotPlacementScoresRequest(TypedDict):
+class GetSpotPlacementScoresRequest(TypedDict, closed=True):
     instance_types: NotRequired["aws_sdk_ec2.types.instance_types.InstanceTypes"]
     """<p>The instance types. We recommend that you specify at least three instance types. If you specify one or two instance types, or specify variations of a single instance type (for example, an <code>m3.xlarge</code> with and without instance storage), the returned placement score will always be low. </p> <p>If you specify <code>InstanceTypes</code>, you can't specify <code>InstanceRequirementsWithMetadata</code>.</p>"""
     target_capacity: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#StatusRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.sending_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class StatusRecord(TypedDict):
+class StatusRecord(TypedDict, closed=True):
     status: NotRequired["aws_sdk_sesv2.types.sending_status.SendingStatus"]
     """<p>The current sending status. This can be one of the following:</p> <ul> <li> <p> <code>ENABLED</code> – Sending is allowed.</p> </li> <li> <p> <code>DISABLED</code> – Sending is prevented.</p> </li> <li> <p> <code>REINSTATED</code> – Sending is allowed even with active reputation findings.</p> </li> </ul>"""
     cause: NotRequired["aws_sdk_sesv2.types.status_cause.StatusCause"]

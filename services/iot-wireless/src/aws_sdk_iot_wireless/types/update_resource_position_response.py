@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdateResourcePositionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateResourcePositionResponse(TypedDict):
+class UpdateResourcePositionResponse(TypedDict, closed=True):
     pass
 
 

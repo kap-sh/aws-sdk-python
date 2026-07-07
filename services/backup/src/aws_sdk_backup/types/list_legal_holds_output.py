@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListLegalHoldsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.legal_holds_list
     import aws_sdk_backup.types.string
 
 
-class ListLegalHoldsOutput(TypedDict):
+class ListLegalHoldsOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>The next item following a partial list of returned resources. For example, if a request is made to return <code>MaxResults</code> number of resources, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>"""
     legal_holds: NotRequired["aws_sdk_backup.types.legal_holds_list.LegalHoldsList"]

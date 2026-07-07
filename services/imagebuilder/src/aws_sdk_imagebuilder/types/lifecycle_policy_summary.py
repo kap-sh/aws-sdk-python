@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LifecyclePolicySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.date_time_timestamp
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.tag_map
 
 
-class LifecyclePolicySummary(TypedDict):
+class LifecyclePolicySummary(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_imagebuilder.types.lifecycle_policy_arn.LifecyclePolicyArn"
     ]

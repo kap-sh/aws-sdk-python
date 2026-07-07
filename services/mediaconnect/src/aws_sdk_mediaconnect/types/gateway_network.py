@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#GatewayNetwork``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GatewayNetwork(TypedDict):
+class GatewayNetwork(TypedDict, closed=True):
     cidr_block: NotRequired["str"]
     """<p>A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16. </p>"""
     name: NotRequired["str"]

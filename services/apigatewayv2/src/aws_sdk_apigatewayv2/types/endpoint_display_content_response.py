@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#EndpointDisplayContentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string_min1_max255
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string_min1_max32768
 
 
-class EndpointDisplayContentResponse(TypedDict):
+class EndpointDisplayContentResponse(TypedDict, closed=True):
     body: NotRequired[
         "aws_sdk_apigatewayv2.types.__string_min1_max32768.__stringMin1Max32768"
     ]

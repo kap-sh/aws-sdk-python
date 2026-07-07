@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfrontkeyvaluestore#DescribeKeyValueStoreResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront_keyvaluestore.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront_keyvaluestore.types.kvs_arn
 
 
-class DescribeKeyValueStoreResponse(TypedDict):
+class DescribeKeyValueStoreResponse(TypedDict, closed=True):
     item_count: "int"
     """<p>Number of key value pairs in the Key Value Store.</p>"""
     total_size_in_bytes: "int"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#StartConfigRulesEvaluationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.reevaluate_config_rule_names
 
 
-class StartConfigRulesEvaluationRequest(TypedDict):
+class StartConfigRulesEvaluationRequest(TypedDict, closed=True):
     config_rule_names: NotRequired[
         "aws_sdk_config_service.types.reevaluate_config_rule_names.ReevaluateConfigRuleNames"
     ]

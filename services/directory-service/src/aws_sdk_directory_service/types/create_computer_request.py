@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#CreateComputerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.organizational_unit_dn
 
 
-class CreateComputerRequest(TypedDict):
+class CreateComputerRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>The identifier of the directory in which to create the computer account.</p>"""
     computer_name: "aws_sdk_directory_service.types.computer_name.ComputerName"

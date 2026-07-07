@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rbin#ListRulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rbin.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rbin.types.resource_type
 
 
-class ListRulesRequest(TypedDict):
+class ListRulesRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_rbin.types.max_results.MaxResults"]
     """<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>"""
     next_token: NotRequired["aws_sdk_rbin.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DescribeInboundIntegrationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.integration_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.string512
 
 
-class DescribeInboundIntegrationsRequest(TypedDict):
+class DescribeInboundIntegrationsRequest(TypedDict, closed=True):
     integration_arn: NotRequired["aws_sdk_glue.types.string128.String128"]
     """<p>The Amazon Resource Name (ARN) of the integration.</p>"""
     marker: NotRequired["aws_sdk_glue.types.string128.String128"]

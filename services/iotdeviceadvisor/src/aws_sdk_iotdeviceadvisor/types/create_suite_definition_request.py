@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#CreateSuiteDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.tag_map
 
 
-class CreateSuiteDefinitionRequest(TypedDict):
+class CreateSuiteDefinitionRequest(TypedDict, closed=True):
     suite_definition_configuration: NotRequired[
         "aws_sdk_iotdeviceadvisor.types.suite_definition_configuration.SuiteDefinitionConfiguration"
     ]

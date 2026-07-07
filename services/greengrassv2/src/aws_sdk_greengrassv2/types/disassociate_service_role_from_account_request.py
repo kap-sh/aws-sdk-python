@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#DisassociateServiceRoleFromAccountRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateServiceRoleFromAccountRequest(TypedDict):
+class DisassociateServiceRoleFromAccountRequest(TypedDict, closed=True):
     pass
 
 

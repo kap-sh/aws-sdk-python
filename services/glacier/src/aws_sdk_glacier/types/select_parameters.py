@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#SelectParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.expression_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
 
 
-class SelectParameters(TypedDict):
+class SelectParameters(TypedDict, closed=True):
     input_serialization: NotRequired[
         "aws_sdk_glacier.types.input_serialization.InputSerialization"
     ]

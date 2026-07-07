@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomActionSetParametersOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.set_parameter_value_configuration_list
 
 
-class CustomActionSetParametersOperation(TypedDict):
+class CustomActionSetParametersOperation(TypedDict, closed=True):
     parameter_value_configurations: "aws_sdk_quicksight.types.set_parameter_value_configuration_list.SetParameterValueConfigurationList"
     """<p>The parameter that determines the value configuration.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ClusterInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__integer
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.storage_mode
 
 
-class ClusterInfo(TypedDict):
+class ClusterInfo(TypedDict, closed=True):
     active_operation_arn: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>Arn of active cluster operation.</p>"""
     broker_node_group_info: NotRequired[

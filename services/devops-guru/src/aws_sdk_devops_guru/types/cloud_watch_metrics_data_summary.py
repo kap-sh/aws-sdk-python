@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#CloudWatchMetricsDataSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.cloud_watch_metric_data_status_code
     import aws_sdk_devops_guru.types.timestamp_metric_value_pair_list
 
 
-class CloudWatchMetricsDataSummary(TypedDict):
+class CloudWatchMetricsDataSummary(TypedDict, closed=True):
     timestamp_metric_value_pair_list: NotRequired[
         "aws_sdk_devops_guru.types.timestamp_metric_value_pair_list.TimestampMetricValuePairList"
     ]

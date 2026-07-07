@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#TargetPreview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.integer
     import aws_sdk_ssm.types.string
 
 
-class TargetPreview(TypedDict):
+class TargetPreview(TypedDict, closed=True):
     count: "aws_sdk_ssm.types.integer.Integer"
     """<p>The number of resources of a certain type included in an execution preview.</p>"""
     target_type: NotRequired["aws_sdk_ssm.types.string.String"]

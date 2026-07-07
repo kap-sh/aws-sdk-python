@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#ResourceNotFoundException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_snow_device_management.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
 
 

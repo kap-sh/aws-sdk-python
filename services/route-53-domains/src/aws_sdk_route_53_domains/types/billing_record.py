@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#BillingRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.domain_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.timestamp
 
 
-class BillingRecord(TypedDict):
+class BillingRecord(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_route_53_domains.types.domain_name.DomainName"]
     r"""<p>The name of the domain that the billing record applies to. If the domain name contains characters other than a-z, 0-9, and - (hyphen), such as an internationalized domain name, then this value is in Punycode. For more information, see <a href=\"https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html\">DNS Domain Name Format</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>"""
     operation: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#InvalidTopicReviewedAnswer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.answer_id
     import aws_sdk_quicksight.types.reviewed_answer_error_code
 
 
-class InvalidTopicReviewedAnswer(TypedDict):
+class InvalidTopicReviewedAnswer(TypedDict, closed=True):
     answer_id: NotRequired["aws_sdk_quicksight.types.answer_id.AnswerId"]
     """<p>The answer ID for the <code>InvalidTopicReviewedAnswer</code>.</p>"""
     error: NotRequired[

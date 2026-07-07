@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#S3ReportOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class S3ReportOutput(TypedDict):
+class S3ReportOutput(TypedDict, closed=True):
     s3_object_key: NotRequired["str"]
     """<p>The S3 object key where the generated report is stored.</p>"""
 

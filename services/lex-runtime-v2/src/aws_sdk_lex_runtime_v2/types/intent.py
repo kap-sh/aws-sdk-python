@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#Intent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.slots
 
 
-class Intent(TypedDict):
+class Intent(TypedDict, closed=True):
     name: "aws_sdk_lex_runtime_v2.types.non_empty_string.NonEmptyString"
     """<p>The name of the intent.</p>"""
     slots: NotRequired["aws_sdk_lex_runtime_v2.types.slots.Slots"]

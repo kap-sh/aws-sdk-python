@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#CreateServiceLinkedAnalyzerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.analyzer_arn
 
 
-class CreateServiceLinkedAnalyzerResponse(TypedDict):
+class CreateServiceLinkedAnalyzerResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_accessanalyzer.types.analyzer_arn.AnalyzerArn"]
     """<p>The ARN of the service-linked analyzer that was created by the request. The analyzer name follows the format <code>_AccessAnalyzerFor{ServiceName}-{Id}</code> where <code>Id</code> is a randomly generated identifier.</p>"""
 

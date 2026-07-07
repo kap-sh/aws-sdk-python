@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DescribeClustersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.clusters
     import aws_sdk_ecs.types.failures
 
 
-class DescribeClustersResponse(TypedDict):
+class DescribeClustersResponse(TypedDict, closed=True):
     clusters: NotRequired["aws_sdk_ecs.types.clusters.Clusters"]
     """<p>The list of clusters.</p>"""
     failures: NotRequired["aws_sdk_ecs.types.failures.Failures"]

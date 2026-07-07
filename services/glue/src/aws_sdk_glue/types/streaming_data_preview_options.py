@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StreamingDataPreviewOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.polling_time
     import aws_sdk_glue.types.positive_long
 
 
-class StreamingDataPreviewOptions(TypedDict):
+class StreamingDataPreviewOptions(TypedDict, closed=True):
     polling_time: NotRequired["aws_sdk_glue.types.polling_time.PollingTime"]
     """<p>The polling time in milliseconds.</p>"""
     record_polling_limit: NotRequired["aws_sdk_glue.types.positive_long.PositiveLong"]

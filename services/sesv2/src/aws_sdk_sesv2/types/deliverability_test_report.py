@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DeliverabilityTestReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.deliverability_test_status
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class DeliverabilityTestReport(TypedDict):
+class DeliverabilityTestReport(TypedDict, closed=True):
     report_id: NotRequired["aws_sdk_sesv2.types.report_id.ReportId"]
     """<p>A unique string that identifies the predictive inbox placement test.</p>"""
     report_name: NotRequired["aws_sdk_sesv2.types.report_name.ReportName"]

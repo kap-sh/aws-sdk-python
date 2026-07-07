@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateAutoMLJobV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_ml_compute_config
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateAutoMLJobV2Request(TypedDict):
+class CreateAutoMLJobV2Request(TypedDict, closed=True):
     auto_ml_job_name: NotRequired[
         "aws_sdk_sagemaker.types.auto_ml_job_name.AutoMLJobName"
     ]

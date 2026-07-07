@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#SecurityGroupIdentifier``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SecurityGroupIdentifier(TypedDict):
+class SecurityGroupIdentifier(TypedDict, closed=True):
     group_id: NotRequired["str"]
     """<p>The security group ID.</p>"""
     group_name: NotRequired["str"]

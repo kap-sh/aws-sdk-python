@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#EcsUngraceful``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
 
-class EcsUngraceful(TypedDict):
+class EcsUngraceful(TypedDict, closed=True):
     minimum_success_percentage: "int"
     """<p>The minimum success percentage specified for the configuration.</p>"""
 

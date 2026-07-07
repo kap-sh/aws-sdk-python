@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ExportReadSetFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.read_set_export_job_status
 
 
-class ExportReadSetFilter(TypedDict):
+class ExportReadSetFilter(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_omics.types.read_set_export_job_status.ReadSetExportJobStatus"
     ]

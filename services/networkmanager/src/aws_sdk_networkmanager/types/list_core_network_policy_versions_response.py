@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ListCoreNetworkPolicyVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.core_network_policy_version_list
     import aws_sdk_networkmanager.types.next_token
 
 
-class ListCoreNetworkPolicyVersionsResponse(TypedDict):
+class ListCoreNetworkPolicyVersionsResponse(TypedDict, closed=True):
     core_network_policy_versions: NotRequired[
         "aws_sdk_networkmanager.types.core_network_policy_version_list.CoreNetworkPolicyVersionList"
     ]

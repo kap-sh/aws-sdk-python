@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#UpdateMobileDeviceAccessRuleResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateMobileDeviceAccessRuleResponse(TypedDict):
+class UpdateMobileDeviceAccessRuleResponse(TypedDict, closed=True):
     pass
 
 

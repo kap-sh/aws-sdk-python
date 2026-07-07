@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RuleBooleanToEvaluate``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.rule_is_in_address_list
 
 
-class _RuleBooleanToEvaluate_Attribute(TypedDict):
+class _RuleBooleanToEvaluate_Attribute(TypedDict, closed=True):
     Attribute: "aws_sdk_mailmanager.types.rule_boolean_email_attribute.RuleBooleanEmailAttribute"
 
 
-class _RuleBooleanToEvaluate_Analysis(TypedDict):
+class _RuleBooleanToEvaluate_Analysis(TypedDict, closed=True):
     Analysis: "aws_sdk_mailmanager.types.analysis.Analysis"
 
 
-class _RuleBooleanToEvaluate_IsInAddressList(TypedDict):
+class _RuleBooleanToEvaluate_IsInAddressList(TypedDict, closed=True):
     IsInAddressList: (
         "aws_sdk_mailmanager.types.rule_is_in_address_list.RuleIsInAddressList"
     )

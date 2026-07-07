@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#EnableClientAuthenticationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.directory_id
 
 
-class EnableClientAuthenticationRequest(TypedDict):
+class EnableClientAuthenticationRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>The identifier of the specified directory. </p>"""
     type: "aws_sdk_directory_service.types.client_authentication_type.ClientAuthenticationType"

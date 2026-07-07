@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amp#DescribeWorkspaceConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_id
 
 
-class DescribeWorkspaceConfigurationRequest(TypedDict):
+class DescribeWorkspaceConfigurationRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_amp.types.workspace_id.WorkspaceId"
     r"""<p>The ID of the workspace that you want to retrieve information for. To find the IDs of your workspaces, use the <a href=\"https://docs.aws.amazon.com/prometheus/latest/APIReference/API_ListWorkspaces.htm\">ListWorkspaces</a> operation.</p>"""
 

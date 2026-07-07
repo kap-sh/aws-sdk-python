@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ListAddressListsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.pagination_token
 
 
-class ListAddressListsResponse(TypedDict):
+class ListAddressListsResponse(TypedDict, closed=True):
     address_lists: "aws_sdk_mailmanager.types.address_lists.AddressLists"
     """<p>The list of address lists.</p>"""
     next_token: NotRequired[

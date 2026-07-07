@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#IntegerListConfigurationOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.integer_list
 
 
-class IntegerListConfigurationOptions(TypedDict):
+class IntegerListConfigurationOptions(TypedDict, closed=True):
     default_value: NotRequired["aws_sdk_securityhub.types.integer_list.IntegerList"]
     """<p> The Security Hub CSPM default value for a control parameter that is a list of integers. </p>"""
     min: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

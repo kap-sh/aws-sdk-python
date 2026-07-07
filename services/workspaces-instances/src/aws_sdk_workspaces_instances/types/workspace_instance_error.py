@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#WorkspaceInstanceError``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class WorkspaceInstanceError(TypedDict):
+class WorkspaceInstanceError(TypedDict, closed=True):
     error_code: NotRequired["str"]
     """<p>Unique error code for the WorkSpace Instance error.</p>"""
     error_message: NotRequired["str"]

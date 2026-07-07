@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError, ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.validation_exception_reason
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: "aws_sdk_managedblockchain_query.types.exception_message.ExceptionMessage"
     """<p>The container for the exception message.</p>"""
     reason: "aws_sdk_managedblockchain_query.types.validation_exception_reason.ValidationExceptionReason"

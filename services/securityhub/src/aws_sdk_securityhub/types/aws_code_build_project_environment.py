@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsCodeBuildProjectEnvironment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_code_build_project_environment_environment_variables_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsCodeBuildProjectEnvironment(TypedDict):
+class AwsCodeBuildProjectEnvironment(TypedDict, closed=True):
     certificate: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

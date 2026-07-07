@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#DataValidationMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.field_validation_message_list
     import aws_sdk_frauddetector.types.file_validation_message_list
 
 
-class DataValidationMetrics(TypedDict):
+class DataValidationMetrics(TypedDict, closed=True):
     file_level_messages: NotRequired[
         "aws_sdk_frauddetector.types.file_validation_message_list.fileValidationMessageList"
     ]

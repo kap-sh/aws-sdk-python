@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ExportComponentsRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ExportComponentsRequest(TypedDict):
+class ExportComponentsRequest(TypedDict, closed=True):
     app_id: "str"
     """<p>The unique ID of the Amplify app to export components to.</p>"""
     environment_name: "str"

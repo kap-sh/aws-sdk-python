@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleImportJobVPCConnectionOverrideParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.vpc_connection_resource_id_unrestricted
 
 
-class AssetBundleImportJobVPCConnectionOverrideParameters(TypedDict):
+class AssetBundleImportJobVPCConnectionOverrideParameters(TypedDict, closed=True):
     vpc_connection_id: "aws_sdk_quicksight.types.vpc_connection_resource_id_unrestricted.VPCConnectionResourceIdUnrestricted"
     """<p>The ID of the VPC Connection to apply overrides to.</p>"""
     name: NotRequired["aws_sdk_quicksight.types.resource_name.ResourceName"]

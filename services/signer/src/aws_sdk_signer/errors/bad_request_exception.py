@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#BadRequestException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_signer.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.error_message
 
 
-class BadRequestException_(TypedDict):
+class BadRequestException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_signer.types.error_message.ErrorMessage"]
     code: NotRequired["aws_sdk_signer.types.error_code.ErrorCode"]
 

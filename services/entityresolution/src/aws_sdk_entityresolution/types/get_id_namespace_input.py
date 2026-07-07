@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#GetIdNamespaceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.entity_name_or_id_namespace_arn
 
 
-class GetIdNamespaceInput(TypedDict):
+class GetIdNamespaceInput(TypedDict, closed=True):
     id_namespace_name: "aws_sdk_entityresolution.types.entity_name_or_id_namespace_arn.EntityNameOrIdNamespaceArn"
     """<p>The name of the ID namespace.</p>"""
 

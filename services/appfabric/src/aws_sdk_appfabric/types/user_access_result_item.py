@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#UserAccessResultItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appfabric.types.email
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.uuid
 
 
-class UserAccessResultItem(TypedDict):
+class UserAccessResultItem(TypedDict, closed=True):
     app: NotRequired["aws_sdk_appfabric.types.string255.String255"]
     """<p>The name of the application.</p>"""
     tenant_id: NotRequired["aws_sdk_appfabric.types.tenant_identifier.TenantIdentifier"]

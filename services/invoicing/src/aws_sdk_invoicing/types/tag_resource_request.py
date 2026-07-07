@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.tagris_arn
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_invoicing.types.tagris_arn.TagrisArn"
     """<p>The Amazon Resource Name (ARN) of the tags. </p>"""
     resource_tags: "aws_sdk_invoicing.types.resource_tag_list.ResourceTagList"

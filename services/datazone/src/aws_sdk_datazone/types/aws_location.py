@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AwsLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.aws_account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.connection_id
 
 
-class AwsLocation(TypedDict):
+class AwsLocation(TypedDict, closed=True):
     access_role: NotRequired["str"]
     """<p>The access role of a connection.</p>"""
     aws_account_id: NotRequired["aws_sdk_datazone.types.aws_account_id.AwsAccountId"]

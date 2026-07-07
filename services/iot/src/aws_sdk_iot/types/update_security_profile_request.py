@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateSecurityProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.additional_metrics_to_retain_list
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.security_profile_name
 
 
-class UpdateSecurityProfileRequest(TypedDict):
+class UpdateSecurityProfileRequest(TypedDict, closed=True):
     security_profile_name: "aws_sdk_iot.types.security_profile_name.SecurityProfileName"
     """<p>The name of the security profile you want to update.</p>"""
     security_profile_description: NotRequired[

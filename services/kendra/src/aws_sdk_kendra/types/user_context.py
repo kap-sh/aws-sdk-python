@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#UserContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.data_source_groups
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.token
 
 
-class UserContext(TypedDict):
+class UserContext(TypedDict, closed=True):
     token: NotRequired["aws_sdk_kendra.types.token.Token"]
     """<p>The user context token for filtering search results for a user. It must be a JWT or a JSON token.</p>"""
     user_id: NotRequired["aws_sdk_kendra.types.principal_name.PrincipalName"]

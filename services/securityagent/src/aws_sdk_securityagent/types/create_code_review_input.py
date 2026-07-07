@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#CreateCodeReviewInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.service_role
 
 
-class CreateCodeReviewInput(TypedDict):
+class CreateCodeReviewInput(TypedDict, closed=True):
     title: "str"
     """<p>The title of the code review.</p>"""
     agent_space_id: "str"

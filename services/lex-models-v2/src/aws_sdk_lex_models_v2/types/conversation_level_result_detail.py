@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ConversationLevelResultDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_result_match_status
 
 
-class ConversationLevelResultDetail(TypedDict):
+class ConversationLevelResultDetail(TypedDict, closed=True):
     end_to_end_result: (
         "aws_sdk_lex_models_v2.types.test_result_match_status.TestResultMatchStatus"
     )

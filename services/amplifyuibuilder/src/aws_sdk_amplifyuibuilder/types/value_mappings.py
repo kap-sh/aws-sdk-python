@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ValueMappings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.value_mapping_list
 
 
-class ValueMappings(TypedDict):
+class ValueMappings(TypedDict, closed=True):
     values: "aws_sdk_amplifyuibuilder.types.value_mapping_list.ValueMappingList"
     """<p>The value and display value pairs.</p>"""
     binding_properties: NotRequired[

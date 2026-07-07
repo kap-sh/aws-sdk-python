@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FiltersOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.transform_operation_source
 
 
-class FiltersOperation(TypedDict):
+class FiltersOperation(TypedDict, closed=True):
     alias: "aws_sdk_quicksight.types.transform_operation_alias.TransformOperationAlias"
     """<p>Alias for this operation.</p>"""
     source: (

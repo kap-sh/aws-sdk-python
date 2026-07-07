@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#ProtectionLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.limits
 
 
-class ProtectionLimits(TypedDict):
+class ProtectionLimits(TypedDict, closed=True):
     protected_resource_type_limits: "aws_sdk_shield.types.limits.Limits"
     """<p>The maximum number of resource types that you can specify in a protection.</p>"""
 

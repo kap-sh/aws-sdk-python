@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyBuildLogEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_build_step_list
 
 
-class AutomatedReasoningPolicyBuildLogEntry(TypedDict):
+class AutomatedReasoningPolicyBuildLogEntry(TypedDict, closed=True):
     annotation: "aws_sdk_bedrock.types.automated_reasoning_policy_annotation.AutomatedReasoningPolicyAnnotation"
     """<p>The annotation or operation that was being processed when this log entry was created.</p>"""
     status: "aws_sdk_bedrock.types.automated_reasoning_policy_annotation_status.AutomatedReasoningPolicyAnnotationStatus"

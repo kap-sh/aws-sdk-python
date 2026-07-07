@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#VideoMonitoringSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.black_frames
     import aws_sdk_mediaconnect.types.frozen_frames
 
 
-class VideoMonitoringSetting(TypedDict):
+class VideoMonitoringSetting(TypedDict, closed=True):
     black_frames: NotRequired["aws_sdk_mediaconnect.types.black_frames.BlackFrames"]
     """<p>Detects video frames that are black. </p>"""
     frozen_frames: NotRequired["aws_sdk_mediaconnect.types.frozen_frames.FrozenFrames"]

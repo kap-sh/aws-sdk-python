@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#CreateSubnetGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_memorydb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.tag_list
 
 
-class CreateSubnetGroupRequest(TypedDict):
+class CreateSubnetGroupRequest(TypedDict, closed=True):
     subnet_group_name: "aws_sdk_memorydb.types.string.String"
     """<p>The name of the subnet group.</p>"""
     description: NotRequired["aws_sdk_memorydb.types.string.String"]

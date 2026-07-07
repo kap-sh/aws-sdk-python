@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#StartIncidentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.arn
 
 
-class StartIncidentOutput(TypedDict):
+class StartIncidentOutput(TypedDict, closed=True):
     incident_record_arn: "aws_sdk_ssm_incidents.types.arn.Arn"
     """<p>The ARN of the newly created incident record.</p>"""
 

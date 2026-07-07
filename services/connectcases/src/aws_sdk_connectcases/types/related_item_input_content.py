@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#RelatedItemInputContent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -13,29 +15,29 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.sla_input_content
 
 
-class _RelatedItemInputContent_contact(TypedDict):
+class _RelatedItemInputContent_contact(TypedDict, closed=True):
     contact: "aws_sdk_connectcases.types.contact.Contact"
 
 
-class _RelatedItemInputContent_comment(TypedDict):
+class _RelatedItemInputContent_comment(TypedDict, closed=True):
     comment: "aws_sdk_connectcases.types.comment_content.CommentContent"
 
 
-class _RelatedItemInputContent_file(TypedDict):
+class _RelatedItemInputContent_file(TypedDict, closed=True):
     file: "aws_sdk_connectcases.types.file_content.FileContent"
 
 
-class _RelatedItemInputContent_sla(TypedDict):
+class _RelatedItemInputContent_sla(TypedDict, closed=True):
     sla: "aws_sdk_connectcases.types.sla_input_content.SlaInputContent"
 
 
-class _RelatedItemInputContent_connectCase(TypedDict):
+class _RelatedItemInputContent_connectCase(TypedDict, closed=True):
     connectCase: (
         "aws_sdk_connectcases.types.connect_case_input_content.ConnectCaseInputContent"
     )
 
 
-class _RelatedItemInputContent_custom(TypedDict):
+class _RelatedItemInputContent_custom(TypedDict, closed=True):
     custom: "aws_sdk_connectcases.types.custom_input_content.CustomInputContent"
 
 

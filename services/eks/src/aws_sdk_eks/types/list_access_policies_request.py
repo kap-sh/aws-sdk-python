@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListAccessPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.list_access_policies_request_max_results
     import aws_sdk_eks.types.string
 
 
-class ListAccessPoliciesRequest(TypedDict):
+class ListAccessPoliciesRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_eks.types.list_access_policies_request_max_results.ListAccessPoliciesRequestMaxResults"
     ]

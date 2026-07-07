@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HumanLoopActivationConditionsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.human_loop_activation_conditions
 
 
-class HumanLoopActivationConditionsConfig(TypedDict):
+class HumanLoopActivationConditionsConfig(TypedDict, closed=True):
     human_loop_activation_conditions: NotRequired[
         "aws_sdk_sagemaker.types.human_loop_activation_conditions.HumanLoopActivationConditions"
     ]

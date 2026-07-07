@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PerformanceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.unique_key_list
 
 
-class PerformanceConfiguration(TypedDict):
+class PerformanceConfiguration(TypedDict, closed=True):
     unique_keys: NotRequired["aws_sdk_quicksight.types.unique_key_list.UniqueKeyList"]
     """<p>A <code>UniqueKey</code> configuration.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#Flow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.address
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.protocol_string
 
 
-class Flow(TypedDict):
+class Flow(TypedDict, closed=True):
     source_address: NotRequired["aws_sdk_network_firewall.types.address.Address"]
     destination_address: NotRequired["aws_sdk_network_firewall.types.address.Address"]
     source_port: NotRequired["aws_sdk_network_firewall.types.port.Port"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListResolverQueryLogConfigsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resolver_query_log_config_list
 
 
-class ListResolverQueryLogConfigsResponse(TypedDict):
+class ListResolverQueryLogConfigsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_route53resolver.types.next_token.NextToken"]
     """<p>If there are more than <code>MaxResults</code> query logging configurations, you can submit another <code>ListResolverQueryLogConfigs</code> request to get the next group of configurations. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>"""
     total_count: "aws_sdk_route53resolver.types.count.Count"

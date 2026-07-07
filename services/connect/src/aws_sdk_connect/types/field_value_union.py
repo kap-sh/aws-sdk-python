@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#FieldValueUnion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.field_string_value
 
 
-class FieldValueUnion(TypedDict):
+class FieldValueUnion(TypedDict, closed=True):
     boolean_value: "aws_sdk_connect.types.boolean.Boolean"
     """<p>A Boolean number value type.</p>"""
     double_value: NotRequired["aws_sdk_connect.types.double.Double"]

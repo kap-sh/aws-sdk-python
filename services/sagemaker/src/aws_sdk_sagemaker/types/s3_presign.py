@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#S3Presign``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.iam_policy_constraints
 
 
-class S3Presign(TypedDict):
+class S3Presign(TypedDict, closed=True):
     iam_policy_constraints: NotRequired[
         "aws_sdk_sagemaker.types.iam_policy_constraints.IamPolicyConstraints"
     ]

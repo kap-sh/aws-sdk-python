@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#AwsIdentity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.external_id
 
 
-class AwsIdentity(TypedDict):
+class AwsIdentity(TypedDict, closed=True):
     principal: "aws_sdk_securitylake.types.aws_principal.AwsPrincipal"
     """<p>The Amazon Web Services identity principal.</p>"""
     external_id: "aws_sdk_securitylake.types.external_id.ExternalId"

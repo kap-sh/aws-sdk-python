@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#PreviewPortalResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PreviewPortalResponse(TypedDict):
+class PreviewPortalResponse(TypedDict, closed=True):
     pass
 
 

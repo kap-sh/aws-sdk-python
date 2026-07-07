@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#GetResolverResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.resolver
 
 
-class GetResolverResponse(TypedDict):
+class GetResolverResponse(TypedDict, closed=True):
     resolver: NotRequired["aws_sdk_appsync.types.resolver.Resolver"]
     """<p>The <code>Resolver</code> object.</p>"""
 

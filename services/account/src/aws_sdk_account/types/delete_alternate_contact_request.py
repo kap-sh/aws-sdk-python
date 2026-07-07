@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.account#DeleteAlternateContactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_account.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_account.types.alternate_contact_type
 
 
-class DeleteAlternateContactRequest(TypedDict):
+class DeleteAlternateContactRequest(TypedDict, closed=True):
     alternate_contact_type: (
         "aws_sdk_account.types.alternate_contact_type.AlternateContactType"
     )

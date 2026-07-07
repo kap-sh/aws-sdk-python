@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#EarthObservationJobErrorDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.earth_observation_job_error_type
 
 
-class EarthObservationJobErrorDetails(TypedDict):
+class EarthObservationJobErrorDetails(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_sagemaker_geospatial.types.earth_observation_job_error_type.EarthObservationJobErrorType"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#StepOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.data_type
 
 
-class StepOutput(TypedDict):
+class StepOutput(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the step.</p>"""
     data_type: NotRequired["aws_sdk_migrationhuborchestrator.types.data_type.DataType"]

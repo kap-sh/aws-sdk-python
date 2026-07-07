@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#GetDataLakeSourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.account_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.next_token
 
 
-class GetDataLakeSourcesRequest(TypedDict):
+class GetDataLakeSourcesRequest(TypedDict, closed=True):
     accounts: NotRequired["aws_sdk_securitylake.types.account_list.AccountList"]
     """<p>The Amazon Web Services account ID for which a static snapshot of the current Amazon Web Services Region, including enabled accounts and log sources, is retrieved.</p>"""
     max_results: "aws_sdk_securitylake.types.max_results.MaxResults"

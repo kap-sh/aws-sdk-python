@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EndpointDemographic``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class EndpointDemographic(TypedDict):
+class EndpointDemographic(TypedDict, closed=True):
     app_version: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The version of the app that's associated with the endpoint.</p>"""
     locale: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

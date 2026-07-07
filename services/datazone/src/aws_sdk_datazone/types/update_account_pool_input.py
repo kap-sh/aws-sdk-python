@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateAccountPoolInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.account_pool_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.resolution_strategy
 
 
-class UpdateAccountPoolInput(TypedDict):
+class UpdateAccountPoolInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The domain ID where the account pool that is to be updated lives.</p>"""
     identifier: "aws_sdk_datazone.types.account_pool_id.AccountPoolId"

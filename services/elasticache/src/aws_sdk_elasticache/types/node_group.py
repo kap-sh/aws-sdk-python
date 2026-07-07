@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#NodeGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class NodeGroup(TypedDict):
+class NodeGroup(TypedDict, closed=True):
     node_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The identifier for the node group (shard). A Valkey or Redis OSS (cluster mode disabled) replication group contains only 1 node group; therefore, the node group ID is 0001. A Valkey or Redis OSS (cluster mode enabled) replication group contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user can provide the id for a node group. </p>"""
     status: NotRequired["aws_sdk_elasticache.types.string.String"]

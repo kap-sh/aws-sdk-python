@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#DeployTargetEventContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.string
 
 
-class DeployTargetEventContext(TypedDict):
+class DeployTargetEventContext(TypedDict, closed=True):
     ssm_command_id: NotRequired["aws_sdk_codepipeline.types.string.String"]
     """<p>The command ID for the event for the deploy action.</p>"""
     message: NotRequired["aws_sdk_codepipeline.types.string.String"]

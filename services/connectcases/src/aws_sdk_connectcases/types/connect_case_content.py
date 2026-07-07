@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ConnectCaseContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.case_id
 
 
-class ConnectCaseContent(TypedDict):
+class ConnectCaseContent(TypedDict, closed=True):
     case_id: "aws_sdk_connectcases.types.case_id.CaseId"
     """<p>A unique identifier of the case.</p>"""
 

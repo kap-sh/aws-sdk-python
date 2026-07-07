@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ActivityTaskCancelRequestedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.event_id
 
 
-class ActivityTaskCancelRequestedEventAttributes(TypedDict):
+class ActivityTaskCancelRequestedEventAttributes(TypedDict, closed=True):
     decision_task_completed_event_id: "aws_sdk_swf.types.event_id.EventId"
     """<p>The ID of the <code>DecisionTaskCompleted</code> event corresponding to the decision task that resulted in the <code>RequestCancelActivityTask</code> decision for this cancellation request. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.</p>"""
     activity_id: "aws_sdk_swf.types.activity_id.ActivityId"

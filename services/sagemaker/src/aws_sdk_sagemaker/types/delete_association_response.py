@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteAssociationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.association_entity_arn
 
 
-class DeleteAssociationResponse(TypedDict):
+class DeleteAssociationResponse(TypedDict, closed=True):
     source_arn: NotRequired[
         "aws_sdk_sagemaker.types.association_entity_arn.AssociationEntityArn"
     ]

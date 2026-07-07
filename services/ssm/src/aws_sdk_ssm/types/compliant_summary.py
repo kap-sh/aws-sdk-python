@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CompliantSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.compliance_summary_count
     import aws_sdk_ssm.types.severity_summary
 
 
-class CompliantSummary(TypedDict):
+class CompliantSummary(TypedDict, closed=True):
     compliant_count: "aws_sdk_ssm.types.compliance_summary_count.ComplianceSummaryCount"
     """<p>The total number of resources that are compliant.</p>"""
     severity_summary: NotRequired["aws_sdk_ssm.types.severity_summary.SeveritySummary"]

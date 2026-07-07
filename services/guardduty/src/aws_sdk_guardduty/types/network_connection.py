@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#NetworkConnection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.network_direction
 
 
-class NetworkConnection(TypedDict):
+class NetworkConnection(TypedDict, closed=True):
     direction: NotRequired["aws_sdk_guardduty.types.network_direction.NetworkDirection"]
     """<p>The direction in which the network traffic is flowing.</p>"""
 

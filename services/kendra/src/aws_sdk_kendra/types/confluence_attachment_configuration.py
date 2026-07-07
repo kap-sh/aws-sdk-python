@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ConfluenceAttachmentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.boolean
     import aws_sdk_kendra.types.confluence_attachment_field_mappings_list
 
 
-class ConfluenceAttachmentConfiguration(TypedDict):
+class ConfluenceAttachmentConfiguration(TypedDict, closed=True):
     crawl_attachments: "aws_sdk_kendra.types.boolean.Boolean"
     """<p> <code>TRUE</code> to index attachments of pages and blogs in Confluence.</p>"""
     attachment_field_mappings: NotRequired[

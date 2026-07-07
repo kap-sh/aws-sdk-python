@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#ContainerService``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.tag_list
 
 
-class ContainerService(TypedDict):
+class ContainerService(TypedDict, closed=True):
     container_service_name: NotRequired[
         "aws_sdk_lightsail.types.container_service_name.ContainerServiceName"
     ]

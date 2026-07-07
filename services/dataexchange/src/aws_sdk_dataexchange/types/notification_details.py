@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#NotificationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.data_update_request_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.schema_change_request_details
 
 
-class NotificationDetails(TypedDict):
+class NotificationDetails(TypedDict, closed=True):
     data_update: NotRequired[
         "aws_sdk_dataexchange.types.data_update_request_details.DataUpdateRequestDetails"
     ]

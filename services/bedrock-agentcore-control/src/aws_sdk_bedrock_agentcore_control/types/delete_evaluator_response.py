@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteEvaluatorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.evaluator_status
 
 
-class DeleteEvaluatorResponse(TypedDict):
+class DeleteEvaluatorResponse(TypedDict, closed=True):
     evaluator_arn: "aws_sdk_bedrock_agentcore_control.types.evaluator_arn.EvaluatorArn"
     """<p> The Amazon Resource Name (ARN) of the deleted evaluator. </p>"""
     evaluator_id: "aws_sdk_bedrock_agentcore_control.types.evaluator_id.EvaluatorId"

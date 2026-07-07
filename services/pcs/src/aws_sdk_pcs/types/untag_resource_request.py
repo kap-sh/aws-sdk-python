@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_pcs.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
     tag_keys: "aws_sdk_pcs.types.tag_keys.TagKeys"

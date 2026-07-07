@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#GetEnabledBaselineOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.enabled_baseline_details
 
 
-class GetEnabledBaselineOutput(TypedDict):
+class GetEnabledBaselineOutput(TypedDict, closed=True):
     enabled_baseline_details: NotRequired[
         "aws_sdk_controltower.types.enabled_baseline_details.EnabledBaselineDetails"
     ]

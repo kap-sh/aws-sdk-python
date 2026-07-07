@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetMergeConflictsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.object_id
 
 
-class GetMergeConflictsOutput(TypedDict):
+class GetMergeConflictsOutput(TypedDict, closed=True):
     mergeable: "aws_sdk_codecommit.types.is_mergeable.IsMergeable"
     """<p>A Boolean value that indicates whether the code is mergeable by the specified merge option.</p>"""
     destination_commit_id: "aws_sdk_codecommit.types.object_id.ObjectId"

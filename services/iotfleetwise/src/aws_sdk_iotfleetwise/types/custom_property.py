@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#CustomProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.string
 
 
-class CustomProperty(TypedDict):
+class CustomProperty(TypedDict, closed=True):
     fully_qualified_name: "aws_sdk_iotfleetwise.types.string.string"
     """<p>The fully qualified name of the custom property. For example, the fully qualified name of a custom property might be <code>ComplexDataTypes.VehicleDataTypes.SVMCamera.FPS</code>.</p>"""
     data_type: "aws_sdk_iotfleetwise.types.node_data_type.NodeDataType"

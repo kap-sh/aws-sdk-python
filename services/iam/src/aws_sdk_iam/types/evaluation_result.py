@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#EvaluationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.statement_list_type
 
 
-class EvaluationResult(TypedDict):
+class EvaluationResult(TypedDict, closed=True):
     eval_action_name: "aws_sdk_iam.types.action_name_type.ActionNameType"
     """<p>The name of the API operation tested on the indicated resource.</p>"""
     eval_resource_name: NotRequired[

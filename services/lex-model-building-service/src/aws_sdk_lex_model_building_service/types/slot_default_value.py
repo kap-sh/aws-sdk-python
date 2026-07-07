@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#SlotDefaultValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.slot_default_value_string
 
 
-class SlotDefaultValue(TypedDict):
+class SlotDefaultValue(TypedDict, closed=True):
     default_value: "aws_sdk_lex_model_building_service.types.slot_default_value_string.SlotDefaultValueString"
     r"""<p>The default value for the slot. You can specify one of the following:</p> <ul> <li> <p> <code>#context-name.slot-name</code> - The slot value \"slot-name\" in the context \"context-name.\"</p> </li> <li> <p> <code>{attribute}</code> - The slot value of the session attribute \"attribute.\"</p> </li> <li> <p> <code>'value'</code> - The discrete value \"value.\"</p> </li> </ul>"""
 

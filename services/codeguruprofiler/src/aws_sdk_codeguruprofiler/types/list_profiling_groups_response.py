@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#ListProfilingGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.profiling_group_names
 
 
-class ListProfilingGroupsResponse(TypedDict):
+class ListProfilingGroupsResponse(TypedDict, closed=True):
     profiling_group_names: (
         "aws_sdk_codeguruprofiler.types.profiling_group_names.ProfilingGroupNames"
     )

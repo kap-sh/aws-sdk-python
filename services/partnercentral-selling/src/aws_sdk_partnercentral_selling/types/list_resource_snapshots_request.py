@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ListResourceSnapshotsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.resource_type
 
 
-class ListResourceSnapshotsRequest(TypedDict):
+class ListResourceSnapshotsRequest(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier"
     """<p> Specifies the catalog related to the request. </p>"""
     max_results: "aws_sdk_partnercentral_selling.types.page_size.PageSize"

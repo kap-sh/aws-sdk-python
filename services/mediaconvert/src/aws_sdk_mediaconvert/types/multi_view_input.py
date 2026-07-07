@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#MultiViewInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_pattern_s3_https
 
 
-class MultiViewInput(TypedDict):
+class MultiViewInput(TypedDict, closed=True):
     file_input: NotRequired[
         "aws_sdk_mediaconvert.types.__string_pattern_s3_https.__stringPatternS3Https"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#MetricFilterV2``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.string
 
 
-class MetricFilterV2(TypedDict):
+class MetricFilterV2(TypedDict, closed=True):
     metric_filter_key: NotRequired["aws_sdk_connect.types.string.String"]
     """<p>The key to use for filtering data. </p> <p>Valid metric filter keys: </p> <ul> <li> <p>ANSWERING_MACHINE_DETECTION_STATUS</p> </li> <li> <p>CASE_STATUS</p> </li> <li> <p>DISCONNECT_REASON</p> </li> <li> <p>FLOWS_ACTION_IDENTIFIER</p> </li> <li> <p>FLOWS_NEXT_ACTION_IDENTIFIER</p> </li> <li> <p>FLOWS_OUTCOME_TYPE</p> </li> <li> <p>FLOWS_RESOURCE_TYPE</p> </li> <li> <p>INITIATION_METHOD</p> </li> </ul>"""
     metric_filter_values: NotRequired[

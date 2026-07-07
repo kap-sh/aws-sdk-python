@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StopCrawlerResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopCrawlerResponse(TypedDict):
+class StopCrawlerResponse(TypedDict, closed=True):
     pass
 
 

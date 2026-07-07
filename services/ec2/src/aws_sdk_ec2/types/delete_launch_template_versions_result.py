@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeleteLaunchTemplateVersionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.delete_launch_template_versions_response_success_set
 
 
-class DeleteLaunchTemplateVersionsResult(TypedDict):
+class DeleteLaunchTemplateVersionsResult(TypedDict, closed=True):
     successfully_deleted_launch_template_versions: NotRequired[
         "aws_sdk_ec2.types.delete_launch_template_versions_response_success_set.DeleteLaunchTemplateVersionsResponseSuccessSet"
     ]

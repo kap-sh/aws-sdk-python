@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#TrafficPolicySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.traffic_policy_version
 
 
-class TrafficPolicySummary(TypedDict):
+class TrafficPolicySummary(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.traffic_policy_id.TrafficPolicyId"
     """<p>The ID that Amazon Route 53 assigned to the traffic policy when you created it.</p>"""
     name: "aws_sdk_route_53.types.traffic_policy_name.TrafficPolicyName"

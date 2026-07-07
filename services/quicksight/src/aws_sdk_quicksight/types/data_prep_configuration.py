@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataPrepConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.transform_step_map
 
 
-class DataPrepConfiguration(TypedDict):
+class DataPrepConfiguration(TypedDict, closed=True):
     source_table_map: "aws_sdk_quicksight.types.source_table_map.SourceTableMap"
     """<p>A map of source tables that provide information about underlying sources.</p>"""
     transform_step_map: "aws_sdk_quicksight.types.transform_step_map.TransformStepMap"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DeleteLaunchConfigurationTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_configuration_template_id
 
 
-class DeleteLaunchConfigurationTemplateRequest(TypedDict):
+class DeleteLaunchConfigurationTemplateRequest(TypedDict, closed=True):
     launch_configuration_template_id: "aws_sdk_drs.types.launch_configuration_template_id.LaunchConfigurationTemplateID"
     """<p>The ID of the Launch Configuration Template to be deleted.</p>"""
 

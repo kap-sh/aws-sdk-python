@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ViewSunElevationInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
 
-class ViewSunElevationInput(TypedDict):
+class ViewSunElevationInput(TypedDict, closed=True):
     lower_bound: "float"
     """<p>The lower bound to view the sun elevation.</p>"""
     upper_bound: "float"

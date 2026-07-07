@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DaemonContainerDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.ulimit_list
 
 
-class DaemonContainerDefinition(TypedDict):
+class DaemonContainerDefinition(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The name of the container. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p>"""
     image: "aws_sdk_ecs.types.string.String"

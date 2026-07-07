@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#EnumConfigurationOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.string_list
 
 
-class EnumConfigurationOptions(TypedDict):
+class EnumConfigurationOptions(TypedDict, closed=True):
     default_value: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

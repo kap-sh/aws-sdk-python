@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#RestoreTestingSelectionForCreate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string_list
 
 
-class RestoreTestingSelectionForCreate(TypedDict):
+class RestoreTestingSelectionForCreate(TypedDict, closed=True):
     iam_role_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the IAM role that Backup uses to create the target resource; for example: <code>arn:aws:iam::123456789012:role/S3Access</code>. </p>"""
     protected_resource_arns: NotRequired["aws_sdk_backup.types.string_list.stringList"]

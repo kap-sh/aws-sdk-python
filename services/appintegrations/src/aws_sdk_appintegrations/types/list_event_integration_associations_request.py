@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#ListEventIntegrationAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.next_token
 
 
-class ListEventIntegrationAssociationsRequest(TypedDict):
+class ListEventIntegrationAssociationsRequest(TypedDict, closed=True):
     event_integration_name: "aws_sdk_appintegrations.types.name.Name"
     """<p>The name of the event integration. </p>"""
     next_token: NotRequired["aws_sdk_appintegrations.types.next_token.NextToken"]

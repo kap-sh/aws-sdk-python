@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubconfig#Target``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migrationhub_config.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhub_config.types.target_type
 
 
-class Target(TypedDict):
+class Target(TypedDict, closed=True):
     type: "aws_sdk_migrationhub_config.types.target_type.TargetType"
     """<p>The target type is always an <code>ACCOUNT</code>.</p>"""
     id: NotRequired["aws_sdk_migrationhub_config.types.target_id.TargetId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#TraversedComponent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.component_type
 
 
-class TraversedComponent(TypedDict):
+class TraversedComponent(TypedDict, closed=True):
     component_id: NotRequired["aws_sdk_networkflowmonitor.types.component.Component"]
     """<p>The identifier for the traversed component.</p>"""
     component_type: NotRequired[

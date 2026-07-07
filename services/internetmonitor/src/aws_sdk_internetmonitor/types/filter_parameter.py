@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#FilterParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.filter_list
     import aws_sdk_internetmonitor.types.operator
 
 
-class FilterParameter(TypedDict):
+class FilterParameter(TypedDict, closed=True):
     field: NotRequired["str"]
     """<p>A data field that you want to filter, to further scope your application's Internet Monitor data in a repository that you created by running a query. A field might be <code>city</code>, for example. The field must be one of the fields that was returned by the specific query that you used to create the repository.</p>"""
     operator: NotRequired["aws_sdk_internetmonitor.types.operator.Operator"]

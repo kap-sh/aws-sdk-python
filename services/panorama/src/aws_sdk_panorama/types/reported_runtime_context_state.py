@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ReportedRuntimeContextState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.time_stamp
 
 
-class ReportedRuntimeContextState(TypedDict):
+class ReportedRuntimeContextState(TypedDict, closed=True):
     desired_state: "aws_sdk_panorama.types.desired_state.DesiredState"
     """<p>The application's desired state.</p>"""
     runtime_context_name: (

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.shield#ResponseAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.block_action
     import aws_sdk_shield.types.count_action
 
 
-class ResponseAction(TypedDict):
+class ResponseAction(TypedDict, closed=True):
     block: NotRequired["aws_sdk_shield.types.block_action.BlockAction"]
     """<p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Block</code> action. </p> <p>You must specify exactly one action, either <code>Block</code> or <code>Count</code>.</p>"""
     count: NotRequired["aws_sdk_shield.types.count_action.CountAction"]

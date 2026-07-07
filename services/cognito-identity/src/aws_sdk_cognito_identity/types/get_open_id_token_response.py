@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#GetOpenIdTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.identity_id
     import aws_sdk_cognito_identity.types.oidc_token
 
 
-class GetOpenIdTokenResponse(TypedDict):
+class GetOpenIdTokenResponse(TypedDict, closed=True):
     identity_id: NotRequired["aws_sdk_cognito_identity.types.identity_id.IdentityId"]
     """<p>A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.</p>"""
     token: NotRequired["aws_sdk_cognito_identity.types.oidc_token.OIDCToken"]

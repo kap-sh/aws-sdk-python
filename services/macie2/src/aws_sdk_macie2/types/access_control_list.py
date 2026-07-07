@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#AccessControlList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
 
 
-class AccessControlList(TypedDict):
+class AccessControlList(TypedDict, closed=True):
     allows_public_read_access: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]
     """<p>Specifies whether the ACL grants the general public with read access permissions for the bucket.</p>"""
     allows_public_write_access: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]

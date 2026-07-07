@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CopyProjectVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.version_name
 
 
-class CopyProjectVersionRequest(TypedDict):
+class CopyProjectVersionRequest(TypedDict, closed=True):
     source_project_arn: "aws_sdk_rekognition.types.project_arn.ProjectArn"
     """<p>The ARN of the source project in the trusting AWS account.</p>"""
     source_project_version_arn: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#SystemPromptRecommendationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.recommendation_error_code
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.system_prompt_text
 
 
-class SystemPromptRecommendationResult(TypedDict):
+class SystemPromptRecommendationResult(TypedDict, closed=True):
     recommended_system_prompt: NotRequired[
         "aws_sdk_bedrock_agentcore.types.system_prompt_text.SystemPromptText"
     ]

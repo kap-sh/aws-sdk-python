@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ExecutorsSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.long
 
 
-class ExecutorsSummary(TypedDict):
+class ExecutorsSummary(TypedDict, closed=True):
     executor_id: "aws_sdk_athena.types.executor_id.ExecutorId"
     """<p>The UUID of the executor.</p>"""
     executor_type: NotRequired["aws_sdk_athena.types.executor_type.ExecutorType"]

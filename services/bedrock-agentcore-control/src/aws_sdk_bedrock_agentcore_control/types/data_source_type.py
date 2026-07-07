@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DataSourceType``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.s3_source
 
 
-class _DataSourceType_inlineExamples(TypedDict):
+class _DataSourceType_inlineExamples(TypedDict, closed=True):
     inlineExamples: "aws_sdk_bedrock_agentcore_control.types.inline_examples_source.InlineExamplesSource"
 
 
-class _DataSourceType_s3Source(TypedDict):
+class _DataSourceType_s3Source(TypedDict, closed=True):
     s3Source: "aws_sdk_bedrock_agentcore_control.types.s3_source.S3Source"
 
 

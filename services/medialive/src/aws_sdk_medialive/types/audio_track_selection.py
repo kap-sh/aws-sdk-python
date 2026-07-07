@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AudioTrackSelection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_audio_track
     import aws_sdk_medialive.types.audio_dolby_e_decode
 
 
-class AudioTrackSelection(TypedDict):
+class AudioTrackSelection(TypedDict, closed=True):
     tracks: NotRequired[
         "aws_sdk_medialive.types.__list_of_audio_track.__listOfAudioTrack"
     ]

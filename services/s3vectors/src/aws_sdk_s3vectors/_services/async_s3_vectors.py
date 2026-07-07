@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#S3Vectors``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_s3vectors._auth._signers
@@ -41,7 +41,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.untag_resource_output
 
 
-class AsyncS3VectorsClientConfig(TypedDict, total=False):
+class AsyncS3VectorsClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     use_fips: bool | None

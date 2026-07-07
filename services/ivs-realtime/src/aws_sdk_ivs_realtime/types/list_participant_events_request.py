@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ListParticipantEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.stage_session_id
 
 
-class ListParticipantEventsRequest(TypedDict):
+class ListParticipantEventsRequest(TypedDict, closed=True):
     stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn"
     """<p>Stage ARN.</p>"""
     session_id: "aws_sdk_ivs_realtime.types.stage_session_id.StageSessionId"

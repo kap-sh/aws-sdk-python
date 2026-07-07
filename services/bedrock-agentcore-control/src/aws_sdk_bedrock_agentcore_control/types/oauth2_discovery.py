@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#Oauth2Discovery``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,13 +14,13 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.oauth2_authorization_server_metadata
 
 
-class _Oauth2Discovery_discoveryUrl(TypedDict):
+class _Oauth2Discovery_discoveryUrl(TypedDict, closed=True):
     discoveryUrl: (
         "aws_sdk_bedrock_agentcore_control.types.discovery_url_type.DiscoveryUrlType"
     )
 
 
-class _Oauth2Discovery_authorizationServerMetadata(TypedDict):
+class _Oauth2Discovery_authorizationServerMetadata(TypedDict, closed=True):
     authorizationServerMetadata: "aws_sdk_bedrock_agentcore_control.types.oauth2_authorization_server_metadata.Oauth2AuthorizationServerMetadata"
 
 

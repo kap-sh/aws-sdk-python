@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#AnalysisSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.analysis_template_text
 
 
-class _AnalysisSource_text(TypedDict):
+class _AnalysisSource_text(TypedDict, closed=True):
     text: "aws_sdk_cleanrooms.types.analysis_template_text.AnalysisTemplateText"
 
 
-class _AnalysisSource_artifacts(TypedDict):
+class _AnalysisSource_artifacts(TypedDict, closed=True):
     artifacts: (
         "aws_sdk_cleanrooms.types.analysis_template_artifacts.AnalysisTemplateArtifacts"
     )

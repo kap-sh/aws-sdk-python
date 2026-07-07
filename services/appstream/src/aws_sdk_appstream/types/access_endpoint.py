@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#AccessEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.access_endpoint_type
     import aws_sdk_appstream.types.string
 
 
-class AccessEndpoint(TypedDict):
+class AccessEndpoint(TypedDict, closed=True):
     endpoint_type: NotRequired[
         "aws_sdk_appstream.types.access_endpoint_type.AccessEndpointType"
     ]

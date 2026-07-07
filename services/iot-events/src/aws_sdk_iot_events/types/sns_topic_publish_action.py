@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#SNSTopicPublishAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.payload
 
 
-class SNSTopicPublishAction(TypedDict):
+class SNSTopicPublishAction(TypedDict, closed=True):
     target_arn: "aws_sdk_iot_events.types.amazon_resource_name.AmazonResourceName"
     """<p>The ARN of the Amazon SNS target where the message is sent.</p>"""
     payload: NotRequired["aws_sdk_iot_events.types.payload.Payload"]

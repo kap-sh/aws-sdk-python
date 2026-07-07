@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#RuleCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.query_string_key_value_pair
 
 
-class RuleCondition(TypedDict):
+class RuleCondition(TypedDict, closed=True):
     host_header: NotRequired["str"]
     """<p>The exact host header value to match.</p>"""
     host_header_wildcard: NotRequired["str"]

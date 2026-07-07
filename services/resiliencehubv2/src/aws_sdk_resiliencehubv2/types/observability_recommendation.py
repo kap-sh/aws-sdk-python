@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ObservabilityRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.suggested_changes_list
 
 
-class ObservabilityRecommendation(TypedDict):
+class ObservabilityRecommendation(TypedDict, closed=True):
     suggested_changes: NotRequired[
         "aws_sdk_resiliencehubv2.types.suggested_changes_list.SuggestedChangesList"
     ]

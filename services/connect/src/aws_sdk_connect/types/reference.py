@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Reference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.reference_value
 
 
-class Reference(TypedDict):
+class Reference(TypedDict, closed=True):
     value: "aws_sdk_connect.types.reference_value.ReferenceValue"
     """<p>A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).</p>"""
     type: "aws_sdk_connect.types.reference_type.ReferenceType"

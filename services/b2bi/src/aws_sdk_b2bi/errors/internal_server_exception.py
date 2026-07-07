@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#InternalServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError, ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.error_message
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "aws_sdk_b2bi.types.error_message.ErrorMessage"
     retry_after_seconds: NotRequired["int"]
     """<p>The server attempts to retry a failed command.</p>"""

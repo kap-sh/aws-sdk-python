@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PaletteCanvas``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.theme_string
 
 
-class PaletteCanvas(TypedDict):
+class PaletteCanvas(TypedDict, closed=True):
     container_background: NotRequired["aws_sdk_connect.types.theme_string.ThemeString"]
     """<p>The background color for container elements.</p>"""
     page_background: NotRequired["aws_sdk_connect.types.theme_string.ThemeString"]

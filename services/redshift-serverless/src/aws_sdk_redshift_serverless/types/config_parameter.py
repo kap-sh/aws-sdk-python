@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ConfigParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.parameter_key
     import aws_sdk_redshift_serverless.types.parameter_value
 
 
-class ConfigParameter(TypedDict):
+class ConfigParameter(TypedDict, closed=True):
     parameter_key: NotRequired[
         "aws_sdk_redshift_serverless.types.parameter_key.ParameterKey"
     ]

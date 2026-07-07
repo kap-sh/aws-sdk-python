@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ContainerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.custom_image_container_arguments
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.custom_image_container_environment_variables
 
 
-class ContainerConfig(TypedDict):
+class ContainerConfig(TypedDict, closed=True):
     container_arguments: NotRequired[
         "aws_sdk_sagemaker.types.custom_image_container_arguments.CustomImageContainerArguments"
     ]

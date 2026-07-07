@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListLabelingJobsForWorkteamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.job_reference_code_contains
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workteam_arn
 
 
-class ListLabelingJobsForWorkteamRequest(TypedDict):
+class ListLabelingJobsForWorkteamRequest(TypedDict, closed=True):
     workteam_arn: NotRequired["aws_sdk_sagemaker.types.workteam_arn.WorkteamArn"]
     """<p>The Amazon Resource Name (ARN) of the work team for which you want to see labeling jobs for.</p>"""
     max_results: NotRequired["aws_sdk_sagemaker.types.max_results.MaxResults"]

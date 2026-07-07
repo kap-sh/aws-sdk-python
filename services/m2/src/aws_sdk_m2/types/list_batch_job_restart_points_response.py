@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ListBatchJobRestartPointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.batch_job_step_list
 
 
-class ListBatchJobRestartPointsResponse(TypedDict):
+class ListBatchJobRestartPointsResponse(TypedDict, closed=True):
     batch_job_steps: NotRequired[
         "aws_sdk_m2.types.batch_job_step_list.BatchJobStepList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#SnaplockConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.autocommit_period
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.snaplock_type
 
 
-class SnaplockConfiguration(TypedDict):
+class SnaplockConfiguration(TypedDict, closed=True):
     audit_log_volume: NotRequired["aws_sdk_fsx.types.flag.Flag"]
     r"""<p>Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is <code>false</code>. If you set <code>AuditLogVolume</code> to <code>true</code>, the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months. </p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume\"> SnapLock audit log volumes</a>. </p>"""
     autocommit_period: NotRequired[

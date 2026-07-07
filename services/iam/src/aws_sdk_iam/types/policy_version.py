@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#PolicyVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.policy_version_id_type
 
 
-class PolicyVersion(TypedDict):
+class PolicyVersion(TypedDict, closed=True):
     document: NotRequired["aws_sdk_iam.types.policy_document_type.policyDocumentType"]
     r"""<p>The policy document.</p> <p>The policy document is returned in the response to the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html\">GetPolicyVersion</a> and <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html\">GetAccountAuthorizationDetails</a> operations. It is not returned in the response to the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html\">CreatePolicyVersion</a> or <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html\">ListPolicyVersions</a> operations. </p> <p>The policy document returned in this structure is URL-encoded compliant with <a href=\"https://tools.ietf.org/html/rfc3986\">RFC 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in the Java SDK. Other languages and SDKs provide similar functionality.</p>"""
     version_id: NotRequired[

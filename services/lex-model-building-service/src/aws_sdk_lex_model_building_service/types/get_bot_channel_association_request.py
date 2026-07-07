@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetBotChannelAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.alias_name
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.bot_name
 
 
-class GetBotChannelAssociationRequest(TypedDict):
+class GetBotChannelAssociationRequest(TypedDict, closed=True):
     name: "aws_sdk_lex_model_building_service.types.bot_channel_name.BotChannelName"
     """<p>The name of the association between the bot and the channel. The name is case sensitive. </p>"""
     bot_name: "aws_sdk_lex_model_building_service.types.bot_name.BotName"

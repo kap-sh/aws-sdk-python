@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ComputeNodeGroupSlurmConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pcs.types.slurm_custom_settings
 
 
-class ComputeNodeGroupSlurmConfigurationRequest(TypedDict):
+class ComputeNodeGroupSlurmConfigurationRequest(TypedDict, closed=True):
     scale_down_idle_time_in_seconds: NotRequired["int"]
     """<p>The time (in seconds) before an idle node is scaled down. If not specified, the cluster-level setting applies. This overrides the cluster-level <code>scaleDownIdleTimeInSeconds</code> setting. A value of <code>-1</code> removes the override and applies the cluster-level setting to this compute node group. Requires Slurm version 25.11 or later.</p>"""
     slurm_custom_settings: NotRequired[

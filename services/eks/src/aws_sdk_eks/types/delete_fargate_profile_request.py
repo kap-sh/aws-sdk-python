@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DeleteFargateProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class DeleteFargateProfileRequest(TypedDict):
+class DeleteFargateProfileRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.string.String"
     """<p>The name of your cluster.</p>"""
     fargate_profile_name: "aws_sdk_eks.types.string.String"

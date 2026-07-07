@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#Event``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.callback_failed_details
@@ -37,7 +37,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.wait_succeeded_details
 
 
-class Event(TypedDict):
+class Event(TypedDict, closed=True):
     event_type: NotRequired["aws_sdk_lambda.types.event_type.EventType"]
     """<p>The type of event that occurred.</p>"""
     sub_type: NotRequired["aws_sdk_lambda.types.operation_sub_type.OperationSubType"]

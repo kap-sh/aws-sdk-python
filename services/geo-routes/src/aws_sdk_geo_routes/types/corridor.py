@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#Corridor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.line_string
 
 
-class Corridor(TypedDict):
+class Corridor(TypedDict, closed=True):
     line_string: "aws_sdk_geo_routes.types.line_string.LineString"
     """<p>An ordered list of positions used to plot a route on a map.</p> <note> <p>LineString and Polyline are mutually exclusive properties.</p> </note>"""
     radius: "int"

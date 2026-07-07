@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.trustedadvisor#RecommendationPillarSpecificAggregates``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_trustedadvisor.types.recommendation_cost_optimizing_aggregates
 
 
-class RecommendationPillarSpecificAggregates(TypedDict):
+class RecommendationPillarSpecificAggregates(TypedDict, closed=True):
     cost_optimizing: NotRequired[
         "aws_sdk_trustedadvisor.types.recommendation_cost_optimizing_aggregates.RecommendationCostOptimizingAggregates"
     ]

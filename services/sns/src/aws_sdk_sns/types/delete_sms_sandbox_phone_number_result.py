@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sns#DeleteSMSSandboxPhoneNumberResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
 
-class DeleteSMSSandboxPhoneNumberResult(TypedDict):
+class DeleteSMSSandboxPhoneNumberResult(TypedDict, closed=True):
     pass
 
 

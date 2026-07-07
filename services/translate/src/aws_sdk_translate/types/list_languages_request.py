@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#ListLanguagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.display_language_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.next_token
 
 
-class ListLanguagesRequest(TypedDict):
+class ListLanguagesRequest(TypedDict, closed=True):
     display_language_code: NotRequired[
         "aws_sdk_translate.types.display_language_code.DisplayLanguageCode"
     ]

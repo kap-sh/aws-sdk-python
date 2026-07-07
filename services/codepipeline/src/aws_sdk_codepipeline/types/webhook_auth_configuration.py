@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#WebhookAuthConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.webhook_auth_configuration_allowed_ip_range
     import aws_sdk_codepipeline.types.webhook_auth_configuration_secret_token
 
 
-class WebhookAuthConfiguration(TypedDict):
+class WebhookAuthConfiguration(TypedDict, closed=True):
     allowed_ip_range: NotRequired[
         "aws_sdk_codepipeline.types.webhook_auth_configuration_allowed_ip_range.WebhookAuthConfigurationAllowedIPRange"
     ]

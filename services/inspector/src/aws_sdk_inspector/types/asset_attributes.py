@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#AssetAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.agent_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.tags
 
 
-class AssetAttributes(TypedDict):
+class AssetAttributes(TypedDict, closed=True):
     schema_version: "aws_sdk_inspector.types.numeric_version.NumericVersion"
     """<p>The schema version of this data type.</p>"""
     agent_id: NotRequired["aws_sdk_inspector.types.agent_id.AgentId"]

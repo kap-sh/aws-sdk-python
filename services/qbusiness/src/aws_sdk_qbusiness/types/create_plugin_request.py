@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreatePluginRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.url
 
 
-class CreatePluginRequest(TypedDict):
+class CreatePluginRequest(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The identifier of the application that will contain the plugin.</p>"""
     display_name: "aws_sdk_qbusiness.types.plugin_name.PluginName"

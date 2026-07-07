@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#GetApiKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.nullable_boolean
     import aws_sdk_api_gateway.types.string
 
 
-class GetApiKeyRequest(TypedDict):
+class GetApiKeyRequest(TypedDict, closed=True):
     api_key: "aws_sdk_api_gateway.types.string.String"
     """<p>The identifier of the ApiKey resource.</p>"""
     include_value: NotRequired[

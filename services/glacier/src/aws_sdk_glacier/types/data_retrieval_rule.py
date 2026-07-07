@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#DataRetrievalRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.nullable_long
     import aws_sdk_glacier.types.string
 
 
-class DataRetrievalRule(TypedDict):
+class DataRetrievalRule(TypedDict, closed=True):
     strategy: NotRequired["aws_sdk_glacier.types.string.string"]
     """<p>The type of data retrieval policy to set.</p> <p>Valid values: BytesPerHour|FreeTier|None</p>"""
     bytes_per_hour: NotRequired["aws_sdk_glacier.types.nullable_long.NullableLong"]

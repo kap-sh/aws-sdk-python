@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#EnumerationValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.value
 
 
-class EnumerationValue(TypedDict):
+class EnumerationValue(TypedDict, closed=True):
     value: "aws_sdk_lex_model_building_service.types.value.Value"
     """<p>The value of the slot type.</p>"""
     synonyms: NotRequired[

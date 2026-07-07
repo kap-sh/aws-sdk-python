@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#GetDevicePoolCompatibilityResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.device_pool_compatibility_results
 
 
-class GetDevicePoolCompatibilityResult(TypedDict):
+class GetDevicePoolCompatibilityResult(TypedDict, closed=True):
     compatible_devices: NotRequired[
         "aws_sdk_device_farm.types.device_pool_compatibility_results.DevicePoolCompatibilityResults"
     ]

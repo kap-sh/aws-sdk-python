@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#TelemetrySinkData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.kinesis_data_stream_data
 
 
-class _TelemetrySinkData_kinesisDataStreamData(TypedDict):
+class _TelemetrySinkData_kinesisDataStreamData(TypedDict, closed=True):
     kinesisDataStreamData: (
         "aws_sdk_groundstation.types.kinesis_data_stream_data.KinesisDataStreamData"
     )

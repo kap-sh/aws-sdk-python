@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListTagsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
     import aws_sdk_sagemaker.types.tag_list
 
 
-class ListTagsOutput(TypedDict):
+class ListTagsOutput(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
     """<p>An array of <code>Tag</code> objects, each with a tag key and a value.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeServicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.language
     import aws_sdk_support.types.service_code_list
 
 
-class DescribeServicesRequest(TypedDict):
+class DescribeServicesRequest(TypedDict, closed=True):
     service_code_list: NotRequired[
         "aws_sdk_support.types.service_code_list.ServiceCodeList"
     ]

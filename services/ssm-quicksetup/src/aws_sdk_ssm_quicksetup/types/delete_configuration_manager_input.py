@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#DeleteConfigurationManagerInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteConfigurationManagerInput(TypedDict):
+class DeleteConfigurationManagerInput(TypedDict, closed=True):
     manager_arn: "str"
     """<p>The ID of the configuration manager.</p>"""
 

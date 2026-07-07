@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#KeyspaceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.rs
 
 
-class KeyspaceSummary(TypedDict):
+class KeyspaceSummary(TypedDict, closed=True):
     keyspace_name: "aws_sdk_keyspaces.types.keyspace_name.KeyspaceName"
     """<p>The name of the keyspace.</p>"""
     resource_arn: "aws_sdk_keyspaces.types.arn.ARN"

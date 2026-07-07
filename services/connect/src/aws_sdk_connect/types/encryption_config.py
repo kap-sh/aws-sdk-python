@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EncryptionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.key_id
 
 
-class EncryptionConfig(TypedDict):
+class EncryptionConfig(TypedDict, closed=True):
     encryption_type: "aws_sdk_connect.types.encryption_type.EncryptionType"
     """<p>The type of encryption.</p>"""
     key_id: "aws_sdk_connect.types.key_id.KeyId"

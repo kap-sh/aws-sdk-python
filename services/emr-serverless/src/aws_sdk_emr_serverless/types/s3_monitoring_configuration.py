@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#S3MonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.encryption_key_arn
     import aws_sdk_emr_serverless.types.uri_string
 
 
-class S3MonitoringConfiguration(TypedDict):
+class S3MonitoringConfiguration(TypedDict, closed=True):
     log_uri: NotRequired["aws_sdk_emr_serverless.types.uri_string.UriString"]
     """<p>The Amazon S3 destination URI for log publishing.</p>"""
     encryption_key_arn: NotRequired[

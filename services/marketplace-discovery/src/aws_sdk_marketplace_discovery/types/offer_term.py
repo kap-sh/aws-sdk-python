@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#OfferTerm``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import (
     DeserializationError,
@@ -22,55 +24,55 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.variable_payment_term
 
 
-class _OfferTerm_byolPricingTerm(TypedDict):
+class _OfferTerm_byolPricingTerm(TypedDict, closed=True):
     byolPricingTerm: (
         "aws_sdk_marketplace_discovery.types.byol_pricing_term.ByolPricingTerm"
     )
 
 
-class _OfferTerm_configurableUpfrontPricingTerm(TypedDict):
+class _OfferTerm_configurableUpfrontPricingTerm(TypedDict, closed=True):
     configurableUpfrontPricingTerm: "aws_sdk_marketplace_discovery.types.configurable_upfront_pricing_term.ConfigurableUpfrontPricingTerm"
 
 
-class _OfferTerm_fixedUpfrontPricingTerm(TypedDict):
+class _OfferTerm_fixedUpfrontPricingTerm(TypedDict, closed=True):
     fixedUpfrontPricingTerm: "aws_sdk_marketplace_discovery.types.fixed_upfront_pricing_term.FixedUpfrontPricingTerm"
 
 
-class _OfferTerm_freeTrialPricingTerm(TypedDict):
+class _OfferTerm_freeTrialPricingTerm(TypedDict, closed=True):
     freeTrialPricingTerm: "aws_sdk_marketplace_discovery.types.free_trial_pricing_term.FreeTrialPricingTerm"
 
 
-class _OfferTerm_legalTerm(TypedDict):
+class _OfferTerm_legalTerm(TypedDict, closed=True):
     legalTerm: "aws_sdk_marketplace_discovery.types.legal_term.LegalTerm"
 
 
-class _OfferTerm_paymentScheduleTerm(TypedDict):
+class _OfferTerm_paymentScheduleTerm(TypedDict, closed=True):
     paymentScheduleTerm: (
         "aws_sdk_marketplace_discovery.types.payment_schedule_term.PaymentScheduleTerm"
     )
 
 
-class _OfferTerm_recurringPaymentTerm(TypedDict):
+class _OfferTerm_recurringPaymentTerm(TypedDict, closed=True):
     recurringPaymentTerm: "aws_sdk_marketplace_discovery.types.recurring_payment_term.RecurringPaymentTerm"
 
 
-class _OfferTerm_renewalTerm(TypedDict):
+class _OfferTerm_renewalTerm(TypedDict, closed=True):
     renewalTerm: "aws_sdk_marketplace_discovery.types.renewal_term.RenewalTerm"
 
 
-class _OfferTerm_supportTerm(TypedDict):
+class _OfferTerm_supportTerm(TypedDict, closed=True):
     supportTerm: "aws_sdk_marketplace_discovery.types.support_term.SupportTerm"
 
 
-class _OfferTerm_usageBasedPricingTerm(TypedDict):
+class _OfferTerm_usageBasedPricingTerm(TypedDict, closed=True):
     usageBasedPricingTerm: "aws_sdk_marketplace_discovery.types.usage_based_pricing_term.UsageBasedPricingTerm"
 
 
-class _OfferTerm_validityTerm(TypedDict):
+class _OfferTerm_validityTerm(TypedDict, closed=True):
     validityTerm: "aws_sdk_marketplace_discovery.types.validity_term.ValidityTerm"
 
 
-class _OfferTerm_variablePaymentTerm(TypedDict):
+class _OfferTerm_variablePaymentTerm(TypedDict, closed=True):
     variablePaymentTerm: (
         "aws_sdk_marketplace_discovery.types.variable_payment_term.VariablePaymentTerm"
     )

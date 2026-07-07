@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#PodIdentityAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boxed_boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.timestamp
 
 
-class PodIdentityAssociation(TypedDict):
+class PodIdentityAssociation(TypedDict, closed=True):
     cluster_name: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The name of the cluster that the association is in.</p>"""
     namespace: NotRequired["aws_sdk_eks.types.string.String"]

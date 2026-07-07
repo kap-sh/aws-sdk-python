@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#PriorityClass``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_scheduler_priority_class_name
     import aws_sdk_sagemaker.types.priority_weight
 
 
-class PriorityClass(TypedDict):
+class PriorityClass(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_sagemaker.types.cluster_scheduler_priority_class_name.ClusterSchedulerPriorityClassName"
     ]

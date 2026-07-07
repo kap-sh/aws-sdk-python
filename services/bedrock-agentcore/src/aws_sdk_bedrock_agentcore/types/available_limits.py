@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#AvailableLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.amount
     import aws_sdk_bedrock_agentcore.types.date_timestamp
 
 
-class AvailableLimits(TypedDict):
+class AvailableLimits(TypedDict, closed=True):
     available_spend_amount: NotRequired["aws_sdk_bedrock_agentcore.types.amount.Amount"]
     """<p>The remaining available amount that can be spent.</p>"""
     updated_at: NotRequired[

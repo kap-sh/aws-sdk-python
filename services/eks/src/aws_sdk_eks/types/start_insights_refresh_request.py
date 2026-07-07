@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#StartInsightsRefreshRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class StartInsightsRefreshRequest(TypedDict):
+class StartInsightsRefreshRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.string.String"
     """<p>The name of the cluster for the refresh insights operation.</p>"""
 

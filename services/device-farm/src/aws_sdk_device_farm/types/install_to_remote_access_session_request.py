@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#InstallToRemoteAccessSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.amazon_resource_name
 
 
-class InstallToRemoteAccessSessionRequest(TypedDict):
+class InstallToRemoteAccessSessionRequest(TypedDict, closed=True):
     remote_access_session_arn: (
         "aws_sdk_device_farm.types.amazon_resource_name.AmazonResourceName"
     )

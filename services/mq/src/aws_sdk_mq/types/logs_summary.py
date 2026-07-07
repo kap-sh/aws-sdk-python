@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mq#LogsSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mq.types.pending_logs
 
 
-class LogsSummary(TypedDict):
+class LogsSummary(TypedDict, closed=True):
     audit: NotRequired["aws_sdk_mq.types.__boolean.__boolean"]
     """<p>Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.</p>"""
     audit_log_group: NotRequired["aws_sdk_mq.types.__string.__string"]

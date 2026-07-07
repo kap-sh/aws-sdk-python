@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#TracingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.tracing_mode
 
 
-class TracingConfig(TypedDict):
+class TracingConfig(TypedDict, closed=True):
     mode: NotRequired["aws_sdk_lambda.types.tracing_mode.TracingMode"]
     """<p>The tracing mode.</p>"""
 

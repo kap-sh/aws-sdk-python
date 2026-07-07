@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#OutputResolutionStackInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.predefined_resolution
     import aws_sdk_sagemaker_geospatial.types.user_defined
 
 
-class OutputResolutionStackInput(TypedDict):
+class OutputResolutionStackInput(TypedDict, closed=True):
     predefined: NotRequired[
         "aws_sdk_sagemaker_geospatial.types.predefined_resolution.PredefinedResolution"
     ]

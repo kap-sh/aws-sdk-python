@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AuthenticationConfigurationPatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.basic_authentication_credentials
 
 
-class AuthenticationConfigurationPatch(TypedDict):
+class AuthenticationConfigurationPatch(TypedDict, closed=True):
     secret_arn: NotRequired["str"]
     """<p>The secret ARN of a connection.</p>"""
     basic_authentication_credentials: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsCodeBuildProjectLogsConfigS3LogsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsCodeBuildProjectLogsConfigS3LogsDetails(TypedDict):
+class AwsCodeBuildProjectLogsConfigS3LogsDetails(TypedDict, closed=True):
     encryption_disabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether to disable encryption of the S3 build log output.</p>"""
     location: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

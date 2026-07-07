@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#UpdateScraperLoggingConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.scraper_logging_destination
 
 
-class UpdateScraperLoggingConfigurationRequest(TypedDict):
+class UpdateScraperLoggingConfigurationRequest(TypedDict, closed=True):
     scraper_id: "aws_sdk_amp.types.scraper_id.ScraperId"
     """<p>The ID of the scraper whose logging configuration will be updated.</p>"""
     logging_destination: (

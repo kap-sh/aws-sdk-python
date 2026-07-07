@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ThirdPartyFirewallMissingFirewallViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.length_bounded_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.violation_target
 
 
-class ThirdPartyFirewallMissingFirewallViolation(TypedDict):
+class ThirdPartyFirewallMissingFirewallViolation(TypedDict, closed=True):
     violation_target: NotRequired["aws_sdk_fms.types.violation_target.ViolationTarget"]
     """<p>The ID of the third-party firewall that's causing the violation.</p>"""
     vpc: NotRequired["aws_sdk_fms.types.resource_id.ResourceId"]

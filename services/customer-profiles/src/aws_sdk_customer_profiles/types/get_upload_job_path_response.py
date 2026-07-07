@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#GetUploadJobPathResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.timestamp
 
 
-class GetUploadJobPathResponse(TypedDict):
+class GetUploadJobPathResponse(TypedDict, closed=True):
     url: "aws_sdk_customer_profiles.types.string_to2048.stringTo2048"
     """<p>The pre-signed S3 URL for uploading the CSV file associated with the upload job. </p>"""
     client_token: NotRequired["aws_sdk_customer_profiles.types.text.text"]

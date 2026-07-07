@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreatePartnerAppPresignedUrlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.expires_in_seconds
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.session_expiration_duration_in_seconds
 
 
-class CreatePartnerAppPresignedUrlRequest(TypedDict):
+class CreatePartnerAppPresignedUrlRequest(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.partner_app_arn.PartnerAppArn"]
     """<p>The ARN of the SageMaker Partner AI App to create the presigned URL for.</p>"""
     expires_in_seconds: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#DeadLetterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.resource_arn
 
 
-class DeadLetterConfig(TypedDict):
+class DeadLetterConfig(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_eventbridge.types.resource_arn.ResourceArn"]
     """<p>The ARN of the SQS queue specified as the target for the dead-letter queue.</p>"""
 

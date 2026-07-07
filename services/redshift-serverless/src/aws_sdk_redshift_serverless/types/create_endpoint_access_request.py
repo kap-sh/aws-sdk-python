@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#CreateEndpointAccessRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.vpc_security_group_id_list
 
 
-class CreateEndpointAccessRequest(TypedDict):
+class CreateEndpointAccessRequest(TypedDict, closed=True):
     endpoint_name: "str"
     """<p>The name of the VPC endpoint. An endpoint name must contain 1-30 characters. Valid characters are A-Z, a-z, 0-9, and hyphen(-). The first character must be a letter. The name can't contain two consecutive hyphens or end with a hyphen.</p>"""
     subnet_ids: "aws_sdk_redshift_serverless.types.subnet_id_list.SubnetIdList"

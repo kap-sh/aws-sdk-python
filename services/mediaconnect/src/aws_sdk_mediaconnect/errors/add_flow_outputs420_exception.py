@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#AddFlowOutputs420Exception``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import ServiceError
 
 
-class AddFlowOutputs420Exception_(TypedDict):
+class AddFlowOutputs420Exception_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

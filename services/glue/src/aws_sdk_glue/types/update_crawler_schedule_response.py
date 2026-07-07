@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpdateCrawlerScheduleResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateCrawlerScheduleResponse(TypedDict):
+class UpdateCrawlerScheduleResponse(TypedDict, closed=True):
     pass
 
 

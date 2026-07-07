@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ApprovalRuleOverriddenEventMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.override_status
     import aws_sdk_codecommit.types.revision_id
 
 
-class ApprovalRuleOverriddenEventMetadata(TypedDict):
+class ApprovalRuleOverriddenEventMetadata(TypedDict, closed=True):
     revision_id: NotRequired["aws_sdk_codecommit.types.revision_id.RevisionId"]
     """<p>The revision ID of the pull request when the override event occurred.</p>"""
     override_status: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#CreateGuardrailVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.guardrail_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.idempotency_token
 
 
-class CreateGuardrailVersionRequest(TypedDict):
+class CreateGuardrailVersionRequest(TypedDict, closed=True):
     guardrail_identifier: (
         "aws_sdk_bedrock.types.guardrail_identifier.GuardrailIdentifier"
     )

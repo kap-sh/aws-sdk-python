@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#NetworkEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class NetworkEndpoint(TypedDict):
+class NetworkEndpoint(TypedDict, closed=True):
     id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The identifier of the network endpoint involved in the attack sequence. </p>"""
     ip: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

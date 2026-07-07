@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeploymentConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_rollback_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.rolling_update_policy
 
 
-class DeploymentConfig(TypedDict):
+class DeploymentConfig(TypedDict, closed=True):
     blue_green_update_policy: NotRequired[
         "aws_sdk_sagemaker.types.blue_green_update_policy.BlueGreenUpdatePolicy"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ValidationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.validation_mode
 
 
-class ValidationConfiguration(TypedDict):
+class ValidationConfiguration(TypedDict, closed=True):
     ruleset_arn: "aws_sdk_databrew.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) for the ruleset to be validated in the profile job. The TargetArn of the selected ruleset should be the same as the Amazon Resource Name (ARN) of the dataset that is associated with the profile job.</p>"""
     validation_mode: NotRequired[

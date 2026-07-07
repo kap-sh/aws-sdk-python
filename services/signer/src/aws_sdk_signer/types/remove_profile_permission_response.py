@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.signer#RemoveProfilePermissionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.string
 
 
-class RemoveProfilePermissionResponse(TypedDict):
+class RemoveProfilePermissionResponse(TypedDict, closed=True):
     revision_id: NotRequired["aws_sdk_signer.types.string.String"]
     """<p>An identifier for the current revision of the profile permissions.</p>"""
 

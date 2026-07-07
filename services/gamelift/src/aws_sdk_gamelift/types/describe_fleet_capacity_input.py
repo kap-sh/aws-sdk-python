@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeFleetCapacityInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_id_or_arn_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.positive_integer
 
 
-class DescribeFleetCapacityInput(TypedDict):
+class DescribeFleetCapacityInput(TypedDict, closed=True):
     fleet_ids: NotRequired[
         "aws_sdk_gamelift.types.fleet_id_or_arn_list.FleetIdOrArnList"
     ]

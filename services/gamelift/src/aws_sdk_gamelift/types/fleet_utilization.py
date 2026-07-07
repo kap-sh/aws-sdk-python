@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#FleetUtilization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.whole_number
 
 
-class FleetUtilization(TypedDict):
+class FleetUtilization(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id.FleetId"]
     """<p>A unique identifier for the fleet associated with the location.</p>"""
     fleet_arn: NotRequired["aws_sdk_gamelift.types.fleet_arn.FleetArn"]

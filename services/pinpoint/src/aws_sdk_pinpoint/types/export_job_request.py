@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#ExportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__integer
     import aws_sdk_pinpoint.types.__string
 
 
-class ExportJobRequest(TypedDict):
+class ExportJobRequest(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location where you want to export endpoint definitions to.</p>"""
     s3_url_prefix: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

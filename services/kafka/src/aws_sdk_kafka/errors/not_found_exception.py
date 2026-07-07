@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#NotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kafka.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
 
 
-class NotFoundException_(TypedDict):
+class NotFoundException_(TypedDict, closed=True):
     invalid_parameter: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The parameter that caused the error.</p>"""
     message: NotRequired["aws_sdk_kafka.types.__string.__string"]

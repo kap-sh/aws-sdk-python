@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#MessageOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class MessageOutput(TypedDict):
+class MessageOutput(TypedDict, closed=True):
     value: "aws_sdk_qconnect.types.message_data.MessageData"
     """<p>The value of a message data.</p>"""
     message_id: "aws_sdk_qconnect.types.uuid.Uuid"

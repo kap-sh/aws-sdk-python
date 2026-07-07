@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#GetHealthCheckResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.health_check
 
 
-class GetHealthCheckResponse(TypedDict):
+class GetHealthCheckResponse(TypedDict, closed=True):
     health_check: "aws_sdk_route_53.types.health_check.HealthCheck"
     """<p>A complex type that contains information about one health check that is associated with the current Amazon Web Services account.</p>"""
 

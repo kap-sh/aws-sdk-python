@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#AddApplicationOutputResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AddApplicationOutputResponse(TypedDict):
+class AddApplicationOutputResponse(TypedDict, closed=True):
     pass
 
 

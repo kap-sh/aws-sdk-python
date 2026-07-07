@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#Relay``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.relay_name
 
 
-class Relay(TypedDict):
+class Relay(TypedDict, closed=True):
     relay_id: NotRequired["aws_sdk_mailmanager.types.relay_id.RelayId"]
     """<p>The unique relay identifier.</p>"""
     relay_name: NotRequired["aws_sdk_mailmanager.types.relay_name.RelayName"]

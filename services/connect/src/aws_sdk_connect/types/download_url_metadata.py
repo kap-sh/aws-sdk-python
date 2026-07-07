@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DownloadUrlMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.iso8601_datetime
     import aws_sdk_connect.types.metadata_url
 
 
-class DownloadUrlMetadata(TypedDict):
+class DownloadUrlMetadata(TypedDict, closed=True):
     url: NotRequired["aws_sdk_connect.types.metadata_url.MetadataUrl"]
     """<p>A pre-signed URL that should be used to download the attached file. </p>"""
     url_expiry: NotRequired["aws_sdk_connect.types.iso8601_datetime.ISO8601Datetime"]

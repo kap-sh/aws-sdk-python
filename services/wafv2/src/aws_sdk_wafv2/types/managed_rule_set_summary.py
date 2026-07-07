@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ManagedRuleSetSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.entity_description
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.resource_arn
 
 
-class ManagedRuleSetSummary(TypedDict):
+class ManagedRuleSetSummary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_wafv2.types.entity_name.EntityName"]
     """<p>The name of the managed rule set. You use this, along with the rule set ID, to identify the rule set.</p> <p>This name is assigned to the corresponding managed rule group, which your customers can access and use. </p>"""
     id: NotRequired["aws_sdk_wafv2.types.entity_id.EntityId"]

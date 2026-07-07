@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#NetworkSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.arn_string
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.timestamp
 
 
-class NetworkSummary(TypedDict):
+class NetworkSummary(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_managedblockchain.types.resource_id_string.ResourceIdString"
     ]

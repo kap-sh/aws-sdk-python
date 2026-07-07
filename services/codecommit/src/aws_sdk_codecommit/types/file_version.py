@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#FileVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.commit
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.revision_children
 
 
-class FileVersion(TypedDict):
+class FileVersion(TypedDict, closed=True):
     commit: NotRequired["aws_sdk_codecommit.types.commit.Commit"]
     blob_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]
     """<p>The blob ID of the object that represents the content of the file in this version.</p>"""

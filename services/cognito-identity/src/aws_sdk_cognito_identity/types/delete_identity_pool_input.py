@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#DeleteIdentityPoolInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.identity_pool_id
 
 
-class DeleteIdentityPoolInput(TypedDict):
+class DeleteIdentityPoolInput(TypedDict, closed=True):
     identity_pool_id: "aws_sdk_cognito_identity.types.identity_pool_id.IdentityPoolId"
     """<p>An identity pool ID in the format REGION:GUID.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DisassociateEntitiesFromExperienceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.index_id
 
 
-class DisassociateEntitiesFromExperienceRequest(TypedDict):
+class DisassociateEntitiesFromExperienceRequest(TypedDict, closed=True):
     id: "aws_sdk_kendra.types.experience_id.ExperienceId"
     """<p>The identifier of your Amazon Kendra experience.</p>"""
     index_id: "aws_sdk_kendra.types.index_id.IndexId"

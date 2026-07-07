@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetDevEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.dev_endpoint
 
 
-class GetDevEndpointResponse(TypedDict):
+class GetDevEndpointResponse(TypedDict, closed=True):
     dev_endpoint: NotRequired["aws_sdk_glue.types.dev_endpoint.DevEndpoint"]
     """<p>A <code>DevEndpoint</code> definition.</p>"""
 

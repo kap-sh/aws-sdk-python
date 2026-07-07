@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#CommonControlSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.common_control_arn
 
 
-class CommonControlSummary(TypedDict):
+class CommonControlSummary(TypedDict, closed=True):
     arn: "aws_sdk_controlcatalog.types.common_control_arn.CommonControlArn"
     """<p>The Amazon Resource Name (ARN) that identifies the common control.</p>"""
     name: "str"

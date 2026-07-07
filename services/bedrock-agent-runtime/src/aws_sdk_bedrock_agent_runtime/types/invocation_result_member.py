@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#InvocationResultMember``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.function_result
 
 
-class _InvocationResultMember_apiResult(TypedDict):
+class _InvocationResultMember_apiResult(TypedDict, closed=True):
     apiResult: "aws_sdk_bedrock_agent_runtime.types.api_result.ApiResult"
 
 
-class _InvocationResultMember_functionResult(TypedDict):
+class _InvocationResultMember_functionResult(TypedDict, closed=True):
     functionResult: "aws_sdk_bedrock_agent_runtime.types.function_result.FunctionResult"
 
 

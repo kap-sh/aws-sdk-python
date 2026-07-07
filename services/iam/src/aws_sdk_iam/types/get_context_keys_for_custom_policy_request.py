@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetContextKeysForCustomPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.simulation_policy_list_type
 
 
-class GetContextKeysForCustomPolicyRequest(TypedDict):
+class GetContextKeysForCustomPolicyRequest(TypedDict, closed=True):
     policy_input_list: (
         "aws_sdk_iam.types.simulation_policy_list_type.SimulationPolicyListType"
     )

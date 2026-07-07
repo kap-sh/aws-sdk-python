@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#CreateRemoteAccessSessionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.amazon_resource_names
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.device_proxy
 
 
-class CreateRemoteAccessSessionConfiguration(TypedDict):
+class CreateRemoteAccessSessionConfiguration(TypedDict, closed=True):
     auxiliary_apps: NotRequired[
         "aws_sdk_device_farm.types.auxiliary_app_arn_list.AuxiliaryAppArnList"
     ]

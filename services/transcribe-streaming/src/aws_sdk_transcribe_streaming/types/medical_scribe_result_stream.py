@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalScribeResultStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe_streaming._iter import AnyIterator
 from aws_sdk_transcribe_streaming._protocol.eventstream import Message
@@ -14,31 +16,31 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.medical_scribe_transcript_event
 
 
-class _MedicalScribeResultStream_TranscriptEvent(TypedDict):
+class _MedicalScribeResultStream_TranscriptEvent(TypedDict, closed=True):
     TranscriptEvent: "aws_sdk_transcribe_streaming.types.medical_scribe_transcript_event.MedicalScribeTranscriptEvent"
 
 
-class _MedicalScribeResultStream_BadRequestException(TypedDict):
+class _MedicalScribeResultStream_BadRequestException(TypedDict, closed=True):
     BadRequestException: (
         "aws_sdk_transcribe_streaming.errors.bad_request_exception.BadRequestException_"
     )
 
 
-class _MedicalScribeResultStream_LimitExceededException(TypedDict):
+class _MedicalScribeResultStream_LimitExceededException(TypedDict, closed=True):
     LimitExceededException: "aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.LimitExceededException_"
 
 
-class _MedicalScribeResultStream_InternalFailureException(TypedDict):
+class _MedicalScribeResultStream_InternalFailureException(TypedDict, closed=True):
     InternalFailureException: "aws_sdk_transcribe_streaming.errors.internal_failure_exception.InternalFailureException_"
 
 
-class _MedicalScribeResultStream_ConflictException(TypedDict):
+class _MedicalScribeResultStream_ConflictException(TypedDict, closed=True):
     ConflictException: (
         "aws_sdk_transcribe_streaming.errors.conflict_exception.ConflictException_"
     )
 
 
-class _MedicalScribeResultStream_ServiceUnavailableException(TypedDict):
+class _MedicalScribeResultStream_ServiceUnavailableException(TypedDict, closed=True):
     ServiceUnavailableException: "aws_sdk_transcribe_streaming.errors.service_unavailable_exception.ServiceUnavailableException_"
 
 

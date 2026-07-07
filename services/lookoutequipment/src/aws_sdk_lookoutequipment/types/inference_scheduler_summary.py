@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#InferenceSchedulerSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.data_delay_offset_in_minutes
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.model_name
 
 
-class InferenceSchedulerSummary(TypedDict):
+class InferenceSchedulerSummary(TypedDict, closed=True):
     model_name: NotRequired["aws_sdk_lookoutequipment.types.model_name.ModelName"]
     """<p>The name of the machine learning model used for the inference scheduler. </p>"""
     model_arn: NotRequired["aws_sdk_lookoutequipment.types.model_arn.ModelArn"]

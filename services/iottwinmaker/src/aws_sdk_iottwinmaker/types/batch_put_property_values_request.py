@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#BatchPutPropertyValuesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.id
 
 
-class BatchPutPropertyValuesRequest(TypedDict):
+class BatchPutPropertyValuesRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_iottwinmaker.types.id.Id"
     """<p>The ID of the workspace that contains the properties to set.</p>"""
     entries: "aws_sdk_iottwinmaker.types.entries.Entries"

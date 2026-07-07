@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#GraphqlApi``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.additional_authentication_providers
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.user_pool_config
 
 
-class GraphqlApi(TypedDict):
+class GraphqlApi(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appsync.types.resource_name.ResourceName"]
     """<p>The API name.</p>"""
     api_id: NotRequired["aws_sdk_appsync.types.string.String"]

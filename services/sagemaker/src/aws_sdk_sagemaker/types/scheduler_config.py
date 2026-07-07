@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#SchedulerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.fair_share
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.priority_class_list
 
 
-class SchedulerConfig(TypedDict):
+class SchedulerConfig(TypedDict, closed=True):
     priority_classes: NotRequired[
         "aws_sdk_sagemaker.types.priority_class_list.PriorityClassList"
     ]

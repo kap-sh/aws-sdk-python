@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#MFADevice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class MFADevice(TypedDict):
+class MFADevice(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.user_name_type.userNameType"
     """<p>The user with whom the MFA device is associated.</p>"""
     serial_number: "aws_sdk_iam.types.serial_number_type.serialNumberType"

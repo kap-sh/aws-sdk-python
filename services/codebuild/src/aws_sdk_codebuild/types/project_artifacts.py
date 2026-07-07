@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ProjectArtifacts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_boolean
 
 
-class ProjectArtifacts(TypedDict):
+class ProjectArtifacts(TypedDict, closed=True):
     type: "aws_sdk_codebuild.types.artifacts_type.ArtifactsType"
     """<p>The type of build output artifact. Valid values include:</p> <ul> <li> <p> <code>CODEPIPELINE</code>: The build project has build output generated through CodePipeline. </p> <note> <p>The <code>CODEPIPELINE</code> type is not supported for <code>secondaryArtifacts</code>.</p> </note> </li> <li> <p> <code>NO_ARTIFACTS</code>: The build project does not produce any build output.</p> </li> <li> <p> <code>S3</code>: The build project stores build output in Amazon S3.</p> </li> </ul>"""
     location: NotRequired["aws_sdk_codebuild.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ListOdbPeeringConnectionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id_or_arn
 
 
-class ListOdbPeeringConnectionsInput(TypedDict):
+class ListOdbPeeringConnectionsInput(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of ODB peering connections to return in the response.</p> <p>Default: <code>20</code> </p> <p>Constraints:</p> <ul> <li> <p>Must be between 1 and 100.</p> </li> </ul>"""
     next_token: NotRequired["str"]

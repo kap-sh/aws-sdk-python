@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#NetworkRoute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.constrained_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.route_type
 
 
-class NetworkRoute(TypedDict):
+class NetworkRoute(TypedDict, closed=True):
     destination_cidr_block: NotRequired[
         "aws_sdk_networkmanager.types.constrained_string.ConstrainedString"
     ]

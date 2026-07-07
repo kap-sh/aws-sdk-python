@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.textract#EvaluationMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.float
 
 
-class EvaluationMetric(TypedDict):
+class EvaluationMetric(TypedDict, closed=True):
     f1_score: "aws_sdk_textract.types.float.Float"
     """<p>The F1 score for an adapter version.</p>"""
     precision: "aws_sdk_textract.types.float.Float"

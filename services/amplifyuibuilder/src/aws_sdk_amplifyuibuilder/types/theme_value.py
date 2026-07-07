@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ThemeValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.theme_values_list
 
 
-class ThemeValue(TypedDict):
+class ThemeValue(TypedDict, closed=True):
     value: NotRequired["str"]
     """<p>The value of a theme property.</p>"""
     children: NotRequired[

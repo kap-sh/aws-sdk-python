@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeocodePreferenceValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geocoder_hierarchy
 
 
-class _GeocodePreferenceValue_GeocoderHierarchy(TypedDict):
+class _GeocodePreferenceValue_GeocoderHierarchy(TypedDict, closed=True):
     GeocoderHierarchy: "aws_sdk_quicksight.types.geocoder_hierarchy.GeocoderHierarchy"
 
 
-class _GeocodePreferenceValue_Coordinate(TypedDict):
+class _GeocodePreferenceValue_Coordinate(TypedDict, closed=True):
     Coordinate: "aws_sdk_quicksight.types.coordinate.Coordinate"
 
 

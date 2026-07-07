@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoice#EventDestinationDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice.types.sns_destination
 
 
-class EventDestinationDefinition(TypedDict):
+class EventDestinationDefinition(TypedDict, closed=True):
     cloud_watch_logs_destination: NotRequired[
         "aws_sdk_pinpoint_sms_voice.types.cloud_watch_logs_destination.CloudWatchLogsDestination"
     ]

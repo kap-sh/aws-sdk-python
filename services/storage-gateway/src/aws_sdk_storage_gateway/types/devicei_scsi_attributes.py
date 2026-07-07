@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DeviceiSCSIAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.boolean2
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.target_arn
 
 
-class DeviceiSCSIAttributes(TypedDict):
+class DeviceiSCSIAttributes(TypedDict, closed=True):
     target_arn: NotRequired["aws_sdk_storage_gateway.types.target_arn.TargetARN"]
     """<p>Specifies the unique Amazon Resource Name (ARN) that encodes the iSCSI qualified name(iqn) of a tape drive or media changer target.</p>"""
     network_interface_id: NotRequired[

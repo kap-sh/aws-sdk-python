@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationRestProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_string
 
 
-class WaypointOptimizationRestProfile(TypedDict):
+class WaypointOptimizationRestProfile(TypedDict, closed=True):
     profile: "aws_sdk_geo_routes.types.sensitive_string.SensitiveString"
     """<p>Pre defined rest profiles for a driver schedule. The only currently supported profile is EU.</p>"""
 

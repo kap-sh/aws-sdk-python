@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#KeyGroupConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class KeyGroupConfig(TypedDict):
+class KeyGroupConfig(TypedDict, closed=True):
     name: "aws_sdk_cloudfront.types.string.string"
     """<p>A name to identify the key group.</p>"""
     items: "aws_sdk_cloudfront.types.public_key_id_list.PublicKeyIdList"

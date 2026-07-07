@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataLabelType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_path_label_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.range_ends_label_type
 
 
-class DataLabelType(TypedDict):
+class DataLabelType(TypedDict, closed=True):
     field_label_type: NotRequired[
         "aws_sdk_quicksight.types.field_label_type.FieldLabelType"
     ]

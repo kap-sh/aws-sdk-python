@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#RecommendationData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.rds_recommendation
 
 
-class RecommendationData(TypedDict):
+class RecommendationData(TypedDict, closed=True):
     rds_engine: NotRequired[
         "aws_sdk_database_migration_service.types.rds_recommendation.RdsRecommendation"
     ]

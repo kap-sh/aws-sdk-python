@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SalesforceConnectorProfileProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.boolean
     import aws_sdk_appflow.types.instance_url
 
 
-class SalesforceConnectorProfileProperties(TypedDict):
+class SalesforceConnectorProfileProperties(TypedDict, closed=True):
     instance_url: NotRequired["aws_sdk_appflow.types.instance_url.InstanceUrl"]
     """<p> The location of the Salesforce resource. </p>"""
     is_sandbox_environment: "aws_sdk_appflow.types.boolean.Boolean"

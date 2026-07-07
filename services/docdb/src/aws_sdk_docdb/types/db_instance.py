@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#DBInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.vpc_security_group_membership_list
 
 
-class DBInstance(TypedDict):
+class DBInstance(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>Contains a user-provided database identifier. This identifier is the unique key that identifies an instance.</p>"""
     db_instance_class: NotRequired["aws_sdk_docdb.types.string.String"]

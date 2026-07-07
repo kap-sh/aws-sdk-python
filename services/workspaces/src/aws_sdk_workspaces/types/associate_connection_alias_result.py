@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#AssociateConnectionAliasResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.connection_identifier
 
 
-class AssociateConnectionAliasResult(TypedDict):
+class AssociateConnectionAliasResult(TypedDict, closed=True):
     connection_identifier: NotRequired[
         "aws_sdk_workspaces.types.connection_identifier.ConnectionIdentifier"
     ]

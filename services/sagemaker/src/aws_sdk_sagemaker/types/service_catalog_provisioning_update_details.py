@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ServiceCatalogProvisioningUpdateDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.provisioning_parameters
     import aws_sdk_sagemaker.types.service_catalog_entity_id
 
 
-class ServiceCatalogProvisioningUpdateDetails(TypedDict):
+class ServiceCatalogProvisioningUpdateDetails(TypedDict, closed=True):
     provisioning_artifact_id: NotRequired[
         "aws_sdk_sagemaker.types.service_catalog_entity_id.ServiceCatalogEntityId"
     ]

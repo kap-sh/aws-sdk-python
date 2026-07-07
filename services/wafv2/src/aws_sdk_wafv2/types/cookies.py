@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#Cookies``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.oversize_handling
 
 
-class Cookies(TypedDict):
+class Cookies(TypedDict, closed=True):
     match_pattern: "aws_sdk_wafv2.types.cookie_match_pattern.CookieMatchPattern"
     r"""<p>The filter to use to identify the subset of cookies to inspect in a web request. </p> <p>You must specify exactly one setting: either <code>All</code>, <code>IncludedCookies</code>, or <code>ExcludedCookies</code>.</p> <p>Example JSON: <code>\"MatchPattern\": { \"IncludedCookies\": [ \"session-id-time\", \"session-id\" ] }</code> </p>"""
     match_scope: "aws_sdk_wafv2.types.map_match_scope.MapMatchScope"

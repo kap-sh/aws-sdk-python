@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#InternalFailureException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe_streaming._protocol.eventstream import HeaderValue, Message
 from aws_sdk_transcribe_streaming.errors import ServiceError
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.string
 
 
-class InternalFailureException_(TypedDict):
+class InternalFailureException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_transcribe_streaming.types.string.String"]
 
 

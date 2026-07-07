@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#PutBackupPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.file_system_id
 
 
-class PutBackupPolicyRequest(TypedDict):
+class PutBackupPolicyRequest(TypedDict, closed=True):
     file_system_id: "aws_sdk_efs.types.file_system_id.FileSystemId"
     """<p>Specifies which EFS file system to update the backup policy for.</p>"""
     backup_policy: "aws_sdk_efs.types.backup_policy.BackupPolicy"

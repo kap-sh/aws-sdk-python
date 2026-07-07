@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#PutPublicAccessBlockRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.public_access_block_configuration
 
 
-class PutPublicAccessBlockRequest(TypedDict):
+class PutPublicAccessBlockRequest(TypedDict, closed=True):
     public_access_block_configuration: "aws_sdk_s3_control.types.public_access_block_configuration.PublicAccessBlockConfiguration"
     """<p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified Amazon Web Services account.</p>"""
     account_id: "aws_sdk_s3_control.types.account_id.AccountId"

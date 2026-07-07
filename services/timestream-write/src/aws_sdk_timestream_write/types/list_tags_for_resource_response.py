@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.tag_list
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_timestream_write.types.tag_list.TagList"]
     """<p> The tags currently associated with the Timestream resource. </p>"""
 

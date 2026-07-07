@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#Certificate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.t_stamp
 
 
-class Certificate(TypedDict):
+class Certificate(TypedDict, closed=True):
     certificate_identifier: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The unique key that identifies a certificate.</p> <p>Example: <code>rds-ca-2019</code> </p>"""
     certificate_type: NotRequired["aws_sdk_docdb.types.string.String"]

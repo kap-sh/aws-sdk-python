@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#RevokeSignatureRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_signer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.revocation_reason_string
 
 
-class RevokeSignatureRequest(TypedDict):
+class RevokeSignatureRequest(TypedDict, closed=True):
     job_id: "aws_sdk_signer.types.job_id.JobId"
     """<p>ID of the signing job to be revoked.</p>"""
     job_owner: NotRequired["aws_sdk_signer.types.account_id.AccountId"]

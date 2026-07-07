@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#DeliveryStreamEncryptionConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.key_type
 
 
-class DeliveryStreamEncryptionConfigurationInput(TypedDict):
+class DeliveryStreamEncryptionConfigurationInput(TypedDict, closed=True):
     key_arn: NotRequired["aws_sdk_firehose.types.awskms_key_arn.AWSKMSKeyARN"]
     """<p>If you set <code>KeyType</code> to <code>CUSTOMER_MANAGED_CMK</code>, you must specify the Amazon Resource Name (ARN) of the CMK. If you set <code>KeyType</code> to <code>Amazon Web Services_OWNED_CMK</code>, Firehose uses a service-account CMK.</p>"""
     key_type: "aws_sdk_firehose.types.key_type.KeyType"

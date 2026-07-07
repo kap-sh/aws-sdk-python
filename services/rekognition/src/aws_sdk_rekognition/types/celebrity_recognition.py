@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CelebrityRecognition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.celebrity_detail
     import aws_sdk_rekognition.types.timestamp
 
 
-class CelebrityRecognition(TypedDict):
+class CelebrityRecognition(TypedDict, closed=True):
     timestamp: "aws_sdk_rekognition.types.timestamp.Timestamp"
     """<p>The time, in milliseconds from the start of the video, that the celebrity was recognized. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the celebrity first appears.</p>"""
     celebrity: NotRequired["aws_sdk_rekognition.types.celebrity_detail.CelebrityDetail"]

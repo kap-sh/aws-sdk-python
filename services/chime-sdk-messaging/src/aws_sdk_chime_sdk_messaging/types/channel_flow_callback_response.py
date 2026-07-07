@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ChannelFlowCallbackResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.callback_id_type
     import aws_sdk_chime_sdk_messaging.types.chime_arn
 
 
-class ChannelFlowCallbackResponse(TypedDict):
+class ChannelFlowCallbackResponse(TypedDict, closed=True):
     channel_arn: NotRequired["aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"]
     """<p>The ARN of the channel.</p>"""
     callback_id: NotRequired[

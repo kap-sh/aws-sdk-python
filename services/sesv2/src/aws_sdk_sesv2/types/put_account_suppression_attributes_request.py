@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutAccountSuppressionAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.suppression_list_reasons
     import aws_sdk_sesv2.types.suppression_validation_attributes
 
 
-class PutAccountSuppressionAttributesRequest(TypedDict):
+class PutAccountSuppressionAttributesRequest(TypedDict, closed=True):
     suppressed_reasons: NotRequired[
         "aws_sdk_sesv2.types.suppression_list_reasons.SuppressionListReasons"
     ]

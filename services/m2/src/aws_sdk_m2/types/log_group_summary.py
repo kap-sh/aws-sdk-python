@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#LogGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.string20
 
 
-class LogGroupSummary(TypedDict):
+class LogGroupSummary(TypedDict, closed=True):
     log_type: "aws_sdk_m2.types.string20.String20"
     """<p>The type of log.</p>"""
     log_group_name: "aws_sdk_m2.types.log_group_identifier.LogGroupIdentifier"

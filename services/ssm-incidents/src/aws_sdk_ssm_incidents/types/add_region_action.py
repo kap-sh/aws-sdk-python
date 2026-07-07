@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#AddRegionAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.sse_kms_key
 
 
-class AddRegionAction(TypedDict):
+class AddRegionAction(TypedDict, closed=True):
     region_name: "aws_sdk_ssm_incidents.types.region_name.RegionName"
     """<p>The Amazon Web Services Region name to add to the replication set.</p>"""
     sse_kms_key_id: NotRequired["aws_sdk_ssm_incidents.types.sse_kms_key.SseKmsKey"]

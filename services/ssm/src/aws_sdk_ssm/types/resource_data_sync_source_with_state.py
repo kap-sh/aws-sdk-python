@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ResourceDataSyncSourceWithState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_data_sync_aws_organizations_source
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_data_sync_state
 
 
-class ResourceDataSyncSourceWithState(TypedDict):
+class ResourceDataSyncSourceWithState(TypedDict, closed=True):
     source_type: NotRequired[
         "aws_sdk_ssm.types.resource_data_sync_source_type.ResourceDataSyncSourceType"
     ]

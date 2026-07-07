@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#CustomEntityConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.custom_data_identifier_list
 
 
-class CustomEntityConfig(TypedDict):
+class CustomEntityConfig(TypedDict, closed=True):
     custom_data_identifiers: "aws_sdk_cleanroomsml.types.custom_data_identifier_list.CustomDataIdentifierList"
     """<p>Defines data identifiers for the custom entity configuration. Provide this only if CUSTOM redaction is configured. </p>"""
 

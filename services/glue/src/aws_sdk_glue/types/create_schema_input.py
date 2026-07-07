@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateSchemaInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.tags_map
 
 
-class CreateSchemaInput(TypedDict):
+class CreateSchemaInput(TypedDict, closed=True):
     registry_id: NotRequired["aws_sdk_glue.types.registry_id.RegistryId"]
     """<p> This is a wrapper shape to contain the registry identity fields. If this is not provided, the default registry will be used. The ARN format for the same will be: <code>arn:aws:glue:us-east-2:<customer id>:registry/default-registry:random-5-letter-id</code>.</p>"""
     schema_name: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.freetier#GetAccountPlanStateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_freetier.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_freetier.types.monetary_amount
 
 
-class GetAccountPlanStateResponse(TypedDict):
+class GetAccountPlanStateResponse(TypedDict, closed=True):
     account_id: "aws_sdk_freetier.types.account_id.AccountId"
     """<p> A unique identifier that identifies the account. </p>"""
     account_plan_type: "aws_sdk_freetier.types.account_plan_type.AccountPlanType"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ListResourcesForWebACLResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.resource_arns
 
 
-class ListResourcesForWebACLResponse(TypedDict):
+class ListResourcesForWebACLResponse(TypedDict, closed=True):
     resource_arns: NotRequired["aws_sdk_wafv2.types.resource_arns.ResourceArns"]
     """<p>The array of Amazon Resource Names (ARNs) of the associated resources.</p>"""
 

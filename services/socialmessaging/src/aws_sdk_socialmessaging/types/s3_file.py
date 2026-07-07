@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#S3File``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
 
-class S3File(TypedDict):
+class S3File(TypedDict, closed=True):
     bucket_name: "str"
     """<p>The bucket name.</p>"""
     key: "str"

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#ListCategoriesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qapps.types.instance_id
 
 
-class ListCategoriesInput(TypedDict):
+class ListCategoriesInput(TypedDict, closed=True):
     instance_id: "aws_sdk_qapps.types.instance_id.InstanceId"
     """<p>The unique identifier of the Amazon Q Business application environment instance.</p>"""
 

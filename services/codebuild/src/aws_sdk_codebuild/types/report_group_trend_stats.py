@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ReportGroupTrendStats``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class ReportGroupTrendStats(TypedDict):
+class ReportGroupTrendStats(TypedDict, closed=True):
     average: NotRequired["aws_sdk_codebuild.types.string.String"]
     """<p>Contains the average of all values analyzed.</p>"""
     max: NotRequired["aws_sdk_codebuild.types.string.String"]

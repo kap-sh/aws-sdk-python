@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetInvitationsCountRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetInvitationsCountRequest(TypedDict):
+class GetInvitationsCountRequest(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#DescribeGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_identitystore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_identitystore.types.resource_id
 
 
-class DescribeGroupRequest(TypedDict):
+class DescribeGroupRequest(TypedDict, closed=True):
     identity_store_id: "aws_sdk_identitystore.types.identity_store_id.IdentityStoreId"
     """<p>The globally unique identifier for the identity store, such as <code>d-1234567890</code>. In this example, <code>d-</code> is a fixed prefix, and <code>1234567890</code> is a randomly generated string that contains numbers and lower case letters. This value is generated at the time that a new identity store is created.</p>"""
     group_id: "aws_sdk_identitystore.types.resource_id.ResourceId"

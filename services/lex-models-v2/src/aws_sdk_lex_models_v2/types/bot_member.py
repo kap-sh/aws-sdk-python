@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.name
 
 
-class BotMember(TypedDict):
+class BotMember(TypedDict, closed=True):
     bot_member_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The unique ID of a bot that is a member of this network of bots.</p>"""
     bot_member_name: "aws_sdk_lex_models_v2.types.name.Name"

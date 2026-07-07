@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.emr#InternalServerError``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_emr.errors import ServiceError
 
 
-class InternalServerError_(TypedDict):
+class InternalServerError_(TypedDict, closed=True):
     pass
 
 

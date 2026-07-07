@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#ByteMatchSetUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.change_action
 
 
-class ByteMatchSetUpdate(TypedDict):
+class ByteMatchSetUpdate(TypedDict, closed=True):
     action: "aws_sdk_waf_regional.types.change_action.ChangeAction"
     """<p>Specifies whether to insert or delete a <a>ByteMatchTuple</a>.</p>"""
     byte_match_tuple: "aws_sdk_waf_regional.types.byte_match_tuple.ByteMatchTuple"

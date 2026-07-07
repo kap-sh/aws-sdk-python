@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DifferentialPrivacyParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.differential_privacy_sensitivity_parameters_list
 
 
-class DifferentialPrivacyParameters(TypedDict):
+class DifferentialPrivacyParameters(TypedDict, closed=True):
     sensitivity_parameters: "aws_sdk_cleanrooms.types.differential_privacy_sensitivity_parameters_list.DifferentialPrivacySensitivityParametersList"
     """<p>Provides the sensitivity parameters that you can use to better understand the total amount of noise in query results.</p>"""
 

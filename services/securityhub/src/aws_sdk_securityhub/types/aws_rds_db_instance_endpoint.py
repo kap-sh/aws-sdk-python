@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRdsDbInstanceEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsRdsDbInstanceEndpoint(TypedDict):
+class AwsRdsDbInstanceEndpoint(TypedDict, closed=True):
     address: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>Specifies the DNS address of the DB instance.</p>"""
     port: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#StopMatchmakingOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopMatchmakingOutput(TypedDict):
+class StopMatchmakingOutput(TypedDict, closed=True):
     pass
 
 

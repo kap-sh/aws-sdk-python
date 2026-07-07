@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DirectSchemaChangePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boxed_boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.update_catalog_behavior
 
 
-class DirectSchemaChangePolicy(TypedDict):
+class DirectSchemaChangePolicy(TypedDict, closed=True):
     enable_update_catalog: NotRequired["aws_sdk_glue.types.boxed_boolean.BoxedBoolean"]
     """<p>Whether to use the specified update behavior when the crawler finds a changed schema.</p>"""
     update_behavior: NotRequired[

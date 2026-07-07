@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#EbsOptimizedInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.maximum_throughput_in_m_bps
 
 
-class EbsOptimizedInfo(TypedDict):
+class EbsOptimizedInfo(TypedDict, closed=True):
     baseline_bandwidth_in_mbps: NotRequired[
         "aws_sdk_ec2.types.baseline_bandwidth_in_mbps.BaselineBandwidthInMbps"
     ]

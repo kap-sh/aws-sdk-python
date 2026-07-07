@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#AutomationRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.schedule
 
 
-class AutomationRule(TypedDict):
+class AutomationRule(TypedDict, closed=True):
     rule_arn: NotRequired["aws_sdk_compute_optimizer_automation.types.rule_arn.RuleArn"]
     """<p>The Amazon Resource Name (ARN) of the automation rule.</p>"""
     rule_id: NotRequired["aws_sdk_compute_optimizer_automation.types.rule_id.RuleId"]

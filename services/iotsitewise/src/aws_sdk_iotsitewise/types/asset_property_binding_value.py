@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#AssetPropertyBindingValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
 
 
-class AssetPropertyBindingValue(TypedDict):
+class AssetPropertyBindingValue(TypedDict, closed=True):
     asset_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the asset containing the property. This identifies the specific asset instance's property value used in the computation model.</p>"""
     property_id: "aws_sdk_iotsitewise.types.id.ID"

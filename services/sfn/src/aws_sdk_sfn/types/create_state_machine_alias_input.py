@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#CreateStateMachineAliasInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.routing_configuration_list
 
 
-class CreateStateMachineAliasInput(TypedDict):
+class CreateStateMachineAliasInput(TypedDict, closed=True):
     description: NotRequired["aws_sdk_sfn.types.alias_description.AliasDescription"]
     """<p>A description for the state machine alias.</p>"""
     name: "aws_sdk_sfn.types.character_restricted_name.CharacterRestrictedName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#ServiceQuotaExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.resource_type
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "str"
     resource_id: NotRequired["str"]
     """<p>The unique ID of the resource referenced in the failed request.</p>"""

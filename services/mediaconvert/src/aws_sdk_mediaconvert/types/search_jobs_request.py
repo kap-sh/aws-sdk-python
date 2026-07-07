@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#SearchJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max20
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.order
 
 
-class SearchJobsRequest(TypedDict):
+class SearchJobsRequest(TypedDict, closed=True):
     input_file: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """Optional. Provide your input file URL or your partial input file name. The maximum length for an input file is 300 characters."""
     max_results: NotRequired[

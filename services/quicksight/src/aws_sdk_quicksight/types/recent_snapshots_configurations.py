@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RecentSnapshotsConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class RecentSnapshotsConfigurations(TypedDict):
+class RecentSnapshotsConfigurations(TypedDict, closed=True):
     enabled: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>The recent snapshots configuration for an embedded Quick Sight dashboard.</p>"""
 

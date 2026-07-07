@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#GetCurrentUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.authentication_header_type
 
 
-class GetCurrentUserRequest(TypedDict):
+class GetCurrentUserRequest(TypedDict, closed=True):
     authentication_token: (
         "aws_sdk_workdocs.types.authentication_header_type.AuthenticationHeaderType"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#LoadPermissionModifications``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.load_permission_list_request
 
 
-class LoadPermissionModifications(TypedDict):
+class LoadPermissionModifications(TypedDict, closed=True):
     add: NotRequired[
         "aws_sdk_ec2.types.load_permission_list_request.LoadPermissionListRequest"
     ]

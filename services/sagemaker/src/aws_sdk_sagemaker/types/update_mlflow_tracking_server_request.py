@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateMlflowTrackingServerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.weekly_maintenance_window_start
 
 
-class UpdateMlflowTrackingServerRequest(TypedDict):
+class UpdateMlflowTrackingServerRequest(TypedDict, closed=True):
     tracking_server_name: NotRequired[
         "aws_sdk_sagemaker.types.tracking_server_name.TrackingServerName"
     ]

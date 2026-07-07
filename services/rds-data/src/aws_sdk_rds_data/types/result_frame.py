@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#ResultFrame``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.records
     import aws_sdk_rds_data.types.result_set_metadata
 
 
-class ResultFrame(TypedDict):
+class ResultFrame(TypedDict, closed=True):
     result_set_metadata: NotRequired[
         "aws_sdk_rds_data.types.result_set_metadata.ResultSetMetadata"
     ]

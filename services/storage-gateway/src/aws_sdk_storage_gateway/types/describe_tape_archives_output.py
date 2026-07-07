@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeTapeArchivesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.marker
     import aws_sdk_storage_gateway.types.tape_archives
 
 
-class DescribeTapeArchivesOutput(TypedDict):
+class DescribeTapeArchivesOutput(TypedDict, closed=True):
     tape_archives: NotRequired[
         "aws_sdk_storage_gateway.types.tape_archives.TapeArchives"
     ]

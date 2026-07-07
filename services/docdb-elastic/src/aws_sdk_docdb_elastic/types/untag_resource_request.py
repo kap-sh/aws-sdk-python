@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.arn
     import aws_sdk_docdb_elastic.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_docdb_elastic.types.arn.Arn"
     """<p>The ARN identifier of the elastic cluster resource.</p>"""
     tag_keys: "aws_sdk_docdb_elastic.types.tag_key_list.TagKeyList"

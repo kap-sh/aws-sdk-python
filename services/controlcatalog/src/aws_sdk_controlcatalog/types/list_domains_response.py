@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ListDomainsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.pagination_token
 
 
-class ListDomainsResponse(TypedDict):
+class ListDomainsResponse(TypedDict, closed=True):
     domains: "aws_sdk_controlcatalog.types.domain_summary_list.DomainSummaryList"
     """<p>The list of domains that the <code>ListDomains</code> API returns.</p>"""
     next_token: NotRequired[

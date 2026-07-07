@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.support#AddCommunicationToCaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.result
 
 
-class AddCommunicationToCaseResponse(TypedDict):
+class AddCommunicationToCaseResponse(TypedDict, closed=True):
     result: "aws_sdk_support.types.result.Result"
     """<p>True if <a>AddCommunicationToCase</a> succeeds. Otherwise, returns an error.</p>"""
 

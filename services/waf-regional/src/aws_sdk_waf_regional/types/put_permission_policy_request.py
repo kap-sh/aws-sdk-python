@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#PutPermissionPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.resource_arn
 
 
-class PutPermissionPolicyRequest(TypedDict):
+class PutPermissionPolicyRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_waf_regional.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the RuleGroup to which you want to attach the policy.</p>"""
     policy: "aws_sdk_waf_regional.types.policy_string.PolicyString"

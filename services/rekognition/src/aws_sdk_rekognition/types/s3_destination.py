@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#S3Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.s3_bucket
     import aws_sdk_rekognition.types.s3_key_prefix
 
 
-class S3Destination(TypedDict):
+class S3Destination(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_rekognition.types.s3_bucket.S3Bucket"]
     """<p> The name of the Amazon S3 bucket you want to associate with the streaming video project. You must be the owner of the Amazon S3 bucket. </p>"""
     key_prefix: NotRequired["aws_sdk_rekognition.types.s3_key_prefix.S3KeyPrefix"]

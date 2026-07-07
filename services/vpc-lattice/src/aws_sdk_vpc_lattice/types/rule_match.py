@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#RuleMatch``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.http_match
 
 
-class _RuleMatch_httpMatch(TypedDict):
+class _RuleMatch_httpMatch(TypedDict, closed=True):
     httpMatch: "aws_sdk_vpc_lattice.types.http_match.HttpMatch"
 
 

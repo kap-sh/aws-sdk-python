@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StartWebRTCContactResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.connection_data
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.participant_token
 
 
-class StartWebRTCContactResponse(TypedDict):
+class StartWebRTCContactResponse(TypedDict, closed=True):
     connection_data: NotRequired["aws_sdk_connect.types.connection_data.ConnectionData"]
     """<p>Information required for the client application (mobile application or website) to connect to the call.</p>"""
     contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]

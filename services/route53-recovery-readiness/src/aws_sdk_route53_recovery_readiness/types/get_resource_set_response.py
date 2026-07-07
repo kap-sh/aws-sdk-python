@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#GetResourceSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__list_of_resource
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.tags
 
 
-class GetResourceSetResponse(TypedDict):
+class GetResourceSetResponse(TypedDict, closed=True):
     resource_set_arn: NotRequired[
         "aws_sdk_route53_recovery_readiness.types.__string_max256.__stringMax256"
     ]

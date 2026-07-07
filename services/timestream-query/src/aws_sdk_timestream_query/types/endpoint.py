@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#Endpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.string
 
 
-class Endpoint(TypedDict):
+class Endpoint(TypedDict, closed=True):
     address: "aws_sdk_timestream_query.types.string.String"
     """<p>An endpoint address.</p>"""
     cache_period_in_minutes: "aws_sdk_timestream_query.types.long.Long"

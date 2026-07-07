@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ConfluenceCrawlerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.crawl_filter_configuration
 
 
-class ConfluenceCrawlerConfiguration(TypedDict):
+class ConfluenceCrawlerConfiguration(TypedDict, closed=True):
     filter_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.crawl_filter_configuration.CrawlFilterConfiguration"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetRightsizingRecommendationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.rightsizing_recommendation_configuration
 
 
-class GetRightsizingRecommendationRequest(TypedDict):
+class GetRightsizingRecommendationRequest(TypedDict, closed=True):
     filter: NotRequired["aws_sdk_cost_explorer.types.expression.Expression"]
     configuration: NotRequired[
         "aws_sdk_cost_explorer.types.rightsizing_recommendation_configuration.RightsizingRecommendationConfiguration"

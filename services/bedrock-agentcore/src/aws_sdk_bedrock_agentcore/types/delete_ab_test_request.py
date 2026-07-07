@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#DeleteABTestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.ab_test_id
 
 
-class DeleteABTestRequest(TypedDict):
+class DeleteABTestRequest(TypedDict, closed=True):
     ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId"
     """<p>The unique identifier of the A/B test to delete.</p>"""
 

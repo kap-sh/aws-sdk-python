@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#SsmDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.strictly_positive_integer
 
 
-class SsmDocument(TypedDict):
+class SsmDocument(TypedDict, closed=True):
     action_name: "aws_sdk_mgn.types.bounded_string.BoundedString"
     """<p>User-friendly name for the AWS Systems Manager Document.</p>"""
     ssm_document_name: "aws_sdk_mgn.types.ssm_document_name.SsmDocumentName"

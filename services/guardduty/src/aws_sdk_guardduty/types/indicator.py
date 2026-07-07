@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Indicator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.indicator_title
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.indicator_values
 
 
-class Indicator(TypedDict):
+class Indicator(TypedDict, closed=True):
     key: NotRequired["aws_sdk_guardduty.types.indicator_type.IndicatorType"]
     r"""<p>Specific indicator keys observed in the attack sequence. For description of the valid values for key, see <a href=\"https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-summary.html#guardduty-extended-threat-detection-attack-sequence-finding-details\">Attack sequence finding details</a> in the <i>Amazon GuardDuty User Guide</i>.</p>"""
     values: NotRequired["aws_sdk_guardduty.types.indicator_values.IndicatorValues"]

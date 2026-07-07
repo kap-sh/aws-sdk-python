@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#OutputLocation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.s3_destination
 
 
-class _OutputLocation_s3(TypedDict):
+class _OutputLocation_s3(TypedDict, closed=True):
     s3: "aws_sdk_datazone.types.s3_destination.S3Destination"
 
 

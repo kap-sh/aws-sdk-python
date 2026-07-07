@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ModifyDBProxyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.user_auth_config_list
 
 
-class ModifyDBProxyRequest(TypedDict):
+class ModifyDBProxyRequest(TypedDict, closed=True):
     db_proxy_name: NotRequired["aws_sdk_rds.types.db_proxy_name.DBProxyName"]
     """<p>The identifier for the <code>DBProxy</code> to modify.</p>"""
     new_db_proxy_name: NotRequired["aws_sdk_rds.types.db_proxy_name.DBProxyName"]

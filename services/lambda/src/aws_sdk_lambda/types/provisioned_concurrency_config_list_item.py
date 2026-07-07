@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ProvisionedConcurrencyConfigListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.function_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.timestamp
 
 
-class ProvisionedConcurrencyConfigListItem(TypedDict):
+class ProvisionedConcurrencyConfigListItem(TypedDict, closed=True):
     function_arn: NotRequired["aws_sdk_lambda.types.function_arn.FunctionArn"]
     """<p>The Amazon Resource Name (ARN) of the alias or version.</p>"""
     requested_provisioned_concurrent_executions: NotRequired[

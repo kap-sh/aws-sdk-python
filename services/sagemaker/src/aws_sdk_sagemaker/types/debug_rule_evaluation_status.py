@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DebugRuleEvaluationStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.processing_job_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class DebugRuleEvaluationStatus(TypedDict):
+class DebugRuleEvaluationStatus(TypedDict, closed=True):
     rule_configuration_name: NotRequired[
         "aws_sdk_sagemaker.types.rule_configuration_name.RuleConfigurationName"
     ]

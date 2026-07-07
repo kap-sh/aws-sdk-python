@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ListRulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.event_bus_name_or_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.rule_name
 
 
-class ListRulesRequest(TypedDict):
+class ListRulesRequest(TypedDict, closed=True):
     name_prefix: NotRequired["aws_sdk_eventbridge.types.rule_name.RuleName"]
     """<p>The prefix matching the rule name.</p>"""
     event_bus_name: NotRequired[

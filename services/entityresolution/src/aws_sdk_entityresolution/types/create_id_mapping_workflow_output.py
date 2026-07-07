@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#CreateIdMappingWorkflowOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.id_mapping_workflow_output_source_config
 
 
-class CreateIdMappingWorkflowOutput(TypedDict):
+class CreateIdMappingWorkflowOutput(TypedDict, closed=True):
     workflow_name: "aws_sdk_entityresolution.types.entity_name.EntityName"
     """<p>The name of the workflow.</p>"""
     workflow_arn: (

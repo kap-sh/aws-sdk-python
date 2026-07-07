@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#DatasetParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.path_parameter_name
 
 
-class DatasetParameter(TypedDict):
+class DatasetParameter(TypedDict, closed=True):
     name: "aws_sdk_databrew.types.path_parameter_name.PathParameterName"
     """<p>The name of the parameter that is used in the dataset's Amazon S3 path.</p>"""
     type: "aws_sdk_databrew.types.parameter_type.ParameterType"

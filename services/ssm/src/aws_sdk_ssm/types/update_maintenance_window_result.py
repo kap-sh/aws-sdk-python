@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateMaintenanceWindowResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_allow_unassociated_targets
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_timezone
 
 
-class UpdateMaintenanceWindowResult(TypedDict):
+class UpdateMaintenanceWindowResult(TypedDict, closed=True):
     window_id: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_id.MaintenanceWindowId"
     ]

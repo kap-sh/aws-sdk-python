@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Application``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.application_permissions
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.namespace
 
 
-class Application(TypedDict):
+class Application(TypedDict, closed=True):
     namespace: NotRequired["aws_sdk_connect.types.namespace.Namespace"]
     """<p>Namespace of the application that you want to give access to.</p>"""
     application_permissions: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#Mapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.mapping_template_language
 
 
-class Mapping(TypedDict):
+class Mapping(TypedDict, closed=True):
     template_language: (
         "aws_sdk_b2bi.types.mapping_template_language.MappingTemplateLanguage"
     )

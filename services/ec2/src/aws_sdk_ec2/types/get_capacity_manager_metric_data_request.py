@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetCapacityManagerMetricDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.period
 
 
-class GetCapacityManagerMetricDataRequest(TypedDict):
+class GetCapacityManagerMetricDataRequest(TypedDict, closed=True):
     metric_names: NotRequired["aws_sdk_ec2.types.metric_set.MetricSet"]
     """<p> The names of the metrics to retrieve. Maximum of 10 metrics per request. </p>"""
     start_time: NotRequired[

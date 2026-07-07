@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#RecurringCharge``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class RecurringCharge(TypedDict):
+class RecurringCharge(TypedDict, closed=True):
     recurring_charge_amount: NotRequired["aws_sdk_rds.types.double.Double"]
     """<p>The amount of the recurring charge.</p>"""
     recurring_charge_frequency: NotRequired["aws_sdk_rds.types.string.String"]

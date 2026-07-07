@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#CSVOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.record_delimiter
 
 
-class CSVOutput(TypedDict):
+class CSVOutput(TypedDict, closed=True):
     quote_fields: NotRequired["aws_sdk_s3.types.quote_fields.QuoteFields"]
     """<p>Indicates whether to use quotation marks around output fields. </p> <ul> <li> <p> <code>ALWAYS</code>: Always use quotation marks for output fields.</p> </li> <li> <p> <code>ASNEEDED</code>: Use quotation marks for output fields when needed.</p> </li> </ul>"""
     quote_escape_character: NotRequired[

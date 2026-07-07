@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CreateGroupMembershipRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.namespace
 
 
-class CreateGroupMembershipRequest(TypedDict):
+class CreateGroupMembershipRequest(TypedDict, closed=True):
     member_name: "aws_sdk_quicksight.types.group_member_name.GroupMemberName"
     """<p>The name of the user that you want to add to the group membership.</p>"""
     group_name: "aws_sdk_quicksight.types.group_name.GroupName"

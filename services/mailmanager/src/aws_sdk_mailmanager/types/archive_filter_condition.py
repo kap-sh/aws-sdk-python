@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ArchiveFilterCondition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.archive_string_expression
 
 
-class _ArchiveFilterCondition_StringExpression(TypedDict):
+class _ArchiveFilterCondition_StringExpression(TypedDict, closed=True):
     StringExpression: (
         "aws_sdk_mailmanager.types.archive_string_expression.ArchiveStringExpression"
     )
 
 
-class _ArchiveFilterCondition_BooleanExpression(TypedDict):
+class _ArchiveFilterCondition_BooleanExpression(TypedDict, closed=True):
     BooleanExpression: (
         "aws_sdk_mailmanager.types.archive_boolean_expression.ArchiveBooleanExpression"
     )

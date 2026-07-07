@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#PriorityConfigurationOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.location_order_override_list
     import aws_sdk_gamelift.types.placement_fallback_strategy
 
 
-class PriorityConfigurationOverride(TypedDict):
+class PriorityConfigurationOverride(TypedDict, closed=True):
     placement_fallback_strategy: NotRequired[
         "aws_sdk_gamelift.types.placement_fallback_strategy.PlacementFallbackStrategy"
     ]

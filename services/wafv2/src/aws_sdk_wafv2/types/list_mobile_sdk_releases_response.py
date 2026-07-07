@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ListMobileSdkReleasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.next_marker
     import aws_sdk_wafv2.types.release_summaries
 
 
-class ListMobileSdkReleasesResponse(TypedDict):
+class ListMobileSdkReleasesResponse(TypedDict, closed=True):
     release_summaries: NotRequired[
         "aws_sdk_wafv2.types.release_summaries.ReleaseSummaries"
     ]

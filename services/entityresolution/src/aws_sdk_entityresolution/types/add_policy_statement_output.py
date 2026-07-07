@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#AddPolicyStatementOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.venice_global_arn
 
 
-class AddPolicyStatementOutput(TypedDict):
+class AddPolicyStatementOutput(TypedDict, closed=True):
     arn: "aws_sdk_entityresolution.types.venice_global_arn.VeniceGlobalArn"
     """<p>The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.</p>"""
     token: "aws_sdk_entityresolution.types.policy_token.PolicyToken"

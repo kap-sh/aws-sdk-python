@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetBucketAccessKeysResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.access_key_list
 
 
-class GetBucketAccessKeysResult(TypedDict):
+class GetBucketAccessKeysResult(TypedDict, closed=True):
     access_keys: NotRequired["aws_sdk_lightsail.types.access_key_list.AccessKeyList"]
     """<p>An object that describes the access keys for the specified bucket.</p>"""
 

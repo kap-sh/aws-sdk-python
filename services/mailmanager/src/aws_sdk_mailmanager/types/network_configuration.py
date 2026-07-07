@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#NetworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.public_network_configuration
 
 
-class _NetworkConfiguration_PublicNetworkConfiguration(TypedDict):
+class _NetworkConfiguration_PublicNetworkConfiguration(TypedDict, closed=True):
     PublicNetworkConfiguration: "aws_sdk_mailmanager.types.public_network_configuration.PublicNetworkConfiguration"
 
 
-class _NetworkConfiguration_PrivateNetworkConfiguration(TypedDict):
+class _NetworkConfiguration_PrivateNetworkConfiguration(TypedDict, closed=True):
     PrivateNetworkConfiguration: "aws_sdk_mailmanager.types.private_network_configuration.PrivateNetworkConfiguration"
 
 

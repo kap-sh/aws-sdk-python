@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#ListJobRunsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.next_token
 
 
-class ListJobRunsResponse(TypedDict):
+class ListJobRunsResponse(TypedDict, closed=True):
     job_runs: "aws_sdk_emr_serverless.types.job_runs.JobRuns"
     """<p>The output lists information about the specified job runs.</p>"""
     next_token: NotRequired["aws_sdk_emr_serverless.types.next_token.NextToken"]

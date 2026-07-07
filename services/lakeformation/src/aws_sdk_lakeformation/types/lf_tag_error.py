@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#LFTagError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.error_detail
     import aws_sdk_lakeformation.types.lf_tag_pair
 
 
-class LFTagError(TypedDict):
+class LFTagError(TypedDict, closed=True):
     lf_tag: NotRequired["aws_sdk_lakeformation.types.lf_tag_pair.LFTagPair"]
     """<p>The key-name of the LF-tag.</p>"""
     error: NotRequired["aws_sdk_lakeformation.types.error_detail.ErrorDetail"]

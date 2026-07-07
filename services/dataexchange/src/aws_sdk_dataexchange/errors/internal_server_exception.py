@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#InternalServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__string
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "aws_sdk_dataexchange.types.__string.__string"
     """<p>The message identifying the service exception that occurred.</p>"""
 

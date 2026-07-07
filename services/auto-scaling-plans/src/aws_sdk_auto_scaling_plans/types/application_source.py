@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.autoscalingplans#ApplicationSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auto_scaling_plans.types.tag_filters
     import aws_sdk_auto_scaling_plans.types.xml_string
 
 
-class ApplicationSource(TypedDict):
+class ApplicationSource(TypedDict, closed=True):
     cloud_formation_stack_arn: NotRequired[
         "aws_sdk_auto_scaling_plans.types.xml_string.XmlString"
     ]

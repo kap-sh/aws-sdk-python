@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#SnapshotCopyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.kms_key_id
     import aws_sdk_redshift_serverless.types.namespace_name
 
 
-class SnapshotCopyConfiguration(TypedDict):
+class SnapshotCopyConfiguration(TypedDict, closed=True):
     snapshot_copy_configuration_id: NotRequired["str"]
     """<p>The ID of the snapshot copy configuration object.</p>"""
     snapshot_copy_configuration_arn: NotRequired["str"]

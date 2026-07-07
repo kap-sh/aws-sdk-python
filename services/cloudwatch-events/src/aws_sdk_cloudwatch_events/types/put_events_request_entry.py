@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#PutEventsRequestEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.event_resource_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.trace_header
 
 
-class PutEventsRequestEntry(TypedDict):
+class PutEventsRequestEntry(TypedDict, closed=True):
     time: NotRequired["aws_sdk_cloudwatch_events.types.event_time.EventTime"]
     r"""<p>The time stamp of the event, per <a href=\"https://www.rfc-editor.org/rfc/rfc3339.txt\">RFC3339</a>. If no time stamp is provided, the time stamp of the <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html\">PutEvents</a> call is used.</p>"""
     source: NotRequired["aws_sdk_cloudwatch_events.types.string.String"]

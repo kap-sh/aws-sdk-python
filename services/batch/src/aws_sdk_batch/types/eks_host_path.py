@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EksHostPath``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class EksHostPath(TypedDict):
+class EksHostPath(TypedDict, closed=True):
     path: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The path of the file or directory on the host to mount into containers on the pod.</p>"""
 

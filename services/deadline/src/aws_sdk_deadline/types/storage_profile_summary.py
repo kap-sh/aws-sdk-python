@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#StorageProfileSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.storage_profile_operating_system_family
 
 
-class StorageProfileSummary(TypedDict):
+class StorageProfileSummary(TypedDict, closed=True):
     storage_profile_id: "aws_sdk_deadline.types.storage_profile_id.StorageProfileId"
     """<p>The storage profile ID.</p>"""
     display_name: "aws_sdk_deadline.types.resource_name.ResourceName"

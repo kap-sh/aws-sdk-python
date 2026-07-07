@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#CreateFindingAggregatorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.string_list
 
 
-class CreateFindingAggregatorResponse(TypedDict):
+class CreateFindingAggregatorResponse(TypedDict, closed=True):
     finding_aggregator_arn: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

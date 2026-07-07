@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#LabelNameCondition``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class LabelNameCondition(TypedDict):
+class LabelNameCondition(TypedDict, closed=True):
     label_name: NotRequired["str"]
     """<p> The label name to match, supporting alphanumeric characters, underscores, hyphens, and colons. </p>"""
 

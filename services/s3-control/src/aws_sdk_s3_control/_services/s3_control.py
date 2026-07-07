@@ -2,9 +2,9 @@
 
 import warnings
 from collections.abc import Iterator
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_s3_control._auth._signers
@@ -273,7 +273,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.vpc_configuration
 
 
-class S3ControlClientConfig(TypedDict, total=False):
+class S3ControlClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

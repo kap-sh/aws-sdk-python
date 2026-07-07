@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#DisconnectionEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.event_id
 
 
-class DisconnectionEvent(TypedDict):
+class DisconnectionEvent(TypedDict, closed=True):
     event_id: NotRequired["aws_sdk_lex_runtime_v2.types.event_id.EventId"]
     """<p>A unique identifier that your application assigns to the event. You can use this to identify events in logs.</p>"""
     client_timestamp_millis: "aws_sdk_lex_runtime_v2.types.epoch_millis.EpochMillis"

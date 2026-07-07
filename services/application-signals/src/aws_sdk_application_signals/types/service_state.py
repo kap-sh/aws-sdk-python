@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#ServiceState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.latest_change_events
 
 
-class ServiceState(TypedDict):
+class ServiceState(TypedDict, closed=True):
     attribute_filters: NotRequired[
         "aws_sdk_application_signals.types.attribute_filters.AttributeFilters"
     ]

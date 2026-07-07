@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#SchemaDefinition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.schema_json
 
 
-class _SchemaDefinition_cedarJson(TypedDict):
+class _SchemaDefinition_cedarJson(TypedDict, closed=True):
     cedarJson: "aws_sdk_verifiedpermissions.types.schema_json.SchemaJson"
 
 

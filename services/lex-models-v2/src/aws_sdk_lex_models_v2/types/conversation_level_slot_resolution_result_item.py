@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ConversationLevelSlotResolutionResultItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_result_slot_name
 
 
-class ConversationLevelSlotResolutionResultItem(TypedDict):
+class ConversationLevelSlotResolutionResultItem(TypedDict, closed=True):
     intent_name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>The intents used in the slots list for the slot resolution details.</p>"""
     slot_name: "aws_sdk_lex_models_v2.types.test_result_slot_name.TestResultSlotName"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListCuratedEnvironmentImagesInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListCuratedEnvironmentImagesInput(TypedDict):
+class ListCuratedEnvironmentImagesInput(TypedDict, closed=True):
     pass
 
 

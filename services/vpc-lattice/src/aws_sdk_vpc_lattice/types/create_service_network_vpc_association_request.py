@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#CreateServiceNetworkVpcAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.vpc_id
 
 
-class CreateServiceNetworkVpcAssociationRequest(TypedDict):
+class CreateServiceNetworkVpcAssociationRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_vpc_lattice.types.client_token.ClientToken"]
     """<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you retry a request that completed successfully using the same client token and parameters, the retry succeeds without performing any actions. If the parameters aren't identical, the retry fails.</p>"""
     service_network_identifier: (

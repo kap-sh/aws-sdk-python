@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#Placement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.tenancy_enum
 
 
-class Placement(TypedDict):
+class Placement(TypedDict, closed=True):
     affinity: NotRequired["aws_sdk_workspaces_instances.types.string64.String64"]
     """<p>Specifies host affinity for dedicated instances.</p>"""
     availability_zone: NotRequired[

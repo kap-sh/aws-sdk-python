@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutConfigurationSetTrackingOptionsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutConfigurationSetTrackingOptionsResponse(TypedDict):
+class PutConfigurationSetTrackingOptionsResponse(TypedDict, closed=True):
     pass
 
 

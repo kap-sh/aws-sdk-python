@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LineageRunDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.lineage_sql_query_run_details
 
 
-class LineageRunDetails(TypedDict):
+class LineageRunDetails(TypedDict, closed=True):
     sql_query_run_details: NotRequired[
         "aws_sdk_datazone.types.lineage_sql_query_run_details.LineageSqlQueryRunDetails"
     ]

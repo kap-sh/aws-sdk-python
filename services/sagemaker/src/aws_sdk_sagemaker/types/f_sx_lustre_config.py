@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#FSxLustreConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.f_sx_lustre_per_unit_storage_throughput
     import aws_sdk_sagemaker.types.f_sx_lustre_size_in_gi_b
 
 
-class FSxLustreConfig(TypedDict):
+class FSxLustreConfig(TypedDict, closed=True):
     size_in_gi_b: NotRequired[
         "aws_sdk_sagemaker.types.f_sx_lustre_size_in_gi_b.FSxLustreSizeInGiB"
     ]

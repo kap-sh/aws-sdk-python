@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#GetStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dsql.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.target_definition
 
 
-class GetStreamOutput(TypedDict):
+class GetStreamOutput(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     """<p>The ID of the cluster for the retrieved stream.</p>"""
     stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId"

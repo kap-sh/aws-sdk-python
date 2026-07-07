@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#PostalCodeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.postal_authority
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.usps_zip_plus4
 
 
-class PostalCodeDetails(TypedDict):
+class PostalCodeDetails(TypedDict, closed=True):
     postal_code: NotRequired[
         "aws_sdk_geo_places.types.sensitive_string.SensitiveString"
     ]

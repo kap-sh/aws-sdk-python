@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#JoinKeyProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class JoinKeyProperties(TypedDict):
+class JoinKeyProperties(TypedDict, closed=True):
     unique_key: NotRequired["aws_sdk_quicksight.types.boolean.Boolean"]
     """<p>A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Quick Sight to optimize query performance.</p>"""
 

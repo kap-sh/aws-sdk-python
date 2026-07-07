@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#ListBranchesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplify.types.app_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.next_token
 
 
-class ListBranchesRequest(TypedDict):
+class ListBranchesRequest(TypedDict, closed=True):
     app_id: "aws_sdk_amplify.types.app_id.AppId"
     """<p>The unique ID for an Amplify app. </p>"""
     next_token: NotRequired["aws_sdk_amplify.types.next_token.NextToken"]

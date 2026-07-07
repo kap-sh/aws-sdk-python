@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteBillingGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.billing_group_name
     import aws_sdk_iot.types.optional_version
 
 
-class DeleteBillingGroupRequest(TypedDict):
+class DeleteBillingGroupRequest(TypedDict, closed=True):
     billing_group_name: "aws_sdk_iot.types.billing_group_name.BillingGroupName"
     """<p>The name of the billing group.</p>"""
     expected_version: NotRequired["aws_sdk_iot.types.optional_version.OptionalVersion"]

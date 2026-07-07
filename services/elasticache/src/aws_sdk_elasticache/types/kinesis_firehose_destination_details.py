@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#KinesisFirehoseDestinationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class KinesisFirehoseDestinationDetails(TypedDict):
+class KinesisFirehoseDestinationDetails(TypedDict, closed=True):
     delivery_stream: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The name of the Kinesis Data Firehose delivery stream.</p>"""
 

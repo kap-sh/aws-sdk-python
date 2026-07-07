@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#CreateDatastoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.tag_map
 
 
-class CreateDatastoreRequest(TypedDict):
+class CreateDatastoreRequest(TypedDict, closed=True):
     datastore_name: NotRequired[
         "aws_sdk_medical_imaging.types.datastore_name.DatastoreName"
     ]

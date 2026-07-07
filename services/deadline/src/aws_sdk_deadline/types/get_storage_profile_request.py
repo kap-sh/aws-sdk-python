@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#GetStorageProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.farm_id
     import aws_sdk_deadline.types.storage_profile_id
 
 
-class GetStorageProfileRequest(TypedDict):
+class GetStorageProfileRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID for the storage profile.</p>"""
     storage_profile_id: "aws_sdk_deadline.types.storage_profile_id.StorageProfileId"

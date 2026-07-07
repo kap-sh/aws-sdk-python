@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.m2#GdgDetailAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.integer
     import aws_sdk_m2.types.string50
 
 
-class GdgDetailAttributes(TypedDict):
+class GdgDetailAttributes(TypedDict, closed=True):
     limit: "aws_sdk_m2.types.integer.Integer"
     """<p>The maximum number of generation data sets, up to 255, in a GDG.</p>"""
     roll_disposition: NotRequired["aws_sdk_m2.types.string50.String50"]

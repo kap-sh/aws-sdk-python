@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ReservationPurchaseRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.account_scope
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.term_in_years
 
 
-class ReservationPurchaseRecommendation(TypedDict):
+class ReservationPurchaseRecommendation(TypedDict, closed=True):
     account_scope: NotRequired["aws_sdk_cost_explorer.types.account_scope.AccountScope"]
     """<p>The account scope that Amazon Web Services recommends that you purchase this instance for. For example, you can purchase this reservation for an entire organization in Amazon Web Services Organizations.</p>"""
     lookback_period_in_days: NotRequired[

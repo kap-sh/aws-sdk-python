@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Smpte2110ReceiverGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.smpte2110_receiver_group_sdp_settings
 
 
-class Smpte2110ReceiverGroup(TypedDict):
+class Smpte2110ReceiverGroup(TypedDict, closed=True):
     sdp_settings: NotRequired[
         "aws_sdk_medialive.types.smpte2110_receiver_group_sdp_settings.Smpte2110ReceiverGroupSdpSettings"
     ]

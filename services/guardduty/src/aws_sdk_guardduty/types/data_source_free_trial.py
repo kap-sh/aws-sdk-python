@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DataSourceFreeTrial``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.integer
 
 
-class DataSourceFreeTrial(TypedDict):
+class DataSourceFreeTrial(TypedDict, closed=True):
     free_trial_days_remaining: NotRequired["aws_sdk_guardduty.types.integer.Integer"]
     """<p>A value that specifies the number of days left to use each enabled data source.</p>"""
 

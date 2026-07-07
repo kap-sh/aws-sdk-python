@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#RdsPromoteReadReplicaConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.rds_db_instance_arn_map
 
 
-class RdsPromoteReadReplicaConfiguration(TypedDict):
+class RdsPromoteReadReplicaConfiguration(TypedDict, closed=True):
     timeout_minutes: "int"
     """<p>The timeout value specified for the configuration.</p>"""
     cross_account_role: NotRequired[

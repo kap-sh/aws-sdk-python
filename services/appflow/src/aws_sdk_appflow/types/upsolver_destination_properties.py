@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#UpsolverDestinationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.upsolver_s3_output_format_config
 
 
-class UpsolverDestinationProperties(TypedDict):
+class UpsolverDestinationProperties(TypedDict, closed=True):
     bucket_name: "aws_sdk_appflow.types.upsolver_bucket_name.UpsolverBucketName"
     """<p> The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the transferred data. </p>"""
     bucket_prefix: NotRequired["aws_sdk_appflow.types.bucket_prefix.BucketPrefix"]

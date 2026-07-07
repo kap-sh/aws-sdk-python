@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#CreateBackendStorageResourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.service_name
 
 
-class CreateBackendStorageResourceConfig(TypedDict):
+class CreateBackendStorageResourceConfig(TypedDict, closed=True):
     bucket_name: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>The name of the S3 bucket.</p>"""
     permissions: NotRequired[

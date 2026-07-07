@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#BucketState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.non_empty_string
     import aws_sdk_lightsail.types.string
 
 
-class BucketState(TypedDict):
+class BucketState(TypedDict, closed=True):
     code: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]
     """<p>The state code of the bucket.</p> <p>The following codes are possible:</p> <ul> <li> <p> <code>OK</code> - The bucket is in a running state.</p> </li> <li> <p> <code>Unknown</code> - Creation of the bucket might have timed-out. You might want to delete the bucket and create a new one.</p> </li> </ul>"""
     message: NotRequired["aws_sdk_lightsail.types.string.string"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#CreateIPSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.ip_set_summary
 
 
-class CreateIPSetResponse(TypedDict):
+class CreateIPSetResponse(TypedDict, closed=True):
     summary: NotRequired["aws_sdk_wafv2.types.ip_set_summary.IPSetSummary"]
     """<p>High-level information about an <a>IPSet</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage an <code>IPSet</code>, and the ARN, that you provide to the <a>IPSetReferenceStatement</a> to use the address set in a <a>Rule</a>.</p>"""
 

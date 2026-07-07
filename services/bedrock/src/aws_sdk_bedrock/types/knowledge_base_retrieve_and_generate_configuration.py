@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#KnowledgeBaseRetrieveAndGenerateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.orchestration_configuration
 
 
-class KnowledgeBaseRetrieveAndGenerateConfiguration(TypedDict):
+class KnowledgeBaseRetrieveAndGenerateConfiguration(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_bedrock.types.knowledge_base_id.KnowledgeBaseId"
     """<p>The unique identifier of the knowledge base.</p>"""
     model_arn: "aws_sdk_bedrock.types.bedrock_model_arn.BedrockModelArn"

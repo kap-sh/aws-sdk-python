@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#BatchIsAuthorizedOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.batch_is_authorized_output_list
 
 
-class BatchIsAuthorizedOutput(TypedDict):
+class BatchIsAuthorizedOutput(TypedDict, closed=True):
     results: "aws_sdk_verifiedpermissions.types.batch_is_authorized_output_list.BatchIsAuthorizedOutputList"
     """<p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and the policies that produced them. These results are returned in the order they were requested.</p>"""
 

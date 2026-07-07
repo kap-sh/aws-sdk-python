@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AuditCheckDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_check_run_status
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.total_resources_count
 
 
-class AuditCheckDetails(TypedDict):
+class AuditCheckDetails(TypedDict, closed=True):
     check_run_status: NotRequired[
         "aws_sdk_iot.types.audit_check_run_status.AuditCheckRunStatus"
     ]

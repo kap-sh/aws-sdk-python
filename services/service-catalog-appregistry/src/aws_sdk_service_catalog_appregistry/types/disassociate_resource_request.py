@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#DisassociateResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.application_specifier
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.resource_type
 
 
-class DisassociateResourceRequest(TypedDict):
+class DisassociateResourceRequest(TypedDict, closed=True):
     application: "aws_sdk_service_catalog_appregistry.types.application_specifier.ApplicationSpecifier"
     """<p>The name or ID of the application.</p>"""
     resource_type: (

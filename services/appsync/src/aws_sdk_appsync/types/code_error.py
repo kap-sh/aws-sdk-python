@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#CodeError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.code_error_location
     import aws_sdk_appsync.types.string
 
 
-class CodeError(TypedDict):
+class CodeError(TypedDict, closed=True):
     error_type: NotRequired["aws_sdk_appsync.types.string.String"]
     """<p>The type of code error. </p> <p>Examples include, but aren't limited to: <code>LINT_ERROR</code>, <code>PARSER_ERROR</code>.</p>"""
     value: NotRequired["aws_sdk_appsync.types.string.String"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetMapGlyphsResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetMapGlyphsResponse(TypedDict):
+class GetMapGlyphsResponse(TypedDict, closed=True):
     blob: NotRequired["bytes"]
     """<p>The glyph, as binary blob.</p>"""
     content_type: NotRequired["str"]

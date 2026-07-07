@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.polly#PutLexiconOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutLexiconOutput(TypedDict):
+class PutLexiconOutput(TypedDict, closed=True):
     pass
 
 

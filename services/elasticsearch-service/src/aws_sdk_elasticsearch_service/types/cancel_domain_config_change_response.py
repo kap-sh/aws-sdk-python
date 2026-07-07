@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#CancelDomainConfigChangeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.cancelled_change_property_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.guid_list
 
 
-class CancelDomainConfigChangeResponse(TypedDict):
+class CancelDomainConfigChangeResponse(TypedDict, closed=True):
     dry_run: NotRequired["aws_sdk_elasticsearch_service.types.dry_run.DryRun"]
     """<p>Whether or not the request was a dry run. If <b>True</b>, the changes were not actually cancelled.</p>"""
     cancelled_change_ids: NotRequired[

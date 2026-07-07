@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#GetTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group_arn_v2
 
 
-class GetTagsInput(TypedDict):
+class GetTagsInput(TypedDict, closed=True):
     arn: "aws_sdk_resource_groups.types.group_arn_v2.GroupArnV2"
     """<p>The Amazon resource name (ARN) of the resource group whose tags you want to retrieve.</p>"""
 

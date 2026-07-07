@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ListResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ram.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class ListResourcesRequest(TypedDict):
+class ListResourcesRequest(TypedDict, closed=True):
     resource_owner: "aws_sdk_ram.types.resource_owner.ResourceOwner"
     """<p>Specifies that you want to list only the resource shares that match the following:</p> <ul> <li> <p> <b> <code>SELF</code> </b> – resources that your account shares with other accounts</p> </li> <li> <p> <b> <code>OTHER-ACCOUNTS</code> </b> – resources that other accounts share with your account</p> </li> </ul>"""
     principal: NotRequired["aws_sdk_ram.types.string.String"]

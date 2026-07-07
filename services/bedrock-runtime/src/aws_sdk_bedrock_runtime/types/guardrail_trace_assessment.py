@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailTraceAssessment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_assessment_list_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.model_outputs
 
 
-class GuardrailTraceAssessment(TypedDict):
+class GuardrailTraceAssessment(TypedDict, closed=True):
     model_output: NotRequired[
         "aws_sdk_bedrock_runtime.types.model_outputs.ModelOutputs"
     ]

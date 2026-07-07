@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeModelPackageInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.included_data
     import aws_sdk_sagemaker.types.versioned_arn_or_name
 
 
-class DescribeModelPackageInput(TypedDict):
+class DescribeModelPackageInput(TypedDict, closed=True):
     model_package_name: NotRequired[
         "aws_sdk_sagemaker.types.versioned_arn_or_name.VersionedArnOrName"
     ]

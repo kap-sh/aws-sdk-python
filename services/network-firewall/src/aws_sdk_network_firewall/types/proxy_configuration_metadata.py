@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#ProxyConfigurationMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.resource_arn
     import aws_sdk_network_firewall.types.resource_name
 
 
-class ProxyConfigurationMetadata(TypedDict):
+class ProxyConfigurationMetadata(TypedDict, closed=True):
     name: NotRequired["aws_sdk_network_firewall.types.resource_name.ResourceName"]
     """<p>The descriptive name of the proxy configuration. You can't change the name of a proxy configuration after you create it.</p>"""
     arn: NotRequired["aws_sdk_network_firewall.types.resource_arn.ResourceArn"]

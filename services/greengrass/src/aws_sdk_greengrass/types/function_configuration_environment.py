@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#FunctionConfigurationEnvironment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrass.types.function_execution_config
 
 
-class FunctionConfigurationEnvironment(TypedDict):
+class FunctionConfigurationEnvironment(TypedDict, closed=True):
     access_sysfs: NotRequired["aws_sdk_greengrass.types.__boolean.__boolean"]
     """If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container."""
     execution: NotRequired[

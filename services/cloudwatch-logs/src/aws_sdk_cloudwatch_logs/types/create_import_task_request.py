@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#CreateImportTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.role_arn
 
 
-class CreateImportTaskRequest(TypedDict):
+class CreateImportTaskRequest(TypedDict, closed=True):
     import_source_arn: "aws_sdk_cloudwatch_logs.types.arn.Arn"
     """<p>The ARN of the source to import from.</p>"""
     import_role_arn: "aws_sdk_cloudwatch_logs.types.role_arn.RoleArn"

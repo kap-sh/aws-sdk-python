@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#MemoryStrategyInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -15,23 +17,23 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.user_preference_memory_strategy_input
 
 
-class _MemoryStrategyInput_semanticMemoryStrategy(TypedDict):
+class _MemoryStrategyInput_semanticMemoryStrategy(TypedDict, closed=True):
     semanticMemoryStrategy: "aws_sdk_bedrock_agentcore_control.types.semantic_memory_strategy_input.SemanticMemoryStrategyInput"
 
 
-class _MemoryStrategyInput_summaryMemoryStrategy(TypedDict):
+class _MemoryStrategyInput_summaryMemoryStrategy(TypedDict, closed=True):
     summaryMemoryStrategy: "aws_sdk_bedrock_agentcore_control.types.summary_memory_strategy_input.SummaryMemoryStrategyInput"
 
 
-class _MemoryStrategyInput_userPreferenceMemoryStrategy(TypedDict):
+class _MemoryStrategyInput_userPreferenceMemoryStrategy(TypedDict, closed=True):
     userPreferenceMemoryStrategy: "aws_sdk_bedrock_agentcore_control.types.user_preference_memory_strategy_input.UserPreferenceMemoryStrategyInput"
 
 
-class _MemoryStrategyInput_customMemoryStrategy(TypedDict):
+class _MemoryStrategyInput_customMemoryStrategy(TypedDict, closed=True):
     customMemoryStrategy: "aws_sdk_bedrock_agentcore_control.types.custom_memory_strategy_input.CustomMemoryStrategyInput"
 
 
-class _MemoryStrategyInput_episodicMemoryStrategy(TypedDict):
+class _MemoryStrategyInput_episodicMemoryStrategy(TypedDict, closed=True):
     episodicMemoryStrategy: "aws_sdk_bedrock_agentcore_control.types.episodic_memory_strategy_input.EpisodicMemoryStrategyInput"
 
 

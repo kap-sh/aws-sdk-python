@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#InstancePortState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.network_protocol
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string_list
 
 
-class InstancePortState(TypedDict):
+class InstancePortState(TypedDict, closed=True):
     from_port: "aws_sdk_lightsail.types.port.Port"
     r"""<p>The first port in a range of open ports on an instance.</p> <p>Allowed ports:</p> <ul> <li> <p>TCP and UDP - <code>0</code> to <code>65535</code> </p> </li> <li> <p>ICMP - The ICMP type for IPv4 addresses. For example, specify <code>8</code> as the <code>fromPort</code> (ICMP type), and <code>-1</code> as the <code>toPort</code> (ICMP code), to enable ICMP Ping. For more information, see <a href=\"https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol#Control_messages\">Control Messages</a> on <i>Wikipedia</i>.</p> </li> <li> <p>ICMPv6 - The ICMP type for IPv6 addresses. For example, specify <code>128</code> as the <code>fromPort</code> (ICMPv6 type), and <code>0</code> as <code>toPort</code> (ICMPv6 code). For more information, see <a href=\"https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol_for_IPv6\">Internet Control Message Protocol for IPv6</a>.</p> </li> </ul>"""
     to_port: "aws_sdk_lightsail.types.port.Port"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#BatchGetSecretValueResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.api_error_list_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.secret_values_type
 
 
-class BatchGetSecretValueResponse(TypedDict):
+class BatchGetSecretValueResponse(TypedDict, closed=True):
     secret_values: NotRequired[
         "aws_sdk_secrets_manager.types.secret_values_type.SecretValuesType"
     ]

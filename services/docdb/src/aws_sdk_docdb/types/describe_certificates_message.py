@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#DescribeCertificatesMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class DescribeCertificatesMessage(TypedDict):
+class DescribeCertificatesMessage(TypedDict, closed=True):
     certificate_identifier: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The user-supplied certificate identifier. If this parameter is specified, information for only the specified certificate is returned. If this parameter is omitted, a list of up to <code>MaxRecords</code> certificates is returned. This parameter is not case sensitive.</p> <p>Constraints</p> <ul> <li> <p>Must match an existing <code>CertificateIdentifier</code>.</p> </li> </ul>"""
     filters: NotRequired["aws_sdk_docdb.types.filter_list.FilterList"]

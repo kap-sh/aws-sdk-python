@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DataCatalogConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.catalog
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.table_name
 
 
-class DataCatalogConfig(TypedDict):
+class DataCatalogConfig(TypedDict, closed=True):
     table_name: NotRequired["aws_sdk_sagemaker.types.table_name.TableName"]
     """<p>The name of the Glue table.</p>"""
     catalog: NotRequired["aws_sdk_sagemaker.types.catalog.Catalog"]

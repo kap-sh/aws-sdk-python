@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ListServiceNetworkVpcEndpointAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_network_identifier
 
 
-class ListServiceNetworkVpcEndpointAssociationsRequest(TypedDict):
+class ListServiceNetworkVpcEndpointAssociationsRequest(TypedDict, closed=True):
     service_network_identifier: (
         "aws_sdk_vpc_lattice.types.service_network_identifier.ServiceNetworkIdentifier"
     )

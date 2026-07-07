@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#ApplicationPolicies``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pca_connector_ad.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.application_policy_list
 
 
-class ApplicationPolicies(TypedDict):
+class ApplicationPolicies(TypedDict, closed=True):
     critical: NotRequired["bool"]
     """<p>Marks the application policy extension as critical.</p>"""
     policies: (

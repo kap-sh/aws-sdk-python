@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#UpdateAgentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.tag_value
 
 
-class UpdateAgentRequest(TypedDict):
+class UpdateAgentRequest(TypedDict, closed=True):
     agent_arn: "aws_sdk_datasync.types.agent_arn.AgentArn"
     """<p>The Amazon Resource Name (ARN) of the agent to update.</p>"""
     name: NotRequired["aws_sdk_datasync.types.tag_value.TagValue"]

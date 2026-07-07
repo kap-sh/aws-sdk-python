@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PutWebhookInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.webhook_definition
 
 
-class PutWebhookInput(TypedDict):
+class PutWebhookInput(TypedDict, closed=True):
     webhook: "aws_sdk_codepipeline.types.webhook_definition.WebhookDefinition"
     """<p>The detail provided in an input file to create the webhook, such as the webhook name, the pipeline name, and the action name. Give the webhook a unique name that helps you identify it. You might name the webhook after the pipeline and action it targets so that you can easily recognize what it's used for later.</p>"""
     tags: NotRequired["aws_sdk_codepipeline.types.tag_list.TagList"]

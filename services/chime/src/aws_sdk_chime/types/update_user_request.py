@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#UpdateUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.alexa_for_business_metadata
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.user_type
 
 
-class UpdateUserRequest(TypedDict):
+class UpdateUserRequest(TypedDict, closed=True):
     account_id: "aws_sdk_chime.types.non_empty_string.NonEmptyString"
     """<p>The Amazon Chime account ID.</p>"""
     user_id: "aws_sdk_chime.types.non_empty_string.NonEmptyString"

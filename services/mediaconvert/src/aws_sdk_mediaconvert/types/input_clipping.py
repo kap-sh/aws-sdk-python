@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#InputClipping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_pattern010920405090509092090909
 
 
-class InputClipping(TypedDict):
+class InputClipping(TypedDict, closed=True):
     end_timecode: NotRequired[
         "aws_sdk_mediaconvert.types.__string_pattern010920405090509092090909.__stringPattern010920405090509092090909"
     ]

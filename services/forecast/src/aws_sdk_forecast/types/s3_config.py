@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#S3Config``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.s3_path
 
 
-class S3Config(TypedDict):
+class S3Config(TypedDict, closed=True):
     path: "aws_sdk_forecast.types.s3_path.S3Path"
     """<p>The path to an Amazon Simple Storage Service (Amazon S3) bucket or file(s) in an Amazon S3 bucket.</p>"""
     role_arn: "aws_sdk_forecast.types.arn.Arn"

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#MatchRange``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
 
-class MatchRange(TypedDict):
+class MatchRange(TypedDict, closed=True):
     start: "int"
     """<p>The start of the range.</p>"""
     end: "int"

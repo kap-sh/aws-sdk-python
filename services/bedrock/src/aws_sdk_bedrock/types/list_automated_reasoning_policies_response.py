@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListAutomatedReasoningPoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.pagination_token
 
 
-class ListAutomatedReasoningPoliciesResponse(TypedDict):
+class ListAutomatedReasoningPoliciesResponse(TypedDict, closed=True):
     automated_reasoning_policy_summaries: "aws_sdk_bedrock.types.automated_reasoning_policy_summaries.AutomatedReasoningPolicySummaries"
     """<p>A list of Automated Reasoning policy summaries.</p>"""
     next_token: NotRequired["aws_sdk_bedrock.types.pagination_token.PaginationToken"]

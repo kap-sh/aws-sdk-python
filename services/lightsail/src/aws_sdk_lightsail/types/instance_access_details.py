@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#InstanceAccessDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.host_keys_list
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class InstanceAccessDetails(TypedDict):
+class InstanceAccessDetails(TypedDict, closed=True):
     cert_key: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>For SSH access, the public key to use when accessing your instance For OpenSSH clients (command line SSH), you should save this value to <code>tempkey-cert.pub</code>.</p>"""
     expires_at: NotRequired["aws_sdk_lightsail.types.iso_date.IsoDate"]

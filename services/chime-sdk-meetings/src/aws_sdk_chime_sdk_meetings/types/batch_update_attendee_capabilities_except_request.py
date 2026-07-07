@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#BatchUpdateAttendeeCapabilitiesExceptRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_meetings.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.guid_string
 
 
-class BatchUpdateAttendeeCapabilitiesExceptRequest(TypedDict):
+class BatchUpdateAttendeeCapabilitiesExceptRequest(TypedDict, closed=True):
     meeting_id: "aws_sdk_chime_sdk_meetings.types.guid_string.GuidString"
     """<p>The ID of the meeting associated with the update request.</p>"""
     excluded_attendee_ids: (

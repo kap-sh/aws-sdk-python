@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#CreateUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user
 
 
-class CreateUserResponse(TypedDict):
+class CreateUserResponse(TypedDict, closed=True):
     user: NotRequired["aws_sdk_iam.types.user.User"]
     """<p>A structure with details about the new IAM user.</p>"""
 

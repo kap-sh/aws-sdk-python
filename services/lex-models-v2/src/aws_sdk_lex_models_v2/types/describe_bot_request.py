@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DescribeBotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
 
 
-class DescribeBotRequest(TypedDict):
+class DescribeBotRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The unique identifier of the bot to describe.</p>"""
 

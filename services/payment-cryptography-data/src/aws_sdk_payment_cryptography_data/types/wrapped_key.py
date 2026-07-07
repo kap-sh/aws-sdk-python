@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#WrappedKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.wrapped_key_material
 
 
-class WrappedKey(TypedDict):
+class WrappedKey(TypedDict, closed=True):
     wrapped_key_material: "aws_sdk_payment_cryptography_data.types.wrapped_key_material.WrappedKeyMaterial"
     """<p>Parameter information of a WrappedKeyBlock for encryption key exchange.</p>"""
     key_check_value_algorithm: NotRequired[

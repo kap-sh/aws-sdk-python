@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotTableTotalOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pivot_total_options
     import aws_sdk_quicksight.types.subtotal_options
 
 
-class PivotTableTotalOptions(TypedDict):
+class PivotTableTotalOptions(TypedDict, closed=True):
     row_subtotal_options: NotRequired[
         "aws_sdk_quicksight.types.subtotal_options.SubtotalOptions"
     ]

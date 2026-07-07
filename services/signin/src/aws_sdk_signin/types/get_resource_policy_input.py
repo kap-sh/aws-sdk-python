@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.signin#GetResourcePolicyInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetResourcePolicyInput(TypedDict):
+class GetResourcePolicyInput(TypedDict, closed=True):
     pass
 
 

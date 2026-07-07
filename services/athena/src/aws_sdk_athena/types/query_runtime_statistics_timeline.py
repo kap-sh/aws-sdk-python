@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#QueryRuntimeStatisticsTimeline``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.long
 
 
-class QueryRuntimeStatisticsTimeline(TypedDict):
+class QueryRuntimeStatisticsTimeline(TypedDict, closed=True):
     query_queue_time_in_millis: NotRequired["aws_sdk_athena.types.long.Long"]
     """<p>The number of milliseconds that the query was in your query queue waiting for resources. Note that if transient errors occur, Athena might automatically add the query back to the queue.</p>"""
     service_pre_processing_time_in_millis: NotRequired["aws_sdk_athena.types.long.Long"]

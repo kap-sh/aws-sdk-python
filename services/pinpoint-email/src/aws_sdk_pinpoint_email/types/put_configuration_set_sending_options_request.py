@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#PutConfigurationSetSendingOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.configuration_set_name
     import aws_sdk_pinpoint_email.types.enabled
 
 
-class PutConfigurationSetSendingOptionsRequest(TypedDict):
+class PutConfigurationSetSendingOptionsRequest(TypedDict, closed=True):
     configuration_set_name: (
         "aws_sdk_pinpoint_email.types.configuration_set_name.ConfigurationSetName"
     )

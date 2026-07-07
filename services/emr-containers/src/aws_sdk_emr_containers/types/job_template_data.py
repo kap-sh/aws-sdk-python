@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#JobTemplateData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_containers.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.template_parameter_configuration_map
 
 
-class JobTemplateData(TypedDict):
+class JobTemplateData(TypedDict, closed=True):
     execution_role_arn: (
         "aws_sdk_emr_containers.types.parametric_iam_role_arn.ParametricIAMRoleArn"
     )

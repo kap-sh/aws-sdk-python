@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#UntagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.arn
     import aws_sdk_security_ir.types.tag_keys
 
 
-class UntagResourceInput(TypedDict):
+class UntagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_security_ir.types.arn.Arn"
     """<p>Required element for UnTagResource to identify the ARN for the resource to remove a tag from.</p>"""
     tag_keys: "aws_sdk_security_ir.types.tag_keys.TagKeys"

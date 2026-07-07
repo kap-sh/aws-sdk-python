@@ -3,9 +3,9 @@
 import warnings
 from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_neptune_graph._auth._signers
@@ -68,7 +68,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.untag_resource_output
 
 
-class AsyncNeptuneGraphClientConfig(TypedDict, total=False):
+class AsyncNeptuneGraphClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

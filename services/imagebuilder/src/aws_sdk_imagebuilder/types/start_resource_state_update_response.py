@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#StartResourceStateUpdateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_build_version_arn
     import aws_sdk_imagebuilder.types.lifecycle_execution_id
 
 
-class StartResourceStateUpdateResponse(TypedDict):
+class StartResourceStateUpdateResponse(TypedDict, closed=True):
     lifecycle_execution_id: NotRequired[
         "aws_sdk_imagebuilder.types.lifecycle_execution_id.LifecycleExecutionId"
     ]

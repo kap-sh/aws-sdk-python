@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#LifecycleExpiration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.expired_object_delete_marker
 
 
-class LifecycleExpiration(TypedDict):
+class LifecycleExpiration(TypedDict, closed=True):
     date: NotRequired["aws_sdk_s3_control.types.date.Date"]
     """<p>Indicates at what date the object is to be deleted. Should be in GMT ISO 8601 format.</p>"""
     days: "aws_sdk_s3_control.types.days.Days"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PutResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.policy_hash
     import aws_sdk_ssm.types.policy_id
 
 
-class PutResourcePolicyResponse(TypedDict):
+class PutResourcePolicyResponse(TypedDict, closed=True):
     policy_id: NotRequired["aws_sdk_ssm.types.policy_id.PolicyId"]
     """<p>The policy ID. To update a policy, you must specify <code>PolicyId</code> and <code>PolicyHash</code>.</p>"""
     policy_hash: NotRequired["aws_sdk_ssm.types.policy_hash.PolicyHash"]

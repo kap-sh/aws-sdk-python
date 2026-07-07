@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ListVpcEndpointsForDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_name
     import aws_sdk_opensearch.types.next_token
 
 
-class ListVpcEndpointsForDomainRequest(TypedDict):
+class ListVpcEndpointsForDomainRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"
     """<p>The name of the domain to list associated VPC endpoints for.</p>"""
     next_token: NotRequired["aws_sdk_opensearch.types.next_token.NextToken"]

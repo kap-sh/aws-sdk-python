@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#CreateLimitResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.limit_id
 
 
-class CreateLimitResponse(TypedDict):
+class CreateLimitResponse(TypedDict, closed=True):
     limit_id: "aws_sdk_deadline.types.limit_id.LimitId"
     """<p>A unique identifier for the limit. Use this identifier in other operations, such as <code>CreateQueueLimitAssociation</code> and <code>DeleteLimit</code>.</p>"""
 

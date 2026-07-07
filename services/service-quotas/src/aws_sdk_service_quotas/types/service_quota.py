@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#ServiceQuota``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.applied_level_enum
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.service_name
 
 
-class ServiceQuota(TypedDict):
+class ServiceQuota(TypedDict, closed=True):
     service_code: NotRequired["aws_sdk_service_quotas.types.service_code.ServiceCode"]
     """<p>Specifies the service identifier. To find the service code value for an Amazon Web Services service, use the <a>ListServices</a> operation.</p>"""
     service_name: NotRequired["aws_sdk_service_quotas.types.service_name.ServiceName"]

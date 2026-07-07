@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#SecondaryAddressComponentMatchScore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.match_score
 
 
-class SecondaryAddressComponentMatchScore(TypedDict):
+class SecondaryAddressComponentMatchScore(TypedDict, closed=True):
     number: "aws_sdk_geo_places.types.match_score.MatchScore"
     """<p>Match score for the secondary address number.</p>"""
 

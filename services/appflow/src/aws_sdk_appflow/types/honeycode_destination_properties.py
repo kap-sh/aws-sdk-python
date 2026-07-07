@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#HoneycodeDestinationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.object
 
 
-class HoneycodeDestinationProperties(TypedDict):
+class HoneycodeDestinationProperties(TypedDict, closed=True):
     object: "aws_sdk_appflow.types.object.Object"
     """<p> The object specified in the Amazon Honeycode flow destination. </p>"""
     error_handling_config: NotRequired[

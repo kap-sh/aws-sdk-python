@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteIntegrationTablePropertiesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteIntegrationTablePropertiesResponse(TypedDict):
+class DeleteIntegrationTablePropertiesResponse(TypedDict, closed=True):
     pass
 
 

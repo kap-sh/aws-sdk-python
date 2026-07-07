@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#ListDevicesForUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class ListDevicesForUserResponse(TypedDict):
+class ListDevicesForUserResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>The token to use for retrieving the next page of results. If this is not present, there are no more results.</p>"""
     devices: "aws_sdk_wickr.types.devices.Devices"

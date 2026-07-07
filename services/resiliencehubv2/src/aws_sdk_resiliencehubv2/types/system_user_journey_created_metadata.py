@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#SystemUserJourneyCreatedMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.service_reference_list
 
 
-class SystemUserJourneyCreatedMetadata(TypedDict):
+class SystemUserJourneyCreatedMetadata(TypedDict, closed=True):
     user_journey_name: NotRequired["str"]
     """<p>The name of the created user journey.</p>"""
     associated_services: NotRequired[

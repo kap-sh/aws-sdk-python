@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionExecutionEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness._protocol.eventstream import HeaderValue, Message
 from aws_sdk_qbusiness.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.plugin_id
 
 
-class ActionExecutionEvent(TypedDict):
+class ActionExecutionEvent(TypedDict, closed=True):
     plugin_id: "aws_sdk_qbusiness.types.plugin_id.PluginId"
     """<p>The identifier of the plugin for which the action is being requested.</p>"""
     payload: "aws_sdk_qbusiness.types.action_execution_payload.ActionExecutionPayload"

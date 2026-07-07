@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#Logging``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.access_log
 
 
-class Logging(TypedDict):
+class Logging(TypedDict, closed=True):
     access_log: NotRequired["aws_sdk_app_mesh.types.access_log.AccessLog"]
     """<p>The access log configuration for a virtual node.</p>"""
 

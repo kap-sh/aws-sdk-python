@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ProjectBuildBatchConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.batch_report_mode_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_int
 
 
-class ProjectBuildBatchConfig(TypedDict):
+class ProjectBuildBatchConfig(TypedDict, closed=True):
     service_role: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p>Specifies the service role ARN for the batch build project.</p>"""
     combine_artifacts: NotRequired[

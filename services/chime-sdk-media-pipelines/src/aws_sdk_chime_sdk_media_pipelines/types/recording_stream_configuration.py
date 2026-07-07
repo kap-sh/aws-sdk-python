@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#RecordingStreamConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.kinesis_video_stream_arn
 
 
-class RecordingStreamConfiguration(TypedDict):
+class RecordingStreamConfiguration(TypedDict, closed=True):
     stream_arn: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.kinesis_video_stream_arn.KinesisVideoStreamArn"
     ]

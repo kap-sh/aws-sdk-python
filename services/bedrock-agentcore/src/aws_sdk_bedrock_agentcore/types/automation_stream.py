@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#AutomationStream``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.browser_stream_endpoint
 
 
-class AutomationStream(TypedDict):
+class AutomationStream(TypedDict, closed=True):
     stream_endpoint: (
         "aws_sdk_bedrock_agentcore.types.browser_stream_endpoint.BrowserStreamEndpoint"
     )

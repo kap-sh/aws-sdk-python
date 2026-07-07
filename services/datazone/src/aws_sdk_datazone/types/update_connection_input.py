@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.aws_location
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
 
 
-class UpdateConnectionInput(TypedDict):
+class UpdateConnectionInput(TypedDict, closed=True):
     configurations: NotRequired["aws_sdk_datazone.types.configurations.Configurations"]
     """<p>The configurations of the connection.</p>"""
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"

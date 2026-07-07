@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomationruntime#SyncInputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation_runtime.types.s3_uri
 
 
-class SyncInputConfiguration(TypedDict):
+class SyncInputConfiguration(TypedDict, closed=True):
     bytes: NotRequired["bytes"]
     """Input data as bytes"""
     s3_uri: NotRequired["aws_sdk_bedrock_data_automation_runtime.types.s3_uri.S3Uri"]

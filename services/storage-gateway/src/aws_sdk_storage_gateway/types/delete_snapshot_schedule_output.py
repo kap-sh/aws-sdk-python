@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DeleteSnapshotScheduleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.volume_arn
 
 
-class DeleteSnapshotScheduleOutput(TypedDict):
+class DeleteSnapshotScheduleOutput(TypedDict, closed=True):
     volume_arn: NotRequired["aws_sdk_storage_gateway.types.volume_arn.VolumeARN"]
     """<p>The volume which snapshot schedule was deleted.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#RebootNodeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dax.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.string
 
 
-class RebootNodeRequest(TypedDict):
+class RebootNodeRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_dax.types.string.String"
     """<p>The name of the DAX cluster containing the node to be rebooted.</p>"""
     node_id: "aws_sdk_dax.types.string.String"

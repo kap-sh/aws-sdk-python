@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#LabelDetection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.label
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.u_long
 
 
-class LabelDetection(TypedDict):
+class LabelDetection(TypedDict, closed=True):
     timestamp: "aws_sdk_rekognition.types.timestamp.Timestamp"
     """<p>Time, in milliseconds from the start of the video, that the label was detected. Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the label first appears.</p>"""
     label: NotRequired["aws_sdk_rekognition.types.label.Label"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#StartDomainMaintenanceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.request_id
 
 
-class StartDomainMaintenanceResponse(TypedDict):
+class StartDomainMaintenanceResponse(TypedDict, closed=True):
     maintenance_id: NotRequired["aws_sdk_opensearch.types.request_id.RequestId"]
     """<p>The request ID of requested action.</p>"""
 

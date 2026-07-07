@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#TimeWindow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.timestamp
 
 
-class TimeWindow(TypedDict):
+class TimeWindow(TypedDict, closed=True):
     start_time: "aws_sdk_wafv2.types.timestamp.Timestamp"
     r"""<p>The beginning of the time range from which you want <code>GetSampledRequests</code> to return a sample of the requests that your Amazon Web Services resource received. You must specify the times in Coordinated Universal Time (UTC) format. UTC format includes the special designator, <code>Z</code>. For example, <code>\"2016-09-27T14:50Z\"</code>. You can specify any time range in the previous three hours.</p>"""
     end_time: "aws_sdk_wafv2.types.timestamp.Timestamp"

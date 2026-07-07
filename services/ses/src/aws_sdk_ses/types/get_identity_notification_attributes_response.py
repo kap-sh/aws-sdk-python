@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#GetIdentityNotificationAttributesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.notification_attributes
 
 
-class GetIdentityNotificationAttributesResponse(TypedDict):
+class GetIdentityNotificationAttributesResponse(TypedDict, closed=True):
     notification_attributes: (
         "aws_sdk_ses.types.notification_attributes.NotificationAttributes"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ProvisionedProductPlanDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.created_time
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.updated_time
 
 
-class ProvisionedProductPlanDetails(TypedDict):
+class ProvisionedProductPlanDetails(TypedDict, closed=True):
     created_time: NotRequired["aws_sdk_service_catalog.types.created_time.CreatedTime"]
     """<p>The UTC time stamp of the creation time.</p>"""
     path_id: NotRequired["aws_sdk_service_catalog.types.id.Id"]

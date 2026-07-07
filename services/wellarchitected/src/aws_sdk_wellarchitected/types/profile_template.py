@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ProfileTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.profile_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.timestamp
 
 
-class ProfileTemplate(TypedDict):
+class ProfileTemplate(TypedDict, closed=True):
     template_name: NotRequired["aws_sdk_wellarchitected.types.profile_name.ProfileName"]
     """<p>The name of the profile template.</p>"""
     template_questions: NotRequired[

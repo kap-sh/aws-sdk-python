@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#PropertyGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.property_names
 
 
-class PropertyGroupResponse(TypedDict):
+class PropertyGroupResponse(TypedDict, closed=True):
     group_type: "aws_sdk_iottwinmaker.types.group_type.GroupType"
     """<p>The group types.</p>"""
     property_names: "aws_sdk_iottwinmaker.types.property_names.PropertyNames"

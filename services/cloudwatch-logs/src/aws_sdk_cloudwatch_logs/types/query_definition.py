@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#QueryDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.log_group_names
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class QueryDefinition(TypedDict):
+class QueryDefinition(TypedDict, closed=True):
     query_language: NotRequired[
         "aws_sdk_cloudwatch_logs.types.query_language.QueryLanguage"
     ]

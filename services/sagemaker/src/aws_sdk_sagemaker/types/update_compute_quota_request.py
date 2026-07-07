@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateComputeQuotaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.activation_state
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.integer
 
 
-class UpdateComputeQuotaRequest(TypedDict):
+class UpdateComputeQuotaRequest(TypedDict, closed=True):
     compute_quota_id: NotRequired[
         "aws_sdk_sagemaker.types.compute_quota_id.ComputeQuotaId"
     ]

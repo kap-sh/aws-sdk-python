@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeReservedInstancesListingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.reserved_instances_listing_id
 
 
-class DescribeReservedInstancesListingsRequest(TypedDict):
+class DescribeReservedInstancesListingsRequest(TypedDict, closed=True):
     reserved_instances_id: NotRequired["aws_sdk_ec2.types.reservation_id.ReservationId"]
     """<p>One or more Reserved Instance IDs.</p>"""
     reserved_instances_listing_id: NotRequired[

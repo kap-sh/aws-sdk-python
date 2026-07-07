@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetEC2InstanceRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.get_recommendation_errors
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.next_token
 
 
-class GetEC2InstanceRecommendationsResponse(TypedDict):
+class GetEC2InstanceRecommendationsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_compute_optimizer.types.next_token.NextToken"]
     """<p>The token to use to advance to the next page of instance recommendations.</p> <p>This value is null when there are no more pages of instance recommendations to return.</p>"""
     instance_recommendations: NotRequired[

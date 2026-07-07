@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#ReplicaModifications``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.replica_modifications_status
 
 
-class ReplicaModifications(TypedDict):
+class ReplicaModifications(TypedDict, closed=True):
     status: "aws_sdk_s3_control.types.replica_modifications_status.ReplicaModificationsStatus"
     """<p>Specifies whether S3 on Outposts replicates modifications to object metadata on replicas.</p>"""
 

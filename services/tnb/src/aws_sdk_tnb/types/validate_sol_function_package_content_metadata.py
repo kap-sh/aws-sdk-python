@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#ValidateSolFunctionPackageContentMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.function_artifact_meta
 
 
-class ValidateSolFunctionPackageContentMetadata(TypedDict):
+class ValidateSolFunctionPackageContentMetadata(TypedDict, closed=True):
     vnfd: NotRequired["aws_sdk_tnb.types.function_artifact_meta.FunctionArtifactMeta"]
 
 

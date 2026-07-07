@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#BusinessNameGenerationConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class BusinessNameGenerationConfiguration(TypedDict):
+class BusinessNameGenerationConfiguration(TypedDict, closed=True):
     enabled: NotRequired["bool"]
     """<p>Specifies whether the business name generation is enabled.</p>"""
 

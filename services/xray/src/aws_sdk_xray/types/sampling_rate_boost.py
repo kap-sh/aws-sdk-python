@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#SamplingRateBoost``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.cooldown_window_minutes
     import aws_sdk_xray.types.max_rate
 
 
-class SamplingRateBoost(TypedDict):
+class SamplingRateBoost(TypedDict, closed=True):
     max_rate: "aws_sdk_xray.types.max_rate.MaxRate"
     """<p>Defines max temporary sampling rate to apply when a boost is triggered. Calculated boost rate by X-Ray will be less than or equal to this max rate.</p>"""
     cooldown_window_minutes: (

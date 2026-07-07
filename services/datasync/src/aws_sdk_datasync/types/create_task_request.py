@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.task_schedule
 
 
-class CreateTaskRequest(TypedDict):
+class CreateTaskRequest(TypedDict, closed=True):
     source_location_arn: "aws_sdk_datasync.types.location_arn.LocationArn"
     """<p>Specifies the ARN of your transfer's source location.</p>"""
     destination_location_arn: "aws_sdk_datasync.types.location_arn.LocationArn"

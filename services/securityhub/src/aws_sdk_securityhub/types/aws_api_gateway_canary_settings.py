@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsApiGatewayCanarySettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsApiGatewayCanarySettings(TypedDict):
+class AwsApiGatewayCanarySettings(TypedDict, closed=True):
     percent_traffic: NotRequired["aws_sdk_securityhub.types.double.Double"]
     """<p>The percentage of traffic that is diverted to a canary deployment.</p>"""
     deployment_id: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#GetVirtualMachineOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.virtual_machine_details
 
 
-class GetVirtualMachineOutput(TypedDict):
+class GetVirtualMachineOutput(TypedDict, closed=True):
     virtual_machine: NotRequired[
         "aws_sdk_backup_gateway.types.virtual_machine_details.VirtualMachineDetails"
     ]

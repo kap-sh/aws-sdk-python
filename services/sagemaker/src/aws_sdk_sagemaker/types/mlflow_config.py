@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MlflowConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.mlflow_run_name
 
 
-class MlflowConfig(TypedDict):
+class MlflowConfig(TypedDict, closed=True):
     mlflow_resource_arn: (
         "aws_sdk_sagemaker.types.ml_flow_resource_arn.MlFlowResourceArn"
     )

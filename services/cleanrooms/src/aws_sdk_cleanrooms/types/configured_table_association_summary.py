@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ConfiguredTableAssociationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.uuid
 
 
-class ConfiguredTableAssociationSummary(TypedDict):
+class ConfiguredTableAssociationSummary(TypedDict, closed=True):
     configured_table_id: "aws_sdk_cleanrooms.types.uuid.UUID"
     """<p>The unique configured table ID that this configured table association refers to.</p>"""
     membership_id: "aws_sdk_cleanrooms.types.membership_identifier.MembershipIdentifier"

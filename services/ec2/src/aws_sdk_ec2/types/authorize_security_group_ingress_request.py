@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AuthorizeSecurityGroupIngressRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class AuthorizeSecurityGroupIngressRequest(TypedDict):
+class AuthorizeSecurityGroupIngressRequest(TypedDict, closed=True):
     cidr_ip: NotRequired["aws_sdk_ec2.types.string.String"]
     r"""<p>The IPv4 address range, in CIDR format.</p> <note> <p> Amazon Web Services <a href=\"https://en.wikipedia.org/wiki/Canonicalization\">canonicalizes</a> IPv4 and IPv6 CIDRs. For example, if you specify 100.68.0.18/18 for the CIDR block, Amazon Web Services canonicalizes the CIDR block to 100.68.0.0/18. Any subsequent DescribeSecurityGroups and DescribeSecurityGroupRules calls will return the canonicalized form of the CIDR block. Additionally, if you attempt to add another rule with the non-canonical form of the CIDR (such as 100.68.0.18/18) and there is already a rule for the canonicalized form of the CIDR block (such as 100.68.0.0/18), the API throws an duplicate rule error.</p> </note> <p>To specify an IPv6 address range, use IP permissions instead.</p> <p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>"""
     from_port: NotRequired["aws_sdk_ec2.types.integer.Integer"]

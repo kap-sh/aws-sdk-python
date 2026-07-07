@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#UpdateRecipeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.recipe_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.recipe_step_list
 
 
-class UpdateRecipeRequest(TypedDict):
+class UpdateRecipeRequest(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_databrew.types.recipe_description.RecipeDescription"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MultiplexProgramChannelDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string_min1
 
 
-class MultiplexProgramChannelDestinationSettings(TypedDict):
+class MultiplexProgramChannelDestinationSettings(TypedDict, closed=True):
     multiplex_id: NotRequired["aws_sdk_medialive.types.__string_min1.__stringMin1"]
     """The ID of the Multiplex that the encoder is providing output to. You do not need to specify the individual inputs to the Multiplex; MediaLive will handle the connection of the two MediaLive pipelines to the two Multiplex instances. The Multiplex must be in the same region as the Channel."""
     program_name: NotRequired["aws_sdk_medialive.types.__string_min1.__stringMin1"]

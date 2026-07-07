@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#GetCalculatedAttributeForProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.name
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.uuid
 
 
-class GetCalculatedAttributeForProfileRequest(TypedDict):
+class GetCalculatedAttributeForProfileRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_customer_profiles.types.name.name"
     """<p>The unique name of the domain.</p>"""
     profile_id: "aws_sdk_customer_profiles.types.uuid.uuid"

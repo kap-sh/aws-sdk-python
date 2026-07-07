@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarnotifications#SubscribeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codestar_notifications.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_notifications.types.target
 
 
-class SubscribeRequest(TypedDict):
+class SubscribeRequest(TypedDict, closed=True):
     arn: (
         "aws_sdk_codestar_notifications.types.notification_rule_arn.NotificationRuleArn"
     )

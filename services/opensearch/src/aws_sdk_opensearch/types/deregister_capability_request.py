@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DeregisterCapabilityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.application_id
     import aws_sdk_opensearch.types.capability_name
 
 
-class DeregisterCapabilityRequest(TypedDict):
+class DeregisterCapabilityRequest(TypedDict, closed=True):
     application_id: "aws_sdk_opensearch.types.application_id.ApplicationId"
     """<p>The unique identifier of the OpenSearch UI application to deregister the capability from.</p>"""
     capability_name: "aws_sdk_opensearch.types.capability_name.CapabilityName"

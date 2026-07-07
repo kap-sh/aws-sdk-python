@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListJobsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.jobs
     import aws_sdk_device_farm.types.pagination_token
 
 
-class ListJobsResult(TypedDict):
+class ListJobsResult(TypedDict, closed=True):
     jobs: NotRequired["aws_sdk_device_farm.types.jobs.Jobs"]
     """<p>Information about the jobs.</p>"""
     next_token: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdatePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.policy_definition
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.updated_description
 
 
-class UpdatePolicyRequest(TypedDict):
+class UpdatePolicyRequest(TypedDict, closed=True):
     policy_engine_id: "aws_sdk_bedrock_agentcore_control.types.resource_id.ResourceId"
     """<p>The identifier of the policy engine that manages the policy to be updated. This ensures the policy is updated within the correct policy engine context.</p>"""
     policy_id: "aws_sdk_bedrock_agentcore_control.types.resource_id.ResourceId"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AddTagsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class AddTagsOutput(TypedDict):
+class AddTagsOutput(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]
     """<p>A list of tags associated with the SageMaker resource.</p>"""
 

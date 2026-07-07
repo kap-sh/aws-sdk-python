@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#UpdateProfilingGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.profiling_group_description
 
 
-class UpdateProfilingGroupResponse(TypedDict):
+class UpdateProfilingGroupResponse(TypedDict, closed=True):
     profiling_group: "aws_sdk_codeguruprofiler.types.profiling_group_description.ProfilingGroupDescription"
     r"""<p> A <a href=\"https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html\"> <code>ProfilingGroupDescription</code> </a> that contains information about the returned updated profiling group. </p>"""
 

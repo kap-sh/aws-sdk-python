@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BorderStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.width
 
 
-class BorderStyle(TypedDict):
+class BorderStyle(TypedDict, closed=True):
     color: NotRequired["aws_sdk_quicksight.types.color.Color"]
     """<p>The option to add color for tile borders for visuals.</p>"""
     show: NotRequired["aws_sdk_quicksight.types.boolean.Boolean"]

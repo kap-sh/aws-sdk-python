@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsLambdaFunctionCode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsLambdaFunctionCode(TypedDict):
+class AwsLambdaFunctionCode(TypedDict, closed=True):
     s3_bucket: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>"""
     s3_key: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

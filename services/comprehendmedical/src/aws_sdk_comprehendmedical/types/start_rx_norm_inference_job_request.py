@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#StartRxNormInferenceJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehendmedical.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.output_data_config
 
 
-class StartRxNormInferenceJobRequest(TypedDict):
+class StartRxNormInferenceJobRequest(TypedDict, closed=True):
     input_data_config: (
         "aws_sdk_comprehendmedical.types.input_data_config.InputDataConfig"
     )

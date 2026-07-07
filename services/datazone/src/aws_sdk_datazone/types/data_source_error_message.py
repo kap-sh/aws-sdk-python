@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DataSourceErrorMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.data_source_error_type
 
 
-class DataSourceErrorMessage(TypedDict):
+class DataSourceErrorMessage(TypedDict, closed=True):
     error_type: "aws_sdk_datazone.types.data_source_error_type.DataSourceErrorType"
     """<p>The type of the error message that is returned if the operation cannot be successfully completed.</p>"""
     error_detail: NotRequired["str"]

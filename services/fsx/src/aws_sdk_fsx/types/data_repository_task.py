@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DataRepositoryTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.capacity_to_release
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.task_id
 
 
-class DataRepositoryTask(TypedDict):
+class DataRepositoryTask(TypedDict, closed=True):
     task_id: NotRequired["aws_sdk_fsx.types.task_id.TaskId"]
     """<p>The system-generated, unique 17-digit ID of the data repository task.</p>"""
     lifecycle: NotRequired[

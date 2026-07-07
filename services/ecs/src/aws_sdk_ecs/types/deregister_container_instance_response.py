@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DeregisterContainerInstanceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.container_instance
 
 
-class DeregisterContainerInstanceResponse(TypedDict):
+class DeregisterContainerInstanceResponse(TypedDict, closed=True):
     container_instance: NotRequired[
         "aws_sdk_ecs.types.container_instance.ContainerInstance"
     ]

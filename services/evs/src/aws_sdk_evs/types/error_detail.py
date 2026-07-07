@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.evs#ErrorDetail``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
 
-class ErrorDetail(TypedDict):
+class ErrorDetail(TypedDict, closed=True):
     error_code: "str"
     """<p>The error code.</p>"""
     error_message: "str"

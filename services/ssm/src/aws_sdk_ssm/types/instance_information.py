@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InstanceInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.activation_id
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.version
 
 
-class InstanceInformation(TypedDict):
+class InstanceInformation(TypedDict, closed=True):
     instance_id: NotRequired["aws_sdk_ssm.types.instance_id.InstanceId"]
     """<p>The managed node ID. </p>"""
     ping_status: NotRequired["aws_sdk_ssm.types.ping_status.PingStatus"]

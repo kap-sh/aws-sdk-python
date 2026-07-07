@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DisassociateAwsAccountFromPartnerAccountResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateAwsAccountFromPartnerAccountResponse(TypedDict):
+class DisassociateAwsAccountFromPartnerAccountResponse(TypedDict, closed=True):
     pass
 
 

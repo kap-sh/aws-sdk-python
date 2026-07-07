@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#DeleteEmailIdentityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.identity
 
 
-class DeleteEmailIdentityRequest(TypedDict):
+class DeleteEmailIdentityRequest(TypedDict, closed=True):
     email_identity: "aws_sdk_pinpoint_email.types.identity.Identity"
     """<p>The identity (that is, the email address or domain) that you want to delete from your Amazon Pinpoint account.</p>"""
 

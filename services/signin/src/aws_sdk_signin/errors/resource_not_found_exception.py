@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#ResourceNotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signin.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.o_auth2_error_code
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     error: "aws_sdk_signin.types.o_auth2_error_code.OAuth2ErrorCode"
     """OAuth 2.0 error code indicating resource not found Will be RESOURCE_NOT_FOUND"""
     message: "str"

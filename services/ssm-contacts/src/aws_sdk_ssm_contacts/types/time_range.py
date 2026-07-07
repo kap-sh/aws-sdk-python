@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#TimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.date_time
 
 
-class TimeRange(TypedDict):
+class TimeRange(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_ssm_contacts.types.date_time.DateTime"]
     """<p>The start of the time range.</p>"""
     end_time: NotRequired["aws_sdk_ssm_contacts.types.date_time.DateTime"]

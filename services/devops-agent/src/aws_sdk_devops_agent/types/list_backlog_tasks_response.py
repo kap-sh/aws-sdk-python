@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ListBacklogTasksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.task_list
 
 
-class ListBacklogTasksResponse(TypedDict):
+class ListBacklogTasksResponse(TypedDict, closed=True):
     tasks: "aws_sdk_devops_agent.types.task_list.TaskList"
     """<p>List of backlog tasks</p>"""
     next_token: NotRequired["str"]

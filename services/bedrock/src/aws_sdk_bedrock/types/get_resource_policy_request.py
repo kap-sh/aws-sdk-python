@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.resource_policy_resource_arn
 
 
-class GetResourcePolicyRequest(TypedDict):
+class GetResourcePolicyRequest(TypedDict, closed=True):
     resource_arn: (
         "aws_sdk_bedrock.types.resource_policy_resource_arn.ResourcePolicyResourceArn"
     )

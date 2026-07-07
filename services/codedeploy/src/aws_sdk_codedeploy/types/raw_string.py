@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#RawString``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.raw_string_content
     import aws_sdk_codedeploy.types.raw_string_sha256
 
 
-class RawString(TypedDict):
+class RawString(TypedDict, closed=True):
     content: NotRequired["aws_sdk_codedeploy.types.raw_string_content.RawStringContent"]
     """<p>The YAML-formatted or JSON-formatted revision string. It includes information about which Lambda function to update and optional Lambda functions that validate deployment lifecycle events.</p>"""
     sha256: NotRequired["aws_sdk_codedeploy.types.raw_string_sha256.RawStringSha256"]

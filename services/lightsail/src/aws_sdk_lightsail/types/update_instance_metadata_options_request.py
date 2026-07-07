@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#UpdateInstanceMetadataOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class UpdateInstanceMetadataOptionsRequest(TypedDict):
+class UpdateInstanceMetadataOptionsRequest(TypedDict, closed=True):
     instance_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of the instance for which to update metadata parameters.</p>"""
     http_tokens: NotRequired["aws_sdk_lightsail.types.http_tokens.HttpTokens"]

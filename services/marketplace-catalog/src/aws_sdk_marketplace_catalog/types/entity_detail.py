@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#EntityDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.json_document_type
 
 
-class EntityDetail(TypedDict):
+class EntityDetail(TypedDict, closed=True):
     entity_type: NotRequired["aws_sdk_marketplace_catalog.types.entity_type.EntityType"]
     """<p>The entity type of the entity, in the format of <code>EntityType@Version</code>.</p>"""
     entity_arn: NotRequired["aws_sdk_marketplace_catalog.types.arn.ARN"]

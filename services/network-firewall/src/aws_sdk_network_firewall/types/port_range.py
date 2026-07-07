@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#PortRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.port_range_bound
 
 
-class PortRange(TypedDict):
+class PortRange(TypedDict, closed=True):
     from_port: "aws_sdk_network_firewall.types.port_range_bound.PortRangeBound"
     """<p>The lower limit of the port range. This must be less than or equal to the <code>ToPort</code> specification. </p>"""
     to_port: "aws_sdk_network_firewall.types.port_range_bound.PortRangeBound"

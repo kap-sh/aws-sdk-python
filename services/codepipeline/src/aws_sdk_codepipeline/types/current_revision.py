@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#CurrentRevision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.time
 
 
-class CurrentRevision(TypedDict):
+class CurrentRevision(TypedDict, closed=True):
     revision: "aws_sdk_codepipeline.types.revision.Revision"
     """<p>The revision ID of the current version of an artifact.</p>"""
     change_identifier: (

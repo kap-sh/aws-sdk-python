@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ReplicationStatusType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.key_replication_state
 
 
-class ReplicationStatusType(TypedDict):
+class ReplicationStatusType(TypedDict, closed=True):
     status: (
         "aws_sdk_payment_cryptography.types.key_replication_state.KeyReplicationState"
     )

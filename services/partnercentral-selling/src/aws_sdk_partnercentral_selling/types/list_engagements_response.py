@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ListEngagementsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.engagement_summary_list
 
 
-class ListEngagementsResponse(TypedDict):
+class ListEngagementsResponse(TypedDict, closed=True):
     engagement_summary_list: "aws_sdk_partnercentral_selling.types.engagement_summary_list.EngagementSummaryList"
     """<p>An array of engagement summary objects.</p>"""
     next_token: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#EventSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.event_source_state
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.timestamp
 
 
-class EventSource(TypedDict):
+class EventSource(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_eventbridge.types.string.String"]
     """<p>The ARN of the event source.</p>"""
     created_by: NotRequired["aws_sdk_eventbridge.types.string.String"]

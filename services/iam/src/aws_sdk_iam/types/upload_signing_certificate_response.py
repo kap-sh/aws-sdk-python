@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#UploadSigningCertificateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.signing_certificate
 
 
-class UploadSigningCertificateResponse(TypedDict):
+class UploadSigningCertificateResponse(TypedDict, closed=True):
     certificate: "aws_sdk_iam.types.signing_certificate.SigningCertificate"
     """<p>Information about the certificate.</p>"""
 

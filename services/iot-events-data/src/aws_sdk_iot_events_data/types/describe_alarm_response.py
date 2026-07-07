@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#DescribeAlarmResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.alarm
 
 
-class DescribeAlarmResponse(TypedDict):
+class DescribeAlarmResponse(TypedDict, closed=True):
     alarm: NotRequired["aws_sdk_iot_events_data.types.alarm.Alarm"]
     """<p>Contains information about an alarm.</p>"""
 

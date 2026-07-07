@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#TargetTrackingMetricDataQuery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.xml_string_metric_label
 
 
-class TargetTrackingMetricDataQuery(TypedDict):
+class TargetTrackingMetricDataQuery(TypedDict, closed=True):
     id: NotRequired["aws_sdk_auto_scaling.types.xml_string_max_len64.XmlStringMaxLen64"]
     """<p>A short name that identifies the object's results in the response. This name must be unique among all <code>TargetTrackingMetricDataQuery</code> objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter. </p>"""
     expression: NotRequired[

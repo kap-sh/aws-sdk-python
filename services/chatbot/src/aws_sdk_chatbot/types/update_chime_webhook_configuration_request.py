@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#UpdateChimeWebhookConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chatbot.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_chatbot.types.sns_topic_arn_list
 
 
-class UpdateChimeWebhookConfigurationRequest(TypedDict):
+class UpdateChimeWebhookConfigurationRequest(TypedDict, closed=True):
     chat_configuration_arn: (
         "aws_sdk_chatbot.types.chat_configuration_arn.ChatConfigurationArn"
     )

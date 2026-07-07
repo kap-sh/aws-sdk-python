@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteVehicleSpan``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.country_code3
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_string
 
 
-class RouteVehicleSpan(TypedDict):
+class RouteVehicleSpan(TypedDict, closed=True):
     best_case_duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"
     """<p>Duration of the computed span without traffic congestion.</p> <p> <b>Unit</b>: <code>seconds</code> </p>"""
     car_access: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#DefaultSegmentDeliveryConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__string
 
 
-class DefaultSegmentDeliveryConfiguration(TypedDict):
+class DefaultSegmentDeliveryConfiguration(TypedDict, closed=True):
     base_url: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>"""
 

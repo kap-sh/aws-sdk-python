@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PropertyValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.property_validation_exception_property_list
 
 
-class PropertyValidationException_(TypedDict):
+class PropertyValidationException_(TypedDict, closed=True):
     message: "aws_sdk_connect.types.message.Message"
     property_list: NotRequired[
         "aws_sdk_connect.types.property_validation_exception_property_list.PropertyValidationExceptionPropertyList"

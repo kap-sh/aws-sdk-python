@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListReportPlansOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.report_plan_list
     import aws_sdk_backup.types.string
 
 
-class ListReportPlansOutput(TypedDict):
+class ListReportPlansOutput(TypedDict, closed=True):
     report_plans: NotRequired["aws_sdk_backup.types.report_plan_list.ReportPlanList"]
     """<p>The report plans with detailed information for each plan. This information includes the Amazon Resource Name (ARN), report plan name, description, settings, delivery channel, deployment status, creation time, and last times the report plan attempted to and successfully ran.</p>"""
     next_token: NotRequired["aws_sdk_backup.types.string.string"]

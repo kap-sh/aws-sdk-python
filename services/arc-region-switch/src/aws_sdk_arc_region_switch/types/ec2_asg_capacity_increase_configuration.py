@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#Ec2AsgCapacityIncreaseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.ec2_ungraceful
 
 
-class Ec2AsgCapacityIncreaseConfiguration(TypedDict):
+class Ec2AsgCapacityIncreaseConfiguration(TypedDict, closed=True):
     timeout_minutes: "int"
     """<p>The timeout value specified for the configuration.</p>"""
     asgs: "aws_sdk_arc_region_switch.types.asg_list.AsgList"

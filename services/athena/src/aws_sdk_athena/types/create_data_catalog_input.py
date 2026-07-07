@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CreateDataCatalogInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.tag_list
 
 
-class CreateDataCatalogInput(TypedDict):
+class CreateDataCatalogInput(TypedDict, closed=True):
     name: "aws_sdk_athena.types.catalog_name_string.CatalogNameString"
     r"""<p>The name of the data catalog to create. The catalog name must be unique for the Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at sign, or hyphen characters. The remainder of the length constraint of 256 is reserved for use by Athena.</p> <p>For <code>FEDERATED</code> type the catalog name has following considerations and limits:</p> <ul> <li> <p>The catalog name allows special characters such as <code>_ , @ , \ , - </code>. These characters are replaced with a hyphen (-) when creating the CFN Stack Name and with an underscore (_) when creating the Lambda Function and Glue Connection Name.</p> </li> <li> <p>The catalog name has a theoretical limit of 128 characters. However, since we use it to create other resources that allow less characters and we prepend a prefix to it, the actual catalog name limit for <code>FEDERATED</code> catalog is 64 - 23 = 41 characters.</p> </li> </ul>"""
     type: "aws_sdk_athena.types.data_catalog_type.DataCatalogType"

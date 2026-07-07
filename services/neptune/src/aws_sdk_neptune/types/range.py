@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#Range``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -17,6 +17,7 @@ Range = TypedDict(
         "to": NotRequired["aws_sdk_neptune.types.integer.Integer"],
         "step": NotRequired["aws_sdk_neptune.types.integer_optional.IntegerOptional"],
     },
+    closed=True,
 )
 
 

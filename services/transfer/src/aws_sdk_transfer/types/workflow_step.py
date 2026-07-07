@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#WorkflowStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.copy_step_details
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.workflow_step_type
 
 
-class WorkflowStep(TypedDict):
+class WorkflowStep(TypedDict, closed=True):
     type: NotRequired["aws_sdk_transfer.types.workflow_step_type.WorkflowStepType"]
     """<p> Currently, the following step types are supported. </p> <ul> <li> <p> <b> <code>COPY</code> </b> - Copy the file to another location.</p> </li> <li> <p> <b> <code>CUSTOM</code> </b> - Perform a custom step with an Lambda function target.</p> </li> <li> <p> <b> <code>DECRYPT</code> </b> - Decrypt a file that was encrypted before it was uploaded.</p> </li> <li> <p> <b> <code>DELETE</code> </b> - Delete the file.</p> </li> <li> <p> <b> <code>TAG</code> </b> - Add a tag to the file.</p> </li> </ul>"""
     copy_step_details: NotRequired[

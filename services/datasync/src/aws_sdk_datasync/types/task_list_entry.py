@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#TaskListEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.tag_value
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.task_status
 
 
-class TaskListEntry(TypedDict):
+class TaskListEntry(TypedDict, closed=True):
     task_arn: NotRequired["aws_sdk_datasync.types.task_arn.TaskArn"]
     """<p>The Amazon Resource Name (ARN) of the task.</p>"""
     status: NotRequired["aws_sdk_datasync.types.task_status.TaskStatus"]

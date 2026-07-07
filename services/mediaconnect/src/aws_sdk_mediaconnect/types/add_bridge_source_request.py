@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#AddBridgeSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.add_bridge_flow_source_request
     import aws_sdk_mediaconnect.types.add_bridge_network_source_request
 
 
-class AddBridgeSourceRequest(TypedDict):
+class AddBridgeSourceRequest(TypedDict, closed=True):
     flow_source: NotRequired[
         "aws_sdk_mediaconnect.types.add_bridge_flow_source_request.AddBridgeFlowSourceRequest"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#EncryptionAtRestOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
     import aws_sdk_opensearch.types.kms_key_id
 
 
-class EncryptionAtRestOptions(TypedDict):
+class EncryptionAtRestOptions(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_opensearch.types.boolean.Boolean"]
     """<p>True to enable encryption at rest.</p>"""
     kms_key_id: NotRequired["aws_sdk_opensearch.types.kms_key_id.KmsKeyId"]

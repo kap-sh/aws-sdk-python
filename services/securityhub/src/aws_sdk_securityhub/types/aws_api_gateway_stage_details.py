@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsApiGatewayStageDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_api_gateway_access_log_settings
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsApiGatewayStageDetails(TypedDict):
+class AwsApiGatewayStageDetails(TypedDict, closed=True):
     deployment_id: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

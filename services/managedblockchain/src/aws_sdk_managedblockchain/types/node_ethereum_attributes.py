@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#NodeEthereumAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.string
 
 
-class NodeEthereumAttributes(TypedDict):
+class NodeEthereumAttributes(TypedDict, closed=True):
     http_endpoint: NotRequired["aws_sdk_managedblockchain.types.string.String"]
     r"""<p>The endpoint on which the Ethereum node listens to run Ethereum API methods over HTTP connections from a client. Use this endpoint in client code for smart contracts when using an HTTP connection. Connections to this endpoint are authenticated using <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4</a>.</p>"""
     web_socket_endpoint: NotRequired["aws_sdk_managedblockchain.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#UpdateInputSecurityGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_input_whitelist_rule_cidr
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.tags
 
 
-class UpdateInputSecurityGroupRequest(TypedDict):
+class UpdateInputSecurityGroupRequest(TypedDict, closed=True):
     input_security_group_id: "aws_sdk_medialive.types.__string.__string"
     """The id of the Input Security Group to update."""
     tags: NotRequired["aws_sdk_medialive.types.tags.Tags"]

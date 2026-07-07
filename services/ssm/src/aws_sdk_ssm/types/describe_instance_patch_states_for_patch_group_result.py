@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeInstancePatchStatesForPatchGroupResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.instance_patch_states_list
     import aws_sdk_ssm.types.next_token
 
 
-class DescribeInstancePatchStatesForPatchGroupResult(TypedDict):
+class DescribeInstancePatchStatesForPatchGroupResult(TypedDict, closed=True):
     instance_patch_states: NotRequired[
         "aws_sdk_ssm.types.instance_patch_states_list.InstancePatchStatesList"
     ]

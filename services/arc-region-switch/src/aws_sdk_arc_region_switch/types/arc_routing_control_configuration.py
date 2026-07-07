@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#ArcRoutingControlConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.region_and_routing_controls
 
 
-class ArcRoutingControlConfiguration(TypedDict):
+class ArcRoutingControlConfiguration(TypedDict, closed=True):
     timeout_minutes: "int"
     """<p>The timeout value specified for the configuration.</p>"""
     cross_account_role: NotRequired[

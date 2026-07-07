@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#S3ConfigMap``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.s3_path
 
 
-class S3ConfigMap(TypedDict):
+class S3ConfigMap(TypedDict, closed=True):
     s3_uri: "aws_sdk_cleanroomsml.types.s3_path.S3Path"
     """<p>The Amazon S3 location URI.</p>"""
 

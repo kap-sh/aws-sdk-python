@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ModifyDBClusterMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.vpc_security_group_id_list
 
 
-class ModifyDBClusterMessage(TypedDict):
+class ModifyDBClusterMessage(TypedDict, closed=True):
     db_cluster_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.</p> <p>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DB cluster.</p> </li> </ul>"""
     new_db_cluster_identifier: NotRequired["aws_sdk_rds.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#AssociateHealthCheckRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.protection_id
 
 
-class AssociateHealthCheckRequest(TypedDict):
+class AssociateHealthCheckRequest(TypedDict, closed=True):
     protection_id: "aws_sdk_shield.types.protection_id.ProtectionId"
     """<p>The unique identifier (ID) for the <a>Protection</a> object to add the health check association to. </p>"""
     health_check_arn: "aws_sdk_shield.types.health_check_arn.HealthCheckArn"

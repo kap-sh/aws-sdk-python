@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DescribeBotVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_members
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class DescribeBotVersionResponse(TypedDict):
+class DescribeBotVersionResponse(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The identifier of the bot that contains the version.</p>"""
     bot_name: NotRequired["aws_sdk_lex_models_v2.types.name.Name"]

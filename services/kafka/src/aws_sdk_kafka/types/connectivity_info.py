@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ConnectivityInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.network_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.vpc_connectivity
 
 
-class ConnectivityInfo(TypedDict):
+class ConnectivityInfo(TypedDict, closed=True):
     public_access: NotRequired["aws_sdk_kafka.types.public_access.PublicAccess"]
     """<p>Public access control for brokers.</p>"""
     vpc_connectivity: NotRequired[

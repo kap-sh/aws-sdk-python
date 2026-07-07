@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloud9#CreateEnvironmentEC2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloud9.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloud9.types.user_arn
 
 
-class CreateEnvironmentEC2Request(TypedDict):
+class CreateEnvironmentEC2Request(TypedDict, closed=True):
     name: "aws_sdk_cloud9.types.environment_name.EnvironmentName"
     """<p>The name of the environment to create.</p> <p>This name is visible to other IAM users in the same Amazon Web Services account.</p>"""
     description: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#PinGenerationAttributes``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -16,33 +18,33 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.visa_pin_verification_value
 
 
-class _PinGenerationAttributes_VisaPin(TypedDict):
+class _PinGenerationAttributes_VisaPin(TypedDict, closed=True):
     VisaPin: "aws_sdk_payment_cryptography_data.types.visa_pin.VisaPin"
 
 
-class _PinGenerationAttributes_VisaPinVerificationValue(TypedDict):
+class _PinGenerationAttributes_VisaPinVerificationValue(TypedDict, closed=True):
     VisaPinVerificationValue: "aws_sdk_payment_cryptography_data.types.visa_pin_verification_value.VisaPinVerificationValue"
 
 
-class _PinGenerationAttributes_Ibm3624PinOffset(TypedDict):
+class _PinGenerationAttributes_Ibm3624PinOffset(TypedDict, closed=True):
     Ibm3624PinOffset: (
         "aws_sdk_payment_cryptography_data.types.ibm3624_pin_offset.Ibm3624PinOffset"
     )
 
 
-class _PinGenerationAttributes_Ibm3624NaturalPin(TypedDict):
+class _PinGenerationAttributes_Ibm3624NaturalPin(TypedDict, closed=True):
     Ibm3624NaturalPin: (
         "aws_sdk_payment_cryptography_data.types.ibm3624_natural_pin.Ibm3624NaturalPin"
     )
 
 
-class _PinGenerationAttributes_Ibm3624RandomPin(TypedDict):
+class _PinGenerationAttributes_Ibm3624RandomPin(TypedDict, closed=True):
     Ibm3624RandomPin: (
         "aws_sdk_payment_cryptography_data.types.ibm3624_random_pin.Ibm3624RandomPin"
     )
 
 
-class _PinGenerationAttributes_Ibm3624PinFromOffset(TypedDict):
+class _PinGenerationAttributes_Ibm3624PinFromOffset(TypedDict, closed=True):
     Ibm3624PinFromOffset: "aws_sdk_payment_cryptography_data.types.ibm3624_pin_from_offset.Ibm3624PinFromOffset"
 
 

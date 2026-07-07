@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ServiceEnvironmentOrder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
     import aws_sdk_batch.types.string
 
 
-class ServiceEnvironmentOrder(TypedDict):
+class ServiceEnvironmentOrder(TypedDict, closed=True):
     order: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The order of the service environment. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>"""
     service_environment: NotRequired["aws_sdk_batch.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#ManagedTableInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.replication_information
 
 
-class ManagedTableInformation(TypedDict):
+class ManagedTableInformation(TypedDict, closed=True):
     replication_information: NotRequired[
         "aws_sdk_s3tables.types.replication_information.ReplicationInformation"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#CvssScoreAdjustment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class CvssScoreAdjustment(TypedDict):
+class CvssScoreAdjustment(TypedDict, closed=True):
     metric: NotRequired["aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"]
     """<p>The metric that Amazon Inspector used to adjust the CVSS score.</p>"""
     reason: NotRequired["aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"]

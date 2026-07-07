@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dax.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.tag_list
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_name: "aws_sdk_dax.types.string.String"
     """<p>The name of the DAX resource to which tags should be added.</p>"""
     tags: "aws_sdk_dax.types.tag_list.TagList"

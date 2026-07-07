@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#HostConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.host_configuration_script_timeout_seconds
 
 
-class HostConfiguration(TypedDict):
+class HostConfiguration(TypedDict, closed=True):
     script_body: (
         "aws_sdk_deadline.types.host_configuration_script.HostConfigurationScript"
     )

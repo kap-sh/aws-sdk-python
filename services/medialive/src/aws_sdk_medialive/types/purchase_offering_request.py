@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#PurchaseOfferingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.tags
 
 
-class PurchaseOfferingRequest(TypedDict):
+class PurchaseOfferingRequest(TypedDict, closed=True):
     count: NotRequired["aws_sdk_medialive.types.__integer_min1.__integerMin1"]
     """Number of resources"""
     name: NotRequired["aws_sdk_medialive.types.__string.__string"]

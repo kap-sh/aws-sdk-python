@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateAppBlockBuilderStreamingURLResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
     import aws_sdk_appstream.types.timestamp
 
 
-class CreateAppBlockBuilderStreamingURLResult(TypedDict):
+class CreateAppBlockBuilderStreamingURLResult(TypedDict, closed=True):
     streaming_url: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>The URL to start the streaming session.</p>"""
     expires: NotRequired["aws_sdk_appstream.types.timestamp.Timestamp"]

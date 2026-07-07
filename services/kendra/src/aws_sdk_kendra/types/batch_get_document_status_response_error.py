@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#BatchGetDocumentStatusResponseError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.data_source_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.error_message
 
 
-class BatchGetDocumentStatusResponseError(TypedDict):
+class BatchGetDocumentStatusResponseError(TypedDict, closed=True):
     document_id: NotRequired["aws_sdk_kendra.types.document_id.DocumentId"]
     """<p>The identifier of the document whose status could not be retrieved.</p>"""
     data_source_id: NotRequired["aws_sdk_kendra.types.data_source_id.DataSourceId"]

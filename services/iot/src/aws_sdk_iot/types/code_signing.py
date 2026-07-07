@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CodeSigning``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.custom_code_signing
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.start_signing_job_parameter
 
 
-class CodeSigning(TypedDict):
+class CodeSigning(TypedDict, closed=True):
     aws_signer_job_id: NotRequired["aws_sdk_iot.types.signing_job_id.SigningJobId"]
     """<p>The ID of the <code>AWSSignerJob</code> which was created to sign the file.</p>"""
     start_signing_job_parameter: NotRequired[

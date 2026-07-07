@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#UpdateOpenZFSVolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.integer_no_max_from_negative_one
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.read_only
 
 
-class UpdateOpenZFSVolumeConfiguration(TypedDict):
+class UpdateOpenZFSVolumeConfiguration(TypedDict, closed=True):
     storage_capacity_reservation_gi_b: NotRequired[
         "aws_sdk_fsx.types.integer_no_max_from_negative_one.IntegerNoMaxFromNegativeOne"
     ]

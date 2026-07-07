@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#ListCampaignsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.campaign_filters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.next_token
 
 
-class ListCampaignsRequest(TypedDict):
+class ListCampaignsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_connectcampaignsv2.types.max_results.MaxResults"]
     next_token: NotRequired["aws_sdk_connectcampaignsv2.types.next_token.NextToken"]
     filters: NotRequired[

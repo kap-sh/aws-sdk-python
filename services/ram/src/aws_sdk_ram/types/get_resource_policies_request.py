@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#GetResourcePoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ram.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class GetResourcePoliciesRequest(TypedDict):
+class GetResourcePoliciesRequest(TypedDict, closed=True):
     resource_arns: "aws_sdk_ram.types.resource_arn_list.ResourceArnList"
     r"""<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> of the resources whose policies you want to retrieve.</p>"""
     principal: NotRequired["aws_sdk_ram.types.string.String"]

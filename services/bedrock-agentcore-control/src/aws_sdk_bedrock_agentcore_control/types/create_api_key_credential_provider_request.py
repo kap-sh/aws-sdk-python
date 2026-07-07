@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateApiKeyCredentialProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.tags_map
 
 
-class CreateApiKeyCredentialProviderRequest(TypedDict):
+class CreateApiKeyCredentialProviderRequest(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName"
     """<p>The name of the API key credential provider. The name must be unique within your account.</p>"""
     api_key: (

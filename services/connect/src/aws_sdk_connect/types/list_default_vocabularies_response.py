@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListDefaultVocabulariesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.vocabulary_next_token
 
 
-class ListDefaultVocabulariesResponse(TypedDict):
+class ListDefaultVocabulariesResponse(TypedDict, closed=True):
     default_vocabulary_list: (
         "aws_sdk_connect.types.default_vocabulary_list.DefaultVocabularyList"
     )

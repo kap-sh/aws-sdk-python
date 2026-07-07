@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.signin#AccessToken``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_signin.errors import DeserializationError
 
 
-class AccessToken(TypedDict):
+class AccessToken(TypedDict, closed=True):
     access_key_id: "str"
     """AWS access key ID for temporary credentials"""
     secret_access_key: "str"

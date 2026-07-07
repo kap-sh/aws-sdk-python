@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#IamFederationConfigOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.iam_federation_group_attribute
     import aws_sdk_opensearchserverless.types.iam_federation_user_attribute
 
 
-class IamFederationConfigOptions(TypedDict):
+class IamFederationConfigOptions(TypedDict, closed=True):
     group_attribute: NotRequired[
         "aws_sdk_opensearchserverless.types.iam_federation_group_attribute.iamFederationGroupAttribute"
     ]

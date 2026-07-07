@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#InstanceStorageInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.instance_storage_encryption_support
 
 
-class InstanceStorageInfo(TypedDict):
+class InstanceStorageInfo(TypedDict, closed=True):
     total_size_in_gb: NotRequired["aws_sdk_ec2.types.disk_size.DiskSize"]
     """<p>The total size of the disks, in GB.</p>"""
     disks: NotRequired["aws_sdk_ec2.types.disk_info_list.DiskInfoList"]

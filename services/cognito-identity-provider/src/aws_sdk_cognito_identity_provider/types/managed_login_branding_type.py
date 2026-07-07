@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ManagedLoginBrandingType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.asset_list_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_pool_id_type
 
 
-class ManagedLoginBrandingType(TypedDict):
+class ManagedLoginBrandingType(TypedDict, closed=True):
     managed_login_branding_id: NotRequired[
         "aws_sdk_cognito_identity_provider.types.managed_login_branding_id_type.ManagedLoginBrandingIdType"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PatternObjectFilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.pattern_object_filter_list
 
 
-class PatternObjectFilterConfiguration(TypedDict):
+class PatternObjectFilterConfiguration(TypedDict, closed=True):
     filters: (
         "aws_sdk_bedrock_agent.types.pattern_object_filter_list.PatternObjectFilterList"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#CreateConfigurationSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.tracking_options
 
 
-class CreateConfigurationSetRequest(TypedDict):
+class CreateConfigurationSetRequest(TypedDict, closed=True):
     configuration_set_name: (
         "aws_sdk_pinpoint_email.types.configuration_set_name.ConfigurationSetName"
     )

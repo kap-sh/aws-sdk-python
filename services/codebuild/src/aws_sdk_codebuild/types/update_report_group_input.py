@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#UpdateReportGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.tag_list
 
 
-class UpdateReportGroupInput(TypedDict):
+class UpdateReportGroupInput(TypedDict, closed=True):
     arn: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     """<p> The ARN of the report group to update. </p>"""
     export_config: NotRequired[

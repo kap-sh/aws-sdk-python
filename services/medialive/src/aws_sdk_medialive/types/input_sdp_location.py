@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputSdpLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer
     import aws_sdk_medialive.types.__string
 
 
-class InputSdpLocation(TypedDict):
+class InputSdpLocation(TypedDict, closed=True):
     media_index: NotRequired["aws_sdk_medialive.types.__integer.__integer"]
     """The index of the media stream in the SDP file for one SMPTE 2110 stream."""
     sdp_url: NotRequired["aws_sdk_medialive.types.__string.__string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -31,7 +31,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class UpdateAssociationRequest(TypedDict):
+class UpdateAssociationRequest(TypedDict, closed=True):
     association_id: "aws_sdk_ssm.types.association_id.AssociationId"
     """<p>The ID of the association you want to update. </p>"""
     parameters: NotRequired["aws_sdk_ssm.types.parameters.Parameters"]

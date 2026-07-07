@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ListSyncResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.next_token
     import aws_sdk_iottwinmaker.types.sync_resource_summaries
 
 
-class ListSyncResourcesResponse(TypedDict):
+class ListSyncResourcesResponse(TypedDict, closed=True):
     sync_resources: NotRequired[
         "aws_sdk_iottwinmaker.types.sync_resource_summaries.SyncResourceSummaries"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#WhenSentTo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.when_sent_to_segments_list
 
 
-class WhenSentTo(TypedDict):
+class WhenSentTo(TypedDict, closed=True):
     when_sent_to_segments_list: NotRequired[
         "aws_sdk_networkmanager.types.when_sent_to_segments_list.WhenSentToSegmentsList"
     ]

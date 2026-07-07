@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeFleetAdvisorDatabasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.database_list
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeFleetAdvisorDatabasesResponse(TypedDict):
+class DescribeFleetAdvisorDatabasesResponse(TypedDict, closed=True):
     databases: NotRequired[
         "aws_sdk_database_migration_service.types.database_list.DatabaseList"
     ]

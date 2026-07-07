@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#Participant``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import (
     DeserializationError,
@@ -13,15 +15,15 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.seller_profile_summary
 
 
-class _Participant_PartnerProfile(TypedDict):
+class _Participant_PartnerProfile(TypedDict, closed=True):
     PartnerProfile: "aws_sdk_partnercentral_account.types.partner_profile_summary.PartnerProfileSummary"
 
 
-class _Participant_SellerProfile(TypedDict):
+class _Participant_SellerProfile(TypedDict, closed=True):
     SellerProfile: "aws_sdk_partnercentral_account.types.seller_profile_summary.SellerProfileSummary"
 
 
-class _Participant_Account(TypedDict):
+class _Participant_Account(TypedDict, closed=True):
     Account: "aws_sdk_partnercentral_account.types.account_summary.AccountSummary"
 
 

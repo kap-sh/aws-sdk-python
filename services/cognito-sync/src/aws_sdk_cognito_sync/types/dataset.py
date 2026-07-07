@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#Dataset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.dataset_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.string
 
 
-class Dataset(TypedDict):
+class Dataset(TypedDict, closed=True):
     identity_id: NotRequired["aws_sdk_cognito_sync.types.identity_id.IdentityId"]
     """A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region."""
     dataset_name: NotRequired["aws_sdk_cognito_sync.types.dataset_name.DatasetName"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#RemoveClientIDFromOpenIDConnectProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.client_id_type
 
 
-class RemoveClientIDFromOpenIDConnectProviderRequest(TypedDict):
+class RemoveClientIDFromOpenIDConnectProviderRequest(TypedDict, closed=True):
     open_id_connect_provider_arn: "aws_sdk_iam.types.arn_type.arnType"
     r"""<p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource to remove the client ID from. You can get a list of OIDC provider ARNs by using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html\">ListOpenIDConnectProviders</a> operation.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     client_id: "aws_sdk_iam.types.client_id_type.clientIDType"

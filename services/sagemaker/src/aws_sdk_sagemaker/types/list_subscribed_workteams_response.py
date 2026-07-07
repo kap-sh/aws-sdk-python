@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListSubscribedWorkteamsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
     import aws_sdk_sagemaker.types.subscribed_workteams
 
 
-class ListSubscribedWorkteamsResponse(TypedDict):
+class ListSubscribedWorkteamsResponse(TypedDict, closed=True):
     subscribed_workteams: NotRequired[
         "aws_sdk_sagemaker.types.subscribed_workteams.SubscribedWorkteams"
     ]

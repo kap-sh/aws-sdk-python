@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.arn_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.type_list
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     resource_arns: NotRequired["aws_sdk_omics.types.arn_list.ArnList"]
     """<p>Filter based on the Amazon Resource Number (ARN) of the resource. You can specify up to 10 values.</p>"""
     status: NotRequired["aws_sdk_omics.types.status_list.StatusList"]

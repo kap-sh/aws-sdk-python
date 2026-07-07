@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#CreateTaskInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_snow_device_management.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.task_description_string
 
 
-class CreateTaskInput(TypedDict):
+class CreateTaskInput(TypedDict, closed=True):
     targets: "aws_sdk_snow_device_management.types.target_list.TargetList"
     """<p>A list of managed device IDs.</p>"""
     command: "aws_sdk_snow_device_management.types.command.Command"

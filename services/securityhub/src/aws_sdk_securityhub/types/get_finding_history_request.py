@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetFindingHistoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_security_finding_identifier
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.timestamp
 
 
-class GetFindingHistoryRequest(TypedDict):
+class GetFindingHistoryRequest(TypedDict, closed=True):
     finding_identifier: NotRequired[
         "aws_sdk_securityhub.types.aws_security_finding_identifier.AwsSecurityFindingIdentifier"
     ]

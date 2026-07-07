@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#StopInputDeviceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopInputDeviceResponse(TypedDict):
+class StopInputDeviceResponse(TypedDict, closed=True):
     pass
 
 

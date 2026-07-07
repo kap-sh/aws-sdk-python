@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DescribeSourceServersRequestFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.describe_source_servers_request_application_i_ds
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.replication_types
 
 
-class DescribeSourceServersRequestFilters(TypedDict):
+class DescribeSourceServersRequestFilters(TypedDict, closed=True):
     source_server_i_ds: NotRequired[
         "aws_sdk_mgn.types.describe_source_servers_request_filters_i_ds.DescribeSourceServersRequestFiltersIDs"
     ]

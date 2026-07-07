@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#StatelessRuleGroupReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.resource_arn
 
 
-class StatelessRuleGroupReference(TypedDict):
+class StatelessRuleGroupReference(TypedDict, closed=True):
     resource_arn: "aws_sdk_network_firewall.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the stateless rule group.</p>"""
     priority: "aws_sdk_network_firewall.types.priority.Priority"

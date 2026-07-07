@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#DeploymentDataSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.workload_name
 
 
-class DeploymentDataSummary(TypedDict):
+class DeploymentDataSummary(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the deployment</p>"""
     id: NotRequired["aws_sdk_launch_wizard.types.deployment_id.DeploymentId"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetDelegationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.delegation_metadata_list
     import aws_sdk_auditmanager.types.token
 
 
-class GetDelegationsResponse(TypedDict):
+class GetDelegationsResponse(TypedDict, closed=True):
     delegations: NotRequired[
         "aws_sdk_auditmanager.types.delegation_metadata_list.DelegationMetadataList"
     ]

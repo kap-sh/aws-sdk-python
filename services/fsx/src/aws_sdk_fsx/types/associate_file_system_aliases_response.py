@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#AssociateFileSystemAliasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.aliases
 
 
-class AssociateFileSystemAliasesResponse(TypedDict):
+class AssociateFileSystemAliasesResponse(TypedDict, closed=True):
     aliases: NotRequired["aws_sdk_fsx.types.aliases.Aliases"]
     """<p>An array of the DNS aliases that Amazon FSx is associating with the file system.</p>"""
 

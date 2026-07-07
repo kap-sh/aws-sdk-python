@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListFunctionEventInvokeConfigsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.max_function_event_invoke_config_list_items
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class ListFunctionEventInvokeConfigsRequest(TypedDict):
+class ListFunctionEventInvokeConfigsRequest(TypedDict, closed=True):
     function_name: (
         "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AutomatedAbrRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of_allowed_rendition_size
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.rule_type
 
 
-class AutomatedAbrRule(TypedDict):
+class AutomatedAbrRule(TypedDict, closed=True):
     allowed_renditions: NotRequired[
         "aws_sdk_mediaconvert.types.__list_of_allowed_rendition_size.__listOfAllowedRenditionSize"
     ]

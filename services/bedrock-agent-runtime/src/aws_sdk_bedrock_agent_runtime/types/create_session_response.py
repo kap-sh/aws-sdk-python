@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#CreateSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.uuid
 
 
-class CreateSessionResponse(TypedDict):
+class CreateSessionResponse(TypedDict, closed=True):
     session_id: "aws_sdk_bedrock_agent_runtime.types.uuid.Uuid"
     """<p>The unique identifier for the session.</p>"""
     session_arn: "aws_sdk_bedrock_agent_runtime.types.session_arn.SessionArn"

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DatabaseConnectionStringProfile``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DatabaseConnectionStringProfile(TypedDict):
+class DatabaseConnectionStringProfile(TypedDict, closed=True):
     consumer_group: NotRequired["str"]
     """<p>The consumer group associated with the connection string profile.</p>"""
     display_name: NotRequired["str"]

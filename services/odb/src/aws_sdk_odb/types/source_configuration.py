@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#SourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_odb.errors import DeserializationError, SerializationError
 
@@ -13,29 +15,29 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.restore_from_backup_configuration
 
 
-class _SourceConfiguration_databaseClone(TypedDict):
+class _SourceConfiguration_databaseClone(TypedDict, closed=True):
     databaseClone: (
         "aws_sdk_odb.types.database_clone_configuration.DatabaseCloneConfiguration"
     )
 
 
-class _SourceConfiguration_restoreFromBackup(TypedDict):
+class _SourceConfiguration_restoreFromBackup(TypedDict, closed=True):
     restoreFromBackup: "aws_sdk_odb.types.restore_from_backup_configuration.RestoreFromBackupConfiguration"
 
 
-class _SourceConfiguration_pointInTimeRestore(TypedDict):
+class _SourceConfiguration_pointInTimeRestore(TypedDict, closed=True):
     pointInTimeRestore: "aws_sdk_odb.types.point_in_time_restore_configuration.PointInTimeRestoreConfiguration"
 
 
-class _SourceConfiguration_crossRegionDataGuard(TypedDict):
+class _SourceConfiguration_crossRegionDataGuard(TypedDict, closed=True):
     crossRegionDataGuard: "aws_sdk_odb.types.cross_region_data_guard_configuration.CrossRegionDataGuardConfiguration"
 
 
-class _SourceConfiguration_crossRegionDisasterRecovery(TypedDict):
+class _SourceConfiguration_crossRegionDisasterRecovery(TypedDict, closed=True):
     crossRegionDisasterRecovery: "aws_sdk_odb.types.cross_region_disaster_recovery_configuration.CrossRegionDisasterRecoveryConfiguration"
 
 
-class _SourceConfiguration_cloneToRefreshable(TypedDict):
+class _SourceConfiguration_cloneToRefreshable(TypedDict, closed=True):
     cloneToRefreshable: "aws_sdk_odb.types.clone_to_refreshable_configuration.CloneToRefreshableConfiguration"
 
 

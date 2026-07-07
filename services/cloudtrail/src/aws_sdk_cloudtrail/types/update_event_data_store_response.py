@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#UpdateEventDataStoreResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.advanced_event_selectors
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.termination_protection_enabled
 
 
-class UpdateEventDataStoreResponse(TypedDict):
+class UpdateEventDataStoreResponse(TypedDict, closed=True):
     event_data_store_arn: NotRequired[
         "aws_sdk_cloudtrail.types.event_data_store_arn.EventDataStoreArn"
     ]

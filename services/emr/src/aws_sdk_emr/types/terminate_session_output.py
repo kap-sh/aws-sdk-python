@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#TerminateSessionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cluster_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.session_state
 
 
-class TerminateSessionOutput(TypedDict):
+class TerminateSessionOutput(TypedDict, closed=True):
     cluster_id: NotRequired["aws_sdk_emr.types.cluster_id.ClusterId"]
     """<p>The ID of the cluster that the session belonged to.</p>"""
     session_id: NotRequired["aws_sdk_emr.types.session_id.SessionId"]

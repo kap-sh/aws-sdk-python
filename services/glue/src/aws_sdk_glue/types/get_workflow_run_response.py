@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetWorkflowRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.workflow_run
 
 
-class GetWorkflowRunResponse(TypedDict):
+class GetWorkflowRunResponse(TypedDict, closed=True):
     run: NotRequired["aws_sdk_glue.types.workflow_run.WorkflowRun"]
     """<p>The requested workflow run metadata.</p>"""
 

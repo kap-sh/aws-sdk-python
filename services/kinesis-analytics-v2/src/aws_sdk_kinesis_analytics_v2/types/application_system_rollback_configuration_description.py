@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ApplicationSystemRollbackConfigurationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.boolean_object
 
 
-class ApplicationSystemRollbackConfigurationDescription(TypedDict):
+class ApplicationSystemRollbackConfigurationDescription(TypedDict, closed=True):
     rollback_enabled: "aws_sdk_kinesis_analytics_v2.types.boolean_object.BooleanObject"
     """<p>Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application.</p>"""
 

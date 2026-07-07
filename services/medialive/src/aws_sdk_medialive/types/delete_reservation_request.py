@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DeleteReservationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class DeleteReservationRequest(TypedDict):
+class DeleteReservationRequest(TypedDict, closed=True):
     reservation_id: "aws_sdk_medialive.types.__string.__string"
     """Unique reservation ID, e.g. '1234567'"""
 

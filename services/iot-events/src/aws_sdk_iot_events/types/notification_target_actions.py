@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#NotificationTargetActions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.lambda_action
 
 
-class NotificationTargetActions(TypedDict):
+class NotificationTargetActions(TypedDict, closed=True):
     lambda_action: NotRequired["aws_sdk_iot_events.types.lambda_action.LambdaAction"]
 
 

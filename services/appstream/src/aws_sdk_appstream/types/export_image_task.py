@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ExportImageTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.ami_name
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.uuid
 
 
-class ExportImageTask(TypedDict):
+class ExportImageTask(TypedDict, closed=True):
     task_id: NotRequired["aws_sdk_appstream.types.uuid.UUID"]
     """<p>The unique identifier for the export image task. Use this ID to track the task's progress and retrieve its details.</p>"""
     image_arn: NotRequired["aws_sdk_appstream.types.arn.Arn"]

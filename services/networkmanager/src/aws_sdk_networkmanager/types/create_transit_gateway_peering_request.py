@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CreateTransitGatewayPeeringRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkmanager.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.transit_gateway_arn
 
 
-class CreateTransitGatewayPeeringRequest(TypedDict):
+class CreateTransitGatewayPeeringRequest(TypedDict, closed=True):
     core_network_id: "aws_sdk_networkmanager.types.core_network_id.CoreNetworkId"
     """<p>The ID of a core network.</p>"""
     transit_gateway_arn: (

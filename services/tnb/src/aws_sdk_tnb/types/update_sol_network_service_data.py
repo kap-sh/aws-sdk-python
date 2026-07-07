@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#UpdateSolNetworkServiceData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_tnb.types.nsd_info_id
 
 
-class UpdateSolNetworkServiceData(TypedDict):
+class UpdateSolNetworkServiceData(TypedDict, closed=True):
     nsd_info_id: "aws_sdk_tnb.types.nsd_info_id.NsdInfoId"
     """<p>ID of the network service descriptor.</p>"""
     additional_params_for_ns: NotRequired["object"]

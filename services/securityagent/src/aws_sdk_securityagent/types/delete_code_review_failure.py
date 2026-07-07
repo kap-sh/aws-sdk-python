@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#DeleteCodeReviewFailure``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DeleteCodeReviewFailure(TypedDict):
+class DeleteCodeReviewFailure(TypedDict, closed=True):
     code_review_id: NotRequired["str"]
     """<p>The unique identifier of the code review that failed to delete.</p>"""
     reason: NotRequired["str"]

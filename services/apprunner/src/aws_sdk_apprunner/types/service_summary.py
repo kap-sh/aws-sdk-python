@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ServiceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.app_runner_resource_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.timestamp
 
 
-class ServiceSummary(TypedDict):
+class ServiceSummary(TypedDict, closed=True):
     service_name: NotRequired["aws_sdk_apprunner.types.service_name.ServiceName"]
     """<p>The customer-provided service name.</p>"""
     service_id: NotRequired["aws_sdk_apprunner.types.service_id.ServiceId"]

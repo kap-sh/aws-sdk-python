@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#LifecycleRuleAndOperator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.tag_set
 
 
-class LifecycleRuleAndOperator(TypedDict):
+class LifecycleRuleAndOperator(TypedDict, closed=True):
     prefix: NotRequired["aws_sdk_s3.types.prefix.Prefix"]
     """<p>Prefix identifying one or more objects to which the rule applies.</p>"""
     tags: NotRequired["aws_sdk_s3.types.tag_set.TagSet"]

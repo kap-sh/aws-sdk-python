@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#GetUsagePlansRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.nullable_integer
     import aws_sdk_api_gateway.types.string
 
 
-class GetUsagePlansRequest(TypedDict):
+class GetUsagePlansRequest(TypedDict, closed=True):
     position: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The current pagination position in the paged result set.</p>"""
     key_id: NotRequired["aws_sdk_api_gateway.types.string.String"]

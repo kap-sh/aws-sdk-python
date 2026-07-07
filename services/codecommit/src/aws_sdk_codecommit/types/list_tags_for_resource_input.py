@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ListTagsForResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.resource_arn
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_codecommit.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the resource for which you want to get information about tags, if any.</p>"""
     next_token: NotRequired["aws_sdk_codecommit.types.next_token.NextToken"]

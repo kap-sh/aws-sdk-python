@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SecurityProfileSearchSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.tag_map
 
 
-class SecurityProfileSearchSummary(TypedDict):
+class SecurityProfileSearchSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.security_profile_id.SecurityProfileId"]
     """<p>The identifier of the security profile.</p>"""
     organization_resource_id: NotRequired[

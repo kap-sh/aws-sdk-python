@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DescribeResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.policy
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.timestamp
 
 
-class DescribeResourcePolicyResponse(TypedDict):
+class DescribeResourcePolicyResponse(TypedDict, closed=True):
     resource_policy: NotRequired["aws_sdk_comprehend.types.policy.Policy"]
     """<p>The JSON body of the resource-based policy.</p>"""
     creation_time: NotRequired["aws_sdk_comprehend.types.timestamp.Timestamp"]

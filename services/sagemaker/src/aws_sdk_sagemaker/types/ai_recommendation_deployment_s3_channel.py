@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIRecommendationDeploymentS3Channel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_channel_name
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class AIRecommendationDeploymentS3Channel(TypedDict):
+class AIRecommendationDeploymentS3Channel(TypedDict, closed=True):
     channel_name: NotRequired["aws_sdk_sagemaker.types.ai_channel_name.AIChannelName"]
     """<p>A custom name for this Amazon S3 data channel.</p>"""
     uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]

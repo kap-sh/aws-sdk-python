@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2SecurityGroupIpv6Range``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2SecurityGroupIpv6Range(TypedDict):
+class AwsEc2SecurityGroupIpv6Range(TypedDict, closed=True):
     cidr_ipv6: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The IPv6 CIDR range. You can specify either a CIDR range or a source security group, but not both. To specify a single IPv6 address, use the /128 prefix length.</p>"""
 

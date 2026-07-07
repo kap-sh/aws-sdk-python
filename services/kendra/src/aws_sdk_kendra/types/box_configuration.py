@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#BoxConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.secret_arn
 
 
-class BoxConfiguration(TypedDict):
+class BoxConfiguration(TypedDict, closed=True):
     enterprise_id: "aws_sdk_kendra.types.enterprise_id.EnterpriseId"
     """<p>The identifier of the Box Enterprise platform. You can find the enterprise ID in the Box Developer Console settings or when you create an app in Box and download your authentication credentials. For example, <i>801234567</i>.</p>"""
     secret_arn: "aws_sdk_kendra.types.secret_arn.SecretArn"

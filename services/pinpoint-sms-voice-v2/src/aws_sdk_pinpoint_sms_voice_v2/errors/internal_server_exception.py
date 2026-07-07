@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#InternalServerException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: NotRequired["str"]
     request_id: NotRequired["str"]
     """<p>The unique identifier of the request.</p>"""

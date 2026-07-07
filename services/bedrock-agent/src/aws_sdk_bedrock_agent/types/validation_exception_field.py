@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ValidationExceptionField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.non_blank_string
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agent.types.non_blank_string.NonBlankString"
     """<p>The name of the field.</p>"""
     message: "aws_sdk_bedrock_agent.types.non_blank_string.NonBlankString"

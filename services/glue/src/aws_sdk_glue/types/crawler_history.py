@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CrawlerHistory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.crawl_id
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class CrawlerHistory(TypedDict):
+class CrawlerHistory(TypedDict, closed=True):
     crawl_id: NotRequired["aws_sdk_glue.types.crawl_id.CrawlId"]
     """<p>A UUID identifier for each crawl.</p>"""
     state: NotRequired["aws_sdk_glue.types.crawler_history_state.CrawlerHistoryState"]

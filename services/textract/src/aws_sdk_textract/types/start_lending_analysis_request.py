@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#StartLendingAnalysisRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.output_config
 
 
-class StartLendingAnalysisRequest(TypedDict):
+class StartLendingAnalysisRequest(TypedDict, closed=True):
     document_location: "aws_sdk_textract.types.document_location.DocumentLocation"
     client_request_token: NotRequired[
         "aws_sdk_textract.types.client_request_token.ClientRequestToken"

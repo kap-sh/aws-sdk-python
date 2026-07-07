@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ValidateAwsAssociationsOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ValidateAwsAssociationsOutput(TypedDict):
+class ValidateAwsAssociationsOutput(TypedDict, closed=True):
     pass
 
 

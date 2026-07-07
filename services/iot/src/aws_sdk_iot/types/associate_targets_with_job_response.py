@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AssociateTargetsWithJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.job_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.job_id
 
 
-class AssociateTargetsWithJobResponse(TypedDict):
+class AssociateTargetsWithJobResponse(TypedDict, closed=True):
     job_arn: NotRequired["aws_sdk_iot.types.job_arn.JobArn"]
     """<p>An ARN identifying the job.</p>"""
     job_id: NotRequired["aws_sdk_iot.types.job_id.JobId"]

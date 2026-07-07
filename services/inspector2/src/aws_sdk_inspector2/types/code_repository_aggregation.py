@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CodeRepositoryAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.code_repository_sort_by
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.string_filter_list
 
 
-class CodeRepositoryAggregation(TypedDict):
+class CodeRepositoryAggregation(TypedDict, closed=True):
     project_names: NotRequired[
         "aws_sdk_inspector2.types.string_filter_list.StringFilterList"
     ]

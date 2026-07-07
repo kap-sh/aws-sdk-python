@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CustomImage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.app_image_config_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.image_version_number
 
 
-class CustomImage(TypedDict):
+class CustomImage(TypedDict, closed=True):
     image_name: NotRequired["aws_sdk_sagemaker.types.image_name.ImageName"]
     """<p>The name of the CustomImage. Must be unique to your account.</p>"""
     image_version_number: NotRequired[

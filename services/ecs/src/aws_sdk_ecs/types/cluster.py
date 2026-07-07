@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#Cluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.attachments
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.tags
 
 
-class Cluster(TypedDict):
+class Cluster(TypedDict, closed=True):
     cluster_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     r"""<p>The Amazon Resource Name (ARN) that identifies the cluster. For more information about the ARN format, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids\">Amazon Resource Name (ARN)</a> in the <i>Amazon ECS Developer Guide</i>.</p>"""
     cluster_name: NotRequired["aws_sdk_ecs.types.string.String"]

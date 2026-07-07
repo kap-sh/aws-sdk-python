@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoice#SnsDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice.types.string
 
 
-class SnsDestination(TypedDict):
+class SnsDestination(TypedDict, closed=True):
     topic_arn: NotRequired["aws_sdk_pinpoint_sms_voice.types.string.String"]
     """The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to."""
 

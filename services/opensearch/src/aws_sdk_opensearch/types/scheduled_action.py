@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ScheduledAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
 
 
-class ScheduledAction(TypedDict):
+class ScheduledAction(TypedDict, closed=True):
     id: "aws_sdk_opensearch.types.string.String"
     """<p>The unique identifier of the scheduled action.</p>"""
     type: "aws_sdk_opensearch.types.action_type.ActionType"

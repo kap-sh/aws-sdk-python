@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ListOperationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.string
 
 
-class ListOperationsRequest(TypedDict):
+class ListOperationsRequest(TypedDict, closed=True):
     service_arn: "aws_sdk_apprunner.types.app_runner_resource_arn.AppRunnerResourceArn"
     """<p>The Amazon Resource Name (ARN) of the App Runner service that you want a list of operations for.</p>"""
     next_token: NotRequired["aws_sdk_apprunner.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#StartRecommenderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class StartRecommenderRequest(TypedDict):
+class StartRecommenderRequest(TypedDict, closed=True):
     recommender_arn: "aws_sdk_personalize.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the recommender to start.</p>"""
 

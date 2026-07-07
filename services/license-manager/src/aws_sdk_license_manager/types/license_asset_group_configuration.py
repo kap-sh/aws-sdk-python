@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#LicenseAssetGroupConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class LicenseAssetGroupConfiguration(TypedDict):
+class LicenseAssetGroupConfiguration(TypedDict, closed=True):
     usage_dimension: NotRequired["aws_sdk_license_manager.types.string.String"]
     """<p>License Asset Group Configuration Usage dimension.</p>"""
 

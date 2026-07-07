@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#OrganizationResourceDetailedStatusFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.account_id
     import aws_sdk_config_service.types.organization_resource_detailed_status
 
 
-class OrganizationResourceDetailedStatusFilters(TypedDict):
+class OrganizationResourceDetailedStatusFilters(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_config_service.types.account_id.AccountId"]
     """<p>The 12-digit account ID of the member account within an organization.</p>"""
     status: NotRequired[

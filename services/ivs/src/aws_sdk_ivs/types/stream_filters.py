@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#StreamFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.stream_health
 
 
-class StreamFilters(TypedDict):
+class StreamFilters(TypedDict, closed=True):
     health: NotRequired["aws_sdk_ivs.types.stream_health.StreamHealth"]
     """<p>The stream’s health.</p>"""
 

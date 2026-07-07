@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#UpdateElasticsearchDomainConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.advanced_options
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.vpc_options
 
 
-class UpdateElasticsearchDomainConfigRequest(TypedDict):
+class UpdateElasticsearchDomainConfigRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_elasticsearch_service.types.domain_name.DomainName"
     """<p>The name of the Elasticsearch domain that you are updating. </p>"""
     elasticsearch_cluster_config: NotRequired[

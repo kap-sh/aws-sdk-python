@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#OutputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.cloud_watch_output_config
 
 
-class OutputConfig(TypedDict):
+class OutputConfig(TypedDict, closed=True):
     cloud_watch_config: "aws_sdk_bedrock_agentcore_control.types.cloud_watch_output_config.CloudWatchOutputConfig"
     """<p> The CloudWatch configuration for writing evaluation results to CloudWatch logs with embedded metric format. </p>"""
 

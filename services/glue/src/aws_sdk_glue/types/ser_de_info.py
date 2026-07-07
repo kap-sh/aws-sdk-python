@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SerDeInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
     import aws_sdk_glue.types.parameters_map
 
 
-class SerDeInfo(TypedDict):
+class SerDeInfo(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>Name of the SerDe.</p>"""
     serialization_library: NotRequired["aws_sdk_glue.types.name_string.NameString"]

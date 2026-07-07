@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Vpc``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_state
 
 
-class Vpc(TypedDict):
+class Vpc(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the Amazon Web Services account that owns the VPC.</p>"""
     instance_tenancy: NotRequired["aws_sdk_ec2.types.tenancy.Tenancy"]

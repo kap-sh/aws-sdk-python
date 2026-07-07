@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ListGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.groups
     import aws_sdk_workmail.types.next_token
 
 
-class ListGroupsResponse(TypedDict):
+class ListGroupsResponse(TypedDict, closed=True):
     groups: NotRequired["aws_sdk_workmail.types.groups.Groups"]
     """<p>The overview of groups for an organization.</p>"""
     next_token: NotRequired["aws_sdk_workmail.types.next_token.NextToken"]

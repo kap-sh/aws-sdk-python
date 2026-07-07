@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FieldConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.field_input_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.validations_list
 
 
-class FieldConfig(TypedDict):
+class FieldConfig(TypedDict, closed=True):
     label: NotRequired["str"]
     """<p>The label for the field.</p>"""
     position: NotRequired["aws_sdk_amplifyuibuilder.types.field_position.FieldPosition"]

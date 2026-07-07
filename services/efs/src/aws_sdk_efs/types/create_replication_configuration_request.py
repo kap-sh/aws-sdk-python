@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#CreateReplicationConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.file_system_id
 
 
-class CreateReplicationConfigurationRequest(TypedDict):
+class CreateReplicationConfigurationRequest(TypedDict, closed=True):
     source_file_system_id: "aws_sdk_efs.types.file_system_id.FileSystemId"
     """<p>Specifies the Amazon EFS file system that you want to replicate. This file system cannot already be a source or destination file system in another replication configuration.</p>"""
     destinations: "aws_sdk_efs.types.destinations_to_create.DestinationsToCreate"

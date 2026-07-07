@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#UpdateDependencyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.uuid
 
 
-class UpdateDependencyRequest(TypedDict):
+class UpdateDependencyRequest(TypedDict, closed=True):
     service_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
     dependency_id: "aws_sdk_resiliencehubv2.types.uuid.Uuid"
     """<p>The identifier of the dependency to update.</p>"""

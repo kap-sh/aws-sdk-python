@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#CreateSnapshotMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.tag_list
 
 
-class CreateSnapshotMessage(TypedDict):
+class CreateSnapshotMessage(TypedDict, closed=True):
     replication_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The identifier of an existing replication group. The snapshot is created from this replication group.</p>"""
     cache_cluster_id: NotRequired["aws_sdk_elasticache.types.string.String"]

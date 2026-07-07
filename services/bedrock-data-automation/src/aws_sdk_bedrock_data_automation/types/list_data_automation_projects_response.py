@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#ListDataAutomationProjectsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.next_token
 
 
-class ListDataAutomationProjectsResponse(TypedDict):
+class ListDataAutomationProjectsResponse(TypedDict, closed=True):
     projects: "aws_sdk_bedrock_data_automation.types.data_automation_project_summaries.DataAutomationProjectSummaries"
     next_token: NotRequired[
         "aws_sdk_bedrock_data_automation.types.next_token.NextToken"

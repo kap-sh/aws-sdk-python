@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#CriteriaForJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.simple_criterion_for_job
     import aws_sdk_macie2.types.tag_criterion_for_job
 
 
-class CriteriaForJob(TypedDict):
+class CriteriaForJob(TypedDict, closed=True):
     simple_criterion: NotRequired[
         "aws_sdk_macie2.types.simple_criterion_for_job.SimpleCriterionForJob"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#ListProcurementPortalPreferencesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.basic_string_without_space
     import aws_sdk_invoicing.types.procurement_portal_preference_summaries
 
 
-class ListProcurementPortalPreferencesResponse(TypedDict):
+class ListProcurementPortalPreferencesResponse(TypedDict, closed=True):
     procurement_portal_preferences: NotRequired[
         "aws_sdk_invoicing.types.procurement_portal_preference_summaries.ProcurementPortalPreferenceSummaries"
     ]

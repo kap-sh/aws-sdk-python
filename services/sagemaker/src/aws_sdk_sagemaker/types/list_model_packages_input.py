@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelPackagesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.arn_or_name
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.sort_order
 
 
-class ListModelPackagesInput(TypedDict):
+class ListModelPackagesInput(TypedDict, closed=True):
     creation_time_after: NotRequired[
         "aws_sdk_sagemaker.types.creation_time.CreationTime"
     ]

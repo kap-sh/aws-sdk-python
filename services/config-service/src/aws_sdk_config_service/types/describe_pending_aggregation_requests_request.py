@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DescribePendingAggregationRequestsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.describe_pending_aggregation_requests_limit
     import aws_sdk_config_service.types.string
 
 
-class DescribePendingAggregationRequestsRequest(TypedDict):
+class DescribePendingAggregationRequestsRequest(TypedDict, closed=True):
     limit: "aws_sdk_config_service.types.describe_pending_aggregation_requests_limit.DescribePendingAggregationRequestsLimit"
     """<p>The maximum number of evaluation results returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>"""
     next_token: NotRequired["aws_sdk_config_service.types.string.String"]

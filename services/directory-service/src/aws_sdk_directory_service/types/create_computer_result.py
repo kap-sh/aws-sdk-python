@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#CreateComputerResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.computer
 
 
-class CreateComputerResult(TypedDict):
+class CreateComputerResult(TypedDict, closed=True):
     computer: NotRequired["aws_sdk_directory_service.types.computer.Computer"]
     """<p>A <a>Computer</a> object that represents the computer account.</p>"""
 

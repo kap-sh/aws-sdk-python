@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.freetier#MonetaryAmount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_freetier.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_freetier.types.generic_double
 
 
-class MonetaryAmount(TypedDict):
+class MonetaryAmount(TypedDict, closed=True):
     amount: "aws_sdk_freetier.types.generic_double.GenericDouble"
     """<p> The aggregated monetary amount of credits earned. </p>"""
     unit: "aws_sdk_freetier.types.currency_code.CurrencyCode"

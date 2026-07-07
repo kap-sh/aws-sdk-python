@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#RemovePermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.statement_id
 
 
-class RemovePermissionRequest(TypedDict):
+class RemovePermissionRequest(TypedDict, closed=True):
     statement_id: NotRequired["aws_sdk_eventbridge.types.statement_id.StatementId"]
     """<p>The statement ID corresponding to the account that is no longer allowed to put events to the default event bus.</p>"""
     remove_all_permissions: "aws_sdk_eventbridge.types.boolean.Boolean"

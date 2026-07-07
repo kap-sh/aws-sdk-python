@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#UpdateTargetGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.target_group_identifier
 
 
-class UpdateTargetGroupRequest(TypedDict):
+class UpdateTargetGroupRequest(TypedDict, closed=True):
     target_group_identifier: (
         "aws_sdk_vpc_lattice.types.target_group_identifier.TargetGroupIdentifier"
     )

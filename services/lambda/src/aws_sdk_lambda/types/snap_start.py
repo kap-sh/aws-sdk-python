@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#SnapStart``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.snap_start_apply_on
 
 
-class SnapStart(TypedDict):
+class SnapStart(TypedDict, closed=True):
     apply_on: NotRequired["aws_sdk_lambda.types.snap_start_apply_on.SnapStartApplyOn"]
     """<p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>"""
 

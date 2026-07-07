@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CoverageFilterCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.coverage_date_filter_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.coverage_string_filter_list
 
 
-class CoverageFilterCriteria(TypedDict):
+class CoverageFilterCriteria(TypedDict, closed=True):
     scan_status_code: NotRequired[
         "aws_sdk_inspector2.types.coverage_string_filter_list.CoverageStringFilterList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#MessageDsn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.reporting_mta
 
 
-class MessageDsn(TypedDict):
+class MessageDsn(TypedDict, closed=True):
     reporting_mta: "aws_sdk_ses.types.reporting_mta.ReportingMta"
     r"""<p>The reporting MTA that attempted to deliver the message, formatted as specified in <a href=\"https://tools.ietf.org/html/rfc3464\">RFC 3464</a> (<code>mta-name-type; mta-name</code>). The default value is <code>dns; inbound-smtp.[region].amazonaws.com</code>.</p>"""
     arrival_date: NotRequired["aws_sdk_ses.types.arrival_date.ArrivalDate"]

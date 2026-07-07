@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#GetClustersForImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.get_clusters_for_image_next_token
 
 
-class GetClustersForImageRequest(TypedDict):
+class GetClustersForImageRequest(TypedDict, closed=True):
     filter: "aws_sdk_inspector2.types.cluster_for_image_filter_criteria.ClusterForImageFilterCriteria"
     """<p>The resource Id for the Amazon ECR image.</p>"""
     max_results: NotRequired["int"]

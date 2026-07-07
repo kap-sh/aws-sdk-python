@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#CreateClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.tax_documents
 
 
-class CreateClusterRequest(TypedDict):
+class CreateClusterRequest(TypedDict, closed=True):
     job_type: "aws_sdk_snowball.types.job_type.JobType"
     r"""<p>The type of job for this cluster. Currently, the only job type supported for clusters is <code>LOCAL_USE</code>.</p> <p>For more information, see \"https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i> or \"https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html\" (Snow Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>"""
     resources: NotRequired["aws_sdk_snowball.types.job_resource.JobResource"]

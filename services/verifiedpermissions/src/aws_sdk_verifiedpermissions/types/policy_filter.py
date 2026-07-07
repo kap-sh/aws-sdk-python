@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#PolicyFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.entity_reference
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.policy_type
 
 
-class PolicyFilter(TypedDict):
+class PolicyFilter(TypedDict, closed=True):
     principal: NotRequired[
         "aws_sdk_verifiedpermissions.types.entity_reference.EntityReference"
     ]

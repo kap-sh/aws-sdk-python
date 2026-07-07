@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListEventSourceMappingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.event_source_mappings_list
     import aws_sdk_lambda.types.string
 
 
-class ListEventSourceMappingsResponse(TypedDict):
+class ListEventSourceMappingsResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>"""
     event_source_mappings: NotRequired[

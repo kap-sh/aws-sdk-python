@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DetectLabelsImageForeground``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.detect_labels_image_quality
     import aws_sdk_rekognition.types.dominant_colors
 
 
-class DetectLabelsImageForeground(TypedDict):
+class DetectLabelsImageForeground(TypedDict, closed=True):
     quality: NotRequired[
         "aws_sdk_rekognition.types.detect_labels_image_quality.DetectLabelsImageQuality"
     ]

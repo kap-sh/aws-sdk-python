@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dax#Subnet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.network_type_list
     import aws_sdk_dax.types.string
 
 
-class Subnet(TypedDict):
+class Subnet(TypedDict, closed=True):
     subnet_identifier: NotRequired["aws_sdk_dax.types.string.String"]
     """<p>The system-assigned identifier for the subnet.</p>"""
     subnet_availability_zone: NotRequired["aws_sdk_dax.types.string.String"]

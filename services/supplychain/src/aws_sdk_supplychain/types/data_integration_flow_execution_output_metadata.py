@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationFlowExecutionOutputMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_flow_execution_diagnostic_reports_root_s3_uri
 
 
-class DataIntegrationFlowExecutionOutputMetadata(TypedDict):
+class DataIntegrationFlowExecutionOutputMetadata(TypedDict, closed=True):
     diagnostic_reports_root_s3_uri: NotRequired[
         "aws_sdk_supplychain.types.data_integration_flow_execution_diagnostic_reports_root_s3_uri.DataIntegrationFlowExecutionDiagnosticReportsRootS3URI"
     ]

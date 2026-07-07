@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#ObjectEncryptionFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError, SerializationError
@@ -13,23 +15,23 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.sses3_filter
 
 
-class _ObjectEncryptionFilter_SSES3(TypedDict):
+class _ObjectEncryptionFilter_SSES3(TypedDict, closed=True):
     SSES3: "aws_sdk_s3_control.types.sses3_filter.SSES3Filter"
 
 
-class _ObjectEncryptionFilter_SSEKMS(TypedDict):
+class _ObjectEncryptionFilter_SSEKMS(TypedDict, closed=True):
     SSEKMS: "aws_sdk_s3_control.types.ssekms_filter.SSEKMSFilter"
 
 
-class _ObjectEncryptionFilter_DSSEKMS(TypedDict):
+class _ObjectEncryptionFilter_DSSEKMS(TypedDict, closed=True):
     DSSEKMS: "aws_sdk_s3_control.types.dssekms_filter.DSSEKMSFilter"
 
 
-class _ObjectEncryptionFilter_SSEC(TypedDict):
+class _ObjectEncryptionFilter_SSEC(TypedDict, closed=True):
     SSEC: "aws_sdk_s3_control.types.ssec_filter.SSECFilter"
 
 
-class _ObjectEncryptionFilter_NOTSSE(TypedDict):
+class _ObjectEncryptionFilter_NOTSSE(TypedDict, closed=True):
     NOTSSE: "aws_sdk_s3_control.types.not_sse_filter.NotSSEFilter"
 
 

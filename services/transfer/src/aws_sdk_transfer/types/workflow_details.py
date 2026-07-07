@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#WorkflowDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.on_partial_upload_workflow_details
     import aws_sdk_transfer.types.on_upload_workflow_details
 
 
-class WorkflowDetails(TypedDict):
+class WorkflowDetails(TypedDict, closed=True):
     on_upload: NotRequired[
         "aws_sdk_transfer.types.on_upload_workflow_details.OnUploadWorkflowDetails"
     ]

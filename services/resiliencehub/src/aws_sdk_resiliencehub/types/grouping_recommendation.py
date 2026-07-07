@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#GroupingRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.time_stamp
 
 
-class GroupingRecommendation(TypedDict):
+class GroupingRecommendation(TypedDict, closed=True):
     grouping_recommendation_id: "aws_sdk_resiliencehub.types.string255.String255"
     """<p>Indicates all the reasons available for rejecting a grouping recommendation.</p>"""
     grouping_app_component: (

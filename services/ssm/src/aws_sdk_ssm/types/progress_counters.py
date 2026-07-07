@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ProgressCounters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.integer
 
 
-class ProgressCounters(TypedDict):
+class ProgressCounters(TypedDict, closed=True):
     total_steps: "aws_sdk_ssm.types.integer.Integer"
     """<p>The total number of steps run in all specified Amazon Web Services Regions and Amazon Web Services accounts for the current Automation execution.</p>"""
     success_steps: "aws_sdk_ssm.types.integer.Integer"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#DescribeImageGenerationConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.image_generation_configuration
 
 
-class DescribeImageGenerationConfigurationOutput(TypedDict):
+class DescribeImageGenerationConfigurationOutput(TypedDict, closed=True):
     image_generation_configuration: NotRequired[
         "aws_sdk_kinesis_video.types.image_generation_configuration.ImageGenerationConfiguration"
     ]

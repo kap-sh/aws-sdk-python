@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CancelDomainConfigChangeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_name
     import aws_sdk_opensearch.types.dry_run
 
 
-class CancelDomainConfigChangeRequest(TypedDict):
+class CancelDomainConfigChangeRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"
     dry_run: NotRequired["aws_sdk_opensearch.types.dry_run.DryRun"]
     """<p>When set to <code>True</code>, returns the list of change IDs and properties that will be cancelled without actually cancelling the change.</p>"""

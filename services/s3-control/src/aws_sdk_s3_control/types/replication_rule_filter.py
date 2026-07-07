@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#ReplicationRuleFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -20,6 +20,7 @@ ReplicationRuleFilter = TypedDict(
             "aws_sdk_s3_control.types.replication_rule_and_operator.ReplicationRuleAndOperator"
         ],
     },
+    closed=True,
 )
 
 

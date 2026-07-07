@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DeleteUserByPrincipalIdRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DeleteUserByPrincipalIdRequest(TypedDict):
+class DeleteUserByPrincipalIdRequest(TypedDict, closed=True):
     principal_id: "aws_sdk_quicksight.types.string.String"
     """<p>The principal ID of the user.</p>"""
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AudioChannelTaggingSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of_audio_channel_tag
     import aws_sdk_mediaconvert.types.audio_channel_tag
 
 
-class AudioChannelTaggingSettings(TypedDict):
+class AudioChannelTaggingSettings(TypedDict, closed=True):
     channel_tag: NotRequired[
         "aws_sdk_mediaconvert.types.audio_channel_tag.AudioChannelTag"
     ]

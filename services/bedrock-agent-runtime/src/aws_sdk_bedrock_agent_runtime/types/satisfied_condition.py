@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#SatisfiedCondition``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
 
-class SatisfiedCondition(TypedDict):
+class SatisfiedCondition(TypedDict, closed=True):
     condition_name: "str"
     """<p>The name of the condition that was satisfied.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeAffectedEntitiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_health.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.next_token
 
 
-class DescribeAffectedEntitiesRequest(TypedDict):
+class DescribeAffectedEntitiesRequest(TypedDict, closed=True):
     filter: "aws_sdk_health.types.entity_filter.EntityFilter"
     """<p>Values to narrow the results returned. At least one event ARN is required.</p>"""
     locale: NotRequired["aws_sdk_health.types.locale.locale"]

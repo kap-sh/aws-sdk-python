@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CopySnapshotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class CopySnapshotRequest(TypedDict):
+class CopySnapshotRequest(TypedDict, closed=True):
     source_snapshot_name: NotRequired[
         "aws_sdk_lightsail.types.resource_name.ResourceName"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UserIdentifier``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -9,15 +11,15 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sensitive_string
 
 
-class _UserIdentifier_UserName(TypedDict):
+class _UserIdentifier_UserName(TypedDict, closed=True):
     UserName: "aws_sdk_quicksight.types.sensitive_string.SensitiveString"
 
 
-class _UserIdentifier_Email(TypedDict):
+class _UserIdentifier_Email(TypedDict, closed=True):
     Email: "aws_sdk_quicksight.types.sensitive_string.SensitiveString"
 
 
-class _UserIdentifier_UserArn(TypedDict):
+class _UserIdentifier_UserArn(TypedDict, closed=True):
     UserArn: "aws_sdk_quicksight.types.arn.Arn"
 
 

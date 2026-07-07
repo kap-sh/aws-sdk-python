@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetOpsSummaryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
     import aws_sdk_ssm.types.ops_entity_list
 
 
-class GetOpsSummaryResult(TypedDict):
+class GetOpsSummaryResult(TypedDict, closed=True):
     entities: NotRequired["aws_sdk_ssm.types.ops_entity_list.OpsEntityList"]
     """<p>The list of aggregated details and filtered OpsData.</p>"""
     next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]

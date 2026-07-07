@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#GetIPSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.ip_set
 
 
-class GetIPSetResponse(TypedDict):
+class GetIPSetResponse(TypedDict, closed=True):
     ip_set: NotRequired["aws_sdk_waf_regional.types.ip_set.IPSet"]
     """<p>Information about the <a>IPSet</a> that you specified in the <code>GetIPSet</code> request. For more information, see the following topics:</p> <ul> <li> <p> <a>IPSet</a>: Contains <code>IPSetDescriptors</code>, <code>IPSetId</code>, and <code>Name</code> </p> </li> <li> <p> <code>IPSetDescriptors</code>: Contains an array of <a>IPSetDescriptor</a> objects. Each <code>IPSetDescriptor</code> object contains <code>Type</code> and <code>Value</code> </p> </li> </ul>"""
 

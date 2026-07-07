@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DetectLabelsImagePropertiesSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.detect_labels_max_dominant_colors
 
 
-class DetectLabelsImagePropertiesSettings(TypedDict):
+class DetectLabelsImagePropertiesSettings(TypedDict, closed=True):
     max_dominant_colors: "aws_sdk_rekognition.types.detect_labels_max_dominant_colors.DetectLabelsMaxDominantColors"
     """<p>The maximum number of dominant colors to return when detecting labels in an image. The default value is 10.</p>"""
 

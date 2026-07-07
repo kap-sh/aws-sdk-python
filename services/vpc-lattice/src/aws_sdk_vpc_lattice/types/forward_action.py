@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ForwardAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.weighted_target_group_list
 
 
-class ForwardAction(TypedDict):
+class ForwardAction(TypedDict, closed=True):
     target_groups: (
         "aws_sdk_vpc_lattice.types.weighted_target_group_list.WeightedTargetGroupList"
     )

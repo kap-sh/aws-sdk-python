@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListBucketsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.prefix
 
 
-class ListBucketsOutput(TypedDict):
+class ListBucketsOutput(TypedDict, closed=True):
     buckets: NotRequired["aws_sdk_s3.types.buckets.Buckets"]
     """<p>The list of buckets owned by the requester.</p>"""
     owner: NotRequired["aws_sdk_s3.types.owner.Owner"]

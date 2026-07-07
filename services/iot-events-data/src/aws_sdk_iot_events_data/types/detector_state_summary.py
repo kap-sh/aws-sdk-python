@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#DetectorStateSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.state_name
 
 
-class DetectorStateSummary(TypedDict):
+class DetectorStateSummary(TypedDict, closed=True):
     state_name: NotRequired["aws_sdk_iot_events_data.types.state_name.StateName"]
     """<p>The name of the state.</p>"""
 

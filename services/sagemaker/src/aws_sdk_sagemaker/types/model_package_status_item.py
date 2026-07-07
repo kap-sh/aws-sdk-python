@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelPackageStatusItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.detailed_model_package_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class ModelPackageStatusItem(TypedDict):
+class ModelPackageStatusItem(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>The name of the model package for which the overall status is being reported.</p>"""
     status: NotRequired[

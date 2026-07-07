@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#ConfigurationEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.string_map
 
 
-class ConfigurationEvent(TypedDict):
+class ConfigurationEvent(TypedDict, closed=True):
     request_attributes: NotRequired["aws_sdk_lex_runtime_v2.types.string_map.StringMap"]
     """<p>Request-specific information passed between the client application and Amazon Lex V2.</p> <p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create any request attributes for prefix <code>x-amz-lex:</code>.</p>"""
     response_content_type: (

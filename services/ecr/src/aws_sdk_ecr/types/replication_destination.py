@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ReplicationDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.registry_id
 
 
-class ReplicationDestination(TypedDict):
+class ReplicationDestination(TypedDict, closed=True):
     region: "aws_sdk_ecr.types.region.Region"
     """<p>The Region to replicate to.</p>"""
     registry_id: "aws_sdk_ecr.types.registry_id.RegistryId"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#DescribeGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.group_metadata_list
     import aws_sdk_workdocs.types.marker_type
 
 
-class DescribeGroupsResponse(TypedDict):
+class DescribeGroupsResponse(TypedDict, closed=True):
     groups: NotRequired["aws_sdk_workdocs.types.group_metadata_list.GroupMetadataList"]
     """<p>The list of groups.</p>"""
     marker: NotRequired["aws_sdk_workdocs.types.marker_type.MarkerType"]

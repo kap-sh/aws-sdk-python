@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#CompleteSnapshotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ebs.types.changed_blocks_count
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ebs.types.snapshot_id
 
 
-class CompleteSnapshotRequest(TypedDict):
+class CompleteSnapshotRequest(TypedDict, closed=True):
     snapshot_id: "aws_sdk_ebs.types.snapshot_id.SnapshotId"
     """<p>The ID of the snapshot.</p>"""
     changed_blocks_count: "aws_sdk_ebs.types.changed_blocks_count.ChangedBlocksCount"

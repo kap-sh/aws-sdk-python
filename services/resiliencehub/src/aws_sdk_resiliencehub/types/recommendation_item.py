@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#RecommendationItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.alarm
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string500
 
 
-class RecommendationItem(TypedDict):
+class RecommendationItem(TypedDict, closed=True):
     resource_id: NotRequired["aws_sdk_resiliencehub.types.string500.String500"]
     """<p>Identifier of the resource.</p>"""
     target_account_id: NotRequired["aws_sdk_resiliencehub.types.customer_id.CustomerId"]

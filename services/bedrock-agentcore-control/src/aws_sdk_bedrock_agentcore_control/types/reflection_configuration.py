@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ReflectionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.episodic_reflection_configuration
 
 
-class _ReflectionConfiguration_customReflectionConfiguration(TypedDict):
+class _ReflectionConfiguration_customReflectionConfiguration(TypedDict, closed=True):
     customReflectionConfiguration: "aws_sdk_bedrock_agentcore_control.types.custom_reflection_configuration.CustomReflectionConfiguration"
 
 
-class _ReflectionConfiguration_episodicReflectionConfiguration(TypedDict):
+class _ReflectionConfiguration_episodicReflectionConfiguration(TypedDict, closed=True):
     episodicReflectionConfiguration: "aws_sdk_bedrock_agentcore_control.types.episodic_reflection_configuration.EpisodicReflectionConfiguration"
 
 

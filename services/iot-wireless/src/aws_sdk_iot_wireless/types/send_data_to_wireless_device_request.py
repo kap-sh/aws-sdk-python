@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SendDataToWirelessDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_metadata
 
 
-class SendDataToWirelessDeviceRequest(TypedDict):
+class SendDataToWirelessDeviceRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.wireless_device_id.WirelessDeviceId"
     """<p>The ID of the wireless device to receive the data.</p>"""
     transmit_mode: "aws_sdk_iot_wireless.types.transmit_mode.TransmitMode"

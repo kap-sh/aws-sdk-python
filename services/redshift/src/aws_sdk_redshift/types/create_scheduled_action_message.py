@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#CreateScheduledActionMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.t_stamp
 
 
-class CreateScheduledActionMessage(TypedDict):
+class CreateScheduledActionMessage(TypedDict, closed=True):
     scheduled_action_name: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The name of the scheduled action. The name must be unique within an account. For more information about this parameter, see <a>ScheduledAction</a>. </p>"""
     target_action: NotRequired[

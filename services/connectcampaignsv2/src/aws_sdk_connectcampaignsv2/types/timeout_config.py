@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#TimeoutConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.timeout_duration
 
 
-class TimeoutConfig(TypedDict):
+class TimeoutConfig(TypedDict, closed=True):
     duration_in_seconds: (
         "aws_sdk_connectcampaignsv2.types.timeout_duration.TimeoutDuration"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SqlAlias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -14,6 +16,7 @@ SqlAlias = TypedDict(
         "from": "aws_sdk_glue.types.node_id.NodeId",
         "alias": "aws_sdk_glue.types.enclosed_in_string_property_with_quote.EnclosedInStringPropertyWithQuote",
     },
+    closed=True,
 )
 
 

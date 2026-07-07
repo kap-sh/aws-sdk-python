@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ConverseOutput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.message
 
 
-class _ConverseOutput_message(TypedDict):
+class _ConverseOutput_message(TypedDict, closed=True):
     message: "aws_sdk_bedrock_runtime.types.message.Message"
 
 

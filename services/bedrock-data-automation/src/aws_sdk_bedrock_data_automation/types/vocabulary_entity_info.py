@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#VocabularyEntityInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.phrase_list
 
 
-class VocabularyEntityInfo(TypedDict):
+class VocabularyEntityInfo(TypedDict, closed=True):
     entity_id: NotRequired["aws_sdk_bedrock_data_automation.types.entity_id.EntityId"]
     description: NotRequired[
         "aws_sdk_bedrock_data_automation.types.entity_description.EntityDescription"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#RoutingRuleMatchBasePaths``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__list_of_selection_key
 
 
-class RoutingRuleMatchBasePaths(TypedDict):
+class RoutingRuleMatchBasePaths(TypedDict, closed=True):
     any_of: NotRequired[
         "aws_sdk_apigatewayv2.types.__list_of_selection_key.__listOfSelectionKey"
     ]

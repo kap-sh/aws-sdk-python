@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#GetTemplateStepGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.step_group_id
     import aws_sdk_migrationhuborchestrator.types.template_id
 
 
-class GetTemplateStepGroupRequest(TypedDict):
+class GetTemplateStepGroupRequest(TypedDict, closed=True):
     template_id: "aws_sdk_migrationhuborchestrator.types.template_id.TemplateId"
     """<p>The ID of the template.</p>"""
     id: "aws_sdk_migrationhuborchestrator.types.step_group_id.StepGroupId"

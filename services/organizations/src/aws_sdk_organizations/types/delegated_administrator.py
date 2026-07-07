@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#DelegatedAdministrator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.account_arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.timestamp
 
 
-class DelegatedAdministrator(TypedDict):
+class DelegatedAdministrator(TypedDict, closed=True):
     id: NotRequired["aws_sdk_organizations.types.account_id.AccountId"]
     """<p>The unique identifier (ID) of the delegated administrator's account.</p>"""
     arn: NotRequired["aws_sdk_organizations.types.account_arn.AccountArn"]

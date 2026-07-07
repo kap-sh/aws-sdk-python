@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#TransitGatewayRequestOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpn_ecmp_support_value
 
 
-class TransitGatewayRequestOptions(TypedDict):
+class TransitGatewayRequestOptions(TypedDict, closed=True):
     amazon_side_asn: NotRequired["aws_sdk_ec2.types.long.Long"]
     """<p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs. The default is <code>64512</code>.</p>"""
     auto_accept_shared_attachments: NotRequired[

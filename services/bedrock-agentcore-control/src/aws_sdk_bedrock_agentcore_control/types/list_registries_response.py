@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListRegistriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.registry_summary_list
 
 
-class ListRegistriesResponse(TypedDict):
+class ListRegistriesResponse(TypedDict, closed=True):
     registries: "aws_sdk_bedrock_agentcore_control.types.registry_summary_list.RegistrySummaryList"
     """<p>The list of registry summaries. For details about the fields in each summary, see the <code>RegistrySummary</code> data type.</p>"""
     next_token: NotRequired[

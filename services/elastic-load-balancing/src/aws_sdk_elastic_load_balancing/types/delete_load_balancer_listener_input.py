@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancing#DeleteLoadBalancerListenerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_load_balancing._protocol.xml import Element
 from aws_sdk_elastic_load_balancing.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing.types.ports
 
 
-class DeleteLoadBalancerListenerInput(TypedDict):
+class DeleteLoadBalancerListenerInput(TypedDict, closed=True):
     load_balancer_name: (
         "aws_sdk_elastic_load_balancing.types.access_point_name.AccessPointName"
     )

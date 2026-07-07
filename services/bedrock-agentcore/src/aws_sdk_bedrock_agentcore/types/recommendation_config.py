@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#RecommendationConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.tool_description_recommendation_config
 
 
-class _RecommendationConfig_systemPromptRecommendationConfig(TypedDict):
+class _RecommendationConfig_systemPromptRecommendationConfig(TypedDict, closed=True):
     systemPromptRecommendationConfig: "aws_sdk_bedrock_agentcore.types.system_prompt_recommendation_config.SystemPromptRecommendationConfig"
 
 
-class _RecommendationConfig_toolDescriptionRecommendationConfig(TypedDict):
+class _RecommendationConfig_toolDescriptionRecommendationConfig(TypedDict, closed=True):
     toolDescriptionRecommendationConfig: "aws_sdk_bedrock_agentcore.types.tool_description_recommendation_config.ToolDescriptionRecommendationConfig"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#Summary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.amazon_resource_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.target_id_type
 
 
-class Summary(TypedDict):
+class Summary(TypedDict, closed=True):
     last_updated: NotRequired[
         "aws_sdk_resource_groups_tagging_api.types.last_updated.LastUpdated"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#DescribeSlackChannelConfigurationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chatbot.types.pagination_token
     import aws_sdk_chatbot.types.slack_channel_configuration_list
 
 
-class DescribeSlackChannelConfigurationsResult(TypedDict):
+class DescribeSlackChannelConfigurationsResult(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_chatbot.types.pagination_token.PaginationToken"]
     """<p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults. </p>"""
     slack_channel_configurations: NotRequired[

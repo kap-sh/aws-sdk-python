@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EvaluationResultContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.token_usage
 
 
-class EvaluationResultContent(TypedDict):
+class EvaluationResultContent(TypedDict, closed=True):
     evaluator_arn: "aws_sdk_bedrock_agentcore.types.evaluator_arn.EvaluatorArn"
     """<p> The Amazon Resource Name (ARN) of the evaluator used to generate this result. For custom evaluators, this is the full ARN; for built-in evaluators, this follows the pattern <code>Builtin.{EvaluatorName}</code>. </p>"""
     evaluator_id: "aws_sdk_bedrock_agentcore.types.evaluator_id.EvaluatorId"

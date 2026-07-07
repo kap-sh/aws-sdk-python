@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#IntentFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.intent_filter_operator
 
 
-class IntentFilter(TypedDict):
+class IntentFilter(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.intent_filter_name.IntentFilterName"
     """<p>The name of the field to use for the filter.</p>"""
     values: "aws_sdk_lex_models_v2.types.filter_values.FilterValues"

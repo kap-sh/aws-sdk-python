@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#RoomMembership``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.iso8601_timestamp
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.room_membership_role
 
 
-class RoomMembership(TypedDict):
+class RoomMembership(TypedDict, closed=True):
     room_id: NotRequired["aws_sdk_chime.types.non_empty_string.NonEmptyString"]
     """<p>The room ID.</p>"""
     member: NotRequired["aws_sdk_chime.types.member.Member"]

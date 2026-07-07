@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#Sort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.sort_order
 
 
-class Sort(TypedDict):
+class Sort(TypedDict, closed=True):
     sort_order: "aws_sdk_medical_imaging.types.sort_order.SortOrder"
     """<p>The sort order for search criteria.</p>"""
     sort_field: "aws_sdk_medical_imaging.types.sort_field.SortField"

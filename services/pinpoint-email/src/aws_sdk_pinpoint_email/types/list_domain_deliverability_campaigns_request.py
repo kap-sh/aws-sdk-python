@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#ListDomainDeliverabilityCampaignsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.domain
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.timestamp
 
 
-class ListDomainDeliverabilityCampaignsRequest(TypedDict):
+class ListDomainDeliverabilityCampaignsRequest(TypedDict, closed=True):
     start_date: "aws_sdk_pinpoint_email.types.timestamp.Timestamp"
     """<p>The first day, in Unix time format, that you want to obtain deliverability data for.</p>"""
     end_date: "aws_sdk_pinpoint_email.types.timestamp.Timestamp"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#OpportunitySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.project_summary
 
 
-class OpportunitySummary(TypedDict):
+class OpportunitySummary(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier"
     """<p>Specifies the catalog associated with the opportunity, either <code>AWS</code> or <code>Sandbox</code>. This indicates the environment in which the opportunity is managed.</p>"""
     id: NotRequired[

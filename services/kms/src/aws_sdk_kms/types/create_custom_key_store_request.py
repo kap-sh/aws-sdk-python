@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#CreateCustomKeyStoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kms.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.xks_proxy_vpc_endpoint_service_name_type
 
 
-class CreateCustomKeyStoreRequest(TypedDict):
+class CreateCustomKeyStoreRequest(TypedDict, closed=True):
     custom_key_store_name: (
         "aws_sdk_kms.types.custom_key_store_name_type.CustomKeyStoreNameType"
     )

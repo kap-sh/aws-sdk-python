@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GroupDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.group_definition_key
     import aws_sdk_cost_explorer.types.group_definition_type
 
 
-class GroupDefinition(TypedDict):
+class GroupDefinition(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_cost_explorer.types.group_definition_type.GroupDefinitionType"
     ]

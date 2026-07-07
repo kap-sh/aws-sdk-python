@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ConfigurableUpfrontPricingTermConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.dimension_list
 
 
-class ConfigurableUpfrontPricingTermConfiguration(TypedDict):
+class ConfigurableUpfrontPricingTermConfiguration(TypedDict, closed=True):
     selector_value: "aws_sdk_marketplace_agreement.types.bounded_string.BoundedString"
     """<p>Defines the length of time for which the particular pricing/dimension is being purchased by the acceptor.</p>"""
     dimensions: "aws_sdk_marketplace_agreement.types.dimension_list.DimensionList"

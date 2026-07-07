@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#PutVectorBucketPolicyOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutVectorBucketPolicyOutput(TypedDict):
+class PutVectorBucketPolicyOutput(TypedDict, closed=True):
     pass
 
 

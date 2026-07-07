@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CancelDataQualityRuleRecommendationRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.hash_string
 
 
-class CancelDataQualityRuleRecommendationRunRequest(TypedDict):
+class CancelDataQualityRuleRecommendationRunRequest(TypedDict, closed=True):
     run_id: "aws_sdk_glue.types.hash_string.HashString"
     """<p>The unique run identifier associated with this run.</p>"""
 

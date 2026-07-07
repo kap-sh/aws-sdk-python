@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#GetProfileTemplateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.profile_template
 
 
-class GetProfileTemplateOutput(TypedDict):
+class GetProfileTemplateOutput(TypedDict, closed=True):
     profile_template: NotRequired[
         "aws_sdk_wellarchitected.types.profile_template.ProfileTemplate"
     ]

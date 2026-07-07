@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#LoadBalancer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.tag_list
 
 
-class LoadBalancer(TypedDict):
+class LoadBalancer(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
     """<p>The name of the load balancer (<code>my-load-balancer</code>).</p>"""
     arn: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]

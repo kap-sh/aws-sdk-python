@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#AddonInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.addon_subscription_id
 
 
-class AddonInstance(TypedDict):
+class AddonInstance(TypedDict, closed=True):
     addon_instance_id: NotRequired[
         "aws_sdk_mailmanager.types.addon_instance_id.AddonInstanceId"
     ]

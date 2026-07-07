@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#PutSupplementalTaxRegistrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.supplemental_tax_registration_entry
 
 
-class PutSupplementalTaxRegistrationRequest(TypedDict):
+class PutSupplementalTaxRegistrationRequest(TypedDict, closed=True):
     tax_registration_entry: "aws_sdk_taxsettings.types.supplemental_tax_registration_entry.SupplementalTaxRegistrationEntry"
     """<p> The supplemental TRN information that will be stored for the caller account ID. </p>"""
 

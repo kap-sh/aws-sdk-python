@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeEntityAggregatesForOrganizationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_health.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.organization_event_arns_list
 
 
-class DescribeEntityAggregatesForOrganizationRequest(TypedDict):
+class DescribeEntityAggregatesForOrganizationRequest(TypedDict, closed=True):
     event_arns: (
         "aws_sdk_health.types.organization_event_arns_list.OrganizationEventArnsList"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Instance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -46,7 +46,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.virtualization_type
 
 
-class Instance(TypedDict):
+class Instance(TypedDict, closed=True):
     architecture: NotRequired[
         "aws_sdk_ec2.types.architecture_values.ArchitectureValues"
     ]

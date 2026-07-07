@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#SourceCodeRepository``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SourceCodeRepository(TypedDict):
+class SourceCodeRepository(TypedDict, closed=True):
     s3_location: NotRequired["str"]
     """<p>The Amazon S3 location of the source code repository archive.</p>"""
 

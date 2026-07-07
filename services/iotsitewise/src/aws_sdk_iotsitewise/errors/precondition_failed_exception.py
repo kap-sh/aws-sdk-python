@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#PreconditionFailedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError, ServiceError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.resource_id
 
 
-class PreconditionFailedException_(TypedDict):
+class PreconditionFailedException_(TypedDict, closed=True):
     message: "aws_sdk_iotsitewise.types.error_message.ErrorMessage"
     resource_id: "aws_sdk_iotsitewise.types.resource_id.ResourceId"
     """<p>The ID of the resource on which precondition failed with this operation.</p>"""

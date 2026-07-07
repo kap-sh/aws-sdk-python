@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CreateOpsItemResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.ops_item_arn
     import aws_sdk_ssm.types.string
 
 
-class CreateOpsItemResponse(TypedDict):
+class CreateOpsItemResponse(TypedDict, closed=True):
     ops_item_id: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The ID of the OpsItem.</p>"""
     ops_item_arn: NotRequired["aws_sdk_ssm.types.ops_item_arn.OpsItemArn"]

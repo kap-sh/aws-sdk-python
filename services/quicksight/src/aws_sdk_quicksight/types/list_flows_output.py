@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListFlowsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.flow_summary_list
     import aws_sdk_quicksight.types.status_code
 
 
-class ListFlowsOutput(TypedDict):
+class ListFlowsOutput(TypedDict, closed=True):
     flow_summary_list: NotRequired[
         "aws_sdk_quicksight.types.flow_summary_list.FlowSummaryList"
     ]

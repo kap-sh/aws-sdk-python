@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#IcebergMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.iceberg_partition_spec
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_properties
 
 
-class IcebergMetadata(TypedDict):
+class IcebergMetadata(TypedDict, closed=True):
     schema: NotRequired["aws_sdk_s3tables.types.iceberg_schema.IcebergSchema"]
     """<p>The schema for an Iceberg table. Use this property to define table schemas with primitive types only. For schemas that include nested or complex types such as <code>struct</code>, <code>list</code>, or <code>map</code>, use <code>schemaV2</code> instead.</p>"""
     schema_v2: NotRequired["aws_sdk_s3tables.types.iceberg_schema_v2.IcebergSchemaV2"]

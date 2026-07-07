@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#Integration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class Integration(TypedDict):
+class Integration(TypedDict, closed=True):
     source_arn: NotRequired["aws_sdk_rds.types.source_arn.SourceArn"]
     """<p>The Amazon Resource Name (ARN) of the database used as the source for replication.</p>"""
     target_arn: NotRequired["aws_sdk_rds.types.arn.Arn"]

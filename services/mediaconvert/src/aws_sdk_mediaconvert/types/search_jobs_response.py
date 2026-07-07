@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#SearchJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of_job
     import aws_sdk_mediaconvert.types.__string
 
 
-class SearchJobsResponse(TypedDict):
+class SearchJobsResponse(TypedDict, closed=True):
     jobs: NotRequired["aws_sdk_mediaconvert.types.__list_of_job.__listOfJob"]
     """List of jobs."""
     next_token: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#StackInstanceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.timestamp
 
 
-class StackInstanceSummary(TypedDict):
+class StackInstanceSummary(TypedDict, closed=True):
     stack_set_id: NotRequired["aws_sdk_cloudformation.types.stack_set_id.StackSetId"]
     """<p>The name or unique ID of the StackSet that the stack instance is associated with.</p>"""
     region: NotRequired["aws_sdk_cloudformation.types.region.Region"]

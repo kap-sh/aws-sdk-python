@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#SchedulePeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.generic_time_stamp
 
 
-class SchedulePeriod(TypedDict):
+class SchedulePeriod(TypedDict, closed=True):
     start_time: NotRequired[
         "aws_sdk_bcm_dashboards.types.generic_time_stamp.GenericTimeStamp"
     ]

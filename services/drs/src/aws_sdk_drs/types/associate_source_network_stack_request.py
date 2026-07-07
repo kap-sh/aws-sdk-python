@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#AssociateSourceNetworkStackRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.source_network_id
 
 
-class AssociateSourceNetworkStackRequest(TypedDict):
+class AssociateSourceNetworkStackRequest(TypedDict, closed=True):
     source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID"
     """<p>The Source Network ID to associate with CloudFormation template.</p>"""
     cfn_stack_name: "aws_sdk_drs.types.cfn_stack_name.CfnStackName"

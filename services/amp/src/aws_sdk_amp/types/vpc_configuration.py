@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#VpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.subnet_ids
 
 
-class VpcConfiguration(TypedDict):
+class VpcConfiguration(TypedDict, closed=True):
     security_group_ids: "aws_sdk_amp.types.security_group_ids.SecurityGroupIds"
     """<p>The security group IDs that control network access for the Prometheus collector. These security groups must allow the collector to communicate with your Amazon MSK cluster on the required ports.</p>"""
     subnet_ids: "aws_sdk_amp.types.subnet_ids.SubnetIds"

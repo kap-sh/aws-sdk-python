@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ImageFailure``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_failure_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_identifier
 
 
-class ImageFailure(TypedDict):
+class ImageFailure(TypedDict, closed=True):
     image_id: NotRequired["aws_sdk_ecr.types.image_identifier.ImageIdentifier"]
     """<p>The image ID associated with the failure.</p>"""
     failure_code: NotRequired["aws_sdk_ecr.types.image_failure_code.ImageFailureCode"]

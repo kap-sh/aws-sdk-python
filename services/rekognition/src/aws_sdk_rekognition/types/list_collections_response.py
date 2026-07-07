@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ListCollectionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.collection_id_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.pagination_token
 
 
-class ListCollectionsResponse(TypedDict):
+class ListCollectionsResponse(TypedDict, closed=True):
     collection_ids: NotRequired[
         "aws_sdk_rekognition.types.collection_id_list.CollectionIdList"
     ]

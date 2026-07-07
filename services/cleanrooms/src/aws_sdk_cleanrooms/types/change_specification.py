@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ChangeSpecification``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.member_change_specification
 
 
-class _ChangeSpecification_member(TypedDict):
+class _ChangeSpecification_member(TypedDict, closed=True):
     member: (
         "aws_sdk_cleanrooms.types.member_change_specification.MemberChangeSpecification"
     )
 
 
-class _ChangeSpecification_collaboration(TypedDict):
+class _ChangeSpecification_collaboration(TypedDict, closed=True):
     collaboration: "aws_sdk_cleanrooms.types.collaboration_change_specification.CollaborationChangeSpecification"
 
 

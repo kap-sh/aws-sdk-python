@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#StartDetectMitigationActionsTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.violation_event_occurrence_range
 
 
-class StartDetectMitigationActionsTaskRequest(TypedDict):
+class StartDetectMitigationActionsTaskRequest(TypedDict, closed=True):
     task_id: "aws_sdk_iot.types.mitigation_actions_task_id.MitigationActionsTaskId"
     """<p> The unique identifier of the task. </p>"""
     target: "aws_sdk_iot.types.detect_mitigation_actions_task_target.DetectMitigationActionsTaskTarget"

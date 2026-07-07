@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.osis#PipelineDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.string
 
 
-class PipelineDestination(TypedDict):
+class PipelineDestination(TypedDict, closed=True):
     service_name: NotRequired["aws_sdk_osis.types.string.String"]
     """<p>The name of the service receiving data from the pipeline.</p>"""
     endpoint: NotRequired["aws_sdk_osis.types.string.String"]

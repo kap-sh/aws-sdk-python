@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#InterruptionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.absolute_time_range
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.timestamp_milliseconds
 
 
-class InterruptionFilter(TypedDict):
+class InterruptionFilter(TypedDict, closed=True):
     threshold: NotRequired[
         "aws_sdk_transcribe.types.timestamp_milliseconds.TimestampMilliseconds"
     ]

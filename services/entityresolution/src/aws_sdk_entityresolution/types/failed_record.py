@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#FailedRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.input_source_arn
 
 
-class FailedRecord(TypedDict):
+class FailedRecord(TypedDict, closed=True):
     input_source_arn: "aws_sdk_entityresolution.types.input_source_arn.InputSourceARN"
     """<p> The input source ARN of the record that didn't generate a Match ID.</p>"""
     unique_id: "str"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#DeletePipeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.pipe_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.timestamp
 
 
-class DeletePipeResponse(TypedDict):
+class DeletePipeResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_pipes.types.pipe_arn.PipeArn"]
     """<p>The ARN of the pipe.</p>"""
     name: NotRequired["aws_sdk_pipes.types.pipe_name.PipeName"]

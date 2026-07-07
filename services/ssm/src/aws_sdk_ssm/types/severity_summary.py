@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#SeveritySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.compliance_summary_count
 
 
-class SeveritySummary(TypedDict):
+class SeveritySummary(TypedDict, closed=True):
     critical_count: "aws_sdk_ssm.types.compliance_summary_count.ComplianceSummaryCount"
     """<p>The total number of resources or compliance items that have a severity level of <code>Critical</code>. Critical severity is determined by the organization that published the compliance items.</p>"""
     high_count: "aws_sdk_ssm.types.compliance_summary_count.ComplianceSummaryCount"

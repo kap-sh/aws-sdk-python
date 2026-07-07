@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DataSourceConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.sage_maker_run_configuration_input
 
 
-class _DataSourceConfigurationInput_glueRunConfiguration(TypedDict):
+class _DataSourceConfigurationInput_glueRunConfiguration(TypedDict, closed=True):
     glueRunConfiguration: (
         "aws_sdk_datazone.types.glue_run_configuration_input.GlueRunConfigurationInput"
     )
 
 
-class _DataSourceConfigurationInput_redshiftRunConfiguration(TypedDict):
+class _DataSourceConfigurationInput_redshiftRunConfiguration(TypedDict, closed=True):
     redshiftRunConfiguration: "aws_sdk_datazone.types.redshift_run_configuration_input.RedshiftRunConfigurationInput"
 
 
-class _DataSourceConfigurationInput_sageMakerRunConfiguration(TypedDict):
+class _DataSourceConfigurationInput_sageMakerRunConfiguration(TypedDict, closed=True):
     sageMakerRunConfiguration: "aws_sdk_datazone.types.sage_maker_run_configuration_input.SageMakerRunConfigurationInput"
 
 

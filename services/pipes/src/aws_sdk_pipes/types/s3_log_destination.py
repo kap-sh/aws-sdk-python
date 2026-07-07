@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#S3LogDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.s3_output_format
     import aws_sdk_pipes.types.string
 
 
-class S3LogDestination(TypedDict):
+class S3LogDestination(TypedDict, closed=True):
     bucket_name: NotRequired["aws_sdk_pipes.types.string.String"]
     """<p>The name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.</p>"""
     prefix: NotRequired["aws_sdk_pipes.types.string.String"]

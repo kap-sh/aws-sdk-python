@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#Action``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.no_bid_action
 
 
-class _Action_noBid(TypedDict):
+class _Action_noBid(TypedDict, closed=True):
     noBid: "aws_sdk_rtbfabric.types.no_bid_action.NoBidAction"
 
 
-class _Action_headerTag(TypedDict):
+class _Action_headerTag(TypedDict, closed=True):
     headerTag: "aws_sdk_rtbfabric.types.header_tag_action.HeaderTagAction"
 
 

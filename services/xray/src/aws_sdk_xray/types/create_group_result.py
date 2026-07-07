@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#CreateGroupResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.group
 
 
-class CreateGroupResult(TypedDict):
+class CreateGroupResult(TypedDict, closed=True):
     group: NotRequired["aws_sdk_xray.types.group.Group"]
     """<p>The group that was created. Contains the name of the group that was created, the Amazon Resource Name (ARN) of the group that was generated based on the group name, the filter expression, and the insight configuration that was assigned to the group.</p>"""
 

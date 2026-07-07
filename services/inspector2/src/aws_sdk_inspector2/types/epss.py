@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Epss``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.epss_score
 
 
-class Epss(TypedDict):
+class Epss(TypedDict, closed=True):
     score: "aws_sdk_inspector2.types.epss_score.EpssScore"
     """<p>The Exploit Prediction Scoring System (EPSS) score.</p>"""
 

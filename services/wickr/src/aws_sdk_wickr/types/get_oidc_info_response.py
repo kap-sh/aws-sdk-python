@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#GetOidcInfoResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.oidc_config_info
     import aws_sdk_wickr.types.oidc_token_info
 
 
-class GetOidcInfoResponse(TypedDict):
+class GetOidcInfoResponse(TypedDict, closed=True):
     openid_connect_info: NotRequired[
         "aws_sdk_wickr.types.oidc_config_info.OidcConfigInfo"
     ]

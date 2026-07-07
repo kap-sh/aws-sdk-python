@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#UpdateClusterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.client_token
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.multi_region_properties
 
 
-class UpdateClusterInput(TypedDict):
+class UpdateClusterInput(TypedDict, closed=True):
     identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     """<p>The ID of the cluster you want to update.</p>"""
     deletion_protection_enabled: NotRequired[

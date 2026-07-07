@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PartitionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.parameters_map
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.value_string_list
 
 
-class PartitionInput(TypedDict):
+class PartitionInput(TypedDict, closed=True):
     values: NotRequired["aws_sdk_glue.types.value_string_list.ValueStringList"]
     """<p>The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input.</p> <p>The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise Glue will add the values to the wrong keys.</p>"""
     last_access_time: NotRequired["aws_sdk_glue.types.timestamp.Timestamp"]

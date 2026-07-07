@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#SeedUrl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.url
 
 
-class SeedUrl(TypedDict):
+class SeedUrl(TypedDict, closed=True):
     url: NotRequired["aws_sdk_bedrock_agent.types.url.Url"]
     """<p>A seed or starting point URL.</p>"""
 

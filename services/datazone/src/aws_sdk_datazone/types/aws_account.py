@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AwsAccount``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.parameter_store_path
 
 
-class _AwsAccount_awsAccountId(TypedDict):
+class _AwsAccount_awsAccountId(TypedDict, closed=True):
     awsAccountId: "aws_sdk_datazone.types.aws_account_id.AwsAccountId"
 
 
-class _AwsAccount_awsAccountIdPath(TypedDict):
+class _AwsAccount_awsAccountIdPath(TypedDict, closed=True):
     awsAccountIdPath: "aws_sdk_datazone.types.parameter_store_path.ParameterStorePath"
 
 

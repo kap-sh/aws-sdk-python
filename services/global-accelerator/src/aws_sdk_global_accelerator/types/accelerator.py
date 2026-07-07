@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#Accelerator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.accelerator_events
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.timestamp
 
 
-class Accelerator(TypedDict):
+class Accelerator(TypedDict, closed=True):
     accelerator_arn: NotRequired[
         "aws_sdk_global_accelerator.types.generic_string.GenericString"
     ]

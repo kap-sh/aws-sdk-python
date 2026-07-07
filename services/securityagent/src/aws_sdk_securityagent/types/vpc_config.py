@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#VpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.security_group_arns
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.vpc_arn
 
 
-class VpcConfig(TypedDict):
+class VpcConfig(TypedDict, closed=True):
     vpc_arn: NotRequired["aws_sdk_securityagent.types.vpc_arn.VpcArn"]
     """<p>The Amazon Resource Name (ARN) of the VPC.</p>"""
     security_group_arns: NotRequired[

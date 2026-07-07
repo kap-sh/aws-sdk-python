@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#UpdatePipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.bucket_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.role
 
 
-class UpdatePipelineRequest(TypedDict):
+class UpdatePipelineRequest(TypedDict, closed=True):
     id: "aws_sdk_elastic_transcoder.types.id.Id"
     """<p>The ID of the pipeline that you want to update.</p>"""
     name: NotRequired["aws_sdk_elastic_transcoder.types.name.Name"]

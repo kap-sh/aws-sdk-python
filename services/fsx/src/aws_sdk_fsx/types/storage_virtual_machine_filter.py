@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#StorageVirtualMachineFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.storage_virtual_machine_filter_name
     import aws_sdk_fsx.types.storage_virtual_machine_filter_values
 
 
-class StorageVirtualMachineFilter(TypedDict):
+class StorageVirtualMachineFilter(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_fsx.types.storage_virtual_machine_filter_name.StorageVirtualMachineFilterName"
     ]

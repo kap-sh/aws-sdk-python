@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SheetStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_background_style
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.tile_style
 
 
-class SheetStyle(TypedDict):
+class SheetStyle(TypedDict, closed=True):
     tile: NotRequired["aws_sdk_quicksight.types.tile_style.TileStyle"]
     """<p>The display options for tiles.</p>"""
     tile_layout: NotRequired[

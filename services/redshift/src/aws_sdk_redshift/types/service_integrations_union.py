@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#ServiceIntegrationsUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 from aws_sdk_redshift.errors import DeserializationError, SerializationError
@@ -11,15 +13,15 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.s3_access_grants_service_integrations
 
 
-class _ServiceIntegrationsUnion_LakeFormation(TypedDict):
+class _ServiceIntegrationsUnion_LakeFormation(TypedDict, closed=True):
     LakeFormation: "aws_sdk_redshift.types.lake_formation_service_integrations.LakeFormationServiceIntegrations"
 
 
-class _ServiceIntegrationsUnion_S3AccessGrants(TypedDict):
+class _ServiceIntegrationsUnion_S3AccessGrants(TypedDict, closed=True):
     S3AccessGrants: "aws_sdk_redshift.types.s3_access_grants_service_integrations.S3AccessGrantsServiceIntegrations"
 
 
-class _ServiceIntegrationsUnion_Redshift(TypedDict):
+class _ServiceIntegrationsUnion_Redshift(TypedDict, closed=True):
     Redshift: "aws_sdk_redshift.types.redshift_service_integrations.RedshiftServiceIntegrations"
 
 

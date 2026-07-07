@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.resource_property_list
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     arn: NotRequired["str"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the resource.</p>"""
     owning_account_id: NotRequired["str"]

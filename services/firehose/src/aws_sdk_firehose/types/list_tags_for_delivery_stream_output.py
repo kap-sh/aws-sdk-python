@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#ListTagsForDeliveryStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.list_tags_for_delivery_stream_output_tag_list
 
 
-class ListTagsForDeliveryStreamOutput(TypedDict):
+class ListTagsForDeliveryStreamOutput(TypedDict, closed=True):
     tags: "aws_sdk_firehose.types.list_tags_for_delivery_stream_output_tag_list.ListTagsForDeliveryStreamOutputTagList"
     """<p>A list of tags associated with <code>DeliveryStreamName</code>, starting with the first tag after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>.</p>"""
     has_more_tags: "aws_sdk_firehose.types.boolean_object.BooleanObject"

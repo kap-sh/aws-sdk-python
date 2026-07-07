@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudcontrol#ResourceDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.identifier
     import aws_sdk_cloudcontrol.types.properties
 
 
-class ResourceDescription(TypedDict):
+class ResourceDescription(TypedDict, closed=True):
     identifier: NotRequired["aws_sdk_cloudcontrol.types.identifier.Identifier"]
     r"""<p>The primary identifier for the resource.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html\">Identifying resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>"""
     properties: NotRequired["aws_sdk_cloudcontrol.types.properties.Properties"]

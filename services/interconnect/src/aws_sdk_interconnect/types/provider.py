@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#Provider``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.last_mile_provider
 
 
-class _Provider_cloudServiceProvider(TypedDict):
+class _Provider_cloudServiceProvider(TypedDict, closed=True):
     cloudServiceProvider: (
         "aws_sdk_interconnect.types.cloud_service_provider.CloudServiceProvider"
     )
 
 
-class _Provider_lastMileProvider(TypedDict):
+class _Provider_lastMileProvider(TypedDict, closed=True):
     lastMileProvider: "aws_sdk_interconnect.types.last_mile_provider.LastMileProvider"
 
 

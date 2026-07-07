@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#MatchObjectAge``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.object_age_value
 
 
-class MatchObjectAge(TypedDict):
+class MatchObjectAge(TypedDict, closed=True):
     days_greater_than: "aws_sdk_s3_control.types.object_age_value.ObjectAgeValue"
     """<p> Specifies the maximum object age in days. Must be a positive whole number, greater than the minimum object age and less than or equal to 2,147,483,647. </p>"""
     days_less_than: "aws_sdk_s3_control.types.object_age_value.ObjectAgeValue"

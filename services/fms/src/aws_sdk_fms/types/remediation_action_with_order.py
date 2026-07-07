@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#RemediationActionWithOrder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.basic_integer
     import aws_sdk_fms.types.remediation_action
 
 
-class RemediationActionWithOrder(TypedDict):
+class RemediationActionWithOrder(TypedDict, closed=True):
     remediation_action: NotRequired[
         "aws_sdk_fms.types.remediation_action.RemediationAction"
     ]

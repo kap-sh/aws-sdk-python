@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#AccessDeniedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>You do not have sufficient access to perform this action.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dax#ListTagsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.string
     import aws_sdk_dax.types.tag_list
 
 
-class ListTagsResponse(TypedDict):
+class ListTagsResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_dax.types.tag_list.TagList"]
     """<p>A list of tags currently associated with the DAX cluster.</p>"""
     next_token: NotRequired["aws_sdk_dax.types.string.String"]

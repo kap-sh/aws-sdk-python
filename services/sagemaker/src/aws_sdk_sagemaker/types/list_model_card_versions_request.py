@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelCardVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListModelCardVersionsRequest(TypedDict):
+class ListModelCardVersionsRequest(TypedDict, closed=True):
     creation_time_after: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     """<p>Only list model card versions that were created after the time specified.</p>"""
     creation_time_before: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]

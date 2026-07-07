@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#SendTextMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.time_to_live
 
 
-class SendTextMessageRequest(TypedDict):
+class SendTextMessageRequest(TypedDict, closed=True):
     destination_phone_number: (
         "aws_sdk_pinpoint_sms_voice_v2.types.phone_number.PhoneNumber"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#ListTagsForResourceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.tag_map
 
 
-class ListTagsForResourceOutput(TypedDict):
+class ListTagsForResourceOutput(TypedDict, closed=True):
     tags: "aws_sdk_security_ir.types.tag_map.TagMap"
     """<p>Response element for ListTagsForResource providing content for each configured tag.</p>"""
 

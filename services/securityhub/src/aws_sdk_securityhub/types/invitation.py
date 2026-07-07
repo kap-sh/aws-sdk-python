@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Invitation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.timestamp
 
 
-class Invitation(TypedDict):
+class Invitation(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_securityhub.types.account_id.AccountId"]
     """<p>The account ID of the Security Hub CSPM administrator account that the invitation was sent from.</p>"""
     invitation_id: NotRequired[

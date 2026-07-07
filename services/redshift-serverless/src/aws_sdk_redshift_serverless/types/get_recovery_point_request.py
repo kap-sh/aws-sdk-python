@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#GetRecoveryPointRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
 
-class GetRecoveryPointRequest(TypedDict):
+class GetRecoveryPointRequest(TypedDict, closed=True):
     recovery_point_id: "str"
     """<p>The unique identifier of the recovery point to return information for.</p>"""
 

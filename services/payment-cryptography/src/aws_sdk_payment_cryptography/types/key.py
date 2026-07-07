@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#Key``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.timestamp
 
 
-class Key(TypedDict):
+class Key(TypedDict, closed=True):
     key_arn: "aws_sdk_payment_cryptography.types.key_arn.KeyArn"
     """<p>The Amazon Resource Name (ARN) of the key.</p>"""
     key_attributes: "aws_sdk_payment_cryptography.types.key_attributes.KeyAttributes"

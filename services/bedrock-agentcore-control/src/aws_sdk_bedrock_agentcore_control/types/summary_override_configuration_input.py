@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#SummaryOverrideConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.summary_override_consolidation_configuration_input
 
 
-class SummaryOverrideConfigurationInput(TypedDict):
+class SummaryOverrideConfigurationInput(TypedDict, closed=True):
     consolidation: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.summary_override_consolidation_configuration_input.SummaryOverrideConsolidationConfigurationInput"
     ]

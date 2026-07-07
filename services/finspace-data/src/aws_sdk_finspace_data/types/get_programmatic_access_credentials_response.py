@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#GetProgrammaticAccessCredentialsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.credentials
     import aws_sdk_finspace_data.types.session_duration
 
 
-class GetProgrammaticAccessCredentialsResponse(TypedDict):
+class GetProgrammaticAccessCredentialsResponse(TypedDict, closed=True):
     credentials: NotRequired["aws_sdk_finspace_data.types.credentials.Credentials"]
     """<p>Returns the programmatic credentials.</p>"""
     duration_in_minutes: NotRequired[

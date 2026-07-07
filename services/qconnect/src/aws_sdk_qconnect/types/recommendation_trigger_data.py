@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#RecommendationTriggerData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.query_recommendation_trigger_data
 
 
-class _RecommendationTriggerData_query(TypedDict):
+class _RecommendationTriggerData_query(TypedDict, closed=True):
     query: "aws_sdk_qconnect.types.query_recommendation_trigger_data.QueryRecommendationTriggerData"
 
 

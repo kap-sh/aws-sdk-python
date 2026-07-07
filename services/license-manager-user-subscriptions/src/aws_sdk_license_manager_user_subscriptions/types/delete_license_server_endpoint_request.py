@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#DeleteLicenseServerEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.server_type
 
 
-class DeleteLicenseServerEndpointRequest(TypedDict):
+class DeleteLicenseServerEndpointRequest(TypedDict, closed=True):
     license_server_endpoint_arn: (
         "aws_sdk_license_manager_user_subscriptions.types.arn.Arn"
     )

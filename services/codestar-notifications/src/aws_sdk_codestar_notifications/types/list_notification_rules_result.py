@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codestarnotifications#ListNotificationRulesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codestar_notifications.types.next_token
     import aws_sdk_codestar_notifications.types.notification_rule_batch
 
 
-class ListNotificationRulesResult(TypedDict):
+class ListNotificationRulesResult(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_codestar_notifications.types.next_token.NextToken"]
     """<p>An enumeration token that can be used in a request to return the next batch of the results.</p>"""
     notification_rules: NotRequired[

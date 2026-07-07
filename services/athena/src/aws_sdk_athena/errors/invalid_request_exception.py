@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#InvalidRequestException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.error_message
 
 
-class InvalidRequestException_(TypedDict):
+class InvalidRequestException_(TypedDict, closed=True):
     athena_error_code: NotRequired["aws_sdk_athena.types.error_code.ErrorCode"]
     message: NotRequired["aws_sdk_athena.types.error_message.ErrorMessage"]
 

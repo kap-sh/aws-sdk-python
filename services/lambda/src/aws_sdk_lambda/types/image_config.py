@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ImageConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.string_list
     import aws_sdk_lambda.types.working_directory
 
 
-class ImageConfig(TypedDict):
+class ImageConfig(TypedDict, closed=True):
     entry_point: NotRequired["aws_sdk_lambda.types.string_list.StringList"]
     """<p>Specifies the entry point to their application, which is typically the location of the runtime executable.</p>"""
     command: NotRequired["aws_sdk_lambda.types.string_list.StringList"]

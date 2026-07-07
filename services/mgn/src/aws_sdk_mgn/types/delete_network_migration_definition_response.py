@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DeleteNetworkMigrationDefinitionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteNetworkMigrationDefinitionResponse(TypedDict):
+class DeleteNetworkMigrationDefinitionResponse(TypedDict, closed=True):
     pass
 
 

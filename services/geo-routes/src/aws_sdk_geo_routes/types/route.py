@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#Route``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_summary
 
 
-class Route(TypedDict):
+class Route(TypedDict, closed=True):
     legs: "aws_sdk_geo_routes.types.route_leg_list.RouteLegList"
     """<p>A leg is a section of a route from one waypoint to the next. A leg could be of type Vehicle, Pedestrian or Ferry. Legs of different types could occur together within a single route. For example, a car employing the use of a Ferry will contain Vehicle legs corresponding to journey on land, and Ferry legs corresponding to the journey via Ferry.</p>"""
     major_road_labels: (

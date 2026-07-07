@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#OutpostResolver``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.arn
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.rfc3339_time_string
 
 
-class OutpostResolver(TypedDict):
+class OutpostResolver(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_route53resolver.types.arn.Arn"]
     """<p>The ARN (Amazon Resource Name) for the Resolver on an Outpost.</p>"""
     creation_time: NotRequired[

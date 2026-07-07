@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#StartMedicalScribeStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.medical_scribe_input_stream
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.session_id
 
 
-class StartMedicalScribeStreamRequest(TypedDict):
+class StartMedicalScribeStreamRequest(TypedDict, closed=True):
     session_id: NotRequired["aws_sdk_transcribe_streaming.types.session_id.SessionId"]
     """<p>Specify an identifier for your streaming session (in UUID format). If you don't include a SessionId in your request, Amazon Web Services HealthScribe generates an ID and returns it in the response. </p>"""
     language_code: "aws_sdk_transcribe_streaming.types.medical_scribe_language_code.MedicalScribeLanguageCode"

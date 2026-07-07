@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#CreateWorkspaceServiceAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_id
 
 
-class CreateWorkspaceServiceAccountResponse(TypedDict):
+class CreateWorkspaceServiceAccountResponse(TypedDict, closed=True):
     id: "str"
     """<p>The ID of the service account.</p>"""
     name: "str"

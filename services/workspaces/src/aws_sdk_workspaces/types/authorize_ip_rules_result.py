@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#AuthorizeIpRulesResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AuthorizeIpRulesResult(TypedDict):
+class AuthorizeIpRulesResult(TypedDict, closed=True):
     pass
 
 

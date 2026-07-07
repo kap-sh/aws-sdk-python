@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#AllocateHostedConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_direct_connect.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.vlan
 
 
-class AllocateHostedConnectionRequest(TypedDict):
+class AllocateHostedConnectionRequest(TypedDict, closed=True):
     connection_id: "aws_sdk_direct_connect.types.connection_id.ConnectionId"
     """<p>The ID of the interconnect or LAG.</p>"""
     owner_account: "aws_sdk_direct_connect.types.owner_account.OwnerAccount"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListEksAnywhereSubscriptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.eks_anywhere_subscription_status_values
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class ListEksAnywhereSubscriptionsRequest(TypedDict):
+class ListEksAnywhereSubscriptionsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_eks.types.list_eks_anywhere_subscriptions_request_max_results.ListEksAnywhereSubscriptionsRequestMaxResults"
     ]

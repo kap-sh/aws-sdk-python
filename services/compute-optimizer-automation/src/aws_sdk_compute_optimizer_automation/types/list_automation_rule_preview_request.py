@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#ListAutomationRulePreviewRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.rule_type
 
 
-class ListAutomationRulePreviewRequest(TypedDict):
+class ListAutomationRulePreviewRequest(TypedDict, closed=True):
     rule_type: "aws_sdk_compute_optimizer_automation.types.rule_type.RuleType"
     """<p> The type of rule. </p> <note> <p>Only the management account or a delegated administrator can set the ruleType to be OrganizationRule.</p> </note>"""
     organization_scope: NotRequired[

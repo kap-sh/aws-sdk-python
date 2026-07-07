@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#ApiStage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.map_of_api_stage_throttle_settings
     import aws_sdk_api_gateway.types.string
 
 
-class ApiStage(TypedDict):
+class ApiStage(TypedDict, closed=True):
     api_id: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>API Id of the associated API stage in a usage plan.</p>"""
     stage: NotRequired["aws_sdk_api_gateway.types.string.String"]

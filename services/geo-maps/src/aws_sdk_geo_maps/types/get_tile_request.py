@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geomaps#GetTileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_maps.types.api_key
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_maps.types.tileset
 
 
-class GetTileRequest(TypedDict):
+class GetTileRequest(TypedDict, closed=True):
     additional_features: NotRequired[
         "aws_sdk_geo_maps.types.tile_additional_feature_list.TileAdditionalFeatureList"
     ]

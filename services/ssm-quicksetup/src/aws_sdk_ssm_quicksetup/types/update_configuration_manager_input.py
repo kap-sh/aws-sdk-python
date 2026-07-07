@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#UpdateConfigurationManagerInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class UpdateConfigurationManagerInput(TypedDict):
+class UpdateConfigurationManagerInput(TypedDict, closed=True):
     manager_arn: "str"
     """<p>The ARN of the configuration manager.</p>"""
     name: NotRequired["str"]

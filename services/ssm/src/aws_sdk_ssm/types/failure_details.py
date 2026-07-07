@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#FailureDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.automation_parameter_map
     import aws_sdk_ssm.types.string
 
 
-class FailureDetails(TypedDict):
+class FailureDetails(TypedDict, closed=True):
     failure_stage: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.</p>"""
     failure_type: NotRequired["aws_sdk_ssm.types.string.String"]

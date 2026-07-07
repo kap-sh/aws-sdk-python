@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ImageSigningStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.signing_profile_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.signing_status_failure_reason
 
 
-class ImageSigningStatus(TypedDict):
+class ImageSigningStatus(TypedDict, closed=True):
     signing_profile_arn: NotRequired[
         "aws_sdk_ecr.types.signing_profile_arn.SigningProfileArn"
     ]

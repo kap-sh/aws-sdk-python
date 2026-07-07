@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#ListCollectionGroupsRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListCollectionGroupsRequest(TypedDict):
+class ListCollectionGroupsRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>If your initial <code>ListCollectionGroups</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListCollectionGroups</code> operations, which returns results in the next page.</p>"""
     max_results: NotRequired["int"]

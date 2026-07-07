@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#TargetConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.reserved_instances_offering_id
 
 
-class TargetConfigurationRequest(TypedDict):
+class TargetConfigurationRequest(TypedDict, closed=True):
     instance_count: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The number of instances the Convertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request</p>"""
     offering_id: NotRequired[

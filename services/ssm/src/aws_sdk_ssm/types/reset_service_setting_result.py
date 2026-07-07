@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ResetServiceSettingResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.service_setting
 
 
-class ResetServiceSettingResult(TypedDict):
+class ResetServiceSettingResult(TypedDict, closed=True):
     service_setting: NotRequired["aws_sdk_ssm.types.service_setting.ServiceSetting"]
     """<p>The current, effective service setting after calling the ResetServiceSetting API operation.</p>"""
 

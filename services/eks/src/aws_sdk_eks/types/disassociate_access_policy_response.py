@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DisassociateAccessPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateAccessPolicyResponse(TypedDict):
+class DisassociateAccessPolicyResponse(TypedDict, closed=True):
     pass
 
 

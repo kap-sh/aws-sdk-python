@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#HierarchyStructureUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.hierarchy_level_update
 
 
-class HierarchyStructureUpdate(TypedDict):
+class HierarchyStructureUpdate(TypedDict, closed=True):
     level_one: NotRequired[
         "aws_sdk_connect.types.hierarchy_level_update.HierarchyLevelUpdate"
     ]

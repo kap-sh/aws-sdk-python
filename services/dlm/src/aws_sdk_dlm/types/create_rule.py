@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#CreateRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.cron_expression
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.times_list
 
 
-class CreateRule(TypedDict):
+class CreateRule(TypedDict, closed=True):
     location: NotRequired["aws_sdk_dlm.types.location_values.LocationValues"]
     """<p> <b>[Custom snapshot policies only]</b> Specifies the destination for snapshots created by the policy. The allowed destinations depend on the location of the targeted resources.</p> <ul> <li> <p>If the policy targets resources in a Region, then you must create snapshots in the same Region as the source resource.</p> </li> <li> <p>If the policy targets resources in a Local Zone, you can create snapshots in the same Local Zone or in its parent Region.</p> </li> <li> <p>If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost or in its parent Region.</p> </li> </ul> <p>Specify one of the following values:</p> <ul> <li> <p>To create snapshots in the same Region as the source resource, specify <code>CLOUD</code>.</p> </li> <li> <p>To create snapshots in the same Local Zone as the source resource, specify <code>LOCAL_ZONE</code>.</p> </li> <li> <p>To create snapshots on the same Outpost as the source resource, specify <code>OUTPOST_LOCAL</code>.</p> </li> </ul> <p>Default: <code>CLOUD</code> </p>"""
     interval: NotRequired["aws_sdk_dlm.types.interval.Interval"]

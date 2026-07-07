@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#CreateLicenseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.tag_list
 
 
-class CreateLicenseRequest(TypedDict):
+class CreateLicenseRequest(TypedDict, closed=True):
     license_name: "aws_sdk_license_manager.types.string.String"
     """<p>License name.</p>"""
     product_name: "aws_sdk_license_manager.types.string.String"

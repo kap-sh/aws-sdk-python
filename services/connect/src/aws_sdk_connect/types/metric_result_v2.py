@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#MetricResultV2``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.dimensions_v2_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.metric_interval
 
 
-class MetricResultV2(TypedDict):
+class MetricResultV2(TypedDict, closed=True):
     dimensions: NotRequired["aws_sdk_connect.types.dimensions_v2_map.DimensionsV2Map"]
     """<p>The dimension for the metrics.</p>"""
     metric_interval: NotRequired["aws_sdk_connect.types.metric_interval.MetricInterval"]

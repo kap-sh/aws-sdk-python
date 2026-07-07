@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#FirewallStatelessRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.value_string_list
 
 
-class FirewallStatelessRule(TypedDict):
+class FirewallStatelessRule(TypedDict, closed=True):
     rule_group_arn: NotRequired["aws_sdk_ec2.types.resource_arn.ResourceArn"]
     """<p>The ARN of the stateless rule group.</p>"""
     sources: NotRequired["aws_sdk_ec2.types.value_string_list.ValueStringList"]

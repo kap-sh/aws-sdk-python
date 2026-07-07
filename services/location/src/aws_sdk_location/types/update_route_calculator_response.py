@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#UpdateRouteCalculatorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.timestamp
 
 
-class UpdateRouteCalculatorResponse(TypedDict):
+class UpdateRouteCalculatorResponse(TypedDict, closed=True):
     calculator_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the updated route calculator resource.</p>"""
     calculator_arn: "aws_sdk_location.types.geo_arn.GeoArn"

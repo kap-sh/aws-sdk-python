@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#ClientSideTimestamps``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.client_side_timestamps_status
 
 
-class ClientSideTimestamps(TypedDict):
+class ClientSideTimestamps(TypedDict, closed=True):
     status: "aws_sdk_keyspaces.types.client_side_timestamps_status.ClientSideTimestampsStatus"
     """<p>Shows how to enable client-side timestamps settings for the specified table.</p>"""
 

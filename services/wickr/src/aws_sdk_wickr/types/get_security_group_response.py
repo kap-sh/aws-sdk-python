@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#GetSecurityGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.security_group
 
 
-class GetSecurityGroupResponse(TypedDict):
+class GetSecurityGroupResponse(TypedDict, closed=True):
     security_group: "aws_sdk_wickr.types.security_group.SecurityGroup"
     """<p>The detailed information about the security group, including all its settings and member counts.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#ListApplicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.environment_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.next_token
 
 
-class ListApplicationsRequest(TypedDict):
+class ListApplicationsRequest(TypedDict, closed=True):
     environment_identifier: (
         "aws_sdk_migration_hub_refactor_spaces.types.environment_id.EnvironmentId"
     )

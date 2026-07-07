@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#StartIdMappingJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.job_type
 
 
-class StartIdMappingJobOutput(TypedDict):
+class StartIdMappingJobOutput(TypedDict, closed=True):
     job_id: "aws_sdk_entityresolution.types.job_id.JobId"
     """<p>The ID of the job.</p>"""
     output_source_config: NotRequired[

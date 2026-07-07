@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CopyDBParameterGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class CopyDBParameterGroupMessage(TypedDict):
+class CopyDBParameterGroupMessage(TypedDict, closed=True):
     source_db_parameter_group_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     r"""<p>The identifier or ARN for the source DB parameter group. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing\"> Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid DB parameter group.</p> </li> </ul>"""
     target_db_parameter_group_identifier: NotRequired["aws_sdk_rds.types.string.String"]

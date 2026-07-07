@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ImportWorkspaceImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_image_name
 
 
-class ImportWorkspaceImageRequest(TypedDict):
+class ImportWorkspaceImageRequest(TypedDict, closed=True):
     ec2_image_id: "aws_sdk_workspaces.types.ec2_image_id.Ec2ImageId"
     """<p>The identifier of the EC2 image.</p>"""
     ingestion_process: "aws_sdk_workspaces.types.workspace_image_ingestion_process.WorkspaceImageIngestionProcess"

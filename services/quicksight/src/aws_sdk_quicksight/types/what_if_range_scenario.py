@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#WhatIfRangeScenario``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.timestamp
 
 
-class WhatIfRangeScenario(TypedDict):
+class WhatIfRangeScenario(TypedDict, closed=True):
     start_date: "aws_sdk_quicksight.types.timestamp.Timestamp"
     """<p>The start date in the date range that you need the forecast results for.</p>"""
     end_date: "aws_sdk_quicksight.types.timestamp.Timestamp"

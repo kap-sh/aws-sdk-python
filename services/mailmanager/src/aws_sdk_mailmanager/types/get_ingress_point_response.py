@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#GetIngressPointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.traffic_policy_id
 
 
-class GetIngressPointResponse(TypedDict):
+class GetIngressPointResponse(TypedDict, closed=True):
     ingress_point_id: "aws_sdk_mailmanager.types.ingress_point_id.IngressPointId"
     """<p>The identifier of an ingress endpoint resource.</p>"""
     ingress_point_name: "aws_sdk_mailmanager.types.ingress_point_name.IngressPointName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#UserPoolAddOnsType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.advanced_security_mode_type
 
 
-class UserPoolAddOnsType(TypedDict):
+class UserPoolAddOnsType(TypedDict, closed=True):
     advanced_security_mode: "aws_sdk_cognito_identity_provider.types.advanced_security_mode_type.AdvancedSecurityModeType"
     """<p>The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication. </p>"""
     advanced_security_additional_flows: NotRequired[

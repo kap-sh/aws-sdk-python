@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TransformConfigParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.param_type
 
 
-class TransformConfigParameter(TypedDict):
+class TransformConfigParameter(TypedDict, closed=True):
     name: "aws_sdk_glue.types.enclosed_in_string_property.EnclosedInStringProperty"
     """<p>Specifies the name of the parameter in the config file of the dynamic transform.</p>"""
     type: "aws_sdk_glue.types.param_type.ParamType"

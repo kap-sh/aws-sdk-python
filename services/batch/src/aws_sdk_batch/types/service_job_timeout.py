@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ServiceJobTimeout``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
 
 
-class ServiceJobTimeout(TypedDict):
+class ServiceJobTimeout(TypedDict, closed=True):
     attempt_duration_seconds: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The maximum duration in seconds that a service job attempt can run. After this time is reached, Batch terminates the service job attempt.</p>"""
 

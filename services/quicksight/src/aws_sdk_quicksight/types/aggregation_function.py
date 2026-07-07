@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AggregationFunction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.attribute_aggregation_function
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.numerical_aggregation_function
 
 
-class AggregationFunction(TypedDict):
+class AggregationFunction(TypedDict, closed=True):
     numerical_aggregation_function: NotRequired[
         "aws_sdk_quicksight.types.numerical_aggregation_function.NumericalAggregationFunction"
     ]

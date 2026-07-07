@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#DeleteManagedEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.resource_id_string
 
 
-class DeleteManagedEndpointResponse(TypedDict):
+class DeleteManagedEndpointResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr_containers.types.resource_id_string.ResourceIdString"]
     """<p>The output displays the ID of the managed endpoint.</p>"""
     virtual_cluster_id: NotRequired[

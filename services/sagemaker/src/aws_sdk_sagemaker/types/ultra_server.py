@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UltraServer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.availability_zone
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.unhealthy_instance_count
 
 
-class UltraServer(TypedDict):
+class UltraServer(TypedDict, closed=True):
     ultra_server_id: NotRequired[
         "aws_sdk_sagemaker.types.non_empty_string256.NonEmptyString256"
     ]

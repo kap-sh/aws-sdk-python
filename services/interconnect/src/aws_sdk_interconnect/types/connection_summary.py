@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#ConnectionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.provider
 
 
-class ConnectionSummary(TypedDict):
+class ConnectionSummary(TypedDict, closed=True):
     id: "aws_sdk_interconnect.types.connection_id.ConnectionId"
     """<p>The identifier of the requested <a>Connection</a> </p>"""
     arn: "aws_sdk_interconnect.types.amazon_resource_name.AmazonResourceName"

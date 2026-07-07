@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListNamespacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.namespaces
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class ListNamespacesResponse(TypedDict):
+class ListNamespacesResponse(TypedDict, closed=True):
     namespaces: NotRequired["aws_sdk_quicksight.types.namespaces.Namespaces"]
     """<p>The information about the namespaces in this Amazon Web Services account. The response includes the namespace ARN, name, Amazon Web Services Region, notification email address, creation status, and identity store.</p>"""
     next_token: NotRequired["aws_sdk_quicksight.types.string.String"]

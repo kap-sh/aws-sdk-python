@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TreeMapConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.chart_axis_label_options
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_interaction_options
 
 
-class TreeMapConfiguration(TypedDict):
+class TreeMapConfiguration(TypedDict, closed=True):
     field_wells: NotRequired[
         "aws_sdk_quicksight.types.tree_map_field_wells.TreeMapFieldWells"
     ]

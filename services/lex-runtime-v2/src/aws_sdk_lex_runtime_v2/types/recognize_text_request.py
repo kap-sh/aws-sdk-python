@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#RecognizeTextRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.text
 
 
-class RecognizeTextRequest(TypedDict):
+class RecognizeTextRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_runtime_v2.types.bot_identifier.BotIdentifier"
     """<p>The identifier of the bot that processes the request.</p>"""
     bot_alias_id: "aws_sdk_lex_runtime_v2.types.bot_alias_identifier.BotAliasIdentifier"

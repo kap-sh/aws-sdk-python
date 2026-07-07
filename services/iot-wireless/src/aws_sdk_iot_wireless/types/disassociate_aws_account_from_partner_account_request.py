@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DisassociateAwsAccountFromPartnerAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.partner_account_id
     import aws_sdk_iot_wireless.types.partner_type
 
 
-class DisassociateAwsAccountFromPartnerAccountRequest(TypedDict):
+class DisassociateAwsAccountFromPartnerAccountRequest(TypedDict, closed=True):
     partner_account_id: "aws_sdk_iot_wireless.types.partner_account_id.PartnerAccountId"
     """<p>The partner account ID to disassociate from the AWS account.</p>"""
     partner_type: "aws_sdk_iot_wireless.types.partner_type.PartnerType"

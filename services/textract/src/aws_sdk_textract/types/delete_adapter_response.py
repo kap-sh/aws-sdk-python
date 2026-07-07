@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.textract#DeleteAdapterResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAdapterResponse(TypedDict):
+class DeleteAdapterResponse(TypedDict, closed=True):
     pass
 
 

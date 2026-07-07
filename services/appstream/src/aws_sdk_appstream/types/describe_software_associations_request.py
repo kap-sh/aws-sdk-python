@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeSoftwareAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
 
 
-class DescribeSoftwareAssociationsRequest(TypedDict):
+class DescribeSoftwareAssociationsRequest(TypedDict, closed=True):
     associated_resource: NotRequired["aws_sdk_appstream.types.arn.Arn"]
     """<p>The ARN of the resource to describe software associations. Possible resources are Image and ImageBuilder.</p>"""
     max_results: NotRequired["aws_sdk_appstream.types.integer.Integer"]

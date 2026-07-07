@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#AccountAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.account_attribute_name
 
 
-class AccountAttribute(TypedDict):
+class AccountAttribute(TypedDict, closed=True):
     name: "aws_sdk_pinpoint_sms_voice_v2.types.account_attribute_name.AccountAttributeName"
     """<p>The name of the account attribute.</p>"""
     value: "str"

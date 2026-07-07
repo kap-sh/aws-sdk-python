@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelQualityAppSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.container_entrypoint
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class ModelQualityAppSpecification(TypedDict):
+class ModelQualityAppSpecification(TypedDict, closed=True):
     image_uri: NotRequired["aws_sdk_sagemaker.types.image_uri.ImageUri"]
     """<p>The address of the container image that the monitoring job runs.</p>"""
     container_entrypoint: NotRequired[

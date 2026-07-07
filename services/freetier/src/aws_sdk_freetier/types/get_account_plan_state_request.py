@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.freetier#GetAccountPlanStateRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAccountPlanStateRequest(TypedDict):
+class GetAccountPlanStateRequest(TypedDict, closed=True):
     pass
 
 

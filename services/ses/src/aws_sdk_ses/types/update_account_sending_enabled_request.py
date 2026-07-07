@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#UpdateAccountSendingEnabledRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.enabled
 
 
-class UpdateAccountSendingEnabledRequest(TypedDict):
+class UpdateAccountSendingEnabledRequest(TypedDict, closed=True):
     enabled: "aws_sdk_ses.types.enabled.Enabled"
     """<p>Describes whether email sending is enabled or disabled for your Amazon SES account in the current Amazon Web Services Region.</p>"""
 

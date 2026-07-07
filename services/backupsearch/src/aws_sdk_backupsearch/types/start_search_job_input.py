@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#StartSearchJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.tag_map
 
 
-class StartSearchJobInput(TypedDict):
+class StartSearchJobInput(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_backupsearch.types.tag_map.TagMap"]
     """<p>List of tags returned by the operation.</p>"""
     name: NotRequired["str"]

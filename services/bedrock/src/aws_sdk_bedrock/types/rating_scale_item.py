@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RatingScaleItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.rating_scale_item_value
 
 
-class RatingScaleItem(TypedDict):
+class RatingScaleItem(TypedDict, closed=True):
     definition: (
         "aws_sdk_bedrock.types.rating_scale_item_definition.RatingScaleItemDefinition"
     )

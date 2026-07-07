@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#Grant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.grantee
     import aws_sdk_glacier.types.permission
 
 
-class Grant(TypedDict):
+class Grant(TypedDict, closed=True):
     grantee: NotRequired["aws_sdk_glacier.types.grantee.Grantee"]
     """<p>The grantee.</p>"""
     permission: NotRequired["aws_sdk_glacier.types.permission.Permission"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#EventSourceMappingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.amazon_managed_kafka_event_source_config
@@ -36,7 +36,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.tumbling_window_in_seconds
 
 
-class EventSourceMappingConfiguration(TypedDict):
+class EventSourceMappingConfiguration(TypedDict, closed=True):
     uuid: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>The identifier of the event source mapping.</p>"""
     starting_position: NotRequired[

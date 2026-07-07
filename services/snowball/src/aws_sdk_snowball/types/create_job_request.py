@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#CreateJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.address_id
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.tax_documents
 
 
-class CreateJobRequest(TypedDict):
+class CreateJobRequest(TypedDict, closed=True):
     job_type: NotRequired["aws_sdk_snowball.types.job_type.JobType"]
     """<p>Defines the type of job that you're creating. </p>"""
     resources: NotRequired["aws_sdk_snowball.types.job_resource.JobResource"]

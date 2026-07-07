@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#NoiseReducerTemporalFilterSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max4
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.noise_filter_post_temporal_sharpening_strength
 
 
-class NoiseReducerTemporalFilterSettings(TypedDict):
+class NoiseReducerTemporalFilterSettings(TypedDict, closed=True):
     aggressive_mode: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min0_max4.__integerMin0Max4"
     ]

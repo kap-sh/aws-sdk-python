@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualGatewayTlsValidationContextFileTrust``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.file_path
 
 
-class VirtualGatewayTlsValidationContextFileTrust(TypedDict):
+class VirtualGatewayTlsValidationContextFileTrust(TypedDict, closed=True):
     certificate_chain: "aws_sdk_app_mesh.types.file_path.FilePath"
     """<p>The certificate trust chain for a certificate stored on the file system of the virtual node that the proxy is running on.</p>"""
 

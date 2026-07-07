@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListDiscoveredResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.discovered_resource_list
     import aws_sdk_fms.types.pagination_token
 
 
-class ListDiscoveredResourcesResponse(TypedDict):
+class ListDiscoveredResourcesResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_fms.types.discovered_resource_list.DiscoveredResourceList"
     ]

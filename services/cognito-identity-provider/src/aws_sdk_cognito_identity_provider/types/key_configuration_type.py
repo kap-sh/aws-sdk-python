@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#KeyConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.encryption_key_arn_type
     import aws_sdk_cognito_identity_provider.types.encryption_key_type
 
 
-class KeyConfigurationType(TypedDict):
+class KeyConfigurationType(TypedDict, closed=True):
     key_type: NotRequired[
         "aws_sdk_cognito_identity_provider.types.encryption_key_type.EncryptionKeyType"
     ]

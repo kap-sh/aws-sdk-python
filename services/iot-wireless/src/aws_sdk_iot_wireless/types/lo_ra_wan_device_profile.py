@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LoRaWANDeviceProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.class_b_timeout
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.supports_join
 
 
-class LoRaWANDeviceProfile(TypedDict):
+class LoRaWANDeviceProfile(TypedDict, closed=True):
     supports_class_b: "aws_sdk_iot_wireless.types.supports_class_b.SupportsClassB"
     """<p>The SupportsClassB value.</p>"""
     class_b_timeout: NotRequired[

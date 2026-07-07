@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#MultipleLoopControllerNodesFlowValidationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_node_name
 
 
-class MultipleLoopControllerNodesFlowValidationDetails(TypedDict):
+class MultipleLoopControllerNodesFlowValidationDetails(TypedDict, closed=True):
     loop_node: "aws_sdk_bedrock_agent.types.flow_node_name.FlowNodeName"
     """<p>The DoWhile loop in a flow that contains multiple <code>LoopController</code> nodes.</p>"""
 

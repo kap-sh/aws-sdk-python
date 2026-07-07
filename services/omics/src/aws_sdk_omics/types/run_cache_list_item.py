@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#RunCacheListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.cache_behavior
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.user_custom_name
 
 
-class RunCacheListItem(TypedDict):
+class RunCacheListItem(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_omics.types.run_cache_arn.RunCacheArn"]
     """<p>Unique resource identifier for the run cache.</p>"""
     cache_behavior: NotRequired["aws_sdk_omics.types.cache_behavior.CacheBehavior"]

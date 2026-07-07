@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateProjectOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.project_arn
     import aws_sdk_sagemaker.types.project_id
 
 
-class CreateProjectOutput(TypedDict):
+class CreateProjectOutput(TypedDict, closed=True):
     project_arn: NotRequired["aws_sdk_sagemaker.types.project_arn.ProjectArn"]
     """<p>The Amazon Resource Name (ARN) of the project.</p>"""
     project_id: NotRequired["aws_sdk_sagemaker.types.project_id.ProjectId"]

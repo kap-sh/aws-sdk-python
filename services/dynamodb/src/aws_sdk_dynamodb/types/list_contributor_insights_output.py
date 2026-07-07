@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ListContributorInsightsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.contributor_insights_summaries
     import aws_sdk_dynamodb.types.next_token_string
 
 
-class ListContributorInsightsOutput(TypedDict):
+class ListContributorInsightsOutput(TypedDict, closed=True):
     contributor_insights_summaries: NotRequired[
         "aws_sdk_dynamodb.types.contributor_insights_summaries.ContributorInsightsSummaries"
     ]

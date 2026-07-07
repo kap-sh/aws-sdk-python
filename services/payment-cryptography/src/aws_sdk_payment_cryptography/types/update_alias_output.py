@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#UpdateAliasOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.alias
 
 
-class UpdateAliasOutput(TypedDict):
+class UpdateAliasOutput(TypedDict, closed=True):
     alias: "aws_sdk_payment_cryptography.types.alias.Alias"
     """<p>The alias name.</p>"""
 

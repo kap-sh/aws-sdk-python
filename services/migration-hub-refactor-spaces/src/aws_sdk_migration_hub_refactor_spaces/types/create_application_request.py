@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#CreateApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migration_hub_refactor_spaces.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.vpc_id
 
 
-class CreateApplicationRequest(TypedDict):
+class CreateApplicationRequest(TypedDict, closed=True):
     name: "aws_sdk_migration_hub_refactor_spaces.types.application_name.ApplicationName"
     """<p>The name to use for the application. </p>"""
     environment_identifier: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetBuiltinIntentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.builtin_intent_signature
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.locale_list
 
 
-class GetBuiltinIntentResponse(TypedDict):
+class GetBuiltinIntentResponse(TypedDict, closed=True):
     signature: NotRequired[
         "aws_sdk_lex_model_building_service.types.builtin_intent_signature.BuiltinIntentSignature"
     ]

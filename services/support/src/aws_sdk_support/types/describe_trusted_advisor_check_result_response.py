@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeTrustedAdvisorCheckResultResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.trusted_advisor_check_result
 
 
-class DescribeTrustedAdvisorCheckResultResponse(TypedDict):
+class DescribeTrustedAdvisorCheckResultResponse(TypedDict, closed=True):
     result: NotRequired[
         "aws_sdk_support.types.trusted_advisor_check_result.TrustedAdvisorCheckResult"
     ]

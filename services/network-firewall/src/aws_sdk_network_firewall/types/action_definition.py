@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#ActionDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.publish_metric_action
 
 
-class ActionDefinition(TypedDict):
+class ActionDefinition(TypedDict, closed=True):
     publish_metric_action: NotRequired[
         "aws_sdk_network_firewall.types.publish_metric_action.PublishMetricAction"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#GetBucketWebsiteOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.routing_rules
 
 
-class GetBucketWebsiteOutput(TypedDict):
+class GetBucketWebsiteOutput(TypedDict, closed=True):
     redirect_all_requests_to: NotRequired[
         "aws_sdk_s3.types.redirect_all_requests_to.RedirectAllRequestsTo"
     ]

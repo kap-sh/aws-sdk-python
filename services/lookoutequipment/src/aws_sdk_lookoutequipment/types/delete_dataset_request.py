@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#DeleteDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.dataset_identifier
 
 
-class DeleteDatasetRequest(TypedDict):
+class DeleteDatasetRequest(TypedDict, closed=True):
     dataset_name: "aws_sdk_lookoutequipment.types.dataset_identifier.DatasetIdentifier"
     """<p>The name of the dataset to be deleted. </p>"""
 

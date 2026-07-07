@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#ListAccountAssociationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.account_associations_list
     import aws_sdk_billingconductor.types.token
 
 
-class ListAccountAssociationsOutput(TypedDict):
+class ListAccountAssociationsOutput(TypedDict, closed=True):
     linked_accounts: NotRequired[
         "aws_sdk_billingconductor.types.account_associations_list.AccountAssociationsList"
     ]

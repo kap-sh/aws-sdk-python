@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#SourceRegion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class SourceRegion(TypedDict):
+class SourceRegion(TypedDict, closed=True):
     region_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name of the source Amazon Web Services Region.</p>"""
     endpoint: NotRequired["aws_sdk_rds.types.string.String"]

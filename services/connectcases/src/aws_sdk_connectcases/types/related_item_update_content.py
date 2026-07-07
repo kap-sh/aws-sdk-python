@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#RelatedItemUpdateContent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.custom_update_content
 
 
-class _RelatedItemUpdateContent_comment(TypedDict):
+class _RelatedItemUpdateContent_comment(TypedDict, closed=True):
     comment: "aws_sdk_connectcases.types.comment_update_content.CommentUpdateContent"
 
 
-class _RelatedItemUpdateContent_custom(TypedDict):
+class _RelatedItemUpdateContent_custom(TypedDict, closed=True):
     custom: "aws_sdk_connectcases.types.custom_update_content.CustomUpdateContent"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#Cluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -34,7 +34,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.vpc_security_group_membership_list
 
 
-class Cluster(TypedDict):
+class Cluster(TypedDict, closed=True):
     cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The unique identifier of the cluster.</p>"""
     node_type: NotRequired["aws_sdk_redshift.types.string.String"]

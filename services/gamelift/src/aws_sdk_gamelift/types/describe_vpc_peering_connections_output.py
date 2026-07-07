@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeVpcPeeringConnectionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.vpc_peering_connection_list
 
 
-class DescribeVpcPeeringConnectionsOutput(TypedDict):
+class DescribeVpcPeeringConnectionsOutput(TypedDict, closed=True):
     vpc_peering_connections: NotRequired[
         "aws_sdk_gamelift.types.vpc_peering_connection_list.VpcPeeringConnectionList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ExecuteTransactionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.return_consumed_capacity
 
 
-class ExecuteTransactionInput(TypedDict):
+class ExecuteTransactionInput(TypedDict, closed=True):
     transact_statements: (
         "aws_sdk_dynamodb.types.parameterized_statements.ParameterizedStatements"
     )

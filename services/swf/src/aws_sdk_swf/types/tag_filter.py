@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#TagFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.tag
 
 
-class TagFilter(TypedDict):
+class TagFilter(TypedDict, closed=True):
     tag: "aws_sdk_swf.types.tag.Tag"
     """<p> Specifies the tag that must be associated with the execution for it to meet the filter criteria.</p> <p>Tags may only contain unicode letters, digits, whitespace, or these symbols: <code>_ . : / = + - @</code>.</p>"""
 

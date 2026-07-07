@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#WaitAndContinueSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.still_waiting_response_specification
 
 
-class WaitAndContinueSpecification(TypedDict):
+class WaitAndContinueSpecification(TypedDict, closed=True):
     waiting_response: (
         "aws_sdk_lex_models_v2.types.response_specification.ResponseSpecification"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#MpaStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.timestamp
 
 
-class MpaStatus(TypedDict):
+class MpaStatus(TypedDict, closed=True):
     mpa_session_arn: "aws_sdk_payment_cryptography.types.mpa_session_arn.MpaSessionArn"
     """<p>The ARN of the MPA session.</p>"""
     status: "aws_sdk_payment_cryptography.types.session_status.SessionStatus"

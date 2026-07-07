@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#DeleteApprovalRuleTemplateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.approval_rule_template_id
 
 
-class DeleteApprovalRuleTemplateOutput(TypedDict):
+class DeleteApprovalRuleTemplateOutput(TypedDict, closed=True):
     approval_rule_template_id: (
         "aws_sdk_codecommit.types.approval_rule_template_id.ApprovalRuleTemplateId"
     )

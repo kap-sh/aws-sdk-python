@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormQuestionTypeProperties``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_form_text_question_properties
 
 
-class _EvaluationFormQuestionTypeProperties_Numeric(TypedDict):
+class _EvaluationFormQuestionTypeProperties_Numeric(TypedDict, closed=True):
     Numeric: "aws_sdk_connect.types.evaluation_form_numeric_question_properties.EvaluationFormNumericQuestionProperties"
 
 
-class _EvaluationFormQuestionTypeProperties_SingleSelect(TypedDict):
+class _EvaluationFormQuestionTypeProperties_SingleSelect(TypedDict, closed=True):
     SingleSelect: "aws_sdk_connect.types.evaluation_form_single_select_question_properties.EvaluationFormSingleSelectQuestionProperties"
 
 
-class _EvaluationFormQuestionTypeProperties_Text(TypedDict):
+class _EvaluationFormQuestionTypeProperties_Text(TypedDict, closed=True):
     Text: "aws_sdk_connect.types.evaluation_form_text_question_properties.EvaluationFormTextQuestionProperties"
 
 
-class _EvaluationFormQuestionTypeProperties_MultiSelect(TypedDict):
+class _EvaluationFormQuestionTypeProperties_MultiSelect(TypedDict, closed=True):
     MultiSelect: "aws_sdk_connect.types.evaluation_form_multi_select_question_properties.EvaluationFormMultiSelectQuestionProperties"
 
 

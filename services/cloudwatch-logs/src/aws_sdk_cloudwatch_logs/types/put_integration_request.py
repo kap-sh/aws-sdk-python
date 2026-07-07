@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#PutIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.resource_config
 
 
-class PutIntegrationRequest(TypedDict):
+class PutIntegrationRequest(TypedDict, closed=True):
     integration_name: "aws_sdk_cloudwatch_logs.types.integration_name.IntegrationName"
     """<p>A name for the integration.</p>"""
     resource_config: "aws_sdk_cloudwatch_logs.types.resource_config.ResourceConfig"

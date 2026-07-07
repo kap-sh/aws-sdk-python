@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CreateReusableDelegationSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.resource_id
 
 
-class CreateReusableDelegationSetRequest(TypedDict):
+class CreateReusableDelegationSetRequest(TypedDict, closed=True):
     caller_reference: "aws_sdk_route_53.types.nonce.Nonce"
     """<p>A unique string that identifies the request, and that allows you to retry failed <code>CreateReusableDelegationSet</code> requests without the risk of executing the operation twice. You must use a unique <code>CallerReference</code> string every time you submit a <code>CreateReusableDelegationSet</code> request. <code>CallerReference</code> can be any unique string, for example a date/time stamp.</p>"""
     hosted_zone_id: NotRequired["aws_sdk_route_53.types.resource_id.ResourceId"]

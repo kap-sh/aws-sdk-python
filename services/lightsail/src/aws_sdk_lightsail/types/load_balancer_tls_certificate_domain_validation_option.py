@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#LoadBalancerTlsCertificateDomainValidationOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.domain_name
     import aws_sdk_lightsail.types.load_balancer_tls_certificate_domain_status
 
 
-class LoadBalancerTlsCertificateDomainValidationOption(TypedDict):
+class LoadBalancerTlsCertificateDomainValidationOption(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_lightsail.types.domain_name.DomainName"]
     """<p>The fully qualified domain name in the certificate request.</p>"""
     validation_status: NotRequired[

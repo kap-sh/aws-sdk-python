@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ElasticsearchDomainConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.access_policies_status
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.vpc_derived_info_status
 
 
-class ElasticsearchDomainConfig(TypedDict):
+class ElasticsearchDomainConfig(TypedDict, closed=True):
     elasticsearch_version: NotRequired[
         "aws_sdk_elasticsearch_service.types.elasticsearch_version_status.ElasticsearchVersionStatus"
     ]

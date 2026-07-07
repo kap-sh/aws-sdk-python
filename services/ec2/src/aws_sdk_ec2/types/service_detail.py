@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ServiceDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.value_string_list
 
 
-class ServiceDetail(TypedDict):
+class ServiceDetail(TypedDict, closed=True):
     service_name: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The name of the service.</p>"""
     service_id: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#OrganizationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.organization_statistics
     import aws_sdk_guardduty.types.timestamp
 
 
-class OrganizationDetails(TypedDict):
+class OrganizationDetails(TypedDict, closed=True):
     updated_at: NotRequired["aws_sdk_guardduty.types.timestamp.Timestamp"]
     """<p>The timestamp at which the organization statistics was last updated. This is in UTC format.</p>"""
     organization_statistics: NotRequired[

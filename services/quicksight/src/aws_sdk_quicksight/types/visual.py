@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Visual``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.bar_chart_visual
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.word_cloud_visual
 
 
-class Visual(TypedDict):
+class Visual(TypedDict, closed=True):
     table_visual: NotRequired["aws_sdk_quicksight.types.table_visual.TableVisual"]
     r"""<p>A table visual.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/quicksight/latest/user/tabular.html\">Using tables as visuals</a> in the <i>Amazon Quick Suite User Guide</i>.</p>"""
     pivot_table_visual: NotRequired[

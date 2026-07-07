@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ListDaemonTaskDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class ListDaemonTaskDefinitionsRequest(TypedDict):
+class ListDaemonTaskDefinitionsRequest(TypedDict, closed=True):
     family_prefix: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The full family name to filter the <code>ListDaemonTaskDefinitions</code> results with. Specifying a <code>familyPrefix</code> limits the listed daemon task definitions to daemon task definition families that start with the <code>familyPrefix</code> string.</p>"""
     family: NotRequired["aws_sdk_ecs.types.string.String"]

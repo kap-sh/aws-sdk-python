@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#FunctionDefaultConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.function_default_execution_config
 
 
-class FunctionDefaultConfig(TypedDict):
+class FunctionDefaultConfig(TypedDict, closed=True):
     execution: NotRequired[
         "aws_sdk_greengrass.types.function_default_execution_config.FunctionDefaultExecutionConfig"
     ]

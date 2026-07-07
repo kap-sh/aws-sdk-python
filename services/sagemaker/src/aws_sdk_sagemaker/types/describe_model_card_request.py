@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeModelCardRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.included_data
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_card_name_or_arn
 
 
-class DescribeModelCardRequest(TypedDict):
+class DescribeModelCardRequest(TypedDict, closed=True):
     model_card_name: NotRequired[
         "aws_sdk_sagemaker.types.model_card_name_or_arn.ModelCardNameOrArn"
     ]

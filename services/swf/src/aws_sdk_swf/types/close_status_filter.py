@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#CloseStatusFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.close_status
 
 
-class CloseStatusFilter(TypedDict):
+class CloseStatusFilter(TypedDict, closed=True):
     status: "aws_sdk_swf.types.close_status.CloseStatus"
     """<p> The close status that must match the close status of an execution for it to meet the criteria of this filter.</p>"""
 

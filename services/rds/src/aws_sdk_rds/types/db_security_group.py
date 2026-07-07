@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DBSecurityGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DBSecurityGroup(TypedDict):
+class DBSecurityGroup(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>Provides the Amazon Web Services ID of the owner of a specific DB security group.</p>"""
     db_security_group_name: NotRequired["aws_sdk_rds.types.string.String"]

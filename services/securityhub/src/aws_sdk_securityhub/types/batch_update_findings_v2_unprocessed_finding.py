@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#BatchUpdateFindingsV2UnprocessedFinding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.batch_update_findings_v2_unprocessed_finding_error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.ocsf_finding_identifier
 
 
-class BatchUpdateFindingsV2UnprocessedFinding(TypedDict):
+class BatchUpdateFindingsV2UnprocessedFinding(TypedDict, closed=True):
     finding_identifier: NotRequired[
         "aws_sdk_securityhub.types.ocsf_finding_identifier.OcsfFindingIdentifier"
     ]

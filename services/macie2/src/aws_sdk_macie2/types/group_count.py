@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GroupCount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
     import aws_sdk_macie2.types.__string
 
 
-class GroupCount(TypedDict):
+class GroupCount(TypedDict, closed=True):
     count: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The total number of findings in the group of query results.</p>"""
     group_key: NotRequired["aws_sdk_macie2.types.__string.__string"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#RejectAgreementCancellationRequestInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.agreement_id
 
 
-class RejectAgreementCancellationRequestInput(TypedDict):
+class RejectAgreementCancellationRequestInput(TypedDict, closed=True):
     agreement_id: "aws_sdk_marketplace_agreement.types.agreement_id.AgreementId"
     """<p>The unique identifier of the agreement associated with the cancellation request.</p>"""
     agreement_cancellation_request_id: "aws_sdk_marketplace_agreement.types.agreement_cancellation_request_id.AgreementCancellationRequestId"

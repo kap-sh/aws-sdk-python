@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#CSVMappingParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.record_row_delimiter
 
 
-class CSVMappingParameters(TypedDict):
+class CSVMappingParameters(TypedDict, closed=True):
     record_row_delimiter: (
         "aws_sdk_kinesis_analytics.types.record_row_delimiter.RecordRowDelimiter"
     )

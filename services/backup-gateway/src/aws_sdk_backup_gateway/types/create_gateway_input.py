@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#CreateGatewayInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup_gateway.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.tags
 
 
-class CreateGatewayInput(TypedDict):
+class CreateGatewayInput(TypedDict, closed=True):
     activation_key: "aws_sdk_backup_gateway.types.activation_key.ActivationKey"
     """<p>The activation key of the created gateway.</p>"""
     gateway_display_name: "aws_sdk_backup_gateway.types.name.Name"

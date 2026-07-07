@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EndpointInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.endpoint_address
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.endpoint_type
 
 
-class EndpointInfo(TypedDict):
+class EndpointInfo(TypedDict, closed=True):
     type: NotRequired["aws_sdk_connect.types.endpoint_type.EndpointType"]
     """<p>Type of endpoint.</p>"""
     address: NotRequired["aws_sdk_connect.types.endpoint_address.EndpointAddress"]

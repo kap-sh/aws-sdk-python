@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ListElasticsearchInstanceTypesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.elasticsearch_instance_type_list
     import aws_sdk_elasticsearch_service.types.next_token
 
 
-class ListElasticsearchInstanceTypesResponse(TypedDict):
+class ListElasticsearchInstanceTypesResponse(TypedDict, closed=True):
     elasticsearch_instance_types: NotRequired[
         "aws_sdk_elasticsearch_service.types.elasticsearch_instance_type_list.ElasticsearchInstanceTypeList"
     ]

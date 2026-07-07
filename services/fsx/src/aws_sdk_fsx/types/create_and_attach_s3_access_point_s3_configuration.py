@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateAndAttachS3AccessPointS3Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.access_point_policy
     import aws_sdk_fsx.types.s3_access_point_vpc_configuration
 
 
-class CreateAndAttachS3AccessPointS3Configuration(TypedDict):
+class CreateAndAttachS3AccessPointS3Configuration(TypedDict, closed=True):
     vpc_configuration: NotRequired[
         "aws_sdk_fsx.types.s3_access_point_vpc_configuration.S3AccessPointVpcConfiguration"
     ]

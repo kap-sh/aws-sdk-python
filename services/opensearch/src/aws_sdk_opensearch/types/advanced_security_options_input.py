@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AdvancedSecurityOptionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.saml_options_input
 
 
-class AdvancedSecurityOptionsInput(TypedDict):
+class AdvancedSecurityOptionsInput(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_opensearch.types.boolean.Boolean"]
     """<p>True to enable fine-grained access control.</p>"""
     internal_user_database_enabled: NotRequired[

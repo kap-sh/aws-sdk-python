@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CreateProjectVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.project_version_arn
 
 
-class CreateProjectVersionResponse(TypedDict):
+class CreateProjectVersionResponse(TypedDict, closed=True):
     project_version_arn: NotRequired[
         "aws_sdk_rekognition.types.project_version_arn.ProjectVersionArn"
     ]

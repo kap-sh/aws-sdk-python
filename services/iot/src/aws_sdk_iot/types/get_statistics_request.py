@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetStatisticsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.query_version
 
 
-class GetStatisticsRequest(TypedDict):
+class GetStatisticsRequest(TypedDict, closed=True):
     index_name: NotRequired["aws_sdk_iot.types.index_name.IndexName"]
     """<p>The name of the index to search. The default value is <code>AWS_Things</code>.</p>"""
     query_string: "aws_sdk_iot.types.query_string.QueryString"

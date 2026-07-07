@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CoveredResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.scan_type
 
 
-class CoveredResource(TypedDict):
+class CoveredResource(TypedDict, closed=True):
     resource_type: (
         "aws_sdk_inspector2.types.coverage_resource_type.CoverageResourceType"
     )

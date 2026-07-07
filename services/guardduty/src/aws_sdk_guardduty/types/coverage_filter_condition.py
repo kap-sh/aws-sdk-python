@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#CoverageFilterCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.equals
     import aws_sdk_guardduty.types.not_equals
 
 
-class CoverageFilterCondition(TypedDict):
+class CoverageFilterCondition(TypedDict, closed=True):
     equals: NotRequired["aws_sdk_guardduty.types.equals.Equals"]
     """<p>Represents an equal condition that is applied to a single field while retrieving the coverage details.</p>"""
     not_equals: NotRequired["aws_sdk_guardduty.types.not_equals.NotEquals"]

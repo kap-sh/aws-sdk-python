@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputWhitelistRuleCidr``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class InputWhitelistRuleCidr(TypedDict):
+class InputWhitelistRuleCidr(TypedDict, closed=True):
     cidr: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The IPv4 CIDR to whitelist."""
 

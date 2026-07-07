@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Evidence``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.evidence_detail
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.evidence_severity
 
 
-class Evidence(TypedDict):
+class Evidence(TypedDict, closed=True):
     evidence_rule: NotRequired["aws_sdk_inspector2.types.evidence_rule.EvidenceRule"]
     """<p>The evidence rule.</p>"""
     evidence_detail: NotRequired[

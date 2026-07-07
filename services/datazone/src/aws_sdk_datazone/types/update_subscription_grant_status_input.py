@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateSubscriptionGrantStatusInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.subscription_grant_status
 
 
-class UpdateSubscriptionGrantStatusInput(TypedDict):
+class UpdateSubscriptionGrantStatusInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon DataZone domain in which a subscription grant status is to be updated.</p>"""
     identifier: "aws_sdk_datazone.types.subscription_grant_id.SubscriptionGrantId"

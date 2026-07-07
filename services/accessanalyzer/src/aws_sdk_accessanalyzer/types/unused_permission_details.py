@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#UnusedPermissionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.unused_action_list
 
 
-class UnusedPermissionDetails(TypedDict):
+class UnusedPermissionDetails(TypedDict, closed=True):
     actions: NotRequired[
         "aws_sdk_accessanalyzer.types.unused_action_list.UnusedActionList"
     ]

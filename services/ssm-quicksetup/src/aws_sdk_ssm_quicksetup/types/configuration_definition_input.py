@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#ConfigurationDefinitionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_quicksetup.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.iam_role_arn
 
 
-class ConfigurationDefinitionInput(TypedDict):
+class ConfigurationDefinitionInput(TypedDict, closed=True):
     type: "str"
     """<p>The type of the Quick Setup configuration.</p>"""
     parameters: "aws_sdk_ssm_quicksetup.types.configuration_parameters_map.ConfigurationParametersMap"

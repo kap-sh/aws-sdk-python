@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#MetricDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__double
     import aws_sdk_pinpoint.types.__string
 
 
-class MetricDimension(TypedDict):
+class MetricDimension(TypedDict, closed=True):
     comparison_operator: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The operator to use when comparing metric values. Valid values are: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, and EQUAL.</p>"""
     value: NotRequired["aws_sdk_pinpoint.types.__double.__double"]

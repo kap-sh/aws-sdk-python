@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#MobileDeviceAccessMatchedRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.mobile_device_access_rule_id
     import aws_sdk_workmail.types.mobile_device_access_rule_name
 
 
-class MobileDeviceAccessMatchedRule(TypedDict):
+class MobileDeviceAccessMatchedRule(TypedDict, closed=True):
     mobile_device_access_rule_id: NotRequired[
         "aws_sdk_workmail.types.mobile_device_access_rule_id.MobileDeviceAccessRuleId"
     ]

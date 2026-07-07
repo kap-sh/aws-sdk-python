@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetProductRestEndpointPageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
 
 
-class GetProductRestEndpointPageRequest(TypedDict):
+class GetProductRestEndpointPageRequest(TypedDict, closed=True):
     include_raw_display_content: NotRequired[
         "aws_sdk_apigatewayv2.types.__string.__string"
     ]

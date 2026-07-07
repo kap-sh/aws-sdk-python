@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#TestSetImportResourceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_set_storage_location
 
 
-class TestSetImportResourceSpecification(TypedDict):
+class TestSetImportResourceSpecification(TypedDict, closed=True):
     test_set_name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>The name of the test set.</p>"""
     description: NotRequired["aws_sdk_lex_models_v2.types.description.Description"]

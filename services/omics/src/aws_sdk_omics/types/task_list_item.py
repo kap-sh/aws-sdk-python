@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#TaskListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.s3_uri_for_bucket_or_object
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.task_timestamp
 
 
-class TaskListItem(TypedDict):
+class TaskListItem(TypedDict, closed=True):
     task_id: NotRequired["aws_sdk_omics.types.task_id.TaskId"]
     """<p>The task's ID.</p>"""
     status: NotRequired["aws_sdk_omics.types.task_status.TaskStatus"]

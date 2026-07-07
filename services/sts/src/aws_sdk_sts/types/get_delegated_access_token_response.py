@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#GetDelegatedAccessTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.non_negative_integer_type
 
 
-class GetDelegatedAccessTokenResponse(TypedDict):
+class GetDelegatedAccessTokenResponse(TypedDict, closed=True):
     credentials: NotRequired["aws_sdk_sts.types.credentials.Credentials"]
     packed_policy_size: NotRequired[
         "aws_sdk_sts.types.non_negative_integer_type.nonNegativeIntegerType"

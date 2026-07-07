@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#RegistryCredential``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
 
 
-class RegistryCredential(TypedDict):
+class RegistryCredential(TypedDict, closed=True):
     credential: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     """<p> The Amazon Resource Name (ARN) or name of credentials created using Secrets Manager. </p> <note> <p> The <code>credential</code> can use the name of the credentials only if they exist in your current Amazon Web Services Region. </p> </note>"""
     credential_provider: (

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#UpperCaseString``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.upper_case_string_with_keys
 
 
-class UpperCaseString(TypedDict):
+class UpperCaseString(TypedDict, closed=True):
     with_keys: "aws_sdk_cloudwatch_logs.types.upper_case_string_with_keys.UpperCaseStringWithKeys"
     """<p>The array of containing the keys of the field to convert to uppercase.</p>"""
 

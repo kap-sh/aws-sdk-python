@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListEnvironmentAccountConnectionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.next_token
 
 
-class ListEnvironmentAccountConnectionsOutput(TypedDict):
+class ListEnvironmentAccountConnectionsOutput(TypedDict, closed=True):
     environment_account_connections: "aws_sdk_proton.types.environment_account_connection_summary_list.EnvironmentAccountConnectionSummaryList"
     """<p>An array of environment account connections with details that's returned by Proton. </p>"""
     next_token: NotRequired["aws_sdk_proton.types.next_token.NextToken"]

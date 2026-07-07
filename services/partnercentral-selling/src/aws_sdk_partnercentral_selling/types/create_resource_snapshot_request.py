@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#CreateResourceSnapshotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.resource_type
 
 
-class CreateResourceSnapshotRequest(TypedDict):
+class CreateResourceSnapshotRequest(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_selling.types.catalog_identifier.CatalogIdentifier"
     """<p> Specifies the catalog where the snapshot is created. Valid values are <code>AWS</code> and <code>Sandbox</code>. </p>"""
     engagement_identifier: "aws_sdk_partnercentral_selling.types.engagement_identifier.EngagementIdentifier"

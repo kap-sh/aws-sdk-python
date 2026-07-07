@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#AccountAssociationsListElement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.account_email
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.billing_group_arn
 
 
-class AccountAssociationsListElement(TypedDict):
+class AccountAssociationsListElement(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_billingconductor.types.account_id.AccountId"]
     """<p>The associating array of account IDs.</p>"""
     billing_group_arn: NotRequired[

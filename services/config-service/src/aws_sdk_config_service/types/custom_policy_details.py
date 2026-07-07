@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#CustomPolicyDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.policy_text
 
 
-class CustomPolicyDetails(TypedDict):
+class CustomPolicyDetails(TypedDict, closed=True):
     policy_runtime: "aws_sdk_config_service.types.policy_runtime.PolicyRuntime"
     r"""<p>The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href=\"https://github.com/aws-cloudformation/cloudformation-guard\">Guard GitHub Repository</a>.</p>"""
     policy_text: "aws_sdk_config_service.types.policy_text.PolicyText"

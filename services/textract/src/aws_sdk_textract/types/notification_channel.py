@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#NotificationChannel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.sns_topic_arn
 
 
-class NotificationChannel(TypedDict):
+class NotificationChannel(TypedDict, closed=True):
     sns_topic_arn: "aws_sdk_textract.types.sns_topic_arn.SNSTopicArn"
     """<p>The Amazon SNS topic that Amazon Textract posts the completion status to.</p>"""
     role_arn: "aws_sdk_textract.types.role_arn.RoleArn"

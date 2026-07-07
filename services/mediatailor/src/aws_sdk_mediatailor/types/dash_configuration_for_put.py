@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#DashConfigurationForPut``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__string
     import aws_sdk_mediatailor.types.origin_manifest_type
 
 
-class DashConfigurationForPut(TypedDict):
+class DashConfigurationForPut(TypedDict, closed=True):
     mpd_location: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are <code>DISABLED</code> and <code>EMT_DEFAULT</code>. The <code>EMT_DEFAULT</code> setting enables the inclusion of the tag and is the default value.</p>"""
     origin_manifest_type: NotRequired[

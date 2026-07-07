@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#EbsVolumeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.volume_details
 
 
-class EbsVolumeDetails(TypedDict):
+class EbsVolumeDetails(TypedDict, closed=True):
     scanned_volume_details: NotRequired[
         "aws_sdk_guardduty.types.volume_details.VolumeDetails"
     ]

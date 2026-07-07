@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ListSatellitesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.pagination_token
     import aws_sdk_groundstation.types.satellite_list
 
 
-class ListSatellitesResponse(TypedDict):
+class ListSatellitesResponse(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_groundstation.types.pagination_token.PaginationToken"
     ]

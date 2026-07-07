@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ToolsDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.inline_content
     import aws_sdk_bedrock_agentcore_control.types.schema_version
 
 
-class ToolsDefinition(TypedDict):
+class ToolsDefinition(TypedDict, closed=True):
     protocol_version: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.schema_version.SchemaVersion"
     ]

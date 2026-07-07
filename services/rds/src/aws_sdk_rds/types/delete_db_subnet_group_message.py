@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DeleteDBSubnetGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DeleteDBSubnetGroupMessage(TypedDict):
+class DeleteDBSubnetGroupMessage(TypedDict, closed=True):
     db_subnet_group_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name of the database subnet group to delete.</p> <note> <p>You can't delete the default subnet group.</p> </note> <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p> <p>Example: <code>mydbsubnetgroup</code> </p>"""
 

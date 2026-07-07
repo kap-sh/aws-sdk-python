@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#SendFeedbackRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.usefulness_rating
 
 
-class SendFeedbackRequest(TypedDict):
+class SendFeedbackRequest(TypedDict, closed=True):
     case_id: "aws_sdk_security_ir.types.case_id.CaseId"
     """<p>Send feedback based on request caseID</p>"""
     result_id: "aws_sdk_security_ir.types.result_id.ResultId"

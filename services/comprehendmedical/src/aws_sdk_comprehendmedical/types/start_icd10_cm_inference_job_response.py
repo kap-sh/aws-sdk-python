@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#StartICD10CMInferenceJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.job_id
 
 
-class StartICD10CMInferenceJobResponse(TypedDict):
+class StartICD10CMInferenceJobResponse(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_comprehendmedical.types.job_id.JobId"]
     """<p>The identifier generated for the job. To get the status of a job, use this identifier with the <code>StartICD10CMInferenceJob</code> operation.</p>"""
 

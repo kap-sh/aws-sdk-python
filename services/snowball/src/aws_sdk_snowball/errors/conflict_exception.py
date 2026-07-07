@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_snowball.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     conflict_resource: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>You get this resource when you call <code>CreateReturnShippingLabel</code> more than once when other requests are not completed. .</p>"""
     message: NotRequired["aws_sdk_snowball.types.string.String"]

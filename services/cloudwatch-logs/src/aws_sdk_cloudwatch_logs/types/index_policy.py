@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#IndexPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.index_source
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class IndexPolicy(TypedDict):
+class IndexPolicy(TypedDict, closed=True):
     log_group_identifier: NotRequired[
         "aws_sdk_cloudwatch_logs.types.log_group_identifier.LogGroupIdentifier"
     ]

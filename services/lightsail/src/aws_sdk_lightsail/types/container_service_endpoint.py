@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#ContainerServiceEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.container_service_health_check_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class ContainerServiceEndpoint(TypedDict):
+class ContainerServiceEndpoint(TypedDict, closed=True):
     container_name: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The name of the container entry of the deployment that the endpoint configuration applies to.</p>"""
     container_port: NotRequired["aws_sdk_lightsail.types.integer.integer"]

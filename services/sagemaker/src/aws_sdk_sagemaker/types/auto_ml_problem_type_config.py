@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoMLProblemTypeConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError, SerializationError
 
@@ -12,23 +14,23 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.time_series_forecasting_job_config
 
 
-class _AutoMLProblemTypeConfig_ImageClassificationJobConfig(TypedDict):
+class _AutoMLProblemTypeConfig_ImageClassificationJobConfig(TypedDict, closed=True):
     ImageClassificationJobConfig: "aws_sdk_sagemaker.types.image_classification_job_config.ImageClassificationJobConfig"
 
 
-class _AutoMLProblemTypeConfig_TextClassificationJobConfig(TypedDict):
+class _AutoMLProblemTypeConfig_TextClassificationJobConfig(TypedDict, closed=True):
     TextClassificationJobConfig: "aws_sdk_sagemaker.types.text_classification_job_config.TextClassificationJobConfig"
 
 
-class _AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig(TypedDict):
+class _AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig(TypedDict, closed=True):
     TimeSeriesForecastingJobConfig: "aws_sdk_sagemaker.types.time_series_forecasting_job_config.TimeSeriesForecastingJobConfig"
 
 
-class _AutoMLProblemTypeConfig_TabularJobConfig(TypedDict):
+class _AutoMLProblemTypeConfig_TabularJobConfig(TypedDict, closed=True):
     TabularJobConfig: "aws_sdk_sagemaker.types.tabular_job_config.TabularJobConfig"
 
 
-class _AutoMLProblemTypeConfig_TextGenerationJobConfig(TypedDict):
+class _AutoMLProblemTypeConfig_TextGenerationJobConfig(TypedDict, closed=True):
     TextGenerationJobConfig: (
         "aws_sdk_sagemaker.types.text_generation_job_config.TextGenerationJobConfig"
     )

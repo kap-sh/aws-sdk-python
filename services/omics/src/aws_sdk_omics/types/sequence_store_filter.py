@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#SequenceStoreFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.sequence_store_status
 
 
-class SequenceStoreFilter(TypedDict):
+class SequenceStoreFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_omics.types.sequence_store_name.SequenceStoreName"]
     """<p>A name to filter on.</p>"""
     created_after: NotRequired["datetime.datetime"]

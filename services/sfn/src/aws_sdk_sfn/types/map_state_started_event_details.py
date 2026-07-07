@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#MapStateStartedEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.unsigned_integer
 
 
-class MapStateStartedEventDetails(TypedDict):
+class MapStateStartedEventDetails(TypedDict, closed=True):
     length: "aws_sdk_sfn.types.unsigned_integer.UnsignedInteger"
     """<p>The size of the array for Map state iterations.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CreateDeviceProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.client_request_token
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.tag_list
 
 
-class CreateDeviceProfileRequest(TypedDict):
+class CreateDeviceProfileRequest(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_iot_wireless.types.device_profile_name.DeviceProfileName"
     ]

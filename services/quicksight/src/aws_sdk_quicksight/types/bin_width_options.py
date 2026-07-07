@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BinWidthOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.bin_count_limit
     import aws_sdk_quicksight.types.bin_width_value
 
 
-class BinWidthOptions(TypedDict):
+class BinWidthOptions(TypedDict, closed=True):
     value: NotRequired["aws_sdk_quicksight.types.bin_width_value.BinWidthValue"]
     """<p>The options that determine the bin width value.</p>"""
     bin_count_limit: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DeleteOperation``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteOperation(TypedDict):
+class DeleteOperation(TypedDict, closed=True):
     pass
 
 

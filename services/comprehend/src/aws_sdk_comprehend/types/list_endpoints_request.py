@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ListEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.endpoint_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.string
 
 
-class ListEndpointsRequest(TypedDict):
+class ListEndpointsRequest(TypedDict, closed=True):
     filter: NotRequired["aws_sdk_comprehend.types.endpoint_filter.EndpointFilter"]
     """<p>Filters the endpoints that are returned. You can filter endpoints on their name, model, status, or the date and time that they were created. You can only set one filter at a time. </p>"""
     next_token: NotRequired["aws_sdk_comprehend.types.string.String"]

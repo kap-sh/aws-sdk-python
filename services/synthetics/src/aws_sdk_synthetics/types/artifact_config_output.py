@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#ArtifactConfigOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.s3_encryption_config
 
 
-class ArtifactConfigOutput(TypedDict):
+class ArtifactConfigOutput(TypedDict, closed=True):
     s3_encryption: NotRequired[
         "aws_sdk_synthetics.types.s3_encryption_config.S3EncryptionConfig"
     ]

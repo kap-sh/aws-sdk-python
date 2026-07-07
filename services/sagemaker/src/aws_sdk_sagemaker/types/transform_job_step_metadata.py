@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TransformJobStepMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.transform_job_arn
 
 
-class TransformJobStepMetadata(TypedDict):
+class TransformJobStepMetadata(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.transform_job_arn.TransformJobArn"]
     """<p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>"""
 

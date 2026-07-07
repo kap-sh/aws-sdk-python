@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetInstanceSnapshotResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.instance_snapshot
 
 
-class GetInstanceSnapshotResult(TypedDict):
+class GetInstanceSnapshotResult(TypedDict, closed=True):
     instance_snapshot: NotRequired[
         "aws_sdk_lightsail.types.instance_snapshot.InstanceSnapshot"
     ]

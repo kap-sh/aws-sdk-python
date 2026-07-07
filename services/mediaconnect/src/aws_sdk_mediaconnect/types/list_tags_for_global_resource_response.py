@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#ListTagsForGlobalResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__map_of_string
 
 
-class ListTagsForGlobalResourceResponse(TypedDict):
+class ListTagsForGlobalResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_mediaconnect.types.__map_of_string.__mapOfString"]
     """<p>A map of tag keys and values associated with the global resource.</p>"""
 

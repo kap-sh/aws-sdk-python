@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#AddHeaderAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.header_value
 
 
-class AddHeaderAction(TypedDict):
+class AddHeaderAction(TypedDict, closed=True):
     header_name: "aws_sdk_ses.types.header_name.HeaderName"
     """<p>The name of the header to add to the incoming message. The name must contain at least one character, and can contain up to 50 characters. It consists of alphanumeric (a–z, A–Z, 0–9) characters and dashes.</p>"""
     header_value: "aws_sdk_ses.types.header_value.HeaderValue"

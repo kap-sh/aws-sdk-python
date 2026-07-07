@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#PurchaseOfferingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.offering_promotion_identifier
 
 
-class PurchaseOfferingRequest(TypedDict):
+class PurchaseOfferingRequest(TypedDict, closed=True):
     offering_id: "aws_sdk_device_farm.types.offering_identifier.OfferingIdentifier"
     """<p>The ID of the offering.</p>"""
     quantity: "aws_sdk_device_farm.types.integer.Integer"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIRecommendationOutputResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_mlflow_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class AIRecommendationOutputResult(TypedDict):
+class AIRecommendationOutputResult(TypedDict, closed=True):
     s3_output_location: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     """<p>The Amazon S3 URI where the recommendation job writes its output results.</p>"""
     model_package_group_identifier: NotRequired[

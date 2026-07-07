@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupPlanTemplatesListMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class BackupPlanTemplatesListMember(TypedDict):
+class BackupPlanTemplatesListMember(TypedDict, closed=True):
     backup_plan_template_id: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>Uniquely identifies a stored backup plan template.</p>"""
     backup_plan_template_name: NotRequired["aws_sdk_backup.types.string.string"]

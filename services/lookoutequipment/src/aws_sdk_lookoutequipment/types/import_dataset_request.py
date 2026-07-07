@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ImportDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.tag_list
 
 
-class ImportDatasetRequest(TypedDict):
+class ImportDatasetRequest(TypedDict, closed=True):
     source_dataset_arn: "aws_sdk_lookoutequipment.types.dataset_arn.DatasetArn"
     """<p>The Amazon Resource Name (ARN) of the dataset to import.</p>"""
     dataset_name: NotRequired["aws_sdk_lookoutequipment.types.dataset_name.DatasetName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#ListActsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.next_token
 
 
-class ListActsResponse(TypedDict):
+class ListActsResponse(TypedDict, closed=True):
     act_summaries: "aws_sdk_nova_act.types.act_summaries.ActSummaries"
     """<p>A list of summary information for acts in the session.</p>"""
     next_token: NotRequired["aws_sdk_nova_act.types.next_token.NextToken"]

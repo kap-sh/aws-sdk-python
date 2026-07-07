@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#ListRepositoriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.list_repositories_max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.repository_name
 
 
-class ListRepositoriesRequest(TypedDict):
+class ListRepositoriesRequest(TypedDict, closed=True):
     repository_prefix: NotRequired[
         "aws_sdk_codeartifact.types.repository_name.RepositoryName"
     ]

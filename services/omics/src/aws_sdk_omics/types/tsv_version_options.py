@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#TsvVersionOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.annotation_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.schema
 
 
-class TsvVersionOptions(TypedDict):
+class TsvVersionOptions(TypedDict, closed=True):
     annotation_type: NotRequired["aws_sdk_omics.types.annotation_type.AnnotationType"]
     """<p> The store version's annotation type. </p>"""
     format_to_header: NotRequired["aws_sdk_omics.types.format_to_header.FormatToHeader"]

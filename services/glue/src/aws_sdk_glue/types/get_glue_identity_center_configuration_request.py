@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetGlueIdentityCenterConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetGlueIdentityCenterConfigurationRequest(TypedDict):
+class GetGlueIdentityCenterConfigurationRequest(TypedDict, closed=True):
     pass
 
 

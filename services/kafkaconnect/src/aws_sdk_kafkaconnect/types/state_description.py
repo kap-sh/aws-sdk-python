@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#StateDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__string
 
 
-class StateDescription(TypedDict):
+class StateDescription(TypedDict, closed=True):
     code: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]
     """<p>A code that describes the state of a resource.</p>"""
     message: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#Interconnect``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.aws_device
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.tag_list
 
 
-class Interconnect(TypedDict):
+class Interconnect(TypedDict, closed=True):
     interconnect_id: NotRequired[
         "aws_sdk_direct_connect.types.interconnect_id.InterconnectId"
     ]

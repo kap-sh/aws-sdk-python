@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ListMembersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_member
     import aws_sdk_macie2.types.__string
 
 
-class ListMembersResponse(TypedDict):
+class ListMembersResponse(TypedDict, closed=True):
     members: NotRequired["aws_sdk_macie2.types.__list_of_member.__listOfMember"]
     """<p>An array of objects, one for each account that's associated with the administrator account and matches the criteria specified in the request.</p>"""
     next_token: NotRequired["aws_sdk_macie2.types.__string.__string"]

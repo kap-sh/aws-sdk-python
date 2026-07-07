@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#DescribeAnomalyDetectorsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.next_token
 
 
-class DescribeAnomalyDetectorsInput(TypedDict):
+class DescribeAnomalyDetectorsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cloudwatch.types.next_token.NextToken"]
     """<p>Use the token returned by the previous operation to request the next page of results.</p>"""
     max_results: NotRequired[

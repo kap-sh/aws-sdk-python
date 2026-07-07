@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MonitoringS3Output``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.monitoring_s3_uri
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.processing_s3_upload_mode
 
 
-class MonitoringS3Output(TypedDict):
+class MonitoringS3Output(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_sagemaker.types.monitoring_s3_uri.MonitoringS3Uri"]
     """<p>A URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.</p>"""
     local_path: NotRequired[

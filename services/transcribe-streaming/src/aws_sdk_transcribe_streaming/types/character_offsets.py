@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#CharacterOffsets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.integer
 
 
-class CharacterOffsets(TypedDict):
+class CharacterOffsets(TypedDict, closed=True):
     begin: NotRequired["aws_sdk_transcribe_streaming.types.integer.Integer"]
     """<p>Provides the character count of the first character where a match is identified. For example, the first character associated with an issue or a category match in a segment transcript.</p>"""
     end: NotRequired["aws_sdk_transcribe_streaming.types.integer.Integer"]

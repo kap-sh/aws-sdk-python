@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#StringCriteriaCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.comparison_operator
     import aws_sdk_compute_optimizer_automation.types.string_criteria_values
 
 
-class StringCriteriaCondition(TypedDict):
+class StringCriteriaCondition(TypedDict, closed=True):
     comparison: NotRequired[
         "aws_sdk_compute_optimizer_automation.types.comparison_operator.ComparisonOperator"
     ]

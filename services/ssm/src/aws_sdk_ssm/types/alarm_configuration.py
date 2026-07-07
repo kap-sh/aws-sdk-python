@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AlarmConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.boolean
 
 
-class AlarmConfiguration(TypedDict):
+class AlarmConfiguration(TypedDict, closed=True):
     ignore_poll_alarm_failure: "aws_sdk_ssm.types.boolean.Boolean"
     """<p>When this value is <i>true</i>, your automation or command continues to run in cases where we can’t retrieve alarm status information from CloudWatch. In cases where we successfully retrieve an alarm status of OK or INSUFFICIENT_DATA, the automation or command continues to run, regardless of this value. Default is <i>false</i>.</p>"""
     alarms: "aws_sdk_ssm.types.alarm_list.AlarmList"

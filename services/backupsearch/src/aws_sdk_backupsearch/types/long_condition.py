@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#LongCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.long_condition_operator
 
 
-class LongCondition(TypedDict):
+class LongCondition(TypedDict, closed=True):
     value: "int"
     """<p>The value of an item included in one of the search item filters.</p>"""
     operator: "aws_sdk_backupsearch.types.long_condition_operator.LongConditionOperator"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#PutItemOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.attribute_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.item_collection_metrics
 
 
-class PutItemOutput(TypedDict):
+class PutItemOutput(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_dynamodb.types.attribute_map.AttributeMap"]
     """<p>The attribute values as they appeared before the <code>PutItem</code> operation, but only if <code>ReturnValues</code> is specified as <code>ALL_OLD</code> in the request. Each element consists of an attribute name and an attribute value.</p>"""
     consumed_capacity: NotRequired[

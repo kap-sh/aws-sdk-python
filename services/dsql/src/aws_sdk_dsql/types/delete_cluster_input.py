@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#DeleteClusterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.client_token
     import aws_sdk_dsql.types.cluster_id
 
 
-class DeleteClusterInput(TypedDict):
+class DeleteClusterInput(TypedDict, closed=True):
     identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     """<p>The ID of the cluster to delete.</p>"""
     client_token: NotRequired["aws_sdk_dsql.types.client_token.ClientToken"]

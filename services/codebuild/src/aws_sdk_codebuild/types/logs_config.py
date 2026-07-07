@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#LogsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.cloud_watch_logs_config
     import aws_sdk_codebuild.types.s3_logs_config
 
 
-class LogsConfig(TypedDict):
+class LogsConfig(TypedDict, closed=True):
     cloud_watch_logs: NotRequired[
         "aws_sdk_codebuild.types.cloud_watch_logs_config.CloudWatchLogsConfig"
     ]

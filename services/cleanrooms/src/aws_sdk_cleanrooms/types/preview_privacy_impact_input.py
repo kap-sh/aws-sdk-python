@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#PreviewPrivacyImpactInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.preview_privacy_impact_parameters_input
 
 
-class PreviewPrivacyImpactInput(TypedDict):
+class PreviewPrivacyImpactInput(TypedDict, closed=True):
     membership_identifier: (
         "aws_sdk_cleanrooms.types.membership_identifier.MembershipIdentifier"
     )

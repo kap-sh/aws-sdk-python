@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeMaintenanceWindowsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_identity_list
     import aws_sdk_ssm.types.next_token
 
 
-class DescribeMaintenanceWindowsResult(TypedDict):
+class DescribeMaintenanceWindowsResult(TypedDict, closed=True):
     window_identities: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_identity_list.MaintenanceWindowIdentityList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AggregationPartitionBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.limited_string
     import aws_sdk_quicksight.types.time_granularity
 
 
-class AggregationPartitionBy(TypedDict):
+class AggregationPartitionBy(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_quicksight.types.limited_string.LimitedString"]
     """<p>The field Name for an <code>AggregationPartitionBy</code>.</p>"""
     time_granularity: NotRequired[

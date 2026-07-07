@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#ListWorkflowsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mwaa_serverless.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.workflow_summaries
 
 
-class ListWorkflowsResponse(TypedDict):
+class ListWorkflowsResponse(TypedDict, closed=True):
     workflows: "aws_sdk_mwaa_serverless.types.workflow_summaries.WorkflowSummaries"
     """<p>A list of workflow summaries for all workflows in your account.</p>"""
     next_token: NotRequired["str"]

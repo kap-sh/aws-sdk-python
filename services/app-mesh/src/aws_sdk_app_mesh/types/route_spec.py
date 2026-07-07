@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#RouteSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.grpc_route
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.tcp_route
 
 
-class RouteSpec(TypedDict):
+class RouteSpec(TypedDict, closed=True):
     priority: NotRequired["aws_sdk_app_mesh.types.route_priority.RoutePriority"]
     """<p>The priority for the route. Routes are matched based on the specified value, where 0 is the highest priority.</p>"""
     http_route: NotRequired["aws_sdk_app_mesh.types.http_route.HttpRoute"]

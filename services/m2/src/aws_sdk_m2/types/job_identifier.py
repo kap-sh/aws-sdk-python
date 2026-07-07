@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.m2#JobIdentifier``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError, SerializationError
 
 
-class _JobIdentifier_fileName(TypedDict):
+class _JobIdentifier_fileName(TypedDict, closed=True):
     fileName: "str"
 
 
-class _JobIdentifier_scriptName(TypedDict):
+class _JobIdentifier_scriptName(TypedDict, closed=True):
     scriptName: "str"
 
 

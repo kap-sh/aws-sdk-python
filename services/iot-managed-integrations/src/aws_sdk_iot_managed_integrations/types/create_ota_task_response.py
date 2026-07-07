@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CreateOtaTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.ota_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.ota_task_id
 
 
-class CreateOtaTaskResponse(TypedDict):
+class CreateOtaTaskResponse(TypedDict, closed=True):
     task_id: NotRequired["aws_sdk_iot_managed_integrations.types.ota_task_id.OtaTaskId"]
     """<p>The identifier of the over-the-air (OTA) task.</p>"""
     task_arn: NotRequired[

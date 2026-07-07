@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#TransitGatewayMeteringPolicyEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.transit_gateway_metering_policy_rule
 
 
-class TransitGatewayMeteringPolicyEntry(TypedDict):
+class TransitGatewayMeteringPolicyEntry(TypedDict, closed=True):
     policy_rule_number: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The rule number of the metering policy entry.</p>"""
     metered_account: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListAssociatedAccessPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.list_associated_access_policies_request_max_results
     import aws_sdk_eks.types.string
 
 
-class ListAssociatedAccessPoliciesRequest(TypedDict):
+class ListAssociatedAccessPoliciesRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.string.String"
     """<p>The name of your cluster.</p>"""
     principal_arn: "aws_sdk_eks.types.string.String"

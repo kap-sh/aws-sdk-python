@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#AssociateApplicationFleetResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.application_fleet_association
 
 
-class AssociateApplicationFleetResult(TypedDict):
+class AssociateApplicationFleetResult(TypedDict, closed=True):
     application_fleet_association: NotRequired[
         "aws_sdk_appstream.types.application_fleet_association.ApplicationFleetAssociation"
     ]

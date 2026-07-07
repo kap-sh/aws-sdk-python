@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DocumentAttributeCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.document_attribute_value
 
 
-class DocumentAttributeCondition(TypedDict):
+class DocumentAttributeCondition(TypedDict, closed=True):
     condition_document_attribute_key: (
         "aws_sdk_kendra.types.document_attribute_key.DocumentAttributeKey"
     )

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.simpledbv2#InvalidParameterCombinationException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_simpledbv2.errors import DeserializationError, ServiceError
 
 
-class InvalidParameterCombinationException_(TypedDict):
+class InvalidParameterCombinationException_(TypedDict, closed=True):
     message: "str"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateFlowDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.flow_definition_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateFlowDefinitionRequest(TypedDict):
+class CreateFlowDefinitionRequest(TypedDict, closed=True):
     flow_definition_name: NotRequired[
         "aws_sdk_sagemaker.types.flow_definition_name.FlowDefinitionName"
     ]

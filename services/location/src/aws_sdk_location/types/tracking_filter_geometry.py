@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#TrackingFilterGeometry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.linear_rings
 
 
-class TrackingFilterGeometry(TypedDict):
+class TrackingFilterGeometry(TypedDict, closed=True):
     polygon: NotRequired["aws_sdk_location.types.linear_rings.LinearRings"]
     """<p>The set of arrays which define the polygon. A polygon can have between 4 and 1000 vertices.</p>"""
 

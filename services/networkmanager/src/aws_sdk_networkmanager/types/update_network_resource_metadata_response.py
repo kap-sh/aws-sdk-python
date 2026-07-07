@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#UpdateNetworkResourceMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.network_resource_metadata_map
     import aws_sdk_networkmanager.types.resource_arn
 
 
-class UpdateNetworkResourceMetadataResponse(TypedDict):
+class UpdateNetworkResourceMetadataResponse(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_networkmanager.types.resource_arn.ResourceArn"]
     """<p>The ARN of the resource.</p>"""
     metadata: NotRequired[

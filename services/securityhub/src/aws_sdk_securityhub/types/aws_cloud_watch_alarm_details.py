@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsCloudWatchAlarmDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_cloud_watch_alarm_dimensions_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsCloudWatchAlarmDetails(TypedDict):
+class AwsCloudWatchAlarmDetails(TypedDict, closed=True):
     actions_enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Indicates whether actions should be executed during any changes to the alarm state. </p>"""
     alarm_actions: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#ResetUserPasswordResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ResetUserPasswordResult(TypedDict):
+class ResetUserPasswordResult(TypedDict, closed=True):
     pass
 
 

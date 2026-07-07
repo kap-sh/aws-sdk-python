@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#ConnectivityInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.port_number_int
     import aws_sdk_greengrassv2.types.string
 
 
-class ConnectivityInfo(TypedDict):
+class ConnectivityInfo(TypedDict, closed=True):
     id: NotRequired["aws_sdk_greengrassv2.types.string.String"]
     """<p>An ID for the connectivity information.</p>"""
     host_address: NotRequired["aws_sdk_greengrassv2.types.string.String"]

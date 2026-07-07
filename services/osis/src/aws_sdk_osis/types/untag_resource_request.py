@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.osis#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_osis.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_osis.types.string_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     arn: "aws_sdk_osis.types.pipeline_arn.PipelineArn"
     """<p>The Amazon Resource Name (ARN) of the pipeline to remove tags from.</p>"""
     tag_keys: "aws_sdk_osis.types.string_list.StringList"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#CreateEmailIdentityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.tag_list
 
 
-class CreateEmailIdentityRequest(TypedDict):
+class CreateEmailIdentityRequest(TypedDict, closed=True):
     email_identity: "aws_sdk_sesv2.types.identity.Identity"
     """<p>The email address or domain to verify.</p>"""
     tags: NotRequired["aws_sdk_sesv2.types.tag_list.TagList"]

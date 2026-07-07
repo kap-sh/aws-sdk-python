@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#LocationAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_action_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.location_update_status
 
 
-class LocationAttributes(TypedDict):
+class LocationAttributes(TypedDict, closed=True):
     location_state: NotRequired["aws_sdk_gamelift.types.location_state.LocationState"]
     """<p>A fleet location and its current life-cycle state.</p>"""
     stopped_actions: NotRequired[

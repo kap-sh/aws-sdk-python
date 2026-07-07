@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#UpdateMatchingWorkflowInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.resolution_techniques
 
 
-class UpdateMatchingWorkflowInput(TypedDict):
+class UpdateMatchingWorkflowInput(TypedDict, closed=True):
     workflow_name: "aws_sdk_entityresolution.types.entity_name.EntityName"
     """<p>The name of the workflow to be retrieved.</p>"""
     description: NotRequired["aws_sdk_entityresolution.types.description.Description"]

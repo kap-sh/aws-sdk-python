@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ValidateE911AddressResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.address
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.validation_result
 
 
-class ValidateE911AddressResponse(TypedDict):
+class ValidateE911AddressResponse(TypedDict, closed=True):
     validation_result: (
         "aws_sdk_chime_sdk_voice.types.validation_result.ValidationResult"
     )

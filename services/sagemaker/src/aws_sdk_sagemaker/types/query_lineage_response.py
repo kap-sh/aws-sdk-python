@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#QueryLineageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.edges
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.vertices
 
 
-class QueryLineageResponse(TypedDict):
+class QueryLineageResponse(TypedDict, closed=True):
     vertices: NotRequired["aws_sdk_sagemaker.types.vertices.Vertices"]
     """<p>A list of vertices connected to the start entity(ies) in the lineage graph.</p>"""
     edges: NotRequired["aws_sdk_sagemaker.types.edges.Edges"]

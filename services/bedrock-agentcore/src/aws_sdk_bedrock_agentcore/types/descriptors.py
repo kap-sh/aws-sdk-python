@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#Descriptors``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.a2a_descriptor
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.mcp_descriptor
 
 
-class Descriptors(TypedDict):
+class Descriptors(TypedDict, closed=True):
     mcp: NotRequired["aws_sdk_bedrock_agentcore.types.mcp_descriptor.McpDescriptor"]
     """<p> The MCP (Model Context Protocol) descriptor configuration. Populated when the record's <code>descriptorType</code> is <code>MCP</code>.</p>"""
     a2a: NotRequired["aws_sdk_bedrock_agentcore.types.a2a_descriptor.A2aDescriptor"]

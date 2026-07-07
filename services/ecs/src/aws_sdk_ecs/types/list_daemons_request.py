@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ListDaemonsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string_list
 
 
-class ListDaemonsRequest(TypedDict):
+class ListDaemonsRequest(TypedDict, closed=True):
     cluster_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the cluster to filter daemons by. If not specified, daemons from all clusters are returned.</p>"""
     capacity_provider_arns: NotRequired["aws_sdk_ecs.types.string_list.StringList"]

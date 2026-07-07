@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DeleteDistributionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.operation
 
 
-class DeleteDistributionResult(TypedDict):
+class DeleteDistributionResult(TypedDict, closed=True):
     operation: NotRequired["aws_sdk_lightsail.types.operation.Operation"]
     """<p>An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#UpdateAccountSettingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.account_settings
 
 
-class UpdateAccountSettingsOutput(TypedDict):
+class UpdateAccountSettingsOutput(TypedDict, closed=True):
     account_settings: "aws_sdk_proton.types.account_settings.AccountSettings"
     """<p>The Proton pipeline service role and repository data shared across the Amazon Web Services account.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DeliveryChannel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.channel_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class DeliveryChannel(TypedDict):
+class DeliveryChannel(TypedDict, closed=True):
     name: NotRequired["aws_sdk_config_service.types.channel_name.ChannelName"]
     r"""<p>The name of the delivery channel. By default, Config assigns the name \"default\" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.</p>"""
     s3_bucket_name: NotRequired["aws_sdk_config_service.types.string.String"]

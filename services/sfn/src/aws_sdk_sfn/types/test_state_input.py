@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#TestStateInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.test_state_state_name
 
 
-class TestStateInput(TypedDict):
+class TestStateInput(TypedDict, closed=True):
     definition: "aws_sdk_sfn.types.definition.Definition"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html\">Amazon States Language</a> (ASL) definition of the state or state machine.</p>"""
     role_arn: NotRequired["aws_sdk_sfn.types.arn.Arn"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#InternetHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.availability_measurement
     import aws_sdk_internetmonitor.types.performance_measurement
 
 
-class InternetHealth(TypedDict):
+class InternetHealth(TypedDict, closed=True):
     availability: NotRequired[
         "aws_sdk_internetmonitor.types.availability_measurement.AvailabilityMeasurement"
     ]

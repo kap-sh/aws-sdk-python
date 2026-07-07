@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#PublicAccessBlockConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.setting
 
 
-class PublicAccessBlockConfiguration(TypedDict):
+class PublicAccessBlockConfiguration(TypedDict, closed=True):
     block_public_acls: "aws_sdk_s3_control.types.setting.Setting"
     """<p>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to <code>TRUE</code> causes the following behavior:</p> <ul> <li> <p> <code>PutBucketAcl</code> and <code>PutObjectAcl</code> calls fail if the specified ACL is public.</p> </li> <li> <p>PUT Object calls fail if the request includes a public ACL.</p> </li> <li> <p>PUT Bucket calls fail if the request includes a public ACL.</p> </li> </ul> <p>Enabling this setting doesn't affect existing policies or ACLs.</p> <p>This property is not supported for Amazon S3 on Outposts.</p>"""
     ignore_public_acls: "aws_sdk_s3_control.types.setting.Setting"

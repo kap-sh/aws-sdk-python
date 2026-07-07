@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#CreateOpportunityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.opportunity_identifier
 
 
-class CreateOpportunityResponse(TypedDict):
+class CreateOpportunityResponse(TypedDict, closed=True):
     id: "aws_sdk_partnercentral_selling.types.opportunity_identifier.OpportunityIdentifier"
     """<p>Read-only, system-generated <code>Opportunity</code> unique identifier. Amazon Web Services creates this identifier, and it's used for all subsequent opportunity actions, such as updates, associations, and submissions. It helps to ensure that each opportunity is accurately tracked and managed.</p>"""
     partner_opportunity_identifier: NotRequired["str"]

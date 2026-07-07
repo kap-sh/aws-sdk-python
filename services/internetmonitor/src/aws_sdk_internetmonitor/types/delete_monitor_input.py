@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#DeleteMonitorInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.resource_name
 
 
-class DeleteMonitorInput(TypedDict):
+class DeleteMonitorInput(TypedDict, closed=True):
     monitor_name: "aws_sdk_internetmonitor.types.resource_name.ResourceName"
     """<p>The name of the monitor to delete.</p>"""
 

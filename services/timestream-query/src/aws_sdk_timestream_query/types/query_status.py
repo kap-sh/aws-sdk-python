@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#QueryStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.double
     import aws_sdk_timestream_query.types.long
 
 
-class QueryStatus(TypedDict):
+class QueryStatus(TypedDict, closed=True):
     progress_percentage: "aws_sdk_timestream_query.types.double.Double"
     """<p>The progress of the query, expressed as a percentage.</p>"""
     cumulative_bytes_scanned: "aws_sdk_timestream_query.types.long.Long"

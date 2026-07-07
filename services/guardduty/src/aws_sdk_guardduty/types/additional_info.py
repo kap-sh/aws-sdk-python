@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#AdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.non_empty_string
 
 
-class AdditionalInfo(TypedDict):
+class AdditionalInfo(TypedDict, closed=True):
     version_id: NotRequired["aws_sdk_guardduty.types.non_empty_string.NonEmptyString"]
     """<p>The version ID of the S3 object, if applicable.</p>"""
     device_name: NotRequired["aws_sdk_guardduty.types.non_empty_string.NonEmptyString"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#S3Configuration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError
 
 
-class S3Configuration(TypedDict):
+class S3Configuration(TypedDict, closed=True):
     bucket_name: "str"
     """<p>The name of the S3 bucket to deliver logs to.</p>"""
     enabled: "bool"

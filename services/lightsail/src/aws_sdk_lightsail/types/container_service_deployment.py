@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#ContainerServiceDeployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.container_map
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.iso_date
 
 
-class ContainerServiceDeployment(TypedDict):
+class ContainerServiceDeployment(TypedDict, closed=True):
     version: NotRequired["aws_sdk_lightsail.types.integer.integer"]
     """<p>The version number of the deployment.</p>"""
     state: NotRequired[

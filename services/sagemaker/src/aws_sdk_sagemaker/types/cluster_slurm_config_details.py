@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterSlurmConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_slurm_node_type
 
 
-class ClusterSlurmConfigDetails(TypedDict):
+class ClusterSlurmConfigDetails(TypedDict, closed=True):
     node_type: "aws_sdk_sagemaker.types.cluster_slurm_node_type.ClusterSlurmNodeType"
     """<p>The type of Slurm node for the instance group. Valid values are <code>Controller</code>, <code>Worker</code>, and <code>Login</code>.</p>"""
     partition_names: NotRequired[

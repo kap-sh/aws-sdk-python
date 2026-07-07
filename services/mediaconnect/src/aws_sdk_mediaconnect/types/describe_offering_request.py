@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DescribeOfferingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.offering_arn
 
 
-class DescribeOfferingRequest(TypedDict):
+class DescribeOfferingRequest(TypedDict, closed=True):
     offering_arn: "aws_sdk_mediaconnect.types.offering_arn.OfferingArn"
     """<p> The ARN of the offering.</p>"""
 

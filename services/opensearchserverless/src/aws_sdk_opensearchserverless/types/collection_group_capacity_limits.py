@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#CollectionGroupCapacityLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.collection_group_max_indexing_capacity_value
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.collection_group_min_search_capacity_value
 
 
-class CollectionGroupCapacityLimits(TypedDict):
+class CollectionGroupCapacityLimits(TypedDict, closed=True):
     max_indexing_capacity_in_ocu: NotRequired[
         "aws_sdk_opensearchserverless.types.collection_group_max_indexing_capacity_value.CollectionGroupMaxIndexingCapacityValue"
     ]

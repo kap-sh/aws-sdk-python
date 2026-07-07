@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#LocalVolumeResourceData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.group_owner_setting
 
 
-class LocalVolumeResourceData(TypedDict):
+class LocalVolumeResourceData(TypedDict, closed=True):
     destination_path: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The absolute local path of the resource inside the Lambda environment."""
     group_owner_setting: NotRequired[

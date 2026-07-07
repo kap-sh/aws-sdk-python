@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#AntipatternSeveritySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.integer
     import aws_sdk_migrationhubstrategy.types.severity
 
 
-class AntipatternSeveritySummary(TypedDict):
+class AntipatternSeveritySummary(TypedDict, closed=True):
     severity: NotRequired["aws_sdk_migrationhubstrategy.types.severity.Severity"]
     """<p> Contains the severity of anti-patterns. </p>"""
     count: NotRequired["aws_sdk_migrationhubstrategy.types.integer.Integer"]

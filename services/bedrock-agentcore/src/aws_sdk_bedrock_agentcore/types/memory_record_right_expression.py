@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#MemoryRecordRightExpression``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.memory_record_metadata_value
 
 
-class _MemoryRecordRightExpression_metadataValue(TypedDict):
+class _MemoryRecordRightExpression_metadataValue(TypedDict, closed=True):
     metadataValue: "aws_sdk_bedrock_agentcore.types.memory_record_metadata_value.MemoryRecordMetadataValue"
 
 

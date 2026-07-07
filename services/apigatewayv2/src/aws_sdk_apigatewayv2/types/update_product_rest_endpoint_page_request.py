@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#UpdateProductRestEndpointPageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.try_it_state
 
 
-class UpdateProductRestEndpointPageRequest(TypedDict):
+class UpdateProductRestEndpointPageRequest(TypedDict, closed=True):
     display_content: NotRequired[
         "aws_sdk_apigatewayv2.types.endpoint_display_content.EndpointDisplayContent"
     ]

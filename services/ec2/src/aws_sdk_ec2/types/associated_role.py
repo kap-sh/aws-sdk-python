@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AssociatedRole``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class AssociatedRole(TypedDict):
+class AssociatedRole(TypedDict, closed=True):
     associated_role_arn: NotRequired["aws_sdk_ec2.types.resource_arn.ResourceArn"]
     """<p>The ARN of the associated IAM role.</p>"""
     certificate_s3_bucket_name: NotRequired["aws_sdk_ec2.types.string.String"]

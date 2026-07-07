@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#GetQueryResultsMonitorTopContributorsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.metric_unit
     import aws_sdk_networkflowmonitor.types.monitor_top_contributors_row_list
 
 
-class GetQueryResultsMonitorTopContributorsOutput(TypedDict):
+class GetQueryResultsMonitorTopContributorsOutput(TypedDict, closed=True):
     unit: NotRequired["aws_sdk_networkflowmonitor.types.metric_unit.MetricUnit"]
     """<p>The units for a metric returned by the query.</p>"""
     top_contributors: NotRequired[

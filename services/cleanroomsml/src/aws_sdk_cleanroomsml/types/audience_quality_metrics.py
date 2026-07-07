@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#AudienceQualityMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.relevance_metrics
 
 
-class AudienceQualityMetrics(TypedDict):
+class AudienceQualityMetrics(TypedDict, closed=True):
     relevance_metrics: "aws_sdk_cleanroomsml.types.relevance_metrics.RelevanceMetrics"
     """<p>The relevance scores of the generated audience.</p>"""
     recall_metric: NotRequired["float"]

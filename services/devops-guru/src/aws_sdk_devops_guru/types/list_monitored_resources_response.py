@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ListMonitoredResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class ListMonitoredResourcesResponse(TypedDict):
+class ListMonitoredResourcesResponse(TypedDict, closed=True):
     monitored_resource_identifiers: "aws_sdk_devops_guru.types.monitored_resource_identifiers.MonitoredResourceIdentifiers"
     """<p> Information about the resource that is being monitored, including the name of the resource, the type of resource, and whether or not permission is given to DevOps Guru to access that resource. </p>"""
     next_token: NotRequired["aws_sdk_devops_guru.types.uuid_next_token.UuidNextToken"]

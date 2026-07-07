@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#DeleteUserPoolDomainResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteUserPoolDomainResponse(TypedDict):
+class DeleteUserPoolDomainResponse(TypedDict, closed=True):
     pass
 
 

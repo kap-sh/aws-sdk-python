@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#DedicatedIp``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.warmup_status
 
 
-class DedicatedIp(TypedDict):
+class DedicatedIp(TypedDict, closed=True):
     ip: "aws_sdk_pinpoint_email.types.ip.Ip"
     """<p>An IP address that is reserved for use by your Amazon Pinpoint account.</p>"""
     warmup_status: "aws_sdk_pinpoint_email.types.warmup_status.WarmupStatus"

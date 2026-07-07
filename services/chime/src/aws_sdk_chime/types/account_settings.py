@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#AccountSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.boolean
 
 
-class AccountSettings(TypedDict):
+class AccountSettings(TypedDict, closed=True):
     disable_remote_control: NotRequired["aws_sdk_chime.types.boolean.Boolean"]
     """<p>Setting that stops or starts remote control of shared screens during meetings.</p>"""
     enable_dial_out: NotRequired["aws_sdk_chime.types.boolean.Boolean"]

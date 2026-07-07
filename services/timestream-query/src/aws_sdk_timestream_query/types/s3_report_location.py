@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#S3ReportLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.s3_bucket_name
     import aws_sdk_timestream_query.types.s3_object_key
 
 
-class S3ReportLocation(TypedDict):
+class S3ReportLocation(TypedDict, closed=True):
     bucket_name: NotRequired[
         "aws_sdk_timestream_query.types.s3_bucket_name.S3BucketName"
     ]

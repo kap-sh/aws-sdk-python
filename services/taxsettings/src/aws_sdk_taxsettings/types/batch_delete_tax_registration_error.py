@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#BatchDeleteTaxRegistrationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.error_message
 
 
-class BatchDeleteTaxRegistrationError(TypedDict):
+class BatchDeleteTaxRegistrationError(TypedDict, closed=True):
     account_id: "aws_sdk_taxsettings.types.account_id.AccountId"
     """<p> The unique account identifier for the account whose tax registration couldn't be deleted during the <code>BatchDeleteTaxRegistration</code> operation. </p>"""
     message: "aws_sdk_taxsettings.types.error_message.ErrorMessage"

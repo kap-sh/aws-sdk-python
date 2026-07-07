@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#EmailChannelSubtypeParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.email_address
 
 
-class EmailChannelSubtypeParameters(TypedDict):
+class EmailChannelSubtypeParameters(TypedDict, closed=True):
     destination_email_address: (
         "aws_sdk_connectcampaignsv2.types.email_address.EmailAddress"
     )

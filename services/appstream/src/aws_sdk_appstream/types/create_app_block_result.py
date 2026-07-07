@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateAppBlockResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.app_block
 
 
-class CreateAppBlockResult(TypedDict):
+class CreateAppBlockResult(TypedDict, closed=True):
     app_block: NotRequired["aws_sdk_appstream.types.app_block.AppBlock"]
     """<p>The app block.</p>"""
 

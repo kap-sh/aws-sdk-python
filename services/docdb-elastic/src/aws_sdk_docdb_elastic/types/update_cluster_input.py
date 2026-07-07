@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#UpdateClusterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.auth
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.string_list
 
 
-class UpdateClusterInput(TypedDict):
+class UpdateClusterInput(TypedDict, closed=True):
     cluster_arn: "str"
     """<p>The ARN identifier of the elastic cluster.</p>"""
     auth_type: NotRequired["aws_sdk_docdb_elastic.types.auth.Auth"]

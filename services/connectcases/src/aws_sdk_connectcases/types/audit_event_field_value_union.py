@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#AuditEventFieldValueUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -8,23 +10,23 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.empty_field_value
 
 
-class _AuditEventFieldValueUnion_stringValue(TypedDict):
+class _AuditEventFieldValueUnion_stringValue(TypedDict, closed=True):
     stringValue: "str"
 
 
-class _AuditEventFieldValueUnion_doubleValue(TypedDict):
+class _AuditEventFieldValueUnion_doubleValue(TypedDict, closed=True):
     doubleValue: "float"
 
 
-class _AuditEventFieldValueUnion_booleanValue(TypedDict):
+class _AuditEventFieldValueUnion_booleanValue(TypedDict, closed=True):
     booleanValue: "bool"
 
 
-class _AuditEventFieldValueUnion_emptyValue(TypedDict):
+class _AuditEventFieldValueUnion_emptyValue(TypedDict, closed=True):
     emptyValue: "aws_sdk_connectcases.types.empty_field_value.EmptyFieldValue"
 
 
-class _AuditEventFieldValueUnion_userArnValue(TypedDict):
+class _AuditEventFieldValueUnion_userArnValue(TypedDict, closed=True):
     userArnValue: "str"
 
 

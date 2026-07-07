@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateCustomMetricRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.metric_name
 
 
-class UpdateCustomMetricRequest(TypedDict):
+class UpdateCustomMetricRequest(TypedDict, closed=True):
     metric_name: "aws_sdk_iot.types.metric_name.MetricName"
     """<p> The name of the custom metric. Cannot be updated. </p>"""
     display_name: "aws_sdk_iot.types.custom_metric_display_name.CustomMetricDisplayName"

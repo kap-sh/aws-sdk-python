@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteConnectionOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DeleteConnectionOutput(TypedDict):
+class DeleteConnectionOutput(TypedDict, closed=True):
     status: NotRequired["str"]
     """<p>The status of the action.</p>"""
 

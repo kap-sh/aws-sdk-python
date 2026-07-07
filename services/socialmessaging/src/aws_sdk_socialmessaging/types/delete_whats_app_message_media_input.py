@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#DeleteWhatsAppMessageMediaInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.whats_app_media_id
     import aws_sdk_socialmessaging.types.whats_app_phone_number_id
 
 
-class DeleteWhatsAppMessageMediaInput(TypedDict):
+class DeleteWhatsAppMessageMediaInput(TypedDict, closed=True):
     media_id: "aws_sdk_socialmessaging.types.whats_app_media_id.WhatsAppMediaId"
     r"""<p>The unique identifier of the media file to delete. Use the <code>mediaId</code> returned from <a href=\"https://console.aws.amazon.com/social-messaging/latest/APIReference/API_PostWhatsAppMessageMedia.html\">PostWhatsAppMessageMedia</a>.</p>"""
     origination_phone_number_id: (

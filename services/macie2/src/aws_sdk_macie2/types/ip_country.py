@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#IpCountry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class IpCountry(TypedDict):
+class IpCountry(TypedDict, closed=True):
     code: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The two-character code, in ISO 3166-1 alpha-2 format, for the country that the IP address originated from. For example, US for the United States.</p>"""
     name: NotRequired["aws_sdk_macie2.types.__string.__string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#Runbook``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class Runbook(TypedDict):
+class Runbook(TypedDict, closed=True):
     document_name: "aws_sdk_ssm.types.document_arn.DocumentARN"
     """<p>The name of the Automation runbook used in a runbook workflow.</p>"""
     document_version: NotRequired["aws_sdk_ssm.types.document_version.DocumentVersion"]

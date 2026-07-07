@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ValidatorMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.metric_float
 
 
-class ValidatorMetric(TypedDict):
+class ValidatorMetric(TypedDict, closed=True):
     validation_loss: NotRequired["aws_sdk_bedrock.types.metric_float.MetricFloat"]
     """<p>The validation loss associated with this validator.</p>"""
 

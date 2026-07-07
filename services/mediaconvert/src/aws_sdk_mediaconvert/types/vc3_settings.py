@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Vc3Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max1001
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.vc3_telecine
 
 
-class Vc3Settings(TypedDict):
+class Vc3Settings(TypedDict, closed=True):
     framerate_control: NotRequired[
         "aws_sdk_mediaconvert.types.vc3_framerate_control.Vc3FramerateControl"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ListPrincipalsForPortfolioOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.page_token
     import aws_sdk_service_catalog.types.principals
 
 
-class ListPrincipalsForPortfolioOutput(TypedDict):
+class ListPrincipalsForPortfolioOutput(TypedDict, closed=True):
     principals: NotRequired["aws_sdk_service_catalog.types.principals.Principals"]
     """<p>The <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the portfolio.</p>"""
     next_page_token: NotRequired["aws_sdk_service_catalog.types.page_token.PageToken"]

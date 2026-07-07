@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#StartWorkflowExecutionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_type
 
 
-class StartWorkflowExecutionInput(TypedDict):
+class StartWorkflowExecutionInput(TypedDict, closed=True):
     domain: "aws_sdk_swf.types.domain_name.DomainName"
     r"""<p>The name of the domain in which the workflow execution is created.</p> <p>The specified string must not contain a <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</p>"""
     workflow_id: "aws_sdk_swf.types.workflow_id.WorkflowId"

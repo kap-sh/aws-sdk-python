@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#EksSourceClusterNamespace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.eks_namespace
 
 
-class EksSourceClusterNamespace(TypedDict):
+class EksSourceClusterNamespace(TypedDict, closed=True):
     eks_cluster_arn: "aws_sdk_resiliencehub.types.arn.Arn"
     r"""<p>Amazon Resource Name (ARN) of the Amazon Elastic Kubernetes Service cluster. The format for this ARN is: arn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\"> Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i> guide.</p>"""
     namespace: "aws_sdk_resiliencehub.types.eks_namespace.EksNamespace"

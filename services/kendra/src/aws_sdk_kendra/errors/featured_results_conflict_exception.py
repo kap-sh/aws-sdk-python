@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#FeaturedResultsConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.string
 
 
-class FeaturedResultsConflictException_(TypedDict):
+class FeaturedResultsConflictException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_kendra.types.string.String"]
     """<p>An explanation for the conflicting queries.</p>"""
     conflicting_items: NotRequired[

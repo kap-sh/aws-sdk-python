@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetFindingsV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.finding_scopes
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.sort_criteria
 
 
-class GetFindingsV2Request(TypedDict):
+class GetFindingsV2Request(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_securityhub.types.ocsf_finding_filters.OcsfFindingFilters"
     ]

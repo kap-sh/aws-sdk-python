@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BucketMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.shared_access
 
 
-class BucketMetadata(TypedDict):
+class BucketMetadata(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The unique identifier for the Amazon Web Services account that owns the bucket.</p>"""
     allows_unencrypted_object_uploads: NotRequired[

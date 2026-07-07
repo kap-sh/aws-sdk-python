@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteFastResetOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.fast_reset_token
 
 
-class ExecuteFastResetOutput(TypedDict):
+class ExecuteFastResetOutput(TypedDict, closed=True):
     status: "str"
     """<p>The <code>status</code> is only returned for the <code>performDatabaseReset</code> action, and indicates whether or not the fast reset rquest is accepted.</p>"""
     payload: NotRequired["aws_sdk_neptunedata.types.fast_reset_token.FastResetToken"]

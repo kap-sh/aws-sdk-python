@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ParameterValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityhub.errors import DeserializationError, SerializationError
 
@@ -13,35 +15,35 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_list
 
 
-class _ParameterValue_Integer(TypedDict):
+class _ParameterValue_Integer(TypedDict, closed=True):
     Integer: "aws_sdk_securityhub.types.integer.Integer"
 
 
-class _ParameterValue_IntegerList(TypedDict):
+class _ParameterValue_IntegerList(TypedDict, closed=True):
     IntegerList: "aws_sdk_securityhub.types.integer_list.IntegerList"
 
 
-class _ParameterValue_Double(TypedDict):
+class _ParameterValue_Double(TypedDict, closed=True):
     Double: "aws_sdk_securityhub.types.double.Double"
 
 
-class _ParameterValue_String(TypedDict):
+class _ParameterValue_String(TypedDict, closed=True):
     String: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
 
 
-class _ParameterValue_StringList(TypedDict):
+class _ParameterValue_StringList(TypedDict, closed=True):
     StringList: "aws_sdk_securityhub.types.string_list.StringList"
 
 
-class _ParameterValue_Boolean(TypedDict):
+class _ParameterValue_Boolean(TypedDict, closed=True):
     Boolean: "aws_sdk_securityhub.types.boolean.Boolean"
 
 
-class _ParameterValue_Enum(TypedDict):
+class _ParameterValue_Enum(TypedDict, closed=True):
     Enum: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
 
 
-class _ParameterValue_EnumList(TypedDict):
+class _ParameterValue_EnumList(TypedDict, closed=True):
     EnumList: "aws_sdk_securityhub.types.string_list.StringList"
 
 

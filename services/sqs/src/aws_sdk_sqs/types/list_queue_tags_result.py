@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#ListQueueTagsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.tag_map
 
 
-class ListQueueTagsResult(TypedDict):
+class ListQueueTagsResult(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_sqs.types.tag_map.TagMap"]
     """<p>The list of all tags added to the specified queue.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#CreateS3BucketResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.malware_protection_plan_object_prefixes_list
     import aws_sdk_guardduty.types.string
 
 
-class CreateS3BucketResource(TypedDict):
+class CreateS3BucketResource(TypedDict, closed=True):
     bucket_name: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Name of the S3 bucket.</p>"""
     object_prefixes: NotRequired[

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DbIormConfig``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DbIormConfig(TypedDict):
+class DbIormConfig(TypedDict, closed=True):
     db_name: NotRequired["str"]
     """<p>The database name. For the default DbPlan, the dbName is <code>default</code>.</p>"""
     flash_cache_limit: NotRequired["str"]

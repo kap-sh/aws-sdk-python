@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListDataAccessorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.data_accessors
     import aws_sdk_qbusiness.types.next_token1500
 
 
-class ListDataAccessorsResponse(TypedDict):
+class ListDataAccessorsResponse(TypedDict, closed=True):
     data_accessors: NotRequired["aws_sdk_qbusiness.types.data_accessors.DataAccessors"]
     """<p>The list of data accessors.</p>"""
     next_token: NotRequired["aws_sdk_qbusiness.types.next_token1500.NextToken1500"]

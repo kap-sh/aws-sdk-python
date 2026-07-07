@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#OpsItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class OpsItem(TypedDict):
+class OpsItem(TypedDict, closed=True):
     created_by: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The ARN of the Amazon Web Services account that created the OpsItem.</p>"""
     ops_item_type: NotRequired["aws_sdk_ssm.types.ops_item_type.OpsItemType"]

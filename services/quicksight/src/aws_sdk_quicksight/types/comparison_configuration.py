@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ComparisonConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.comparison_format_configuration
     import aws_sdk_quicksight.types.comparison_method
 
 
-class ComparisonConfiguration(TypedDict):
+class ComparisonConfiguration(TypedDict, closed=True):
     comparison_method: NotRequired[
         "aws_sdk_quicksight.types.comparison_method.ComparisonMethod"
     ]

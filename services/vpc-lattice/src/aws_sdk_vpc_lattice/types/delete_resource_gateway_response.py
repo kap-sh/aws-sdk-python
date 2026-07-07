@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#DeleteResourceGatewayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.resource_gateway_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.resource_gateway_status
 
 
-class DeleteResourceGatewayResponse(TypedDict):
+class DeleteResourceGatewayResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_vpc_lattice.types.resource_gateway_id.ResourceGatewayId"]
     """<p>The ID of the resource gateway.</p>"""
     arn: NotRequired[

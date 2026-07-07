@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#As2805PekDerivationAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.transaction_amount_type
 
 
-class As2805PekDerivationAttributes(TypedDict):
+class As2805PekDerivationAttributes(TypedDict, closed=True):
     system_trace_audit_number: "aws_sdk_payment_cryptography_data.types.system_trace_audit_number_type.SystemTraceAuditNumberType"
     """<p>The system trace audit number for the transaction.</p>"""
     transaction_amount: "aws_sdk_payment_cryptography_data.types.transaction_amount_type.TransactionAmountType"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#PrometheusDirectQueryDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.direct_query_data_source_role_arn
 
 
-class PrometheusDirectQueryDataSource(TypedDict):
+class PrometheusDirectQueryDataSource(TypedDict, closed=True):
     role_arn: "aws_sdk_opensearch.types.direct_query_data_source_role_arn.DirectQueryDataSourceRoleArn"
     """<p> The unique identifier of the IAM role that grants OpenSearch Service permission to access the specified data source. </p>"""
     workspace_arn: "aws_sdk_opensearch.types.amp_workspace_arn.AMPWorkspaceArn"

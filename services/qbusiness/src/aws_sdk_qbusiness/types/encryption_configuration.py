@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#EncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.kms_key_id
 
 
-class EncryptionConfiguration(TypedDict):
+class EncryptionConfiguration(TypedDict, closed=True):
     kms_key_id: NotRequired["aws_sdk_qbusiness.types.kms_key_id.KmsKeyId"]
     """<p>The identifier of the KMS key. Amazon Q Business doesn't support asymmetric keys.</p>"""
 

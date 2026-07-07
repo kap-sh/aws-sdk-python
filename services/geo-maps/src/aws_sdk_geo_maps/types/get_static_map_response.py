@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.geomaps#GetStaticMapResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetStaticMapResponse(TypedDict):
+class GetStaticMapResponse(TypedDict, closed=True):
     blob: NotRequired["bytes"]
     """<p>The blob represents a map image as a <code>jpeg</code> for the <code>GetStaticMap</code> API.</p>"""
     content_type: NotRequired["str"]

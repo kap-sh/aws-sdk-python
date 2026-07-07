@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#TaskExecutionResultDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.duration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.string
 
 
-class TaskExecutionResultDetail(TypedDict):
+class TaskExecutionResultDetail(TypedDict, closed=True):
     prepare_duration: NotRequired["aws_sdk_datasync.types.duration.Duration"]
     r"""<p>The time in milliseconds that your task execution was in the <code>PREPARING</code> step. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses\">Task execution statuses</a>.</p> <p>For Enhanced mode tasks, the value is always <code>0</code>. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/how-datasync-transfer-works.html#how-datasync-prepares\">How DataSync prepares your data transfer</a>.</p>"""
     prepare_status: NotRequired["aws_sdk_datasync.types.phase_status.PhaseStatus"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AggregationResponse``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError, SerializationError
 
@@ -19,55 +21,55 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.title_aggregation_response
 
 
-class _AggregationResponse_accountAggregation(TypedDict):
+class _AggregationResponse_accountAggregation(TypedDict, closed=True):
     accountAggregation: "aws_sdk_inspector2.types.account_aggregation_response.AccountAggregationResponse"
 
 
-class _AggregationResponse_amiAggregation(TypedDict):
+class _AggregationResponse_amiAggregation(TypedDict, closed=True):
     amiAggregation: (
         "aws_sdk_inspector2.types.ami_aggregation_response.AmiAggregationResponse"
     )
 
 
-class _AggregationResponse_awsEcrContainerAggregation(TypedDict):
+class _AggregationResponse_awsEcrContainerAggregation(TypedDict, closed=True):
     awsEcrContainerAggregation: "aws_sdk_inspector2.types.aws_ecr_container_aggregation_response.AwsEcrContainerAggregationResponse"
 
 
-class _AggregationResponse_ec2InstanceAggregation(TypedDict):
+class _AggregationResponse_ec2InstanceAggregation(TypedDict, closed=True):
     ec2InstanceAggregation: "aws_sdk_inspector2.types.ec2_instance_aggregation_response.Ec2InstanceAggregationResponse"
 
 
-class _AggregationResponse_findingTypeAggregation(TypedDict):
+class _AggregationResponse_findingTypeAggregation(TypedDict, closed=True):
     findingTypeAggregation: "aws_sdk_inspector2.types.finding_type_aggregation_response.FindingTypeAggregationResponse"
 
 
-class _AggregationResponse_imageLayerAggregation(TypedDict):
+class _AggregationResponse_imageLayerAggregation(TypedDict, closed=True):
     imageLayerAggregation: "aws_sdk_inspector2.types.image_layer_aggregation_response.ImageLayerAggregationResponse"
 
 
-class _AggregationResponse_packageAggregation(TypedDict):
+class _AggregationResponse_packageAggregation(TypedDict, closed=True):
     packageAggregation: "aws_sdk_inspector2.types.package_aggregation_response.PackageAggregationResponse"
 
 
-class _AggregationResponse_repositoryAggregation(TypedDict):
+class _AggregationResponse_repositoryAggregation(TypedDict, closed=True):
     repositoryAggregation: "aws_sdk_inspector2.types.repository_aggregation_response.RepositoryAggregationResponse"
 
 
-class _AggregationResponse_titleAggregation(TypedDict):
+class _AggregationResponse_titleAggregation(TypedDict, closed=True):
     titleAggregation: (
         "aws_sdk_inspector2.types.title_aggregation_response.TitleAggregationResponse"
     )
 
 
-class _AggregationResponse_lambdaLayerAggregation(TypedDict):
+class _AggregationResponse_lambdaLayerAggregation(TypedDict, closed=True):
     lambdaLayerAggregation: "aws_sdk_inspector2.types.lambda_layer_aggregation_response.LambdaLayerAggregationResponse"
 
 
-class _AggregationResponse_lambdaFunctionAggregation(TypedDict):
+class _AggregationResponse_lambdaFunctionAggregation(TypedDict, closed=True):
     lambdaFunctionAggregation: "aws_sdk_inspector2.types.lambda_function_aggregation_response.LambdaFunctionAggregationResponse"
 
 
-class _AggregationResponse_codeRepositoryAggregation(TypedDict):
+class _AggregationResponse_codeRepositoryAggregation(TypedDict, closed=True):
     codeRepositoryAggregation: "aws_sdk_inspector2.types.code_repository_aggregation_response.CodeRepositoryAggregationResponse"
 
 

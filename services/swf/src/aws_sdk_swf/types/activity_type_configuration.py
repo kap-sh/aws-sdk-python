@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ActivityTypeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.duration_in_seconds_optional
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.task_priority
 
 
-class ActivityTypeConfiguration(TypedDict):
+class ActivityTypeConfiguration(TypedDict, closed=True):
     default_task_start_to_close_timeout: NotRequired[
         "aws_sdk_swf.types.duration_in_seconds_optional.DurationInSecondsOptional"
     ]

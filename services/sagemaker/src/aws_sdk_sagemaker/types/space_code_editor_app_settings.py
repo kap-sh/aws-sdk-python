@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#SpaceCodeEditorAppSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.resource_spec
     import aws_sdk_sagemaker.types.space_app_lifecycle_management
 
 
-class SpaceCodeEditorAppSettings(TypedDict):
+class SpaceCodeEditorAppSettings(TypedDict, closed=True):
     default_resource_spec: NotRequired[
         "aws_sdk_sagemaker.types.resource_spec.ResourceSpec"
     ]

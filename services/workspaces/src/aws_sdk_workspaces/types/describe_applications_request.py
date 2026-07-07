@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeApplicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.compute_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.work_space_application_owner
 
 
-class DescribeApplicationsRequest(TypedDict):
+class DescribeApplicationsRequest(TypedDict, closed=True):
     application_ids: NotRequired[
         "aws_sdk_workspaces.types.work_space_application_id_list.WorkSpaceApplicationIdList"
     ]

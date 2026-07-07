@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAutoScalingLaunchConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_auto_scaling_launch_configuration_block_device_mappings_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsAutoScalingLaunchConfigurationDetails(TypedDict):
+class AwsAutoScalingLaunchConfigurationDetails(TypedDict, closed=True):
     associate_public_ip_address: NotRequired[
         "aws_sdk_securityhub.types.boolean.Boolean"
     ]

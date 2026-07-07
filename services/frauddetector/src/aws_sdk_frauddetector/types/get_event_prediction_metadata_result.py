@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetEventPredictionMetadataResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.evaluated_rule_list
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.whole_number_version_string
 
 
-class GetEventPredictionMetadataResult(TypedDict):
+class GetEventPredictionMetadataResult(TypedDict, closed=True):
     event_id: NotRequired["aws_sdk_frauddetector.types.identifier.identifier"]
     """<p> The event ID. </p>"""
     event_type_name: NotRequired["aws_sdk_frauddetector.types.identifier.identifier"]

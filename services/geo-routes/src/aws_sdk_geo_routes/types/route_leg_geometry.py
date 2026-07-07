@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteLegGeometry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.line_string
     import aws_sdk_geo_routes.types.polyline
 
 
-class RouteLegGeometry(TypedDict):
+class RouteLegGeometry(TypedDict, closed=True):
     line_string: NotRequired["aws_sdk_geo_routes.types.line_string.LineString"]
     """<p>An ordered list of positions used to plot a route on a map.</p> <note> <p>LineString and Polyline are mutually exclusive properties.</p> </note>"""
     polyline: NotRequired["aws_sdk_geo_routes.types.polyline.Polyline"]

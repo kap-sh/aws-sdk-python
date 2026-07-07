@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListFileTransferResultsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.transfer_id
 
 
-class ListFileTransferResultsRequest(TypedDict):
+class ListFileTransferResultsRequest(TypedDict, closed=True):
     connector_id: "aws_sdk_transfer.types.connector_id.ConnectorId"
     """<p>A unique identifier for a connector. This value should match the value supplied to the corresponding <code>StartFileTransfer</code> call.</p>"""
     transfer_id: "aws_sdk_transfer.types.transfer_id.TransferId"

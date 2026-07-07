@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaigns#UpdateCampaignOutboundCallConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaigns.types.answer_machine_detection_config
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaigns.types.source_phone_number
 
 
-class UpdateCampaignOutboundCallConfigRequest(TypedDict):
+class UpdateCampaignOutboundCallConfigRequest(TypedDict, closed=True):
     id: "aws_sdk_connectcampaigns.types.campaign_id.CampaignId"
     connect_contact_flow_id: NotRequired[
         "aws_sdk_connectcampaigns.types.contact_flow_id.ContactFlowId"

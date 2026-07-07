@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#PutDedicatedIpInPoolResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutDedicatedIpInPoolResponse(TypedDict):
+class PutDedicatedIpInPoolResponse(TypedDict, closed=True):
     pass
 
 

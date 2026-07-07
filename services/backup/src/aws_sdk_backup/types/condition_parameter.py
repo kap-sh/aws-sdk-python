@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ConditionParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.condition_key
     import aws_sdk_backup.types.condition_value
 
 
-class ConditionParameter(TypedDict):
+class ConditionParameter(TypedDict, closed=True):
     condition_key: NotRequired["aws_sdk_backup.types.condition_key.ConditionKey"]
     """<p>The key in a key-value pair. For example, in the tag <code>Department: Accounting</code>, <code>Department</code> is the key.</p>"""
     condition_value: NotRequired["aws_sdk_backup.types.condition_value.ConditionValue"]

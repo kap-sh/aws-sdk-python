@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#RecoveryOptionType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.recovery_option_name_type
 
 
-class RecoveryOptionType(TypedDict):
+class RecoveryOptionType(TypedDict, closed=True):
     priority: "aws_sdk_cognito_identity_provider.types.priority_type.PriorityType"
     """<p>Your priority preference for using the specified attribute in account recovery. The highest priority is <code>1</code>.</p>"""
     name: "aws_sdk_cognito_identity_provider.types.recovery_option_name_type.RecoveryOptionNameType"

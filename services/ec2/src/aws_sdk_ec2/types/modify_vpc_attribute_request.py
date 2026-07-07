@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyVpcAttributeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_id
 
 
-class ModifyVpcAttributeRequest(TypedDict):
+class ModifyVpcAttributeRequest(TypedDict, closed=True):
     enable_dns_hostnames: NotRequired[
         "aws_sdk_ec2.types.attribute_boolean_value.AttributeBooleanValue"
     ]

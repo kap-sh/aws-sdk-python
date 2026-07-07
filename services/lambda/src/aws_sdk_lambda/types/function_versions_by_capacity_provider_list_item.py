@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#FunctionVersionsByCapacityProviderListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.state
 
 
-class FunctionVersionsByCapacityProviderListItem(TypedDict):
+class FunctionVersionsByCapacityProviderListItem(TypedDict, closed=True):
     function_arn: "aws_sdk_lambda.types.name_spaced_function_arn.NameSpacedFunctionArn"
     """<p>The Amazon Resource Name (ARN) of the function version.</p>"""
     state: "aws_sdk_lambda.types.state.State"

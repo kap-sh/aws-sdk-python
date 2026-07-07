@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#ContainerInfo``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_emr_containers.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.eks_info
 
 
-class _ContainerInfo_eksInfo(TypedDict):
+class _ContainerInfo_eksInfo(TypedDict, closed=True):
     eksInfo: "aws_sdk_emr_containers.types.eks_info.EksInfo"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CompareFacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.compare_faces_match_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.orientation_correction
 
 
-class CompareFacesResponse(TypedDict):
+class CompareFacesResponse(TypedDict, closed=True):
     source_image_face: NotRequired[
         "aws_sdk_rekognition.types.compared_source_image_face.ComparedSourceImageFace"
     ]

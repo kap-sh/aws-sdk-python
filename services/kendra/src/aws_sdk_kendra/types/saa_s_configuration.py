@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SaaSConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.url
 
 
-class SaaSConfiguration(TypedDict):
+class SaaSConfiguration(TypedDict, closed=True):
     organization_name: "aws_sdk_kendra.types.organization_name.OrganizationName"
     """<p>The name of the organization of the GitHub Enterprise Cloud (SaaS) account you want to connect to. You can find your organization name by logging into GitHub desktop and selecting <b>Your organizations</b> under your profile picture dropdown.</p>"""
     host_url: "aws_sdk_kendra.types.url.Url"

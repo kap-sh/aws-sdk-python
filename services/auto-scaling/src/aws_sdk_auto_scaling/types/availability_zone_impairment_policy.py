@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#AvailabilityZoneImpairmentPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.zonal_shift_enabled
 
 
-class AvailabilityZoneImpairmentPolicy(TypedDict):
+class AvailabilityZoneImpairmentPolicy(TypedDict, closed=True):
     zonal_shift_enabled: NotRequired[
         "aws_sdk_auto_scaling.types.zonal_shift_enabled.ZonalShiftEnabled"
     ]

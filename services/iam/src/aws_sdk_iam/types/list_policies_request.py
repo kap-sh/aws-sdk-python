@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.policy_usage_type
 
 
-class ListPoliciesRequest(TypedDict):
+class ListPoliciesRequest(TypedDict, closed=True):
     scope: NotRequired["aws_sdk_iam.types.policy_scope_type.policyScopeType"]
     """<p>The scope to use for filtering the results.</p> <p>To list only Amazon Web Services managed policies, set <code>Scope</code> to <code>AWS</code>. To list only the customer managed policies in your Amazon Web Services account, set <code>Scope</code> to <code>Local</code>.</p> <p>This parameter is optional. If it is not included, or if it is set to <code>All</code>, all policies are returned.</p>"""
     only_attached: "aws_sdk_iam.types.boolean_type.booleanType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ListCustomerManagedPolicyReferencesInPermissionSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.token
 
 
-class ListCustomerManagedPolicyReferencesInPermissionSetRequest(TypedDict):
+class ListCustomerManagedPolicyReferencesInPermissionSetRequest(TypedDict, closed=True):
     instance_arn: "aws_sdk_sso_admin.types.instance_arn.InstanceArn"
     """<p>The ARN of the IAM Identity Center instance under which the operation will be executed. </p>"""
     permission_set_arn: "aws_sdk_sso_admin.types.permission_set_arn.PermissionSetArn"

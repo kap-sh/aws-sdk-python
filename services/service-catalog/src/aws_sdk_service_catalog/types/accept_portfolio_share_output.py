@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#AcceptPortfolioShareOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AcceptPortfolioShareOutput(TypedDict):
+class AcceptPortfolioShareOutput(TypedDict, closed=True):
     pass
 
 

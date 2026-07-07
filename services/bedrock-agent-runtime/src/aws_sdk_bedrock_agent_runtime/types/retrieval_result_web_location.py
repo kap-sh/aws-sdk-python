@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrievalResultWebLocation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RetrievalResultWebLocation(TypedDict):
+class RetrievalResultWebLocation(TypedDict, closed=True):
     url: NotRequired["str"]
     """<p>The web URL/URLs for the data source location.</p>"""
 

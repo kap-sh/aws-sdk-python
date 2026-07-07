@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FreeFormLayoutScreenCanvasSizeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pixel_length
 
 
-class FreeFormLayoutScreenCanvasSizeOptions(TypedDict):
+class FreeFormLayoutScreenCanvasSizeOptions(TypedDict, closed=True):
     optimized_view_port_width: "aws_sdk_quicksight.types.pixel_length.PixelLength"
     """<p>The width that the view port will be optimized for when the layout renders.</p>"""
 

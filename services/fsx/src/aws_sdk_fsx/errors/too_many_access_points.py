@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#TooManyAccessPoints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fsx.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.error_message
 
 
-class TooManyAccessPoints_(TypedDict):
+class TooManyAccessPoints_(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_fsx.types.error_code.ErrorCode"]
     """<p>An error code indicating that you have reached the maximum number of S3 access points attachments allowed for your account in this Amazon Web Services Region, or for the file system.</p>"""
     message: NotRequired["aws_sdk_fsx.types.error_message.ErrorMessage"]

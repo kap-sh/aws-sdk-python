@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ApiKeyCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.api_secret_key
 
 
-class ApiKeyCredentials(TypedDict):
+class ApiKeyCredentials(TypedDict, closed=True):
     api_key: "aws_sdk_appflow.types.api_key.ApiKey"
     """<p>The API key required for API key authentication.</p>"""
     api_secret_key: NotRequired["aws_sdk_appflow.types.api_secret_key.ApiSecretKey"]

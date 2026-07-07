@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#TableRecordExpirationJobMetrics``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class TableRecordExpirationJobMetrics(TypedDict):
+class TableRecordExpirationJobMetrics(TypedDict, closed=True):
     deleted_data_files: NotRequired["int"]
     """<p>The total number of data files that were removed when the job ran.</p>"""
     deleted_records: NotRequired["int"]

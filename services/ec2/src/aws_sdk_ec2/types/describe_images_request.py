@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeImagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeImagesRequest(TypedDict):
+class DescribeImagesRequest(TypedDict, closed=True):
     executable_users: NotRequired[
         "aws_sdk_ec2.types.executable_by_string_list.ExecutableByStringList"
     ]

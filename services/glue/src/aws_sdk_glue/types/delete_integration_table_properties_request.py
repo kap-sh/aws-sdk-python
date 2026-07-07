@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteIntegrationTablePropertiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.string512
 
 
-class DeleteIntegrationTablePropertiesRequest(TypedDict):
+class DeleteIntegrationTablePropertiesRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_glue.types.string512.String512"
     """<p>The connection ARN of the source, or the database ARN of the target.</p>"""
     table_name: "aws_sdk_glue.types.string128.String128"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#GetComponentVersionArtifactResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.non_empty_string
 
 
-class GetComponentVersionArtifactResponse(TypedDict):
+class GetComponentVersionArtifactResponse(TypedDict, closed=True):
     pre_signed_url: "aws_sdk_greengrassv2.types.non_empty_string.NonEmptyString"
     """<p>The URL of the artifact.</p>"""
 

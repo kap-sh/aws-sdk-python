@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#DeletePermissionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class DeletePermissionResponse(TypedDict):
+class DeletePermissionResponse(TypedDict, closed=True):
     return_value: NotRequired["aws_sdk_ram.types.boolean.Boolean"]
     """<p>A boolean that indicates whether the delete operations succeeded.</p>"""
     client_token: NotRequired["aws_sdk_ram.types.string.String"]

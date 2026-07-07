@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#CreateExpressGatewayServiceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.tags
 
 
-class CreateExpressGatewayServiceRequest(TypedDict):
+class CreateExpressGatewayServiceRequest(TypedDict, closed=True):
     execution_role_arn: "aws_sdk_ecs.types.string.String"
     """<p>The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf. This role is required for Amazon ECS to pull container images from Amazon ECR, send container logs to Amazon CloudWatch Logs, and retrieve sensitive data from Amazon Web Services Systems Manager Parameter Store or Amazon Web Services Secrets Manager.</p> <p>The execution role must include the <code>AmazonECSTaskExecutionRolePolicy</code> managed policy or equivalent permissions. For Express services, this role is used during task startup and runtime for container management operations.</p>"""
     infrastructure_role_arn: "aws_sdk_ecs.types.string.String"

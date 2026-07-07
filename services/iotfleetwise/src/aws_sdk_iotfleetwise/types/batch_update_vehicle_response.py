@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#BatchUpdateVehicleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.update_vehicle_errors
     import aws_sdk_iotfleetwise.types.update_vehicle_response_items
 
 
-class BatchUpdateVehicleResponse(TypedDict):
+class BatchUpdateVehicleResponse(TypedDict, closed=True):
     vehicles: NotRequired[
         "aws_sdk_iotfleetwise.types.update_vehicle_response_items.updateVehicleResponseItems"
     ]

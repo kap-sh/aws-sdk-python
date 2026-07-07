@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#CreateServiceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.tag_list
 
 
-class CreateServiceRequest(TypedDict):
+class CreateServiceRequest(TypedDict, closed=True):
     service_name: "aws_sdk_apprunner.types.service_name.ServiceName"
     """<p>A name for the App Runner service. It must be unique across all the running App Runner services in your Amazon Web Services account in the Amazon Web Services Region.</p>"""
     source_configuration: (

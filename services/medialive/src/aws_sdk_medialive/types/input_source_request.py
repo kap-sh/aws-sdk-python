@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class InputSourceRequest(TypedDict):
+class InputSourceRequest(TypedDict, closed=True):
     password_param: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The key used to extract the password from EC2 Parameter store."""
     url: NotRequired["aws_sdk_medialive.types.__string.__string"]

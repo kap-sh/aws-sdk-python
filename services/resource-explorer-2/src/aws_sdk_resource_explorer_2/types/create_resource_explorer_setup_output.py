@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#CreateResourceExplorerSetupOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
 
-class CreateResourceExplorerSetupOutput(TypedDict):
+class CreateResourceExplorerSetupOutput(TypedDict, closed=True):
     task_id: "str"
     """<p>The unique identifier for the setup task. Use this ID with <code>GetResourceExplorerSetup</code> to monitor the progress of the configuration operation.</p>"""
 

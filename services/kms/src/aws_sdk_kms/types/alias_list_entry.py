@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#AliasListEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.alias_name_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.key_id_type
 
 
-class AliasListEntry(TypedDict):
+class AliasListEntry(TypedDict, closed=True):
     alias_name: NotRequired["aws_sdk_kms.types.alias_name_type.AliasNameType"]
     """<p>String that contains the alias. This value begins with <code>alias/</code>.</p>"""
     alias_arn: NotRequired["aws_sdk_kms.types.arn_type.ArnType"]

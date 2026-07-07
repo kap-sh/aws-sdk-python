@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#PutDomainObjectTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.domain_object_type_fields
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.type_name
 
 
-class PutDomainObjectTypeResponse(TypedDict):
+class PutDomainObjectTypeResponse(TypedDict, closed=True):
     object_type_name: NotRequired["aws_sdk_customer_profiles.types.type_name.typeName"]
     """<p>The unique name of the domain object type.</p>"""
     description: NotRequired[

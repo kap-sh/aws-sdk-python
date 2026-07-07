@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#AvailableAdditionalStorageVolumesOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class AvailableAdditionalStorageVolumesOption(TypedDict):
+class AvailableAdditionalStorageVolumesOption(TypedDict, closed=True):
     supports_storage_autoscaling: NotRequired["aws_sdk_rds.types.boolean.Boolean"]
     """<p>Indicates whether the additional storage volume supports storage autoscaling.</p>"""
     supports_storage_throughput: NotRequired["aws_sdk_rds.types.boolean.Boolean"]

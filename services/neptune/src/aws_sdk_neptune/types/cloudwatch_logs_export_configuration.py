@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#CloudwatchLogsExportConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.log_type_list
 
 
-class CloudwatchLogsExportConfiguration(TypedDict):
+class CloudwatchLogsExportConfiguration(TypedDict, closed=True):
     enable_log_types: NotRequired["aws_sdk_neptune.types.log_type_list.LogTypeList"]
     """<p>The list of log types to enable.</p>"""
     disable_log_types: NotRequired["aws_sdk_neptune.types.log_type_list.LogTypeList"]

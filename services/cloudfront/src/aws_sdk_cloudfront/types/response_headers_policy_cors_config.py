@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ResponseHeadersPolicyCorsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.response_headers_policy_access_control_expose_headers
 
 
-class ResponseHeadersPolicyCorsConfig(TypedDict):
+class ResponseHeadersPolicyCorsConfig(TypedDict, closed=True):
     access_control_allow_origins: "aws_sdk_cloudfront.types.response_headers_policy_access_control_allow_origins.ResponseHeadersPolicyAccessControlAllowOrigins"
     r"""<p>A list of origins (domain names) that CloudFront can use as the value for the <code>Access-Control-Allow-Origin</code> HTTP response header.</p> <p>For more information about the <code>Access-Control-Allow-Origin</code> HTTP response header, see <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin\">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>"""
     access_control_allow_headers: "aws_sdk_cloudfront.types.response_headers_policy_access_control_allow_headers.ResponseHeadersPolicyAccessControlAllowHeaders"

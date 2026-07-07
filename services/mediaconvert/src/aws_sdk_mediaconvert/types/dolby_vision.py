@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DolbyVision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.dolby_vision_compatibility
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.dolby_vision_profile
 
 
-class DolbyVision(TypedDict):
+class DolbyVision(TypedDict, closed=True):
     compatibility: NotRequired[
         "aws_sdk_mediaconvert.types.dolby_vision_compatibility.DolbyVisionCompatibility"
     ]

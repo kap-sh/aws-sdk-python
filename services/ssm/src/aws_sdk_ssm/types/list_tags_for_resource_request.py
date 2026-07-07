@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_type_for_tagging
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_type: "aws_sdk_ssm.types.resource_type_for_tagging.ResourceTypeForTagging"
     """<p>Returns a list of tags for a specific resource type.</p>"""
     resource_id: "aws_sdk_ssm.types.resource_id.ResourceId"

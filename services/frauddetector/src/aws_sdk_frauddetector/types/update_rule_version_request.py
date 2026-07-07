@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#UpdateRuleVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.tag_list
 
 
-class UpdateRuleVersionRequest(TypedDict):
+class UpdateRuleVersionRequest(TypedDict, closed=True):
     rule: "aws_sdk_frauddetector.types.rule.Rule"
     """<p>The rule to update.</p>"""
     description: NotRequired["aws_sdk_frauddetector.types.description.description"]

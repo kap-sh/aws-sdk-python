@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotjobsdataplane#StartNextPendingJobExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_jobs_data_plane.types.details_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_jobs_data_plane.types.thing_name
 
 
-class StartNextPendingJobExecutionRequest(TypedDict):
+class StartNextPendingJobExecutionRequest(TypedDict, closed=True):
     thing_name: "aws_sdk_iot_jobs_data_plane.types.thing_name.ThingName"
     """<p>The name of the thing associated with the device.</p>"""
     status_details: NotRequired[

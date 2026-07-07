@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DQResultsPublishingOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boxed_boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_limited_string
 
 
-class DQResultsPublishingOptions(TypedDict):
+class DQResultsPublishingOptions(TypedDict, closed=True):
     evaluation_context: NotRequired[
         "aws_sdk_glue.types.generic_limited_string.GenericLimitedString"
     ]

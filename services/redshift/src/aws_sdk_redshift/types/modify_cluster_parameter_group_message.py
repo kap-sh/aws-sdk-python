@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#ModifyClusterParameterGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class ModifyClusterParameterGroupMessage(TypedDict):
+class ModifyClusterParameterGroupMessage(TypedDict, closed=True):
     parameter_group_name: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The name of the parameter group to be modified.</p>"""
     parameters: NotRequired["aws_sdk_redshift.types.parameters_list.ParametersList"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AllowedCapabilities``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.participant_capabilities
 
 
-class AllowedCapabilities(TypedDict):
+class AllowedCapabilities(TypedDict, closed=True):
     customer: NotRequired[
         "aws_sdk_connect.types.participant_capabilities.ParticipantCapabilities"
     ]

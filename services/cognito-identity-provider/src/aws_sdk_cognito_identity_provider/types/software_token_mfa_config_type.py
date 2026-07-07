@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#SoftwareTokenMfaConfigType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.boolean_type
 
 
-class SoftwareTokenMfaConfigType(TypedDict):
+class SoftwareTokenMfaConfigType(TypedDict, closed=True):
     enabled: "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
     """<p>The activation state of TOTP MFA.</p>"""
 

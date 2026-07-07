@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#WebCrawlerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.urls
 
 
-class WebCrawlerConfiguration(TypedDict):
+class WebCrawlerConfiguration(TypedDict, closed=True):
     urls: "aws_sdk_kendra.types.urls.Urls"
     r"""<p>Specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl.</p> <p>You can include website subdomains. You can list up to 100 seed URLs and up to three sitemap URLs.</p> <p>You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling.</p> <p> <i>When selecting websites to index, you must adhere to the <a href=\"https://aws.amazon.com/aup/\">Amazon Acceptable Use Policy</a> and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own web pages, or web pages that you have authorization to index.</i> </p>"""
     crawl_depth: NotRequired["aws_sdk_kendra.types.crawl_depth.CrawlDepth"]

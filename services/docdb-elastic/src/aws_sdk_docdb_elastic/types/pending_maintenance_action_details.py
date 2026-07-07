@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#PendingMaintenanceActionDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError
 
 
-class PendingMaintenanceActionDetails(TypedDict):
+class PendingMaintenanceActionDetails(TypedDict, closed=True):
     action: "str"
     """<p>Displays the specific action of a pending maintenance action.</p>"""
     auto_applied_after_date: NotRequired["str"]

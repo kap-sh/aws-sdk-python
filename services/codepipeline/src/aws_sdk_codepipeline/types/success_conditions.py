@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#SuccessConditions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.condition_list
 
 
-class SuccessConditions(TypedDict):
+class SuccessConditions(TypedDict, closed=True):
     conditions: "aws_sdk_codepipeline.types.condition_list.ConditionList"
     """<p>The conditions that are success conditions.</p>"""
 

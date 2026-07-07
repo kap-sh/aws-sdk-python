@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.entity_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.service_resource_list
 
 
-class ListResourcesResponse(TypedDict):
+class ListResourcesResponse(TypedDict, closed=True):
     service_function_id: NotRequired["aws_sdk_resiliencehubv2.types.entity_id.EntityId"]
     """<p>The service function identifier for the returned resources.</p>"""
     service_resources: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpdateSourceControlFromJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.auth_token_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.source_control_provider
 
 
-class UpdateSourceControlFromJobRequest(TypedDict):
+class UpdateSourceControlFromJobRequest(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the Glue job to be synchronized to or from the remote repository.</p>"""
     provider: NotRequired[

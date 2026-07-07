@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#UpdateSourceLocationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.http_configuration
 
 
-class UpdateSourceLocationRequest(TypedDict):
+class UpdateSourceLocationRequest(TypedDict, closed=True):
     access_configuration: NotRequired[
         "aws_sdk_mediatailor.types.access_configuration.AccessConfiguration"
     ]

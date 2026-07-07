@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#CustomEmailLambdaVersionConfigType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.custom_email_sender_lambda_version_type
 
 
-class CustomEmailLambdaVersionConfigType(TypedDict):
+class CustomEmailLambdaVersionConfigType(TypedDict, closed=True):
     lambda_version: "aws_sdk_cognito_identity_provider.types.custom_email_sender_lambda_version_type.CustomEmailSenderLambdaVersionType"
     """<p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p> <p>You must use a <code>LambdaVersion</code> of <code>V1_0</code> with a custom sender function.</p>"""
     lambda_arn: "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"

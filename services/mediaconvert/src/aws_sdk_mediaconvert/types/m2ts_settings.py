@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#M2tsSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double_min0
@@ -38,7 +38,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.ts_pts_offset
 
 
-class M2tsSettings(TypedDict):
+class M2tsSettings(TypedDict, closed=True):
     audio_buffer_model: NotRequired[
         "aws_sdk_mediaconvert.types.m2ts_audio_buffer_model.M2tsAudioBufferModel"
     ]

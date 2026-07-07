@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#ListTagsForDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53_domains.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.domain_name
 
 
-class ListTagsForDomainRequest(TypedDict):
+class ListTagsForDomainRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_route_53_domains.types.domain_name.DomainName"
     """<p>The domain for which you want to get a list of tags.</p>"""
 

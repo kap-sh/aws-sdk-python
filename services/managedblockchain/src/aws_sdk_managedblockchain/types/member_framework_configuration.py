@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#MemberFrameworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.member_fabric_configuration
 
 
-class MemberFrameworkConfiguration(TypedDict):
+class MemberFrameworkConfiguration(TypedDict, closed=True):
     fabric: NotRequired[
         "aws_sdk_managedblockchain.types.member_fabric_configuration.MemberFabricConfiguration"
     ]

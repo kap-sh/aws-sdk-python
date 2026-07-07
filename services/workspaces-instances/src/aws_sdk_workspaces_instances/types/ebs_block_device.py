@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#EbsBlockDevice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.kms_key_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.volume_type_enum
 
 
-class EbsBlockDevice(TypedDict):
+class EbsBlockDevice(TypedDict, closed=True):
     volume_type: NotRequired[
         "aws_sdk_workspaces_instances.types.volume_type_enum.VolumeTypeEnum"
     ]

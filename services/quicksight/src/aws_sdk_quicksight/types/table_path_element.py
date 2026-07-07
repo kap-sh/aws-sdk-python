@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TablePathElement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_path_element_id
     import aws_sdk_quicksight.types.table_path_element_name
 
 
-class TablePathElement(TypedDict):
+class TablePathElement(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_quicksight.types.table_path_element_name.TablePathElementName"
     ]

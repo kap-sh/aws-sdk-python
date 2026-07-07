@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateEndpointWeightsAndCapacitiesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.desired_weight_and_capacity_list
     import aws_sdk_sagemaker.types.endpoint_name
 
 
-class UpdateEndpointWeightsAndCapacitiesInput(TypedDict):
+class UpdateEndpointWeightsAndCapacitiesInput(TypedDict, closed=True):
     endpoint_name: NotRequired["aws_sdk_sagemaker.types.endpoint_name.EndpointName"]
     """<p>The name of an existing SageMaker endpoint.</p>"""
     desired_weights_and_capacities: NotRequired[

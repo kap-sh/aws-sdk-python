@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#Duration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.duration_unit
     import aws_sdk_app_mesh.types.duration_value
 
 
-class Duration(TypedDict):
+class Duration(TypedDict, closed=True):
     value: NotRequired["aws_sdk_app_mesh.types.duration_value.DurationValue"]
     """<p>A number of time units.</p>"""
     unit: NotRequired["aws_sdk_app_mesh.types.duration_unit.DurationUnit"]

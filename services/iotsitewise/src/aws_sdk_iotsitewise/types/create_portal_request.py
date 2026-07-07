@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#CreatePortalRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.tag_map
 
 
-class CreatePortalRequest(TypedDict):
+class CreatePortalRequest(TypedDict, closed=True):
     portal_name: "aws_sdk_iotsitewise.types.name.Name"
     """<p>A friendly name for the portal.</p>"""
     portal_description: NotRequired["aws_sdk_iotsitewise.types.description.Description"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#CategoryWithFindingNum``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CategoryWithFindingNum(TypedDict):
+class CategoryWithFindingNum(TypedDict, closed=True):
     category_name: NotRequired["str"]
     """<p>The name of the finding category. A finding category is determined by the detector that detected the finding.</p>"""
     finding_number: NotRequired["int"]

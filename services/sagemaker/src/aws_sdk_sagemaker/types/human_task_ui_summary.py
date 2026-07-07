@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HumanTaskUiSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.human_task_ui_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class HumanTaskUiSummary(TypedDict):
+class HumanTaskUiSummary(TypedDict, closed=True):
     human_task_ui_name: NotRequired[
         "aws_sdk_sagemaker.types.human_task_ui_name.HumanTaskUiName"
     ]

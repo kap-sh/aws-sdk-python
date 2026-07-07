@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#WaitActivity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.wait_time
 
 
-class WaitActivity(TypedDict):
+class WaitActivity(TypedDict, closed=True):
     next_activity: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The unique identifier for the next activity to perform, after performing the wait activity.</p>"""
     wait_time: NotRequired["aws_sdk_pinpoint.types.wait_time.WaitTime"]

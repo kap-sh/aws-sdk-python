@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchDeleteTableVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.table_version_errors
 
 
-class BatchDeleteTableVersionResponse(TypedDict):
+class BatchDeleteTableVersionResponse(TypedDict, closed=True):
     errors: NotRequired["aws_sdk_glue.types.table_version_errors.TableVersionErrors"]
     """<p>A list of errors encountered while trying to delete the specified table versions.</p>"""
 

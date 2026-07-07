@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateHubContentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hub_content_description
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hub_name_or_arn
 
 
-class UpdateHubContentRequest(TypedDict):
+class UpdateHubContentRequest(TypedDict, closed=True):
     hub_name: NotRequired["aws_sdk_sagemaker.types.hub_name_or_arn.HubNameOrArn"]
     """<p>The name of the SageMaker hub that contains the hub content you want to update. You can optionally use the hub ARN instead.</p>"""
     hub_content_name: NotRequired[

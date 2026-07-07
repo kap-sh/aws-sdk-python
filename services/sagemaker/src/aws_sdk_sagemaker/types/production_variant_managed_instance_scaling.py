@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ProductionVariantManagedInstanceScaling``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.managed_instance_scaling_max_instance_count
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.production_variant_managed_instance_scaling_scale_in_policy
 
 
-class ProductionVariantManagedInstanceScaling(TypedDict):
+class ProductionVariantManagedInstanceScaling(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_sagemaker.types.managed_instance_scaling_status.ManagedInstanceScalingStatus"
     ]

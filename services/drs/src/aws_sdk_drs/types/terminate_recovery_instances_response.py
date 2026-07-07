@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#TerminateRecoveryInstancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.job
 
 
-class TerminateRecoveryInstancesResponse(TypedDict):
+class TerminateRecoveryInstancesResponse(TypedDict, closed=True):
     job: NotRequired["aws_sdk_drs.types.job.Job"]
     """<p>The Job for terminating the Recovery Instances.</p>"""
 

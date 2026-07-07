@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#InstanceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.service_linked_role_arn
 
 
-class InstanceConfig(TypedDict):
+class InstanceConfig(TypedDict, closed=True):
     connect_instance_id: "aws_sdk_connectcampaignsv2.types.instance_id.InstanceId"
     service_linked_role_arn: (
         "aws_sdk_connectcampaignsv2.types.service_linked_role_arn.ServiceLinkedRoleArn"

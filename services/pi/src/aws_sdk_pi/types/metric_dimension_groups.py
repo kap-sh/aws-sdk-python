@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pi#MetricDimensionGroups``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.dimension_group_detail_list
     import aws_sdk_pi.types.string
 
 
-class MetricDimensionGroups(TypedDict):
+class MetricDimensionGroups(TypedDict, closed=True):
     metric: NotRequired["aws_sdk_pi.types.string.String"]
     """<p>The metric type to which the dimension information belongs.</p>"""
     groups: NotRequired[

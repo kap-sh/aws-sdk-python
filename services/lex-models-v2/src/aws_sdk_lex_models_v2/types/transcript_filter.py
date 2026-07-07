@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#TranscriptFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.lex_transcript_filter
 
 
-class TranscriptFilter(TypedDict):
+class TranscriptFilter(TypedDict, closed=True):
     lex_transcript_filter: NotRequired[
         "aws_sdk_lex_models_v2.types.lex_transcript_filter.LexTranscriptFilter"
     ]

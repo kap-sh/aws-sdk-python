@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#PublishBatchRequestEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.subject
 
 
-class PublishBatchRequestEntry(TypedDict):
+class PublishBatchRequestEntry(TypedDict, closed=True):
     id: "aws_sdk_sns.types.string.String"
     """<p>An identifier for the message in this batch.</p> <note> <p>The <code>Ids</code> of a batch request must be unique within a request. </p> <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_). </p> </note>"""
     message: "aws_sdk_sns.types.message.message"

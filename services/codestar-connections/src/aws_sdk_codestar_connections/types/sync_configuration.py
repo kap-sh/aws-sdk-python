@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#SyncConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.trigger_resource_update_on
 
 
-class SyncConfiguration(TypedDict):
+class SyncConfiguration(TypedDict, closed=True):
     branch: "aws_sdk_codestar_connections.types.branch_name.BranchName"
     """<p>The branch associated with a specific sync configuration.</p>"""
     config_file: NotRequired[

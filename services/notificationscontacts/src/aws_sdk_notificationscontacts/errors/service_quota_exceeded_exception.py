@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notificationscontacts#ServiceQuotaExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_notificationscontacts.errors import DeserializationError, ServiceError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_notificationscontacts.types.service_code
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "aws_sdk_notificationscontacts.types.error_message.ErrorMessage"
     resource_id: "aws_sdk_notificationscontacts.types.resource_id.ResourceId"
     """<p>The ID of the resource that exceeds the service quota.</p>"""

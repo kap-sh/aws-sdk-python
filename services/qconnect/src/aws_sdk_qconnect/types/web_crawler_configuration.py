@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#WebCrawlerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.web_scope_type
 
 
-class WebCrawlerConfiguration(TypedDict):
+class WebCrawlerConfiguration(TypedDict, closed=True):
     url_configuration: "aws_sdk_qconnect.types.url_configuration.UrlConfiguration"
     """<p>The configuration of the URL/URLs for the web content that you want to crawl. You should be authorized to crawl the URLs.</p>"""
     crawler_limits: NotRequired[

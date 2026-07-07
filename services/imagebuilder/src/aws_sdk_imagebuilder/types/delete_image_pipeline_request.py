@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#DeleteImagePipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_pipeline_arn
 
 
-class DeleteImagePipelineRequest(TypedDict):
+class DeleteImagePipelineRequest(TypedDict, closed=True):
     image_pipeline_arn: "aws_sdk_imagebuilder.types.image_pipeline_arn.ImagePipelineArn"
     """<p>The Amazon Resource Name (ARN) of the image pipeline to delete.</p>"""
 

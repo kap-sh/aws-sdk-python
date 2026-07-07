@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#DescribeVodSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__map_of__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.http_package_configurations
 
 
-class DescribeVodSourceResponse(TypedDict):
+class DescribeVodSourceResponse(TypedDict, closed=True):
     ad_break_opportunities: NotRequired[
         "aws_sdk_mediatailor.types.ad_break_opportunities.AdBreakOpportunities"
     ]

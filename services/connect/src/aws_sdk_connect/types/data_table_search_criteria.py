@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DataTableSearchCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.data_table_search_condition_list
     import aws_sdk_connect.types.string_condition
 
 
-class DataTableSearchCriteria(TypedDict):
+class DataTableSearchCriteria(TypedDict, closed=True):
     or_conditions: NotRequired[
         "aws_sdk_connect.types.data_table_search_condition_list.DataTableSearchConditionList"
     ]

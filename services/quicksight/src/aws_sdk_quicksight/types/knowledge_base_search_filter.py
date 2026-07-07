@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#KnowledgeBaseSearchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.knowledge_base_search_operator
 
 
-class KnowledgeBaseSearchFilter(TypedDict):
+class KnowledgeBaseSearchFilter(TypedDict, closed=True):
     name: "aws_sdk_quicksight.types.knowledge_base_search_filter_name.KnowledgeBaseSearchFilterName"
     """<p>The name of the field to filter on.</p>"""
     operator: "aws_sdk_quicksight.types.knowledge_base_search_operator.KnowledgeBaseSearchOperator"

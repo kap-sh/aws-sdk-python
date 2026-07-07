@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListIntentPathsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_intent_node_summaries
 
 
-class ListIntentPathsResponse(TypedDict):
+class ListIntentPathsResponse(TypedDict, closed=True):
     node_summaries: NotRequired[
         "aws_sdk_lex_models_v2.types.analytics_intent_node_summaries.AnalyticsIntentNodeSummaries"
     ]

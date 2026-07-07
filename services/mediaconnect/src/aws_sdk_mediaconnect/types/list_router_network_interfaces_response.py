@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#ListRouterNetworkInterfacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.listed_router_network_interface_list
 
 
-class ListRouterNetworkInterfacesResponse(TypedDict):
+class ListRouterNetworkInterfacesResponse(TypedDict, closed=True):
     router_network_interfaces: "aws_sdk_mediaconnect.types.listed_router_network_interface_list.ListedRouterNetworkInterfaceList"
     """<p>The summary information for the retrieved router network interfaces.</p>"""
     next_token: NotRequired["str"]

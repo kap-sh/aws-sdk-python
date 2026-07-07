@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#INDTaxDocuments``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.gstin
 
 
-class INDTaxDocuments(TypedDict):
+class INDTaxDocuments(TypedDict, closed=True):
     gstin: NotRequired["aws_sdk_snowball.types.gstin.GSTIN"]
     """<p>The Goods and Services Tax (GST) documents required in Amazon Web Services Region in India.</p>"""
 

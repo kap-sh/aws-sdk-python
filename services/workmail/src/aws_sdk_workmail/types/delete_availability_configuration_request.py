@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DeleteAvailabilityConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class DeleteAvailabilityConfigurationRequest(TypedDict):
+class DeleteAvailabilityConfigurationRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The WorkMail organization for which the <code>AvailabilityConfiguration</code> will be deleted.</p>"""
     domain_name: "aws_sdk_workmail.types.domain_name.DomainName"

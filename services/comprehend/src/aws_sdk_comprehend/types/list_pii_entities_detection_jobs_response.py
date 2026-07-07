@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ListPiiEntitiesDetectionJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.pii_entities_detection_job_properties_list
     import aws_sdk_comprehend.types.string
 
 
-class ListPiiEntitiesDetectionJobsResponse(TypedDict):
+class ListPiiEntitiesDetectionJobsResponse(TypedDict, closed=True):
     pii_entities_detection_job_properties_list: NotRequired[
         "aws_sdk_comprehend.types.pii_entities_detection_job_properties_list.PiiEntitiesDetectionJobPropertiesList"
     ]

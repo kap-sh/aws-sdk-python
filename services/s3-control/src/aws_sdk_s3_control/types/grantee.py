@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#Grantee``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.grantee_type
 
 
-class Grantee(TypedDict):
+class Grantee(TypedDict, closed=True):
     grantee_type: NotRequired["aws_sdk_s3_control.types.grantee_type.GranteeType"]
     """<p>The type of the grantee to which access has been granted. It can be one of the following values:</p> <ul> <li> <p> <code>IAM</code> - An IAM user or role.</p> </li> <li> <p> <code>DIRECTORY_USER</code> - Your corporate directory user. You can use this option if you have added your corporate identity directory to IAM Identity Center and associated the IAM Identity Center instance with your S3 Access Grants instance.</p> </li> <li> <p> <code>DIRECTORY_GROUP</code> - Your corporate directory group. You can use this option if you have added your corporate identity directory to IAM Identity Center and associated the IAM Identity Center instance with your S3 Access Grants instance.</p> </li> </ul>"""
     grantee_identifier: NotRequired[

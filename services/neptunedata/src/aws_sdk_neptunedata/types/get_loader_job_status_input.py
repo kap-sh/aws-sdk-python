@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetLoaderJobStatusInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.positive_integer
 
 
-class GetLoaderJobStatusInput(TypedDict):
+class GetLoaderJobStatusInput(TypedDict, closed=True):
     load_id: "str"
     """<p>The load ID of the load job to get the status of.</p>"""
     details: NotRequired["bool"]

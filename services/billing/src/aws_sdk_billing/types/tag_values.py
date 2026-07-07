@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#TagValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billing.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.values
 
 
-class TagValues(TypedDict):
+class TagValues(TypedDict, closed=True):
     key: "aws_sdk_billing.types.tag_key.TagKey"
     """<p> The key for the tag. </p>"""
     values: "aws_sdk_billing.types.values.Values"

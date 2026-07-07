@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#TestIdentityProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.user_password
 
 
-class TestIdentityProviderRequest(TypedDict):
+class TestIdentityProviderRequest(TypedDict, closed=True):
     server_id: "aws_sdk_transfer.types.server_id.ServerId"
     """<p>A system-assigned identifier for a specific server. That server's user authentication method is tested with a user name and password.</p>"""
     server_protocol: NotRequired["aws_sdk_transfer.types.protocol.Protocol"]

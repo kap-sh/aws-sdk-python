@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#Scte``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.custom_ad_type_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.scte_in_segments
 
 
-class Scte(TypedDict):
+class Scte(TypedDict, closed=True):
     scte_filter: NotRequired[
         "aws_sdk_mediapackagev2.types.scte_filter_list.ScteFilterList"
     ]

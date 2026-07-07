@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DisableTopicRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.rule_name
 
 
-class DisableTopicRuleRequest(TypedDict):
+class DisableTopicRuleRequest(TypedDict, closed=True):
     rule_name: "aws_sdk_iot.types.rule_name.RuleName"
     """<p>The name of the rule to disable.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#NumericFormatConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.currency_display_format_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.percentage_display_format_configuration
 
 
-class NumericFormatConfiguration(TypedDict):
+class NumericFormatConfiguration(TypedDict, closed=True):
     number_display_format_configuration: NotRequired[
         "aws_sdk_quicksight.types.number_display_format_configuration.NumberDisplayFormatConfiguration"
     ]

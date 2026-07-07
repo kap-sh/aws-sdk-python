@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#InputConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.interface_request
 
 
-class InputConfigurationRequest(TypedDict):
+class InputConfigurationRequest(TypedDict, closed=True):
     input_port: NotRequired["int"]
     """<p> The port that you want the flow to listen on for an incoming media stream.</p>"""
     interface: NotRequired[

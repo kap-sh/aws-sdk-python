@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CreateCisTargets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.target_resource_tags
 
 
-class CreateCisTargets(TypedDict):
+class CreateCisTargets(TypedDict, closed=True):
     account_ids: "aws_sdk_inspector2.types.target_account_list.TargetAccountList"
     """<p>The CIS target account ids.</p>"""
     target_resource_tags: (

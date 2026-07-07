@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.oam#ListAttachedLinksItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_oam.types.resource_types_output
 
 
-class ListAttachedLinksItem(TypedDict):
+class ListAttachedLinksItem(TypedDict, closed=True):
     label: NotRequired["str"]
     """<p>The label that was assigned to this link at creation, with the variables resolved to their actual values.</p>"""
     link_arn: NotRequired["str"]

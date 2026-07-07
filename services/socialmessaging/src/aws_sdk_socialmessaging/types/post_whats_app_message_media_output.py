@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#PostWhatsAppMessageMediaOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.whats_app_media_id
 
 
-class PostWhatsAppMessageMediaOutput(TypedDict):
+class PostWhatsAppMessageMediaOutput(TypedDict, closed=True):
     media_id: NotRequired[
         "aws_sdk_socialmessaging.types.whats_app_media_id.WhatsAppMediaId"
     ]

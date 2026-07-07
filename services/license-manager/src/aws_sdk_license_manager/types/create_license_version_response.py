@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#CreateLicenseVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class CreateLicenseVersionResponse(TypedDict):
+class CreateLicenseVersionResponse(TypedDict, closed=True):
     license_arn: NotRequired["aws_sdk_license_manager.types.arn.Arn"]
     """<p>License ARN.</p>"""
     version: NotRequired["aws_sdk_license_manager.types.string.String"]

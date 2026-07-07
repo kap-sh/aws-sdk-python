@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#ListKeyRotationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kms.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.marker_type
 
 
-class ListKeyRotationsRequest(TypedDict):
+class ListKeyRotationsRequest(TypedDict, closed=True):
     key_id: "aws_sdk_kms.types.key_id_type.KeyIdType"
     """<p>Gets the key rotations for the specified KMS key.</p> <p>Specify the key ID or key ARN of the KMS key.</p> <p>For example:</p> <ul> <li> <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> <li> <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code> </p> </li> </ul> <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>"""
     include_key_material: NotRequired[

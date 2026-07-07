@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#DriftStatusSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.drift_status
     import aws_sdk_controltower.types.enabled_control_drift_types
 
 
-class DriftStatusSummary(TypedDict):
+class DriftStatusSummary(TypedDict, closed=True):
     drift_status: NotRequired["aws_sdk_controltower.types.drift_status.DriftStatus"]
     """<p> The drift status of the enabled control.</p> <p>Valid values:</p> <ul> <li> <p> <code>DRIFTED</code>: The <code>enabledControl</code> deployed in this configuration doesn’t match the configuration that Amazon Web Services Control Tower expected. </p> </li> <li> <p> <code>IN_SYNC</code>: The <code>enabledControl</code> deployed in this configuration matches the configuration that Amazon Web Services Control Tower expected.</p> </li> <li> <p> <code>NOT_CHECKING</code>: Amazon Web Services Control Tower does not check drift for this enabled control. Drift is not supported for the control type.</p> </li> <li> <p> <code>UNKNOWN</code>: Amazon Web Services Control Tower is not able to check the drift status for the enabled control. </p> </li> </ul>"""
     types: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#DomainNetworkSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.subnets
 
 
-class DomainNetworkSettings(TypedDict):
+class DomainNetworkSettings(TypedDict, closed=True):
     subnets: "aws_sdk_license_manager_user_subscriptions.types.subnets.Subnets"
     """<p>Contains a list of subnets that apply for the Active Directory domain.</p>"""
 

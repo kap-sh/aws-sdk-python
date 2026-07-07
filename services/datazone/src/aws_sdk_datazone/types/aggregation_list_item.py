@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AggregationListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.attribute
 
 
-class AggregationListItem(TypedDict):
+class AggregationListItem(TypedDict, closed=True):
     attribute: "aws_sdk_datazone.types.attribute.Attribute"
     """<p>An attribute on which to compute aggregations.</p>"""
     display_value: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#UpdateCapacityProviderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.capacity_provider
 
 
-class UpdateCapacityProviderResponse(TypedDict):
+class UpdateCapacityProviderResponse(TypedDict, closed=True):
     capacity_provider: "aws_sdk_lambda.types.capacity_provider.CapacityProvider"
     """<p>Information about the updated capacity provider.</p>"""
 

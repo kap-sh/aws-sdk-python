@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#UpdateEventBusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.dead_letter_config
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.log_config
 
 
-class UpdateEventBusRequest(TypedDict):
+class UpdateEventBusRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_eventbridge.types.event_bus_name.EventBusName"]
     """<p>The name of the event bus.</p>"""
     kms_key_identifier: NotRequired[

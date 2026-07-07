@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ListSpansResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.span_list
 
 
-class ListSpansResponse(TypedDict):
+class ListSpansResponse(TypedDict, closed=True):
     spans: "aws_sdk_qconnect.types.span_list.SpanList"
     """<p>Array of span objects for the session</p>"""
     next_token: NotRequired["aws_sdk_qconnect.types.next_token.NextToken"]

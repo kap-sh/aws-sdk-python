@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#DissociateEntityFromThingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotthingsgraph.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.thing_name
 
 
-class DissociateEntityFromThingRequest(TypedDict):
+class DissociateEntityFromThingRequest(TypedDict, closed=True):
     thing_name: "aws_sdk_iotthingsgraph.types.thing_name.ThingName"
     """<p>The name of the thing to disassociate.</p>"""
     entity_type: "aws_sdk_iotthingsgraph.types.entity_type.EntityType"

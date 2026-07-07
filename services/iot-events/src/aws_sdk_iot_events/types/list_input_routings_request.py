@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#ListInputRoutingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.next_token
 
 
-class ListInputRoutingsRequest(TypedDict):
+class ListInputRoutingsRequest(TypedDict, closed=True):
     input_identifier: "aws_sdk_iot_events.types.input_identifier.InputIdentifier"
     """<p> The identifer of the routed input. </p>"""
     max_results: NotRequired["aws_sdk_iot_events.types.max_results.MaxResults"]

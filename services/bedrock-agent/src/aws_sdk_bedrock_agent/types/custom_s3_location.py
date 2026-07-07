@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#CustomS3Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.s3_object_uri
 
 
-class CustomS3Location(TypedDict):
+class CustomS3Location(TypedDict, closed=True):
     uri: "aws_sdk_bedrock_agent.types.s3_object_uri.S3ObjectUri"
     """<p>The S3 URI of the file containing the content to ingest.</p>"""
     bucket_owner_account_id: NotRequired[

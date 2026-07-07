@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#DeleteEdgeConfigurationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteEdgeConfigurationOutput(TypedDict):
+class DeleteEdgeConfigurationOutput(TypedDict, closed=True):
     pass
 
 

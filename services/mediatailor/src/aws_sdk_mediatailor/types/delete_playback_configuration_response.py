@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#DeletePlaybackConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePlaybackConfigurationResponse(TypedDict):
+class DeletePlaybackConfigurationResponse(TypedDict, closed=True):
     pass
 
 

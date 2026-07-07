@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#PredictOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.prediction
 
 
-class PredictOutput(TypedDict):
+class PredictOutput(TypedDict, closed=True):
     prediction: NotRequired["aws_sdk_machine_learning.types.prediction.Prediction"]
 
 

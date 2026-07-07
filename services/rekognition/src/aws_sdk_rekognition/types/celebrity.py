@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Celebrity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.compared_face
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.urls
 
 
-class Celebrity(TypedDict):
+class Celebrity(TypedDict, closed=True):
     urls: NotRequired["aws_sdk_rekognition.types.urls.Urls"]
     """<p>An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.</p>"""
     name: NotRequired["aws_sdk_rekognition.types.string.String"]

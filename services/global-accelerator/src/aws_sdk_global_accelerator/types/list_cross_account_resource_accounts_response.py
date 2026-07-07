@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#ListCrossAccountResourceAccountsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.aws_account_ids
 
 
-class ListCrossAccountResourceAccountsResponse(TypedDict):
+class ListCrossAccountResourceAccountsResponse(TypedDict, closed=True):
     resource_owner_aws_account_ids: NotRequired[
         "aws_sdk_global_accelerator.types.aws_account_ids.AwsAccountIds"
     ]

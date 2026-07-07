@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#IntegratedRepository``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
 
-class IntegratedRepository(TypedDict):
+class IntegratedRepository(TypedDict, closed=True):
     integration_id: "str"
     """<p>The unique identifier of the integration that provides access to the repository.</p>"""
     provider_resource_id: "str"

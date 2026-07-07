@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ContentDeltaEvent``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ContentDeltaEvent(TypedDict):
+class ContentDeltaEvent(TypedDict, closed=True):
     stdout: NotRequired["str"]
     """<p>The standard output content from the command execution. This field contains the incremental output written to stdout by the executing command.</p>"""
     stderr: NotRequired["str"]

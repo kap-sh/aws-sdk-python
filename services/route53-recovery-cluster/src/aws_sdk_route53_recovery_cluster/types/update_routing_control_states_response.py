@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycluster#UpdateRoutingControlStatesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateRoutingControlStatesResponse(TypedDict):
+class UpdateRoutingControlStatesResponse(TypedDict, closed=True):
     pass
 
 

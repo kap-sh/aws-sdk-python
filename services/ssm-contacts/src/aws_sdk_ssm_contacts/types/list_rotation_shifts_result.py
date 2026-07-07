@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#ListRotationShiftsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.pagination_token
     import aws_sdk_ssm_contacts.types.rotation_shifts
 
 
-class ListRotationShiftsResult(TypedDict):
+class ListRotationShiftsResult(TypedDict, closed=True):
     rotation_shifts: NotRequired[
         "aws_sdk_ssm_contacts.types.rotation_shifts.RotationShifts"
     ]

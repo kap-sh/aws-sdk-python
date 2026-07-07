@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#EmbeddedDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max4
     import aws_sdk_mediaconvert.types.__integer_min1_max6
 
 
-class EmbeddedDestinationSettings(TypedDict):
+class EmbeddedDestinationSettings(TypedDict, closed=True):
     destination608_channel_number: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min1_max4.__integerMin1Max4"
     ]

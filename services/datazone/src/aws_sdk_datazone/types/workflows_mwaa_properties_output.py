@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#WorkflowsMwaaPropertiesOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class WorkflowsMwaaPropertiesOutput(TypedDict):
+class WorkflowsMwaaPropertiesOutput(TypedDict, closed=True):
     mwaa_environment_name: NotRequired["str"]
     """<p>The MWAA environment name.</p>"""
 

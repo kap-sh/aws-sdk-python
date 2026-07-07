@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ChatStreamingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.chat_streaming_endpoint_arn
 
 
-class ChatStreamingConfiguration(TypedDict):
+class ChatStreamingConfiguration(TypedDict, closed=True):
     streaming_endpoint_arn: (
         "aws_sdk_connect.types.chat_streaming_endpoint_arn.ChatStreamingEndpointARN"
     )

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#RetryableConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, ServiceError
 
 
-class RetryableConflictException_(TypedDict):
+class RetryableConflictException_(TypedDict, closed=True):
     message: "str"
 
 

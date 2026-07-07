@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#GetXssMatchSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.resource_id
 
 
-class GetXssMatchSetRequest(TypedDict):
+class GetXssMatchSetRequest(TypedDict, closed=True):
     xss_match_set_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to get. <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>"""
 

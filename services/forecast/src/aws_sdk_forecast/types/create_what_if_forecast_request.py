@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#CreateWhatIfForecastRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.time_series_transformations
 
 
-class CreateWhatIfForecastRequest(TypedDict):
+class CreateWhatIfForecastRequest(TypedDict, closed=True):
     what_if_forecast_name: "aws_sdk_forecast.types.name.Name"
     """<p>The name of the what-if forecast. Names must be unique within each what-if analysis.</p>"""
     what_if_analysis_arn: "aws_sdk_forecast.types.arn.Arn"

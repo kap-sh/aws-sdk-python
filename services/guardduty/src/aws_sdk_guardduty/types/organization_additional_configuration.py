@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#OrganizationAdditionalConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.org_feature_additional_configuration
     import aws_sdk_guardduty.types.org_feature_status
 
 
-class OrganizationAdditionalConfiguration(TypedDict):
+class OrganizationAdditionalConfiguration(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_guardduty.types.org_feature_additional_configuration.OrgFeatureAdditionalConfiguration"
     ]

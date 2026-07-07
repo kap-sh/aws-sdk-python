@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#StartRecommendationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.recommendation_type
 
 
-class StartRecommendationRequest(TypedDict):
+class StartRecommendationRequest(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agentcore.types.recommendation_name.RecommendationName"
     """<p>The name of the recommendation. Must be unique within your account.</p>"""
     description: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DeleteDataSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
 
 
-class DeleteDataSourceResponse(TypedDict):
+class DeleteDataSourceResponse(TypedDict, closed=True):
     message: NotRequired["aws_sdk_opensearch.types.string.String"]
     """<p>A message associated with deletion of the data source.</p>"""
 

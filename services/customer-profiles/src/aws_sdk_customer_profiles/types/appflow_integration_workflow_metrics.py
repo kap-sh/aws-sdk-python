@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#AppflowIntegrationWorkflowMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.long
 
 
-class AppflowIntegrationWorkflowMetrics(TypedDict):
+class AppflowIntegrationWorkflowMetrics(TypedDict, closed=True):
     records_processed: "aws_sdk_customer_profiles.types.long.long"
     """<p>Number of records processed in <code>APPFLOW_INTEGRATION</code> workflow.</p>"""
     steps_completed: "aws_sdk_customer_profiles.types.long.long"

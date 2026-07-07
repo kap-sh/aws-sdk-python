@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#GetChatControlsConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.applied_creator_mode_configuration
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.topic_configurations
 
 
-class GetChatControlsConfigurationResponse(TypedDict):
+class GetChatControlsConfigurationResponse(TypedDict, closed=True):
     response_scope: NotRequired["aws_sdk_qbusiness.types.response_scope.ResponseScope"]
     """<p>The response scope configured for a Amazon Q Business application. This determines whether your application uses its retrieval augmented generation (RAG) system to generate answers only from your enterprise data, or also uses the large language models (LLM) knowledge to respons to end user questions in chat.</p>"""
     orchestration_configuration: NotRequired[

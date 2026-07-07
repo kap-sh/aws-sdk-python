@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#NotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifybackend.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
 
 
-class NotFoundException_(TypedDict):
+class NotFoundException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>An error message to inform that the request has failed.</p>"""
     resource_type: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#Alias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.key_arn
 
 
-class Alias(TypedDict):
+class Alias(TypedDict, closed=True):
     alias_name: "aws_sdk_payment_cryptography.types.alias_name.AliasName"
     """<p>A friendly name that you can use to refer to a key. The value must begin with <code>alias/</code>.</p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>"""
     key_arn: NotRequired["aws_sdk_payment_cryptography.types.key_arn.KeyArn"]

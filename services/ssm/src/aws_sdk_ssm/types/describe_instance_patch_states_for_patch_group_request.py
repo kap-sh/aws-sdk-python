@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeInstancePatchStatesForPatchGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_group
 
 
-class DescribeInstancePatchStatesForPatchGroupRequest(TypedDict):
+class DescribeInstancePatchStatesForPatchGroupRequest(TypedDict, closed=True):
     patch_group: "aws_sdk_ssm.types.patch_group.PatchGroup"
     """<p>The name of the patch group for which the patch state information should be retrieved.</p>"""
     filters: NotRequired[

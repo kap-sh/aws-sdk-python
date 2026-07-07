@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DeleteCacheClusterMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class DeleteCacheClusterMessage(TypedDict):
+class DeleteCacheClusterMessage(TypedDict, closed=True):
     cache_cluster_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.</p>"""
     final_snapshot_identifier: NotRequired["aws_sdk_elasticache.types.string.String"]

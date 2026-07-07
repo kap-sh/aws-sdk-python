@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeTargetBatchJobParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.batch_retry_strategy
 
 
-class PipeTargetBatchJobParameters(TypedDict):
+class PipeTargetBatchJobParameters(TypedDict, closed=True):
     job_definition: "str"
     """<p>The job definition used by this job. This value can be one of <code>name</code>, <code>name:revision</code>, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.</p>"""
     job_name: "str"

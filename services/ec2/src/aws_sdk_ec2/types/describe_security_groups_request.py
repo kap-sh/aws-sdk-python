@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeSecurityGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeSecurityGroupsRequest(TypedDict):
+class DescribeSecurityGroupsRequest(TypedDict, closed=True):
     group_ids: NotRequired["aws_sdk_ec2.types.group_id_string_list.GroupIdStringList"]
     """<p>The IDs of the security groups. Required for security groups in a nondefault VPC.</p> <p>Default: Describes all of your security groups.</p>"""
     group_names: NotRequired[

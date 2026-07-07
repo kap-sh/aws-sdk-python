@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#SchemaDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.schema_type
 
 
-class SchemaDefinition(TypedDict):
+class SchemaDefinition(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agentcore_control.types.schema_type.SchemaType"
     """<p>The type of the schema definition. This field specifies the data type of the schema.</p>"""
     properties: NotRequired[

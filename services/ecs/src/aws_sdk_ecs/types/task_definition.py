@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#TaskDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_boolean
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.volume_list
 
 
-class TaskDefinition(TypedDict):
+class TaskDefinition(TypedDict, closed=True):
     task_definition_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The full Amazon Resource Name (ARN) of the task definition.</p>"""
     container_definitions: NotRequired[

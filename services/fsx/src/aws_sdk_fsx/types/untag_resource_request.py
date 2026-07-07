@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.resource_arn
     import aws_sdk_fsx.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_fsx.types.resource_arn.ResourceARN"]
     """<p>The ARN of the Amazon FSx resource to untag.</p>"""
     tag_keys: NotRequired["aws_sdk_fsx.types.tag_keys.TagKeys"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#WebAuthnMfaSettingsType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.boolean_type
 
 
-class WebAuthnMfaSettingsType(TypedDict):
+class WebAuthnMfaSettingsType(TypedDict, closed=True):
     enabled: "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
     """<p>Specifies whether passkey MFA is activated for a user. When activated, the user's passkey authentication requires user verification, and passkey sign-in is available when MFA is required. The user must also have at least one other MFA method such as SMS, TOTP, or email activated to prevent account lockout.</p>"""
 

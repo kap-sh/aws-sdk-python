@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GroupMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
     import aws_sdk_quicksight.types.group_member_name
 
 
-class GroupMember(TypedDict):
+class GroupMember(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) for the group member (user).</p>"""
     member_name: NotRequired[

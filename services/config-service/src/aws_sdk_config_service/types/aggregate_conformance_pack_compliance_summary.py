@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#AggregateConformancePackComplianceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.aggregate_conformance_pack_compliance_count
     import aws_sdk_config_service.types.string_with_char_limit256
 
 
-class AggregateConformancePackComplianceSummary(TypedDict):
+class AggregateConformancePackComplianceSummary(TypedDict, closed=True):
     compliance_summary: NotRequired[
         "aws_sdk_config_service.types.aggregate_conformance_pack_compliance_count.AggregateConformancePackComplianceCount"
     ]

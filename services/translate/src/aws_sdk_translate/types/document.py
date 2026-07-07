@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#Document``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.document_content
 
 
-class Document(TypedDict):
+class Document(TypedDict, closed=True):
     content: "aws_sdk_translate.types.document_content.DocumentContent"
     """<p>The <code>Content</code>field type is Binary large object (blob). This object contains the document content converted into base64-encoded binary data. If you use one of the AWS SDKs, the SDK performs the Base64-encoding on this field before sending the request. </p>"""
     content_type: "aws_sdk_translate.types.content_type.ContentType"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#UpdateBackendAPIRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
     import aws_sdk_amplifybackend.types.backend_api_resource_config
 
 
-class UpdateBackendAPIRequest(TypedDict):
+class UpdateBackendAPIRequest(TypedDict, closed=True):
     app_id: "aws_sdk_amplifybackend.types.__string.__string"
     """<p>The app ID.</p>"""
     backend_environment_name: "aws_sdk_amplifybackend.types.__string.__string"

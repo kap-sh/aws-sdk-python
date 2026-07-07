@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#PutLoggingConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.logging_configuration
 
 
-class PutLoggingConfigurationResponse(TypedDict):
+class PutLoggingConfigurationResponse(TypedDict, closed=True):
     logging_configuration: NotRequired[
         "aws_sdk_waf_regional.types.logging_configuration.LoggingConfiguration"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#TeletextSourceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_min3_max3_pattern1809a_faf09a_eae
 
 
-class TeletextSourceSettings(TypedDict):
+class TeletextSourceSettings(TypedDict, closed=True):
     page_number: NotRequired[
         "aws_sdk_mediaconvert.types.__string_min3_max3_pattern1809a_faf09a_eae.__stringMin3Max3Pattern1809aFAF09aEAE"
     ]

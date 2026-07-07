@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#PlatformCommand``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class PlatformCommand(TypedDict):
+class PlatformCommand(TypedDict, closed=True):
     linux: NotRequired["str"]
     """<p>Command for Linux.</p>"""
     windows: NotRequired["str"]

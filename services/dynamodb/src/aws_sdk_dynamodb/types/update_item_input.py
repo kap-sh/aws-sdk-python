@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#UpdateItemInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.update_expression
 
 
-class UpdateItemInput(TypedDict):
+class UpdateItemInput(TypedDict, closed=True):
     table_name: "aws_sdk_dynamodb.types.table_arn.TableArn"
     """<p>The name of the table containing the item to update. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>"""
     key: "aws_sdk_dynamodb.types.key.Key"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#FunctionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.architectures_list
@@ -44,7 +44,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.vpc_config_response
 
 
-class FunctionConfiguration(TypedDict):
+class FunctionConfiguration(TypedDict, closed=True):
     function_name: NotRequired[
         "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName"
     ]

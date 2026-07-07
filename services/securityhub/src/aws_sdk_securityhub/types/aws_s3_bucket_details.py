@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3BucketDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_s3_account_public_access_block_details
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsS3BucketDetails(TypedDict):
+class AwsS3BucketDetails(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The canonical user ID of the owner of the S3 bucket.</p>"""
     owner_name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

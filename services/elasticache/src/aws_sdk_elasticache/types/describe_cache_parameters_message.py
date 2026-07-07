@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DescribeCacheParametersMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class DescribeCacheParametersMessage(TypedDict):
+class DescribeCacheParametersMessage(TypedDict, closed=True):
     cache_parameter_group_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The name of a specific cache parameter group to return details for.</p>"""
     source: NotRequired["aws_sdk_elasticache.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#VolumeFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume_filter_name
     import aws_sdk_fsx.types.volume_filter_values
 
 
-class VolumeFilter(TypedDict):
+class VolumeFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_fsx.types.volume_filter_name.VolumeFilterName"]
     """<p>The name for this filter.</p>"""
     values: NotRequired["aws_sdk_fsx.types.volume_filter_values.VolumeFilterValues"]

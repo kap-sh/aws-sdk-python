@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AudioPid``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0_max8191
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.audio_pre_mixer_settings
 
 
-class AudioPid(TypedDict):
+class AudioPid(TypedDict, closed=True):
     dolby_e_decode: NotRequired[
         "aws_sdk_medialive.types.audio_dolby_e_decode.AudioDolbyEDecode"
     ]

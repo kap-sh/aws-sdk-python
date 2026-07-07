@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#Organization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.account_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.policy_types
 
 
-class Organization(TypedDict):
+class Organization(TypedDict, closed=True):
     id: NotRequired["aws_sdk_organizations.types.organization_id.OrganizationId"]
     r"""<p>The unique identifier (ID) of an organization.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an organization ID string requires \"o-\" followed by from 10 to 32 lowercase letters or digits.</p>"""
     arn: NotRequired["aws_sdk_organizations.types.organization_arn.OrganizationArn"]

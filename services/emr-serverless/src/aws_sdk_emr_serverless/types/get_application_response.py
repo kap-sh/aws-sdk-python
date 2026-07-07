@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#GetApplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.application
 
 
-class GetApplicationResponse(TypedDict):
+class GetApplicationResponse(TypedDict, closed=True):
     application: "aws_sdk_emr_serverless.types.application.Application"
     """<p>The output displays information about the specified application.</p>"""
 

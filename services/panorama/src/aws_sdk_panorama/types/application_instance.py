@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ApplicationInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.application_instance_arn
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.time_stamp
 
 
-class ApplicationInstance(TypedDict):
+class ApplicationInstance(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_panorama.types.application_instance_name.ApplicationInstanceName"
     ]

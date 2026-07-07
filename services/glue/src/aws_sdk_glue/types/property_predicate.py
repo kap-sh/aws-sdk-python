@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PropertyPredicate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.comparator
     import aws_sdk_glue.types.value_string
 
 
-class PropertyPredicate(TypedDict):
+class PropertyPredicate(TypedDict, closed=True):
     key: NotRequired["aws_sdk_glue.types.value_string.ValueString"]
     """<p>The key of the property.</p>"""
     value: NotRequired["aws_sdk_glue.types.value_string.ValueString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#FieldIndex``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.field_index_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class FieldIndex(TypedDict):
+class FieldIndex(TypedDict, closed=True):
     log_group_identifier: NotRequired[
         "aws_sdk_cloudwatch_logs.types.log_group_identifier.LogGroupIdentifier"
     ]

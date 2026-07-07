@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#KeyPressArguments``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class KeyPressArguments(TypedDict):
+class KeyPressArguments(TypedDict, closed=True):
     key: "str"
     """<p>The key name to press (for example, <code>enter</code>, <code>tab</code>, <code>escape</code>).</p>"""
     presses: NotRequired["int"]

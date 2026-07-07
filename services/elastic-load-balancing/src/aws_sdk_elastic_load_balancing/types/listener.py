@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancing#Listener``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing._protocol.xml import Element
 from aws_sdk_elastic_load_balancing.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing.types.ssl_certificate_id
 
 
-class Listener(TypedDict):
+class Listener(TypedDict, closed=True):
     protocol: "aws_sdk_elastic_load_balancing.types.protocol.Protocol"
     """<p>The load balancer transport protocol to use for routing: HTTP, HTTPS, TCP, or SSL.</p>"""
     load_balancer_port: (

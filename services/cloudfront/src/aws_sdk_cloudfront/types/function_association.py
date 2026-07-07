@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#FunctionAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.function_arn
 
 
-class FunctionAssociation(TypedDict):
+class FunctionAssociation(TypedDict, closed=True):
     function_arn: "aws_sdk_cloudfront.types.function_arn.FunctionARN"
     """<p>The Amazon Resource Name (ARN) of the function.</p>"""
     event_type: "aws_sdk_cloudfront.types.event_type.EventType"

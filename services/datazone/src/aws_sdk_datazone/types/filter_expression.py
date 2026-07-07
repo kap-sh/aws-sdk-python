@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#FilterExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.filter_expression_type
 
 
-class FilterExpression(TypedDict):
+class FilterExpression(TypedDict, closed=True):
     type: "aws_sdk_datazone.types.filter_expression_type.FilterExpressionType"
     """<p>The search filter explresison type.</p>"""
     expression: "str"

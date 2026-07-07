@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ListEnrollmentStatusesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.account_id
     import aws_sdk_cost_optimization_hub.types.max_results
 
 
-class ListEnrollmentStatusesRequest(TypedDict):
+class ListEnrollmentStatusesRequest(TypedDict, closed=True):
     include_organization_info: "bool"
     """<p>Indicates whether to return the enrollment status for the organization.</p>"""
     account_id: NotRequired["aws_sdk_cost_optimization_hub.types.account_id.AccountId"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ImplicitFilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.metadata_attribute_schema_list
 
 
-class ImplicitFilterConfiguration(TypedDict):
+class ImplicitFilterConfiguration(TypedDict, closed=True):
     metadata_attributes: "aws_sdk_bedrock.types.metadata_attribute_schema_list.MetadataAttributeSchemaList"
     """<p>A list of metadata attribute schemas that define the structure and properties of metadata fields used for implicit filtering. Each attribute defines a key, type, and optional description.</p>"""
     model_arn: "aws_sdk_bedrock.types.bedrock_model_arn.BedrockModelArn"

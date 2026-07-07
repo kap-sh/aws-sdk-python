@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#SoftwareInformation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SoftwareInformation(TypedDict):
+class SoftwareInformation(TypedDict, closed=True):
     installed_version: NotRequired["str"]
     """<p>The version of the software currently installed on the device.</p>"""
     installing_version: NotRequired["str"]

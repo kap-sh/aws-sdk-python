@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#PlacementStrategy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.placement_strategy_field
     import aws_sdk_eventbridge.types.placement_strategy_type
 
 
-class PlacementStrategy(TypedDict):
+class PlacementStrategy(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_eventbridge.types.placement_strategy_type.PlacementStrategyType"
     ]

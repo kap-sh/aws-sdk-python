@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#SetIdentityHeadersInNotificationsEnabledRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.notification_type
 
 
-class SetIdentityHeadersInNotificationsEnabledRequest(TypedDict):
+class SetIdentityHeadersInNotificationsEnabledRequest(TypedDict, closed=True):
     identity: "aws_sdk_ses.types.identity.Identity"
     """<p>The identity for which to enable or disable headers in notifications. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>"""
     notification_type: "aws_sdk_ses.types.notification_type.NotificationType"

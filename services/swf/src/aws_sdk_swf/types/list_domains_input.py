@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ListDomainsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.reverse_order
 
 
-class ListDomainsInput(TypedDict):
+class ListDomainsInput(TypedDict, closed=True):
     next_page_token: NotRequired["aws_sdk_swf.types.page_token.PageToken"]
     r"""<p>If <code>NextPageToken</code> is returned there are more results available. The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return a <code>400</code> error: \"<code>Specified token has exceeded its maximum lifetime</code>\". </p> <p>The configured <code>maximumPageSize</code> determines how many results can be returned in a single call. </p>"""
     registration_status: "aws_sdk_swf.types.registration_status.RegistrationStatus"

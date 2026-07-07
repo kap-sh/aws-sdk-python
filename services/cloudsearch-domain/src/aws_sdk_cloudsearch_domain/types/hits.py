@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#Hits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.hit_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.string
 
 
-class Hits(TypedDict):
+class Hits(TypedDict, closed=True):
     found: "aws_sdk_cloudsearch_domain.types.long.Long"
     """<p>The total number of documents that match the search request.</p>"""
     start: "aws_sdk_cloudsearch_domain.types.long.Long"

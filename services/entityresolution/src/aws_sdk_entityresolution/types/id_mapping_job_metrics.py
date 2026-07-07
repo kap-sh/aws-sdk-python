@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#IdMappingJobMetrics``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class IdMappingJobMetrics(TypedDict):
+class IdMappingJobMetrics(TypedDict, closed=True):
     input_records: NotRequired["int"]
     """<p>The total number of records that were input for processing.</p>"""
     total_records_processed: NotRequired["int"]

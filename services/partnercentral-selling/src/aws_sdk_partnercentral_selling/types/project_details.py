@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ProjectDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.expected_customer_spend_list
 
 
-class ProjectDetails(TypedDict):
+class ProjectDetails(TypedDict, closed=True):
     business_problem: "aws_sdk_partnercentral_selling.types.engagement_customer_business_problem.EngagementCustomerBusinessProblem"
     """<p>Describes the business problem that the project aims to solve. This information is crucial for understanding the project’s goals and objectives.</p>"""
     title: "str"

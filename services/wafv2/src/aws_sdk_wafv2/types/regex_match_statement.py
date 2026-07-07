@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RegexMatchStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.text_transformations
 
 
-class RegexMatchStatement(TypedDict):
+class RegexMatchStatement(TypedDict, closed=True):
     regex_string: "aws_sdk_wafv2.types.regex_pattern_string.RegexPatternString"
     """<p>The string representing the regular expression.</p>"""
     field_to_match: "aws_sdk_wafv2.types.field_to_match.FieldToMatch"

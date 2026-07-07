@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#QueryString``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class QueryString(TypedDict):
+class QueryString(TypedDict, closed=True):
     pass
 
 

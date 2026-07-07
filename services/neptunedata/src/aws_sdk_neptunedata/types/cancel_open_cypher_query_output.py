@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CancelOpenCypherQueryOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CancelOpenCypherQueryOutput(TypedDict):
+class CancelOpenCypherQueryOutput(TypedDict, closed=True):
     status: NotRequired["str"]
     """<p>The cancellation status of the openCypher query.</p>"""
     payload: NotRequired["bool"]

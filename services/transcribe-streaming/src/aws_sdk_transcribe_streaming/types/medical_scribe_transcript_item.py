@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalScribeTranscriptItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.confidence
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.string
 
 
-class MedicalScribeTranscriptItem(TypedDict):
+class MedicalScribeTranscriptItem(TypedDict, closed=True):
     begin_audio_time: "aws_sdk_transcribe_streaming.types.double.Double"
     """<p>The start time, in milliseconds, of the transcribed item.</p>"""
     end_audio_time: "aws_sdk_transcribe_streaming.types.double.Double"

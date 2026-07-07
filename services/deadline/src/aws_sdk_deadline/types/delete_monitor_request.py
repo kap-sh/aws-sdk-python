@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#DeleteMonitorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.monitor_id
 
 
-class DeleteMonitorRequest(TypedDict):
+class DeleteMonitorRequest(TypedDict, closed=True):
     monitor_id: "aws_sdk_deadline.types.monitor_id.MonitorId"
     """<p>The unique identifier of the monitor to delete. This ID is returned by the <code>CreateMonitor</code> operation, and is included in the response to the <code>GetMonitor</code> operation.</p>"""
 

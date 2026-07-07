@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#MetricStreamFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.namespace
 
 
-class MetricStreamFilter(TypedDict):
+class MetricStreamFilter(TypedDict, closed=True):
     namespace: NotRequired["aws_sdk_cloudwatch.types.namespace.Namespace"]
     """<p>The name of the metric namespace for this filter.</p> <p>The namespace can contain only ASCII printable characters (ASCII range 32 through 126). It must contain at least one non-whitespace character.</p>"""
     metric_names: NotRequired[

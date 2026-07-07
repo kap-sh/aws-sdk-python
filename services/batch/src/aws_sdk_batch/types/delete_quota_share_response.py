@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.batch#DeleteQuotaShareResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteQuotaShareResponse(TypedDict):
+class DeleteQuotaShareResponse(TypedDict, closed=True):
     pass
 
 

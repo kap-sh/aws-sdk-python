@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#Correction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.integer
     import aws_sdk_kendra.types.string
 
 
-class Correction(TypedDict):
+class Correction(TypedDict, closed=True):
     begin_offset: NotRequired["aws_sdk_kendra.types.integer.Integer"]
     """<p>The zero-based location in the response string or text where the corrected word starts.</p>"""
     end_offset: NotRequired["aws_sdk_kendra.types.integer.Integer"]

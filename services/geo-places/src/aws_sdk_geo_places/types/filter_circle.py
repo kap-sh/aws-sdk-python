@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#FilterCircle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_places.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.position
 
 
-class FilterCircle(TypedDict):
+class FilterCircle(TypedDict, closed=True):
     center: "aws_sdk_geo_places.types.position.Position"
     """<p>The center position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>"""
     radius: "aws_sdk_geo_places.types.distance_meters.DistanceMeters"

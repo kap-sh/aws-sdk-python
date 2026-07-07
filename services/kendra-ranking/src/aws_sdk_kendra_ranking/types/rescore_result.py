@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendraranking#RescoreResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra_ranking.types.rescore_id
     import aws_sdk_kendra_ranking.types.rescore_result_item_list
 
 
-class RescoreResult(TypedDict):
+class RescoreResult(TypedDict, closed=True):
     rescore_id: NotRequired["aws_sdk_kendra_ranking.types.rescore_id.RescoreId"]
     """<p>The identifier associated with the scores that Amazon Kendra Intelligent Ranking gives to the results. Amazon Kendra Intelligent Ranking rescores or re-ranks the results for the search service.</p>"""
     result_items: NotRequired[

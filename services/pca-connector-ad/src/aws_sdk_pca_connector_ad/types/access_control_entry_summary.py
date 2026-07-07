@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#AccessControlEntrySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.template_arn
 
 
-class AccessControlEntrySummary(TypedDict):
+class AccessControlEntrySummary(TypedDict, closed=True):
     group_display_name: NotRequired[
         "aws_sdk_pca_connector_ad.types.display_name.DisplayName"
     ]

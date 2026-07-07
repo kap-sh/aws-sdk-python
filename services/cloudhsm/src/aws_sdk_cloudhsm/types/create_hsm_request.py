@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#CreateHsmRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudhsm.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.subscription_type
 
 
-class CreateHsmRequest(TypedDict):
+class CreateHsmRequest(TypedDict, closed=True):
     subnet_id: "aws_sdk_cloudhsm.types.subnet_id.SubnetId"
     """<p>The identifier of the subnet in your VPC in which to place the HSM.</p>"""
     ssh_key: "aws_sdk_cloudhsm.types.ssh_key.SshKey"

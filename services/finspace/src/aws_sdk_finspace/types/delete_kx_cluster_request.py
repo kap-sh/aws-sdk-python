@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#DeleteKxClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.client_token_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_environment_id
 
 
-class DeleteKxClusterRequest(TypedDict):
+class DeleteKxClusterRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_finspace.types.kx_environment_id.KxEnvironmentId"
     """<p>A unique identifier for the kdb environment.</p>"""
     cluster_name: "aws_sdk_finspace.types.kx_cluster_name.KxClusterName"

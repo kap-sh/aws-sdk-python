@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetServiceEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_gateway_service_type
 
 
-class GetServiceEndpointRequest(TypedDict):
+class GetServiceEndpointRequest(TypedDict, closed=True):
     service_type: NotRequired[
         "aws_sdk_iot_wireless.types.wireless_gateway_service_type.WirelessGatewayServiceType"
     ]

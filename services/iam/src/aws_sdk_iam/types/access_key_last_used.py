@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#AccessKeyLastUsed``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.string_type
 
 
-class AccessKeyLastUsed(TypedDict):
+class AccessKeyLastUsed(TypedDict, closed=True):
     last_used_date: NotRequired["aws_sdk_iam.types.date_type.dateType"]
     r"""<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a>, when the access key was most recently used. This field is null in the following situations:</p> <ul> <li> <p>The user does not have an access key.</p> </li> <li> <p>An access key exists but has not been used since IAM began tracking this information.</p> </li> <li> <p>There is no sign-in data associated with the user.</p> </li> </ul>"""
     service_name: "aws_sdk_iam.types.string_type.stringType"

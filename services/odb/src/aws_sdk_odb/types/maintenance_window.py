@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#MaintenanceWindow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.days_of_week
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.weeks_of_month
 
 
-class MaintenanceWindow(TypedDict):
+class MaintenanceWindow(TypedDict, closed=True):
     custom_action_timeout_in_mins: NotRequired["int"]
     """<p>The custom action timeout in minutes for the maintenance window.</p>"""
     days_of_week: NotRequired["aws_sdk_odb.types.days_of_week.DaysOfWeek"]

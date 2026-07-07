@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.m2#GetDataSetExportTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.identifier
 
 
-class GetDataSetExportTaskRequest(TypedDict):
+class GetDataSetExportTaskRequest(TypedDict, closed=True):
     application_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The application identifier.</p>"""
     task_id: "aws_sdk_m2.types.identifier.Identifier"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ObdSignal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.signal_value_type
 
 
-class ObdSignal(TypedDict):
+class ObdSignal(TypedDict, closed=True):
     pid_response_length: "aws_sdk_iotfleetwise.types.positive_integer.positiveInteger"
     """<p>The length of the requested data.</p>"""
     service_mode: "aws_sdk_iotfleetwise.types.non_negative_integer.nonNegativeInteger"

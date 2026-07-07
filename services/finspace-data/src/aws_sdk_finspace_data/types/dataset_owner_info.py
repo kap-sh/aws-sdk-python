@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#DatasetOwnerInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.email
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.phone_number
 
 
-class DatasetOwnerInfo(TypedDict):
+class DatasetOwnerInfo(TypedDict, closed=True):
     name: NotRequired["aws_sdk_finspace_data.types.owner_name.OwnerName"]
     """<p>The name of the Dataset owner.</p>"""
     phone_number: NotRequired["aws_sdk_finspace_data.types.phone_number.PhoneNumber"]

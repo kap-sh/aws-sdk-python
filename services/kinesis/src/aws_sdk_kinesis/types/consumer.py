@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#Consumer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.timestamp
 
 
-class Consumer(TypedDict):
+class Consumer(TypedDict, closed=True):
     consumer_name: "aws_sdk_kinesis.types.consumer_name.ConsumerName"
     """<p>The name of the consumer is something you choose when you register the consumer.</p>"""
     consumer_arn: "aws_sdk_kinesis.types.consumer_arn.ConsumerARN"

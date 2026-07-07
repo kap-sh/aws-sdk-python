@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#GlueDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.glue_table_name
 
 
-class GlueDataSource(TypedDict):
+class GlueDataSource(TypedDict, closed=True):
     table_name: "aws_sdk_cleanroomsml.types.glue_table_name.GlueTableName"
     """<p>The Glue table that contains the training data.</p>"""
     database_name: "aws_sdk_cleanroomsml.types.glue_database_name.GlueDatabaseName"

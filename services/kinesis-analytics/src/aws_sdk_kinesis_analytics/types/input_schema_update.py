@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#InputSchemaUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.record_columns
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.record_format
 
 
-class InputSchemaUpdate(TypedDict):
+class InputSchemaUpdate(TypedDict, closed=True):
     record_format_update: NotRequired[
         "aws_sdk_kinesis_analytics.types.record_format.RecordFormat"
     ]

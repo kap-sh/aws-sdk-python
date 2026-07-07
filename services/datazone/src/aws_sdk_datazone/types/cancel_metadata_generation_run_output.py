@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CancelMetadataGenerationRunOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelMetadataGenerationRunOutput(TypedDict):
+class CancelMetadataGenerationRunOutput(TypedDict, closed=True):
     pass
 
 

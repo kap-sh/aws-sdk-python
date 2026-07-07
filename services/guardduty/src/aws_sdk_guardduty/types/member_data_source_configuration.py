@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#MemberDataSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.member_features_configurations_results
 
 
-class MemberDataSourceConfiguration(TypedDict):
+class MemberDataSourceConfiguration(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_guardduty.types.account_id.AccountId"]
     """<p>The account ID for the member account.</p>"""
     data_sources: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MultiplexContainerSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.multiplex_m2ts_settings
 
 
-class MultiplexContainerSettings(TypedDict):
+class MultiplexContainerSettings(TypedDict, closed=True):
     multiplex_m2ts_settings: NotRequired[
         "aws_sdk_medialive.types.multiplex_m2ts_settings.MultiplexM2tsSettings"
     ]

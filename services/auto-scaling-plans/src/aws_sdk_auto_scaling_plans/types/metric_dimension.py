@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscalingplans#MetricDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_auto_scaling_plans.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling_plans.types.metric_dimension_value
 
 
-class MetricDimension(TypedDict):
+class MetricDimension(TypedDict, closed=True):
     name: "aws_sdk_auto_scaling_plans.types.metric_dimension_name.MetricDimensionName"
     """<p>The name of the dimension.</p>"""
     value: (

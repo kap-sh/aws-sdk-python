@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeDomainControllersResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.domain_controllers
     import aws_sdk_directory_service.types.next_token
 
 
-class DescribeDomainControllersResult(TypedDict):
+class DescribeDomainControllersResult(TypedDict, closed=True):
     domain_controllers: NotRequired[
         "aws_sdk_directory_service.types.domain_controllers.DomainControllers"
     ]

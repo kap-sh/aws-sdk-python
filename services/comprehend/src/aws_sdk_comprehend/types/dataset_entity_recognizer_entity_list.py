@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DatasetEntityRecognizerEntityList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.s3_uri
 
 
-class DatasetEntityRecognizerEntityList(TypedDict):
+class DatasetEntityRecognizerEntityList(TypedDict, closed=True):
     s3_uri: "aws_sdk_comprehend.types.s3_uri.S3Uri"
     """<p>Specifies the Amazon S3 location where the entity list is located.</p>"""
 

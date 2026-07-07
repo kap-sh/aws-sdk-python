@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p> The identifier of the resource that was not found. </p>"""

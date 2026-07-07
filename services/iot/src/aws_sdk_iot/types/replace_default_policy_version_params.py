@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ReplaceDefaultPolicyVersionParams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.policy_template_name
 
 
-class ReplaceDefaultPolicyVersionParams(TypedDict):
+class ReplaceDefaultPolicyVersionParams(TypedDict, closed=True):
     template_name: "aws_sdk_iot.types.policy_template_name.PolicyTemplateName"
     """<p>The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.</p>"""
 

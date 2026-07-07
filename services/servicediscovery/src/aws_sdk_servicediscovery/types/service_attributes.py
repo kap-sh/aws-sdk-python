@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#ServiceAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.service_attributes_map
 
 
-class ServiceAttributes(TypedDict):
+class ServiceAttributes(TypedDict, closed=True):
     service_arn: NotRequired["aws_sdk_servicediscovery.types.arn.Arn"]
     """<p>The ARN of the service that the attributes are associated with.</p>"""
     resource_owner: NotRequired[

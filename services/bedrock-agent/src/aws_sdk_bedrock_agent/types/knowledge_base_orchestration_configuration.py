@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#KnowledgeBaseOrchestrationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.additional_model_request_fields
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.prompt_inference_configuration
 
 
-class KnowledgeBaseOrchestrationConfiguration(TypedDict):
+class KnowledgeBaseOrchestrationConfiguration(TypedDict, closed=True):
     prompt_template: NotRequired[
         "aws_sdk_bedrock_agent.types.knowledge_base_prompt_template.KnowledgeBasePromptTemplate"
     ]

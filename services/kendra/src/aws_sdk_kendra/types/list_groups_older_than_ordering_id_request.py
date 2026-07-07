@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListGroupsOlderThanOrderingIdRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.principal_ordering_id
 
 
-class ListGroupsOlderThanOrderingIdRequest(TypedDict):
+class ListGroupsOlderThanOrderingIdRequest(TypedDict, closed=True):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     """<p>The identifier of the index for getting a list of groups mapped to users before a given ordering or timestamp identifier.</p>"""
     data_source_id: NotRequired["aws_sdk_kendra.types.data_source_id.DataSourceId"]

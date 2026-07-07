@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#DeleteFirewallPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.firewall_policy_response
 
 
-class DeleteFirewallPolicyResponse(TypedDict):
+class DeleteFirewallPolicyResponse(TypedDict, closed=True):
     firewall_policy_response: (
         "aws_sdk_network_firewall.types.firewall_policy_response.FirewallPolicyResponse"
     )

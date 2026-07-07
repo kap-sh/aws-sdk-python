@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#Processor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_messaging.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.processor_configuration
 
 
-class Processor(TypedDict):
+class Processor(TypedDict, closed=True):
     name: (
         "aws_sdk_chime_sdk_messaging.types.non_empty_resource_name.NonEmptyResourceName"
     )

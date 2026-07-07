@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchContactFlowsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.approximate_total_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.next_token2500
 
 
-class SearchContactFlowsResponse(TypedDict):
+class SearchContactFlowsResponse(TypedDict, closed=True):
     contact_flows: NotRequired[
         "aws_sdk_connect.types.contact_flow_search_summary_list.ContactFlowSearchSummaryList"
     ]

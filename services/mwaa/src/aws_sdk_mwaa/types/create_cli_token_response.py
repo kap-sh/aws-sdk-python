@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#CreateCliTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.hostname
     import aws_sdk_mwaa.types.token
 
 
-class CreateCliTokenResponse(TypedDict):
+class CreateCliTokenResponse(TypedDict, closed=True):
     cli_token: NotRequired["aws_sdk_mwaa.types.token.Token"]
     """<p>An Airflow CLI login token.</p>"""
     web_server_hostname: NotRequired["aws_sdk_mwaa.types.hostname.Hostname"]

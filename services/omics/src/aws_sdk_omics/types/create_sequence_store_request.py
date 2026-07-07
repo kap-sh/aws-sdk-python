@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#CreateSequenceStoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.tag_map
 
 
-class CreateSequenceStoreRequest(TypedDict):
+class CreateSequenceStoreRequest(TypedDict, closed=True):
     name: "aws_sdk_omics.types.sequence_store_name.SequenceStoreName"
     """<p>A name for the store.</p>"""
     description: NotRequired[

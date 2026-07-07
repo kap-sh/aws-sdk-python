@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#DeleteApplicationAccessScopeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.scope
 
 
-class DeleteApplicationAccessScopeRequest(TypedDict):
+class DeleteApplicationAccessScopeRequest(TypedDict, closed=True):
     application_arn: "aws_sdk_sso_admin.types.application_arn.ApplicationArn"
     """<p>Specifies the ARN of the application with the access scope to delete.</p>"""
     scope: "aws_sdk_sso_admin.types.scope.Scope"

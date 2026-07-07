@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#RecurringCharge``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.double
     import aws_sdk_memorydb.types.string
 
 
-class RecurringCharge(TypedDict):
+class RecurringCharge(TypedDict, closed=True):
     recurring_charge_amount: "aws_sdk_memorydb.types.double.Double"
     """<p>The amount of the recurring charge to run this reserved node.</p>"""
     recurring_charge_frequency: NotRequired["aws_sdk_memorydb.types.string.String"]

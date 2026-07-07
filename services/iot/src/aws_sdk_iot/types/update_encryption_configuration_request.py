@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateEncryptionConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.kms_key_arn
 
 
-class UpdateEncryptionConfigurationRequest(TypedDict):
+class UpdateEncryptionConfigurationRequest(TypedDict, closed=True):
     encryption_type: "aws_sdk_iot.types.encryption_type.EncryptionType"
     """<p>The type of the KMS key.</p>"""
     kms_key_arn: NotRequired["aws_sdk_iot.types.kms_key_arn.KmsKeyArn"]

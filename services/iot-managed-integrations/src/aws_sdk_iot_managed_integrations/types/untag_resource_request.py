@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.io_t_managed_integrations_resource_arn
     import aws_sdk_iot_managed_integrations.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_iot_managed_integrations.types.io_t_managed_integrations_resource_arn.IoTManagedIntegrationsResourceARN"
     """<p>The Amazon Resource Name (ARN) of the resource from which to remove tags.</p>"""
     tag_keys: "aws_sdk_iot_managed_integrations.types.tag_key_list.TagKeyList"

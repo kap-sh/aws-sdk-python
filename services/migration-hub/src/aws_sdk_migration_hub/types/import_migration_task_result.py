@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#ImportMigrationTaskResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ImportMigrationTaskResult(TypedDict):
+class ImportMigrationTaskResult(TypedDict, closed=True):
     pass
 
 

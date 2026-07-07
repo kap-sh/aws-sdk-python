@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ManagedScaling``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.managed_scaling_instance_warmup_period
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.managed_scaling_target_capacity
 
 
-class ManagedScaling(TypedDict):
+class ManagedScaling(TypedDict, closed=True):
     status: NotRequired["aws_sdk_ecs.types.managed_scaling_status.ManagedScalingStatus"]
     """<p>Determines whether to use managed scaling for the capacity provider.</p>"""
     target_capacity: NotRequired[

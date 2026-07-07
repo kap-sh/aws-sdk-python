@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#ByteMatchSetSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_name
 
 
-class ByteMatchSetSummary(TypedDict):
+class ByteMatchSetSummary(TypedDict, closed=True):
     byte_match_set_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>ByteMatchSetId</code> for a <code>ByteMatchSet</code>. You use <code>ByteMatchSetId</code> to get information about a <code>ByteMatchSet</code>, update a <code>ByteMatchSet</code>, remove a <code>ByteMatchSet</code> from a <code>Rule</code>, and delete a <code>ByteMatchSet</code> from AWS WAF.</p> <p> <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</p>"""
     name: "aws_sdk_waf.types.resource_name.ResourceName"

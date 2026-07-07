@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteMatrixOriginOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.distance_meters
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_matrix_side_of_street_options
 
 
-class RouteMatrixOriginOptions(TypedDict):
+class RouteMatrixOriginOptions(TypedDict, closed=True):
     avoid_actions_for_distance: (
         "aws_sdk_geo_routes.types.distance_meters.DistanceMeters"
     )

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#Timing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.nullable_long
 
 
-class Timing(TypedDict):
+class Timing(TypedDict, closed=True):
     submit_time_millis: NotRequired[
         "aws_sdk_elastic_transcoder.types.nullable_long.NullableLong"
     ]

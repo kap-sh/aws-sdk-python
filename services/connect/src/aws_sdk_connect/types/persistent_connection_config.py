@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PersistentConnectionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.persistent_connection
 
 
-class PersistentConnectionConfig(TypedDict):
+class PersistentConnectionConfig(TypedDict, closed=True):
     channel: "aws_sdk_connect.types.channel.Channel"
     """<p>Configuration settings for persistent connection. <b>Only <code>VOICE</code> is supported for this data type.</b> </p>"""
     persistent_connection: (

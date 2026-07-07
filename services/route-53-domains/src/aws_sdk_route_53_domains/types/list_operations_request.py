@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#ListOperationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.list_operations_sort_attribute_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.timestamp
 
 
-class ListOperationsRequest(TypedDict):
+class ListOperationsRequest(TypedDict, closed=True):
     submitted_since: NotRequired["aws_sdk_route_53_domains.types.timestamp.Timestamp"]
     """<p>An optional parameter that lets you get information about all the operations that you submitted after a specified date and time. Specify the date and time in Unix time format and Coordinated Universal time (UTC).</p>"""
     marker: NotRequired["aws_sdk_route_53_domains.types.page_marker.PageMarker"]

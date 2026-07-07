@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#HoursOfOperationsIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.hours_of_operation_id
 
 
-class HoursOfOperationsIdentifier(TypedDict):
+class HoursOfOperationsIdentifier(TypedDict, closed=True):
     name: "aws_sdk_connect.types.common_name_length127.CommonNameLength127"
     """<p>Name of the hours of operation</p>"""
     id: "aws_sdk_connect.types.hours_of_operation_id.HoursOfOperationId"

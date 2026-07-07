@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateFlowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.update_flow_request_client_token_string
 
 
-class UpdateFlowRequest(TypedDict):
+class UpdateFlowRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.account_id.AccountId"
     """<p>The ID of the Amazon Web Services account that contains the flow that you are updating.</p>"""
     flow_id: "aws_sdk_quicksight.types.flow_id.FlowId"

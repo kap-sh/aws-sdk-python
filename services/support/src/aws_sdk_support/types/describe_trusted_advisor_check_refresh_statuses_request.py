@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeTrustedAdvisorCheckRefreshStatusesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_support.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.string_list
 
 
-class DescribeTrustedAdvisorCheckRefreshStatusesRequest(TypedDict):
+class DescribeTrustedAdvisorCheckRefreshStatusesRequest(TypedDict, closed=True):
     check_ids: "aws_sdk_support.types.string_list.StringList"
     """<p>The IDs of the Trusted Advisor checks to get the status.</p> <note> <p>If you specify the check ID of a check that is automatically refreshed, you might see an <code>InvalidParameterValue</code> error.</p> </note>"""
 

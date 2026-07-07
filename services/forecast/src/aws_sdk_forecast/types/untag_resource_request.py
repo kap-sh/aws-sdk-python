@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_forecast.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. </p>"""
     tag_keys: "aws_sdk_forecast.types.tag_keys.TagKeys"

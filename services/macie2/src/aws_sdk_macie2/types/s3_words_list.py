@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#S3WordsList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string_min1_max1024_pattern_ss
     import aws_sdk_macie2.types.__string_min3_max255_pattern_a_za_z093255
 
 
-class S3WordsList(TypedDict):
+class S3WordsList(TypedDict, closed=True):
     bucket_name: NotRequired[
         "aws_sdk_macie2.types.__string_min3_max255_pattern_a_za_z093255.__stringMin3Max255PatternAZaZ093255"
     ]

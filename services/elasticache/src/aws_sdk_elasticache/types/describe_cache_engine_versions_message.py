@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DescribeCacheEngineVersionsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class DescribeCacheEngineVersionsMessage(TypedDict):
+class DescribeCacheEngineVersionsMessage(TypedDict, closed=True):
     engine: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The cache engine to return. Valid values: <code>memcached</code> | <code>redis</code> </p>"""
     engine_version: NotRequired["aws_sdk_elasticache.types.string.String"]

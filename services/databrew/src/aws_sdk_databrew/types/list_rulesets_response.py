@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ListRulesetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.ruleset_item_list
 
 
-class ListRulesetsResponse(TypedDict):
+class ListRulesetsResponse(TypedDict, closed=True):
     rulesets: "aws_sdk_databrew.types.ruleset_item_list.RulesetItemList"
     """<p>A list of RulesetItem. RulesetItem contains meta data of a ruleset.</p>"""
     next_token: NotRequired["aws_sdk_databrew.types.next_token.NextToken"]

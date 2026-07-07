@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#AudioConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.integer
     import aws_sdk_ivs.types.string
 
 
-class AudioConfiguration(TypedDict):
+class AudioConfiguration(TypedDict, closed=True):
     codec: NotRequired["aws_sdk_ivs.types.string.String"]
     """<p>Codec used for the audio encoding.</p>"""
     target_bitrate: "aws_sdk_ivs.types.integer.Integer"

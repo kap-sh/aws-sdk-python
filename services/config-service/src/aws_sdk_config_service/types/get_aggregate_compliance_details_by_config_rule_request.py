@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#GetAggregateComplianceDetailsByConfigRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.next_token
 
 
-class GetAggregateComplianceDetailsByConfigRuleRequest(TypedDict):
+class GetAggregateComplianceDetailsByConfigRuleRequest(TypedDict, closed=True):
     configuration_aggregator_name: "aws_sdk_config_service.types.configuration_aggregator_name.ConfigurationAggregatorName"
     """<p>The name of the configuration aggregator.</p>"""
     config_rule_name: "aws_sdk_config_service.types.config_rule_name.ConfigRuleName"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ConfirmTopicRuleDestinationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ConfirmTopicRuleDestinationResponse(TypedDict):
+class ConfirmTopicRuleDestinationResponse(TypedDict, closed=True):
     pass
 
 

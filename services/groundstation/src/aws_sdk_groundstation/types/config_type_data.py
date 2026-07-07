@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ConfigTypeData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError, SerializationError
 
@@ -15,43 +17,43 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uplink_echo_config
 
 
-class _ConfigTypeData_antennaDownlinkConfig(TypedDict):
+class _ConfigTypeData_antennaDownlinkConfig(TypedDict, closed=True):
     antennaDownlinkConfig: (
         "aws_sdk_groundstation.types.antenna_downlink_config.AntennaDownlinkConfig"
     )
 
 
-class _ConfigTypeData_trackingConfig(TypedDict):
+class _ConfigTypeData_trackingConfig(TypedDict, closed=True):
     trackingConfig: "aws_sdk_groundstation.types.tracking_config.TrackingConfig"
 
 
-class _ConfigTypeData_dataflowEndpointConfig(TypedDict):
+class _ConfigTypeData_dataflowEndpointConfig(TypedDict, closed=True):
     dataflowEndpointConfig: (
         "aws_sdk_groundstation.types.dataflow_endpoint_config.DataflowEndpointConfig"
     )
 
 
-class _ConfigTypeData_antennaDownlinkDemodDecodeConfig(TypedDict):
+class _ConfigTypeData_antennaDownlinkDemodDecodeConfig(TypedDict, closed=True):
     antennaDownlinkDemodDecodeConfig: "aws_sdk_groundstation.types.antenna_downlink_demod_decode_config.AntennaDownlinkDemodDecodeConfig"
 
 
-class _ConfigTypeData_antennaUplinkConfig(TypedDict):
+class _ConfigTypeData_antennaUplinkConfig(TypedDict, closed=True):
     antennaUplinkConfig: (
         "aws_sdk_groundstation.types.antenna_uplink_config.AntennaUplinkConfig"
     )
 
 
-class _ConfigTypeData_uplinkEchoConfig(TypedDict):
+class _ConfigTypeData_uplinkEchoConfig(TypedDict, closed=True):
     uplinkEchoConfig: "aws_sdk_groundstation.types.uplink_echo_config.UplinkEchoConfig"
 
 
-class _ConfigTypeData_s3RecordingConfig(TypedDict):
+class _ConfigTypeData_s3RecordingConfig(TypedDict, closed=True):
     s3RecordingConfig: (
         "aws_sdk_groundstation.types.s3_recording_config.S3RecordingConfig"
     )
 
 
-class _ConfigTypeData_telemetrySinkConfig(TypedDict):
+class _ConfigTypeData_telemetrySinkConfig(TypedDict, closed=True):
     telemetrySinkConfig: (
         "aws_sdk_groundstation.types.telemetry_sink_config.TelemetrySinkConfig"
     )

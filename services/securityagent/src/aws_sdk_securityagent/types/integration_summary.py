@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#IntegrationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.provider_type
 
 
-class IntegrationSummary(TypedDict):
+class IntegrationSummary(TypedDict, closed=True):
     integration_id: "str"
     """<p>The unique identifier of the integration.</p>"""
     installation_id: "str"

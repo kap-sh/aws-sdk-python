@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#LandingZoneOperationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.landing_zone_operation_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.timestamp
 
 
-class LandingZoneOperationDetail(TypedDict):
+class LandingZoneOperationDetail(TypedDict, closed=True):
     operation_type: NotRequired[
         "aws_sdk_controltower.types.landing_zone_operation_type.LandingZoneOperationType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#GetResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billing.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.resource_arn
 
 
-class GetResourcePolicyResponse(TypedDict):
+class GetResourcePolicyResponse(TypedDict, closed=True):
     resource_arn: "aws_sdk_billing.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the billing view resource to which the policy is attached to. </p>"""
     policy: NotRequired["aws_sdk_billing.types.policy_document.PolicyDocument"]

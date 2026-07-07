@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#CreateStarterMappingTemplateResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
 
-class CreateStarterMappingTemplateResponse(TypedDict):
+class CreateStarterMappingTemplateResponse(TypedDict, closed=True):
     mapping_template: "str"
     """<p>Returns a string that represents the mapping template.</p>"""
 

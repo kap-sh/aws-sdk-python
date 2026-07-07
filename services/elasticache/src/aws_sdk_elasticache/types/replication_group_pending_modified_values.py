@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#ReplicationGroupPendingModifiedValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.user_groups_update_status
 
 
-class ReplicationGroupPendingModifiedValues(TypedDict):
+class ReplicationGroupPendingModifiedValues(TypedDict, closed=True):
     primary_cluster_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The primary cluster ID that is applied immediately (if <code>--apply-immediately</code> was specified), or during the next maintenance window.</p>"""
     automatic_failover_status: NotRequired[

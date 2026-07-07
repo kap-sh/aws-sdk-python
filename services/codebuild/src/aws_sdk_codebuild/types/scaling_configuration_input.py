@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ScalingConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.fleet_capacity
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.target_tracking_scaling_configurations
 
 
-class ScalingConfigurationInput(TypedDict):
+class ScalingConfigurationInput(TypedDict, closed=True):
     scaling_type: NotRequired[
         "aws_sdk_codebuild.types.fleet_scaling_type.FleetScalingType"
     ]

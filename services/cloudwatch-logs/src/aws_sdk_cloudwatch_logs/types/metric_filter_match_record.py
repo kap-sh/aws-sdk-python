@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#MetricFilterMatchRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.event_message
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.extracted_values
 
 
-class MetricFilterMatchRecord(TypedDict):
+class MetricFilterMatchRecord(TypedDict, closed=True):
     event_number: "aws_sdk_cloudwatch_logs.types.event_number.EventNumber"
     """<p>The event number.</p>"""
     event_message: NotRequired[

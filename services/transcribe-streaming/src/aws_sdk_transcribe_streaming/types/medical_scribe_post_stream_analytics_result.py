@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalScribePostStreamAnalyticsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.clinical_note_generation_result
 
 
-class MedicalScribePostStreamAnalyticsResult(TypedDict):
+class MedicalScribePostStreamAnalyticsResult(TypedDict, closed=True):
     clinical_note_generation_result: NotRequired[
         "aws_sdk_transcribe_streaming.types.clinical_note_generation_result.ClinicalNoteGenerationResult"
     ]

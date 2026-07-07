@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#ScopeSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_networkflowmonitor.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.scope_status
 
 
-class ScopeSummary(TypedDict):
+class ScopeSummary(TypedDict, closed=True):
     scope_id: "aws_sdk_networkflowmonitor.types.scope_id.ScopeId"
     """<p>The identifier for the scope that includes the resources that you want to get data results for. A scope ID is an internally-generated identifier that includes all the resources for the accounts in a scope.</p>"""
     status: "aws_sdk_networkflowmonitor.types.scope_status.ScopeStatus"

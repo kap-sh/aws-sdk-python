@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotjobsdataplane#UpdateJobExecutionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_jobs_data_plane.types.job_document
     import aws_sdk_iot_jobs_data_plane.types.job_execution_state
 
 
-class UpdateJobExecutionResponse(TypedDict):
+class UpdateJobExecutionResponse(TypedDict, closed=True):
     execution_state: NotRequired[
         "aws_sdk_iot_jobs_data_plane.types.job_execution_state.JobExecutionState"
     ]

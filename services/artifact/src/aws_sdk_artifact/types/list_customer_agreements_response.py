@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#ListCustomerAgreementsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_artifact.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_artifact.types.next_token_attribute
 
 
-class ListCustomerAgreementsResponse(TypedDict):
+class ListCustomerAgreementsResponse(TypedDict, closed=True):
     customer_agreements: (
         "aws_sdk_artifact.types.customer_agreement_list.CustomerAgreementList"
     )

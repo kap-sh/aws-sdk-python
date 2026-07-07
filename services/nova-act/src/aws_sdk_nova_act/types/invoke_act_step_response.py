@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#InvokeActStepResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.uuid_string
 
 
-class InvokeActStepResponse(TypedDict):
+class InvokeActStepResponse(TypedDict, closed=True):
     calls: "aws_sdk_nova_act.types.calls.Calls"
     """<p>A list of tool calls that the act wants to execute in this step.</p>"""
     step_id: "aws_sdk_nova_act.types.uuid_string.UuidString"

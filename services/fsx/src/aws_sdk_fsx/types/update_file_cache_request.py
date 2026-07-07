@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#UpdateFileCacheRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.client_request_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.update_file_cache_lustre_configuration
 
 
-class UpdateFileCacheRequest(TypedDict):
+class UpdateFileCacheRequest(TypedDict, closed=True):
     file_cache_id: NotRequired["aws_sdk_fsx.types.file_cache_id.FileCacheId"]
     """<p>The ID of the cache that you are updating.</p>"""
     client_request_token: NotRequired[

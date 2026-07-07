@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#ResaleAuthorizationSort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.resale_authorization_sort_by
     import aws_sdk_marketplace_catalog.types.sort_order
 
 
-class ResaleAuthorizationSort(TypedDict):
+class ResaleAuthorizationSort(TypedDict, closed=True):
     sort_by: NotRequired[
         "aws_sdk_marketplace_catalog.types.resale_authorization_sort_by.ResaleAuthorizationSortBy"
     ]

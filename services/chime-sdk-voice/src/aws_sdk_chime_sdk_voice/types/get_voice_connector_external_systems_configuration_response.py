@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#GetVoiceConnectorExternalSystemsConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.external_systems_configuration
 
 
-class GetVoiceConnectorExternalSystemsConfigurationResponse(TypedDict):
+class GetVoiceConnectorExternalSystemsConfigurationResponse(TypedDict, closed=True):
     external_systems_configuration: NotRequired[
         "aws_sdk_chime_sdk_voice.types.external_systems_configuration.ExternalSystemsConfiguration"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#DeleteConsumableResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class DeleteConsumableResourceRequest(TypedDict):
+class DeleteConsumableResourceRequest(TypedDict, closed=True):
     consumable_resource: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name or ARN of the consumable resource that will be deleted.</p>"""
 

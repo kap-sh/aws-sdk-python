@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#AnomalousLogGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.log_anomaly_showcases
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.timestamp
 
 
-class AnomalousLogGroup(TypedDict):
+class AnomalousLogGroup(TypedDict, closed=True):
     log_group_name: NotRequired["aws_sdk_devops_guru.types.log_group_name.LogGroupName"]
     """<p> The name of the CloudWatch log group. </p>"""
     impact_start_time: NotRequired["aws_sdk_devops_guru.types.timestamp.Timestamp"]

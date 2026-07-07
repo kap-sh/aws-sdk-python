@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#TransitionEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.state_name
 
 
-class TransitionEvent(TypedDict):
+class TransitionEvent(TypedDict, closed=True):
     event_name: "aws_sdk_iot_events.types.event_name.EventName"
     """<p>The name of the transition event.</p>"""
     condition: "aws_sdk_iot_events.types.condition.Condition"

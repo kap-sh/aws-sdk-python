@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FormInputValuePropertyBindingProperties``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
 
-class FormInputValuePropertyBindingProperties(TypedDict):
+class FormInputValuePropertyBindingProperties(TypedDict, closed=True):
     property: "str"
     """<p>The form property to bind to the data field.</p>"""
     field: NotRequired["str"]

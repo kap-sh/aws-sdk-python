@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#VpcInterfaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.network_interface_type
 
 
-class VpcInterfaceRequest(TypedDict):
+class VpcInterfaceRequest(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name for the VPC interface. This name must be unique within the flow. </p>"""
     network_interface_type: NotRequired[

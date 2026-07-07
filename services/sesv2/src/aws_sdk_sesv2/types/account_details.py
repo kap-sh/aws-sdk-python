@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#AccountDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.additional_contact_email_addresses
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.website_url
 
 
-class AccountDetails(TypedDict):
+class AccountDetails(TypedDict, closed=True):
     mail_type: NotRequired["aws_sdk_sesv2.types.mail_type.MailType"]
     """<p>The type of email your account is sending. The mail type can be one of the following:</p> <ul> <li> <p> <code>MARKETING</code> – Most of your sending traffic is to keep your customers informed of your latest offering.</p> </li> <li> <p> <code>TRANSACTIONAL</code> – Most of your sending traffic is to communicate during a transaction with a customer.</p> </li> </ul>"""
     website_url: NotRequired["aws_sdk_sesv2.types.website_url.WebsiteURL"]

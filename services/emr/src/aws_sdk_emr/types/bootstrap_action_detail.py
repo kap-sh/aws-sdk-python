@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#BootstrapActionDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.bootstrap_action_config
 
 
-class BootstrapActionDetail(TypedDict):
+class BootstrapActionDetail(TypedDict, closed=True):
     bootstrap_action_config: NotRequired[
         "aws_sdk_emr.types.bootstrap_action_config.BootstrapActionConfig"
     ]

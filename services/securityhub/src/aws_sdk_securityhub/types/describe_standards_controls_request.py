@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DescribeStandardsControlsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class DescribeStandardsControlsRequest(TypedDict):
+class DescribeStandardsControlsRequest(TypedDict, closed=True):
     standards_subscription_arn: (
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     )

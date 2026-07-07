@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#IngestedEventStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.long
     import aws_sdk_frauddetector.types.time
 
 
-class IngestedEventStatistics(TypedDict):
+class IngestedEventStatistics(TypedDict, closed=True):
     number_of_events: NotRequired["aws_sdk_frauddetector.types.long.Long"]
     """<p>The number of stored events.</p>"""
     event_data_size_in_bytes: NotRequired["aws_sdk_frauddetector.types.long.Long"]

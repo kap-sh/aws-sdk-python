@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#LicenseAssetRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.rule_statement
 
 
-class LicenseAssetRule(TypedDict):
+class LicenseAssetRule(TypedDict, closed=True):
     rule_statement: "aws_sdk_license_manager.types.rule_statement.RuleStatement"
     """<p>Rule statement.</p>"""
 

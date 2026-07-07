@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ExpireSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
 
 
-class ExpireSessionRequest(TypedDict):
+class ExpireSessionRequest(TypedDict, closed=True):
     session_id: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>The identifier of the streaming session.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListServiceSpecificCredentialsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class ListServiceSpecificCredentialsRequest(TypedDict):
+class ListServiceSpecificCredentialsRequest(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_iam.types.user_name_type.userNameType"]
     r"""<p>The name of the user whose service-specific credentials you want information about. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     service_name: NotRequired["aws_sdk_iam.types.service_name.serviceName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#CreateDBInstanceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.tag_list
 
 
-class CreateDBInstanceMessage(TypedDict):
+class CreateDBInstanceMessage(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The instance identifier. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>mydbinstance</code> </p>"""
     db_instance_class: NotRequired["aws_sdk_docdb.types.string.String"]

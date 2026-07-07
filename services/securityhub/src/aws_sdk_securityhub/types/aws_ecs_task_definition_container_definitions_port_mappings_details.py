@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails(TypedDict):
+class AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails(
+    TypedDict, closed=True
+):
     container_port: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The port number on the container that is bound to the user-specified or automatically assigned host port.</p>"""
     host_port: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

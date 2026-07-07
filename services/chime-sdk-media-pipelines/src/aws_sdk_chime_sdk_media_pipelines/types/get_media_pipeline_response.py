@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#GetMediaPipelineResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.media_pipeline
 
 
-class GetMediaPipelineResponse(TypedDict):
+class GetMediaPipelineResponse(TypedDict, closed=True):
     media_pipeline: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.media_pipeline.MediaPipeline"
     ]

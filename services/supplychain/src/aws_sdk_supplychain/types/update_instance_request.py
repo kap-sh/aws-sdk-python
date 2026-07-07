@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#UpdateInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_supplychain.types.instance_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.uuid
 
 
-class UpdateInstanceRequest(TypedDict):
+class UpdateInstanceRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_supplychain.types.uuid.UUID"
     """<p>The AWS Supply Chain instance identifier.</p>"""
     instance_name: NotRequired["aws_sdk_supplychain.types.instance_name.InstanceName"]

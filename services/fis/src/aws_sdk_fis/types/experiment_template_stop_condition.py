@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentTemplateStopCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.stop_condition_source
     import aws_sdk_fis.types.stop_condition_value
 
 
-class ExperimentTemplateStopCondition(TypedDict):
+class ExperimentTemplateStopCondition(TypedDict, closed=True):
     source: NotRequired["aws_sdk_fis.types.stop_condition_source.StopConditionSource"]
     """<p>The source for the stop condition.</p>"""
     value: NotRequired["aws_sdk_fis.types.stop_condition_value.StopConditionValue"]

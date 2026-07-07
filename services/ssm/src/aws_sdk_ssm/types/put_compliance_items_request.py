@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PutComplianceItemsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.compliance_upload_type
 
 
-class PutComplianceItemsRequest(TypedDict):
+class PutComplianceItemsRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_ssm.types.compliance_resource_id.ComplianceResourceId"
     """<p>Specify an ID for this resource. For a managed node, this is the node ID.</p>"""
     resource_type: "aws_sdk_ssm.types.compliance_resource_type.ComplianceResourceType"

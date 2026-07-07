@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#VisualHighlightOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_highlight_trigger
 
 
-class VisualHighlightOperation(TypedDict):
+class VisualHighlightOperation(TypedDict, closed=True):
     trigger: "aws_sdk_quicksight.types.visual_highlight_trigger.VisualHighlightTrigger"
     """<p>Specifies whether a highlight operation is initiated by a click or hover, or whether it's disabled.</p>"""
 

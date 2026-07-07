@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceComponentPlacementStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.inference_component_copy_count
     import aws_sdk_sagemaker.types.production_variant_instance_type
 
 
-class InferenceComponentPlacementStatus(TypedDict):
+class InferenceComponentPlacementStatus(TypedDict, closed=True):
     instance_type: NotRequired[
         "aws_sdk_sagemaker.types.production_variant_instance_type.ProductionVariantInstanceType"
     ]

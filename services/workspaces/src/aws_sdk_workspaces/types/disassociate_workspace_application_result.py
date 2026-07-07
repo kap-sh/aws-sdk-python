@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DisassociateWorkspaceApplicationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_resource_association
 
 
-class DisassociateWorkspaceApplicationResult(TypedDict):
+class DisassociateWorkspaceApplicationResult(TypedDict, closed=True):
     association: NotRequired[
         "aws_sdk_workspaces.types.workspace_resource_association.WorkspaceResourceAssociation"
     ]

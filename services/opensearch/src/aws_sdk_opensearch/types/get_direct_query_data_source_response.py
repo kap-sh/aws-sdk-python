@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#GetDirectQueryDataSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.direct_query_data_source_description
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
 
 
-class GetDirectQueryDataSourceResponse(TypedDict):
+class GetDirectQueryDataSourceResponse(TypedDict, closed=True):
     data_source_name: NotRequired[
         "aws_sdk_opensearch.types.direct_query_data_source_name.DirectQueryDataSourceName"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicRangeFilterConstant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.constant_type
     import aws_sdk_quicksight.types.range_constant
 
 
-class TopicRangeFilterConstant(TypedDict):
+class TopicRangeFilterConstant(TypedDict, closed=True):
     constant_type: NotRequired["aws_sdk_quicksight.types.constant_type.ConstantType"]
     """<p>The data type of the constant value that is used in a range filter. Valid values for this structure are <code>RANGE</code>.</p>"""
     range_constant: NotRequired["aws_sdk_quicksight.types.range_constant.RangeConstant"]

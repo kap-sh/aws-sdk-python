@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#CreateFirewallResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.firewall
     import aws_sdk_network_firewall.types.firewall_status
 
 
-class CreateFirewallResponse(TypedDict):
+class CreateFirewallResponse(TypedDict, closed=True):
     firewall: NotRequired["aws_sdk_network_firewall.types.firewall.Firewall"]
     """<p>The configuration settings for the firewall. These settings include the firewall policy and the subnets in your VPC to use for the firewall endpoints. </p>"""
     firewall_status: NotRequired[

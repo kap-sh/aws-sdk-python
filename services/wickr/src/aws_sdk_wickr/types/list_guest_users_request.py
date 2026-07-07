@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#ListGuestUsersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.sort_direction
 
 
-class ListGuestUsersRequest(TypedDict):
+class ListGuestUsersRequest(TypedDict, closed=True):
     network_id: "aws_sdk_wickr.types.network_id.NetworkId"
     """<p>The ID of the Wickr network from which to list guest users.</p>"""
     max_results: NotRequired["int"]

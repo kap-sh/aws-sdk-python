@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#Policy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.resource_id
 
 
-class Policy(TypedDict):
+class Policy(TypedDict, closed=True):
     policy_id: "aws_sdk_bedrock_agentcore_control.types.resource_id.ResourceId"
     """<p>The unique identifier for the policy. This system-generated identifier consists of the user name plus a 10-character generated suffix and serves as the primary key for policy operations.</p>"""
     name: "aws_sdk_bedrock_agentcore_control.types.policy_name.PolicyName"

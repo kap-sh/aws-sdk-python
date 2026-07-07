@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DeleteDomainEntryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.domain_name
 
 
-class DeleteDomainEntryRequest(TypedDict):
+class DeleteDomainEntryRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_lightsail.types.domain_name.DomainName"
     """<p>The name of the domain entry to delete.</p>"""
     domain_entry: "aws_sdk_lightsail.types.domain_entry.DomainEntry"

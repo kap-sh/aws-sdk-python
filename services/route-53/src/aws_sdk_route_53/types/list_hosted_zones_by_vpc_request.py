@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ListHostedZonesByVPCRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.vpc_region
 
 
-class ListHostedZonesByVPCRequest(TypedDict):
+class ListHostedZonesByVPCRequest(TypedDict, closed=True):
     vpc_id: "aws_sdk_route_53.types.vpc_id.VPCId"
     """<p>The ID of the Amazon VPC that you want to list hosted zones for.</p>"""
     vpc_region: "aws_sdk_route_53.types.vpc_region.VPCRegion"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#GetMLModelInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.verbose
 
 
-class GetMLModelInput(TypedDict):
+class GetMLModelInput(TypedDict, closed=True):
     ml_model_id: "aws_sdk_machine_learning.types.entity_id.EntityId"
     """<p>The ID assigned to the <code>MLModel</code> at creation.</p>"""
     verbose: "aws_sdk_machine_learning.types.verbose.Verbose"

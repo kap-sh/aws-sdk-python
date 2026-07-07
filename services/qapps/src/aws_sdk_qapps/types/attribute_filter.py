@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#AttributeFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qapps.types.attribute_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.document_attribute
 
 
-class AttributeFilter(TypedDict):
+class AttributeFilter(TypedDict, closed=True):
     and_all_filters: NotRequired[
         "aws_sdk_qapps.types.attribute_filters.AttributeFilters"
     ]

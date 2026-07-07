@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#CreateWorkflowStepRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migrationhuborchestrator.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.workflow_step_output_list
 
 
-class CreateWorkflowStepRequest(TypedDict):
+class CreateWorkflowStepRequest(TypedDict, closed=True):
     name: "aws_sdk_migrationhuborchestrator.types.migration_workflow_name.MigrationWorkflowName"
     """<p>The name of the step.</p>"""
     step_group_id: "aws_sdk_migrationhuborchestrator.types.step_group_id.StepGroupId"

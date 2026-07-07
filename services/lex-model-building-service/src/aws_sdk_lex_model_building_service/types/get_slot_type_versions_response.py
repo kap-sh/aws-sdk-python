@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetSlotTypeVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.next_token
     import aws_sdk_lex_model_building_service.types.slot_type_metadata_list
 
 
-class GetSlotTypeVersionsResponse(TypedDict):
+class GetSlotTypeVersionsResponse(TypedDict, closed=True):
     slot_types: NotRequired[
         "aws_sdk_lex_model_building_service.types.slot_type_metadata_list.SlotTypeMetadataList"
     ]

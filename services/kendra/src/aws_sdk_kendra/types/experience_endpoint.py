@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ExperienceEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.endpoint
     import aws_sdk_kendra.types.endpoint_type
 
 
-class ExperienceEndpoint(TypedDict):
+class ExperienceEndpoint(TypedDict, closed=True):
     endpoint_type: NotRequired["aws_sdk_kendra.types.endpoint_type.EndpointType"]
     """<p>The type of endpoint for your Amazon Kendra experience. The type currently available is <code>HOME</code>, which is a unique and fully hosted URL to the home page of your Amazon Kendra experience.</p>"""
     endpoint: NotRequired["aws_sdk_kendra.types.endpoint.Endpoint"]

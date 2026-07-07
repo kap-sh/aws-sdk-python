@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RuleAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.update_case_action_definition
 
 
-class RuleAction(TypedDict):
+class RuleAction(TypedDict, closed=True):
     action_type: "aws_sdk_connect.types.action_type.ActionType"
     """<p>The type of action that creates a rule.</p>"""
     task_action: NotRequired[

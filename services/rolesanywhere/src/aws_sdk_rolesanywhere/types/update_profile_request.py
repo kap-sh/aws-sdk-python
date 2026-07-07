@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#UpdateProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.managed_policy_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.uuid
 
 
-class UpdateProfileRequest(TypedDict):
+class UpdateProfileRequest(TypedDict, closed=True):
     profile_id: "aws_sdk_rolesanywhere.types.uuid.Uuid"
     """<p>The unique identifier of the profile.</p>"""
     name: NotRequired["aws_sdk_rolesanywhere.types.resource_name.ResourceName"]

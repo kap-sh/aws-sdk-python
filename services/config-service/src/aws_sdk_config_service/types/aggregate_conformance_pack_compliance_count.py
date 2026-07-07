@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#AggregateConformancePackComplianceCount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.integer
 
 
-class AggregateConformancePackComplianceCount(TypedDict):
+class AggregateConformancePackComplianceCount(TypedDict, closed=True):
     compliant_conformance_pack_count: "aws_sdk_config_service.types.integer.Integer"
     """<p>Number of compliant conformance packs.</p>"""
     non_compliant_conformance_pack_count: "aws_sdk_config_service.types.integer.Integer"

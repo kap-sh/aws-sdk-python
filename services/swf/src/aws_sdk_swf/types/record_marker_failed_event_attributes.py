@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#RecordMarkerFailedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.record_marker_failed_cause
 
 
-class RecordMarkerFailedEventAttributes(TypedDict):
+class RecordMarkerFailedEventAttributes(TypedDict, closed=True):
     marker_name: "aws_sdk_swf.types.marker_name.MarkerName"
     """<p>The marker's name.</p>"""
     cause: "aws_sdk_swf.types.record_marker_failed_cause.RecordMarkerFailedCause"

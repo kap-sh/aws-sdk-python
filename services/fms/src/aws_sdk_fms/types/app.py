@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#App``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_name
 
 
-class App(TypedDict):
+class App(TypedDict, closed=True):
     app_name: "aws_sdk_fms.types.resource_name.ResourceName"
     """<p>The application's name.</p>"""
     protocol: "aws_sdk_fms.types.protocol.Protocol"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#UpdateAppRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplify.types.access_token
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.service_role_arn
 
 
-class UpdateAppRequest(TypedDict):
+class UpdateAppRequest(TypedDict, closed=True):
     app_id: "aws_sdk_amplify.types.app_id.AppId"
     """<p>The unique ID for an Amplify app. </p>"""
     name: NotRequired["aws_sdk_amplify.types.name.Name"]

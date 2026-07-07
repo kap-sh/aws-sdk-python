@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BucketPublicAccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.bucket_permission_configuration
     import aws_sdk_macie2.types.effective_permission
 
 
-class BucketPublicAccess(TypedDict):
+class BucketPublicAccess(TypedDict, closed=True):
     effective_permission: NotRequired[
         "aws_sdk_macie2.types.effective_permission.EffectivePermission"
     ]

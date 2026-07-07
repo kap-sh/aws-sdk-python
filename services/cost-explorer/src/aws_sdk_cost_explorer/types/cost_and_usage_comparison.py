@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#CostAndUsageComparison``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.comparison_metrics
     import aws_sdk_cost_explorer.types.expression
 
 
-class CostAndUsageComparison(TypedDict):
+class CostAndUsageComparison(TypedDict, closed=True):
     cost_and_usage_selector: NotRequired[
         "aws_sdk_cost_explorer.types.expression.Expression"
     ]

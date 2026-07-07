@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#DataFormatConversionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.boolean_object
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.schema_configuration
 
 
-class DataFormatConversionConfiguration(TypedDict):
+class DataFormatConversionConfiguration(TypedDict, closed=True):
     schema_configuration: NotRequired[
         "aws_sdk_firehose.types.schema_configuration.SchemaConfiguration"
     ]

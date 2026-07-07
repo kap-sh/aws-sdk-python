@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ApplicationSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
 
 
-class ApplicationSettingsResponse(TypedDict):
+class ApplicationSettingsResponse(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_appstream.types.boolean.Boolean"]
     """<p>Specifies whether persistent application settings are enabled for users during their streaming sessions.</p>"""
     settings_group: NotRequired["aws_sdk_appstream.types.settings_group.SettingsGroup"]

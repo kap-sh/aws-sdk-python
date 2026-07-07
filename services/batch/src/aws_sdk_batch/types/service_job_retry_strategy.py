@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ServiceJobRetryStrategy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
     import aws_sdk_batch.types.service_job_evaluate_on_exit_list
 
 
-class ServiceJobRetryStrategy(TypedDict):
+class ServiceJobRetryStrategy(TypedDict, closed=True):
     attempts: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The number of times to move a service job to <code>RUNNABLE</code> status. You can specify between 1 and 10 attempts.</p>"""
     evaluate_on_exit: NotRequired[

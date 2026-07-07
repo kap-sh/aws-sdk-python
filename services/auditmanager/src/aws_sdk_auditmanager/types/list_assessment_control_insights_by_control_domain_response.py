@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ListAssessmentControlInsightsByControlDomainResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.control_insights_metadata_by_assessment
     import aws_sdk_auditmanager.types.token
 
 
-class ListAssessmentControlInsightsByControlDomainResponse(TypedDict):
+class ListAssessmentControlInsightsByControlDomainResponse(TypedDict, closed=True):
     control_insights_by_assessment: NotRequired[
         "aws_sdk_auditmanager.types.control_insights_metadata_by_assessment.ControlInsightsMetadataByAssessment"
     ]

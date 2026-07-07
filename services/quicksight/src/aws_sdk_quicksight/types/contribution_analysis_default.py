@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ContributionAnalysisDefault``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.field_id
 
 
-class ContributionAnalysisDefault(TypedDict):
+class ContributionAnalysisDefault(TypedDict, closed=True):
     measure_field_id: "aws_sdk_quicksight.types.field_id.FieldId"
     """<p>The measure field that is used in the contribution analysis.</p>"""
     contributor_dimensions: (

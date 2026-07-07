@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#CustomerProfilesMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CustomerProfilesMetadata(TypedDict):
+class CustomerProfilesMetadata(TypedDict, closed=True):
     pass
 
 

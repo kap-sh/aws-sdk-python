@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#IamAuthenticationMethod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.actor_policy_document
 
 
-class IamAuthenticationMethod(TypedDict):
+class IamAuthenticationMethod(TypedDict, closed=True):
     actor_policy: "aws_sdk_sso_admin.types.actor_policy_document.ActorPolicyDocument"
     """<p>An IAM policy document in JSON.</p>"""
 

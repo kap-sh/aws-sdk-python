@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#TriggerCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.alarm_condition
 
 
-class TriggerCondition(TypedDict):
+class TriggerCondition(TypedDict, closed=True):
     associated_alarm_name: "str"
     """<p>The name of the CloudWatch alarm associated with the condition.</p>"""
     condition: "aws_sdk_arc_region_switch.types.alarm_condition.AlarmCondition"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#GetWorkUnitResultsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.synthetic_get_work_unit_results_request_work_unit_token_string
 
 
-class GetWorkUnitResultsRequest(TypedDict):
+class GetWorkUnitResultsRequest(TypedDict, closed=True):
     query_id: "aws_sdk_lakeformation.types.get_work_unit_results_request_query_id_string.GetWorkUnitResultsRequestQueryIdString"
     """<p>The ID of the plan query operation for which to get results.</p>"""
     work_unit_id: "aws_sdk_lakeformation.types.get_work_unit_results_request_work_unit_id_long.GetWorkUnitResultsRequestWorkUnitIdLong"

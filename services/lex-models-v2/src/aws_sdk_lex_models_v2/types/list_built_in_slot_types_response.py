@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListBuiltInSlotTypesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.built_in_slot_type_summary_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.next_token
 
 
-class ListBuiltInSlotTypesResponse(TypedDict):
+class ListBuiltInSlotTypesResponse(TypedDict, closed=True):
     built_in_slot_type_summaries: NotRequired[
         "aws_sdk_lex_models_v2.types.built_in_slot_type_summary_list.BuiltInSlotTypeSummaryList"
     ]

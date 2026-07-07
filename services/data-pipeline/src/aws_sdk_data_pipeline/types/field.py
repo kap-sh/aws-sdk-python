@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#Field``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_data_pipeline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.field_string_value
 
 
-class Field(TypedDict):
+class Field(TypedDict, closed=True):
     key: "aws_sdk_data_pipeline.types.field_name_string.fieldNameString"
     """<p>The field identifier.</p>"""
     string_value: NotRequired[

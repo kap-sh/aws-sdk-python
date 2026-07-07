@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MonitoringParquetDatasetFormat``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class MonitoringParquetDatasetFormat(TypedDict):
+class MonitoringParquetDatasetFormat(TypedDict, closed=True):
     pass
 
 

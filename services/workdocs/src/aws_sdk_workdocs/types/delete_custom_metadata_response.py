@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#DeleteCustomMetadataResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCustomMetadataResponse(TypedDict):
+class DeleteCustomMetadataResponse(TypedDict, closed=True):
     pass
 
 

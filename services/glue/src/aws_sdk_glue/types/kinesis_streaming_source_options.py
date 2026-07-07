@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#KinesisStreamingSourceOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boxed_boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.starting_position
 
 
-class KinesisStreamingSourceOptions(TypedDict):
+class KinesisStreamingSourceOptions(TypedDict, closed=True):
     endpoint_url: NotRequired[
         "aws_sdk_glue.types.enclosed_in_string_property.EnclosedInStringProperty"
     ]

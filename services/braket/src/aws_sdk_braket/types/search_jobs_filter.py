@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#SearchJobsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.string256_list
 
 
-class SearchJobsFilter(TypedDict):
+class SearchJobsFilter(TypedDict, closed=True):
     name: "aws_sdk_braket.types.string64.String64"
     """<p>The name of the hybrid job parameter to filter based on. Filter name can be either <code>jobArn</code> or <code>createdAt</code>. </p>"""
     values: "aws_sdk_braket.types.string256_list.String256List"

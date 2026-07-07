@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CaCertificatesBundleSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError, SerializationError
@@ -9,7 +11,9 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.ca_certificates_bundle_s3_location
 
 
-class _CaCertificatesBundleSource_CaCertificatesBundleS3Location(TypedDict):
+class _CaCertificatesBundleSource_CaCertificatesBundleS3Location(
+    TypedDict, closed=True
+):
     CaCertificatesBundleS3Location: "aws_sdk_cloudfront.types.ca_certificates_bundle_s3_location.CaCertificatesBundleS3Location"
 
 

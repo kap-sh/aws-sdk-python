@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#CreateKxDatabaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.database_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.timestamp
 
 
-class CreateKxDatabaseResponse(TypedDict):
+class CreateKxDatabaseResponse(TypedDict, closed=True):
     database_name: NotRequired["aws_sdk_finspace.types.database_name.DatabaseName"]
     """<p>The name of the kdb database.</p>"""
     database_arn: NotRequired["aws_sdk_finspace.types.database_arn.DatabaseArn"]

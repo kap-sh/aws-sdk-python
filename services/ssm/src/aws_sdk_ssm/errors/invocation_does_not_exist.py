@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InvocationDoesNotExist``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
 
-class InvocationDoesNotExist_(TypedDict):
+class InvocationDoesNotExist_(TypedDict, closed=True):
     pass
 
 

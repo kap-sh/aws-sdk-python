@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FormatConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.date_time_format_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string_format_configuration
 
 
-class FormatConfiguration(TypedDict):
+class FormatConfiguration(TypedDict, closed=True):
     string_format_configuration: NotRequired[
         "aws_sdk_quicksight.types.string_format_configuration.StringFormatConfiguration"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#GetCachePolicyResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class GetCachePolicyResult(TypedDict):
+class GetCachePolicyResult(TypedDict, closed=True):
     cache_policy: NotRequired["aws_sdk_cloudfront.types.cache_policy.CachePolicy"]
     """<p>The cache policy.</p>"""
     e_tag: NotRequired["aws_sdk_cloudfront.types.string.string"]

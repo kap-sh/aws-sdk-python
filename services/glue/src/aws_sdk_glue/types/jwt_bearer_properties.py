@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#JWTBearerProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connector_property
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.http_method
 
 
-class JWTBearerProperties(TypedDict):
+class JWTBearerProperties(TypedDict, closed=True):
     token_url: NotRequired["aws_sdk_glue.types.connector_property.ConnectorProperty"]
     """<p>The token endpoint URL where the JWT bearer token will be exchanged for an access token.</p>"""
     request_method: NotRequired["aws_sdk_glue.types.http_method.HTTPMethod"]

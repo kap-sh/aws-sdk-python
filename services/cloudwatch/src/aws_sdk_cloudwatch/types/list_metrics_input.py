@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#ListMetricsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.recently_active
 
 
-class ListMetricsInput(TypedDict):
+class ListMetricsInput(TypedDict, closed=True):
     namespace: NotRequired["aws_sdk_cloudwatch.types.namespace.Namespace"]
     """<p>The metric namespace to filter against. Only the namespace that matches exactly will be returned.</p>"""
     metric_name: NotRequired["aws_sdk_cloudwatch.types.metric_name.MetricName"]

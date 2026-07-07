@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#PolicyQualifierInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.qualifier
 
 
-class PolicyQualifierInfo(TypedDict):
+class PolicyQualifierInfo(TypedDict, closed=True):
     policy_qualifier_id: "aws_sdk_acm_pca.types.policy_qualifier_id.PolicyQualifierId"
     """<p>Identifies the qualifier modifying a <code>CertPolicyId</code>.</p>"""
     qualifier: "aws_sdk_acm_pca.types.qualifier.Qualifier"

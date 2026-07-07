@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateAddonResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.update
 
 
-class UpdateAddonResponse(TypedDict):
+class UpdateAddonResponse(TypedDict, closed=True):
     update: NotRequired["aws_sdk_eks.types.update.Update"]
 
 

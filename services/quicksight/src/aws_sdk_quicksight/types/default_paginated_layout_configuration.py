@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultPaginatedLayoutConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.default_section_based_layout_configuration
 
 
-class DefaultPaginatedLayoutConfiguration(TypedDict):
+class DefaultPaginatedLayoutConfiguration(TypedDict, closed=True):
     section_based: NotRequired[
         "aws_sdk_quicksight.types.default_section_based_layout_configuration.DefaultSectionBasedLayoutConfiguration"
     ]

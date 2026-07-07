@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#PutPartnerEventsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.integer
     import aws_sdk_eventbridge.types.put_partner_events_result_entry_list
 
 
-class PutPartnerEventsResponse(TypedDict):
+class PutPartnerEventsResponse(TypedDict, closed=True):
     failed_entry_count: "aws_sdk_eventbridge.types.integer.Integer"
     """<p>The number of events from this operation that could not be written to the partner event bus.</p>"""
     entries: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#ModifyDBParameterGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.string
 
 
-class ModifyDBParameterGroupMessage(TypedDict):
+class ModifyDBParameterGroupMessage(TypedDict, closed=True):
     db_parameter_group_name: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>"""
     parameters: NotRequired["aws_sdk_neptune.types.parameters_list.ParametersList"]

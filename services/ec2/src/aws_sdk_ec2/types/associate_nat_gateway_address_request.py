@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AssociateNatGatewayAddressRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.nat_gateway_id
 
 
-class AssociateNatGatewayAddressRequest(TypedDict):
+class AssociateNatGatewayAddressRequest(TypedDict, closed=True):
     nat_gateway_id: NotRequired["aws_sdk_ec2.types.nat_gateway_id.NatGatewayId"]
     """<p>The ID of the NAT gateway.</p>"""
     allocation_ids: NotRequired["aws_sdk_ec2.types.allocation_id_list.AllocationIdList"]

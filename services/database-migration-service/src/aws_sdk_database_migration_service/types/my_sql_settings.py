@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#MySQLSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.boolean_optional
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.target_db_type
 
 
-class MySQLSettings(TypedDict):
+class MySQLSettings(TypedDict, closed=True):
     after_connect_script: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

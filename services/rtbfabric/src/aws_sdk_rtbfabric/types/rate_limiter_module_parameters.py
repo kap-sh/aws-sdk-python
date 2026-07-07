@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#RateLimiterModuleParameters``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RateLimiterModuleParameters(TypedDict):
+class RateLimiterModuleParameters(TypedDict, closed=True):
     tps: NotRequired["float"]
     """<p>The transactions per second rate limit.</p>"""
 

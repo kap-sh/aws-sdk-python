@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#HierarchyGroups``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_hierarchy_group
 
 
-class HierarchyGroups(TypedDict):
+class HierarchyGroups(TypedDict, closed=True):
     level1: NotRequired[
         "aws_sdk_connect.types.agent_hierarchy_group.AgentHierarchyGroup"
     ]

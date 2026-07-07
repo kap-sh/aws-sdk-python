@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#EndpointEventBus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.non_partner_event_bus_arn
 
 
-class EndpointEventBus(TypedDict):
+class EndpointEventBus(TypedDict, closed=True):
     event_bus_arn: (
         "aws_sdk_eventbridge.types.non_partner_event_bus_arn.NonPartnerEventBusArn"
     )

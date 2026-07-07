@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetAccountSummaryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.summary_map_type
 
 
-class GetAccountSummaryResponse(TypedDict):
+class GetAccountSummaryResponse(TypedDict, closed=True):
     summary_map: NotRequired["aws_sdk_iam.types.summary_map_type.summaryMapType"]
     """<p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>"""
 

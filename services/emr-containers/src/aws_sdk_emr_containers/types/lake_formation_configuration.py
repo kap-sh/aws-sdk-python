@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#LakeFormationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.iam_role_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.session_tag_value
 
 
-class LakeFormationConfiguration(TypedDict):
+class LakeFormationConfiguration(TypedDict, closed=True):
     authorized_session_tag_value: NotRequired[
         "aws_sdk_emr_containers.types.session_tag_value.SessionTagValue"
     ]

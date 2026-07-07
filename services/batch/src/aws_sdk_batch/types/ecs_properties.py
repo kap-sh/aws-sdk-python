@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EcsProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.list_ecs_task_properties
 
 
-class EcsProperties(TypedDict):
+class EcsProperties(TypedDict, closed=True):
     task_properties: NotRequired[
         "aws_sdk_batch.types.list_ecs_task_properties.ListEcsTaskProperties"
     ]

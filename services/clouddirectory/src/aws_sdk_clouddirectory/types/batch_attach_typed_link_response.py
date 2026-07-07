@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchAttachTypedLinkResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.typed_link_specifier
 
 
-class BatchAttachTypedLinkResponse(TypedDict):
+class BatchAttachTypedLinkResponse(TypedDict, closed=True):
     typed_link_specifier: NotRequired[
         "aws_sdk_clouddirectory.types.typed_link_specifier.TypedLinkSpecifier"
     ]

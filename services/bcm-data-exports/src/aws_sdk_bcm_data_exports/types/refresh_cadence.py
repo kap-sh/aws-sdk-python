@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#RefreshCadence``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_data_exports.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.frequency_option
 
 
-class RefreshCadence(TypedDict):
+class RefreshCadence(TypedDict, closed=True):
     frequency: "aws_sdk_bcm_data_exports.types.frequency_option.FrequencyOption"
     """<p>The frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily.</p>"""
 

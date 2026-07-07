@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DeleteEventSubscriptionMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class DeleteEventSubscriptionMessage(TypedDict):
+class DeleteEventSubscriptionMessage(TypedDict, closed=True):
     subscription_name: "aws_sdk_database_migration_service.types.string.String"
     """<p>The name of the DMS event notification subscription to be deleted.</p>"""
 

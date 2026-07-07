@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#StartReportCreationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartReportCreationOutput(TypedDict):
+class StartReportCreationOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#EphemerisTypeDescription``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError, SerializationError
 
@@ -8,15 +10,15 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.ephemeris_description
 
 
-class _EphemerisTypeDescription_tle(TypedDict):
+class _EphemerisTypeDescription_tle(TypedDict, closed=True):
     tle: "aws_sdk_groundstation.types.ephemeris_description.EphemerisDescription"
 
 
-class _EphemerisTypeDescription_oem(TypedDict):
+class _EphemerisTypeDescription_oem(TypedDict, closed=True):
     oem: "aws_sdk_groundstation.types.ephemeris_description.EphemerisDescription"
 
 
-class _EphemerisTypeDescription_azEl(TypedDict):
+class _EphemerisTypeDescription_azEl(TypedDict, closed=True):
     azEl: "aws_sdk_groundstation.types.ephemeris_description.EphemerisDescription"
 
 

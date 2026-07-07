@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#PutPortalProductSharingPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutPortalProductSharingPolicyResponse(TypedDict):
+class PutPortalProductSharingPolicyResponse(TypedDict, closed=True):
     pass
 
 

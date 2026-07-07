@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#Challenge``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_scep.types.sensitive_string
 
 
-class Challenge(TypedDict):
+class Challenge(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_pca_connector_scep.types.challenge_arn.ChallengeArn"]
     """<p>The Amazon Resource Name (ARN) of the challenge.</p>"""
     connector_arn: NotRequired[

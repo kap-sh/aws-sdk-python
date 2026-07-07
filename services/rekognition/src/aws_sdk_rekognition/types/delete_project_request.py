@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DeleteProjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.project_arn
 
 
-class DeleteProjectRequest(TypedDict):
+class DeleteProjectRequest(TypedDict, closed=True):
     project_arn: "aws_sdk_rekognition.types.project_arn.ProjectArn"
     """<p>The Amazon Resource Name (ARN) of the project that you want to delete.</p>"""
 

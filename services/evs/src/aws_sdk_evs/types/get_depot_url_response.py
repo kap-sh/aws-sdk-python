@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.evs#GetDepotUrlResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
 
-class GetDepotUrlResponse(TypedDict):
+class GetDepotUrlResponse(TypedDict, closed=True):
     depot_url: "str"
     """<p>The URL for accessing the Amazon EVS Custom Addon depot. This URL includes the authentication token as a path component.</p>"""
     token: "str"

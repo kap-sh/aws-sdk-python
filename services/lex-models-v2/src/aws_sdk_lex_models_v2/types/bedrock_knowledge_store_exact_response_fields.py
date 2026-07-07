@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BedrockKnowledgeStoreExactResponseFields``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.answer_field
 
 
-class BedrockKnowledgeStoreExactResponseFields(TypedDict):
+class BedrockKnowledgeStoreExactResponseFields(TypedDict, closed=True):
     answer_field: NotRequired["aws_sdk_lex_models_v2.types.answer_field.AnswerField"]
     """<p>The answer field used for an exact response from Bedrock Knowledge Store.</p>"""
 

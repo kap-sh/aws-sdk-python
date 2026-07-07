@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#RealtimeEndpointInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.epoch_time
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.vip_url
 
 
-class RealtimeEndpointInfo(TypedDict):
+class RealtimeEndpointInfo(TypedDict, closed=True):
     peak_requests_per_second: "aws_sdk_machine_learning.types.integer_type.IntegerType"
     """<p> The maximum processing rate for the real-time endpoint for <code>MLModel</code>, measured in incoming requests per second.</p>"""
     created_at: NotRequired["aws_sdk_machine_learning.types.epoch_time.EpochTime"]

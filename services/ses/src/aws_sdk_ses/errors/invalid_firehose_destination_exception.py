@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#InvalidFirehoseDestinationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import ServiceError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.event_destination_name
 
 
-class InvalidFirehoseDestinationException_(TypedDict):
+class InvalidFirehoseDestinationException_(TypedDict, closed=True):
     configuration_set_name: NotRequired[
         "aws_sdk_ses.types.configuration_set_name.ConfigurationSetName"
     ]

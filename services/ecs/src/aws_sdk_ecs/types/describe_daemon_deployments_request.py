@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DescribeDaemonDeploymentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string_list
 
 
-class DescribeDaemonDeploymentsRequest(TypedDict):
+class DescribeDaemonDeploymentsRequest(TypedDict, closed=True):
     daemon_deployment_arns: "aws_sdk_ecs.types.string_list.StringList"
     """<p>The ARN of the daemon deployments to describe. You can specify up to 20 ARNs.</p>"""
 

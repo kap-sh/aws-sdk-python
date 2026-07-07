@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#AutonomousDatabaseBackup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id
 
 
-class AutonomousDatabaseBackup(TypedDict):
+class AutonomousDatabaseBackup(TypedDict, closed=True):
     autonomous_database_backup_id: NotRequired[
         "aws_sdk_odb.types.resource_id.ResourceId"
     ]

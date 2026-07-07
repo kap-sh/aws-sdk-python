@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacemetering#MeterUsageResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_metering.types.string
 
 
-class MeterUsageResult(TypedDict):
+class MeterUsageResult(TypedDict, closed=True):
     metering_record_id: NotRequired["aws_sdk_marketplace_metering.types.string.String"]
     """<p>Metering record id.</p>"""
 

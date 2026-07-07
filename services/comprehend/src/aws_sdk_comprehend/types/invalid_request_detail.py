@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#InvalidRequestDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.invalid_request_detail_reason
 
 
-class InvalidRequestDetail(TypedDict):
+class InvalidRequestDetail(TypedDict, closed=True):
     reason: NotRequired[
         "aws_sdk_comprehend.types.invalid_request_detail_reason.InvalidRequestDetailReason"
     ]

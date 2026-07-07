@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BuildBotLocaleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.draft_bot_version
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.locale_id
 
 
-class BuildBotLocaleRequest(TypedDict):
+class BuildBotLocaleRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     r"""<p>The identifier of the bot to build. The identifier is returned in the response from the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBot.html\">CreateBot</a> operation.</p>"""
     bot_version: "aws_sdk_lex_models_v2.types.draft_bot_version.DraftBotVersion"

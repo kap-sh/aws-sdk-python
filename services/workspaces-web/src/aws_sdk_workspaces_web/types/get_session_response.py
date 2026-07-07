@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#GetSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.session
 
 
-class GetSessionResponse(TypedDict):
+class GetSessionResponse(TypedDict, closed=True):
     session: NotRequired["aws_sdk_workspaces_web.types.session.Session"]
     """<p>The sessions in a list.</p>"""
 

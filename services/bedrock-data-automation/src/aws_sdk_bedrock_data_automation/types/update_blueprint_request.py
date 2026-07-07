@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#UpdateBlueprintRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.encryption_configuration
 
 
-class UpdateBlueprintRequest(TypedDict):
+class UpdateBlueprintRequest(TypedDict, closed=True):
     blueprint_arn: "aws_sdk_bedrock_data_automation.types.blueprint_arn.BlueprintArn"
     """ARN generated at the server side when a Blueprint is created"""
     schema: "aws_sdk_bedrock_data_automation.types.blueprint_schema.BlueprintSchema"

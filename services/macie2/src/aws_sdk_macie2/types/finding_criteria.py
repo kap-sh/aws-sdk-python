@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#FindingCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.criterion
 
 
-class FindingCriteria(TypedDict):
+class FindingCriteria(TypedDict, closed=True):
     criterion: NotRequired["aws_sdk_macie2.types.criterion.Criterion"]
     """<p>A condition that specifies the property, operator, and one or more values to use to filter the results.</p>"""
 

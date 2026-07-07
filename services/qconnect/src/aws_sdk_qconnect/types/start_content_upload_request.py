@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#StartContentUploadRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid_or_arn
 
 
-class StartContentUploadRequest(TypedDict):
+class StartContentUploadRequest(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>"""
     content_type: "aws_sdk_qconnect.types.content_type.ContentType"

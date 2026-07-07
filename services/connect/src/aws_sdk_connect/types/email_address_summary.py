@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EmailAddressSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.email_address_id
 
 
-class EmailAddressSummary(TypedDict):
+class EmailAddressSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.email_address_id.EmailAddressId"]
     """<p>The unique identifier of the email address associated with the queue.</p>"""
     arn: NotRequired["aws_sdk_connect.types.email_address_arn.EmailAddressArn"]

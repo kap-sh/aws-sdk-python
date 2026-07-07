@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#DisruptionCompliance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string500
 
 
-class DisruptionCompliance(TypedDict):
+class DisruptionCompliance(TypedDict, closed=True):
     achievable_rto_in_secs: "aws_sdk_resiliencehub.types.seconds.Seconds"
     """<p>The Recovery Time Objective (RTO) that is achievable, in seconds</p>"""
     current_rto_in_secs: "aws_sdk_resiliencehub.types.seconds.Seconds"

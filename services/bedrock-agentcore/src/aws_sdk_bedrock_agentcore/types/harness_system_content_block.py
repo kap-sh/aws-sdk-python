@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessSystemContentBlock``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.sensitive_text
 
 
-class _HarnessSystemContentBlock_text(TypedDict):
+class _HarnessSystemContentBlock_text(TypedDict, closed=True):
     text: "aws_sdk_bedrock_agentcore.types.sensitive_text.SensitiveText"
 
 

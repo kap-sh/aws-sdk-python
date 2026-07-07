@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeDefaultAuthorizerRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeDefaultAuthorizerRequest(TypedDict):
+class DescribeDefaultAuthorizerRequest(TypedDict, closed=True):
     pass
 
 

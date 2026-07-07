@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#UsageCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.account_ids
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.usage_feature_list
 
 
-class UsageCriteria(TypedDict):
+class UsageCriteria(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_guardduty.types.account_ids.AccountIds"]
     """<p>The account IDs to aggregate usage statistics from.</p>"""
     data_sources: NotRequired["aws_sdk_guardduty.types.data_source_list.DataSourceList"]

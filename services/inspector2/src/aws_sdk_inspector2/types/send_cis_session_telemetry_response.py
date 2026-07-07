@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#SendCisSessionTelemetryResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SendCisSessionTelemetryResponse(TypedDict):
+class SendCisSessionTelemetryResponse(TypedDict, closed=True):
     pass
 
 

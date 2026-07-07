@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#RunDetailSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.timestamp_value
     import aws_sdk_mwaa_serverless.types.workflow_run_status
 
 
-class RunDetailSummary(TypedDict):
+class RunDetailSummary(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_mwaa_serverless.types.workflow_run_status.WorkflowRunStatus"
     ]

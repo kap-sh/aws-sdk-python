@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SnapshotFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.snapshot_file_sheet_selection_list
 
 
-class SnapshotFile(TypedDict):
+class SnapshotFile(TypedDict, closed=True):
     sheet_selections: "aws_sdk_quicksight.types.snapshot_file_sheet_selection_list.SnapshotFileSheetSelectionList"
     """<p>A list of <code>SnapshotFileSheetSelection</code> objects that contain information on the dashboard sheet that is exported. These objects provide information about the snapshot artifacts that are generated during the job. This structure can hold a maximum of 5 CSV configurations, 5 Excel configurations, or 1 configuration for PDF.</p>"""
     format_type: (

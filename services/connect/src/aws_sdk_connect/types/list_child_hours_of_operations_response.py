@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListChildHoursOfOperationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.child_hours_of_operations_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class ListChildHoursOfOperationsResponse(TypedDict):
+class ListChildHoursOfOperationsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]
     """<p>If there are additional results, this is the token for the next set of results.</p>"""
     child_hours_of_operations_summary_list: NotRequired[

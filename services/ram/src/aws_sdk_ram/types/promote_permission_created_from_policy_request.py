@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#PromotePermissionCreatedFromPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ram.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class PromotePermissionCreatedFromPolicyRequest(TypedDict):
+class PromotePermissionCreatedFromPolicyRequest(TypedDict, closed=True):
     permission_arn: "aws_sdk_ram.types.string.String"
     r"""<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the <code>CREATED_FROM_POLICY</code> permission that you want to promote. You can get this <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> by calling the <a>ListResourceSharePermissions</a> operation.</p>"""
     name: "aws_sdk_ram.types.string.String"

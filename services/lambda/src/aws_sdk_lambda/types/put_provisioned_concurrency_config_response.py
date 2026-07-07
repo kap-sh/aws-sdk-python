@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#PutProvisionedConcurrencyConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.non_negative_integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.timestamp
 
 
-class PutProvisionedConcurrencyConfigResponse(TypedDict):
+class PutProvisionedConcurrencyConfigResponse(TypedDict, closed=True):
     requested_provisioned_concurrent_executions: NotRequired[
         "aws_sdk_lambda.types.positive_integer.PositiveInteger"
     ]

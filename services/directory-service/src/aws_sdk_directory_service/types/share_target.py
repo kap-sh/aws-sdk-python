@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#ShareTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.target_type
 
 
-class ShareTarget(TypedDict):
+class ShareTarget(TypedDict, closed=True):
     id: "aws_sdk_directory_service.types.target_id.TargetId"
     """<p>Identifier of the directory consumer account.</p>"""
     type: "aws_sdk_directory_service.types.target_type.TargetType"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DataAutomationLibraryEntitySummary``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.vocabulary_entity_summary
 
 
-class _DataAutomationLibraryEntitySummary_vocabulary(TypedDict):
+class _DataAutomationLibraryEntitySummary_vocabulary(TypedDict, closed=True):
     vocabulary: "aws_sdk_bedrock_data_automation.types.vocabulary_entity_summary.VocabularyEntitySummary"
 
 

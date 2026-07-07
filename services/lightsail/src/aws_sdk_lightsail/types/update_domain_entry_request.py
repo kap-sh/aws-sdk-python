@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#UpdateDomainEntryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.domain_name
 
 
-class UpdateDomainEntryRequest(TypedDict):
+class UpdateDomainEntryRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_lightsail.types.domain_name.DomainName"
     """<p>The name of the domain recordset to update.</p>"""
     domain_entry: "aws_sdk_lightsail.types.domain_entry.DomainEntry"

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.evs#GetEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_evs.types.environment_id
 
 
-class GetEnvironmentRequest(TypedDict):
+class GetEnvironmentRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId"
     """<p>A unique ID for the environment.</p>"""
 

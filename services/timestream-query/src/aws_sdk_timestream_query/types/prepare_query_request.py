@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#PrepareQueryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.query_string
 
 
-class PrepareQueryRequest(TypedDict):
+class PrepareQueryRequest(TypedDict, closed=True):
     query_string: "aws_sdk_timestream_query.types.query_string.QueryString"
     """<p>The Timestream query string that you want to use as a prepared statement. Parameter names can be specified in the query string <code>@</code> character followed by an identifier. </p>"""
     validate_only: NotRequired[

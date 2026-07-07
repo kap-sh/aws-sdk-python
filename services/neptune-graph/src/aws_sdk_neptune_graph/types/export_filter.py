@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#ExportFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.export_filter_per_label_map
 
 
-class ExportFilter(TypedDict):
+class ExportFilter(TypedDict, closed=True):
     vertex_filter: NotRequired[
         "aws_sdk_neptune_graph.types.export_filter_per_label_map.ExportFilterPerLabelMap"
     ]

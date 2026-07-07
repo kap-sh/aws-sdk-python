@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#UpdateCaseStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.self_managed_case_status
 
 
-class UpdateCaseStatusResponse(TypedDict):
+class UpdateCaseStatusResponse(TypedDict, closed=True):
     case_status: NotRequired[
         "aws_sdk_security_ir.types.self_managed_case_status.SelfManagedCaseStatus"
     ]

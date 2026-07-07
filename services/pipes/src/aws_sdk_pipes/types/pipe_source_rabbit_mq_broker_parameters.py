@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeSourceRabbitMQBrokerParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.uri
 
 
-class PipeSourceRabbitMQBrokerParameters(TypedDict):
+class PipeSourceRabbitMQBrokerParameters(TypedDict, closed=True):
     credentials: (
         "aws_sdk_pipes.types.mq_broker_access_credentials.MQBrokerAccessCredentials"
     )

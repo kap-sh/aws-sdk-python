@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FontSize``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pixel_length
     import aws_sdk_quicksight.types.relative_font_size
 
 
-class FontSize(TypedDict):
+class FontSize(TypedDict, closed=True):
     relative: NotRequired[
         "aws_sdk_quicksight.types.relative_font_size.RelativeFontSize"
     ]

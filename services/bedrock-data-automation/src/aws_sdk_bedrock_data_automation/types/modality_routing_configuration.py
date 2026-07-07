@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#ModalityRoutingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.desired_modality
 
 
-class ModalityRoutingConfiguration(TypedDict):
+class ModalityRoutingConfiguration(TypedDict, closed=True):
     jpeg: NotRequired[
         "aws_sdk_bedrock_data_automation.types.desired_modality.DesiredModality"
     ]

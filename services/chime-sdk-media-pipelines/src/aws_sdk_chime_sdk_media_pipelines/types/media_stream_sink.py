@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#MediaStreamSink``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.reserved_stream_capacity
 
 
-class MediaStreamSink(TypedDict):
+class MediaStreamSink(TypedDict, closed=True):
     sink_arn: "aws_sdk_chime_sdk_media_pipelines.types.arn.Arn"
     """<p>The ARN of the Kinesis Video Stream pool returned by the <a>CreateMediaPipelineKinesisVideoStreamPool</a> API.</p>"""
     sink_type: "aws_sdk_chime_sdk_media_pipelines.types.media_stream_pipeline_sink_type.MediaStreamPipelineSinkType"

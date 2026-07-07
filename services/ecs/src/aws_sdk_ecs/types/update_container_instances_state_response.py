@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#UpdateContainerInstancesStateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.container_instances
     import aws_sdk_ecs.types.failures
 
 
-class UpdateContainerInstancesStateResponse(TypedDict):
+class UpdateContainerInstancesStateResponse(TypedDict, closed=True):
     container_instances: NotRequired[
         "aws_sdk_ecs.types.container_instances.ContainerInstances"
     ]

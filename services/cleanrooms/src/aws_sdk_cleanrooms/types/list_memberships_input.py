@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ListMembershipsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.pagination_token
 
 
-class ListMembershipsInput(TypedDict):
+class ListMembershipsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cleanrooms.types.pagination_token.PaginationToken"]
     """<p>The pagination token that's used to fetch the next set of results.</p>"""
     max_results: NotRequired["aws_sdk_cleanrooms.types.max_results.MaxResults"]

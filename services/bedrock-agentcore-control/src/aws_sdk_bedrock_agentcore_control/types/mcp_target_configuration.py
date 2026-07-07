@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#McpTargetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -14,11 +16,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.mcp_server_target_configuration
 
 
-class _McpTargetConfiguration_openApiSchema(TypedDict):
+class _McpTargetConfiguration_openApiSchema(TypedDict, closed=True):
     openApiSchema: "aws_sdk_bedrock_agentcore_control.types.api_schema_configuration.ApiSchemaConfiguration"
 
 
-class _McpTargetConfiguration_smithyModel(TypedDict):
+class _McpTargetConfiguration_smithyModel(TypedDict, closed=True):
     smithyModel: "aws_sdk_bedrock_agentcore_control.types.api_schema_configuration.ApiSchemaConfiguration"
 
 
@@ -27,14 +29,15 @@ _McpTargetConfiguration_lambda = TypedDict(
     {
         "lambda": "aws_sdk_bedrock_agentcore_control.types.mcp_lambda_target_configuration.McpLambdaTargetConfiguration",
     },
+    closed=True,
 )
 
 
-class _McpTargetConfiguration_mcpServer(TypedDict):
+class _McpTargetConfiguration_mcpServer(TypedDict, closed=True):
     mcpServer: "aws_sdk_bedrock_agentcore_control.types.mcp_server_target_configuration.McpServerTargetConfiguration"
 
 
-class _McpTargetConfiguration_apiGateway(TypedDict):
+class _McpTargetConfiguration_apiGateway(TypedDict, closed=True):
     apiGateway: "aws_sdk_bedrock_agentcore_control.types.api_gateway_target_configuration.ApiGatewayTargetConfiguration"
 
 

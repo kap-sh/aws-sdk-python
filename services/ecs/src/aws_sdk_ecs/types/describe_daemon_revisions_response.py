@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DescribeDaemonRevisionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.daemon_revisions
     import aws_sdk_ecs.types.failures
 
 
-class DescribeDaemonRevisionsResponse(TypedDict):
+class DescribeDaemonRevisionsResponse(TypedDict, closed=True):
     daemon_revisions: NotRequired["aws_sdk_ecs.types.daemon_revisions.DaemonRevisions"]
     """<p>The list of daemon revisions.</p>"""
     failures: NotRequired["aws_sdk_ecs.types.failures.Failures"]

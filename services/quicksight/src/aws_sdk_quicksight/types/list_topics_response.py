@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListTopicsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_summaries
 
 
-class ListTopicsResponse(TypedDict):
+class ListTopicsResponse(TypedDict, closed=True):
     topics_summaries: NotRequired[
         "aws_sdk_quicksight.types.topic_summaries.TopicSummaries"
     ]

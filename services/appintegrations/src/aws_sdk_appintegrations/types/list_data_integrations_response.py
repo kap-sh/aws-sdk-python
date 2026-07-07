@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#ListDataIntegrationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.data_integrations_list
     import aws_sdk_appintegrations.types.next_token
 
 
-class ListDataIntegrationsResponse(TypedDict):
+class ListDataIntegrationsResponse(TypedDict, closed=True):
     data_integrations: NotRequired[
         "aws_sdk_appintegrations.types.data_integrations_list.DataIntegrationsList"
     ]

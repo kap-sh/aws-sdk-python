@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#ListAgentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.agent_list
     import aws_sdk_datasync.types.next_token
 
 
-class ListAgentsResponse(TypedDict):
+class ListAgentsResponse(TypedDict, closed=True):
     agents: NotRequired["aws_sdk_datasync.types.agent_list.AgentList"]
     """<p>A list of DataSync agents in your Amazon Web Services account in the Amazon Web Services Region specified in the request. The list is ordered by the agents' Amazon Resource Names (ARNs).</p>"""
     next_token: NotRequired["aws_sdk_datasync.types.next_token.NextToken"]

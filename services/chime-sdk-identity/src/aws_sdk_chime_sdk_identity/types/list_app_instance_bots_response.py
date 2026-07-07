@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#ListAppInstanceBotsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.app_instance_bot_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.next_token
 
 
-class ListAppInstanceBotsResponse(TypedDict):
+class ListAppInstanceBotsResponse(TypedDict, closed=True):
     app_instance_arn: NotRequired["aws_sdk_chime_sdk_identity.types.chime_arn.ChimeArn"]
     """<p>The ARN of the AppInstance.</p>"""
     app_instance_bots: NotRequired[

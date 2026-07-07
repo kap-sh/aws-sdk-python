@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ImportAssetsFromRedshiftDataSharesRequestDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_redshift_data_share_asset_source_entry
 
 
-class ImportAssetsFromRedshiftDataSharesRequestDetails(TypedDict):
+class ImportAssetsFromRedshiftDataSharesRequestDetails(TypedDict, closed=True):
     asset_sources: "aws_sdk_dataexchange.types.list_of_redshift_data_share_asset_source_entry.ListOfRedshiftDataShareAssetSourceEntry"
     """<p>A list of Amazon Redshift datashare assets.</p>"""
     data_set_id: "aws_sdk_dataexchange.types.id.Id"

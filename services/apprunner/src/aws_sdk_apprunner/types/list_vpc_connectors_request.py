@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ListVpcConnectorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.max_results
     import aws_sdk_apprunner.types.next_token
 
 
-class ListVpcConnectorsRequest(TypedDict):
+class ListVpcConnectorsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_apprunner.types.max_results.MaxResults"]
     """<p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p> <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>"""
     next_token: NotRequired["aws_sdk_apprunner.types.next_token.NextToken"]

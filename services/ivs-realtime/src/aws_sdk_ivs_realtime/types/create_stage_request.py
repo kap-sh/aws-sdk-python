@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#CreateStageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.auto_participant_recording_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.tags
 
 
-class CreateStageRequest(TypedDict):
+class CreateStageRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ivs_realtime.types.stage_name.StageName"]
     """<p>Optional name that can be specified for the stage being created.</p>"""
     participant_token_configurations: NotRequired[

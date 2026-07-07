@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#RemoteAccountDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
     import aws_sdk_guardduty.types.string
 
 
-class RemoteAccountDetails(TypedDict):
+class RemoteAccountDetails(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The Amazon Web Services account ID of the remote API caller.</p>"""
     affiliated: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]

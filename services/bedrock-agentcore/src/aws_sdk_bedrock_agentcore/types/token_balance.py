@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#TokenBalance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.instrument_balance_token
 
 
-class TokenBalance(TypedDict):
+class TokenBalance(TypedDict, closed=True):
     amount: "str"
     """<p>Raw balance in the smallest denomination (e.g., USDC base units where 1 USDC = 1000000).</p>"""
     decimals: "int"

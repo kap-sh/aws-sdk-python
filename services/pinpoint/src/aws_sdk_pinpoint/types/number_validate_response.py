@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#NumberValidateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__integer
     import aws_sdk_pinpoint.types.__string
 
 
-class NumberValidateResponse(TypedDict):
+class NumberValidateResponse(TypedDict, closed=True):
     carrier: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The carrier or service provider that the phone number is currently registered with. In some countries and regions, this value may be the carrier or service provider that the phone number was originally registered with.</p>"""
     city: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

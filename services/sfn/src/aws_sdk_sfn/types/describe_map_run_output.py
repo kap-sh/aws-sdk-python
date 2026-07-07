@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#DescribeMapRunOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.tolerated_failure_percentage
 
 
-class DescribeMapRunOutput(TypedDict):
+class DescribeMapRunOutput(TypedDict, closed=True):
     map_run_arn: "aws_sdk_sfn.types.long_arn.LongArn"
     """<p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>"""
     execution_arn: "aws_sdk_sfn.types.arn.Arn"

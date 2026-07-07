@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessEnvironmentProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,9 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.harness_agent_core_runtime_environment_request
 
 
-class _HarnessEnvironmentProviderRequest_agentCoreRuntimeEnvironment(TypedDict):
+class _HarnessEnvironmentProviderRequest_agentCoreRuntimeEnvironment(
+    TypedDict, closed=True
+):
     agentCoreRuntimeEnvironment: "aws_sdk_bedrock_agentcore_control.types.harness_agent_core_runtime_environment_request.HarnessAgentCoreRuntimeEnvironmentRequest"
 
 

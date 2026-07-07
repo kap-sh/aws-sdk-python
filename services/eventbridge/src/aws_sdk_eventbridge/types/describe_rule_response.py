@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#DescribeRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.created_by
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.schedule_expression
 
 
-class DescribeRuleResponse(TypedDict):
+class DescribeRuleResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_eventbridge.types.rule_name.RuleName"]
     """<p>The name of the rule.</p>"""
     arn: NotRequired["aws_sdk_eventbridge.types.rule_arn.RuleArn"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#FirewallDomainList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.arn
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.unsigned
 
 
-class FirewallDomainList(TypedDict):
+class FirewallDomainList(TypedDict, closed=True):
     id: NotRequired["aws_sdk_route53resolver.types.resource_id.ResourceId"]
     """<p>The ID of the domain list. </p>"""
     arn: NotRequired["aws_sdk_route53resolver.types.arn.Arn"]

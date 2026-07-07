@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ResetJobBookmarkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.run_id
 
 
-class ResetJobBookmarkRequest(TypedDict):
+class ResetJobBookmarkRequest(TypedDict, closed=True):
     job_name: "aws_sdk_glue.types.job_name.JobName"
     """<p>The name of the job in question.</p>"""
     run_id: NotRequired["aws_sdk_glue.types.run_id.RunId"]

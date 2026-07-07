@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#SecurityGroupSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.permitted_networks_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.wickr_aws_networks_list
 
 
-class SecurityGroupSettingsRequest(TypedDict):
+class SecurityGroupSettingsRequest(TypedDict, closed=True):
     lockout_threshold: NotRequired["int"]
     """<p>The number of failed password attempts before a user account is locked out.</p>"""
     permitted_networks: NotRequired[

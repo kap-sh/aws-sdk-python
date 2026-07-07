@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#S3TablesParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.s3_table_bucket_arn
 
 
-class S3TablesParameters(TypedDict):
+class S3TablesParameters(TypedDict, closed=True):
     table_bucket_arn: NotRequired[
         "aws_sdk_quicksight.types.s3_table_bucket_arn.S3TableBucketArn"
     ]

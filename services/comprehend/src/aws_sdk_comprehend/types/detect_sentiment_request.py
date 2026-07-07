@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DetectSentimentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.language_code
 
 
-class DetectSentimentRequest(TypedDict):
+class DetectSentimentRequest(TypedDict, closed=True):
     text: "aws_sdk_comprehend.types.customer_input_string.CustomerInputString"
     """<p>A UTF-8 text string. The maximum string size is 5 KB.</p>"""
     language_code: "aws_sdk_comprehend.types.language_code.LanguageCode"

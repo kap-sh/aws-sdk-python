@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ReleaseSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.timestamp
     import aws_sdk_wafv2.types.version_key_string
 
 
-class ReleaseSummary(TypedDict):
+class ReleaseSummary(TypedDict, closed=True):
     release_version: NotRequired[
         "aws_sdk_wafv2.types.version_key_string.VersionKeyString"
     ]

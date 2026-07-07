@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRdsDbSecurityGroupDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_rds_db_security_group_ec2_security_groups
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsRdsDbSecurityGroupDetails(TypedDict):
+class AwsRdsDbSecurityGroupDetails(TypedDict, closed=True):
     db_security_group_arn: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

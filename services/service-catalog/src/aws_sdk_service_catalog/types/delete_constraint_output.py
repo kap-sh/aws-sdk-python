@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#DeleteConstraintOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteConstraintOutput(TypedDict):
+class DeleteConstraintOutput(TypedDict, closed=True):
     pass
 
 

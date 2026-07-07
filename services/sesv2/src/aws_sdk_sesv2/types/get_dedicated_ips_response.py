@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetDedicatedIpsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.dedicated_ip_list
     import aws_sdk_sesv2.types.next_token
 
 
-class GetDedicatedIpsResponse(TypedDict):
+class GetDedicatedIpsResponse(TypedDict, closed=True):
     dedicated_ips: NotRequired["aws_sdk_sesv2.types.dedicated_ip_list.DedicatedIpList"]
     """<p>A list of dedicated IP addresses that are associated with your Amazon Web Services account.</p>"""
     next_token: NotRequired["aws_sdk_sesv2.types.next_token.NextToken"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ScalingConstraints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.integer
 
 
-class ScalingConstraints(TypedDict):
+class ScalingConstraints(TypedDict, closed=True):
     min_capacity: NotRequired["aws_sdk_emr.types.integer.Integer"]
     """<p>The lower boundary of Amazon EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.</p>"""
     max_capacity: NotRequired["aws_sdk_emr.types.integer.Integer"]

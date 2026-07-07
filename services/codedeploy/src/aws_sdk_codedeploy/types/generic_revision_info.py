@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#GenericRevisionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.deployment_groups_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.timestamp
 
 
-class GenericRevisionInfo(TypedDict):
+class GenericRevisionInfo(TypedDict, closed=True):
     description: NotRequired["aws_sdk_codedeploy.types.description.Description"]
     """<p>A comment about the revision.</p>"""
     deployment_groups: NotRequired[

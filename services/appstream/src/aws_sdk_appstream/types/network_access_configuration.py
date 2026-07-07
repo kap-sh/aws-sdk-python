@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#NetworkAccessConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
     import aws_sdk_appstream.types.string_list
 
 
-class NetworkAccessConfiguration(TypedDict):
+class NetworkAccessConfiguration(TypedDict, closed=True):
     eni_private_ip_address: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>The private IP address of the elastic network interface that is attached to instances in your VPC.</p>"""
     eni_ipv6_addresses: NotRequired["aws_sdk_appstream.types.string_list.StringList"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#X509AttributeFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError, SerializationError
 
@@ -14,37 +16,37 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.timestamp_range
 
 
-class _X509AttributeFilter_Subject(TypedDict):
+class _X509AttributeFilter_Subject(TypedDict, closed=True):
     Subject: "aws_sdk_acm.types.subject_filter.SubjectFilter"
 
 
-class _X509AttributeFilter_SubjectAlternativeName(TypedDict):
+class _X509AttributeFilter_SubjectAlternativeName(TypedDict, closed=True):
     SubjectAlternativeName: (
         "aws_sdk_acm.types.subject_alternative_name_filter.SubjectAlternativeNameFilter"
     )
 
 
-class _X509AttributeFilter_ExtendedKeyUsage(TypedDict):
+class _X509AttributeFilter_ExtendedKeyUsage(TypedDict, closed=True):
     ExtendedKeyUsage: "aws_sdk_acm.types.extended_key_usage_name.ExtendedKeyUsageName"
 
 
-class _X509AttributeFilter_KeyUsage(TypedDict):
+class _X509AttributeFilter_KeyUsage(TypedDict, closed=True):
     KeyUsage: "aws_sdk_acm.types.key_usage_name.KeyUsageName"
 
 
-class _X509AttributeFilter_KeyAlgorithm(TypedDict):
+class _X509AttributeFilter_KeyAlgorithm(TypedDict, closed=True):
     KeyAlgorithm: "aws_sdk_acm.types.key_algorithm.KeyAlgorithm"
 
 
-class _X509AttributeFilter_SerialNumber(TypedDict):
+class _X509AttributeFilter_SerialNumber(TypedDict, closed=True):
     SerialNumber: "aws_sdk_acm.types.serial_number.SerialNumber"
 
 
-class _X509AttributeFilter_NotAfter(TypedDict):
+class _X509AttributeFilter_NotAfter(TypedDict, closed=True):
     NotAfter: "aws_sdk_acm.types.timestamp_range.TimestampRange"
 
 
-class _X509AttributeFilter_NotBefore(TypedDict):
+class _X509AttributeFilter_NotBefore(TypedDict, closed=True):
     NotBefore: "aws_sdk_acm.types.timestamp_range.TimestampRange"
 
 

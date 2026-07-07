@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CreateDBSubnetGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class CreateDBSubnetGroupMessage(TypedDict):
+class CreateDBSubnetGroupMessage(TypedDict, closed=True):
     db_subnet_group_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name for the DB subnet group. This value is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.</p> </li> <li> <p>Must not be default.</p> </li> <li> <p>First character must be a letter.</p> </li> </ul> <p>Example: <code>mydbsubnetgroup</code> </p>"""
     db_subnet_group_description: NotRequired["aws_sdk_rds.types.string.String"]

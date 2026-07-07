@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ListActorsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.pagination_token
 
 
-class ListActorsOutput(TypedDict):
+class ListActorsOutput(TypedDict, closed=True):
     actor_summaries: (
         "aws_sdk_bedrock_agentcore.types.actor_summary_list.ActorSummaryList"
     )

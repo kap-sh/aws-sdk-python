@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#RtmpCaptionInfoDestinationSettings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RtmpCaptionInfoDestinationSettings(TypedDict):
+class RtmpCaptionInfoDestinationSettings(TypedDict, closed=True):
     pass
 
 

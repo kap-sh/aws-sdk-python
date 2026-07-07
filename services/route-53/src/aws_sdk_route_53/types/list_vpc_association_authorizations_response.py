@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ListVPCAssociationAuthorizationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.vp_cs
 
 
-class ListVPCAssociationAuthorizationsResponse(TypedDict):
+class ListVPCAssociationAuthorizationsResponse(TypedDict, closed=True):
     hosted_zone_id: "aws_sdk_route_53.types.resource_id.ResourceId"
     """<p>The ID of the hosted zone that you can associate the listed VPCs with.</p>"""
     next_token: NotRequired["aws_sdk_route_53.types.pagination_token.PaginationToken"]

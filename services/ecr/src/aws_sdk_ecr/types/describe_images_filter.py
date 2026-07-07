@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#DescribeImagesFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_status_filter
     import aws_sdk_ecr.types.tag_status
 
 
-class DescribeImagesFilter(TypedDict):
+class DescribeImagesFilter(TypedDict, closed=True):
     tag_status: NotRequired["aws_sdk_ecr.types.tag_status.TagStatus"]
     """<p>The tag status with which to filter your <a>DescribeImages</a> results. You can filter results based on whether they are <code>TAGGED</code> or <code>UNTAGGED</code>.</p>"""
     image_status: NotRequired["aws_sdk_ecr.types.image_status_filter.ImageStatusFilter"]

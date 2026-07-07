@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#CreateFlowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.trigger_config
 
 
-class CreateFlowRequest(TypedDict):
+class CreateFlowRequest(TypedDict, closed=True):
     flow_name: "aws_sdk_appflow.types.flow_name.FlowName"
     """<p> The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only. </p>"""
     description: NotRequired["aws_sdk_appflow.types.flow_description.FlowDescription"]

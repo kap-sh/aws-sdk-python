@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#UpdatePullRequestApprovalStateInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.revision_id
 
 
-class UpdatePullRequestApprovalStateInput(TypedDict):
+class UpdatePullRequestApprovalStateInput(TypedDict, closed=True):
     pull_request_id: "aws_sdk_codecommit.types.pull_request_id.PullRequestId"
     """<p>The system-generated ID of the pull request.</p>"""
     revision_id: "aws_sdk_codecommit.types.revision_id.RevisionId"

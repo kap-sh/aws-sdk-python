@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AccountSharingInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.account_id
     import aws_sdk_ssm.types.shared_document_version
 
 
-class AccountSharingInfo(TypedDict):
+class AccountSharingInfo(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_ssm.types.account_id.AccountId"]
     """<p>The Amazon Web Services account ID where the current document is shared.</p>"""
     shared_document_version: NotRequired[

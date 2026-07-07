@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     """<p>Updating or deleting a resource can cause an inconsistent state.</p>"""
     resource_id: "str"

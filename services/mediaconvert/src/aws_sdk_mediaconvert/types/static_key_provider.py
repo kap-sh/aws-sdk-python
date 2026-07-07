@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#StaticKeyProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_pattern_identity_a_za_z26_a_za_z09163
 
 
-class StaticKeyProvider(TypedDict):
+class StaticKeyProvider(TypedDict, closed=True):
     key_format: NotRequired[
         "aws_sdk_mediaconvert.types.__string_pattern_identity_a_za_z26_a_za_z09163.__stringPatternIdentityAZaZ26AZaZ09163"
     ]

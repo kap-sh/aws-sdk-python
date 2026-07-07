@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#DynamodbStreamConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.dynamodb_stream_policy
 
 
-class DynamodbStreamConfiguration(TypedDict):
+class DynamodbStreamConfiguration(TypedDict, closed=True):
     stream_policy: NotRequired[
         "aws_sdk_accessanalyzer.types.dynamodb_stream_policy.DynamodbStreamPolicy"
     ]

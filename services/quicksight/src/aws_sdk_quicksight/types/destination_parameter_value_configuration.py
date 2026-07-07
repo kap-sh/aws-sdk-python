@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DestinationParameterValueConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_identifier
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DestinationParameterValueConfiguration(TypedDict):
+class DestinationParameterValueConfiguration(TypedDict, closed=True):
     custom_values_configuration: NotRequired[
         "aws_sdk_quicksight.types.custom_values_configuration.CustomValuesConfiguration"
     ]

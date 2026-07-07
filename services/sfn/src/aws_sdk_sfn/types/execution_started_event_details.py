@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ExecutionStartedEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.sensitive_data
 
 
-class ExecutionStartedEventDetails(TypedDict):
+class ExecutionStartedEventDetails(TypedDict, closed=True):
     input: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]
     """<p>The JSON data input to the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>"""
     input_details: NotRequired[

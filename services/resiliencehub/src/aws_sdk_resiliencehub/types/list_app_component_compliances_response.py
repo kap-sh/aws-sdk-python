@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ListAppComponentCompliancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.next_token
 
 
-class ListAppComponentCompliancesResponse(TypedDict):
+class ListAppComponentCompliancesResponse(TypedDict, closed=True):
     component_compliances: "aws_sdk_resiliencehub.types.component_compliances_list.ComponentCompliancesList"
     """<p>The compliances for an Resilience Hub Application Component, returned as an object. This object contains the names of the Application Components, compliances, costs, resiliency scores, outage scores, and more.</p>"""
     next_token: NotRequired["aws_sdk_resiliencehub.types.next_token.NextToken"]

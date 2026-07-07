@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListClusterSchedulerConfigsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_scheduler_config_summary_list
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListClusterSchedulerConfigsResponse(TypedDict):
+class ListClusterSchedulerConfigsResponse(TypedDict, closed=True):
     cluster_scheduler_config_summaries: NotRequired[
         "aws_sdk_sagemaker.types.cluster_scheduler_config_summary_list.ClusterSchedulerConfigSummaryList"
     ]

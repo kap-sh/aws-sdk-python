@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeRouteTablesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeRouteTablesRequest(TypedDict):
+class DescribeRouteTablesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>"""
     max_results: NotRequired[

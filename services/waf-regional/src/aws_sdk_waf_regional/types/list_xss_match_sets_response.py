@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#ListXssMatchSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.next_marker
     import aws_sdk_waf_regional.types.xss_match_set_summaries
 
 
-class ListXssMatchSetsResponse(TypedDict):
+class ListXssMatchSetsResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_waf_regional.types.next_marker.NextMarker"]
     """<p>If you have more <a>XssMatchSet</a> objects than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>XssMatchSet</code> objects, submit another <code>ListXssMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>"""
     xss_match_sets: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#SourceFileSpecifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.path
 
 
-class SourceFileSpecifier(TypedDict):
+class SourceFileSpecifier(TypedDict, closed=True):
     file_path: "aws_sdk_codecommit.types.path.Path"
     """<p>The full path to the file, including the name of the file.</p>"""
     is_move: "aws_sdk_codecommit.types.is_move.IsMove"

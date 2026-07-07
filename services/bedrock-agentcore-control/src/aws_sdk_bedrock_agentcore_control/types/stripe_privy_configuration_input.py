@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#StripePrivyConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.stripe_privy_authorization_id_type
 
 
-class StripePrivyConfigurationInput(TypedDict):
+class StripePrivyConfigurationInput(TypedDict, closed=True):
     app_id: "aws_sdk_bedrock_agentcore_control.types.stripe_privy_app_id_type.StripePrivyAppIdType"
     """<p>The app ID provided by Privy.</p>"""
     app_secret: "aws_sdk_bedrock_agentcore_control.types.default_stripe_privy_app_secret_type.DefaultStripePrivyAppSecretType"

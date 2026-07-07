@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ListCostCategoryDefinitionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.cost_category_references_list
     import aws_sdk_cost_explorer.types.next_page_token
 
 
-class ListCostCategoryDefinitionsResponse(TypedDict):
+class ListCostCategoryDefinitionsResponse(TypedDict, closed=True):
     cost_category_references: NotRequired[
         "aws_sdk_cost_explorer.types.cost_category_references_list.CostCategoryReferencesList"
     ]

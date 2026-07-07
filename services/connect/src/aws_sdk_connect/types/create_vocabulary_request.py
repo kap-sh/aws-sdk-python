@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateVocabularyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.vocabulary_name
 
 
-class CreateVocabularyRequest(TypedDict):
+class CreateVocabularyRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_connect.types.client_token.ClientToken"]
     r"""<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>. If a create request is received more than once with same client token, subsequent requests return the previous response without creating a vocabulary again.</p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"

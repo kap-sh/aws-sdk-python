@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#PutRecordsRequestEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.partition_key
 
 
-class PutRecordsRequestEntry(TypedDict):
+class PutRecordsRequestEntry(TypedDict, closed=True):
     data: "aws_sdk_kinesis.types.data.Data"
     """<p>The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (10 MiB).</p>"""
     explicit_hash_key: NotRequired["aws_sdk_kinesis.types.hash_key.HashKey"]

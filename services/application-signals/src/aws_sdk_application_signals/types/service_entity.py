@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#ServiceEntity``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ServiceEntity(TypedDict):
+class ServiceEntity(TypedDict, closed=True):
     type: NotRequired["str"]
     """<p>The type of the service entity.</p>"""
     name: NotRequired["str"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#ListTagsForResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.tags
 
 
-class ListTagsForResourcesResponse(TypedDict):
+class ListTagsForResourcesResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_route53_recovery_readiness.types.tags.Tags"]
     """<p></p>"""
 

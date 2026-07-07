@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#SegmentationDescriptor``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SegmentationDescriptor(TypedDict):
+class SegmentationDescriptor(TypedDict, closed=True):
     segmentation_event_id: NotRequired["int"]
     """<p>The Event Identifier to assign to the <code>segmentation_descriptor.segmentation_event_id</code> message, as defined in section 10.3.3.1 of the 2022 SCTE-35 specification. The default value is 1.</p>"""
     segmentation_upid_type: NotRequired["int"]

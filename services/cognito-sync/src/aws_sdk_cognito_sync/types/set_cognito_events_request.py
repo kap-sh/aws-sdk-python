@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#SetCognitoEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_sync.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.identity_pool_id
 
 
-class SetCognitoEventsRequest(TypedDict):
+class SetCognitoEventsRequest(TypedDict, closed=True):
     identity_pool_id: "aws_sdk_cognito_sync.types.identity_pool_id.IdentityPoolId"
     """<p>The Cognito Identity Pool to use when configuring Cognito Events</p>"""
     events: "aws_sdk_cognito_sync.types.events.Events"

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#DeleteConnectorDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.connector_destination_id
 
 
-class DeleteConnectorDestinationRequest(TypedDict):
+class DeleteConnectorDestinationRequest(TypedDict, closed=True):
     identifier: "aws_sdk_iot_managed_integrations.types.connector_destination_id.ConnectorDestinationId"
     """<p>The identifier of the connector destination.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#InlineContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.text_content_doc
 
 
-class InlineContent(TypedDict):
+class InlineContent(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent.types.inline_content_type.InlineContentType"
     """<p>The type of inline content to define.</p>"""
     byte_content: NotRequired[

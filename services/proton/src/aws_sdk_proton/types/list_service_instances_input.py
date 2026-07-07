@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListServiceInstancesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.list_service_instances_filter_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.sort_order
 
 
-class ListServiceInstancesInput(TypedDict):
+class ListServiceInstancesInput(TypedDict, closed=True):
     service_name: NotRequired["aws_sdk_proton.types.resource_name.ResourceName"]
     """<p>The name of the service that the service instance belongs to.</p>"""
     next_token: NotRequired["aws_sdk_proton.types.next_token.NextToken"]

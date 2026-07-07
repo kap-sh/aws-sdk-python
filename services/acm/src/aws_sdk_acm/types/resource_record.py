@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#ResourceRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.string
 
 
-class ResourceRecord(TypedDict):
+class ResourceRecord(TypedDict, closed=True):
     name: "aws_sdk_acm.types.string.String"
     """<p>The name of the DNS record to create in your domain. This is supplied by ACM.</p>"""
     type: "aws_sdk_acm.types.record_type.RecordType"

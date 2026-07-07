@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#AdDecisionServerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.http_request
 
 
-class AdDecisionServerConfiguration(TypedDict):
+class AdDecisionServerConfiguration(TypedDict, closed=True):
     http_request: NotRequired["aws_sdk_mediatailor.types.http_request.HttpRequest"]
     """<p>The HTTP request configuration parameters for the ad decision server.</p>"""
 

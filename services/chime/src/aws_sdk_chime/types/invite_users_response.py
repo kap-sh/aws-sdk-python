@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#InviteUsersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.invite_list
 
 
-class InviteUsersResponse(TypedDict):
+class InviteUsersResponse(TypedDict, closed=True):
     invites: NotRequired["aws_sdk_chime.types.invite_list.InviteList"]
     """<p>The email invitation details.</p>"""
 

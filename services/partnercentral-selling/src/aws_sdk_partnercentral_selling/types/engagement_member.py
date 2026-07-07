@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#EngagementMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.aws_account
     import aws_sdk_partnercentral_selling.types.member_company_name
 
 
-class EngagementMember(TypedDict):
+class EngagementMember(TypedDict, closed=True):
     company_name: NotRequired[
         "aws_sdk_partnercentral_selling.types.member_company_name.MemberCompanyName"
     ]

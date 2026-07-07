@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#CreateMonitorOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_internetmonitor.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.monitor_config_state
 
 
-class CreateMonitorOutput(TypedDict):
+class CreateMonitorOutput(TypedDict, closed=True):
     arn: "aws_sdk_internetmonitor.types.monitor_arn.MonitorArn"
     """<p>The Amazon Resource Name (ARN) of the monitor.</p>"""
     status: "aws_sdk_internetmonitor.types.monitor_config_state.MonitorConfigState"

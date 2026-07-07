@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#AggregatedVariablesImportanceMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.list_of_aggregated_log_odds_metrics
 
 
-class AggregatedVariablesImportanceMetrics(TypedDict):
+class AggregatedVariablesImportanceMetrics(TypedDict, closed=True):
     log_odds_metrics: NotRequired[
         "aws_sdk_frauddetector.types.list_of_aggregated_log_odds_metrics.ListOfAggregatedLogOddsMetrics"
     ]

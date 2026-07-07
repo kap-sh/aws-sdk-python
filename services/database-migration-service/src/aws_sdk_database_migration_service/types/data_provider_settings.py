@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DataProviderSettings``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import (
     DeserializationError,
@@ -21,47 +23,47 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.sybase_ase_data_provider_settings
 
 
-class _DataProviderSettings_RedshiftSettings(TypedDict):
+class _DataProviderSettings_RedshiftSettings(TypedDict, closed=True):
     RedshiftSettings: "aws_sdk_database_migration_service.types.redshift_data_provider_settings.RedshiftDataProviderSettings"
 
 
-class _DataProviderSettings_PostgreSqlSettings(TypedDict):
+class _DataProviderSettings_PostgreSqlSettings(TypedDict, closed=True):
     PostgreSqlSettings: "aws_sdk_database_migration_service.types.postgre_sql_data_provider_settings.PostgreSqlDataProviderSettings"
 
 
-class _DataProviderSettings_MySqlSettings(TypedDict):
+class _DataProviderSettings_MySqlSettings(TypedDict, closed=True):
     MySqlSettings: "aws_sdk_database_migration_service.types.my_sql_data_provider_settings.MySqlDataProviderSettings"
 
 
-class _DataProviderSettings_OracleSettings(TypedDict):
+class _DataProviderSettings_OracleSettings(TypedDict, closed=True):
     OracleSettings: "aws_sdk_database_migration_service.types.oracle_data_provider_settings.OracleDataProviderSettings"
 
 
-class _DataProviderSettings_SybaseAseSettings(TypedDict):
+class _DataProviderSettings_SybaseAseSettings(TypedDict, closed=True):
     SybaseAseSettings: "aws_sdk_database_migration_service.types.sybase_ase_data_provider_settings.SybaseAseDataProviderSettings"
 
 
-class _DataProviderSettings_MicrosoftSqlServerSettings(TypedDict):
+class _DataProviderSettings_MicrosoftSqlServerSettings(TypedDict, closed=True):
     MicrosoftSqlServerSettings: "aws_sdk_database_migration_service.types.microsoft_sql_server_data_provider_settings.MicrosoftSqlServerDataProviderSettings"
 
 
-class _DataProviderSettings_DocDbSettings(TypedDict):
+class _DataProviderSettings_DocDbSettings(TypedDict, closed=True):
     DocDbSettings: "aws_sdk_database_migration_service.types.doc_db_data_provider_settings.DocDbDataProviderSettings"
 
 
-class _DataProviderSettings_MariaDbSettings(TypedDict):
+class _DataProviderSettings_MariaDbSettings(TypedDict, closed=True):
     MariaDbSettings: "aws_sdk_database_migration_service.types.maria_db_data_provider_settings.MariaDbDataProviderSettings"
 
 
-class _DataProviderSettings_IbmDb2LuwSettings(TypedDict):
+class _DataProviderSettings_IbmDb2LuwSettings(TypedDict, closed=True):
     IbmDb2LuwSettings: "aws_sdk_database_migration_service.types.ibm_db2_luw_data_provider_settings.IbmDb2LuwDataProviderSettings"
 
 
-class _DataProviderSettings_IbmDb2zOsSettings(TypedDict):
+class _DataProviderSettings_IbmDb2zOsSettings(TypedDict, closed=True):
     IbmDb2zOsSettings: "aws_sdk_database_migration_service.types.ibm_db2z_os_data_provider_settings.IbmDb2zOsDataProviderSettings"
 
 
-class _DataProviderSettings_MongoDbSettings(TypedDict):
+class _DataProviderSettings_MongoDbSettings(TypedDict, closed=True):
     MongoDbSettings: "aws_sdk_database_migration_service.types.mongo_db_data_provider_settings.MongoDbDataProviderSettings"
 
 

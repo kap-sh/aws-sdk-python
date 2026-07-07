@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UserTurnSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.user_turn_output_specification
 
 
-class UserTurnSpecification(TypedDict):
+class UserTurnSpecification(TypedDict, closed=True):
     input: "aws_sdk_lex_models_v2.types.user_turn_input_specification.UserTurnInputSpecification"
     """<p>Contains information about the user messages in the turn in the input.</p>"""
     expected: "aws_sdk_lex_models_v2.types.user_turn_output_specification.UserTurnOutputSpecification"

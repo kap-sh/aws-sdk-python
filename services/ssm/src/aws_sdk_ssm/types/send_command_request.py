@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#SendCommandRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.timeout_seconds
 
 
-class SendCommandRequest(TypedDict):
+class SendCommandRequest(TypedDict, closed=True):
     instance_ids: NotRequired["aws_sdk_ssm.types.instance_id_list.InstanceIdList"]
     r"""<p>The IDs of the managed nodes where the command should run. Specifying managed node IDs is most useful when you are targeting a limited number of managed nodes, though you can specify up to 50 IDs.</p> <p>To target a larger number of managed nodes, or if you prefer not to list individual node IDs, we recommend using the <code>Targets</code> option instead. Using <code>Targets</code>, which accepts tag key-value pairs to identify the managed nodes to send commands to, you can a send command to tens, hundreds, or thousands of nodes at once.</p> <p>For more information about how to use targets, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html\">Run commands at scale</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>"""
     targets: NotRequired["aws_sdk_ssm.types.targets.Targets"]

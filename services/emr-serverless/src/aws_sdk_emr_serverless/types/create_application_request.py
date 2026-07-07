@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#CreateApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.worker_type_specification_input_map
 
 
-class CreateApplicationRequest(TypedDict):
+class CreateApplicationRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_emr_serverless.types.application_name.ApplicationName"]
     """<p>The name of the application.</p>"""
     release_label: "aws_sdk_emr_serverless.types.release_label.ReleaseLabel"

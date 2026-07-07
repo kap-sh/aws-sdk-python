@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ECSEffectiveRecommendationPreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.ecs_savings_estimation_mode
     import aws_sdk_compute_optimizer.types.look_back_period_preference
 
 
-class ECSEffectiveRecommendationPreferences(TypedDict):
+class ECSEffectiveRecommendationPreferences(TypedDict, closed=True):
     savings_estimation_mode: NotRequired[
         "aws_sdk_compute_optimizer.types.ecs_savings_estimation_mode.ECSSavingsEstimationMode"
     ]

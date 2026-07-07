@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AdditionalEnis``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.efa_enis
 
 
-class AdditionalEnis(TypedDict):
+class AdditionalEnis(TypedDict, closed=True):
     efa_enis: NotRequired["aws_sdk_sagemaker.types.efa_enis.EfaEnis"]
     """<p>A list of Elastic Fabric Adapter (EFA) ENIs associated with the instance.</p>"""
 

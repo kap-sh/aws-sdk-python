@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ResourceProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class ResourceProperty(TypedDict):
+class ResourceProperty(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of this property of the resource.</p>"""
     last_reported_at: NotRequired["datetime.datetime"]

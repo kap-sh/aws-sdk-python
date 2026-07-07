@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.osis#ListPipelineBlueprintsRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListPipelineBlueprintsRequest(TypedDict):
+class ListPipelineBlueprintsRequest(TypedDict, closed=True):
     pass
 
 

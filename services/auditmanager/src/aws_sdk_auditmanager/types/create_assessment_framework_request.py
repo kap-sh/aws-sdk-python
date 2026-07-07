@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#CreateAssessmentFrameworkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auditmanager.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.tag_map
 
 
-class CreateAssessmentFrameworkRequest(TypedDict):
+class CreateAssessmentFrameworkRequest(TypedDict, closed=True):
     name: "aws_sdk_auditmanager.types.framework_name.FrameworkName"
     """<p> The name of the new custom framework. </p>"""
     description: NotRequired[

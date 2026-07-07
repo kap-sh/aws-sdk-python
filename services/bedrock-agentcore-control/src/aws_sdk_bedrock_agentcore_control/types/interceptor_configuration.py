@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#InterceptorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -15,6 +17,7 @@ _InterceptorConfiguration_lambda = TypedDict(
     {
         "lambda": "aws_sdk_bedrock_agentcore_control.types.lambda_interceptor_configuration.LambdaInterceptorConfiguration",
     },
+    closed=True,
 )
 
 InterceptorConfiguration: TypeAlias = _InterceptorConfiguration_lambda

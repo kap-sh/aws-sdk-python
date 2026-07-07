@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RowInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.long
 
 
-class RowInfo(TypedDict):
+class RowInfo(TypedDict, closed=True):
     rows_ingested: NotRequired["aws_sdk_quicksight.types.long.Long"]
     """<p>The number of rows that were ingested.</p>"""
     rows_dropped: NotRequired["aws_sdk_quicksight.types.long.Long"]

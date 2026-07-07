@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#StartInsightsRefreshResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.insights_refresh_status
     import aws_sdk_eks.types.string
 
 
-class StartInsightsRefreshResponse(TypedDict):
+class StartInsightsRefreshResponse(TypedDict, closed=True):
     message: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The message associated with the insights refresh operation.</p>"""
     status: NotRequired[

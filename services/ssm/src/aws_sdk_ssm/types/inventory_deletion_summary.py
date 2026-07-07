@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InventoryDeletionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_deletion_summary_items
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.total_count
 
 
-class InventoryDeletionSummary(TypedDict):
+class InventoryDeletionSummary(TypedDict, closed=True):
     total_count: "aws_sdk_ssm.types.total_count.TotalCount"
     """<p>The total number of items to delete. This count doesn't change during the delete operation.</p>"""
     remaining_count: "aws_sdk_ssm.types.remaining_count.RemainingCount"

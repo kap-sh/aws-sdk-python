@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ProvisionedProductAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.created_time
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.user_arn_session
 
 
-class ProvisionedProductAttribute(TypedDict):
+class ProvisionedProductAttribute(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_service_catalog.types.provisioned_product_name_or_arn.ProvisionedProductNameOrArn"
     ]

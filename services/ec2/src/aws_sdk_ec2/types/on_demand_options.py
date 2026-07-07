@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#OnDemandOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class OnDemandOptions(TypedDict):
+class OnDemandOptions(TypedDict, closed=True):
     allocation_strategy: NotRequired[
         "aws_sdk_ec2.types.fleet_on_demand_allocation_strategy.FleetOnDemandAllocationStrategy"
     ]

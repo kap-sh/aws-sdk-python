@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ServiceConnectConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class ServiceConnectConfiguration(TypedDict):
+class ServiceConnectConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_ecs.types.boolean.Boolean"
     """<p>Specifies whether to use Service Connect with this service.</p>"""
     namespace: NotRequired["aws_sdk_ecs.types.string.String"]

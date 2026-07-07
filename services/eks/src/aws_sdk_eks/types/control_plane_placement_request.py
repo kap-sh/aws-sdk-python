@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ControlPlanePlacementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class ControlPlanePlacementRequest(TypedDict):
+class ControlPlanePlacementRequest(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation. </p>"""
 

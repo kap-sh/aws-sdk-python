@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#InferICD10CMResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehendmedical.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.string
 
 
-class InferICD10CMResponse(TypedDict):
+class InferICD10CMResponse(TypedDict, closed=True):
     entities: "aws_sdk_comprehendmedical.types.icd10_cm_entity_list.ICD10CMEntityList"
     """<p>The medical conditions detected in the text linked to ICD-10-CM concepts. If the action is successful, the service sends back an HTTP 200 response, as well as the entities detected.</p>"""
     pagination_token: NotRequired["aws_sdk_comprehendmedical.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ExpressGatewayScalingTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
     import aws_sdk_ecs.types.express_gateway_service_scaling_metric
 
 
-class ExpressGatewayScalingTarget(TypedDict):
+class ExpressGatewayScalingTarget(TypedDict, closed=True):
     min_task_count: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]
     """<p>The minimum number of tasks to run in the Express service.</p>"""
     max_task_count: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]

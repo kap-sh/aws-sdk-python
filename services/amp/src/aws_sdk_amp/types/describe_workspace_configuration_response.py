@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#DescribeWorkspaceConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_configuration_description
 
 
-class DescribeWorkspaceConfigurationResponse(TypedDict):
+class DescribeWorkspaceConfigurationResponse(TypedDict, closed=True):
     workspace_configuration: "aws_sdk_amp.types.workspace_configuration_description.WorkspaceConfigurationDescription"
     """<p>This structure contains the information about the workspace configuration.</p>"""
 

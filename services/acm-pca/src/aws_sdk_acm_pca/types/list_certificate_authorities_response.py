@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#ListCertificateAuthoritiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.certificate_authorities
     import aws_sdk_acm_pca.types.next_token
 
 
-class ListCertificateAuthoritiesResponse(TypedDict):
+class ListCertificateAuthoritiesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_acm_pca.types.next_token.NextToken"]
     """<p>When the list is truncated, this value is present and should be used for the <code>NextToken</code> parameter in a subsequent pagination request.</p>"""
     certificate_authorities: NotRequired[

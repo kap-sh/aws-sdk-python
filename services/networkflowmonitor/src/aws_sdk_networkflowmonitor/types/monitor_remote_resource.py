@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#MonitorRemoteResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_networkflowmonitor.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.monitor_remote_resource_type
 
 
-class MonitorRemoteResource(TypedDict):
+class MonitorRemoteResource(TypedDict, closed=True):
     type: "aws_sdk_networkflowmonitor.types.monitor_remote_resource_type.MonitorRemoteResourceType"
     """<p>The type of the remote resource. Valid values are <code>AWS::EC2::VPC</code> <code>AWS::AvailabilityZone</code>, <code>AWS::EC2::Subnet</code>, <code>AWS::AWSService</code>, or <code>AWS::Region</code>.</p>"""
     identifier: "str"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#RegisterImageOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.nullable_boolean
     import aws_sdk_imagebuilder.types.uefi_data
 
 
-class RegisterImageOptions(TypedDict):
+class RegisterImageOptions(TypedDict, closed=True):
     secure_boot_enabled: NotRequired[
         "aws_sdk_imagebuilder.types.nullable_boolean.NullableBoolean"
     ]

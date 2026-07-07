@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetBackupPlanInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.max_scheduled_runs_preview
     import aws_sdk_backup.types.string
 
 
-class GetBackupPlanInput(TypedDict):
+class GetBackupPlanInput(TypedDict, closed=True):
     backup_plan_id: "aws_sdk_backup.types.string.string"
     """<p>Uniquely identifies a backup plan.</p>"""
     version_id: NotRequired["aws_sdk_backup.types.string.string"]

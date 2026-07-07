@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HubContentDependency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.dependency_copy_path
     import aws_sdk_sagemaker.types.dependency_origin_path
 
 
-class HubContentDependency(TypedDict):
+class HubContentDependency(TypedDict, closed=True):
     dependency_origin_path: NotRequired[
         "aws_sdk_sagemaker.types.dependency_origin_path.DependencyOriginPath"
     ]

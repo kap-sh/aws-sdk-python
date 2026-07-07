@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DuplicateInstanceId``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
 
-class DuplicateInstanceId_(TypedDict):
+class DuplicateInstanceId_(TypedDict, closed=True):
     pass
 
 

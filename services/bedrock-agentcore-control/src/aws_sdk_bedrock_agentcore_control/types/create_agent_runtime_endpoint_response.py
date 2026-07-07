@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateAgentRuntimeEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.endpoint_name
 
 
-class CreateAgentRuntimeEndpointResponse(TypedDict):
+class CreateAgentRuntimeEndpointResponse(TypedDict, closed=True):
     target_version: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_version.AgentRuntimeVersion"
     """<p>The target version of the AgentCore Runtime for the endpoint.</p>"""
     agent_runtime_endpoint_arn: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_endpoint_arn.AgentRuntimeEndpointArn"

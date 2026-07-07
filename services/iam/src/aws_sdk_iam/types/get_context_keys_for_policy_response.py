@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetContextKeysForPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.context_key_names_result_list_type
 
 
-class GetContextKeysForPolicyResponse(TypedDict):
+class GetContextKeysForPolicyResponse(TypedDict, closed=True):
     context_key_names: NotRequired[
         "aws_sdk_iam.types.context_key_names_result_list_type.ContextKeyNamesResultListType"
     ]

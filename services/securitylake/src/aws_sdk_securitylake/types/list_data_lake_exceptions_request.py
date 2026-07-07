@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#ListDataLakeExceptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.region_list
 
 
-class ListDataLakeExceptionsRequest(TypedDict):
+class ListDataLakeExceptionsRequest(TypedDict, closed=True):
     regions: NotRequired["aws_sdk_securitylake.types.region_list.RegionList"]
     """<p>The Amazon Web Services Regions from which exceptions are retrieved.</p>"""
     max_results: "aws_sdk_securitylake.types.max_results.MaxResults"

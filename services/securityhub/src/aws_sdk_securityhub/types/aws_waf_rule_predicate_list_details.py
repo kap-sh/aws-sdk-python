@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafRulePredicateListDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsWafRulePredicateListDetails(TypedDict):
+class AwsWafRulePredicateListDetails(TypedDict, closed=True):
     data_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>A unique identifier for a predicate in a rule, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>. </p>"""
     negated: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

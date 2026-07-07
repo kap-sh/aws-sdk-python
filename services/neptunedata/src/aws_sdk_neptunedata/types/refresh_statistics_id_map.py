@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#RefreshStatisticsIdMap``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RefreshStatisticsIdMap(TypedDict):
+class RefreshStatisticsIdMap(TypedDict, closed=True):
     statistics_id: NotRequired["str"]
     """<p>The ID of the statistics generation run that is currently occurring.</p>"""
 

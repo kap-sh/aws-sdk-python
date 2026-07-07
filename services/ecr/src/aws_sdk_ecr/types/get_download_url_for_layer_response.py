@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#GetDownloadUrlForLayerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.layer_digest
     import aws_sdk_ecr.types.url
 
 
-class GetDownloadUrlForLayerResponse(TypedDict):
+class GetDownloadUrlForLayerResponse(TypedDict, closed=True):
     download_url: NotRequired["aws_sdk_ecr.types.url.Url"]
     """<p>The pre-signed Amazon S3 download URL for the requested layer.</p>"""
     layer_digest: NotRequired["aws_sdk_ecr.types.layer_digest.LayerDigest"]

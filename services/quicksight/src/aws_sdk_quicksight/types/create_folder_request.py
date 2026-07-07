@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CreateFolderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.tag_list
 
 
-class CreateFolderRequest(TypedDict):
+class CreateFolderRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID for the Amazon Web Services account where you want to create the folder.</p>"""
     folder_id: "aws_sdk_quicksight.types.restrictive_resource_id.RestrictiveResourceId"

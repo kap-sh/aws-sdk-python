@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#DetachInstancesAnswer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.activities
 
 
-class DetachInstancesAnswer(TypedDict):
+class DetachInstancesAnswer(TypedDict, closed=True):
     activities: NotRequired["aws_sdk_auto_scaling.types.activities.Activities"]
     """<p>The activities related to detaching the instances from the Auto Scaling group.</p>"""
 

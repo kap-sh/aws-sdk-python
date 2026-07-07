@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AllUsersGrantFilter``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AllUsersGrantFilter(TypedDict):
+class AllUsersGrantFilter(TypedDict, closed=True):
     pass
 
 

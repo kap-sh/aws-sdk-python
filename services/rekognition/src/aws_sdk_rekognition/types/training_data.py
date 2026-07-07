@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#TrainingData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.assets
 
 
-class TrainingData(TypedDict):
+class TrainingData(TypedDict, closed=True):
     assets: NotRequired["aws_sdk_rekognition.types.assets.Assets"]
     """<p>A manifest file that contains references to the training images and ground-truth annotations.</p>"""
 

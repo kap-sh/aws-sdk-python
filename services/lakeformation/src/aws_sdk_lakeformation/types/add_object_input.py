@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#AddObjectInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.uri
 
 
-class AddObjectInput(TypedDict):
+class AddObjectInput(TypedDict, closed=True):
     uri: "aws_sdk_lakeformation.types.uri.URI"
     """<p>The Amazon S3 location of the object.</p>"""
     e_tag: "aws_sdk_lakeformation.types.e_tag_string.ETagString"

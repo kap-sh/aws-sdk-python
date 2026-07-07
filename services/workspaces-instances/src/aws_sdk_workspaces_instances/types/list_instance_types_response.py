@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#ListInstanceTypesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_instances.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.next_token
 
 
-class ListInstanceTypesResponse(TypedDict):
+class ListInstanceTypesResponse(TypedDict, closed=True):
     instance_types: "aws_sdk_workspaces_instances.types.instance_types.InstanceTypes"
     """<p>Collection of supported instance types for WorkSpaces Instances.</p>"""
     next_token: NotRequired["aws_sdk_workspaces_instances.types.next_token.NextToken"]

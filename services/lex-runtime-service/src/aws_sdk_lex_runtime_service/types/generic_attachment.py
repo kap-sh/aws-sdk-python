@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimeservice#GenericAttachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.list_of_buttons
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.string_with_length
 
 
-class GenericAttachment(TypedDict):
+class GenericAttachment(TypedDict, closed=True):
     title: NotRequired[
         "aws_sdk_lex_runtime_service.types.string_with_length.StringWithLength"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeAwsNetworkPerformanceMetricSubscriptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeAwsNetworkPerformanceMetricSubscriptionsRequest(TypedDict):
+class DescribeAwsNetworkPerformanceMetricSubscriptionsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_ec2.types.max_results_param.MaxResultsParam"]
     """<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]

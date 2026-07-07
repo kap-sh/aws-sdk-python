@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#TaskFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.task_filter_name
 
 
-class TaskFilter(TypedDict):
+class TaskFilter(TypedDict, closed=True):
     name: "aws_sdk_datasync.types.task_filter_name.TaskFilterName"
     """<p>The name of the filter being used. Each API call supports a list of filters that are available for it. For example, <code>LocationId</code> for <code>ListTasks</code>.</p>"""
     values: "aws_sdk_datasync.types.filter_values.FilterValues"

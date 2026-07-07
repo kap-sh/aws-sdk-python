@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#AvailabilityConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.availability_provider_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.timestamp
 
 
-class AvailabilityConfiguration(TypedDict):
+class AvailabilityConfiguration(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_workmail.types.domain_name.DomainName"]
     """<p>Displays the domain to which the provider applies.</p>"""
     provider_type: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#SchemaAnalysisRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.table_alias
 
 
-class SchemaAnalysisRuleRequest(TypedDict):
+class SchemaAnalysisRuleRequest(TypedDict, closed=True):
     name: "aws_sdk_cleanrooms.types.table_alias.TableAlias"
     """<p>The name of the analysis rule schema that you are requesting.</p>"""
     type: "aws_sdk_cleanrooms.types.analysis_rule_type.AnalysisRuleType"

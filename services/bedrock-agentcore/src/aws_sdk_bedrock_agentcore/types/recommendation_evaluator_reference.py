@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#RecommendationEvaluatorReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.evaluator_arn
 
 
-class RecommendationEvaluatorReference(TypedDict):
+class RecommendationEvaluatorReference(TypedDict, closed=True):
     evaluator_arn: "aws_sdk_bedrock_agentcore.types.evaluator_arn.EvaluatorArn"
     """<p>The Amazon Resource Name (ARN) of the evaluator.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#QueryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.query_string
 
 
-class QueryRequest(TypedDict):
+class QueryRequest(TypedDict, closed=True):
     query_string: "aws_sdk_timestream_query.types.query_string.QueryString"
     """<p> The query to be run by Timestream. </p>"""
     client_token: NotRequired[

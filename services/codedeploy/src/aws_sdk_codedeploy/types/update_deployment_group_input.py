@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#UpdateDeploymentGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codedeploy.errors import DeserializationError
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.trigger_config_list
 
 
-class UpdateDeploymentGroupInput(TypedDict):
+class UpdateDeploymentGroupInput(TypedDict, closed=True):
     application_name: "aws_sdk_codedeploy.types.application_name.ApplicationName"
     """<p>The application name that corresponds to the deployment group to update.</p>"""
     current_deployment_group_name: (

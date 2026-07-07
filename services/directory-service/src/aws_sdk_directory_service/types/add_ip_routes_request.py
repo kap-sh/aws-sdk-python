@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#AddIpRoutesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.update_security_group_for_directory_controllers
 
 
-class AddIpRoutesRequest(TypedDict):
+class AddIpRoutesRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>Identifier (ID) of the directory to which to add the address block.</p>"""
     ip_routes: "aws_sdk_directory_service.types.ip_routes.IpRoutes"

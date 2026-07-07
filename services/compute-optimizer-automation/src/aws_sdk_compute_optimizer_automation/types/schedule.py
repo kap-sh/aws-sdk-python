@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#Schedule``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Schedule(TypedDict):
+class Schedule(TypedDict, closed=True):
     schedule_expression: NotRequired["str"]
     """<p>The expression that defines when the schedule runs. <code>cron</code> expression is supported. A <code>cron</code> expression consists of six fields separated by white spaces: (<code>minutes</code> <code>hours</code> <code>day_of_month</code> <code>month</code> <code>day_of_week</code> <code>year</code>)</p> <note> <p>You can schedule rules to run at most once per day. Your cron expression must use specific values (not wildcards) for the minutes and hours fields. For example: (<code>30 12 * * *</code>) runs daily at 12:30 PM UTC.</p> </note>"""
     schedule_expression_timezone: NotRequired["str"]

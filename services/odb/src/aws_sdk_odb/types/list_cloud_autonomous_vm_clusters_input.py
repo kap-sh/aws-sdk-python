@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ListCloudAutonomousVmClustersInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id_or_arn
 
 
-class ListCloudAutonomousVmClustersInput(TypedDict):
+class ListCloudAutonomousVmClustersInput(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of items to return per page.</p>"""
     next_token: NotRequired["str"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeEventTopicsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.directory_id
     import aws_sdk_directory_service.types.topic_names
 
 
-class DescribeEventTopicsRequest(TypedDict):
+class DescribeEventTopicsRequest(TypedDict, closed=True):
     directory_id: NotRequired[
         "aws_sdk_directory_service.types.directory_id.DirectoryId"
     ]

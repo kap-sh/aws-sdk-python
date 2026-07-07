@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#WarmPoolConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.warm_pool_status
 
 
-class WarmPoolConfiguration(TypedDict):
+class WarmPoolConfiguration(TypedDict, closed=True):
     max_group_prepared_capacity: NotRequired[
         "aws_sdk_auto_scaling.types.max_group_prepared_capacity.MaxGroupPreparedCapacity"
     ]

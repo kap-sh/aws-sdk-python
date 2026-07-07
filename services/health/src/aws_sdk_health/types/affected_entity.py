@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#AffectedEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.account_id
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.timestamp
 
 
-class AffectedEntity(TypedDict):
+class AffectedEntity(TypedDict, closed=True):
     entity_arn: NotRequired["aws_sdk_health.types.entity_arn.entityArn"]
     """<p>The unique identifier for the entity. Format: <code>arn:aws:health:<i>entity-region</i>:<i>aws-account</i>:entity/<i>entity-id</i> </code>. Example: <code>arn:aws:health:us-east-1:111222333444:entity/AVh5GGT7ul1arKr1sE1K</code> </p>"""
     event_arn: NotRequired["aws_sdk_health.types.event_arn.eventArn"]

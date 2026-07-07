@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#InputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.s3_uri
 
 
-class InputDataConfig(TypedDict):
+class InputDataConfig(TypedDict, closed=True):
     s3_uri: "aws_sdk_translate.types.s3_uri.S3Uri"
     """<p>The URI of the AWS S3 folder that contains the input files. Amazon Translate translates all the files in the folder and all its sub-folders. The folder must be in the same Region as the API endpoint you are calling.</p>"""
     content_type: "aws_sdk_translate.types.content_type.ContentType"

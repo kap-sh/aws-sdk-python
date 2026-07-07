@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#ListRepositorySyncDefinitionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.sharp_next_token
 
 
-class ListRepositorySyncDefinitionsOutput(TypedDict):
+class ListRepositorySyncDefinitionsOutput(TypedDict, closed=True):
     repository_sync_definitions: "aws_sdk_codestar_connections.types.repository_sync_definition_list.RepositorySyncDefinitionList"
     """<p>The list of repository sync definitions returned by the request. A <code>RepositorySyncDefinition</code> is a mapping from a repository branch to all the Amazon Web Services resources that are being synced from that branch.</p>"""
     next_token: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#StartChangeRequestExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.tag_list
 
 
-class StartChangeRequestExecutionRequest(TypedDict):
+class StartChangeRequestExecutionRequest(TypedDict, closed=True):
     scheduled_time: NotRequired["aws_sdk_ssm.types.date_time.DateTime"]
     """<p>The date and time specified in the change request to run the Automation runbooks.</p> <note> <p>The Automation runbooks specified for the runbook workflow can't run until all required approvals for the change request have been received.</p> </note>"""
     document_name: "aws_sdk_ssm.types.document_arn.DocumentARN"

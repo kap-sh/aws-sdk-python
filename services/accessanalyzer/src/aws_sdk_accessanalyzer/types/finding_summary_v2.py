@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#FindingSummaryV2``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.timestamp
 
 
-class FindingSummaryV2(TypedDict):
+class FindingSummaryV2(TypedDict, closed=True):
     analyzed_at: "aws_sdk_accessanalyzer.types.timestamp.Timestamp"
     """<p>The time at which the resource-based policy or IAM entity that generated the finding was analyzed.</p>"""
     created_at: "aws_sdk_accessanalyzer.types.timestamp.Timestamp"

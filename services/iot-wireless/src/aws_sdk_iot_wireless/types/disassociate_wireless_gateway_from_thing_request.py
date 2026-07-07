@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DisassociateWirelessGatewayFromThingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_gateway_id
 
 
-class DisassociateWirelessGatewayFromThingRequest(TypedDict):
+class DisassociateWirelessGatewayFromThingRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.wireless_gateway_id.WirelessGatewayId"
     """<p>The ID of the resource to update.</p>"""
 

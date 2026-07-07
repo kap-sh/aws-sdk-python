@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeFileSystemsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.file_system_ids
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.next_token
 
 
-class DescribeFileSystemsRequest(TypedDict):
+class DescribeFileSystemsRequest(TypedDict, closed=True):
     file_system_ids: NotRequired["aws_sdk_fsx.types.file_system_ids.FileSystemIds"]
     """<p>IDs of the file systems whose descriptions you want to retrieve (String).</p>"""
     max_results: NotRequired["aws_sdk_fsx.types.max_results.MaxResults"]

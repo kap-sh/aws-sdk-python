@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DetailedGlossaryTerm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.glossary_term_name
     import aws_sdk_datazone.types.short_description
 
 
-class DetailedGlossaryTerm(TypedDict):
+class DetailedGlossaryTerm(TypedDict, closed=True):
     name: NotRequired["aws_sdk_datazone.types.glossary_term_name.GlossaryTermName"]
     """<p>The name of a glossary term attached to the inventory asset.</p>"""
     short_description: NotRequired[

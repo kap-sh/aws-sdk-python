@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#Attachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.attachment_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.timestamp
 
 
-class Attachment(TypedDict):
+class Attachment(TypedDict, closed=True):
     attachment_arn: NotRequired[
         "aws_sdk_global_accelerator.types.generic_string.GenericString"
     ]

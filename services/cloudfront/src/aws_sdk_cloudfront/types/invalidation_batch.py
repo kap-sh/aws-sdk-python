@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#InvalidationBatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class InvalidationBatch(TypedDict):
+class InvalidationBatch(TypedDict, closed=True):
     paths: "aws_sdk_cloudfront.types.paths.Paths"
     r"""<p>A complex type that contains information about the objects that you want to invalidate. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects\">Specifying the Objects to Invalidate</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>"""
     caller_reference: "aws_sdk_cloudfront.types.string.string"

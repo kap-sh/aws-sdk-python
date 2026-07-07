@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#BucketLevel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.prefix_level
 
 
-class BucketLevel(TypedDict):
+class BucketLevel(TypedDict, closed=True):
     activity_metrics: NotRequired[
         "aws_sdk_s3_control.types.activity_metrics.ActivityMetrics"
     ]

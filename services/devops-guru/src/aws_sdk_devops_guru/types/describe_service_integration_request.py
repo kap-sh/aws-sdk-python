@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeServiceIntegrationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeServiceIntegrationRequest(TypedDict):
+class DescribeServiceIntegrationRequest(TypedDict, closed=True):
     pass
 
 

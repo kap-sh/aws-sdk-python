@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ListDomainsForPackageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.domain_package_details_list
     import aws_sdk_elasticsearch_service.types.string
 
 
-class ListDomainsForPackageResponse(TypedDict):
+class ListDomainsForPackageResponse(TypedDict, closed=True):
     domain_package_details_list: NotRequired[
         "aws_sdk_elasticsearch_service.types.domain_package_details_list.DomainPackageDetailsList"
     ]

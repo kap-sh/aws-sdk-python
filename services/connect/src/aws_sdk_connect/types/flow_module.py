@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#FlowModule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.flow_module_id
     import aws_sdk_connect.types.flow_module_type
 
 
-class FlowModule(TypedDict):
+class FlowModule(TypedDict, closed=True):
     type: NotRequired["aws_sdk_connect.types.flow_module_type.FlowModuleType"]
     """<p> Only Type we support is MCP. </p>"""
     flow_module_id: NotRequired["aws_sdk_connect.types.flow_module_id.FlowModuleId"]

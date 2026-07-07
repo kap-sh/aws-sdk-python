@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3outposts#ListOutpostsWithS3Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.max_results
     import aws_sdk_s3outposts.types.next_token
 
 
-class ListOutpostsWithS3Request(TypedDict):
+class ListOutpostsWithS3Request(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_s3outposts.types.next_token.NextToken"]
     """<p>When you can get additional results from the <code>ListOutpostsWithS3</code> call, a <code>NextToken</code> parameter is returned in the output. You can then pass in a subsequent command to the <code>NextToken</code> parameter to continue listing additional Outposts.</p>"""
     max_results: "aws_sdk_s3outposts.types.max_results.MaxResults"

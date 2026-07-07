@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#StartServiceSoftwareUpdateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.schedule_at
 
 
-class StartServiceSoftwareUpdateRequest(TypedDict):
+class StartServiceSoftwareUpdateRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"
     """<p>The name of the domain that you want to update to the latest service software.</p>"""
     schedule_at: NotRequired["aws_sdk_opensearch.types.schedule_at.ScheduleAt"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ReplicationStatusSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.aws_region
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.replication_status_reason
 
 
-class ReplicationStatusSummary(TypedDict):
+class ReplicationStatusSummary(TypedDict, closed=True):
     region: NotRequired["aws_sdk_connect.types.aws_region.AwsRegion"]
     """<p>The Amazon Web Services Region. This can be either the source or the replica Region, depending where it appears in the summary list.</p>"""
     replication_status: NotRequired[

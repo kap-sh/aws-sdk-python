@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetMappingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.mapping_list
 
 
-class GetMappingResponse(TypedDict):
+class GetMappingResponse(TypedDict, closed=True):
     mapping: "aws_sdk_glue.types.mapping_list.MappingList"
     """<p>A list of mappings to the specified targets.</p>"""
 

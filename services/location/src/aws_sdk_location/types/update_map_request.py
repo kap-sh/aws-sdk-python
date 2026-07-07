@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#UpdateMapRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.map_configuration_update
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
 
 
-class UpdateMapRequest(TypedDict):
+class UpdateMapRequest(TypedDict, closed=True):
     map_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the map resource to update.</p>"""
     pricing_plan: NotRequired["aws_sdk_location.types.pricing_plan.PricingPlan"]

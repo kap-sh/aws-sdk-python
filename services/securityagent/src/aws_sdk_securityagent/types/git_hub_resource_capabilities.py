@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#GitHubResourceCapabilities``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GitHubResourceCapabilities(TypedDict):
+class GitHubResourceCapabilities(TypedDict, closed=True):
     leave_comments: NotRequired["bool"]
     """<p>Indicates whether the integration can leave comments on pull requests.</p>"""
     remediate_code: NotRequired["bool"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#RequiredTag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.cloud_formation_resource_types
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.resource_type
 
 
-class RequiredTag(TypedDict):
+class RequiredTag(TypedDict, closed=True):
     resource_type: NotRequired[
         "aws_sdk_resource_groups_tagging_api.types.resource_type.ResourceType"
     ]

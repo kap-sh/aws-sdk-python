@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#GetBaiduChannelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.baidu_channel_response
 
 
-class GetBaiduChannelResponse(TypedDict):
+class GetBaiduChannelResponse(TypedDict, closed=True):
     baidu_channel_response: NotRequired[
         "aws_sdk_pinpoint.types.baidu_channel_response.BaiduChannelResponse"
     ]

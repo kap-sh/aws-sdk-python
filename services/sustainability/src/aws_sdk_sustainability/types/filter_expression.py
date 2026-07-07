@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sustainability#FilterExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sustainability.types.dimension_list_map
 
 
-class FilterExpression(TypedDict):
+class FilterExpression(TypedDict, closed=True):
     dimensions: NotRequired[
         "aws_sdk_sustainability.types.dimension_list_map.DimensionListMap"
     ]

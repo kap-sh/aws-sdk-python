@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationcostprofiler#ReportDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_applicationcostprofiler.types.format
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_applicationcostprofiler.types.timestamp
 
 
-class ReportDefinition(TypedDict):
+class ReportDefinition(TypedDict, closed=True):
     report_id: NotRequired["aws_sdk_applicationcostprofiler.types.report_id.ReportId"]
     """<p>The ID of the report.</p>"""
     report_description: NotRequired[

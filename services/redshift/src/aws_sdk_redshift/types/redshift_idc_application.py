@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#RedshiftIdcApplication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.tag_list
 
 
-class RedshiftIdcApplication(TypedDict):
+class RedshiftIdcApplication(TypedDict, closed=True):
     idc_instance_arn: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The ARN for the IAM Identity Center instance that Redshift integrates with.</p>"""
     redshift_idc_application_name: NotRequired[

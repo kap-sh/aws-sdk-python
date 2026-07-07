@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialLayerDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_line_layer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_polygon_layer
 
 
-class GeospatialLayerDefinition(TypedDict):
+class GeospatialLayerDefinition(TypedDict, closed=True):
     point_layer: NotRequired[
         "aws_sdk_quicksight.types.geospatial_point_layer.GeospatialPointLayer"
     ]

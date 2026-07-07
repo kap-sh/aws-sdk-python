@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#CreateWorkflowDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.workflow_export_config
 
 
-class CreateWorkflowDefinitionRequest(TypedDict):
+class CreateWorkflowDefinitionRequest(TypedDict, closed=True):
     name: "aws_sdk_nova_act.types.workflow_definition_name.WorkflowDefinitionName"
     """<p>The name of the workflow definition. Must be unique within your account and region.</p>"""
     description: NotRequired[

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ServiceWorkflowUpdatedMetadata``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ServiceWorkflowUpdatedMetadata(TypedDict):
+class ServiceWorkflowUpdatedMetadata(TypedDict, closed=True):
     service_function_id: NotRequired["str"]
     """<p>The identifier of the service function.</p>"""
     service_function_name: NotRequired["str"]

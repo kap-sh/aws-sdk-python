@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.m2#GetDeploymentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.identifier
 
 
-class GetDeploymentRequest(TypedDict):
+class GetDeploymentRequest(TypedDict, closed=True):
     deployment_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The unique identifier for the deployment.</p>"""
     application_id: "aws_sdk_m2.types.identifier.Identifier"

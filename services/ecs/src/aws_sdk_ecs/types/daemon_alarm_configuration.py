@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DaemonAlarmConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boolean
     import aws_sdk_ecs.types.string_list
 
 
-class DaemonAlarmConfiguration(TypedDict):
+class DaemonAlarmConfiguration(TypedDict, closed=True):
     alarm_names: NotRequired["aws_sdk_ecs.types.string_list.StringList"]
     """<p>The CloudWatch alarm names to monitor during a daemon deployment.</p>"""
     enable: "aws_sdk_ecs.types.boolean.Boolean"

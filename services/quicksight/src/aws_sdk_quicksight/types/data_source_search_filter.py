@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSourceSearchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DataSourceSearchFilter(TypedDict):
+class DataSourceSearchFilter(TypedDict, closed=True):
     operator: "aws_sdk_quicksight.types.filter_operator.FilterOperator"
     r"""<p>The comparison operator that you want to use as a filter, for example <code>\"Operator\": \"StringEquals\"</code>. Valid values are <code>\"StringEquals\"</code> and <code>\"StringLike\"</code>.</p> <p>If you set the operator value to <code>\"StringEquals\"</code>, you need to provide an ownership related filter in the <code>\"NAME\"</code> field and the arn of the user or group whose data sources you want to search in the <code>\"Value\"</code> field. For example, <code>\"Name\":\"DIRECT_QUICKSIGHT_OWNER\", \"Operator\": \"StringEquals\", \"Value\": \"arn:aws:quicksight:us-east-1:1:user/default/UserName1\"</code>.</p> <p>If you set the value to <code>\"StringLike\"</code>, you need to provide the name of the data sources you are searching for. For example, <code>\"Name\":\"DATASOURCE_NAME\", \"Operator\": \"StringLike\", \"Value\": \"Test\"</code>. The <code>\"StringLike\"</code> operator only supports the <code>NAME</code> value <code>DATASOURCE_NAME</code>.</p>"""
     name: "aws_sdk_quicksight.types.data_source_filter_attribute.DataSourceFilterAttribute"

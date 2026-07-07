@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#CreateCloudExadataInfrastructureInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_display_name
 
 
-class CreateCloudExadataInfrastructureInput(TypedDict):
+class CreateCloudExadataInfrastructureInput(TypedDict, closed=True):
     display_name: "aws_sdk_odb.types.resource_display_name.ResourceDisplayName"
     """<p>A user-friendly name for the Exadata infrastructure.</p>"""
     shape: "aws_sdk_odb.types.general_input_string.GeneralInputString"

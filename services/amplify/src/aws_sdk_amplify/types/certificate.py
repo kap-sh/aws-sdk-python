@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#Certificate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.certificate_verification_dns_record
 
 
-class Certificate(TypedDict):
+class Certificate(TypedDict, closed=True):
     type: "aws_sdk_amplify.types.certificate_type.CertificateType"
     r"""<p>The type of SSL/TLS certificate that you want to use.</p> <p>Specify <code>AMPLIFY_MANAGED</code> to use the default certificate that Amplify provisions for you.</p> <p>Specify <code>CUSTOM</code> to use your own certificate that you have already added to Certificate Manager in your Amazon Web Services account. Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html\">Importing certificates into Certificate Manager</a> in the <i>ACM User guide</i>.</p>"""
     custom_certificate_arn: NotRequired[

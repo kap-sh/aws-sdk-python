@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CompleteResourceTokenAuthRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.user_identifier
 
 
-class CompleteResourceTokenAuthRequest(TypedDict):
+class CompleteResourceTokenAuthRequest(TypedDict, closed=True):
     user_identifier: "aws_sdk_bedrock_agentcore.types.user_identifier.UserIdentifier"
     """<p>The OAuth2.0 token or user ID that was used to generate the workload access token used for initiating the user authorization flow to retrieve OAuth2.0 tokens.</p>"""
     session_uri: "aws_sdk_bedrock_agentcore.types.request_uri.RequestUri"

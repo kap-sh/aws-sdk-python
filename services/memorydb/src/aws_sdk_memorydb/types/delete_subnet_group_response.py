@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DeleteSubnetGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.subnet_group
 
 
-class DeleteSubnetGroupResponse(TypedDict):
+class DeleteSubnetGroupResponse(TypedDict, closed=True):
     subnet_group: NotRequired["aws_sdk_memorydb.types.subnet_group.SubnetGroup"]
     """<p>The subnet group object that has been deleted.</p>"""
 

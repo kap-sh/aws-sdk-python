@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#NullCheckBoxList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boxed_boolean
 
 
-class NullCheckBoxList(TypedDict):
+class NullCheckBoxList(TypedDict, closed=True):
     is_empty: NotRequired["aws_sdk_glue.types.boxed_boolean.BoxedBoolean"]
     """<p>Specifies that an empty string is considered as a null value.</p>"""
     is_null_string: NotRequired["aws_sdk_glue.types.boxed_boolean.BoxedBoolean"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AutoAcceptConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.channel
 
 
-class AutoAcceptConfig(TypedDict):
+class AutoAcceptConfig(TypedDict, closed=True):
     channel: "aws_sdk_connect.types.channel.Channel"
     """<p>The channel for this auto-accept configuration. Valid values: VOICE, CHAT, TASK, EMAIL.</p>"""
     auto_accept: "aws_sdk_connect.types.auto_accept.AutoAccept"

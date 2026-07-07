@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#BatchGetImageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_failure_list
     import aws_sdk_ecr.types.image_list
 
 
-class BatchGetImageResponse(TypedDict):
+class BatchGetImageResponse(TypedDict, closed=True):
     images: NotRequired["aws_sdk_ecr.types.image_list.ImageList"]
     """<p>A list of image objects corresponding to the image references in the request.</p>"""
     failures: NotRequired["aws_sdk_ecr.types.image_failure_list.ImageFailureList"]

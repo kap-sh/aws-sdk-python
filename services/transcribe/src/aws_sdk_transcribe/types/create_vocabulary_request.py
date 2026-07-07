@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#CreateVocabularyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.vocabulary_name
 
 
-class CreateVocabularyRequest(TypedDict):
+class CreateVocabularyRequest(TypedDict, closed=True):
     vocabulary_name: "aws_sdk_transcribe.types.vocabulary_name.VocabularyName"
     """<p>A unique name, chosen by you, for your new custom vocabulary.</p> <p>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account. If you try to create a new custom vocabulary with the same name as an existing custom vocabulary, you get a <code>ConflictException</code> error.</p>"""
     language_code: "aws_sdk_transcribe.types.language_code.LanguageCode"

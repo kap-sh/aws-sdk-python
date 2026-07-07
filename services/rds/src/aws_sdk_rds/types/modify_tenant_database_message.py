@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ModifyTenantDatabaseMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class ModifyTenantDatabaseMessage(TypedDict):
+class ModifyTenantDatabaseMessage(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The identifier of the DB instance that contains the tenant database that you are modifying. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DB instance.</p> </li> </ul>"""
     tenant_db_name: NotRequired["aws_sdk_rds.types.string.String"]

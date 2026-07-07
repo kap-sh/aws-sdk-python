@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#S3Config``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.log_delivery_status
 
 
-class S3Config(TypedDict):
+class S3Config(TypedDict, closed=True):
     bucket_name: NotRequired["str"]
     """<p>The Amazon S3 bucket name.</p>"""
     bucket_prefix: NotRequired["str"]

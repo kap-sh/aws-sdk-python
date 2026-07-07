@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#AdapterVersionEvaluationMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.evaluation_metric
     import aws_sdk_textract.types.feature_type
 
 
-class AdapterVersionEvaluationMetric(TypedDict):
+class AdapterVersionEvaluationMetric(TypedDict, closed=True):
     baseline: NotRequired["aws_sdk_textract.types.evaluation_metric.EvaluationMetric"]
     """<p>The F1 score, precision, and recall metrics for the baseline model.</p>"""
     adapter_version: NotRequired[

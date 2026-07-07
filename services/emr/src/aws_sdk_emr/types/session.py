@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#Session``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.arn_type
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class Session(TypedDict):
+class Session(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr.types.session_id.SessionId"]
     """<p>The ID of the session.</p>"""
     cluster_id: NotRequired["aws_sdk_emr.types.cluster_id.ClusterId"]

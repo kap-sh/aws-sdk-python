@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#GuardrailConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.guardrail_identifier
     import aws_sdk_bedrock_agent.types.guardrail_version
 
 
-class GuardrailConfiguration(TypedDict):
+class GuardrailConfiguration(TypedDict, closed=True):
     guardrail_identifier: NotRequired[
         "aws_sdk_bedrock_agent.types.guardrail_identifier.GuardrailIdentifier"
     ]

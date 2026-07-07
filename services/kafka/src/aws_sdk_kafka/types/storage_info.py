@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#StorageInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.ebs_storage_info
 
 
-class StorageInfo(TypedDict):
+class StorageInfo(TypedDict, closed=True):
     ebs_storage_info: NotRequired["aws_sdk_kafka.types.ebs_storage_info.EBSStorageInfo"]
     """<p>EBS volume information.</p>"""
 

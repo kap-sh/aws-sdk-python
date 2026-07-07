@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rum#DeleteResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.policy_revision_id
 
 
-class DeleteResourcePolicyResponse(TypedDict):
+class DeleteResourcePolicyResponse(TypedDict, closed=True):
     policy_revision_id: NotRequired[
         "aws_sdk_rum.types.policy_revision_id.PolicyRevisionId"
     ]

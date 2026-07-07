@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DescribeParameterGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.integer_optional
     import aws_sdk_memorydb.types.string
 
 
-class DescribeParameterGroupsRequest(TypedDict):
+class DescribeParameterGroupsRequest(TypedDict, closed=True):
     parameter_group_name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The name of a specific parameter group to return details for.</p>"""
     max_results: NotRequired["aws_sdk_memorydb.types.integer_optional.IntegerOptional"]

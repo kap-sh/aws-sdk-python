@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#S3Storage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class S3Storage(TypedDict):
+class S3Storage(TypedDict, closed=True):
     aws_access_key_id: NotRequired["aws_sdk_ec2.types.string.String"]
     r"""<p>The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <a href=\"https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html\">Best Practices for Amazon Web Services accounts</a> in the <i>Account ManagementReference Guide</i>.</p>"""
     bucket: NotRequired["aws_sdk_ec2.types.string.String"]

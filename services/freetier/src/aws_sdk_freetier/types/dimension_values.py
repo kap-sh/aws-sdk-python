@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.freetier#DimensionValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_freetier.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_freetier.types.values
 
 
-class DimensionValues(TypedDict):
+class DimensionValues(TypedDict, closed=True):
     key: "aws_sdk_freetier.types.dimension.Dimension"
     """<p>The name of the dimension that you want to filter on.</p>"""
     values: "aws_sdk_freetier.types.values.Values"

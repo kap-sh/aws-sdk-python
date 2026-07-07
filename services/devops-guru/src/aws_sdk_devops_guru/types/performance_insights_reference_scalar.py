@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#PerformanceInsightsReferenceScalar``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.performance_insights_value_double
 
 
-class PerformanceInsightsReferenceScalar(TypedDict):
+class PerformanceInsightsReferenceScalar(TypedDict, closed=True):
     value: NotRequired[
         "aws_sdk_devops_guru.types.performance_insights_value_double.PerformanceInsightsValueDouble"
     ]

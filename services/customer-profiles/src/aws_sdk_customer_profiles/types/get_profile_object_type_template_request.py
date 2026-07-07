@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#GetProfileObjectTypeTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.name
 
 
-class GetProfileObjectTypeTemplateRequest(TypedDict):
+class GetProfileObjectTypeTemplateRequest(TypedDict, closed=True):
     template_id: "aws_sdk_customer_profiles.types.name.name"
     """<p>A unique identifier for the object template.</p>"""
 

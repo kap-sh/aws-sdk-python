@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#CreateSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.kms_key_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.tags_map
 
 
-class CreateSessionRequest(TypedDict):
+class CreateSessionRequest(TypedDict, closed=True):
     session_metadata: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.session_metadata_map.SessionMetadataMap"
     ]

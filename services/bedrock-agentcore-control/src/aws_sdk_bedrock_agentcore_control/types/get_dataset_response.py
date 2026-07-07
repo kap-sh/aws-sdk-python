@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetDatasetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.tags_map
 
 
-class GetDatasetResponse(TypedDict):
+class GetDatasetResponse(TypedDict, closed=True):
     dataset_arn: "aws_sdk_bedrock_agentcore_control.types.dataset_arn.DatasetArn"
     """<p> The Amazon Resource Name (ARN) of the dataset. </p>"""
     dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId"

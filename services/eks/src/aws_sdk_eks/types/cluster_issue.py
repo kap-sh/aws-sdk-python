@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ClusterIssue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.cluster_issue_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string_list
 
 
-class ClusterIssue(TypedDict):
+class ClusterIssue(TypedDict, closed=True):
     code: NotRequired["aws_sdk_eks.types.cluster_issue_code.ClusterIssueCode"]
     """<p>The error code of the issue.</p>"""
     message: NotRequired["aws_sdk_eks.types.string.String"]

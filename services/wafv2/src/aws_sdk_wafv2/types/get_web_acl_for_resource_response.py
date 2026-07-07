@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GetWebACLForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.web_acl
 
 
-class GetWebACLForResourceResponse(TypedDict):
+class GetWebACLForResourceResponse(TypedDict, closed=True):
     web_acl: NotRequired["aws_sdk_wafv2.types.web_acl.WebACL"]
     """<p>The web ACL that is associated with the resource. If there is no associated resource, WAF returns a null web ACL.</p>"""
 

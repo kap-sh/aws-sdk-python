@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#BatchGetTargetDomainsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.target_domain_id_list
     import aws_sdk_securityagent.types.target_domain_list
 
 
-class BatchGetTargetDomainsOutput(TypedDict):
+class BatchGetTargetDomainsOutput(TypedDict, closed=True):
     target_domains: NotRequired[
         "aws_sdk_securityagent.types.target_domain_list.TargetDomainList"
     ]

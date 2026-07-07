@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#ImageConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.image_uri
 
 
-class ImageConfigurationInput(TypedDict):
+class ImageConfigurationInput(TypedDict, closed=True):
     image_uri: NotRequired["aws_sdk_emr_serverless.types.image_uri.ImageUri"]
     """<p>The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.</p>"""
     application_level_digest_resolution: NotRequired["bool"]

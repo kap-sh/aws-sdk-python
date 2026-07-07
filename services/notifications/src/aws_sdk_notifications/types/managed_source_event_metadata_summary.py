@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ManagedSourceEventMetadataSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.source
 
 
-class ManagedSourceEventMetadataSummary(TypedDict):
+class ManagedSourceEventMetadataSummary(TypedDict, closed=True):
     event_origin_region: NotRequired["aws_sdk_notifications.types.region.Region"]
     """<p>The Region where the notification originated.</p>"""
     source: "aws_sdk_notifications.types.source.Source"

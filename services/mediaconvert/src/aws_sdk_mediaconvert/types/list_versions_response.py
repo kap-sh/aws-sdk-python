@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ListVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of_job_engine_version
     import aws_sdk_mediaconvert.types.__string
 
 
-class ListVersionsResponse(TypedDict):
+class ListVersionsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """Optional. Use this string, provided with the response to a previous request, to request the next batch of Job engine versions."""
     versions: NotRequired[

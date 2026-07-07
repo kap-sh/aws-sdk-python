@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#IdleSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.idle_timeout_in_minutes
     import aws_sdk_sagemaker.types.lifecycle_management
 
 
-class IdleSettings(TypedDict):
+class IdleSettings(TypedDict, closed=True):
     lifecycle_management: NotRequired[
         "aws_sdk_sagemaker.types.lifecycle_management.LifecycleManagement"
     ]

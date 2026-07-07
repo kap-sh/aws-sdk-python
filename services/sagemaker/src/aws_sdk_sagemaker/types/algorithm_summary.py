@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AlgorithmSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.algorithm_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.entity_name
 
 
-class AlgorithmSummary(TypedDict):
+class AlgorithmSummary(TypedDict, closed=True):
     algorithm_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>The name of the algorithm that is described by the summary.</p>"""
     algorithm_arn: NotRequired["aws_sdk_sagemaker.types.algorithm_arn.AlgorithmArn"]

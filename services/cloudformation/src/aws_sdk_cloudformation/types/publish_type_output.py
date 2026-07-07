@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#PublishTypeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.type_arn
 
 
-class PublishTypeOutput(TypedDict):
+class PublishTypeOutput(TypedDict, closed=True):
     public_type_arn: NotRequired["aws_sdk_cloudformation.types.type_arn.TypeArn"]
     """<p>The Amazon Resource Name (ARN) assigned to the public extension upon publication.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#PermissionsBoundary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.customer_managed_policy_reference
     import aws_sdk_sso_admin.types.managed_policy_arn
 
 
-class PermissionsBoundary(TypedDict):
+class PermissionsBoundary(TypedDict, closed=True):
     customer_managed_policy_reference: NotRequired[
         "aws_sdk_sso_admin.types.customer_managed_policy_reference.CustomerManagedPolicyReference"
     ]

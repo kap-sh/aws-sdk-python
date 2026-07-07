@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SpanMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class SpanMessage(TypedDict):
+class SpanMessage(TypedDict, closed=True):
     message_id: "aws_sdk_qconnect.types.uuid.Uuid"
     """<p>Unique message identifier</p>"""
     participant: "aws_sdk_qconnect.types.participant.Participant"

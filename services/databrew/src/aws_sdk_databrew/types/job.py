@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#Job``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -31,7 +31,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.validation_configuration_list
 
 
-class Job(TypedDict):
+class Job(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_databrew.types.account_id.AccountId"]
     """<p>The ID of the Amazon Web Services account that owns the job.</p>"""
     created_by: NotRequired["aws_sdk_databrew.types.created_by.CreatedBy"]

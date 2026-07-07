@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#CreateAggregatorV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.client_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.tag_map
 
 
-class CreateAggregatorV2Request(TypedDict):
+class CreateAggregatorV2Request(TypedDict, closed=True):
     region_linking_mode: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

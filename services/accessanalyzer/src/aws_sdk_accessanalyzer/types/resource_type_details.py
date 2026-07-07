@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ResourceTypeDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ResourceTypeDetails(TypedDict):
+class ResourceTypeDetails(TypedDict, closed=True):
     total_active_public: NotRequired["int"]
     """<p>The total number of active public findings for the resource type.</p>"""
     total_active_cross_account: NotRequired["int"]

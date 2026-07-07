@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#RuntimeMetadataConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
 
-class RuntimeMetadataConfiguration(TypedDict):
+class RuntimeMetadataConfiguration(TypedDict, closed=True):
     require_mmdsv2: "bool"
     """<p>Enables MMDSv2 (microVM Metadata Service Version 2) requirement for the agent runtime. When set to <code>true</code>, the runtime microVM will only accept MMDSv2 requests.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#PipelineLoggingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.log_group_name
 
 
-class PipelineLoggingConfiguration(TypedDict):
+class PipelineLoggingConfiguration(TypedDict, closed=True):
     image_log_group_name: NotRequired[
         "aws_sdk_imagebuilder.types.log_group_name.LogGroupName"
     ]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#DeleteCoreNetworkPolicyVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.core_network_id
     import aws_sdk_networkmanager.types.integer
 
 
-class DeleteCoreNetworkPolicyVersionRequest(TypedDict):
+class DeleteCoreNetworkPolicyVersionRequest(TypedDict, closed=True):
     core_network_id: "aws_sdk_networkmanager.types.core_network_id.CoreNetworkId"
     """<p>The ID of a core network for the deleted policy.</p>"""
     policy_version_id: "aws_sdk_networkmanager.types.integer.Integer"

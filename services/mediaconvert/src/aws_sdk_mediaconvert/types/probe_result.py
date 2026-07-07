@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ProbeResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of_track_mapping
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.metadata
 
 
-class ProbeResult(TypedDict):
+class ProbeResult(TypedDict, closed=True):
     container: NotRequired["aws_sdk_mediaconvert.types.container.Container"]
     """The container of your media file. This information helps you understand the overall structure and details of your media, including format, duration, and track layout."""
     metadata: NotRequired["aws_sdk_mediaconvert.types.metadata.Metadata"]

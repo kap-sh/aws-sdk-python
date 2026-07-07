@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#CreateApplicationMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 from aws_sdk_elastic_beanstalk.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.tags
 
 
-class CreateApplicationMessage(TypedDict):
+class CreateApplicationMessage(TypedDict, closed=True):
     application_name: "aws_sdk_elastic_beanstalk.types.application_name.ApplicationName"
     """<p>The name of the application. Must be unique within your account.</p>"""
     description: NotRequired["aws_sdk_elastic_beanstalk.types.description.Description"]

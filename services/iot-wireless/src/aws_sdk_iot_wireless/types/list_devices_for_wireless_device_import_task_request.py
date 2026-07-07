@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ListDevicesForWirelessDeviceImportTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.import_task_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.onboard_status
 
 
-class ListDevicesForWirelessDeviceImportTaskRequest(TypedDict):
+class ListDevicesForWirelessDeviceImportTaskRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.import_task_id.ImportTaskId"
     """<p>The identifier of the import task for which wireless devices are listed.</p>"""
     max_results: "aws_sdk_iot_wireless.types.max_results.MaxResults"

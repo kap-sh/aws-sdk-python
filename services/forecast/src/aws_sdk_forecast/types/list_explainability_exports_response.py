@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#ListExplainabilityExportsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.explainability_exports
     import aws_sdk_forecast.types.next_token
 
 
-class ListExplainabilityExportsResponse(TypedDict):
+class ListExplainabilityExportsResponse(TypedDict, closed=True):
     explainability_exports: NotRequired[
         "aws_sdk_forecast.types.explainability_exports.ExplainabilityExports"
     ]

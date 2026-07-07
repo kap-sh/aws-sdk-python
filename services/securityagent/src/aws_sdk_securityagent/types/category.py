@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#Category``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Category(TypedDict):
+class Category(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the category.</p>"""
     is_primary: NotRequired["bool"]

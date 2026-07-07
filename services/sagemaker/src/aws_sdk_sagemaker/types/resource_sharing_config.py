@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ResourceSharingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.absolute_borrow_limit_resource_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.resource_sharing_strategy
 
 
-class ResourceSharingConfig(TypedDict):
+class ResourceSharingConfig(TypedDict, closed=True):
     strategy: NotRequired[
         "aws_sdk_sagemaker.types.resource_sharing_strategy.ResourceSharingStrategy"
     ]

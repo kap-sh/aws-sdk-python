@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#DeprovisionByoipCidrResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.byoip_cidr
 
 
-class DeprovisionByoipCidrResponse(TypedDict):
+class DeprovisionByoipCidrResponse(TypedDict, closed=True):
     byoip_cidr: NotRequired["aws_sdk_global_accelerator.types.byoip_cidr.ByoipCidr"]
     """<p>Information about the address range.</p>"""
 

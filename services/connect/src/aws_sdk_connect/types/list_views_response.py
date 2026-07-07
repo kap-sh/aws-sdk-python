@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListViewsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.views_next_token
     import aws_sdk_connect.types.views_summary_list
 
 
-class ListViewsResponse(TypedDict):
+class ListViewsResponse(TypedDict, closed=True):
     views_summary_list: NotRequired[
         "aws_sdk_connect.types.views_summary_list.ViewsSummaryList"
     ]

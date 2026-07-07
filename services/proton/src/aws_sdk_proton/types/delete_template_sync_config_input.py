@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#DeleteTemplateSyncConfigInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.template_type
 
 
-class DeleteTemplateSyncConfigInput(TypedDict):
+class DeleteTemplateSyncConfigInput(TypedDict, closed=True):
     template_name: "aws_sdk_proton.types.resource_name.ResourceName"
     """<p>The template name.</p>"""
     template_type: "aws_sdk_proton.types.template_type.TemplateType"

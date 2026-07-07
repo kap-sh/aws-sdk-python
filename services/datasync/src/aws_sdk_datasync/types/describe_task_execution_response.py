@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#DescribeTaskExecutionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.filter_list
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.time
 
 
-class DescribeTaskExecutionResponse(TypedDict):
+class DescribeTaskExecutionResponse(TypedDict, closed=True):
     task_execution_arn: NotRequired[
         "aws_sdk_datasync.types.task_execution_arn.TaskExecutionArn"
     ]

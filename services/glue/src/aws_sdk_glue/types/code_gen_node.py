@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CodeGenNode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.integer
 
 
-class CodeGenNode(TypedDict):
+class CodeGenNode(TypedDict, closed=True):
     id: "aws_sdk_glue.types.code_gen_identifier.CodeGenIdentifier"
     """<p>A node identifier that is unique within the node's graph.</p>"""
     node_type: "aws_sdk_glue.types.code_gen_node_type.CodeGenNodeType"

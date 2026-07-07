@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RedshiftServerlessStorage``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class RedshiftServerlessStorage(TypedDict):
+class RedshiftServerlessStorage(TypedDict, closed=True):
     workgroup_name: "str"
     """<p>The name of the Amazon Redshift Serverless workgroup.</p>"""
 

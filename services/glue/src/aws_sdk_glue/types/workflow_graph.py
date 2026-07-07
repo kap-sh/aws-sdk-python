@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#WorkflowGraph``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.edge_list
     import aws_sdk_glue.types.node_list
 
 
-class WorkflowGraph(TypedDict):
+class WorkflowGraph(TypedDict, closed=True):
     nodes: NotRequired["aws_sdk_glue.types.node_list.NodeList"]
     """<p>A list of the the Glue components belong to the workflow represented as nodes.</p>"""
     edges: NotRequired["aws_sdk_glue.types.edge_list.EdgeList"]

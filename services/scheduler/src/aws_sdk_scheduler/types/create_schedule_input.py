@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#CreateScheduleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_scheduler.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_scheduler.types.target
 
 
-class CreateScheduleInput(TypedDict):
+class CreateScheduleInput(TypedDict, closed=True):
     name: "aws_sdk_scheduler.types.name.Name"
     """<p>The name of the schedule that you are creating.</p>"""
     group_name: NotRequired[

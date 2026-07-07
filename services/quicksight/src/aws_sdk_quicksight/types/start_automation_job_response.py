@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#StartAutomationJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
 
 
-class StartAutomationJobResponse(TypedDict):
+class StartAutomationJobResponse(TypedDict, closed=True):
     arn: "aws_sdk_quicksight.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the automation job.</p>"""
     job_id: "aws_sdk_quicksight.types.automate_id.AutomateId"

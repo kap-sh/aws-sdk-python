@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteGremlinExplainQueryInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
 
-class ExecuteGremlinExplainQueryInput(TypedDict):
+class ExecuteGremlinExplainQueryInput(TypedDict, closed=True):
     gremlin_query: "str"
     """<p>The Gremlin explain query string.</p>"""
 

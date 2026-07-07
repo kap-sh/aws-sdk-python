@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FinalResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.final_response_string
     import aws_sdk_bedrock_agent_runtime.types.metadata
 
 
-class FinalResponse(TypedDict):
+class FinalResponse(TypedDict, closed=True):
     text: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.final_response_string.FinalResponseString"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntime#InvokeEndpointAsyncOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.header
 
 
-class InvokeEndpointAsyncOutput(TypedDict):
+class InvokeEndpointAsyncOutput(TypedDict, closed=True):
     inference_id: NotRequired["aws_sdk_sagemaker_runtime.types.header.Header"]
     """<p>Identifier for an inference request. This will be the same as the <code>InferenceId</code> specified in the input. Amazon SageMaker AI will generate an identifier for you if you do not specify one.</p>"""
     output_location: NotRequired["aws_sdk_sagemaker_runtime.types.header.Header"]

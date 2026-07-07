@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetDistributionMetricDataResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.distribution_metric_name
     import aws_sdk_lightsail.types.metric_datapoint_list
 
 
-class GetDistributionMetricDataResult(TypedDict):
+class GetDistributionMetricDataResult(TypedDict, closed=True):
     metric_name: NotRequired[
         "aws_sdk_lightsail.types.distribution_metric_name.DistributionMetricName"
     ]

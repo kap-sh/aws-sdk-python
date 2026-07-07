@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#Primary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.health_check
 
 
-class Primary(TypedDict):
+class Primary(TypedDict, closed=True):
     health_check: "aws_sdk_eventbridge.types.health_check.HealthCheck"
     """<p>The ARN of the health check used by the endpoint to determine whether failover is triggered.</p>"""
 

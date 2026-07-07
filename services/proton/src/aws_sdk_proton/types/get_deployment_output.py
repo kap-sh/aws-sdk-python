@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetDeploymentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.deployment
 
 
-class GetDeploymentOutput(TypedDict):
+class GetDeploymentOutput(TypedDict, closed=True):
     deployment: NotRequired["aws_sdk_proton.types.deployment.Deployment"]
     """<p>The detailed data of the requested deployment.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#VpcEndpointFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.vpc_endpoint_status
 
 
-class VpcEndpointFilters(TypedDict):
+class VpcEndpointFilters(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_opensearchserverless.types.vpc_endpoint_status.VpcEndpointStatus"
     ]

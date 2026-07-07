@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#ListTagsForResourceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.resource_arn
     import aws_sdk_backup_gateway.types.tags
 
 
-class ListTagsForResourceOutput(TypedDict):
+class ListTagsForResourceOutput(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_backup_gateway.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the resource's tags that you listed.</p>"""
     tags: NotRequired["aws_sdk_backup_gateway.types.tags.Tags"]

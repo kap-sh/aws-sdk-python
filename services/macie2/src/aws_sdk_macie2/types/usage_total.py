@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UsageTotal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.usage_type
 
 
-class UsageTotal(TypedDict):
+class UsageTotal(TypedDict, closed=True):
     currency: NotRequired["aws_sdk_macie2.types.currency.Currency"]
     """<p>The type of currency that the value for the metric (estimatedCost) is reported in.</p>"""
     estimated_cost: NotRequired["aws_sdk_macie2.types.__string.__string"]

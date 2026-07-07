@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#PublicAccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
 
 
-class PublicAccess(TypedDict):
+class PublicAccess(TypedDict, closed=True):
     type: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The value DISABLED indicates that public access is turned off. SERVICE_PROVIDED_EIPS indicates that public access is turned on.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#AttachUserPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class AttachUserPolicyRequest(TypedDict):
+class AttachUserPolicyRequest(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.user_name_type.userNameType"
     r"""<p>The name (friendly name, not ARN) of the IAM user to attach the policy to.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     policy_arn: "aws_sdk_iam.types.arn_type.arnType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ListAutomatedDiscoveryAccountsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.max_results
 
 
-class ListAutomatedDiscoveryAccountsRequest(TypedDict):
+class ListAutomatedDiscoveryAccountsRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_macie2.types.__list_of__string.__listOf__string"]
     """<p>The Amazon Web Services account ID for each account, for as many as 50 accounts. To retrieve the status for multiple accounts, append the accountIds parameter and argument for each account, separated by an ampersand (&amp;). To retrieve the status for all the accounts in an organization, omit this parameter.</p>"""
     max_results: NotRequired["aws_sdk_macie2.types.max_results.MaxResults"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#JobManifestGenerator``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError, SerializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.s3_job_manifest_generator
 
 
-class _JobManifestGenerator_S3JobManifestGenerator(TypedDict):
+class _JobManifestGenerator_S3JobManifestGenerator(TypedDict, closed=True):
     S3JobManifestGenerator: (
         "aws_sdk_s3_control.types.s3_job_manifest_generator.S3JobManifestGenerator"
     )

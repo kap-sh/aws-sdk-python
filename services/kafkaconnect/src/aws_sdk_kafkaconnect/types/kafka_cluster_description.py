@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#KafkaClusterDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.apache_kafka_cluster_description
 
 
-class KafkaClusterDescription(TypedDict):
+class KafkaClusterDescription(TypedDict, closed=True):
     apache_kafka_cluster: NotRequired[
         "aws_sdk_kafkaconnect.types.apache_kafka_cluster_description.ApacheKafkaClusterDescription"
     ]

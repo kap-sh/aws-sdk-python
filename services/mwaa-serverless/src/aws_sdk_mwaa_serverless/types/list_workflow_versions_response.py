@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#ListWorkflowVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.workflow_version_summaries
 
 
-class ListWorkflowVersionsResponse(TypedDict):
+class ListWorkflowVersionsResponse(TypedDict, closed=True):
     workflow_versions: NotRequired[
         "aws_sdk_mwaa_serverless.types.workflow_version_summaries.WorkflowVersionSummaries"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ListAIGuardrailVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.next_token
 
 
-class ListAIGuardrailVersionsResponse(TypedDict):
+class ListAIGuardrailVersionsResponse(TypedDict, closed=True):
     ai_guardrail_version_summaries: "aws_sdk_qconnect.types.ai_guardrail_version_summaries_list.AIGuardrailVersionSummariesList"
     """<p>The summaries of the AI Guardrail versions.</p>"""
     next_token: NotRequired["aws_sdk_qconnect.types.next_token.NextToken"]

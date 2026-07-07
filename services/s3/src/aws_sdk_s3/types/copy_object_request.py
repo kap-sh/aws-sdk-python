@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#CopyObjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -51,7 +51,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.website_redirect_location
 
 
-class CopyObjectRequest(TypedDict):
+class CopyObjectRequest(TypedDict, closed=True):
     acl: NotRequired["aws_sdk_s3.types.object_canned_acl.ObjectCannedACL"]
     r"""<p>The canned access control list (ACL) to apply to the object.</p> <p>When you copy an object, the ACL metadata is not preserved and is set to <code>private</code> by default. Only the owner has full access control. To override the default ACL setting, specify a new ACL when you generate a copy request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html\">Using ACLs</a>. </p> <p>If the destination bucket that you're copying objects to uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that use this setting only accept <code>PUT</code> requests that don't specify an ACL or <code>PUT</code> requests that specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code> canned ACL or an equivalent form of this ACL expressed in the XML format. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html\">Controlling ownership of objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <ul> <li> <p>If your destination bucket uses the bucket owner enforced setting for Object Ownership, all objects written to the bucket by any account will be owned by the bucket owner.</p> </li> <li> <p>This functionality is not supported for directory buckets.</p> </li> <li> <p>This functionality is not supported for Amazon S3 on Outposts.</p> </li> </ul> </note>"""
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"

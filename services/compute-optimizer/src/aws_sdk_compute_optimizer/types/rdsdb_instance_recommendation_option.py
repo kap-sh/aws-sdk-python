@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#RDSDBInstanceRecommendationOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.db_instance_class
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.savings_opportunity
 
 
-class RDSDBInstanceRecommendationOption(TypedDict):
+class RDSDBInstanceRecommendationOption(TypedDict, closed=True):
     db_instance_class: NotRequired[
         "aws_sdk_compute_optimizer.types.db_instance_class.DBInstanceClass"
     ]

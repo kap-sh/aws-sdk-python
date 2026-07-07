@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafv2RulesActionCaptchaDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_wafv2_custom_request_handling_details
 
 
-class AwsWafv2RulesActionCaptchaDetails(TypedDict):
+class AwsWafv2RulesActionCaptchaDetails(TypedDict, closed=True):
     custom_request_handling: NotRequired[
         "aws_sdk_securityhub.types.aws_wafv2_custom_request_handling_details.AwsWafv2CustomRequestHandlingDetails"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#AccessDeniedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signin.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.o_auth2_error_code
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     error: "aws_sdk_signin.types.o_auth2_error_code.OAuth2ErrorCode"
     """OAuth 2.0 error code indicating the specific type of access denial Can be TOKEN_EXPIRED, AUTHCODE_EXPIRED, USER_CREDENTIALS_CHANGED, or INSUFFICIENT_PERMISSIONS"""
     message: "str"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#SuggestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.query
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.suggestions_size
 
 
-class SuggestRequest(TypedDict):
+class SuggestRequest(TypedDict, closed=True):
     query: "aws_sdk_cloudsearch_domain.types.query.Query"
     """<p>Specifies the string for which you want to get suggestions.</p>"""
     suggester: "aws_sdk_cloudsearch_domain.types.suggester.Suggester"

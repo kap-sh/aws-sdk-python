@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ChapInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.chap_secret
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.target_arn
 
 
-class ChapInfo(TypedDict):
+class ChapInfo(TypedDict, closed=True):
     target_arn: NotRequired["aws_sdk_storage_gateway.types.target_arn.TargetARN"]
     """<p>The Amazon Resource Name (ARN) of the volume.</p> <p>Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>"""
     secret_to_authenticate_initiator: NotRequired[

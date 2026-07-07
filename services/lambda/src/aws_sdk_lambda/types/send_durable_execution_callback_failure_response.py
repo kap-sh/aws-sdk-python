@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#SendDurableExecutionCallbackFailureResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SendDurableExecutionCallbackFailureResponse(TypedDict):
+class SendDurableExecutionCallbackFailureResponse(TypedDict, closed=True):
     pass
 
 

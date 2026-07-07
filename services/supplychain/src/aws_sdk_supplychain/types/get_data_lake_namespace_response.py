@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#GetDataLakeNamespaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_lake_namespace
 
 
-class GetDataLakeNamespaceResponse(TypedDict):
+class GetDataLakeNamespaceResponse(TypedDict, closed=True):
     namespace: "aws_sdk_supplychain.types.data_lake_namespace.DataLakeNamespace"
     """<p>The fetched namespace details.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#ConfigurationSettingsDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.update_date
 
 
-class ConfigurationSettingsDescription(TypedDict):
+class ConfigurationSettingsDescription(TypedDict, closed=True):
     solution_stack_name: NotRequired[
         "aws_sdk_elastic_beanstalk.types.solution_stack_name.SolutionStackName"
     ]

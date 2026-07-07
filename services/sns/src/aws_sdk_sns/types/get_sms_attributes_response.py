@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#GetSMSAttributesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.map_string_to_string
 
 
-class GetSMSAttributesResponse(TypedDict):
+class GetSMSAttributesResponse(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_sns.types.map_string_to_string.MapStringToString"]
     """<p>The SMS attribute names and their values.</p>"""
 

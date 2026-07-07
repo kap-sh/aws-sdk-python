@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InvalidFilterKey``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
 
-class InvalidFilterKey_(TypedDict):
+class InvalidFilterKey_(TypedDict, closed=True):
     pass
 
 

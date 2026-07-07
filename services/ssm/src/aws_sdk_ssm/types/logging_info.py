@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#LoggingInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.s3_region
 
 
-class LoggingInfo(TypedDict):
+class LoggingInfo(TypedDict, closed=True):
     s3_bucket_name: "aws_sdk_ssm.types.s3_bucket_name.S3BucketName"
     """<p>The name of an S3 bucket where execution logs are stored.</p>"""
     s3_key_prefix: NotRequired["aws_sdk_ssm.types.s3_key_prefix.S3KeyPrefix"]

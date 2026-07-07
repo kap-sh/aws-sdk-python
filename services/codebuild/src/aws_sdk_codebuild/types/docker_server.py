@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#DockerServer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.security_group_ids
 
 
-class DockerServer(TypedDict):
+class DockerServer(TypedDict, closed=True):
     compute_type: "aws_sdk_codebuild.types.compute_type.ComputeType"
     """<p>Information about the compute resources the docker server uses. Available values include:</p> <ul> <li> <p> <code>BUILD_GENERAL1_SMALL</code>: Use up to 4 GiB memory and 2 vCPUs for your docker server.</p> </li> <li> <p> <code>BUILD_GENERAL1_MEDIUM</code>: Use up to 8 GiB memory and 4 vCPUs for your docker server.</p> </li> <li> <p> <code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GiB memory and 8 vCPUs for your docker server.</p> </li> <li> <p> <code>BUILD_GENERAL1_XLARGE</code>: Use up to 64 GiB memory and 32 vCPUs for your docker server.</p> </li> <li> <p> <code>BUILD_GENERAL1_2XLARGE</code>: Use up to 128 GiB memory and 64 vCPUs for your docker server.</p> </li> </ul>"""
     security_group_ids: NotRequired[

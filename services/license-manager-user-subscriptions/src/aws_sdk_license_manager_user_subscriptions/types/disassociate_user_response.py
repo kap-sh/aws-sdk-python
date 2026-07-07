@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#DisassociateUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.instance_user_summary
 
 
-class DisassociateUserResponse(TypedDict):
+class DisassociateUserResponse(TypedDict, closed=True):
     instance_user_summary: "aws_sdk_license_manager_user_subscriptions.types.instance_user_summary.InstanceUserSummary"
     """<p>Metadata that describes the associate user operation.</p>"""
 

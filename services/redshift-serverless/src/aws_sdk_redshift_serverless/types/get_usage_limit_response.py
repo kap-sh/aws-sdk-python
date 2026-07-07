@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#GetUsageLimitResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.usage_limit
 
 
-class GetUsageLimitResponse(TypedDict):
+class GetUsageLimitResponse(TypedDict, closed=True):
     usage_limit: NotRequired["aws_sdk_redshift_serverless.types.usage_limit.UsageLimit"]
     """<p>The returned usage limit object.</p>"""
 

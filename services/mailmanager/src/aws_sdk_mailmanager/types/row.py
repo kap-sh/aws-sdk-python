@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#Row``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -44,6 +44,7 @@ Row = TypedDict(
         "envelope": NotRequired["aws_sdk_mailmanager.types.envelope.Envelope"],
         "source_arn": NotRequired["str"],
     },
+    closed=True,
 )
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateFileSystemWindowsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.alternate_dns_names
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.windows_fsrm_configuration
 
 
-class CreateFileSystemWindowsConfiguration(TypedDict):
+class CreateFileSystemWindowsConfiguration(TypedDict, closed=True):
     active_directory_id: NotRequired["aws_sdk_fsx.types.directory_id.DirectoryId"]
     """<p>The ID for an existing Amazon Web Services Managed Microsoft Active Directory (AD) instance that the file system should join when it's created.</p>"""
     self_managed_active_directory_configuration: NotRequired[

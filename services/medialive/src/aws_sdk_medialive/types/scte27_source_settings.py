@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Scte27SourceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1
     import aws_sdk_medialive.types.scte27_ocr_language
 
 
-class Scte27SourceSettings(TypedDict):
+class Scte27SourceSettings(TypedDict, closed=True):
     ocr_language: NotRequired[
         "aws_sdk_medialive.types.scte27_ocr_language.Scte27OcrLanguage"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#SuppressDataIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
     import aws_sdk_macie2.types.data_identifier_type
 
 
-class SuppressDataIdentifier(TypedDict):
+class SuppressDataIdentifier(TypedDict, closed=True):
     id: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The unique identifier for the custom data identifier or managed data identifier that detected the type of sensitive data to exclude from the score.</p>"""
     type: NotRequired["aws_sdk_macie2.types.data_identifier_type.DataIdentifierType"]

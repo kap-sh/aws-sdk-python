@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#OrganizationNode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.organization_node_type
     import aws_sdk_service_catalog.types.organization_node_value
 
 
-class OrganizationNode(TypedDict):
+class OrganizationNode(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_service_catalog.types.organization_node_type.OrganizationNodeType"
     ]

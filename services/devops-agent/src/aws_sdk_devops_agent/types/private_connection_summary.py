@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#PrivateConnectionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.vpc_id
 
 
-class PrivateConnectionSummary(TypedDict):
+class PrivateConnectionSummary(TypedDict, closed=True):
     name: "aws_sdk_devops_agent.types.private_connection_name.PrivateConnectionName"
     """<p>The name of the Private Connection.</p>"""
     type: "aws_sdk_devops_agent.types.private_connection_type.PrivateConnectionType"

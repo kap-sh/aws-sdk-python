@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#DescribeOrganizationalUnitRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.organizational_unit_id
 
 
-class DescribeOrganizationalUnitRequest(TypedDict):
+class DescribeOrganizationalUnitRequest(TypedDict, closed=True):
     organizational_unit_id: (
         "aws_sdk_organizations.types.organizational_unit_id.OrganizationalUnitId"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ConflictResolution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.delete_file_entries
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.set_file_mode_entries
 
 
-class ConflictResolution(TypedDict):
+class ConflictResolution(TypedDict, closed=True):
     replace_contents: NotRequired[
         "aws_sdk_codecommit.types.replace_content_entries.ReplaceContentEntries"
     ]

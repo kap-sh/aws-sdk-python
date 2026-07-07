@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#DescribeTrustStoresOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.trust_stores
 
 
-class DescribeTrustStoresOutput(TypedDict):
+class DescribeTrustStoresOutput(TypedDict, closed=True):
     trust_stores: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.trust_stores.TrustStores"
     ]

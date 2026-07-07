@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#GetIndexOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.tag_map
 
 
-class GetIndexOutput(TypedDict):
+class GetIndexOutput(TypedDict, closed=True):
     arn: NotRequired["str"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the index.</p>"""
     type: NotRequired["aws_sdk_resource_explorer_2.types.index_type.IndexType"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#PartnerAppMaintenanceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.weekly_schedule_time_format
 
 
-class PartnerAppMaintenanceConfig(TypedDict):
+class PartnerAppMaintenanceConfig(TypedDict, closed=True):
     maintenance_window_start: NotRequired[
         "aws_sdk_sagemaker.types.weekly_schedule_time_format.WeeklyScheduleTimeFormat"
     ]

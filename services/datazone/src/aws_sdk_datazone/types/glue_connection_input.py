@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GlueConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.authentication_configuration_input
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.property_map
 
 
-class GlueConnectionInput(TypedDict):
+class GlueConnectionInput(TypedDict, closed=True):
     connection_properties: NotRequired[
         "aws_sdk_datazone.types.connection_properties.ConnectionProperties"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#DescribeContainerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediastore.types.container_name
 
 
-class DescribeContainerInput(TypedDict):
+class DescribeContainerInput(TypedDict, closed=True):
     container_name: NotRequired["aws_sdk_mediastore.types.container_name.ContainerName"]
     """<p>The name of the container to query.</p>"""
 

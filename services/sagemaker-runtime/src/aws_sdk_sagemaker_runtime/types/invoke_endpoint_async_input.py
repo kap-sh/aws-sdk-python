@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntime#InvokeEndpointAsyncInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.custom_attributes_header
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.s3_output_path_extension_header
 
 
-class InvokeEndpointAsyncInput(TypedDict):
+class InvokeEndpointAsyncInput(TypedDict, closed=True):
     endpoint_name: "aws_sdk_sagemaker_runtime.types.endpoint_name.EndpointName"
     r"""<p>The name of the endpoint that you specified when you created the endpoint using the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html\">CreateEndpoint</a> API.</p>"""
     content_type: NotRequired["aws_sdk_sagemaker_runtime.types.header.Header"]

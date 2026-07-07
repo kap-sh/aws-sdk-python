@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#BatchUpdateFindingsV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.ocsf_finding_identifier_list
 
 
-class BatchUpdateFindingsV2Request(TypedDict):
+class BatchUpdateFindingsV2Request(TypedDict, closed=True):
     metadata_uids: NotRequired[
         "aws_sdk_securityhub.types.metadata_uid_list.MetadataUidList"
     ]

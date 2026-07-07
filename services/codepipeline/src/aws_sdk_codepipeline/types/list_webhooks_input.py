@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ListWebhooksInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.max_results
     import aws_sdk_codepipeline.types.next_token
 
 
-class ListWebhooksInput(TypedDict):
+class ListWebhooksInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_codepipeline.types.next_token.NextToken"]
     """<p>The token that was returned from the previous ListWebhooks call, which can be used to return the next set of webhooks in the list.</p>"""
     max_results: NotRequired["aws_sdk_codepipeline.types.max_results.MaxResults"]

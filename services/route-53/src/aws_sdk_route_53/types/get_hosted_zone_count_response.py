@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#GetHostedZoneCountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.hosted_zone_count
 
 
-class GetHostedZoneCountResponse(TypedDict):
+class GetHostedZoneCountResponse(TypedDict, closed=True):
     hosted_zone_count: "aws_sdk_route_53.types.hosted_zone_count.HostedZoneCount"
     """<p>The total number of public and private hosted zones that are associated with the current Amazon Web Services account.</p>"""
 

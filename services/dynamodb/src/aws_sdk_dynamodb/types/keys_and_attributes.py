@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#KeysAndAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.projection_expression
 
 
-class KeysAndAttributes(TypedDict):
+class KeysAndAttributes(TypedDict, closed=True):
     keys: "aws_sdk_dynamodb.types.key_list.KeyList"
     """<p>The primary key attribute values that define the items and the attributes associated with the items.</p>"""
     attributes_to_get: NotRequired[

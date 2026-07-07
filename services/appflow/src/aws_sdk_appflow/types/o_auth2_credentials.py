@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#OAuth2Credentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.access_token
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.refresh_token
 
 
-class OAuth2Credentials(TypedDict):
+class OAuth2Credentials(TypedDict, closed=True):
     client_id: NotRequired["aws_sdk_appflow.types.client_id.ClientId"]
     """<p>The identifier for the desired client.</p>"""
     client_secret: NotRequired["aws_sdk_appflow.types.client_secret.ClientSecret"]

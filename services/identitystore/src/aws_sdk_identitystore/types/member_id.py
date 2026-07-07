@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#MemberId``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_identitystore.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_identitystore.types.resource_id
 
 
-class _MemberId_UserId(TypedDict):
+class _MemberId_UserId(TypedDict, closed=True):
     UserId: "aws_sdk_identitystore.types.resource_id.ResourceId"
 
 

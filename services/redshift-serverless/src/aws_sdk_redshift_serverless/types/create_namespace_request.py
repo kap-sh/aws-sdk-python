@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#CreateNamespaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.tag_list
 
 
-class CreateNamespaceRequest(TypedDict):
+class CreateNamespaceRequest(TypedDict, closed=True):
     namespace_name: "aws_sdk_redshift_serverless.types.namespace_name.NamespaceName"
     """<p>The name of the namespace.</p>"""
     admin_username: NotRequired["aws_sdk_redshift_serverless.types.db_user.DbUser"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetPromptFileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.prompt_presigned_url
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class GetPromptFileResponse(TypedDict):
+class GetPromptFileResponse(TypedDict, closed=True):
     prompt_presigned_url: NotRequired[
         "aws_sdk_connect.types.prompt_presigned_url.PromptPresignedUrl"
     ]

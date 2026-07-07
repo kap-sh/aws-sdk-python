@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ListLoggerDefinitionVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class ListLoggerDefinitionVersionsRequest(TypedDict):
+class ListLoggerDefinitionVersionsRequest(TypedDict, closed=True):
     logger_definition_id: "aws_sdk_greengrass.types.__string.__string"
     """The ID of the logger definition."""
     max_results: NotRequired["aws_sdk_greengrass.types.__string.__string"]

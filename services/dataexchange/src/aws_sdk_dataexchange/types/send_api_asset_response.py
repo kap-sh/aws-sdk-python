@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#SendApiAssetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__string
     import aws_sdk_dataexchange.types.map_of__string
 
 
-class SendApiAssetResponse(TypedDict):
+class SendApiAssetResponse(TypedDict, closed=True):
     body: NotRequired["aws_sdk_dataexchange.types.__string.__string"]
     """<p>The response body from the underlying API tracked by the API asset.</p>"""
     response_headers: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#CreateCoreDefinitionVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__list_of_core
     import aws_sdk_greengrass.types.__string
 
 
-class CreateCoreDefinitionVersionRequest(TypedDict):
+class CreateCoreDefinitionVersionRequest(TypedDict, closed=True):
     amzn_client_token: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """A client token used to correlate requests and responses."""
     core_definition_id: "aws_sdk_greengrass.types.__string.__string"

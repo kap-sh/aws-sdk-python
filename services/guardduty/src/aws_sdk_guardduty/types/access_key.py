@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#AccessKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class AccessKey(TypedDict):
+class AccessKey(TypedDict, closed=True):
     principal_id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Principal ID of the user.</p>"""
     user_name: NotRequired["aws_sdk_guardduty.types.string.String"]

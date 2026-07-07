@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#DescribePullThroughCacheRulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.registry_id
 
 
-class DescribePullThroughCacheRulesRequest(TypedDict):
+class DescribePullThroughCacheRulesRequest(TypedDict, closed=True):
     registry_id: NotRequired["aws_sdk_ecr.types.registry_id.RegistryId"]
     """<p>The Amazon Web Services account ID associated with the registry to return the pull through cache rules for. If you do not specify a registry, the default registry is assumed.</p>"""
     ecr_repository_prefixes: NotRequired[

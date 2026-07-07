@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#MultiAzTargets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.multi_az_disaster_recovery_approach
 
 
-class MultiAzTargets(TypedDict):
+class MultiAzTargets(TypedDict, closed=True):
     rto_in_minutes: NotRequired["int"]
     """<p>The recovery time objective (RTO) target for multi-AZ, in minutes.</p>"""
     rpo_in_minutes: NotRequired["int"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#ApplyPendingMaintenanceActionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.opt_in_type
 
 
-class ApplyPendingMaintenanceActionInput(TypedDict):
+class ApplyPendingMaintenanceActionInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_docdb_elastic.types.input_string.InputString"
     """<p>The Amazon DocumentDB Amazon Resource Name (ARN) of the resource to which the pending maintenance action applies.</p>"""
     apply_action: "aws_sdk_docdb_elastic.types.input_string.InputString"

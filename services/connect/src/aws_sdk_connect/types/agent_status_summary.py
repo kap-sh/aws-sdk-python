@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AgentStatusSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_status_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class AgentStatusSummary(TypedDict):
+class AgentStatusSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.agent_status_id.AgentStatusId"]
     """<p>The identifier for an agent status.</p>"""
     arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

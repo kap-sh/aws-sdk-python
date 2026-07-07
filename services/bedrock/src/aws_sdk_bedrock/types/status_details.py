@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#StatusDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.data_processing_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.validation_details
 
 
-class StatusDetails(TypedDict):
+class StatusDetails(TypedDict, closed=True):
     validation_details: NotRequired[
         "aws_sdk_bedrock.types.validation_details.ValidationDetails"
     ]

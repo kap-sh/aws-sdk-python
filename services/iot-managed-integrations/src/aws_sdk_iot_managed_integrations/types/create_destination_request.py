@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CreateDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.tags_map
 
 
-class CreateDestinationRequest(TypedDict):
+class CreateDestinationRequest(TypedDict, closed=True):
     delivery_destination_arn: "aws_sdk_iot_managed_integrations.types.delivery_destination_arn.DeliveryDestinationArn"
     """<p>The Amazon Resource Name (ARN) of the customer-managed destination.</p>"""
     delivery_destination_type: "aws_sdk_iot_managed_integrations.types.delivery_destination_type.DeliveryDestinationType"

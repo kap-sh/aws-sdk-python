@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#BatchGetCodeReviewJobsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.code_review_job_id_list
     import aws_sdk_securityagent.types.code_review_job_list
 
 
-class BatchGetCodeReviewJobsOutput(TypedDict):
+class BatchGetCodeReviewJobsOutput(TypedDict, closed=True):
     code_review_jobs: NotRequired[
         "aws_sdk_securityagent.types.code_review_job_list.CodeReviewJobList"
     ]

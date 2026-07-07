@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#CreateRouteResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.account_id
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.uri_path_route_input
 
 
-class CreateRouteResponse(TypedDict):
+class CreateRouteResponse(TypedDict, closed=True):
     route_id: NotRequired[
         "aws_sdk_migration_hub_refactor_spaces.types.route_id.RouteId"
     ]

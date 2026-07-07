@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#HashKeyRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.hash_key
 
 
-class HashKeyRange(TypedDict):
+class HashKeyRange(TypedDict, closed=True):
     starting_hash_key: "aws_sdk_kinesis.types.hash_key.HashKey"
     """<p>The starting hash key of the hash key range.</p>"""
     ending_hash_key: "aws_sdk_kinesis.types.hash_key.HashKey"

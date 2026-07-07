@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#PollForTaskInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_data_pipeline.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.string
 
 
-class PollForTaskInput(TypedDict):
+class PollForTaskInput(TypedDict, closed=True):
     worker_group: "aws_sdk_data_pipeline.types.string.string"
     """<p>The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for <code>workerGroup</code> in the call to <code>PollForTask</code>. There are no wildcard values permitted in <code>workerGroup</code>; the string must be an exact, case-sensitive, match.</p>"""
     hostname: NotRequired["aws_sdk_data_pipeline.types.id.id"]

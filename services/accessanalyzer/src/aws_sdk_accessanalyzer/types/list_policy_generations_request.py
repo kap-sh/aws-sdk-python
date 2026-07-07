@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ListPolicyGenerationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.principal_arn
     import aws_sdk_accessanalyzer.types.token
 
 
-class ListPolicyGenerationsRequest(TypedDict):
+class ListPolicyGenerationsRequest(TypedDict, closed=True):
     principal_arn: NotRequired[
         "aws_sdk_accessanalyzer.types.principal_arn.PrincipalArn"
     ]

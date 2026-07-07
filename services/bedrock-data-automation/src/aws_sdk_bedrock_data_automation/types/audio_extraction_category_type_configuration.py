@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#AudioExtractionCategoryTypeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.transcript_configuration
 
 
-class AudioExtractionCategoryTypeConfiguration(TypedDict):
+class AudioExtractionCategoryTypeConfiguration(TypedDict, closed=True):
     transcript: NotRequired[
         "aws_sdk_bedrock_data_automation.types.transcript_configuration.TranscriptConfiguration"
     ]

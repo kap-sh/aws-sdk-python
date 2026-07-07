@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#DeregisterScalableTargetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeregisterScalableTargetResponse(TypedDict):
+class DeregisterScalableTargetResponse(TypedDict, closed=True):
     pass
 
 

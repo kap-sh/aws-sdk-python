@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#AnalysisTemplateArtifactMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.hash_list
 
 
-class AnalysisTemplateArtifactMetadata(TypedDict):
+class AnalysisTemplateArtifactMetadata(TypedDict, closed=True):
     entry_point_hash: "aws_sdk_cleanrooms.types.hash.Hash"
     """<p> The hash of the entry point for the analysis template artifact metadata.</p>"""
     additional_artifact_hashes: NotRequired[

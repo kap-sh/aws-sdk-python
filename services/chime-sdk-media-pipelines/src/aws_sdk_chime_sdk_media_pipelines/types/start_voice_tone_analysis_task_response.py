@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#StartVoiceToneAnalysisTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.voice_tone_analysis_task
 
 
-class StartVoiceToneAnalysisTaskResponse(TypedDict):
+class StartVoiceToneAnalysisTaskResponse(TypedDict, closed=True):
     voice_tone_analysis_task: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.voice_tone_analysis_task.VoiceToneAnalysisTask"
     ]

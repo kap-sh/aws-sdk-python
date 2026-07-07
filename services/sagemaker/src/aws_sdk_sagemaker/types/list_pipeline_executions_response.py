@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListPipelineExecutionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
     import aws_sdk_sagemaker.types.pipeline_execution_summary_list
 
 
-class ListPipelineExecutionsResponse(TypedDict):
+class ListPipelineExecutionsResponse(TypedDict, closed=True):
     pipeline_execution_summaries: NotRequired[
         "aws_sdk_sagemaker.types.pipeline_execution_summary_list.PipelineExecutionSummaryList"
     ]

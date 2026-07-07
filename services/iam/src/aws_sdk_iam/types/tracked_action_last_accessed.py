@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#TrackedActionLastAccessed``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.string_type
 
 
-class TrackedActionLastAccessed(TypedDict):
+class TrackedActionLastAccessed(TypedDict, closed=True):
     action_name: NotRequired["aws_sdk_iam.types.string_type.stringType"]
     """<p>The name of the tracked action to which access was attempted. Tracked actions are actions that report activity to IAM.</p>"""
     last_accessed_entity: NotRequired["aws_sdk_iam.types.arn_type.arnType"]

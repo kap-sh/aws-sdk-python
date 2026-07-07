@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.tags_map
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_iot_managed_integrations.types.io_t_managed_integrations_resource_arn.IoTManagedIntegrationsResourceARN"
     """<p>The Amazon Resource Name (ARN) of the resource to which to add tags.</p>"""
     tags: "aws_sdk_iot_managed_integrations.types.tags_map.TagsMap"

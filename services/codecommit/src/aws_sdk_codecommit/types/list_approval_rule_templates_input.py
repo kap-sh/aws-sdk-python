@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ListApprovalRuleTemplatesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.max_results
     import aws_sdk_codecommit.types.next_token
 
 
-class ListApprovalRuleTemplatesInput(TypedDict):
+class ListApprovalRuleTemplatesInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_codecommit.types.next_token.NextToken"]
     """<p>An enumeration token that, when provided in a request, returns the next batch of the results.</p>"""
     max_results: NotRequired["aws_sdk_codecommit.types.max_results.MaxResults"]

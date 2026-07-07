@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ConfusionMatrix``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.records_count
 
 
-class ConfusionMatrix(TypedDict):
+class ConfusionMatrix(TypedDict, closed=True):
     num_true_positives: NotRequired["aws_sdk_glue.types.records_count.RecordsCount"]
     """<p>The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.</p>"""
     num_false_positives: NotRequired["aws_sdk_glue.types.records_count.RecordsCount"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#CaseIdNotFound``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_support.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.error_message
 
 
-class CaseIdNotFound_(TypedDict):
+class CaseIdNotFound_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_support.types.error_message.ErrorMessage"]
     """<p>The requested <code>CaseId</code> could not be located.</p>"""
 

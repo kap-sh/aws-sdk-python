@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#SamlAuthentication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.saml_configuration_status
 
 
-class SamlAuthentication(TypedDict):
+class SamlAuthentication(TypedDict, closed=True):
     status: "aws_sdk_grafana.types.saml_configuration_status.SamlConfigurationStatus"
     """<p>Specifies whether the workspace's SAML configuration is complete.</p>"""
     configuration: NotRequired[

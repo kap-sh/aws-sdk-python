@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#CancelMetadataModelConversionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.schema_conversion_request
 
 
-class CancelMetadataModelConversionResponse(TypedDict):
+class CancelMetadataModelConversionResponse(TypedDict, closed=True):
     request: NotRequired[
         "aws_sdk_database_migration_service.types.schema_conversion_request.SchemaConversionRequest"
     ]

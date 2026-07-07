@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsIamRoleDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_iam_attached_managed_policy_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsIamRoleDetails(TypedDict):
+class AwsIamRoleDetails(TypedDict, closed=True):
     assume_role_policy_document: NotRequired[
         "aws_sdk_securityhub.types.aws_iam_role_assume_role_policy_document.AwsIamRoleAssumeRolePolicyDocument"
     ]

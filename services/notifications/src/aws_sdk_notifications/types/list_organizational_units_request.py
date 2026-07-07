@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListOrganizationalUnitsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.next_token
     import aws_sdk_notifications.types.notification_configuration_arn
 
 
-class ListOrganizationalUnitsRequest(TypedDict):
+class ListOrganizationalUnitsRequest(TypedDict, closed=True):
     notification_configuration_arn: "aws_sdk_notifications.types.notification_configuration_arn.NotificationConfigurationArn"
     """<p>The Amazon Resource Name (ARN) of the notification configuration used to filter the organizational units.</p>"""
     max_results: NotRequired["int"]

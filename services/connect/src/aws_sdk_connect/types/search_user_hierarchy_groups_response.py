@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchUserHierarchyGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.approximate_total_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.user_hierarchy_group_list
 
 
-class SearchUserHierarchyGroupsResponse(TypedDict):
+class SearchUserHierarchyGroupsResponse(TypedDict, closed=True):
     user_hierarchy_groups: NotRequired[
         "aws_sdk_connect.types.user_hierarchy_group_list.UserHierarchyGroupList"
     ]

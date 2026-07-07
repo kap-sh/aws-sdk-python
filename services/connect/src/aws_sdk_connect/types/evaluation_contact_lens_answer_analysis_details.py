@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationContactLensAnswerAnalysisDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_automation_rule_category_list
 
 
-class EvaluationContactLensAnswerAnalysisDetails(TypedDict):
+class EvaluationContactLensAnswerAnalysisDetails(TypedDict, closed=True):
     matched_rule_categories: NotRequired[
         "aws_sdk_connect.types.evaluation_automation_rule_category_list.EvaluationAutomationRuleCategoryList"
     ]

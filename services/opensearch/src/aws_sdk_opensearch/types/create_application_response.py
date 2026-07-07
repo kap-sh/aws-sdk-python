@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CreateApplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.app_configs
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.timestamp
 
 
-class CreateApplicationResponse(TypedDict):
+class CreateApplicationResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_opensearch.types.id.Id"]
     """<p>The unique identifier assigned to the OpenSearch application.</p>"""
     name: NotRequired["aws_sdk_opensearch.types.application_name.ApplicationName"]

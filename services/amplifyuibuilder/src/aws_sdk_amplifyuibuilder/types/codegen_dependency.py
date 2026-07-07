@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#CodegenDependency``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CodegenDependency(TypedDict):
+class CodegenDependency(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>Name of the dependency package.</p>"""
     supported_version: NotRequired["str"]

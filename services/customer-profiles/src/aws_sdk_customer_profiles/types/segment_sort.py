@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#SegmentSort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.sort_attribute_list
 
 
-class SegmentSort(TypedDict):
+class SegmentSort(TypedDict, closed=True):
     attributes: "aws_sdk_customer_profiles.types.sort_attribute_list.SortAttributeList"
     """<p>A list of attributes used to sort the segments and their ordering preferences.</p>"""
 

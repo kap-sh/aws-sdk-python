@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.evs#DisassociateEipFromVlanResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_evs.types.vlan
 
 
-class DisassociateEipFromVlanResponse(TypedDict):
+class DisassociateEipFromVlanResponse(TypedDict, closed=True):
     vlan: NotRequired["aws_sdk_evs.types.vlan.Vlan"]
 
 

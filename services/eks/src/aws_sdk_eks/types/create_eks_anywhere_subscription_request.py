@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#CreateEksAnywhereSubscriptionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.tag_map
 
 
-class CreateEksAnywhereSubscriptionRequest(TypedDict):
+class CreateEksAnywhereSubscriptionRequest(TypedDict, closed=True):
     name: "aws_sdk_eks.types.eks_anywhere_subscription_name.EksAnywhereSubscriptionName"
     """<p>The unique name for your subscription. It must be unique in your Amazon Web Services account in the Amazon Web Services Region you're creating the subscription in. The name can contain only alphanumeric characters (case-sensitive), hyphens, and underscores. It must start with an alphabetic character and can't be longer than 100 characters.</p>"""
     term: "aws_sdk_eks.types.eks_anywhere_subscription_term.EksAnywhereSubscriptionTerm"

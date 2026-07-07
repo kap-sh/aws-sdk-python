@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchListObjectAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.schema_facet
 
 
-class BatchListObjectAttributes(TypedDict):
+class BatchListObjectAttributes(TypedDict, closed=True):
     object_reference: "aws_sdk_clouddirectory.types.object_reference.ObjectReference"
     """<p>Reference of the object whose attributes need to be listed.</p>"""
     next_token: NotRequired["aws_sdk_clouddirectory.types.next_token.NextToken"]

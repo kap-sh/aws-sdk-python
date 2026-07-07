@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#AutoImportPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.event_types
 
 
-class AutoImportPolicy(TypedDict):
+class AutoImportPolicy(TypedDict, closed=True):
     events: NotRequired["aws_sdk_fsx.types.event_types.EventTypes"]
     """<p>The <code>AutoImportPolicy</code> can have the following event values:</p> <ul> <li> <p> <code>NEW</code> - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.</p> </li> <li> <p> <code>CHANGED</code> - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.</p> </li> <li> <p> <code>DELETED</code> - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.</p> </li> </ul> <p>You can define any combination of event types for your <code>AutoImportPolicy</code>.</p>"""
 

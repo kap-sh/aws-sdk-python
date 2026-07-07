@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetPaymentManagerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.workload_identity_details
 
 
-class GetPaymentManagerResponse(TypedDict):
+class GetPaymentManagerResponse(TypedDict, closed=True):
     payment_manager_arn: (
         "aws_sdk_bedrock_agentcore_control.types.payment_manager_arn.PaymentManagerArn"
     )

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ApprovalConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ApprovalConfiguration(TypedDict):
+class ApprovalConfiguration(TypedDict, closed=True):
     auto_approval: "bool"
     """<p>Whether registry records are auto-approved. When set to <code>true</code>, records are automatically approved upon creation. When set to <code>false</code> (the default), records require explicit approval for security purposes.</p>"""
 

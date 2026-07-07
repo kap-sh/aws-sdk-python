@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#HarvestJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.status
 
 
-class HarvestJob(TypedDict):
+class HarvestJob(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mediapackage.types.__string.__string"]
     """The Amazon Resource Name (ARN) assigned to the HarvestJob."""
     channel_id: NotRequired["aws_sdk_mediapackage.types.__string.__string"]

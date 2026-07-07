@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateAssetFilterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_filter_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.filter_id
 
 
-class UpdateAssetFilterInput(TypedDict):
+class UpdateAssetFilterInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain where you want to update an asset filter.</p>"""
     asset_identifier: "aws_sdk_datazone.types.asset_id.AssetId"

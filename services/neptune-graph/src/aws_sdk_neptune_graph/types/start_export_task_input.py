@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#StartExportTaskInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.tag_map
 
 
-class StartExportTaskInput(TypedDict):
+class StartExportTaskInput(TypedDict, closed=True):
     graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"
     """<p>The source graph identifier of the export task.</p>"""
     role_arn: "aws_sdk_neptune_graph.types.role_arn.RoleArn"

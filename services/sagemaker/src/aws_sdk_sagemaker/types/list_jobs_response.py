@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.job_summaries
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListJobsResponse(TypedDict):
+class ListJobsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]
     """<p>If the response is truncated, this token retrieves the next set of results.</p>"""
     job_summaries: NotRequired["aws_sdk_sagemaker.types.job_summaries.JobSummaries"]

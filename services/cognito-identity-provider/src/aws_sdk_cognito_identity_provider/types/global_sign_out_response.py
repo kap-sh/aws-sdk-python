@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#GlobalSignOutResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GlobalSignOutResponse(TypedDict):
+class GlobalSignOutResponse(TypedDict, closed=True):
     pass
 
 

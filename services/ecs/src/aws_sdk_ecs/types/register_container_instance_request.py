@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#RegisterContainerInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.attributes
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.version_info
 
 
-class RegisterContainerInstanceRequest(TypedDict):
+class RegisterContainerInstanceRequest(TypedDict, closed=True):
     cluster: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The short name or full Amazon Resource Name (ARN) of the cluster to register your container instance with. If you do not specify a cluster, the default cluster is assumed.</p>"""
     instance_identity_document: NotRequired["aws_sdk_ecs.types.string.String"]

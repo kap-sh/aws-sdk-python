@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ZookeeperAccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__boolean
 
 
-class ZookeeperAccess(TypedDict):
+class ZookeeperAccess(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_kafka.types.__boolean.__boolean"]
     """<p>Zookeeper Access was on or off for the cluster</p>"""
 

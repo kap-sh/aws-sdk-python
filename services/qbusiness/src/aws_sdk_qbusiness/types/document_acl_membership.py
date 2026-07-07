@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentAclMembership``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.document_acl_conditions
     import aws_sdk_qbusiness.types.member_relation
 
 
-class DocumentAclMembership(TypedDict):
+class DocumentAclMembership(TypedDict, closed=True):
     member_relation: NotRequired[
         "aws_sdk_qbusiness.types.member_relation.MemberRelation"
     ]

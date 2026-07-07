@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetReservationPurchaseRecommendationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.term_in_years
 
 
-class GetReservationPurchaseRecommendationRequest(TypedDict):
+class GetReservationPurchaseRecommendationRequest(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_cost_explorer.types.generic_string.GenericString"]
     """<p>The account ID that's associated with the recommendation. </p>"""
     service: "aws_sdk_cost_explorer.types.generic_string.GenericString"

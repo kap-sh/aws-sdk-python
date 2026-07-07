@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListTableOptimizerRunsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.table_optimizer_type
 
 
-class ListTableOptimizerRunsRequest(TypedDict):
+class ListTableOptimizerRunsRequest(TypedDict, closed=True):
     catalog_id: "aws_sdk_glue.types.catalog_id_string.CatalogIdString"
     """<p>The Catalog ID of the table.</p>"""
     database_name: "aws_sdk_glue.types.name_string.NameString"

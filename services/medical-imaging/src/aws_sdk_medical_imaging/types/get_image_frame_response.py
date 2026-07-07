@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#GetImageFrameResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.payload_blob
 
 
-class GetImageFrameResponse(TypedDict):
+class GetImageFrameResponse(TypedDict, closed=True):
     image_frame_blob: "aws_sdk_medical_imaging.types.payload_blob.PayloadBlob"
     """<p>The blob containing the aggregated image frame information.</p>"""
     content_type: NotRequired["str"]

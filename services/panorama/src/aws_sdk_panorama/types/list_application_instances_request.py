@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ListApplicationInstancesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.device_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.status_filter
 
 
-class ListApplicationInstancesRequest(TypedDict):
+class ListApplicationInstancesRequest(TypedDict, closed=True):
     device_id: NotRequired["aws_sdk_panorama.types.device_id.DeviceId"]
     """<p>The application instances' device ID.</p>"""
     status_filter: NotRequired["aws_sdk_panorama.types.status_filter.StatusFilter"]

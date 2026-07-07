@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#LoggingInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.broker_logs
 
 
-class LoggingInfo(TypedDict):
+class LoggingInfo(TypedDict, closed=True):
     broker_logs: NotRequired["aws_sdk_kafka.types.broker_logs.BrokerLogs"]
 
 

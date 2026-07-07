@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#MemoryRecordSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.metadata_schema_list
 
 
-class MemoryRecordSchema(TypedDict):
+class MemoryRecordSchema(TypedDict, closed=True):
     metadata_schema: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.metadata_schema_list.MetadataSchemaList"
     ]

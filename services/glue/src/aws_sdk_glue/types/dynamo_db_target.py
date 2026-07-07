@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DynamoDBTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.nullable_boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.path
 
 
-class DynamoDBTarget(TypedDict):
+class DynamoDBTarget(TypedDict, closed=True):
     path: NotRequired["aws_sdk_glue.types.path.Path"]
     """<p>The name of the DynamoDB table to crawl.</p>"""
     scan_all: NotRequired["aws_sdk_glue.types.nullable_boolean.NullableBoolean"]

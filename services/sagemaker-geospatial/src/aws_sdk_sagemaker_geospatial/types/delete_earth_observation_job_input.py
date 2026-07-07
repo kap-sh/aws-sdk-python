@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#DeleteEarthObservationJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.earth_observation_job_arn
 
 
-class DeleteEarthObservationJobInput(TypedDict):
+class DeleteEarthObservationJobInput(TypedDict, closed=True):
     arn: "aws_sdk_sagemaker_geospatial.types.earth_observation_job_arn.EarthObservationJobArn"
     """<p>The Amazon Resource Name (ARN) of the Earth Observation job being deleted.</p>"""
 

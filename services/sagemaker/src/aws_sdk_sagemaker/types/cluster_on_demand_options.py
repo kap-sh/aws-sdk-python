@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterOnDemandOptions``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ClusterOnDemandOptions(TypedDict):
+class ClusterOnDemandOptions(TypedDict, closed=True):
     pass
 
 

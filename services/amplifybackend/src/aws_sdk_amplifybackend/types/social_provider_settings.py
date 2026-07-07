@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#SocialProviderSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.backend_auth_apple_provider_config
     import aws_sdk_amplifybackend.types.backend_auth_social_provider_config
 
 
-class SocialProviderSettings(TypedDict):
+class SocialProviderSettings(TypedDict, closed=True):
     facebook: NotRequired[
         "aws_sdk_amplifybackend.types.backend_auth_social_provider_config.BackendAuthSocialProviderConfig"
     ]

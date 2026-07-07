@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#OidcConfigForResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.authentication_request_extra_params
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.scope
 
 
-class OidcConfigForResponse(TypedDict):
+class OidcConfigForResponse(TypedDict, closed=True):
     client_id: NotRequired["aws_sdk_sagemaker.types.client_id.ClientId"]
     """<p>The OIDC IdP client ID used to configure your private workforce.</p>"""
     issuer: NotRequired["aws_sdk_sagemaker.types.oidc_endpoint.OidcEndpoint"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InventoryItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_item_type_name
 
 
-class InventoryItem(TypedDict):
+class InventoryItem(TypedDict, closed=True):
     type_name: "aws_sdk_ssm.types.inventory_item_type_name.InventoryItemTypeName"
     """<p>The name of the inventory type. Default inventory item type names start with <code>AWS</code>. Custom inventory type names will start with Custom. Default inventory item types include the following: <code>AWS:AWSComponent</code>, <code>AWS:Application</code>, <code>AWS:InstanceInformation</code>, <code>AWS:Network</code>, and <code>AWS:WindowsUpdate</code>.</p>"""
     schema_version: (

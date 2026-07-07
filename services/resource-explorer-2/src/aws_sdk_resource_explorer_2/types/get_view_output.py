@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#GetViewOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.tag_map
     import aws_sdk_resource_explorer_2.types.view
 
 
-class GetViewOutput(TypedDict):
+class GetViewOutput(TypedDict, closed=True):
     view: NotRequired["aws_sdk_resource_explorer_2.types.view.View"]
     """<p>A structure that contains the details for the requested view.</p>"""
     tags: NotRequired["aws_sdk_resource_explorer_2.types.tag_map.TagMap"]

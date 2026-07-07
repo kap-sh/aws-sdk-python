@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#Timer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events_data.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.timestamp
 
 
-class Timer(TypedDict):
+class Timer(TypedDict, closed=True):
     name: "aws_sdk_iot_events_data.types.timer_name.TimerName"
     """<p>The name of the timer.</p>"""
     timestamp: "aws_sdk_iot_events_data.types.timestamp.Timestamp"

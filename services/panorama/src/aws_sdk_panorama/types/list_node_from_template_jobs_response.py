@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ListNodeFromTemplateJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.node_from_template_job_list
 
 
-class ListNodeFromTemplateJobsResponse(TypedDict):
+class ListNodeFromTemplateJobsResponse(TypedDict, closed=True):
     node_from_template_jobs: (
         "aws_sdk_panorama.types.node_from_template_job_list.NodeFromTemplateJobList"
     )

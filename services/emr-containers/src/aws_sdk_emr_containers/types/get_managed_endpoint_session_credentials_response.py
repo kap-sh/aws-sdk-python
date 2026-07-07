@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#GetManagedEndpointSessionCredentialsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.credentials
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.resource_id_string
 
 
-class GetManagedEndpointSessionCredentialsResponse(TypedDict):
+class GetManagedEndpointSessionCredentialsResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr_containers.types.resource_id_string.ResourceIdString"]
     """<p>The identifier of the session token returned.</p>"""
     credentials: NotRequired["aws_sdk_emr_containers.types.credentials.Credentials"]

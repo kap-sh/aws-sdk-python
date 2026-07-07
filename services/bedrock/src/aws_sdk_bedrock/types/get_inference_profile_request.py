@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetInferenceProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.inference_profile_identifier
 
 
-class GetInferenceProfileRequest(TypedDict):
+class GetInferenceProfileRequest(TypedDict, closed=True):
     inference_profile_identifier: (
         "aws_sdk_bedrock.types.inference_profile_identifier.InferenceProfileIdentifier"
     )

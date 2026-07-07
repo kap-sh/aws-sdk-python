@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#GetIntrospectionSchemaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.boolean_value
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class GetIntrospectionSchemaRequest(TypedDict):
+class GetIntrospectionSchemaRequest(TypedDict, closed=True):
     api_id: "aws_sdk_appsync.types.string.String"
     """<p>The API ID.</p>"""
     format: "aws_sdk_appsync.types.output_type.OutputType"

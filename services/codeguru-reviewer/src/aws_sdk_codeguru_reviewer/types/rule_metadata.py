@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#RuleMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.long_description
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.short_description
 
 
-class RuleMetadata(TypedDict):
+class RuleMetadata(TypedDict, closed=True):
     rule_id: NotRequired["aws_sdk_codeguru_reviewer.types.rule_id.RuleId"]
     """<p>The ID of the rule.</p>"""
     rule_name: NotRequired["aws_sdk_codeguru_reviewer.types.rule_name.RuleName"]

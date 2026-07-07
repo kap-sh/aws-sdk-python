@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#AnomalyMonitor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.year_month_day
 
 
-class AnomalyMonitor(TypedDict):
+class AnomalyMonitor(TypedDict, closed=True):
     monitor_arn: NotRequired["aws_sdk_cost_explorer.types.generic_string.GenericString"]
     """<p>The Amazon Resource Name (ARN) value. </p>"""
     monitor_name: "aws_sdk_cost_explorer.types.generic_string.GenericString"

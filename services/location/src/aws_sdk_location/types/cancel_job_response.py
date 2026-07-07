@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#CancelJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.job_status
 
 
-class CancelJobResponse(TypedDict):
+class CancelJobResponse(TypedDict, closed=True):
     job_arn: "aws_sdk_location.types.geo_arn.GeoArn"
     """<p>Amazon Resource Name (ARN) of the cancelled job.</p>"""
     job_id: "aws_sdk_location.types.job_id.JobId"

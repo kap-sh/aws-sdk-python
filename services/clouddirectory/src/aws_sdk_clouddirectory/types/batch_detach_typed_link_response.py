@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchDetachTypedLinkResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class BatchDetachTypedLinkResponse(TypedDict):
+class BatchDetachTypedLinkResponse(TypedDict, closed=True):
     pass
 
 

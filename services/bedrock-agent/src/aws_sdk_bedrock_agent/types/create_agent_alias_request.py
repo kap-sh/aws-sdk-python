@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#CreateAgentAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.tags_map
 
 
-class CreateAgentAliasRequest(TypedDict):
+class CreateAgentAliasRequest(TypedDict, closed=True):
     agent_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>The unique identifier of the agent.</p>"""
     agent_alias_name: "aws_sdk_bedrock_agent.types.name.Name"

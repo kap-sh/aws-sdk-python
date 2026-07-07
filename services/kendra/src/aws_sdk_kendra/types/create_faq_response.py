@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#CreateFaqResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.faq_id
 
 
-class CreateFaqResponse(TypedDict):
+class CreateFaqResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_kendra.types.faq_id.FaqId"]
     """<p>The identifier of the FAQ.</p>"""
 

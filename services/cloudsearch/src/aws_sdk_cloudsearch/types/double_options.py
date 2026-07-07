@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#DoubleOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.field_name
 
 
-class DoubleOptions(TypedDict):
+class DoubleOptions(TypedDict, closed=True):
     default_value: NotRequired["aws_sdk_cloudsearch.types.double.Double"]
     """<p>A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.</p>"""
     source_field: NotRequired["aws_sdk_cloudsearch.types.field_name.FieldName"]

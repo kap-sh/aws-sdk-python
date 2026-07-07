@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutConfigurationSetReputationOptionsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutConfigurationSetReputationOptionsResponse(TypedDict):
+class PutConfigurationSetReputationOptionsResponse(TypedDict, closed=True):
     pass
 
 

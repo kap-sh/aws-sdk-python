@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableSortConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pagination_configuration
     import aws_sdk_quicksight.types.row_sort_list
 
 
-class TableSortConfiguration(TypedDict):
+class TableSortConfiguration(TypedDict, closed=True):
     row_sort: NotRequired["aws_sdk_quicksight.types.row_sort_list.RowSortList"]
     """<p>The field sort options for rows in the table.</p>"""
     pagination_configuration: NotRequired[

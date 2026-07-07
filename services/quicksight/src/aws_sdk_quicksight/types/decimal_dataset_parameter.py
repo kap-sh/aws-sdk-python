@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DecimalDatasetParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.decimal_dataset_parameter_default_values
 
 
-class DecimalDatasetParameter(TypedDict):
+class DecimalDatasetParameter(TypedDict, closed=True):
     id: "aws_sdk_quicksight.types.dataset_parameter_id.DatasetParameterId"
     """<p>An identifier for the decimal parameter created in the dataset.</p>"""
     name: "aws_sdk_quicksight.types.dataset_parameter_name.DatasetParameterName"

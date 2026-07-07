@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacereporting#GetBuyerDashboardOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_reporting.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_reporting.types.embedding_domains
 
 
-class GetBuyerDashboardOutput(TypedDict):
+class GetBuyerDashboardOutput(TypedDict, closed=True):
     embed_url: "str"
     """<p>The dashboard's embedding URL.</p>"""
     dashboard_identifier: (

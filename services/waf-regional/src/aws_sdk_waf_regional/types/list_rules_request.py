@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#ListRulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.next_marker
     import aws_sdk_waf_regional.types.pagination_limit
 
 
-class ListRulesRequest(TypedDict):
+class ListRulesRequest(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_waf_regional.types.next_marker.NextMarker"]
     """<p>If you specify a value for <code>Limit</code> and you have more <code>Rules</code> than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value in the response that allows you to list another group of <code>Rules</code>. For the second and subsequent <code>ListRules</code> requests, specify the value of <code>NextMarker</code> from the previous response to get information about another batch of <code>Rules</code>.</p>"""
     limit: "aws_sdk_waf_regional.types.pagination_limit.PaginationLimit"

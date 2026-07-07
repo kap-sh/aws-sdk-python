@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#DisassociateFraudsterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.fraudster
 
 
-class DisassociateFraudsterResponse(TypedDict):
+class DisassociateFraudsterResponse(TypedDict, closed=True):
     fraudster: NotRequired["aws_sdk_voice_id.types.fraudster.Fraudster"]
 
 

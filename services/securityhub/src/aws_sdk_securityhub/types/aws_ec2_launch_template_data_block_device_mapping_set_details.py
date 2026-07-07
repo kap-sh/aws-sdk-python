@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_launch_template_data_block_device_mapping_set_ebs_details
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails(TypedDict):
+class AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails(TypedDict, closed=True):
     device_name: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

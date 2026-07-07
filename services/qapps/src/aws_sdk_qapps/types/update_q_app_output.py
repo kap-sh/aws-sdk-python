@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#UpdateQAppOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.uuid
 
 
-class UpdateQAppOutput(TypedDict):
+class UpdateQAppOutput(TypedDict, closed=True):
     app_id: "aws_sdk_qapps.types.uuid.UUID"
     """<p>The unique identifier of the updated Q App.</p>"""
     app_arn: "aws_sdk_qapps.types.app_arn.AppArn"

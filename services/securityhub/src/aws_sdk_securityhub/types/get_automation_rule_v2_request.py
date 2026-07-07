@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetAutomationRuleV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class GetAutomationRuleV2Request(TypedDict):
+class GetAutomationRuleV2Request(TypedDict, closed=True):
     identifier: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     """<p>The ARN of the V2 automation rule.</p>"""
 

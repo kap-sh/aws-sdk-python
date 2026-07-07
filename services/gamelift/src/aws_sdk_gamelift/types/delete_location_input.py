@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteLocationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.custom_location_name_or_arn_model
 
 
-class DeleteLocationInput(TypedDict):
+class DeleteLocationInput(TypedDict, closed=True):
     location_name: NotRequired[
         "aws_sdk_gamelift.types.custom_location_name_or_arn_model.CustomLocationNameOrArnModel"
     ]

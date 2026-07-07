@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SourceFieldProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.boolean
 
 
-class SourceFieldProperties(TypedDict):
+class SourceFieldProperties(TypedDict, closed=True):
     is_retrievable: "aws_sdk_appflow.types.boolean.Boolean"
     """<p> Indicates whether the field can be returned in a search result. </p>"""
     is_queryable: "aws_sdk_appflow.types.boolean.Boolean"

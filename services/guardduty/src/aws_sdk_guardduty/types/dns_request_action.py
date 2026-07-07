@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DnsRequestAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class DnsRequestAction(TypedDict):
+class DnsRequestAction(TypedDict, closed=True):
     domain: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The domain information for the DNS query.</p>"""
     protocol: NotRequired["aws_sdk_guardduty.types.string.String"]

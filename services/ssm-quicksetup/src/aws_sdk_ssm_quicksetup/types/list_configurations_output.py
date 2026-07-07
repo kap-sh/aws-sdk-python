@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#ListConfigurationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.configurations_list
 
 
-class ListConfigurationsOutput(TypedDict):
+class ListConfigurationsOutput(TypedDict, closed=True):
     configurations_list: NotRequired[
         "aws_sdk_ssm_quicksetup.types.configurations_list.ConfigurationsList"
     ]

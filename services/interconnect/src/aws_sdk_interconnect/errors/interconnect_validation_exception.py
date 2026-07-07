@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#InterconnectValidationException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError, ServiceError
 
 
-class InterconnectValidationException_(TypedDict):
+class InterconnectValidationException_(TypedDict, closed=True):
     message: "str"
 
 

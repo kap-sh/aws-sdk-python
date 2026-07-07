@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#CreateCustomMetadataResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateCustomMetadataResponse(TypedDict):
+class CreateCustomMetadataResponse(TypedDict, closed=True):
     pass
 
 

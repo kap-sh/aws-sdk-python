@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#UpdateWorkspaceConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amp.types.idempotency_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_id
 
 
-class UpdateWorkspaceConfigurationRequest(TypedDict):
+class UpdateWorkspaceConfigurationRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_amp.types.workspace_id.WorkspaceId"
     r"""<p>The ID of the workspace that you want to update. To find the IDs of your workspaces, use the <a href=\"https://docs.aws.amazon.com/prometheus/latest/APIReference/API_ListWorkspaces.htm\">ListWorkspaces</a> operation.</p>"""
     client_token: NotRequired["aws_sdk_amp.types.idempotency_token.IdempotencyToken"]

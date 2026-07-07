@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#InvokeModelTokensRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.body
 
 
-class InvokeModelTokensRequest(TypedDict):
+class InvokeModelTokensRequest(TypedDict, closed=True):
     body: "aws_sdk_bedrock_runtime.types.body.Body"
     r"""<p>The request body to count tokens for, formatted according to the model's expected input format. To learn about the input format for different models, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html\">Model inference parameters and responses</a>.</p>"""
 

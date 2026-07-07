@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribeDataTableResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.data_table
 
 
-class DescribeDataTableResponse(TypedDict):
+class DescribeDataTableResponse(TypedDict, closed=True):
     data_table: "aws_sdk_connect.types.data_table.DataTable"
     """<p>The complete data table information including metadata, configuration, and versioning details.</p>"""
 

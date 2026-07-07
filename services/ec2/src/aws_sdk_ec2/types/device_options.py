@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeviceOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DeviceOptions(TypedDict):
+class DeviceOptions(TypedDict, closed=True):
     tenant_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the tenant application with the device-identity provider.</p>"""
     public_signing_key_url: NotRequired["aws_sdk_ec2.types.string.String"]

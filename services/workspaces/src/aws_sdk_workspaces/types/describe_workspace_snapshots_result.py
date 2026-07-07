@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeWorkspaceSnapshotsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.snapshot_list
 
 
-class DescribeWorkspaceSnapshotsResult(TypedDict):
+class DescribeWorkspaceSnapshotsResult(TypedDict, closed=True):
     rebuild_snapshots: NotRequired[
         "aws_sdk_workspaces.types.snapshot_list.SnapshotList"
     ]

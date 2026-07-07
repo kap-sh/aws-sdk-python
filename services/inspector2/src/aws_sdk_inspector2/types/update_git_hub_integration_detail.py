@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#UpdateGitHubIntegrationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.git_hub_installation_id
 
 
-class UpdateGitHubIntegrationDetail(TypedDict):
+class UpdateGitHubIntegrationDetail(TypedDict, closed=True):
     code: "aws_sdk_inspector2.types.git_hub_auth_code.GitHubAuthCode"
     """<p>The authorization code received from GitHub to update the integration.</p>"""
     installation_id: (

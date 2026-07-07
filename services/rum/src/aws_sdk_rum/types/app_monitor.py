@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#AppMonitor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.app_monitor_configuration
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.tag_map
 
 
-class AppMonitor(TypedDict):
+class AppMonitor(TypedDict, closed=True):
     name: NotRequired["aws_sdk_rum.types.app_monitor_name.AppMonitorName"]
     """<p>The name of the app monitor.</p>"""
     domain: NotRequired["aws_sdk_rum.types.app_monitor_domain.AppMonitorDomain"]

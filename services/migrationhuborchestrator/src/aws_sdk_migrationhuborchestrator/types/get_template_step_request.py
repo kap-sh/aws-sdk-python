@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#GetTemplateStepRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.step_group_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.template_id
 
 
-class GetTemplateStepRequest(TypedDict):
+class GetTemplateStepRequest(TypedDict, closed=True):
     id: "aws_sdk_migrationhuborchestrator.types.step_id.StepId"
     """<p>The ID of the step.</p>"""
     template_id: "aws_sdk_migrationhuborchestrator.types.template_id.TemplateId"

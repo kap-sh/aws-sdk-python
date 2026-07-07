@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#CloudWatchLogsLogGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.log_group_arn
 
 
-class CloudWatchLogsLogGroup(TypedDict):
+class CloudWatchLogsLogGroup(TypedDict, closed=True):
     log_group_arn: NotRequired["aws_sdk_simspaceweaver.types.log_group_arn.LogGroupArn"]
     r"""<p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log group for the simulation. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>. For more information about log groups, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html\">Working with log groups and log streams</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>"""
 

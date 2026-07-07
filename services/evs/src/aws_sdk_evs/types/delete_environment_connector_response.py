@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.evs#DeleteEnvironmentConnectorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_evs.types.connector
     import aws_sdk_evs.types.environment_summary
 
 
-class DeleteEnvironmentConnectorResponse(TypedDict):
+class DeleteEnvironmentConnectorResponse(TypedDict, closed=True):
     connector: NotRequired["aws_sdk_evs.types.connector.Connector"]
     """<p>A description of the deleted connector.</p>"""
     environment_summary: NotRequired[

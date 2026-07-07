@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#HandOffTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.hour_of_day
     import aws_sdk_ssm_contacts.types.minute_of_hour
 
 
-class HandOffTime(TypedDict):
+class HandOffTime(TypedDict, closed=True):
     hour_of_day: "aws_sdk_ssm_contacts.types.hour_of_day.HourOfDay"
     """<p>The hour when an on-call rotation shift begins or ends.</p>"""
     minute_of_hour: "aws_sdk_ssm_contacts.types.minute_of_hour.MinuteOfHour"

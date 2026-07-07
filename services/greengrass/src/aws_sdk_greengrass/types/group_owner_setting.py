@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#GroupOwnerSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__boolean
     import aws_sdk_greengrass.types.__string
 
 
-class GroupOwnerSetting(TypedDict):
+class GroupOwnerSetting(TypedDict, closed=True):
     auto_add_group_owner: NotRequired["aws_sdk_greengrass.types.__boolean.__boolean"]
     """If true, AWS IoT Greengrass automatically adds the specified Linux OS group owner of the resource to the Lambda process privileges. Thus the Lambda process will have the file access permissions of the added Linux group."""
     group_owner: NotRequired["aws_sdk_greengrass.types.__string.__string"]

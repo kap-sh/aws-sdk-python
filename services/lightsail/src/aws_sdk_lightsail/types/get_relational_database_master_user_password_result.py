@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetRelationalDatabaseMasterUserPasswordResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.iso_date
     import aws_sdk_lightsail.types.sensitive_string
 
 
-class GetRelationalDatabaseMasterUserPasswordResult(TypedDict):
+class GetRelationalDatabaseMasterUserPasswordResult(TypedDict, closed=True):
     master_user_password: NotRequired[
         "aws_sdk_lightsail.types.sensitive_string.SensitiveString"
     ]

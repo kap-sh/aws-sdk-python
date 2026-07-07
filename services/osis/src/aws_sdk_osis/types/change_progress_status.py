@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.osis#ChangeProgressStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.change_progress_stage_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_osis.types.timestamp
 
 
-class ChangeProgressStatus(TypedDict):
+class ChangeProgressStatus(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_osis.types.timestamp.Timestamp"]
     """<p>The time at which the configuration change is made on the pipeline.</p>"""
     status: NotRequired[

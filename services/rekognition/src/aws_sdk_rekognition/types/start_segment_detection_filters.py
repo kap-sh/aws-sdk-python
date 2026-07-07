@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StartSegmentDetectionFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.start_shot_detection_filter
     import aws_sdk_rekognition.types.start_technical_cue_detection_filter
 
 
-class StartSegmentDetectionFilters(TypedDict):
+class StartSegmentDetectionFilters(TypedDict, closed=True):
     technical_cue_filter: NotRequired[
         "aws_sdk_rekognition.types.start_technical_cue_detection_filter.StartTechnicalCueDetectionFilter"
     ]

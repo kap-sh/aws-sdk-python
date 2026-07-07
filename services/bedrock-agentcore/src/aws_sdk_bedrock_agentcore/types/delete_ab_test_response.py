@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#DeleteABTestResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.ab_test_status
 
 
-class DeleteABTestResponse(TypedDict):
+class DeleteABTestResponse(TypedDict, closed=True):
     ab_test_id: "aws_sdk_bedrock_agentcore.types.ab_test_id.ABTestId"
     """<p>The unique identifier of the deleted A/B test.</p>"""
     ab_test_arn: "aws_sdk_bedrock_agentcore.types.ab_test_arn.ABTestArn"

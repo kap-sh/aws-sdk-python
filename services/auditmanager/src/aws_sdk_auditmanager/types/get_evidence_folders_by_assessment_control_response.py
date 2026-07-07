@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetEvidenceFoldersByAssessmentControlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment_evidence_folders
     import aws_sdk_auditmanager.types.token
 
 
-class GetEvidenceFoldersByAssessmentControlResponse(TypedDict):
+class GetEvidenceFoldersByAssessmentControlResponse(TypedDict, closed=True):
     evidence_folders: NotRequired[
         "aws_sdk_auditmanager.types.assessment_evidence_folders.AssessmentEvidenceFolders"
     ]

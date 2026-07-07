@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#GetResourceDashboardResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.url
 
 
-class GetResourceDashboardResponse(TypedDict):
+class GetResourceDashboardResponse(TypedDict, closed=True):
     url: NotRequired["aws_sdk_emr_serverless.types.url.Url"]
     """<p>A URL to the resource dashboard. For an active resource, this URL opens the live application UI. For a terminated resource, this URL opens the persistent application UI. This value is not included in the response if the URL is not available.</p>"""
 

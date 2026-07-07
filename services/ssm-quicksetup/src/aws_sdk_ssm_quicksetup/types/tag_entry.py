@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#TagEntry``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class TagEntry(TypedDict):
+class TagEntry(TypedDict, closed=True):
     key: NotRequired["str"]
     """<p>The key for the tag.</p>"""
     value: NotRequired["str"]

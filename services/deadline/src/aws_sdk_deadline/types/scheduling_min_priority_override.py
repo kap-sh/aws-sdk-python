@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#SchedulingMinPriorityOverride``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.scheduling_min_priority_override_always_schedule_last
 
 
-class _SchedulingMinPriorityOverride_alwaysScheduleLast(TypedDict):
+class _SchedulingMinPriorityOverride_alwaysScheduleLast(TypedDict, closed=True):
     alwaysScheduleLast: "aws_sdk_deadline.types.scheduling_min_priority_override_always_schedule_last.SchedulingMinPriorityOverrideAlwaysScheduleLast"
 
 

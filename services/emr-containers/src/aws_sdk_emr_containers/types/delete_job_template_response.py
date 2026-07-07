@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#DeleteJobTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.resource_id_string
 
 
-class DeleteJobTemplateResponse(TypedDict):
+class DeleteJobTemplateResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr_containers.types.resource_id_string.ResourceIdString"]
     """<p>This output contains the ID of the job template that was deleted.</p>"""
 

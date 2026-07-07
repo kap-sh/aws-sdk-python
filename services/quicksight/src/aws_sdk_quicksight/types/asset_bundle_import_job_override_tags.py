@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleImportJobOverrideTags``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.asset_bundle_import_job_analysis_override_tags_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.asset_bundle_import_job_vpc_connection_override_tags_list
 
 
-class AssetBundleImportJobOverrideTags(TypedDict):
+class AssetBundleImportJobOverrideTags(TypedDict, closed=True):
     vpc_connections: NotRequired[
         "aws_sdk_quicksight.types.asset_bundle_import_job_vpc_connection_override_tags_list.AssetBundleImportJobVPCConnectionOverrideTagsList"
     ]

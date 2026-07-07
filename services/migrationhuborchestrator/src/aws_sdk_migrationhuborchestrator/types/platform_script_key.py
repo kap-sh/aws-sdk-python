@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#PlatformScriptKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.s3_key
 
 
-class PlatformScriptKey(TypedDict):
+class PlatformScriptKey(TypedDict, closed=True):
     linux: NotRequired["aws_sdk_migrationhuborchestrator.types.s3_key.S3Key"]
     """<p>The script location for Linux.</p>"""
     windows: NotRequired["aws_sdk_migrationhuborchestrator.types.s3_key.S3Key"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RemoveFlowMediaStreamResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RemoveFlowMediaStreamResponse(TypedDict):
+class RemoveFlowMediaStreamResponse(TypedDict, closed=True):
     flow_arn: NotRequired["str"]
     """<p> The ARN of the flow that was updated.</p>"""
     media_stream_name: NotRequired["str"]

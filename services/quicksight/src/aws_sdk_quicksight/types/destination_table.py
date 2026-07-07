@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DestinationTable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.destination_table_source
 
 
-class DestinationTable(TypedDict):
+class DestinationTable(TypedDict, closed=True):
     alias: "aws_sdk_quicksight.types.destination_table_alias.DestinationTableAlias"
     """<p>Alias for the destination table.</p>"""
     source: "aws_sdk_quicksight.types.destination_table_source.DestinationTableSource"

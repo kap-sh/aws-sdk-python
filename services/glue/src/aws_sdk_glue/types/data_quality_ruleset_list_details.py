@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DataQualityRulesetListDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_quality_target_table
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class DataQualityRulesetListDetails(TypedDict):
+class DataQualityRulesetListDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the data quality ruleset.</p>"""
     description: NotRequired["aws_sdk_glue.types.description_string.DescriptionString"]

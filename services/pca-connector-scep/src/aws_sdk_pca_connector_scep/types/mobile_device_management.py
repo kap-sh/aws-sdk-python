@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#MobileDeviceManagement``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pca_connector_scep.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_scep.types.intune_configuration
 
 
-class _MobileDeviceManagement_Intune(TypedDict):
+class _MobileDeviceManagement_Intune(TypedDict, closed=True):
     Intune: "aws_sdk_pca_connector_scep.types.intune_configuration.IntuneConfiguration"
 
 

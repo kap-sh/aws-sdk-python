@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#AssessmentReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.assessment_validations
     import aws_sdk_directory_service.types.ip_addr
 
 
-class AssessmentReport(TypedDict):
+class AssessmentReport(TypedDict, closed=True):
     domain_controller_ip: NotRequired["aws_sdk_directory_service.types.ip_addr.IpAddr"]
     """<p>The IP address of the domain controller that was tested during the assessment.</p>"""
     validations: NotRequired[

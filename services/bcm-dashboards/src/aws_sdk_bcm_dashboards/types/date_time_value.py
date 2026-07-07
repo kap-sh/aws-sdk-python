@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#DateTimeValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.generic_string
 
 
-class DateTimeValue(TypedDict):
+class DateTimeValue(TypedDict, closed=True):
     type: "aws_sdk_bcm_dashboards.types.date_time_type.DateTimeType"
     """<p>The type of date/time value: <code>ABSOLUTE</code> for specific dates or <code>RELATIVE</code> for dynamic time periods.</p>"""
     value: "aws_sdk_bcm_dashboards.types.generic_string.GenericString"

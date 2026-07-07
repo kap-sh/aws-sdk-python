@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#GetAssociationForServiceQuotaTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.service_quota_template_association_status
 
 
-class GetAssociationForServiceQuotaTemplateResponse(TypedDict):
+class GetAssociationForServiceQuotaTemplateResponse(TypedDict, closed=True):
     service_quota_template_association_status: NotRequired[
         "aws_sdk_service_quotas.types.service_quota_template_association_status.ServiceQuotaTemplateAssociationStatus"
     ]

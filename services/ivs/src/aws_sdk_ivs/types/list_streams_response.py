@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#ListStreamsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.stream_list
 
 
-class ListStreamsResponse(TypedDict):
+class ListStreamsResponse(TypedDict, closed=True):
     streams: "aws_sdk_ivs.types.stream_list.StreamList"
     """<p>List of streams.</p>"""
     next_token: NotRequired["aws_sdk_ivs.types.pagination_token.PaginationToken"]

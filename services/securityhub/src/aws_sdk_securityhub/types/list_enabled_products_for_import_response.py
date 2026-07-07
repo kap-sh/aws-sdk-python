@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ListEnabledProductsForImportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.next_token
     import aws_sdk_securityhub.types.product_subscription_arn_list
 
 
-class ListEnabledProductsForImportResponse(TypedDict):
+class ListEnabledProductsForImportResponse(TypedDict, closed=True):
     product_subscriptions: NotRequired[
         "aws_sdk_securityhub.types.product_subscription_arn_list.ProductSubscriptionArnList"
     ]

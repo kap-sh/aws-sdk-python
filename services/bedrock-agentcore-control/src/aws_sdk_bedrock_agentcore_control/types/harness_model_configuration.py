@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessModelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -14,19 +16,19 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.harness_open_ai_model_config
 
 
-class _HarnessModelConfiguration_bedrockModelConfig(TypedDict):
+class _HarnessModelConfiguration_bedrockModelConfig(TypedDict, closed=True):
     bedrockModelConfig: "aws_sdk_bedrock_agentcore_control.types.harness_bedrock_model_config.HarnessBedrockModelConfig"
 
 
-class _HarnessModelConfiguration_openAiModelConfig(TypedDict):
+class _HarnessModelConfiguration_openAiModelConfig(TypedDict, closed=True):
     openAiModelConfig: "aws_sdk_bedrock_agentcore_control.types.harness_open_ai_model_config.HarnessOpenAiModelConfig"
 
 
-class _HarnessModelConfiguration_geminiModelConfig(TypedDict):
+class _HarnessModelConfiguration_geminiModelConfig(TypedDict, closed=True):
     geminiModelConfig: "aws_sdk_bedrock_agentcore_control.types.harness_gemini_model_config.HarnessGeminiModelConfig"
 
 
-class _HarnessModelConfiguration_liteLlmModelConfig(TypedDict):
+class _HarnessModelConfiguration_liteLlmModelConfig(TypedDict, closed=True):
     liteLlmModelConfig: "aws_sdk_bedrock_agentcore_control.types.harness_lite_llm_model_config.HarnessLiteLlmModelConfig"
 
 

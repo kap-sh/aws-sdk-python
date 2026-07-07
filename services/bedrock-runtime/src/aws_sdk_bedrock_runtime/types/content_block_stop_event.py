@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ContentBlockStopEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_runtime.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.non_negative_integer
 
 
-class ContentBlockStopEvent(TypedDict):
+class ContentBlockStopEvent(TypedDict, closed=True):
     content_block_index: (
         "aws_sdk_bedrock_runtime.types.non_negative_integer.NonNegativeInteger"
     )

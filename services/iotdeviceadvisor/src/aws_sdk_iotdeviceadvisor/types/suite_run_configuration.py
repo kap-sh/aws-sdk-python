@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#SuiteRunConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.device_under_test
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.selected_test_list
 
 
-class SuiteRunConfiguration(TypedDict):
+class SuiteRunConfiguration(TypedDict, closed=True):
     primary_device: NotRequired[
         "aws_sdk_iotdeviceadvisor.types.device_under_test.DeviceUnderTest"
     ]

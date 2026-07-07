@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BrandColorPalette``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.palette
 
 
-class BrandColorPalette(TypedDict):
+class BrandColorPalette(TypedDict, closed=True):
     primary: NotRequired["aws_sdk_quicksight.types.palette.Palette"]
     """<p>The primary color.</p>"""
     secondary: NotRequired["aws_sdk_quicksight.types.palette.Palette"]

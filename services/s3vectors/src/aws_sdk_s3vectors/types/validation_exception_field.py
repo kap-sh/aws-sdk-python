@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3vectors.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     path: "str"
     """<p>A path about the validation exception.</p>"""
     message: "str"

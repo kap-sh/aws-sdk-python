@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#DeleteConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.app_runner_resource_arn
 
 
-class DeleteConnectionRequest(TypedDict):
+class DeleteConnectionRequest(TypedDict, closed=True):
     connection_arn: (
         "aws_sdk_apprunner.types.app_runner_resource_arn.AppRunnerResourceArn"
     )

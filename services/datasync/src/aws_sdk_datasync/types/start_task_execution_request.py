@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#StartTaskExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.task_report_config
 
 
-class StartTaskExecutionRequest(TypedDict):
+class StartTaskExecutionRequest(TypedDict, closed=True):
     task_arn: "aws_sdk_datasync.types.task_arn.TaskArn"
     """<p>Specifies the Amazon Resource Name (ARN) of the task that you want to start.</p>"""
     override_options: NotRequired["aws_sdk_datasync.types.options.Options"]

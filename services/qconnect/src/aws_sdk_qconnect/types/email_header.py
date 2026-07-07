@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#EmailHeader``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.email_header_key
     import aws_sdk_qconnect.types.email_header_value
 
 
-class EmailHeader(TypedDict):
+class EmailHeader(TypedDict, closed=True):
     name: NotRequired["aws_sdk_qconnect.types.email_header_key.EmailHeaderKey"]
     """<p>The name of the email header.</p>"""
     value: NotRequired["aws_sdk_qconnect.types.email_header_value.EmailHeaderValue"]

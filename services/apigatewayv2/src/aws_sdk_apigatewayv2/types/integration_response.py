@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#IntegrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.content_handling_strategy
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.template_map
 
 
-class IntegrationResponse(TypedDict):
+class IntegrationResponse(TypedDict, closed=True):
     content_handling_strategy: NotRequired[
         "aws_sdk_apigatewayv2.types.content_handling_strategy.ContentHandlingStrategy"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StartFaceSearchRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.video
 
 
-class StartFaceSearchRequest(TypedDict):
+class StartFaceSearchRequest(TypedDict, closed=True):
     video: "aws_sdk_rekognition.types.video.Video"
     """<p>The video you want to search. The video must be stored in an Amazon S3 bucket. </p>"""
     client_request_token: NotRequired[

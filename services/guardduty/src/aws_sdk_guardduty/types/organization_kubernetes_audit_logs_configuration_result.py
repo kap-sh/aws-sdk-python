@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#OrganizationKubernetesAuditLogsConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
 
 
-class OrganizationKubernetesAuditLogsConfigurationResult(TypedDict):
+class OrganizationKubernetesAuditLogsConfigurationResult(TypedDict, closed=True):
     auto_enable: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>Whether Kubernetes audit logs data source should be auto-enabled for new members joining the organization.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#StartConfigRulesEvaluationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartConfigRulesEvaluationResponse(TypedDict):
+class StartConfigRulesEvaluationResponse(TypedDict, closed=True):
     pass
 
 

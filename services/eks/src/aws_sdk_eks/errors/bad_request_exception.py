@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#BadRequestException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class BadRequestException_(TypedDict):
+class BadRequestException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.</p>"""
 

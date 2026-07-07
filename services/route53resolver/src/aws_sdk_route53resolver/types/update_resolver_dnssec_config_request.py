@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#UpdateResolverDnssecConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.validation
 
 
-class UpdateResolverDnssecConfigRequest(TypedDict):
+class UpdateResolverDnssecConfigRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p>The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.</p>"""
     validation: "aws_sdk_route53resolver.types.validation.Validation"

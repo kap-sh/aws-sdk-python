@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DeleteConversationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.user_id
 
 
-class DeleteConversationRequest(TypedDict):
+class DeleteConversationRequest(TypedDict, closed=True):
     conversation_id: "aws_sdk_qbusiness.types.conversation_id.ConversationId"
     """<p>The identifier of the Amazon Q Business web experience conversation being deleted.</p>"""
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"

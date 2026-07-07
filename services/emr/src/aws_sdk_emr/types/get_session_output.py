@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#GetSessionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.session
 
 
-class GetSessionOutput(TypedDict):
+class GetSessionOutput(TypedDict, closed=True):
     session: NotRequired["aws_sdk_emr.types.session.Session"]
     """<p>The output displays information about the session.</p>"""
 

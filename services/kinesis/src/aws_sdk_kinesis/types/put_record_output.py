@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#PutRecordOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.shard_id
 
 
-class PutRecordOutput(TypedDict):
+class PutRecordOutput(TypedDict, closed=True):
     shard_id: "aws_sdk_kinesis.types.shard_id.ShardId"
     """<p>The shard ID of the shard where the data record was placed.</p>"""
     sequence_number: "aws_sdk_kinesis.types.sequence_number.SequenceNumber"

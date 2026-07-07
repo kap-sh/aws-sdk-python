@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#InterconnectServerException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError, ServiceError
 
 
-class InterconnectServerException_(TypedDict):
+class InterconnectServerException_(TypedDict, closed=True):
     message: "str"
 
 

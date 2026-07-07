@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#TieringPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.cooling_period
     import aws_sdk_fsx.types.tiering_policy_name
 
 
-class TieringPolicy(TypedDict):
+class TieringPolicy(TypedDict, closed=True):
     cooling_period: NotRequired["aws_sdk_fsx.types.cooling_period.CoolingPeriod"]
     r"""<p>Specifies the number of days that user data in a volume must remain inactive before it is considered \"cold\" and moved to the capacity pool. Used with the <code>AUTO</code> and <code>SNAPSHOT_ONLY</code> tiering policies. Enter a whole number between 2 and 183. Default values are 31 days for <code>AUTO</code> and 2 days for <code>SNAPSHOT_ONLY</code>.</p>"""
     name: NotRequired["aws_sdk_fsx.types.tiering_policy_name.TieringPolicyName"]

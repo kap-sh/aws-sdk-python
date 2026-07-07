@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListUserGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.user_name
 
 
-class ListUserGroupsRequest(TypedDict):
+class ListUserGroupsRequest(TypedDict, closed=True):
     user_name: "aws_sdk_quicksight.types.user_name.UserName"
     """<p>The Amazon Quick Sight user name that you want to list group memberships for.</p>"""
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"

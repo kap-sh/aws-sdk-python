@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GetFlowExecutionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.version
 
 
-class GetFlowExecutionResponse(TypedDict):
+class GetFlowExecutionResponse(TypedDict, closed=True):
     execution_arn: "aws_sdk_bedrock_agent_runtime.types.flow_execution_identifier.FlowExecutionIdentifier"
     """<p>The Amazon Resource Name (ARN) that uniquely identifies the flow execution.</p>"""
     status: (

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#AssociateSourceViewsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billing.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.billing_view_arn
 
 
-class AssociateSourceViewsResponse(TypedDict):
+class AssociateSourceViewsResponse(TypedDict, closed=True):
     arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn"
     """<p> The ARN of the billing view that the source views were associated with. </p>"""
 

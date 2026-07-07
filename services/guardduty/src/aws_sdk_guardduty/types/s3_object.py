@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#S3Object``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class S3Object(TypedDict):
+class S3Object(TypedDict, closed=True):
     e_tag: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The entity tag is a hash of the Amazon S3 object. The ETag reflects changes only to the contents of an object, and not its metadata.</p>"""
     key: NotRequired["aws_sdk_guardduty.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ModifyRecommendationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.target_instances_list
 
 
-class ModifyRecommendationDetail(TypedDict):
+class ModifyRecommendationDetail(TypedDict, closed=True):
     target_instances: NotRequired[
         "aws_sdk_cost_explorer.types.target_instances_list.TargetInstancesList"
     ]

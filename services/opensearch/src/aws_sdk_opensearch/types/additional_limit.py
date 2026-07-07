@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AdditionalLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.limit_name
     import aws_sdk_opensearch.types.limit_value_list
 
 
-class AdditionalLimit(TypedDict):
+class AdditionalLimit(TypedDict, closed=True):
     limit_name: NotRequired["aws_sdk_opensearch.types.limit_name.LimitName"]
     """<ul> <li> <p> <code>MaximumNumberOfDataNodesSupported</code> - This attribute only applies to master nodes and specifies the maximum number of data nodes of a given instance type a master node can support.</p> </li> <li> <p> <code>MaximumNumberOfDataNodesWithoutMasterNode</code> - This attribute only applies to data nodes and specifies the maximum number of data nodes of a given instance type can exist without a master node governing them.</p> </li> </ul>"""
     limit_values: NotRequired[

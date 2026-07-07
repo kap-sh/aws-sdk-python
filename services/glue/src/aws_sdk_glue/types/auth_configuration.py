@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#AuthConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.property
 
 
-class AuthConfiguration(TypedDict):
+class AuthConfiguration(TypedDict, closed=True):
     authentication_type: "aws_sdk_glue.types.property.Property"
     """<p>The type of authentication for a connection.</p>"""
     secret_arn: NotRequired["aws_sdk_glue.types.property.Property"]

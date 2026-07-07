@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ExperienceEntitiesSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.entity_display_data
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.entity_type
 
 
-class ExperienceEntitiesSummary(TypedDict):
+class ExperienceEntitiesSummary(TypedDict, closed=True):
     entity_id: NotRequired["aws_sdk_kendra.types.entity_id.EntityId"]
     """<p>The identifier of a user or group in your IAM Identity Center identity source. For example, a user ID could be an email.</p>"""
     entity_type: NotRequired["aws_sdk_kendra.types.entity_type.EntityType"]

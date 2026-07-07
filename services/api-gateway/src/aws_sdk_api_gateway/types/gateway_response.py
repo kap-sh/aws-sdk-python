@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#GatewayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.status_code
 
 
-class GatewayResponse(TypedDict):
+class GatewayResponse(TypedDict, closed=True):
     response_type: NotRequired[
         "aws_sdk_api_gateway.types.gateway_response_type.GatewayResponseType"
     ]

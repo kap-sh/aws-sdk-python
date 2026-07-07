@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#Identity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.group_identity
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.user_identity
 
 
-class Identity(TypedDict):
+class Identity(TypedDict, closed=True):
     user: NotRequired["aws_sdk_iotsitewise.types.user_identity.UserIdentity"]
     """<p>An IAM Identity Center user identity.</p>"""
     group: NotRequired["aws_sdk_iotsitewise.types.group_identity.GroupIdentity"]

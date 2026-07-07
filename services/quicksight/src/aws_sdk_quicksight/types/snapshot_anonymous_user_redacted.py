@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SnapshotAnonymousUserRedacted``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.session_tag_key_list
 
 
-class SnapshotAnonymousUserRedacted(TypedDict):
+class SnapshotAnonymousUserRedacted(TypedDict, closed=True):
     row_level_permission_tag_keys: NotRequired[
         "aws_sdk_quicksight.types.session_tag_key_list.SessionTagKeyList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#CreateAuthorizerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_api_gateway.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class CreateAuthorizerRequest(TypedDict):
+class CreateAuthorizerRequest(TypedDict, closed=True):
     rest_api_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The string identifier of the associated RestApi.</p>"""
     name: "aws_sdk_api_gateway.types.string.String"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#HostKeyAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.iso_date
     import aws_sdk_lightsail.types.string
 
 
-class HostKeyAttributes(TypedDict):
+class HostKeyAttributes(TypedDict, closed=True):
     algorithm: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The SSH host key algorithm or the RDP certificate format.</p> <p>For SSH host keys, the algorithm may be <code>ssh-rsa</code>, <code>ecdsa-sha2-nistp256</code>, <code>ssh-ed25519</code>, etc. For RDP certificates, the algorithm is always <code>x509-cert</code>.</p>"""
     public_key: NotRequired["aws_sdk_lightsail.types.string.string"]

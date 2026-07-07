@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#MessageSystemAttributeValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string_list
 
 
-class MessageSystemAttributeValue(TypedDict):
+class MessageSystemAttributeValue(TypedDict, closed=True):
     string_value: NotRequired["aws_sdk_sqs.types.string.String"]
     r"""<p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href=\"http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\">ASCII Printable Characters</a>.</p>"""
     binary_value: NotRequired["aws_sdk_sqs.types.binary.Binary"]

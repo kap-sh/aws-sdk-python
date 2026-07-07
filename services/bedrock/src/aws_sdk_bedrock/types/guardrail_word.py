@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailWord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.guardrail_word_action
 
 
-class GuardrailWord(TypedDict):
+class GuardrailWord(TypedDict, closed=True):
     text: "str"
     """<p>Text of the word configured for the guardrail to block.</p>"""
     input_action: NotRequired[

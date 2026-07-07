@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ToolInputSchema``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
 
-class _ToolInputSchema_json(TypedDict):
+class _ToolInputSchema_json(TypedDict, closed=True):
     json: "object"
 
 

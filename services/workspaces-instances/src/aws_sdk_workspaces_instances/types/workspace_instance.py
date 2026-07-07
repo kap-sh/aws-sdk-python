@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#WorkspaceInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.ec2_managed_instance
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.workspace_instance_id
 
 
-class WorkspaceInstance(TypedDict):
+class WorkspaceInstance(TypedDict, closed=True):
     provision_state: NotRequired[
         "aws_sdk_workspaces_instances.types.provision_state_enum.ProvisionStateEnum"
     ]

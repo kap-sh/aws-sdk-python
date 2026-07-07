@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#InferenceExecutionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.bounded_length_string
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.timestamp
 
 
-class InferenceExecutionSummary(TypedDict):
+class InferenceExecutionSummary(TypedDict, closed=True):
     model_name: NotRequired["aws_sdk_lookoutequipment.types.model_name.ModelName"]
     """<p>The name of the machine learning model being used for the inference execution. </p>"""
     model_arn: NotRequired["aws_sdk_lookoutequipment.types.model_arn.ModelArn"]

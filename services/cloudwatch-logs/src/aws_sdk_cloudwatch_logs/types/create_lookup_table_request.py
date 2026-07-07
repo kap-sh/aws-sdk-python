@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#CreateLookupTableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.tags
 
 
-class CreateLookupTableRequest(TypedDict):
+class CreateLookupTableRequest(TypedDict, closed=True):
     lookup_table_name: "aws_sdk_cloudwatch_logs.types.lookup_table_name.LookupTableName"
     """<p>The name of the lookup table. The name must be unique within your account and Region. The name can contain only alphanumeric characters and underscores, and can be up to 256 characters long.</p>"""
     description: NotRequired[

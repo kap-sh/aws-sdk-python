@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#RoomSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivschat.types.logging_configuration_identifier_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.time
 
 
-class RoomSummary(TypedDict):
+class RoomSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_ivschat.types.room_arn.RoomArn"]
     """<p>Room ARN.</p>"""
     id: NotRequired["aws_sdk_ivschat.types.room_id.RoomID"]

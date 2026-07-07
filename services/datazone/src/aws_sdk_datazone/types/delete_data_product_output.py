@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteDataProductOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteDataProductOutput(TypedDict):
+class DeleteDataProductOutput(TypedDict, closed=True):
     pass
 
 

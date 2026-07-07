@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ScannedItemCount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.integer
 
 
-class ScannedItemCount(TypedDict):
+class ScannedItemCount(TypedDict, closed=True):
     total_gb: NotRequired["aws_sdk_guardduty.types.integer.Integer"]
     """<p>Total GB of files scanned for malware.</p>"""
     files: NotRequired["aws_sdk_guardduty.types.integer.Integer"]

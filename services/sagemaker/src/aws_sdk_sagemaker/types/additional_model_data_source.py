@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AdditionalModelDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.additional_model_channel_name
     import aws_sdk_sagemaker.types.s3_model_data_source
 
 
-class AdditionalModelDataSource(TypedDict):
+class AdditionalModelDataSource(TypedDict, closed=True):
     channel_name: NotRequired[
         "aws_sdk_sagemaker.types.additional_model_channel_name.AdditionalModelChannelName"
     ]

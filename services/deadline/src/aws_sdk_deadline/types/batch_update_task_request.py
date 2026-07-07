@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#BatchUpdateTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.client_token
 
 
-class BatchUpdateTaskRequest(TypedDict):
+class BatchUpdateTaskRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_deadline.types.client_token.ClientToken"]
     """<p>The unique token which the server uses to recognize retries of the same request.</p>"""
     tasks: "aws_sdk_deadline.types.batch_update_task_items.BatchUpdateTaskItems"

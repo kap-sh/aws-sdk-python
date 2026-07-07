@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#Event``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.session
 
 
-class Event(TypedDict):
+class Event(TypedDict, closed=True):
     app_package_name: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The package name of the app that's recording the event.</p>"""
     app_title: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

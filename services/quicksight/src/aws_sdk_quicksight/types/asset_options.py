@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_arns_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_custom_action_defaults
 
 
-class AssetOptions(TypedDict):
+class AssetOptions(TypedDict, closed=True):
     timezone: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>Determines the timezone for the analysis.</p>"""
     week_start: NotRequired["aws_sdk_quicksight.types.day_of_the_week.DayOfTheWeek"]

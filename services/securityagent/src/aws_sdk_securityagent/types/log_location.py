@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#LogLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.cloud_watch_log
     import aws_sdk_securityagent.types.log_type
 
 
-class LogLocation(TypedDict):
+class LogLocation(TypedDict, closed=True):
     log_type: NotRequired["aws_sdk_securityagent.types.log_type.LogType"]
     """<p>The type of log storage. Currently, only CLOUDWATCH is supported.</p>"""
     cloud_watch_log: NotRequired[

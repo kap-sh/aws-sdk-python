@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#AssociateSessionLoggerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
 
 
-class AssociateSessionLoggerRequest(TypedDict):
+class AssociateSessionLoggerRequest(TypedDict, closed=True):
     portal_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the portal to associate to the session logger ARN.</p>"""
     session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN"

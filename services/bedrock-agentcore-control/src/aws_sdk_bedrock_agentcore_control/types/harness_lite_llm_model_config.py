@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessLiteLlmModelConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.top_p
 
 
-class HarnessLiteLlmModelConfig(TypedDict):
+class HarnessLiteLlmModelConfig(TypedDict, closed=True):
     model_id: "aws_sdk_bedrock_agentcore_control.types.model_id.ModelId"
     r"""<p>The LiteLLM model identifier (e.g., \"anthropic/claude-3-sonnet\").</p>"""
     api_key_arn: NotRequired[

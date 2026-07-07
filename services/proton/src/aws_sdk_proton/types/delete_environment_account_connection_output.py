@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.proton#DeleteEnvironmentAccountConnectionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.environment_account_connection
 
 
-class DeleteEnvironmentAccountConnectionOutput(TypedDict):
+class DeleteEnvironmentAccountConnectionOutput(TypedDict, closed=True):
     environment_account_connection: NotRequired[
         "aws_sdk_proton.types.environment_account_connection.EnvironmentAccountConnection"
     ]

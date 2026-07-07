@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#ListOperationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.next_token
     import aws_sdk_ssm_sap.types.operation_list
 
 
-class ListOperationsOutput(TypedDict):
+class ListOperationsOutput(TypedDict, closed=True):
     operations: NotRequired["aws_sdk_ssm_sap.types.operation_list.OperationList"]
     """<p>List of operations performed by AWS Systems Manager for SAP.</p>"""
     next_token: NotRequired["aws_sdk_ssm_sap.types.next_token.NextToken"]

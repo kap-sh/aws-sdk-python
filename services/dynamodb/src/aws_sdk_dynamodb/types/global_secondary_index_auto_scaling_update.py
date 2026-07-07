@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#GlobalSecondaryIndexAutoScalingUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.auto_scaling_settings_update
     import aws_sdk_dynamodb.types.index_name
 
 
-class GlobalSecondaryIndexAutoScalingUpdate(TypedDict):
+class GlobalSecondaryIndexAutoScalingUpdate(TypedDict, closed=True):
     index_name: NotRequired["aws_sdk_dynamodb.types.index_name.IndexName"]
     """<p>The name of the global secondary index.</p>"""
     provisioned_write_capacity_auto_scaling_update: NotRequired[

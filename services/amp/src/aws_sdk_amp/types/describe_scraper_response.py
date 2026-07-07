@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#DescribeScraperResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.scraper_description
 
 
-class DescribeScraperResponse(TypedDict):
+class DescribeScraperResponse(TypedDict, closed=True):
     scraper: "aws_sdk_amp.types.scraper_description.ScraperDescription"
     """<p>Contains details about the scraper.</p>"""
 

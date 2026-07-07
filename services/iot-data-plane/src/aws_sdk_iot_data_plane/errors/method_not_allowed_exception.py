@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#MethodNotAllowedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_data_plane.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.error_message
 
 
-class MethodNotAllowedException_(TypedDict):
+class MethodNotAllowedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_iot_data_plane.types.error_message.errorMessage"]
     """<p>The message for the exception.</p>"""
 

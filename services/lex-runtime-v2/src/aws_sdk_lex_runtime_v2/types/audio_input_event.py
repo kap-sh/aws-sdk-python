@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#AudioInputEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.non_empty_string
 
 
-class AudioInputEvent(TypedDict):
+class AudioInputEvent(TypedDict, closed=True):
     audio_chunk: NotRequired["aws_sdk_lex_runtime_v2.types.audio_chunk.AudioChunk"]
     """<p>An encoded stream of audio.</p>"""
     content_type: "aws_sdk_lex_runtime_v2.types.non_empty_string.NonEmptyString"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#DescribeDataSourcesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.data_sources
     import aws_sdk_machine_learning.types.string_type
 
 
-class DescribeDataSourcesOutput(TypedDict):
+class DescribeDataSourcesOutput(TypedDict, closed=True):
     results: NotRequired["aws_sdk_machine_learning.types.data_sources.DataSources"]
     """<p>A list of <code>DataSource</code> that meet the search criteria. </p>"""
     next_token: NotRequired["aws_sdk_machine_learning.types.string_type.StringType"]

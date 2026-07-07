@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#AvailabilitySlo``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AvailabilitySlo(TypedDict):
+class AvailabilitySlo(TypedDict, closed=True):
     target: NotRequired["float"]
     """<p>The target availability percentage, expressed as a value between 0 and 100.</p>"""
 

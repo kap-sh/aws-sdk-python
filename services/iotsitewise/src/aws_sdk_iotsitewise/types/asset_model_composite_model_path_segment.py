@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#AssetModelCompositeModelPathSegment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
     import aws_sdk_iotsitewise.types.name
 
 
-class AssetModelCompositeModelPathSegment(TypedDict):
+class AssetModelCompositeModelPathSegment(TypedDict, closed=True):
     id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]
     """<p>The ID of the path segment.</p>"""
     name: NotRequired["aws_sdk_iotsitewise.types.name.Name"]

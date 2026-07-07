@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#ListGrantsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kms.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.service_principal_type
 
 
-class ListGrantsRequest(TypedDict):
+class ListGrantsRequest(TypedDict, closed=True):
     limit: NotRequired["aws_sdk_kms.types.limit_type.LimitType"]
     """<p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p> <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>"""
     marker: NotRequired["aws_sdk_kms.types.marker_type.MarkerType"]

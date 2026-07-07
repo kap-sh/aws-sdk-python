@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#CreateMeshInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.tag_list
 
 
-class CreateMeshInput(TypedDict):
+class CreateMeshInput(TypedDict, closed=True):
     mesh_name: "aws_sdk_app_mesh.types.resource_name.ResourceName"
     """<p>The name to use for the service mesh.</p>"""
     spec: NotRequired["aws_sdk_app_mesh.types.mesh_spec.MeshSpec"]

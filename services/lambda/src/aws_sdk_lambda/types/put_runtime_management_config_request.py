@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#PutRuntimeManagementConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.update_runtime_on
 
 
-class PutRuntimeManagementConfigRequest(TypedDict):
+class PutRuntimeManagementConfigRequest(TypedDict, closed=True):
     function_name: (
         "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName"
     )

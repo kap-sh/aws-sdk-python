@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListSecurityProfileFlowModulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.security_profile_id
 
 
-class ListSecurityProfileFlowModulesRequest(TypedDict):
+class ListSecurityProfileFlowModulesRequest(TypedDict, closed=True):
     security_profile_id: "aws_sdk_connect.types.security_profile_id.SecurityProfileId"
     """<p> The identifier for the security profile. </p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"

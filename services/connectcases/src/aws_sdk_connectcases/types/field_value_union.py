@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#FieldValueUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -8,23 +10,23 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.empty_field_value
 
 
-class _FieldValueUnion_stringValue(TypedDict):
+class _FieldValueUnion_stringValue(TypedDict, closed=True):
     stringValue: "str"
 
 
-class _FieldValueUnion_doubleValue(TypedDict):
+class _FieldValueUnion_doubleValue(TypedDict, closed=True):
     doubleValue: "float"
 
 
-class _FieldValueUnion_booleanValue(TypedDict):
+class _FieldValueUnion_booleanValue(TypedDict, closed=True):
     booleanValue: "bool"
 
 
-class _FieldValueUnion_emptyValue(TypedDict):
+class _FieldValueUnion_emptyValue(TypedDict, closed=True):
     emptyValue: "aws_sdk_connectcases.types.empty_field_value.EmptyFieldValue"
 
 
-class _FieldValueUnion_userArnValue(TypedDict):
+class _FieldValueUnion_userArnValue(TypedDict, closed=True):
     userArnValue: "str"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#EnvironmentVariable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class EnvironmentVariable(TypedDict):
+class EnvironmentVariable(TypedDict, closed=True):
     name: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     """<p>The name or key of the environment variable.</p>"""
     value: "aws_sdk_codebuild.types.string.String"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DetectLabelsImageQuality``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.float
 
 
-class DetectLabelsImageQuality(TypedDict):
+class DetectLabelsImageQuality(TypedDict, closed=True):
     brightness: NotRequired["aws_sdk_rekognition.types.float.Float"]
     """<p>The brightness of an image provided for label detection.</p>"""
     sharpness: NotRequired["aws_sdk_rekognition.types.float.Float"]

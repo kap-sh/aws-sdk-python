@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#StartBatchDeleteConfigurationTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.uuid
 
 
-class StartBatchDeleteConfigurationTaskResponse(TypedDict):
+class StartBatchDeleteConfigurationTaskResponse(TypedDict, closed=True):
     task_id: NotRequired["aws_sdk_application_discovery_service.types.uuid.UUID"]
     """<p> The unique identifier associated with the newly started deletion task. </p>"""
 

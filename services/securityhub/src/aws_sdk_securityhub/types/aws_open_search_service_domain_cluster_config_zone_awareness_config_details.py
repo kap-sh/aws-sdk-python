@@ -1,14 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
 
 
-class AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails(TypedDict):
+class AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails(
+    TypedDict, closed=True
+):
     availability_zone_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of Availability Zones that the domain uses. Valid values are <code>2</code> or <code>3</code>. The default is <code>2</code>.</p>"""
 

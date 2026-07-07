@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#FirewallPolicyDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.firewall_policy_stateful_rule_group_references_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class FirewallPolicyDetails(TypedDict):
+class FirewallPolicyDetails(TypedDict, closed=True):
     stateful_rule_group_references: NotRequired[
         "aws_sdk_securityhub.types.firewall_policy_stateful_rule_group_references_list.FirewallPolicyStatefulRuleGroupReferencesList"
     ]

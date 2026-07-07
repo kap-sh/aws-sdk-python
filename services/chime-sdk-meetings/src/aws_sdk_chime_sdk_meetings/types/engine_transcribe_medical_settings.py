@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#EngineTranscribeMedicalSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_meetings.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.transcribe_medical_type
 
 
-class EngineTranscribeMedicalSettings(TypedDict):
+class EngineTranscribeMedicalSettings(TypedDict, closed=True):
     language_code: "aws_sdk_chime_sdk_meetings.types.transcribe_medical_language_code.TranscribeMedicalLanguageCode"
     """<p>The language code specified for the Amazon Transcribe Medical engine.</p>"""
     specialty: "aws_sdk_chime_sdk_meetings.types.transcribe_medical_specialty.TranscribeMedicalSpecialty"

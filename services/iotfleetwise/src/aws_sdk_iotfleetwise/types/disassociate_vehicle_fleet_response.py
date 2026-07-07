@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#DisassociateVehicleFleetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateVehicleFleetResponse(TypedDict):
+class DisassociateVehicleFleetResponse(TypedDict, closed=True):
     pass
 
 

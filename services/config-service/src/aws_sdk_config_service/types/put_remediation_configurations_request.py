@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#PutRemediationConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.remediation_configurations
 
 
-class PutRemediationConfigurationsRequest(TypedDict):
+class PutRemediationConfigurationsRequest(TypedDict, closed=True):
     remediation_configurations: "aws_sdk_config_service.types.remediation_configurations.RemediationConfigurations"
     """<p>A list of remediation configuration objects.</p>"""
 

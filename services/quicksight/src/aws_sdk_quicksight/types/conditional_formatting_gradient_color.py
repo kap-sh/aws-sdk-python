@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ConditionalFormattingGradientColor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.gradient_color
 
 
-class ConditionalFormattingGradientColor(TypedDict):
+class ConditionalFormattingGradientColor(TypedDict, closed=True):
     expression: "aws_sdk_quicksight.types.expression.Expression"
     """<p>The expression that determines the formatting configuration for gradient color.</p>"""
     color: "aws_sdk_quicksight.types.gradient_color.GradientColor"

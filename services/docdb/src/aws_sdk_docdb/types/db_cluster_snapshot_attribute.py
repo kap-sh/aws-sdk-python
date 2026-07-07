@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#DBClusterSnapshotAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class DBClusterSnapshotAttribute(TypedDict):
+class DBClusterSnapshotAttribute(TypedDict, closed=True):
     attribute_name: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The name of the manual cluster snapshot attribute.</p> <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that have permission to copy or restore the manual cluster snapshot.</p>"""
     attribute_values: NotRequired[

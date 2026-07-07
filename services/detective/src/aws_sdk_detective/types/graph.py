@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#Graph``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.graph_arn
     import aws_sdk_detective.types.timestamp
 
 
-class Graph(TypedDict):
+class Graph(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_detective.types.graph_arn.GraphArn"]
     """<p>The ARN of the behavior graph.</p>"""
     created_time: NotRequired["aws_sdk_detective.types.timestamp.Timestamp"]

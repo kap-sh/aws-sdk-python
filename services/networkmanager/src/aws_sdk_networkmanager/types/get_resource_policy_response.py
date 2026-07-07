@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.synthesized_json_resource_policy_document
 
 
-class GetResourcePolicyResponse(TypedDict):
+class GetResourcePolicyResponse(TypedDict, closed=True):
     policy_document: NotRequired[
         "aws_sdk_networkmanager.types.synthesized_json_resource_policy_document.SynthesizedJsonResourcePolicyDocument"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#JobExecutionsRetryConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.retry_criteria_list
 
 
-class JobExecutionsRetryConfig(TypedDict):
+class JobExecutionsRetryConfig(TypedDict, closed=True):
     criteria_list: "aws_sdk_iot.types.retry_criteria_list.RetryCriteriaList"
     """<p>The list of criteria that determines how many retries are allowed for each failure type for a job.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#UpdateApplicationMaintenanceConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.application_maintenance_configuration_description
     import aws_sdk_kinesis_analytics_v2.types.resource_arn
 
 
-class UpdateApplicationMaintenanceConfigurationResponse(TypedDict):
+class UpdateApplicationMaintenanceConfigurationResponse(TypedDict, closed=True):
     application_arn: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.resource_arn.ResourceARN"
     ]

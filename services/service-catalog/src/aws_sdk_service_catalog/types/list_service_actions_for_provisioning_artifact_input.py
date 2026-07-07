@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ListServiceActionsForProvisioningArtifactInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.page_token
 
 
-class ListServiceActionsForProvisioningArtifactInput(TypedDict):
+class ListServiceActionsForProvisioningArtifactInput(TypedDict, closed=True):
     product_id: "aws_sdk_service_catalog.types.id.Id"
     """<p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>"""
     provisioning_artifact_id: "aws_sdk_service_catalog.types.id.Id"

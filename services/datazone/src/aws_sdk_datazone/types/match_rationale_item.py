@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#MatchRationaleItem``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.text_matches
 
 
-class _MatchRationaleItem_textMatches(TypedDict):
+class _MatchRationaleItem_textMatches(TypedDict, closed=True):
     textMatches: "aws_sdk_datazone.types.text_matches.TextMatches"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#SystemSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.system_id
 
 
-class SystemSummary(TypedDict):
+class SystemSummary(TypedDict, closed=True):
     system_id: "aws_sdk_resiliencehubv2.types.system_id.SystemId"
     name: "aws_sdk_resiliencehubv2.types.entity_name.EntityName"
     system_arn: NotRequired["aws_sdk_resiliencehubv2.types.arn.Arn"]

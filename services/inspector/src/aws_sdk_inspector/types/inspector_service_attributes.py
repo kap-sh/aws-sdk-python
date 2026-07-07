@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#InspectorServiceAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.arn
     import aws_sdk_inspector.types.numeric_version
 
 
-class InspectorServiceAttributes(TypedDict):
+class InspectorServiceAttributes(TypedDict, closed=True):
     schema_version: "aws_sdk_inspector.types.numeric_version.NumericVersion"
     """<p>The schema version of this data type.</p>"""
     assessment_run_arn: NotRequired["aws_sdk_inspector.types.arn.Arn"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#SendMessageResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class SendMessageResult(TypedDict):
+class SendMessageResult(TypedDict, closed=True):
     md5_of_message_body: NotRequired["aws_sdk_sqs.types.string.String"]
     r"""<p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href=\"https://www.ietf.org/rfc/rfc1321.txt\">RFC1321</a>.</p>"""
     md5_of_message_attributes: NotRequired["aws_sdk_sqs.types.string.String"]

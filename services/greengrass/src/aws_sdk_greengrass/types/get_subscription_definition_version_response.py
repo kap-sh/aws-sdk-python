@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#GetSubscriptionDefinitionVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.subscription_definition_version
 
 
-class GetSubscriptionDefinitionVersionResponse(TypedDict):
+class GetSubscriptionDefinitionVersionResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The ARN of the subscription definition version."""
     creation_timestamp: NotRequired["aws_sdk_greengrass.types.__string.__string"]

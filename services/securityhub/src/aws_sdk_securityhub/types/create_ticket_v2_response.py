@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#CreateTicketV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class CreateTicketV2Response(TypedDict):
+class CreateTicketV2Response(TypedDict, closed=True):
     ticket_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The ID for the ticketv2.</p>"""
     ticket_src_url: NotRequired[

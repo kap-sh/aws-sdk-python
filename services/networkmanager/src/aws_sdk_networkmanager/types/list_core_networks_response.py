@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ListCoreNetworksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.core_network_summary_list
     import aws_sdk_networkmanager.types.next_token
 
 
-class ListCoreNetworksResponse(TypedDict):
+class ListCoreNetworksResponse(TypedDict, closed=True):
     core_networks: NotRequired[
         "aws_sdk_networkmanager.types.core_network_summary_list.CoreNetworkSummaryList"
     ]

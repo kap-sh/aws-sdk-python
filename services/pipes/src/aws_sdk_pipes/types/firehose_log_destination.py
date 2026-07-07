@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#FirehoseLogDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.firehose_arn
 
 
-class FirehoseLogDestination(TypedDict):
+class FirehoseLogDestination(TypedDict, closed=True):
     delivery_stream_arn: NotRequired["aws_sdk_pipes.types.firehose_arn.FirehoseArn"]
     """<p>The Amazon Resource Name (ARN) of the Firehose delivery stream to which EventBridge delivers the pipe log records.</p>"""
 

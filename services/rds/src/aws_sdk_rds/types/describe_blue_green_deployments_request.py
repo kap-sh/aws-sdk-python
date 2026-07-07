@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DescribeBlueGreenDeploymentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DescribeBlueGreenDeploymentsRequest(TypedDict):
+class DescribeBlueGreenDeploymentsRequest(TypedDict, closed=True):
     blue_green_deployment_identifier: NotRequired[
         "aws_sdk_rds.types.blue_green_deployment_identifier.BlueGreenDeploymentIdentifier"
     ]

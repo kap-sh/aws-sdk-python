@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SendMessageTextDelta``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SendMessageTextDelta(TypedDict):
+class SendMessageTextDelta(TypedDict, closed=True):
     text: NotRequired["str"]
     """<p>The text fragment</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#CreateBackendAuthMFAConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.mfa_mode
     import aws_sdk_amplifybackend.types.settings
 
 
-class CreateBackendAuthMFAConfig(TypedDict):
+class CreateBackendAuthMFAConfig(TypedDict, closed=True):
     mfa_mode: NotRequired["aws_sdk_amplifybackend.types.mfa_mode.MFAMode"]
     """<p>Describes whether MFA should be [ON, OFF, or OPTIONAL] for authentication in your Amplify project.</p>"""
     settings: NotRequired["aws_sdk_amplifybackend.types.settings.Settings"]

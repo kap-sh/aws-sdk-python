@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#InvokeAgentRuntimeCommandRequestBody``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class InvokeAgentRuntimeCommandRequestBody(TypedDict):
+class InvokeAgentRuntimeCommandRequestBody(TypedDict, closed=True):
     command: "str"
     """<p>The shell command to execute on the agent runtime. This command is executed in the runtime environment and its output is streamed back to the caller.</p>"""
     timeout: NotRequired["int"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterRestrictedInstanceGroupsConfigOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_shared_environment_config_details
 
 
-class ClusterRestrictedInstanceGroupsConfigOutput(TypedDict):
+class ClusterRestrictedInstanceGroupsConfigOutput(TypedDict, closed=True):
     shared_environment_config: NotRequired[
         "aws_sdk_sagemaker.types.cluster_shared_environment_config_details.ClusterSharedEnvironmentConfigDetails"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#FilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class FilterConfiguration(TypedDict):
+class FilterConfiguration(TypedDict, closed=True):
     manifest_filter: NotRequired["str"]
     """<p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>"""
     drm_settings: NotRequired["str"]

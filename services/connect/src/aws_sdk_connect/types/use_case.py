@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UseCase``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.use_case_type
 
 
-class UseCase(TypedDict):
+class UseCase(TypedDict, closed=True):
     use_case_id: NotRequired["aws_sdk_connect.types.use_case_id.UseCaseId"]
     """<p>The identifier for the use case.</p>"""
     use_case_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

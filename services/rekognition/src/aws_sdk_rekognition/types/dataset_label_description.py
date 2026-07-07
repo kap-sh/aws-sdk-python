@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DatasetLabelDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.dataset_label
     import aws_sdk_rekognition.types.dataset_label_stats
 
 
-class DatasetLabelDescription(TypedDict):
+class DatasetLabelDescription(TypedDict, closed=True):
     label_name: NotRequired["aws_sdk_rekognition.types.dataset_label.DatasetLabel"]
     """<p> The name of the label. </p>"""
     label_stats: NotRequired[

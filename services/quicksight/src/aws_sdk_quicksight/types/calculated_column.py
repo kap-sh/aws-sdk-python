@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CalculatedColumn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_calculated_field_expression
 
 
-class CalculatedColumn(TypedDict):
+class CalculatedColumn(TypedDict, closed=True):
     column_name: "aws_sdk_quicksight.types.column_name.ColumnName"
     """<p>Column name.</p>"""
     column_id: "aws_sdk_quicksight.types.column_id.ColumnId"

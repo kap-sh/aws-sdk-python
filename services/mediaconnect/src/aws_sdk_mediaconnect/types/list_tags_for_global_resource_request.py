@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#ListTagsForGlobalResourceRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListTagsForGlobalResourceRequest(TypedDict):
+class ListTagsForGlobalResourceRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the global resource whose tags you want to list.</p>"""
 

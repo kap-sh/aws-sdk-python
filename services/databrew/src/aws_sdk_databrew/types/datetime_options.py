@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#DatetimeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.timezone_offset
 
 
-class DatetimeOptions(TypedDict):
+class DatetimeOptions(TypedDict, closed=True):
     format: "aws_sdk_databrew.types.datetime_format.DatetimeFormat"
     r"""<p>Required option, that defines the datetime format used for a date parameter in the Amazon S3 path. Should use only supported datetime specifiers and separation characters, all literal a-z or A-Z characters should be escaped with single quotes. E.g. \"MM.dd.yyyy-'at'-HH:mm\".</p>"""
     timezone_offset: NotRequired[

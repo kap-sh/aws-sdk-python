@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationSuggestedAnswerTranscriptMillisecondOffsets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_suggested_answer_transcript_millis_offset
 
 
-class EvaluationSuggestedAnswerTranscriptMillisecondOffsets(TypedDict):
+class EvaluationSuggestedAnswerTranscriptMillisecondOffsets(TypedDict, closed=True):
     begin_offset_millis: "aws_sdk_connect.types.evaluation_suggested_answer_transcript_millis_offset.EvaluationSuggestedAnswerTranscriptMillisOffset"
     """<p>Offset in milliseconds from the beginning of the transcript.</p>"""
 

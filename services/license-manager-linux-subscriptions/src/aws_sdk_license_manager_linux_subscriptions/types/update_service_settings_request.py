@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerlinuxsubscriptions#UpdateServiceSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager_linux_subscriptions.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_linux_subscriptions.types.linux_subscriptions_discovery_settings
 
 
-class UpdateServiceSettingsRequest(TypedDict):
+class UpdateServiceSettingsRequest(TypedDict, closed=True):
     linux_subscriptions_discovery: "aws_sdk_license_manager_linux_subscriptions.types.linux_subscriptions_discovery.LinuxSubscriptionsDiscovery"
     """<p>Describes if the discovery of Linux subscriptions is enabled.</p>"""
     linux_subscriptions_discovery_settings: "aws_sdk_license_manager_linux_subscriptions.types.linux_subscriptions_discovery_settings.LinuxSubscriptionsDiscoverySettings"

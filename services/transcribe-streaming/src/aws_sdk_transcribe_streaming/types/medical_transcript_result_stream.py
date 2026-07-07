@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalTranscriptResultStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe_streaming._iter import AnyIterator
 from aws_sdk_transcribe_streaming._protocol.eventstream import Message
@@ -14,31 +16,33 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.medical_transcript_event
 
 
-class _MedicalTranscriptResultStream_TranscriptEvent(TypedDict):
+class _MedicalTranscriptResultStream_TranscriptEvent(TypedDict, closed=True):
     TranscriptEvent: "aws_sdk_transcribe_streaming.types.medical_transcript_event.MedicalTranscriptEvent"
 
 
-class _MedicalTranscriptResultStream_BadRequestException(TypedDict):
+class _MedicalTranscriptResultStream_BadRequestException(TypedDict, closed=True):
     BadRequestException: (
         "aws_sdk_transcribe_streaming.errors.bad_request_exception.BadRequestException_"
     )
 
 
-class _MedicalTranscriptResultStream_LimitExceededException(TypedDict):
+class _MedicalTranscriptResultStream_LimitExceededException(TypedDict, closed=True):
     LimitExceededException: "aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.LimitExceededException_"
 
 
-class _MedicalTranscriptResultStream_InternalFailureException(TypedDict):
+class _MedicalTranscriptResultStream_InternalFailureException(TypedDict, closed=True):
     InternalFailureException: "aws_sdk_transcribe_streaming.errors.internal_failure_exception.InternalFailureException_"
 
 
-class _MedicalTranscriptResultStream_ConflictException(TypedDict):
+class _MedicalTranscriptResultStream_ConflictException(TypedDict, closed=True):
     ConflictException: (
         "aws_sdk_transcribe_streaming.errors.conflict_exception.ConflictException_"
     )
 
 
-class _MedicalTranscriptResultStream_ServiceUnavailableException(TypedDict):
+class _MedicalTranscriptResultStream_ServiceUnavailableException(
+    TypedDict, closed=True
+):
     ServiceUnavailableException: "aws_sdk_transcribe_streaming.errors.service_unavailable_exception.ServiceUnavailableException_"
 
 

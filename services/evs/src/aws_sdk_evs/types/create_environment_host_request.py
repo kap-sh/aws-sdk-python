@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#CreateEnvironmentHostRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.host_info_for_create
 
 
-class CreateEnvironmentHostRequest(TypedDict):
+class CreateEnvironmentHostRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_evs.types.client_token.ClientToken"]
     """<note> <p>This parameter is not used in Amazon EVS currently. If you supply input for this parameter, it will have no effect.</p> </note> <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the host creation request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>"""
     environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId"

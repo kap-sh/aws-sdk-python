@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ScanResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.malware_scanner
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class ScanResult(TypedDict):
+class ScanResult(TypedDict, closed=True):
     malware_scanner: NotRequired["aws_sdk_backup.types.malware_scanner.MalwareScanner"]
     """<p>The malware scanner used to perform the scan. Currently only <code>GUARDDUTY</code> is supported.</p>"""
     scan_job_state: NotRequired["aws_sdk_backup.types.scan_job_state.ScanJobState"]

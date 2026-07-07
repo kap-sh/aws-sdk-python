@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ServiceConnectTlsCertificateAuthority``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class ServiceConnectTlsCertificateAuthority(TypedDict):
+class ServiceConnectTlsCertificateAuthority(TypedDict, closed=True):
     aws_pca_authority_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The ARN of the Amazon Web Services Private Certificate Authority certificate.</p>"""
 

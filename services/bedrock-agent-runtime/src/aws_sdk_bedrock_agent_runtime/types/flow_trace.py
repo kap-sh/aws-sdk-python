@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowTrace``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -15,23 +17,23 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.flow_trace_node_output_event
 
 
-class _FlowTrace_nodeInputTrace(TypedDict):
+class _FlowTrace_nodeInputTrace(TypedDict, closed=True):
     nodeInputTrace: "aws_sdk_bedrock_agent_runtime.types.flow_trace_node_input_event.FlowTraceNodeInputEvent"
 
 
-class _FlowTrace_nodeOutputTrace(TypedDict):
+class _FlowTrace_nodeOutputTrace(TypedDict, closed=True):
     nodeOutputTrace: "aws_sdk_bedrock_agent_runtime.types.flow_trace_node_output_event.FlowTraceNodeOutputEvent"
 
 
-class _FlowTrace_conditionNodeResultTrace(TypedDict):
+class _FlowTrace_conditionNodeResultTrace(TypedDict, closed=True):
     conditionNodeResultTrace: "aws_sdk_bedrock_agent_runtime.types.flow_trace_condition_node_result_event.FlowTraceConditionNodeResultEvent"
 
 
-class _FlowTrace_nodeActionTrace(TypedDict):
+class _FlowTrace_nodeActionTrace(TypedDict, closed=True):
     nodeActionTrace: "aws_sdk_bedrock_agent_runtime.types.flow_trace_node_action_event.FlowTraceNodeActionEvent"
 
 
-class _FlowTrace_nodeDependencyTrace(TypedDict):
+class _FlowTrace_nodeDependencyTrace(TypedDict, closed=True):
     nodeDependencyTrace: "aws_sdk_bedrock_agent_runtime.types.flow_trace_dependency_event.FlowTraceDependencyEvent"
 
 

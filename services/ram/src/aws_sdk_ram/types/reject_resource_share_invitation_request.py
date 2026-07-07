@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#RejectResourceShareInvitationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ram.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class RejectResourceShareInvitationRequest(TypedDict):
+class RejectResourceShareInvitationRequest(TypedDict, closed=True):
     resource_share_invitation_arn: "aws_sdk_ram.types.string.String"
     r"""<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the invitation that you want to reject.</p>"""
     client_token: NotRequired["aws_sdk_ram.types.string.String"]

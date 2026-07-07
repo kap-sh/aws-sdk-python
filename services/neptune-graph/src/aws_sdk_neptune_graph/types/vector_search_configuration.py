@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#VectorSearchConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.vector_search_dimension
 
 
-class VectorSearchConfiguration(TypedDict):
+class VectorSearchConfiguration(TypedDict, closed=True):
     dimension: (
         "aws_sdk_neptune_graph.types.vector_search_dimension.VectorSearchDimension"
     )

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#DescribeOrganizationConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.auto_enable
 
 
-class DescribeOrganizationConfigurationResponse(TypedDict):
+class DescribeOrganizationConfigurationResponse(TypedDict, closed=True):
     auto_enable: NotRequired["aws_sdk_inspector2.types.auto_enable.AutoEnable"]
     """<p>The scan types are automatically enabled for new members of your organization.</p>"""
     max_account_limit_reached: NotRequired["bool"]

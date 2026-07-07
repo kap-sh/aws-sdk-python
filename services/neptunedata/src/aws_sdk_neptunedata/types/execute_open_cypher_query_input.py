@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteOpenCypherQueryInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
 
-class ExecuteOpenCypherQueryInput(TypedDict):
+class ExecuteOpenCypherQueryInput(TypedDict, closed=True):
     open_cypher_query: "str"
     """<p>The openCypher query string to be executed.</p>"""
     parameters: NotRequired["str"]

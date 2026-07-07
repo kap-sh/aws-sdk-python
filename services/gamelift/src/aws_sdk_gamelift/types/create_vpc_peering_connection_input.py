@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#CreateVpcPeeringConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_id
     import aws_sdk_gamelift.types.non_zero_and_max_string
 
 
-class CreateVpcPeeringConnectionInput(TypedDict):
+class CreateVpcPeeringConnectionInput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id.FleetId"]
     """<p>A unique identifier for the fleet. You can use either the fleet ID or ARN value. This tells Amazon GameLift Servers which GameLift VPC to peer with. </p>"""
     peer_vpc_aws_account_id: NotRequired[

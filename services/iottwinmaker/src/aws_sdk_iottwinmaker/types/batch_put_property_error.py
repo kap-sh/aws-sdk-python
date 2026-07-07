@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#BatchPutPropertyError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.string
 
 
-class BatchPutPropertyError(TypedDict):
+class BatchPutPropertyError(TypedDict, closed=True):
     error_code: "aws_sdk_iottwinmaker.types.string.String"
     """<p>The error code.</p>"""
     error_message: "aws_sdk_iottwinmaker.types.string.String"

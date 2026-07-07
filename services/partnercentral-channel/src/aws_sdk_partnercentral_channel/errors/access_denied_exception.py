@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#AccessDeniedException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_channel.errors import DeserializationError, ServiceError
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: "str"
     """<p>A message describing the access denial.</p>"""
     reason: NotRequired["str"]

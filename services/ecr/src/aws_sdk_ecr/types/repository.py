@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#Repository``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.url
 
 
-class Repository(TypedDict):
+class Repository(TypedDict, closed=True):
     repository_arn: NotRequired["aws_sdk_ecr.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the repository, Amazon Web Services account ID of the repository owner, repository namespace, and repository name. For example, <code>arn:aws:ecr:region:012345678910:repository-namespace/repository-name</code>.</p>"""
     registry_id: NotRequired["aws_sdk_ecr.types.registry_id.RegistryId"]

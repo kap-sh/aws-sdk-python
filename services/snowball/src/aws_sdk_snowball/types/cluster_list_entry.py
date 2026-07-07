@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#ClusterListEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.cluster_state
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.timestamp
 
 
-class ClusterListEntry(TypedDict):
+class ClusterListEntry(TypedDict, closed=True):
     cluster_id: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The 39-character ID for the cluster that you want to list, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>"""
     cluster_state: NotRequired["aws_sdk_snowball.types.cluster_state.ClusterState"]

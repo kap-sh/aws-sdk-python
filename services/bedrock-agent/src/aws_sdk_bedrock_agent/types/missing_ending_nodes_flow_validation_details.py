@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#MissingEndingNodesFlowValidationDetails``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class MissingEndingNodesFlowValidationDetails(TypedDict):
+class MissingEndingNodesFlowValidationDetails(TypedDict, closed=True):
     pass
 
 

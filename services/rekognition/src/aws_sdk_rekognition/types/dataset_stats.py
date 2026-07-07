@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DatasetStats``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.u_integer
 
 
-class DatasetStats(TypedDict):
+class DatasetStats(TypedDict, closed=True):
     labeled_entries: NotRequired["aws_sdk_rekognition.types.u_integer.UInteger"]
     """<p> The total number of images in the dataset that have labels. </p>"""
     total_entries: NotRequired["aws_sdk_rekognition.types.u_integer.UInteger"]

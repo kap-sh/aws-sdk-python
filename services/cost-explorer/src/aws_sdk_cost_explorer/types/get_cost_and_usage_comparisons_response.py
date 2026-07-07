@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetCostAndUsageComparisonsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.comparison_metrics
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.next_page_token
 
 
-class GetCostAndUsageComparisonsResponse(TypedDict):
+class GetCostAndUsageComparisonsResponse(TypedDict, closed=True):
     cost_and_usage_comparisons: NotRequired[
         "aws_sdk_cost_explorer.types.cost_and_usage_comparisons.CostAndUsageComparisons"
     ]

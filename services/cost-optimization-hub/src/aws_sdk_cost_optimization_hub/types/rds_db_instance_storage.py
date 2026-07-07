@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#RdsDbInstanceStorage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.rds_db_instance_storage_configuration
     import aws_sdk_cost_optimization_hub.types.resource_cost_calculation
 
 
-class RdsDbInstanceStorage(TypedDict):
+class RdsDbInstanceStorage(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_cost_optimization_hub.types.rds_db_instance_storage_configuration.RdsDbInstanceStorageConfiguration"
     ]

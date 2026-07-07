@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#ListConfigurationSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.configuration_set_name_list
     import aws_sdk_pinpoint_email.types.next_token
 
 
-class ListConfigurationSetsResponse(TypedDict):
+class ListConfigurationSetsResponse(TypedDict, closed=True):
     configuration_sets: NotRequired[
         "aws_sdk_pinpoint_email.types.configuration_set_name_list.ConfigurationSetNameList"
     ]

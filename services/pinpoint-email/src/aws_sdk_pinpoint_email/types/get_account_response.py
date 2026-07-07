@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#GetAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.enabled
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.send_quota
 
 
-class GetAccountResponse(TypedDict):
+class GetAccountResponse(TypedDict, closed=True):
     send_quota: NotRequired["aws_sdk_pinpoint_email.types.send_quota.SendQuota"]
     """<p>An object that contains information about the per-day and per-second sending limits for your Amazon Pinpoint account in the current AWS Region.</p>"""
     sending_enabled: "aws_sdk_pinpoint_email.types.enabled.Enabled"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#NodegroupUpdateConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.nodegroup_update_strategies
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.percent_capacity
 
 
-class NodegroupUpdateConfig(TypedDict):
+class NodegroupUpdateConfig(TypedDict, closed=True):
     max_unavailable: NotRequired["aws_sdk_eks.types.non_zero_integer.NonZeroInteger"]
     """<p>The maximum number of nodes unavailable at once during a version update. Nodes are updated in parallel. This value or <code>maxUnavailablePercentage</code> is required to have a value.The maximum number is 100.</p>"""
     max_unavailable_percentage: NotRequired[

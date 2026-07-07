@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#UpdateHostedZoneAssociationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_id
     import aws_sdk_route53globalresolver.types.resource_name
 
 
-class UpdateHostedZoneAssociationInput(TypedDict):
+class UpdateHostedZoneAssociationInput(TypedDict, closed=True):
     hosted_zone_association_id: (
         "aws_sdk_route53globalresolver.types.resource_id.ResourceId"
     )

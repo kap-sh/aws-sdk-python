@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#GetSubscriberResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.subscriber_resource
 
 
-class GetSubscriberResponse(TypedDict):
+class GetSubscriberResponse(TypedDict, closed=True):
     subscriber: NotRequired[
         "aws_sdk_securitylake.types.subscriber_resource.SubscriberResource"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetCloudExadataInfrastructureOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.cloud_exadata_infrastructure
 
 
-class GetCloudExadataInfrastructureOutput(TypedDict):
+class GetCloudExadataInfrastructureOutput(TypedDict, closed=True):
     cloud_exadata_infrastructure: NotRequired[
         "aws_sdk_odb.types.cloud_exadata_infrastructure.CloudExadataInfrastructure"
     ]

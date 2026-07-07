@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#ListDictionariesRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListDictionariesRequest(TypedDict):
+class ListDictionariesRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of results to return per API request. Valid range: 1 to 100.</p>"""
     next_token: NotRequired["str"]

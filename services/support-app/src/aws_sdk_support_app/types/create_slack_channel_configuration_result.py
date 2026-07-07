@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.supportapp#CreateSlackChannelConfigurationResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateSlackChannelConfigurationResult(TypedDict):
+class CreateSlackChannelConfigurationResult(TypedDict, closed=True):
     pass
 
 

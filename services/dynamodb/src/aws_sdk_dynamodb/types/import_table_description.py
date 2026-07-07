@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ImportTableDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.client_token
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_id
 
 
-class ImportTableDescription(TypedDict):
+class ImportTableDescription(TypedDict, closed=True):
     import_arn: NotRequired["aws_sdk_dynamodb.types.import_arn.ImportArn"]
     """<p> The Amazon Resource Number (ARN) corresponding to the import request. </p>"""
     import_status: NotRequired["aws_sdk_dynamodb.types.import_status.ImportStatus"]

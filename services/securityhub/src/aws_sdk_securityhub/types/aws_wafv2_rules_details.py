@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafv2RulesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_wafv2_rules_action_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsWafv2RulesDetails(TypedDict):
+class AwsWafv2RulesDetails(TypedDict, closed=True):
     action: NotRequired[
         "aws_sdk_securityhub.types.aws_wafv2_rules_action_details.AwsWafv2RulesActionDetails"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ListMailboxPermissionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.next_token
     import aws_sdk_workmail.types.permissions
 
 
-class ListMailboxPermissionsResponse(TypedDict):
+class ListMailboxPermissionsResponse(TypedDict, closed=True):
     permissions: NotRequired["aws_sdk_workmail.types.permissions.Permissions"]
     """<p>One page of the user, group, or resource mailbox permissions.</p>"""
     next_token: NotRequired["aws_sdk_workmail.types.next_token.NextToken"]

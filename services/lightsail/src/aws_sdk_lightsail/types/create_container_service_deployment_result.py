@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CreateContainerServiceDeploymentResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.container_service
 
 
-class CreateContainerServiceDeploymentResult(TypedDict):
+class CreateContainerServiceDeploymentResult(TypedDict, closed=True):
     container_service: NotRequired[
         "aws_sdk_lightsail.types.container_service.ContainerService"
     ]

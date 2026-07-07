@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IntegrationResourcePropertyFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.integration_resource_property_filter_values
     import aws_sdk_glue.types.string128
 
 
-class IntegrationResourcePropertyFilter(TypedDict):
+class IntegrationResourcePropertyFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.string128.String128"]
     """<p>The name of the filter. Supported filter keys are <code>SourceArn</code> and <code>TargetArn</code>.</p>"""
     values: NotRequired[

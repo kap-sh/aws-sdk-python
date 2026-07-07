@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastoredata#ListItemsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediastore_data.types.list_limit
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore_data.types.pagination_token
 
 
-class ListItemsRequest(TypedDict):
+class ListItemsRequest(TypedDict, closed=True):
     path: NotRequired["aws_sdk_mediastore_data.types.list_path_naming.ListPathNaming"]
     """<p>The path in the container from which to retrieve items. Format: <folder name>/<folder name>/<file name></p>"""
     max_results: NotRequired["aws_sdk_mediastore_data.types.list_limit.ListLimit"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#GetUpgradeStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.domain_name
 
 
-class GetUpgradeStatusRequest(TypedDict):
+class GetUpgradeStatusRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_elasticsearch_service.types.domain_name.DomainName"
 
 

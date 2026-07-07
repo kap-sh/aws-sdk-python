@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#WriteCampaignRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.template_configuration
 
 
-class WriteCampaignRequest(TypedDict):
+class WriteCampaignRequest(TypedDict, closed=True):
     additional_treatments: NotRequired[
         "aws_sdk_pinpoint.types.list_of_write_treatment_resource.ListOfWriteTreatmentResource"
     ]

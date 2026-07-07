@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#BatchPutAttributesMetadataInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.entity_id
 
 
-class BatchPutAttributesMetadataInput(TypedDict):
+class BatchPutAttributesMetadataInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The domain ID where you want to write the attribute metadata.</p>"""
     entity_type: "aws_sdk_datazone.types.attribute_entity_type.AttributeEntityType"

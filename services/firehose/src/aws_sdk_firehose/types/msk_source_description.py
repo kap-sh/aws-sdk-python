@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#MSKSourceDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.authentication_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.topic_name
 
 
-class MSKSourceDescription(TypedDict):
+class MSKSourceDescription(TypedDict, closed=True):
     msk_cluster_arn: NotRequired["aws_sdk_firehose.types.msk_cluster_arn.MSKClusterARN"]
     """<p>The ARN of the Amazon MSK cluster.</p>"""
     topic_name: NotRequired["aws_sdk_firehose.types.topic_name.TopicName"]

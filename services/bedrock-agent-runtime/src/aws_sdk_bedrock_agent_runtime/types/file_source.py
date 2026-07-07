@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FileSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.s3_object_file
 
 
-class FileSource(TypedDict):
+class FileSource(TypedDict, closed=True):
     source_type: "aws_sdk_bedrock_agent_runtime.types.file_source_type.FileSourceType"
     """<p>The source type of the files to attach.</p>"""
     s3_location: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycontrolconfig#RuleConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.__boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.rule_type
 
 
-class RuleConfig(TypedDict):
+class RuleConfig(TypedDict, closed=True):
     inverted: NotRequired[
         "aws_sdk_route53_recovery_control_config.types.__boolean.__boolean"
     ]

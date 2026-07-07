@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#KmsEncryptionState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.kms_key
 
 
-class KmsEncryptionState(TypedDict):
+class KmsEncryptionState(TypedDict, closed=True):
     key: "aws_sdk_verifiedpermissions.types.kms_key.KmsKey"
     r"""<p>The customer-managed KMS key <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> being used for encryption processes. </p>"""
     encryption_context: (

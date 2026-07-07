@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.translate#ListTextTranslationJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.next_token
     import aws_sdk_translate.types.text_translation_job_properties_list
 
 
-class ListTextTranslationJobsResponse(TypedDict):
+class ListTextTranslationJobsResponse(TypedDict, closed=True):
     text_translation_job_properties_list: NotRequired[
         "aws_sdk_translate.types.text_translation_job_properties_list.TextTranslationJobPropertiesList"
     ]

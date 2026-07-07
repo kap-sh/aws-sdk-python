@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelExplainabilityJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.batch_transform_input
     import aws_sdk_sagemaker.types.endpoint_input
 
 
-class ModelExplainabilityJobInput(TypedDict):
+class ModelExplainabilityJobInput(TypedDict, closed=True):
     endpoint_input: NotRequired["aws_sdk_sagemaker.types.endpoint_input.EndpointInput"]
     batch_transform_input: NotRequired[
         "aws_sdk_sagemaker.types.batch_transform_input.BatchTransformInput"

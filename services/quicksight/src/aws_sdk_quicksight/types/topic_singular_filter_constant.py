@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicSingularFilterConstant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.constant_type
     import aws_sdk_quicksight.types.limited_string
 
 
-class TopicSingularFilterConstant(TypedDict):
+class TopicSingularFilterConstant(TypedDict, closed=True):
     constant_type: NotRequired["aws_sdk_quicksight.types.constant_type.ConstantType"]
     """<p>The type of the singular filter constant. Valid values for this structure are <code>SINGULAR</code>.</p>"""
     singular_constant: NotRequired[

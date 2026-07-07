@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DescribeAddonVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.describe_addon_versions_request_max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string_list
 
 
-class DescribeAddonVersionsRequest(TypedDict):
+class DescribeAddonVersionsRequest(TypedDict, closed=True):
     kubernetes_version: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The Kubernetes versions that you can use the add-on with.</p>"""
     max_results: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#NetworkTelemetry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.aws_account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.resource_arn
 
 
-class NetworkTelemetry(TypedDict):
+class NetworkTelemetry(TypedDict, closed=True):
     registered_gateway_arn: NotRequired[
         "aws_sdk_networkmanager.types.resource_arn.ResourceArn"
     ]

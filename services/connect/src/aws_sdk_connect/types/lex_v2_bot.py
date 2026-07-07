@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#LexV2Bot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.alias_arn
 
 
-class LexV2Bot(TypedDict):
+class LexV2Bot(TypedDict, closed=True):
     alias_arn: NotRequired["aws_sdk_connect.types.alias_arn.AliasArn"]
     """<p>The Amazon Resource Name (ARN) of the Amazon Lex V2 bot.</p>"""
 

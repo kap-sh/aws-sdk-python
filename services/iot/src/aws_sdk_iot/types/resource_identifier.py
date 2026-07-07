@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ResourceIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.aws_account_id
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.role_arn
 
 
-class ResourceIdentifier(TypedDict):
+class ResourceIdentifier(TypedDict, closed=True):
     device_certificate_id: NotRequired["aws_sdk_iot.types.certificate_id.CertificateId"]
     """<p>The ID of the certificate attached to the resource.</p>"""
     ca_certificate_id: NotRequired["aws_sdk_iot.types.certificate_id.CertificateId"]

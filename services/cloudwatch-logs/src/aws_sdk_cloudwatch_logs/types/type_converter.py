@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#TypeConverter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.type_converter_entries
 
 
-class TypeConverter(TypedDict):
+class TypeConverter(TypedDict, closed=True):
     entries: "aws_sdk_cloudwatch_logs.types.type_converter_entries.TypeConverterEntries"
     """<p>An array of <code>TypeConverterEntry</code> objects, where each object contains the information about one field to change the type of. </p>"""
 

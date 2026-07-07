@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#DescribeClusterOperationV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
 
 
-class DescribeClusterOperationV2Request(TypedDict):
+class DescribeClusterOperationV2Request(TypedDict, closed=True):
     cluster_operation_arn: "aws_sdk_kafka.types.__string.__string"
     """ARN of the cluster operation to describe."""
 

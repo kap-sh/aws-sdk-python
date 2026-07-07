@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#SOAChange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.record_ttl
 
 
-class SOAChange(TypedDict):
+class SOAChange(TypedDict, closed=True):
     ttl: "aws_sdk_servicediscovery.types.record_ttl.RecordTTL"
     """<p>The updated time to live (TTL) for purposes of negative caching.</p>"""
 

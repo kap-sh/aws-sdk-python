@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#ListAssetContractsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.next_token
 
 
-class ListAssetContractsInput(TypedDict):
+class ListAssetContractsInput(TypedDict, closed=True):
     contract_filter: (
         "aws_sdk_managedblockchain_query.types.contract_filter.ContractFilter"
     )

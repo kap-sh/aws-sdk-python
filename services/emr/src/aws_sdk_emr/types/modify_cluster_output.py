@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ModifyClusterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean_object
     import aws_sdk_emr.types.integer
 
 
-class ModifyClusterOutput(TypedDict):
+class ModifyClusterOutput(TypedDict, closed=True):
     step_concurrency_level: NotRequired["aws_sdk_emr.types.integer.Integer"]
     """<p>The number of steps that can be executed concurrently.</p>"""
     extended_support: NotRequired["aws_sdk_emr.types.boolean_object.BooleanObject"]

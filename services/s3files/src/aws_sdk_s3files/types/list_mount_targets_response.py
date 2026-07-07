@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#ListMountTargetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.mount_targets
 
 
-class ListMountTargetsResponse(TypedDict):
+class ListMountTargetsResponse(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>A pagination token to use in a subsequent request if more results are available.</p>"""
     mount_targets: "aws_sdk_s3files.types.mount_targets.MountTargets"

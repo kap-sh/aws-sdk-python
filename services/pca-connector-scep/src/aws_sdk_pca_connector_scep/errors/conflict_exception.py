@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pca_connector_scep.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p>The identifier of the Amazon Web Services resource.</p>"""

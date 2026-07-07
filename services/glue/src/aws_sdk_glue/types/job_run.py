@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#JobRun``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.attempt_count
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.worker_type
 
 
-class JobRun(TypedDict):
+class JobRun(TypedDict, closed=True):
     id: NotRequired["aws_sdk_glue.types.id_string.IdString"]
     """<p>The ID of this job run.</p>"""
     attempt: "aws_sdk_glue.types.attempt_count.AttemptCount"

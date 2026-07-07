@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeAccountPreferencesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.max_results
     import aws_sdk_efs.types.token
 
 
-class DescribeAccountPreferencesRequest(TypedDict):
+class DescribeAccountPreferencesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_efs.types.token.Token"]
     """<p>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the next page of Amazon Web Services account preferences if the response payload was paginated.</p>"""
     max_results: NotRequired["aws_sdk_efs.types.max_results.MaxResults"]

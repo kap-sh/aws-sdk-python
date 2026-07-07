@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ESInstanceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_boolean
     import aws_sdk_cost_explorer.types.generic_string
 
 
-class ESInstanceDetails(TypedDict):
+class ESInstanceDetails(TypedDict, closed=True):
     instance_class: NotRequired[
         "aws_sdk_cost_explorer.types.generic_string.GenericString"
     ]

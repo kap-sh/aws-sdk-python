@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#GetGroupOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group
 
 
-class GetGroupOutput(TypedDict):
+class GetGroupOutput(TypedDict, closed=True):
     group: NotRequired["aws_sdk_resource_groups.types.group.Group"]
     """<p>A structure that contains the metadata details for the specified resource group. Use <a>GetGroupQuery</a> and <a>GetGroupConfiguration</a> to get those additional details of the resource group.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ResetDeploymentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__boolean
     import aws_sdk_greengrass.types.__string
 
 
-class ResetDeploymentsRequest(TypedDict):
+class ResetDeploymentsRequest(TypedDict, closed=True):
     amzn_client_token: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """A client token used to correlate requests and responses."""
     force: NotRequired["aws_sdk_greengrass.types.__boolean.__boolean"]

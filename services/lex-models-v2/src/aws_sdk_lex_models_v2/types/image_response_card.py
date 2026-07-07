@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ImageResponseCard``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.buttons_list
 
 
-class ImageResponseCard(TypedDict):
+class ImageResponseCard(TypedDict, closed=True):
     title: "aws_sdk_lex_models_v2.types.attachment_title.AttachmentTitle"
     """<p>The title to display on the response card. The format of the title is determined by the platform displaying the response card.</p>"""
     subtitle: NotRequired[

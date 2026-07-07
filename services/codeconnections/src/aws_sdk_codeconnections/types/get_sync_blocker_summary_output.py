@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#GetSyncBlockerSummaryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeconnections.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.sync_blocker_summary
 
 
-class GetSyncBlockerSummaryOutput(TypedDict):
+class GetSyncBlockerSummaryOutput(TypedDict, closed=True):
     sync_blocker_summary: (
         "aws_sdk_codeconnections.types.sync_blocker_summary.SyncBlockerSummary"
     )

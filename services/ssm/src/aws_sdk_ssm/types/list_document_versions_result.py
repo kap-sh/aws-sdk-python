@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListDocumentVersionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.document_version_list
     import aws_sdk_ssm.types.next_token
 
 
-class ListDocumentVersionsResult(TypedDict):
+class ListDocumentVersionsResult(TypedDict, closed=True):
     document_versions: NotRequired[
         "aws_sdk_ssm.types.document_version_list.DocumentVersionList"
     ]

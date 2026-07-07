@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#LogDeliveryParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.log_types
 
 
-class LogDeliveryParameters(TypedDict):
+class LogDeliveryParameters(TypedDict, closed=True):
     log_types: NotRequired["aws_sdk_observabilityadmin.types.log_types.LogTypes"]
     """<p>The type of log that the source is sending.</p>"""
 

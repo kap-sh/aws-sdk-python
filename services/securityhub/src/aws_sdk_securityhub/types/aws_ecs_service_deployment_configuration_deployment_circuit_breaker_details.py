@@ -1,14 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
 
 
-class AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails(TypedDict):
+class AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails(
+    TypedDict, closed=True
+):
     enable: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether to enable the deployment circuit breaker logic for the service.</p>"""
     rollback: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

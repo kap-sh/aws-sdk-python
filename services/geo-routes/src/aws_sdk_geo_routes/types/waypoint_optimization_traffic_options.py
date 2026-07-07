@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationTrafficOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.traffic_usage
 
 
-class WaypointOptimizationTrafficOptions(TypedDict):
+class WaypointOptimizationTrafficOptions(TypedDict, closed=True):
     usage: NotRequired["aws_sdk_geo_routes.types.traffic_usage.TrafficUsage"]
     """<p>Determines if traffic should be used or ignored while calculating the route.</p> <p>Default value: <code>UseTrafficData</code> </p>"""
 

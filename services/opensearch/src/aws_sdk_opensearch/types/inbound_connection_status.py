@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#InboundConnectionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.connection_status_message
     import aws_sdk_opensearch.types.inbound_connection_status_code
 
 
-class InboundConnectionStatus(TypedDict):
+class InboundConnectionStatus(TypedDict, closed=True):
     status_code: NotRequired[
         "aws_sdk_opensearch.types.inbound_connection_status_code.InboundConnectionStatusCode"
     ]

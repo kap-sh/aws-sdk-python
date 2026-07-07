@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacemetering#RegisterUsageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_metering.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_metering.types.version_integer
 
 
-class RegisterUsageRequest(TypedDict):
+class RegisterUsageRequest(TypedDict, closed=True):
     product_code: "aws_sdk_marketplace_metering.types.product_code.ProductCode"
     """<p>Product code is used to uniquely identify a product in Amazon Web Services Marketplace. The product code should be the same as the one used during the publishing of a new product.</p>"""
     public_key_version: (

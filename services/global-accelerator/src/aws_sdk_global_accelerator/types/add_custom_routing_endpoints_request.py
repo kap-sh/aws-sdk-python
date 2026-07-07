@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#AddCustomRoutingEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_global_accelerator.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.generic_string
 
 
-class AddCustomRoutingEndpointsRequest(TypedDict):
+class AddCustomRoutingEndpointsRequest(TypedDict, closed=True):
     endpoint_configurations: "aws_sdk_global_accelerator.types.custom_routing_endpoint_configurations.CustomRoutingEndpointConfigurations"
     """<p>The list of endpoint objects to add to a custom routing accelerator.</p>"""
     endpoint_group_arn: "aws_sdk_global_accelerator.types.generic_string.GenericString"

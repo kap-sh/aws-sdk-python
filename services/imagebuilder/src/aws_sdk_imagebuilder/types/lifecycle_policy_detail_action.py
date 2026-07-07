@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LifecyclePolicyDetailAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.lifecycle_policy_detail_action_type
 
 
-class LifecyclePolicyDetailAction(TypedDict):
+class LifecyclePolicyDetailAction(TypedDict, closed=True):
     type: "aws_sdk_imagebuilder.types.lifecycle_policy_detail_action_type.LifecyclePolicyDetailActionType"
     """<p>Specifies the lifecycle action to take.</p>"""
     include_resources: NotRequired[

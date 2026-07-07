@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClarifyShapBaselineConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.clarify_mime_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.url
 
 
-class ClarifyShapBaselineConfig(TypedDict):
+class ClarifyShapBaselineConfig(TypedDict, closed=True):
     mime_type: NotRequired["aws_sdk_sagemaker.types.clarify_mime_type.ClarifyMimeType"]
     """<p>The MIME type of the baseline data. Choose from <code>'text/csv'</code> or <code>'application/jsonlines'</code>. Defaults to <code>'text/csv'</code>.</p>"""
     shap_baseline: NotRequired[

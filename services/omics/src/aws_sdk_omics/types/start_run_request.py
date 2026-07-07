@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#StartRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.workflow_version_name
 
 
-class StartRunRequest(TypedDict):
+class StartRunRequest(TypedDict, closed=True):
     workflow_id: NotRequired["aws_sdk_omics.types.workflow_id.WorkflowId"]
     """<p>The run's workflow ID. The <code>workflowId</code> is not the UUID.</p>"""
     workflow_type: NotRequired["aws_sdk_omics.types.workflow_type.WorkflowType"]

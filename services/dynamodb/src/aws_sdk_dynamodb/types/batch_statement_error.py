@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#BatchStatementError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.attribute_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.string
 
 
-class BatchStatementError(TypedDict):
+class BatchStatementError(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_dynamodb.types.batch_statement_error_code_enum.BatchStatementErrorCodeEnum"
     ]

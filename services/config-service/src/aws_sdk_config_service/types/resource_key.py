@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ResourceKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.resource_type
 
 
-class ResourceKey(TypedDict):
+class ResourceKey(TypedDict, closed=True):
     resource_type: "aws_sdk_config_service.types.resource_type.ResourceType"
     """<p>The resource type.</p>"""
     resource_id: "aws_sdk_config_service.types.resource_id.ResourceId"

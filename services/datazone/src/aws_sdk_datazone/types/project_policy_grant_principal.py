@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ProjectPolicyGrantPrincipal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
 
 
-class ProjectPolicyGrantPrincipal(TypedDict):
+class ProjectPolicyGrantPrincipal(TypedDict, closed=True):
     project_designation: "aws_sdk_datazone.types.project_designation.ProjectDesignation"
     """<p>The project designation of the project policy grant principal.</p>"""
     project_identifier: NotRequired["aws_sdk_datazone.types.project_id.ProjectId"]

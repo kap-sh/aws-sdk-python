@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#Dimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.schema_value
 
 
-class Dimension(TypedDict):
+class Dimension(TypedDict, closed=True):
     name: "aws_sdk_timestream_write.types.schema_name.SchemaName"
     r"""<p> Dimension represents the metadata attributes of the time series. For example, the name and Availability Zone of an EC2 instance or the name of the manufacturer of a wind turbine are dimensions. </p> <p>For constraints on dimension names, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.naming\">Naming Constraints</a>.</p>"""
     value: "aws_sdk_timestream_write.types.schema_value.SchemaValue"

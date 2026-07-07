@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#GetContentSummaryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.content_summary
 
 
-class GetContentSummaryResponse(TypedDict):
+class GetContentSummaryResponse(TypedDict, closed=True):
     content_summary: NotRequired["aws_sdk_wisdom.types.content_summary.ContentSummary"]
     """<p>The content summary.</p>"""
 

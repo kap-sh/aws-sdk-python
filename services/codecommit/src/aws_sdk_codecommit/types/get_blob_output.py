@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetBlobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.blob
 
 
-class GetBlobOutput(TypedDict):
+class GetBlobOutput(TypedDict, closed=True):
     content: "aws_sdk_codecommit.types.blob.blob"
     """<p>The content of the blob, usually a file.</p>"""
 

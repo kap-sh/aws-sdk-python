@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ListFlywheelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.flywheel_summary_list
     import aws_sdk_comprehend.types.string
 
 
-class ListFlywheelsResponse(TypedDict):
+class ListFlywheelsResponse(TypedDict, closed=True):
     flywheel_summary_list: NotRequired[
         "aws_sdk_comprehend.types.flywheel_summary_list.FlywheelSummaryList"
     ]

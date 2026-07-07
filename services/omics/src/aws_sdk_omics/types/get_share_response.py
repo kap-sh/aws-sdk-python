@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetShareResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.share_details
 
 
-class GetShareResponse(TypedDict):
+class GetShareResponse(TypedDict, closed=True):
     share: NotRequired["aws_sdk_omics.types.share_details.ShareDetails"]
     """<p>A resource share details object. The object includes the status, the resourceArn, and ownerId.</p>"""
 

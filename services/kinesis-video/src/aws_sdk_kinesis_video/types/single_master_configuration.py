@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#SingleMasterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.message_ttl_seconds
 
 
-class SingleMasterConfiguration(TypedDict):
+class SingleMasterConfiguration(TypedDict, closed=True):
     message_ttl_seconds: NotRequired[
         "aws_sdk_kinesis_video.types.message_ttl_seconds.MessageTtlSeconds"
     ]

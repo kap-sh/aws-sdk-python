@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#WorkerComputeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.worker_compute_configuration_properties
     import aws_sdk_cleanrooms.types.worker_compute_type
 
 
-class WorkerComputeConfiguration(TypedDict):
+class WorkerComputeConfiguration(TypedDict, closed=True):
     type: NotRequired["aws_sdk_cleanrooms.types.worker_compute_type.WorkerComputeType"]
     """<p> The worker compute configuration type.</p>"""
     number: NotRequired["int"]

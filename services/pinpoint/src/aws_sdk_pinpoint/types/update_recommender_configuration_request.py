@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#UpdateRecommenderConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.update_recommender_configuration_shape
 
 
-class UpdateRecommenderConfigurationRequest(TypedDict):
+class UpdateRecommenderConfigurationRequest(TypedDict, closed=True):
     recommender_id: "aws_sdk_pinpoint.types.__string.__string"
     """<p>The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.</p>"""
     update_recommender_configuration: NotRequired[

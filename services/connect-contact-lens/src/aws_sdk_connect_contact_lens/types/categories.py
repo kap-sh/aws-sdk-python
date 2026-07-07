@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectcontactlens#Categories``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect_contact_lens.types.matched_categories
     import aws_sdk_connect_contact_lens.types.matched_details
 
 
-class Categories(TypedDict):
+class Categories(TypedDict, closed=True):
     matched_categories: NotRequired[
         "aws_sdk_connect_contact_lens.types.matched_categories.MatchedCategories"
     ]

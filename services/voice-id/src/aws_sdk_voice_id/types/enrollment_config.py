@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#EnrollmentConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.enrollment_job_fraud_detection_config
     import aws_sdk_voice_id.types.existing_enrollment_action
 
 
-class EnrollmentConfig(TypedDict):
+class EnrollmentConfig(TypedDict, closed=True):
     existing_enrollment_action: NotRequired[
         "aws_sdk_voice_id.types.existing_enrollment_action.ExistingEnrollmentAction"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CreateGlobalNetworkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.constrained_string
     import aws_sdk_networkmanager.types.tag_list
 
 
-class CreateGlobalNetworkRequest(TypedDict):
+class CreateGlobalNetworkRequest(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_networkmanager.types.constrained_string.ConstrainedString"
     ]

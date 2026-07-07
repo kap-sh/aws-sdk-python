@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#UpdateMetricAttributionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.metric_attribution_output
 
 
-class UpdateMetricAttributionRequest(TypedDict):
+class UpdateMetricAttributionRequest(TypedDict, closed=True):
     add_metrics: NotRequired[
         "aws_sdk_personalize.types.metric_attributes.MetricAttributes"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#RoutingRuleCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.routing_rule_match_base_paths
     import aws_sdk_apigatewayv2.types.routing_rule_match_headers
 
 
-class RoutingRuleCondition(TypedDict):
+class RoutingRuleCondition(TypedDict, closed=True):
     match_base_paths: NotRequired[
         "aws_sdk_apigatewayv2.types.routing_rule_match_base_paths.RoutingRuleMatchBasePaths"
     ]

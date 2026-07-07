@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#UpdateHostedZoneCommentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.hosted_zone
 
 
-class UpdateHostedZoneCommentResponse(TypedDict):
+class UpdateHostedZoneCommentResponse(TypedDict, closed=True):
     hosted_zone: "aws_sdk_route_53.types.hosted_zone.HostedZone"
     """<p>A complex type that contains the response to the <code>UpdateHostedZoneComment</code> request.</p>"""
 

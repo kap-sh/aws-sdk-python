@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#AssociatePhoneNumbersWithVoiceConnectorGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.nullable_boolean
 
 
-class AssociatePhoneNumbersWithVoiceConnectorGroupRequest(TypedDict):
+class AssociatePhoneNumbersWithVoiceConnectorGroupRequest(TypedDict, closed=True):
     voice_connector_group_id: (
         "aws_sdk_chime_sdk_voice.types.non_empty_string.NonEmptyString"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#ListProblemsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.account_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_insights.types.visibility
 
 
-class ListProblemsRequest(TypedDict):
+class ListProblemsRequest(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_application_insights.types.account_id.AccountId"]
     """<p>The Amazon Web Services account ID for the resource group owner.</p>"""
     resource_group_name: NotRequired[

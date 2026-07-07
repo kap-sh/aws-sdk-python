@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#CreateAudienceModelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.audience_model_arn
 
 
-class CreateAudienceModelResponse(TypedDict):
+class CreateAudienceModelResponse(TypedDict, closed=True):
     audience_model_arn: "aws_sdk_cleanroomsml.types.audience_model_arn.AudienceModelArn"
     """<p>The Amazon Resource Name (ARN) of the audience model.</p>"""
 

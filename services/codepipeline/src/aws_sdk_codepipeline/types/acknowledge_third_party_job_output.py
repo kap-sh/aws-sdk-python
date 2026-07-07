@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#AcknowledgeThirdPartyJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.job_status
 
 
-class AcknowledgeThirdPartyJobOutput(TypedDict):
+class AcknowledgeThirdPartyJobOutput(TypedDict, closed=True):
     status: NotRequired["aws_sdk_codepipeline.types.job_status.JobStatus"]
     """<p>The status information for the third party job, if any.</p>"""
 

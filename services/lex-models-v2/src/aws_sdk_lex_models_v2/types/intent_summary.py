@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#IntentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.description
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class IntentSummary(TypedDict):
+class IntentSummary(TypedDict, closed=True):
     intent_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The unique identifier assigned to the intent. Use this ID to get detailed information about the intent with the <code>DescribeIntent</code> operation.</p>"""
     intent_name: NotRequired["aws_sdk_lex_models_v2.types.name.Name"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#WorkspaceThemeTypography``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.font_family
 
 
-class WorkspaceThemeTypography(TypedDict):
+class WorkspaceThemeTypography(TypedDict, closed=True):
     font_family: NotRequired["aws_sdk_connect.types.font_family.FontFamily"]
     """<p>The font family configuration for text in the workspace.</p>"""
 

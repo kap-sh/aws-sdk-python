@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateLocationFsxOntapRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.storage_virtual_machine_arn
 
 
-class CreateLocationFsxOntapRequest(TypedDict):
+class CreateLocationFsxOntapRequest(TypedDict, closed=True):
     protocol: "aws_sdk_datasync.types.fsx_protocol.FsxProtocol"
     security_group_arns: (
         "aws_sdk_datasync.types.ec2_security_group_arn_list.Ec2SecurityGroupArnList"

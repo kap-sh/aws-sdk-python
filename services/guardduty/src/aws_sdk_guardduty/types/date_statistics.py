@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DateStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.double
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.timestamp
 
 
-class DateStatistics(TypedDict):
+class DateStatistics(TypedDict, closed=True):
     date: NotRequired["aws_sdk_guardduty.types.timestamp.Timestamp"]
     r"""<p>The timestamp when the total findings count is observed.</p> <p>For example, <code>Date</code> would look like <code>\"2024-09-05T17:00:00-07:00\"</code> whereas <code>LastGeneratedAt</code> would look like 2024-09-05T17:12:29-07:00\".</p>"""
     last_generated_at: NotRequired["aws_sdk_guardduty.types.timestamp.Timestamp"]

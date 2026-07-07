@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ColumnConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.data_source_to_index_field_mapping_list
 
 
-class ColumnConfiguration(TypedDict):
+class ColumnConfiguration(TypedDict, closed=True):
     document_id_column_name: "aws_sdk_kendra.types.column_name.ColumnName"
     """<p>The column that provides the document's identifier.</p>"""
     document_data_column_name: "aws_sdk_kendra.types.column_name.ColumnName"

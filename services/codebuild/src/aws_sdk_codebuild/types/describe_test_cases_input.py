@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#DescribeTestCasesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.test_case_filter
 
 
-class DescribeTestCasesInput(TypedDict):
+class DescribeTestCasesInput(TypedDict, closed=True):
     report_arn: "aws_sdk_codebuild.types.string.String"
     """<p> The ARN of the report for which test cases are returned. </p>"""
     next_token: NotRequired["aws_sdk_codebuild.types.string.String"]

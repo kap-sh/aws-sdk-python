@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetTimeSeriesServiceStatisticsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.timestamp
 
 
-class GetTimeSeriesServiceStatisticsRequest(TypedDict):
+class GetTimeSeriesServiceStatisticsRequest(TypedDict, closed=True):
     start_time: "aws_sdk_xray.types.timestamp.Timestamp"
     """<p>The start of the time frame for which to aggregate statistics.</p>"""
     end_time: "aws_sdk_xray.types.timestamp.Timestamp"

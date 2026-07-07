@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#DescribeLimitsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.positive_long_object
 
 
-class DescribeLimitsOutput(TypedDict):
+class DescribeLimitsOutput(TypedDict, closed=True):
     account_max_read_capacity_units: NotRequired[
         "aws_sdk_dynamodb.types.positive_long_object.PositiveLongObject"
     ]

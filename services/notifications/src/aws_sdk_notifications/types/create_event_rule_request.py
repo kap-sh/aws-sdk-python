@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#CreateEventRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.source
 
 
-class CreateEventRuleRequest(TypedDict):
+class CreateEventRuleRequest(TypedDict, closed=True):
     notification_configuration_arn: "aws_sdk_notifications.types.notification_configuration_arn.NotificationConfigurationArn"
     """<p>The Amazon Resource Name (ARN) of the <code>NotificationConfiguration</code> associated with this <code>EventRule</code>.</p>"""
     source: "aws_sdk_notifications.types.source.Source"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#GetClusterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.cluster
 
 
-class GetClusterOutput(TypedDict):
+class GetClusterOutput(TypedDict, closed=True):
     cluster: "aws_sdk_docdb_elastic.types.cluster.Cluster"
     """<p>Returns information about a specific elastic cluster.</p>"""
 

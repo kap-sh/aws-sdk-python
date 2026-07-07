@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#WirelessConnection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.boolean
 
 
-class WirelessConnection(TypedDict):
+class WirelessConnection(TypedDict, closed=True):
     is_wifi_enabled: "aws_sdk_snowball.types.boolean.Boolean"
     """<p>Enables the Wi-Fi adapter on an Snowball Edge device.</p>"""
 

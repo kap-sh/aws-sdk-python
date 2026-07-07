@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeContextRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.context_name_or_arn
 
 
-class DescribeContextRequest(TypedDict):
+class DescribeContextRequest(TypedDict, closed=True):
     context_name: NotRequired[
         "aws_sdk_sagemaker.types.context_name_or_arn.ContextNameOrArn"
     ]

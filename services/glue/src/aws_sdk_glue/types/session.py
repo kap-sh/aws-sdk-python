@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Session``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connections_list
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.worker_type
 
 
-class Session(TypedDict):
+class Session(TypedDict, closed=True):
     id: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The ID of the session.</p>"""
     created_on: NotRequired["aws_sdk_glue.types.timestamp_value.TimestampValue"]

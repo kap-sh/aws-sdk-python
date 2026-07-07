@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ServiceCollection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.service_names
 
 
-class ServiceCollection(TypedDict):
+class ServiceCollection(TypedDict, closed=True):
     service_names: NotRequired["aws_sdk_devops_guru.types.service_names.ServiceNames"]
     """<p>An array of strings that each specifies the name of an Amazon Web Services service.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#Address``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_outposts.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.state_or_region
 
 
-class Address(TypedDict):
+class Address(TypedDict, closed=True):
     contact_name: "aws_sdk_outposts.types.contact_name.ContactName"
     """<p>The name of the contact.</p>"""
     contact_phone_number: (

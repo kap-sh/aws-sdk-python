@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#BlackFrame``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.max_pixel_threshold
     import aws_sdk_rekognition.types.min_coverage_percentage
 
 
-class BlackFrame(TypedDict):
+class BlackFrame(TypedDict, closed=True):
     max_pixel_threshold: NotRequired[
         "aws_sdk_rekognition.types.max_pixel_threshold.MaxPixelThreshold"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#CreateManagedEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.endpoint_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.resource_name_string
 
 
-class CreateManagedEndpointResponse(TypedDict):
+class CreateManagedEndpointResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr_containers.types.resource_id_string.ResourceIdString"]
     """<p>The output contains the ID of the managed endpoint.</p>"""
     name: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#MssPackage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.stream_selection
 
 
-class MssPackage(TypedDict):
+class MssPackage(TypedDict, closed=True):
     encryption: NotRequired["aws_sdk_mediapackage.types.mss_encryption.MssEncryption"]
     manifest_window_seconds: NotRequired[
         "aws_sdk_mediapackage.types.__integer.__integer"

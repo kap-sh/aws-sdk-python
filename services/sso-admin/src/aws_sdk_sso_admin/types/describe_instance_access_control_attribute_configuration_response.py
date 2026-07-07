@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#DescribeInstanceAccessControlAttributeConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.instance_access_control_attribute_configuration
@@ -10,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.instance_access_control_attribute_configuration_status_reason
 
 
-class DescribeInstanceAccessControlAttributeConfigurationResponse(TypedDict):
+class DescribeInstanceAccessControlAttributeConfigurationResponse(
+    TypedDict, closed=True
+):
     status: NotRequired[
         "aws_sdk_sso_admin.types.instance_access_control_attribute_configuration_status.InstanceAccessControlAttributeConfigurationStatus"
     ]

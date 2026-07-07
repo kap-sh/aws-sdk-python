@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#SupplementalDataStorageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.supplemental_data_storage_locations
 
 
-class SupplementalDataStorageConfiguration(TypedDict):
+class SupplementalDataStorageConfiguration(TypedDict, closed=True):
     storage_locations: "aws_sdk_bedrock_agent.types.supplemental_data_storage_locations.SupplementalDataStorageLocations"
     """<p>A list of objects specifying storage locations for images extracted from multimodal documents in your data source.</p>"""
 

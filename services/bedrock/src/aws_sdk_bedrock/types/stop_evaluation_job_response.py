@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#StopEvaluationJobResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopEvaluationJobResponse(TypedDict):
+class StopEvaluationJobResponse(TypedDict, closed=True):
     pass
 
 

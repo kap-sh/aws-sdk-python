@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#Policy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.delivery_destination_policy
 
 
-class Policy(TypedDict):
+class Policy(TypedDict, closed=True):
     delivery_destination_policy: NotRequired[
         "aws_sdk_cloudwatch_logs.types.delivery_destination_policy.DeliveryDestinationPolicy"
     ]

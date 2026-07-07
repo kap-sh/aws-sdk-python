@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#GetSystemTemplateRevisionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.next_token
     import aws_sdk_iotthingsgraph.types.system_template_summaries
 
 
-class GetSystemTemplateRevisionsResponse(TypedDict):
+class GetSystemTemplateRevisionsResponse(TypedDict, closed=True):
     summaries: NotRequired[
         "aws_sdk_iotthingsgraph.types.system_template_summaries.SystemTemplateSummaries"
     ]

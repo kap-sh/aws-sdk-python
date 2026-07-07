@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssooidc#CreateTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_oidc.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_oidc.types.uri
 
 
-class CreateTokenRequest(TypedDict):
+class CreateTokenRequest(TypedDict, closed=True):
     client_id: "aws_sdk_sso_oidc.types.client_id.ClientId"
     """<p>The unique identifier string for the client or application. This value comes from the result of the <a>RegisterClient</a> API.</p>"""
     client_secret: "aws_sdk_sso_oidc.types.client_secret.ClientSecret"

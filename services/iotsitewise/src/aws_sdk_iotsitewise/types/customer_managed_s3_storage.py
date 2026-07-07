@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#CustomerManagedS3Storage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.arn
 
 
-class CustomerManagedS3Storage(TypedDict):
+class CustomerManagedS3Storage(TypedDict, closed=True):
     s3_resource_arn: "aws_sdk_iotsitewise.types.arn.ARN"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the Amazon S3 object. For more information about how to find the ARN for an Amazon S3 object, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-arn-format.html\">Amazon S3 resources</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>"""
     role_arn: "aws_sdk_iotsitewise.types.arn.ARN"

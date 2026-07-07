@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CreateDBProxyEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class CreateDBProxyEndpointRequest(TypedDict):
+class CreateDBProxyEndpointRequest(TypedDict, closed=True):
     db_proxy_name: NotRequired["aws_sdk_rds.types.db_proxy_name.DBProxyName"]
     """<p>The name of the DB proxy associated with the DB proxy endpoint that you create.</p>"""
     db_proxy_endpoint_name: NotRequired[

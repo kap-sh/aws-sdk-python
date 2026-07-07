@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#TrustStoreConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.certificate_authority_certificates
 
 
-class TrustStoreConfiguration(TypedDict):
+class TrustStoreConfiguration(TypedDict, closed=True):
     certificate_authority_certificates: "aws_sdk_rtbfabric.types.certificate_authority_certificates.CertificateAuthorityCertificates"
     """<p>The certificate authority certificate.</p>"""
 

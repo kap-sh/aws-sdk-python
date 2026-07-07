@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AutomationExecutionInputs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.automation_parameter_key
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class AutomationExecutionInputs(TypedDict):
+class AutomationExecutionInputs(TypedDict, closed=True):
     parameters: NotRequired[
         "aws_sdk_ssm.types.automation_parameter_map.AutomationParameterMap"
     ]

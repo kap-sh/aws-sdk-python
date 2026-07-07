@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservicedata#ListUsersResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service_data.types.directory_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service_data.types.user_summary_list
 
 
-class ListUsersResult(TypedDict):
+class ListUsersResult(TypedDict, closed=True):
     directory_id: NotRequired[
         "aws_sdk_directory_service_data.types.directory_id.DirectoryId"
     ]

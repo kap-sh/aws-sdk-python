@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#DeleteArtifactOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteArtifactOutput(TypedDict):
+class DeleteArtifactOutput(TypedDict, closed=True):
     pass
 
 

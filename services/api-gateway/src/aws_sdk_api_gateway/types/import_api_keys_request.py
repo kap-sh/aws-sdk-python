@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#ImportApiKeysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_api_gateway.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.boolean
 
 
-class ImportApiKeysRequest(TypedDict):
+class ImportApiKeysRequest(TypedDict, closed=True):
     body: "aws_sdk_api_gateway.types.blob.Blob"
     """<p>The payload of the POST request to import API keys. For the payload format, see API Key File Format.</p>"""
     format: "aws_sdk_api_gateway.types.api_keys_format.ApiKeysFormat"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#CustomPlugin``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kafkaconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__string
 
 
-class CustomPlugin(TypedDict):
+class CustomPlugin(TypedDict, closed=True):
     custom_plugin_arn: "aws_sdk_kafkaconnect.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) of the custom plugin.</p>"""
     revision: "aws_sdk_kafkaconnect.types.__long_min1.__longMin1"

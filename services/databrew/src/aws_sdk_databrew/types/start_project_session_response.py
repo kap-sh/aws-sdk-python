@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#StartProjectSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.project_name
 
 
-class StartProjectSessionResponse(TypedDict):
+class StartProjectSessionResponse(TypedDict, closed=True):
     name: "aws_sdk_databrew.types.project_name.ProjectName"
     """<p>The name of the project to be acted upon.</p>"""
     client_session_id: NotRequired[

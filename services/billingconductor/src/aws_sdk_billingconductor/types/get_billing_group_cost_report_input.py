@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#GetBillingGroupCostReportInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.token
 
 
-class GetBillingGroupCostReportInput(TypedDict):
+class GetBillingGroupCostReportInput(TypedDict, closed=True):
     arn: "aws_sdk_billingconductor.types.billing_group_arn.BillingGroupArn"
     """<p>The Amazon Resource Number (ARN) that uniquely identifies the billing group.</p>"""
     billing_period_range: NotRequired[

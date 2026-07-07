@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteMatchmakingRuleSetOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteMatchmakingRuleSetOutput(TypedDict):
+class DeleteMatchmakingRuleSetOutput(TypedDict, closed=True):
     pass
 
 

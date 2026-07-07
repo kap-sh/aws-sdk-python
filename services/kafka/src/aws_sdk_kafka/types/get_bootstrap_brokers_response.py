@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#GetBootstrapBrokersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
 
 
-class GetBootstrapBrokersResponse(TypedDict):
+class GetBootstrapBrokersResponse(TypedDict, closed=True):
     bootstrap_broker_string: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>A string containing one or more hostname:port pairs.</p>"""
     bootstrap_broker_string_tls: NotRequired["aws_sdk_kafka.types.__string.__string"]

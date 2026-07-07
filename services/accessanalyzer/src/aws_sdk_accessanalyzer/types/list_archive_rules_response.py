@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ListArchiveRulesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.token
 
 
-class ListArchiveRulesResponse(TypedDict):
+class ListArchiveRulesResponse(TypedDict, closed=True):
     archive_rules: "aws_sdk_accessanalyzer.types.archive_rules_list.ArchiveRulesList"
     """<p>A list of archive rules created for the specified analyzer.</p>"""
     next_token: NotRequired["aws_sdk_accessanalyzer.types.token.Token"]

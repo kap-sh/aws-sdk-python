@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#UpdateDataLakeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.data_lake_resource_list
 
 
-class UpdateDataLakeResponse(TypedDict):
+class UpdateDataLakeResponse(TypedDict, closed=True):
     data_lakes: NotRequired[
         "aws_sdk_securitylake.types.data_lake_resource_list.DataLakeResourceList"
     ]

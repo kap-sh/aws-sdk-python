@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudcontrol#ProgressEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.handler_error_code
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.type_name
 
 
-class ProgressEvent(TypedDict):
+class ProgressEvent(TypedDict, closed=True):
     type_name: NotRequired["aws_sdk_cloudcontrol.types.type_name.TypeName"]
     """<p>The name of the resource type used in the operation.</p>"""
     identifier: NotRequired["aws_sdk_cloudcontrol.types.identifier.Identifier"]

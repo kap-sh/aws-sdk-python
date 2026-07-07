@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#MetricWindow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.tumbling_window
 
 
-class MetricWindow(TypedDict):
+class MetricWindow(TypedDict, closed=True):
     tumbling: NotRequired["aws_sdk_iotsitewise.types.tumbling_window.TumblingWindow"]
     """<p>The tumbling time interval window.</p>"""
 

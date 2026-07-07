@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#PlayerLatency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.float
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.player_id
 
 
-class PlayerLatency(TypedDict):
+class PlayerLatency(TypedDict, closed=True):
     player_id: NotRequired["aws_sdk_gamelift.types.player_id.PlayerId"]
     """<p>A unique identifier for a player associated with the latency data.</p>"""
     region_identifier: NotRequired[

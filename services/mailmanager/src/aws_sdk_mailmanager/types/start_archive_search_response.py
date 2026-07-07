@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#StartArchiveSearchResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.search_id
 
 
-class StartArchiveSearchResponse(TypedDict):
+class StartArchiveSearchResponse(TypedDict, closed=True):
     search_id: NotRequired["aws_sdk_mailmanager.types.search_id.SearchId"]
     """<p>The unique identifier for the initiated search job.</p>"""
 

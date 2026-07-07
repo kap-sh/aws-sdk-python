@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#SizeConstraint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.text_transformation
 
 
-class SizeConstraint(TypedDict):
+class SizeConstraint(TypedDict, closed=True):
     field_to_match: "aws_sdk_waf.types.field_to_match.FieldToMatch"
     """<p>Specifies where in a web request to look for the size constraint.</p>"""
     text_transformation: "aws_sdk_waf.types.text_transformation.TextTransformation"

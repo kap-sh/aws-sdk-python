@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListVariantImportJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.variant_import_job_items
 
 
-class ListVariantImportJobsResponse(TypedDict):
+class ListVariantImportJobsResponse(TypedDict, closed=True):
     variant_import_jobs: NotRequired[
         "aws_sdk_omics.types.variant_import_job_items.VariantImportJobItems"
     ]

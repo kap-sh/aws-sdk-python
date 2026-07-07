@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessAgentCoreBrowserConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_browser_arn
 
 
-class HarnessAgentCoreBrowserConfig(TypedDict):
+class HarnessAgentCoreBrowserConfig(TypedDict, closed=True):
     browser_arn: NotRequired[
         "aws_sdk_bedrock_agentcore.types.harness_browser_arn.HarnessBrowserArn"
     ]

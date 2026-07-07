@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#CreateMediaPipelineKinesisVideoStreamPoolRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.tag_list
 
 
-class CreateMediaPipelineKinesisVideoStreamPoolRequest(TypedDict):
+class CreateMediaPipelineKinesisVideoStreamPoolRequest(TypedDict, closed=True):
     stream_configuration: "aws_sdk_chime_sdk_media_pipelines.types.kinesis_video_stream_configuration.KinesisVideoStreamConfiguration"
     """<p>The configuration settings for the stream.</p>"""
     pool_name: "aws_sdk_chime_sdk_media_pipelines.types.kinesis_video_stream_pool_name.KinesisVideoStreamPoolName"

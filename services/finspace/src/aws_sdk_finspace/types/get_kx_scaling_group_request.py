@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#GetKxScalingGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_environment_id
     import aws_sdk_finspace.types.kx_scaling_group_name
 
 
-class GetKxScalingGroupRequest(TypedDict):
+class GetKxScalingGroupRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_finspace.types.kx_environment_id.KxEnvironmentId"
     """<p>A unique identifier for the kdb environment. </p>"""
     scaling_group_name: (

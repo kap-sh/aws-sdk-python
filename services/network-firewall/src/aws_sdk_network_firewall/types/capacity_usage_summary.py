@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#CapacityUsageSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.cidr_summary
 
 
-class CapacityUsageSummary(TypedDict):
+class CapacityUsageSummary(TypedDict, closed=True):
     cid_rs: NotRequired["aws_sdk_network_firewall.types.cidr_summary.CIDRSummary"]
     """<p>Describes the capacity usage of the CIDR blocks used by the IP set references in a firewall.</p>"""
 

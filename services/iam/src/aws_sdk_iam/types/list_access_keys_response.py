@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListAccessKeysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.response_marker_type
 
 
-class ListAccessKeysResponse(TypedDict):
+class ListAccessKeysResponse(TypedDict, closed=True):
     access_key_metadata: (
         "aws_sdk_iam.types.access_key_metadata_list_type.accessKeyMetadataListType"
     )

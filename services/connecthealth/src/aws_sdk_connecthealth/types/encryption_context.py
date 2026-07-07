@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#EncryptionContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connecthealth.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.kms_key_arn
 
 
-class EncryptionContext(TypedDict):
+class EncryptionContext(TypedDict, closed=True):
     encryption_type: "aws_sdk_connecthealth.types.encryption_type.EncryptionType"
     """<p>The type of encryption key used.</p>"""
     kms_key_arn: NotRequired["aws_sdk_connecthealth.types.kms_key_arn.KmsKeyArn"]

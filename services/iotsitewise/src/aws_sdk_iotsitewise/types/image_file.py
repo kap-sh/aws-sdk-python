@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ImageFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.image_file_type
 
 
-class ImageFile(TypedDict):
+class ImageFile(TypedDict, closed=True):
     data: "aws_sdk_iotsitewise.types.image_file_data.ImageFileData"
     """<p>The image file contents, represented as a base64-encoded string. The file size must be less than 1 MB.</p>"""
     type: "aws_sdk_iotsitewise.types.image_file_type.ImageFileType"

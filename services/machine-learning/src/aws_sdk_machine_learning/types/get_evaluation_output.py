@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#GetEvaluationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.aws_user_arn
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.s3_url
 
 
-class GetEvaluationOutput(TypedDict):
+class GetEvaluationOutput(TypedDict, closed=True):
     evaluation_id: NotRequired["aws_sdk_machine_learning.types.entity_id.EntityId"]
     """<p>The evaluation ID which is same as the <code>EvaluationId</code> in the request.</p>"""
     ml_model_id: NotRequired["aws_sdk_machine_learning.types.entity_id.EntityId"]

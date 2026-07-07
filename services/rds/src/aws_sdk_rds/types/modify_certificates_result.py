@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ModifyCertificatesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.certificate
 
 
-class ModifyCertificatesResult(TypedDict):
+class ModifyCertificatesResult(TypedDict, closed=True):
     certificate: NotRequired["aws_sdk_rds.types.certificate.Certificate"]
 
 

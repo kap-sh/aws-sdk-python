@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#NodeRepairConfigOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.non_zero_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class NodeRepairConfigOverrides(TypedDict):
+class NodeRepairConfigOverrides(TypedDict, closed=True):
     node_monitoring_condition: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>Specify an unhealthy condition reported by the node monitoring agent that this override would apply to.</p>"""
     node_unhealthy_reason: NotRequired["aws_sdk_eks.types.string.String"]

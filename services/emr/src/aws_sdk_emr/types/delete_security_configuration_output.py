@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emr#DeleteSecurityConfigurationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSecurityConfigurationOutput(TypedDict):
+class DeleteSecurityConfigurationOutput(TypedDict, closed=True):
     pass
 
 

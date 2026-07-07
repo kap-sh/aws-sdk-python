@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#DeleteIdentityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.identity
 
 
-class DeleteIdentityRequest(TypedDict):
+class DeleteIdentityRequest(TypedDict, closed=True):
     identity: "aws_sdk_ses.types.identity.Identity"
     """<p>The identity to be removed from the list of identities for the Amazon Web Services account.</p>"""
 

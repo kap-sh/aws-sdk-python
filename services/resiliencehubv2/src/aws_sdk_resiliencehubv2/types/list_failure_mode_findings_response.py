@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListFailureModeFindingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.next_token
 
 
-class ListFailureModeFindingsResponse(TypedDict):
+class ListFailureModeFindingsResponse(TypedDict, closed=True):
     findings_summary: "aws_sdk_resiliencehubv2.types.findings_list.FindingsList"
     """<p>The list of finding summaries.</p>"""
     next_token: NotRequired["aws_sdk_resiliencehubv2.types.next_token.NextToken"]

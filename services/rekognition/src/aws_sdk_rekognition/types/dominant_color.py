@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DominantColor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.percent
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.u_integer
 
 
-class DominantColor(TypedDict):
+class DominantColor(TypedDict, closed=True):
     red: NotRequired["aws_sdk_rekognition.types.u_integer.UInteger"]
     """<p>The Red RGB value for a dominant color.</p>"""
     blue: NotRequired["aws_sdk_rekognition.types.u_integer.UInteger"]

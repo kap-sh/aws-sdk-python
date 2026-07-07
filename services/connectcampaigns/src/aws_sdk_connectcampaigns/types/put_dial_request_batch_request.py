@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaigns#PutDialRequestBatchRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaigns.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaigns.types.dial_request_list
 
 
-class PutDialRequestBatchRequest(TypedDict):
+class PutDialRequestBatchRequest(TypedDict, closed=True):
     id: "aws_sdk_connectcampaigns.types.campaign_id.CampaignId"
     dial_requests: "aws_sdk_connectcampaigns.types.dial_request_list.DialRequestList"
 

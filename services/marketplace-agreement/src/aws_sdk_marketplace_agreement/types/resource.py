@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.agreement_resource_type
     import aws_sdk_marketplace_agreement.types.resource_id
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     id: NotRequired["aws_sdk_marketplace_agreement.types.resource_id.ResourceId"]
     """<p>The unique identifier of the resource.</p> <note> <p>We mention the term resource, which is most commonly a product, so a <code>resourceId</code> is also a <code>productId</code>.</p> </note>"""
     type: NotRequired[

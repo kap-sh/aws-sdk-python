@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#InsightImpactGraphService``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.insight_impact_graph_edge_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class InsightImpactGraphService(TypedDict):
+class InsightImpactGraphService(TypedDict, closed=True):
     reference_id: NotRequired["aws_sdk_xray.types.nullable_integer.NullableInteger"]
     """<p>Identifier for the service. Unique within the service map.</p>"""
     type: NotRequired["aws_sdk_xray.types.string.String"]

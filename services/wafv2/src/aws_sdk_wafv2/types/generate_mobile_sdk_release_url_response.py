@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GenerateMobileSdkReleaseUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.download_url
 
 
-class GenerateMobileSdkReleaseUrlResponse(TypedDict):
+class GenerateMobileSdkReleaseUrlResponse(TypedDict, closed=True):
     url: NotRequired["aws_sdk_wafv2.types.download_url.DownloadUrl"]
     """<p>The presigned download URL for the specified SDK release.</p>"""
 

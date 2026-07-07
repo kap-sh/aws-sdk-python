@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsServiceNetworkConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ecs_service_network_configuration_aws_vpc_configuration_details
 
 
-class AwsEcsServiceNetworkConfigurationDetails(TypedDict):
+class AwsEcsServiceNetworkConfigurationDetails(TypedDict, closed=True):
     aws_vpc_configuration: NotRequired[
         "aws_sdk_securityhub.types.aws_ecs_service_network_configuration_aws_vpc_configuration_details.AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails"
     ]

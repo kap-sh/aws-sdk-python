@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#UpdateExpirationForHITRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.timestamp
 
 
-class UpdateExpirationForHITRequest(TypedDict):
+class UpdateExpirationForHITRequest(TypedDict, closed=True):
     hit_id: "aws_sdk_mturk.types.entity_id.EntityId"
     """<p> The HIT to update. </p>"""
     expire_at: "aws_sdk_mturk.types.timestamp.Timestamp"

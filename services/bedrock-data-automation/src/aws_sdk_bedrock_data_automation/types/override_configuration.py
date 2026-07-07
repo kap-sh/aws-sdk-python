@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#OverrideConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.audio_override_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.video_override_configuration
 
 
-class OverrideConfiguration(TypedDict):
+class OverrideConfiguration(TypedDict, closed=True):
     document: NotRequired[
         "aws_sdk_bedrock_data_automation.types.document_override_configuration.DocumentOverrideConfiguration"
     ]

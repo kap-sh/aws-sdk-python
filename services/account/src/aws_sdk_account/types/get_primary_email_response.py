@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.account#GetPrimaryEmailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_account.types.primary_email_address
 
 
-class GetPrimaryEmailResponse(TypedDict):
+class GetPrimaryEmailResponse(TypedDict, closed=True):
     primary_email: NotRequired[
         "aws_sdk_account.types.primary_email_address.PrimaryEmailAddress"
     ]

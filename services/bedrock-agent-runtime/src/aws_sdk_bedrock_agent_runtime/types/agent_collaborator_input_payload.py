@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#AgentCollaboratorInputPayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.agent_collaborator_payload_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.return_control_results
 
 
-class AgentCollaboratorInputPayload(TypedDict):
+class AgentCollaboratorInputPayload(TypedDict, closed=True):
     type: NotRequired["aws_sdk_bedrock_agent_runtime.types.payload_type.PayloadType"]
     """<p>The input type.</p>"""
     text: NotRequired[

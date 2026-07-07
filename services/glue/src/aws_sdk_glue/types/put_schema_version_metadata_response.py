@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PutSchemaVersionMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.glue_resource_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.version_long_number
 
 
-class PutSchemaVersionMetadataResponse(TypedDict):
+class PutSchemaVersionMetadataResponse(TypedDict, closed=True):
     schema_arn: NotRequired["aws_sdk_glue.types.glue_resource_arn.GlueResourceArn"]
     """<p>The Amazon Resource Name (ARN) for the schema.</p>"""
     schema_name: NotRequired[

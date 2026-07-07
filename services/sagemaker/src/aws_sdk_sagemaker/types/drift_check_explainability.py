@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DriftCheckExplainability``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.file_source
     import aws_sdk_sagemaker.types.metrics_source
 
 
-class DriftCheckExplainability(TypedDict):
+class DriftCheckExplainability(TypedDict, closed=True):
     constraints: NotRequired["aws_sdk_sagemaker.types.metrics_source.MetricsSource"]
     """<p>The drift check explainability constraints.</p>"""
     config_file: NotRequired["aws_sdk_sagemaker.types.file_source.FileSource"]

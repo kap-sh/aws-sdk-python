@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeVolumesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume_ids
 
 
-class DescribeVolumesRequest(TypedDict):
+class DescribeVolumesRequest(TypedDict, closed=True):
     volume_ids: NotRequired["aws_sdk_fsx.types.volume_ids.VolumeIds"]
     """<p>The IDs of the volumes whose descriptions you want to retrieve.</p>"""
     filters: NotRequired["aws_sdk_fsx.types.volume_filters.VolumeFilters"]

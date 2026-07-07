@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__string
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_dataexchange.types.__string.__string"
     """<p>An Amazon Resource Name (ARN) that uniquely identifies an AWS resource.</p>"""
 

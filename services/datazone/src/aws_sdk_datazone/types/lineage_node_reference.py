@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LineageNodeReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.lineage_node_id
 
 
-class LineageNodeReference(TypedDict):
+class LineageNodeReference(TypedDict, closed=True):
     id: NotRequired["aws_sdk_datazone.types.lineage_node_id.LineageNodeId"]
     """<p>The ID of the data lineage node.</p>"""
     event_timestamp: NotRequired["datetime.datetime"]

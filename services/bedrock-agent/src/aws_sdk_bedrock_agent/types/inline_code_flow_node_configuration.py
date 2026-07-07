@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#InlineCodeFlowNodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.inline_code
     import aws_sdk_bedrock_agent.types.supported_languages
 
 
-class InlineCodeFlowNodeConfiguration(TypedDict):
+class InlineCodeFlowNodeConfiguration(TypedDict, closed=True):
     code: "aws_sdk_bedrock_agent.types.inline_code.InlineCode"
     """<p>The code that's executed in your inline code node. The code can access input data from previous nodes in the flow, perform operations on that data, and produce output that can be used by other nodes in your flow.</p> <p>The code must be valid in the programming <code>language</code> that you specify.</p>"""
     language: "aws_sdk_bedrock_agent.types.supported_languages.SupportedLanguages"

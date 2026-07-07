@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#GetSoftwareSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.software_set_id
 
 
-class GetSoftwareSetRequest(TypedDict):
+class GetSoftwareSetRequest(TypedDict, closed=True):
     id: "aws_sdk_workspaces_thin_client.types.software_set_id.SoftwareSetId"
     """<p>The ID of the software set for which to return information.</p>"""
 

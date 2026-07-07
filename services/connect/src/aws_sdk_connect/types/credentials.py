@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Credentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.security_token
     import aws_sdk_connect.types.timestamp
 
 
-class Credentials(TypedDict):
+class Credentials(TypedDict, closed=True):
     access_token: NotRequired["aws_sdk_connect.types.security_token.SecurityToken"]
     """<p>An access token generated for a federated user to access Connect Customer.</p>"""
     access_token_expiration: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]

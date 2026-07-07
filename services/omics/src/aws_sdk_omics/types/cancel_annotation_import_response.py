@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#CancelAnnotationImportResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelAnnotationImportResponse(TypedDict):
+class CancelAnnotationImportResponse(TypedDict, closed=True):
     pass
 
 

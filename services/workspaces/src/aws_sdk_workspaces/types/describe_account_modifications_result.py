@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeAccountModificationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.account_modification_list
     import aws_sdk_workspaces.types.pagination_token
 
 
-class DescribeAccountModificationsResult(TypedDict):
+class DescribeAccountModificationsResult(TypedDict, closed=True):
     account_modifications: NotRequired[
         "aws_sdk_workspaces.types.account_modification_list.AccountModificationList"
     ]

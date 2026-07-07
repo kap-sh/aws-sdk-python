@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ListRegionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.region_metadata_list
     import aws_sdk_sso_admin.types.token
 
 
-class ListRegionsResponse(TypedDict):
+class ListRegionsResponse(TypedDict, closed=True):
     regions: NotRequired[
         "aws_sdk_sso_admin.types.region_metadata_list.RegionMetadataList"
     ]

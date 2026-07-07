@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#SendDirectMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.client_id
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.topic
 
 
-class SendDirectMessageRequest(TypedDict):
+class SendDirectMessageRequest(TypedDict, closed=True):
     client_id: "aws_sdk_iot_data_plane.types.client_id.ClientId"
     r"""<p>The unique identifier of the MQTT client to send the message to.</p> <p>Client IDs must not exceed 128 characters and can't start with a dollar sign ($). MQTT client IDs must be URL encoded (percent-encoded) when they contain characters that are not valid in HTTP requests, such as spaces, forward slashes (/), and UTF-8 characters. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/iot-core.html#message-broker-limits\">Amazon Web Services IoT Core message broker and protocol limits and quotas</a>.</p>"""
     topic: "aws_sdk_iot_data_plane.types.topic.Topic"

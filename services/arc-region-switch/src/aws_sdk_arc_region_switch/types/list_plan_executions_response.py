@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#ListPlanExecutionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.abbreviated_executions_list
 
 
-class ListPlanExecutionsResponse(TypedDict):
+class ListPlanExecutionsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_arc_region_switch.types.abbreviated_executions_list.AbbreviatedExecutionsList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#GridViewConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.video_attribute
 
 
-class GridViewConfiguration(TypedDict):
+class GridViewConfiguration(TypedDict, closed=True):
     content_share_layout: "aws_sdk_chime_sdk_media_pipelines.types.content_share_layout_option.ContentShareLayoutOption"
     """<p>Defines the layout of the video tiles when content sharing is enabled.</p>"""
     presenter_only_configuration: NotRequired[

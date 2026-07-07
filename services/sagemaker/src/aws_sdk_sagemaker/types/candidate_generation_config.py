@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CandidateGenerationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_ml_algorithms_config
 
 
-class CandidateGenerationConfig(TypedDict):
+class CandidateGenerationConfig(TypedDict, closed=True):
     algorithms_config: NotRequired[
         "aws_sdk_sagemaker.types.auto_ml_algorithms_config.AutoMLAlgorithmsConfig"
     ]

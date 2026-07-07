@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#LambdaEvaluatorConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.lambda_arn
 
 
-class LambdaEvaluatorConfig(TypedDict):
+class LambdaEvaluatorConfig(TypedDict, closed=True):
     lambda_arn: "aws_sdk_bedrock_agentcore_control.types.lambda_arn.LambdaArn"
     """<p> The Amazon Resource Name (ARN) of the Lambda function that implements the evaluation logic. </p>"""
     lambda_timeout_in_seconds: NotRequired["int"]

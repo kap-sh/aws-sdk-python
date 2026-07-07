@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#SavingsPlansUtilizationAggregates``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.savings_plans_utilization
 
 
-class SavingsPlansUtilizationAggregates(TypedDict):
+class SavingsPlansUtilizationAggregates(TypedDict, closed=True):
     utilization: (
         "aws_sdk_cost_explorer.types.savings_plans_utilization.SavingsPlansUtilization"
     )

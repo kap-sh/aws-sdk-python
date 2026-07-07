@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DataSourceVpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.subnet_ids
 
 
-class DataSourceVpcConfiguration(TypedDict):
+class DataSourceVpcConfiguration(TypedDict, closed=True):
     subnet_ids: "aws_sdk_qbusiness.types.subnet_ids.SubnetIds"
     """<p>A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.</p>"""
     security_group_ids: "aws_sdk_qbusiness.types.security_group_ids.SecurityGroupIds"

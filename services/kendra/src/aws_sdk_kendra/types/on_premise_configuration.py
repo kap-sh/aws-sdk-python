@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#OnPremiseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.url
 
 
-class OnPremiseConfiguration(TypedDict):
+class OnPremiseConfiguration(TypedDict, closed=True):
     host_url: "aws_sdk_kendra.types.url.Url"
     """<p>The GitHub host URL or API endpoint URL. For example, <i>https://on-prem-host-url/api/v3/</i> </p>"""
     organization_name: "aws_sdk_kendra.types.organization_name.OrganizationName"

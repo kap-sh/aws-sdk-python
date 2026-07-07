@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#ListGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_identitystore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_identitystore.types.next_token
 
 
-class ListGroupsResponse(TypedDict):
+class ListGroupsResponse(TypedDict, closed=True):
     groups: "aws_sdk_identitystore.types.groups.Groups"
     """<p>A list of <code>Group</code> objects in the identity store.</p>"""
     next_token: NotRequired["aws_sdk_identitystore.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2NetworkAclEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.port_range_from_to
 
 
-class AwsEc2NetworkAclEntry(TypedDict):
+class AwsEc2NetworkAclEntry(TypedDict, closed=True):
     cidr_block: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The IPV4 network range for which to deny or allow access.</p>"""
     egress: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

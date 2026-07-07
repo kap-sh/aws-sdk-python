@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.freetier#ListAccountActivitiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_freetier.types.filter_activity_statuses
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_freetier.types.next_page_token
 
 
-class ListAccountActivitiesRequest(TypedDict):
+class ListAccountActivitiesRequest(TypedDict, closed=True):
     filter_activity_statuses: NotRequired[
         "aws_sdk_freetier.types.filter_activity_statuses.FilterActivityStatuses"
     ]

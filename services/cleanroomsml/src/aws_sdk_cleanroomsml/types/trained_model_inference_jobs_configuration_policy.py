@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#TrainedModelInferenceJobsConfigurationPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.logs_configuration_policy_list
     import aws_sdk_cleanroomsml.types.trained_model_inference_max_output_size
 
 
-class TrainedModelInferenceJobsConfigurationPolicy(TypedDict):
+class TrainedModelInferenceJobsConfigurationPolicy(TypedDict, closed=True):
     container_logs: NotRequired[
         "aws_sdk_cleanroomsml.types.logs_configuration_policy_list.LogsConfigurationPolicyList"
     ]

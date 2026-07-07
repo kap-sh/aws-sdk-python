@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Ec2InstanceAggregationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.tag_map
 
 
-class Ec2InstanceAggregationResponse(TypedDict):
+class Ec2InstanceAggregationResponse(TypedDict, closed=True):
     instance_id: "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"
     """<p>The Amazon EC2 instance ID.</p>"""
     ami: NotRequired["aws_sdk_inspector2.types.ami_id.AmiId"]

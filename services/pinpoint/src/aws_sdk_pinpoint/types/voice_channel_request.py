@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#VoiceChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
 
 
-class VoiceChannelRequest(TypedDict):
+class VoiceChannelRequest(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_pinpoint.types.__boolean.__boolean"]
     """<p>Specifies whether to enable the voice channel for the application.</p>"""
 

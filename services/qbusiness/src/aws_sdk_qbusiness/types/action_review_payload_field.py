@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionReviewPayloadField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.action_payload_field_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.string
 
 
-class ActionReviewPayloadField(TypedDict):
+class ActionReviewPayloadField(TypedDict, closed=True):
     display_name: NotRequired["aws_sdk_qbusiness.types.string.String"]
     """<p> The name of the field. </p>"""
     display_order: NotRequired["aws_sdk_qbusiness.types.integer.Integer"]

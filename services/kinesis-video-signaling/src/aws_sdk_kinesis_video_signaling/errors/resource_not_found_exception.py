@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideosignaling#ResourceNotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_video_signaling.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video_signaling.types.error_message
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_kinesis_video_signaling.types.error_message.ErrorMessage"
     ]

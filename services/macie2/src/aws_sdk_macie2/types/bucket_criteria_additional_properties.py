@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BucketCriteriaAdditionalProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class BucketCriteriaAdditionalProperties(TypedDict):
+class BucketCriteriaAdditionalProperties(TypedDict, closed=True):
     eq: NotRequired["aws_sdk_macie2.types.__list_of__string.__listOf__string"]
     """<p>The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.</p>"""
     gt: NotRequired["aws_sdk_macie2.types.__long.__long"]

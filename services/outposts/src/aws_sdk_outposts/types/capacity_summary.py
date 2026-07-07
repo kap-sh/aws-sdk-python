@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#CapacitySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.quote_capacity_list
 
 
-class CapacitySummary(TypedDict):
+class CapacitySummary(TypedDict, closed=True):
     existing_capacities: NotRequired[
         "aws_sdk_outposts.types.quote_capacity_list.QuoteCapacityList"
     ]

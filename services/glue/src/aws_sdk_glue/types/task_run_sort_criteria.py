@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TaskRunSortCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.task_run_sort_column_type
 
 
-class TaskRunSortCriteria(TypedDict):
+class TaskRunSortCriteria(TypedDict, closed=True):
     column: "aws_sdk_glue.types.task_run_sort_column_type.TaskRunSortColumnType"
     """<p>The column to be used to sort the list of task runs for the machine learning transform.</p>"""
     sort_direction: "aws_sdk_glue.types.sort_direction_type.SortDirectionType"

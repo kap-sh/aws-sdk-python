@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#CreateWebACLRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.waf_action
 
 
-class CreateWebACLRequest(TypedDict):
+class CreateWebACLRequest(TypedDict, closed=True):
     name: "aws_sdk_waf.types.resource_name.ResourceName"
     """<p>A friendly name or description of the <a>WebACL</a>. You can't change <code>Name</code> after you create the <code>WebACL</code>.</p>"""
     metric_name: "aws_sdk_waf.types.metric_name.MetricName"

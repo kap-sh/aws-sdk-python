@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#EffectivePatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch
     import aws_sdk_ssm.types.patch_status
 
 
-class EffectivePatch(TypedDict):
+class EffectivePatch(TypedDict, closed=True):
     patch: NotRequired["aws_sdk_ssm.types.patch.Patch"]
     """<p>Provides metadata for a patch, including information such as the KB ID, severity, classification and a URL for where more information can be obtained about the patch.</p>"""
     patch_status: NotRequired["aws_sdk_ssm.types.patch_status.PatchStatus"]

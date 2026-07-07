@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#BatchDeleteDocumentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.batch_delete_document_response_failed_documents
 
 
-class BatchDeleteDocumentResponse(TypedDict):
+class BatchDeleteDocumentResponse(TypedDict, closed=True):
     failed_documents: NotRequired[
         "aws_sdk_kendra.types.batch_delete_document_response_failed_documents.BatchDeleteDocumentResponseFailedDocuments"
     ]

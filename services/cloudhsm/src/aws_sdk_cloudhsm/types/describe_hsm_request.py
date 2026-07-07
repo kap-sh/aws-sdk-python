@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#DescribeHsmRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.hsm_arn
     import aws_sdk_cloudhsm.types.hsm_serial_number
 
 
-class DescribeHsmRequest(TypedDict):
+class DescribeHsmRequest(TypedDict, closed=True):
     hsm_arn: NotRequired["aws_sdk_cloudhsm.types.hsm_arn.HsmArn"]
     """<p>The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code> parameter must be specified.</p>"""
     hsm_serial_number: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#PaymentTokenResponseOutput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.stripe_privy_token_response_output
 
 
-class _PaymentTokenResponseOutput_coinbaseCdpTokenResponse(TypedDict):
+class _PaymentTokenResponseOutput_coinbaseCdpTokenResponse(TypedDict, closed=True):
     coinbaseCdpTokenResponse: "aws_sdk_bedrock_agentcore.types.coinbase_cdp_token_response_output.CoinbaseCdpTokenResponseOutput"
 
 
-class _PaymentTokenResponseOutput_stripePrivyTokenResponse(TypedDict):
+class _PaymentTokenResponseOutput_stripePrivyTokenResponse(TypedDict, closed=True):
     stripePrivyTokenResponse: "aws_sdk_bedrock_agentcore.types.stripe_privy_token_response_output.StripePrivyTokenResponseOutput"
 
 

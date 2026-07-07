@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ImportNotebookInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.work_group_name
 
 
-class ImportNotebookInput(TypedDict):
+class ImportNotebookInput(TypedDict, closed=True):
     work_group: "aws_sdk_athena.types.work_group_name.WorkGroupName"
     """<p>The name of the Spark enabled workgroup to import the notebook to.</p>"""
     name: "aws_sdk_athena.types.notebook_name.NotebookName"

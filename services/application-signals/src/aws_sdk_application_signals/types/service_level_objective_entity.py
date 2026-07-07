@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#ServiceLevelObjectiveEntity``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ServiceLevelObjectiveEntity(TypedDict):
+class ServiceLevelObjectiveEntity(TypedDict, closed=True):
     slo_name: NotRequired["str"]
     """<p>The name of the service level objective.</p>"""
     slo_arn: NotRequired["str"]

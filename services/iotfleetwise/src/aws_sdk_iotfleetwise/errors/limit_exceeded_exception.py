@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#LimitExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.string
 
 
-class LimitExceededException_(TypedDict):
+class LimitExceededException_(TypedDict, closed=True):
     message: "aws_sdk_iotfleetwise.types.string.string"
     resource_id: "aws_sdk_iotfleetwise.types.string.string"
     """<p>The identifier of the resource that was exceeded.</p>"""

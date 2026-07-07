@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.oam#ListSinksOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_oam.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_oam.types.list_sinks_items
 
 
-class ListSinksOutput(TypedDict):
+class ListSinksOutput(TypedDict, closed=True):
     items: "aws_sdk_oam.types.list_sinks_items.ListSinksItems"
     """<p>An array of structures that contain the information about the returned sinks.</p>"""
     next_token: NotRequired["str"]

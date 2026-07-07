@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#BatchChannelMemberships``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.channel_membership_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.sub_channel_id
 
 
-class BatchChannelMemberships(TypedDict):
+class BatchChannelMemberships(TypedDict, closed=True):
     invited_by: NotRequired["aws_sdk_chime_sdk_messaging.types.identity.Identity"]
     """<p>The identifier of the member who invited another member.</p>"""
     type: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#Condition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.condition_value
 
 
-class Condition(TypedDict):
+class Condition(TypedDict, closed=True):
     condition_type: "aws_sdk_backup.types.condition_type.ConditionType"
     r"""<p>An operation applied to a key-value pair used to assign resources to your backup plan. Condition only supports <code>StringEquals</code>. For more flexible assignment options, including <code>StringLike</code> and the ability to exclude resources from your backup plan, use <code>Conditions</code> (with an \"s\" on the end) for your <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BackupSelection.html\"> <code>BackupSelection</code> </a>.</p>"""
     condition_key: "aws_sdk_backup.types.condition_key.ConditionKey"

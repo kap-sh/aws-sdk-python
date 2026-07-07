@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#GetNamespaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.namespace
 
 
-class GetNamespaceResponse(TypedDict):
+class GetNamespaceResponse(TypedDict, closed=True):
     namespace: NotRequired["aws_sdk_servicediscovery.types.namespace.Namespace"]
     """<p>A complex type that contains information about the specified namespace.</p>"""
 

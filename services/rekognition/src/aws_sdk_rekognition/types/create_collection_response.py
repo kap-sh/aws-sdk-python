@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CreateCollectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
     import aws_sdk_rekognition.types.u_integer
 
 
-class CreateCollectionResponse(TypedDict):
+class CreateCollectionResponse(TypedDict, closed=True):
     status_code: NotRequired["aws_sdk_rekognition.types.u_integer.UInteger"]
     """<p>HTTP status code indicating the result of the operation.</p>"""
     collection_arn: NotRequired["aws_sdk_rekognition.types.string.String"]

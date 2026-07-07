@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#AttachVolumeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.target_arn
     import aws_sdk_storage_gateway.types.volume_arn
 
 
-class AttachVolumeOutput(TypedDict):
+class AttachVolumeOutput(TypedDict, closed=True):
     volume_arn: NotRequired["aws_sdk_storage_gateway.types.volume_arn.VolumeARN"]
     """<p>The Amazon Resource Name (ARN) of the volume that was attached to the gateway.</p>"""
     target_arn: NotRequired["aws_sdk_storage_gateway.types.target_arn.TargetARN"]

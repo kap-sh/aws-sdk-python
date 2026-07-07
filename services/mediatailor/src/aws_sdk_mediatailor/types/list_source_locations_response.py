@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ListSourceLocationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__list_of_source_location
     import aws_sdk_mediatailor.types.__string
 
 
-class ListSourceLocationsResponse(TypedDict):
+class ListSourceLocationsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_mediatailor.types.__list_of_source_location.__listOfSourceLocation"
     ]

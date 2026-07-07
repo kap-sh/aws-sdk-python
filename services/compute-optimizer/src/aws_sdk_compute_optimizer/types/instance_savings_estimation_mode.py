@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#InstanceSavingsEstimationMode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.instance_savings_estimation_mode_source
 
 
-class InstanceSavingsEstimationMode(TypedDict):
+class InstanceSavingsEstimationMode(TypedDict, closed=True):
     source: NotRequired[
         "aws_sdk_compute_optimizer.types.instance_savings_estimation_mode_source.InstanceSavingsEstimationModeSource"
     ]

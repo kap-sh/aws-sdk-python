@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#MultiSelectQuestionRuleCategoryAutomation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.reference_id_list
 
 
-class MultiSelectQuestionRuleCategoryAutomation(TypedDict):
+class MultiSelectQuestionRuleCategoryAutomation(TypedDict, closed=True):
     category: "aws_sdk_connect.types.multi_select_question_rule_category_automation_label.MultiSelectQuestionRuleCategoryAutomationLabel"
     """<p>The category name for this automation rule.</p>"""
     condition: "aws_sdk_connect.types.multi_select_question_rule_category_automation_condition.MultiSelectQuestionRuleCategoryAutomationCondition"

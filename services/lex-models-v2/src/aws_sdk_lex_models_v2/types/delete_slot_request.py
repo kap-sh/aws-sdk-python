@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DeleteSlotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.draft_bot_version
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.locale_id
 
 
-class DeleteSlotRequest(TypedDict):
+class DeleteSlotRequest(TypedDict, closed=True):
     slot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The identifier of the slot to delete. </p>"""
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"

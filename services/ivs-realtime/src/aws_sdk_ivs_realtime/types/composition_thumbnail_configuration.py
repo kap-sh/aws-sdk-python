@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#CompositionThumbnailConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.thumbnail_interval_seconds
     import aws_sdk_ivs_realtime.types.thumbnail_storage_type_list
 
 
-class CompositionThumbnailConfiguration(TypedDict):
+class CompositionThumbnailConfiguration(TypedDict, closed=True):
     target_interval_seconds: NotRequired[
         "aws_sdk_ivs_realtime.types.thumbnail_interval_seconds.ThumbnailIntervalSeconds"
     ]

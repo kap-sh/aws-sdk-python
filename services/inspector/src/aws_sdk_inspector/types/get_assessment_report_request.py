@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#GetAssessmentReportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.report_type
 
 
-class GetAssessmentReportRequest(TypedDict):
+class GetAssessmentReportRequest(TypedDict, closed=True):
     assessment_run_arn: "aws_sdk_inspector.types.arn.Arn"
     """<p>The ARN that specifies the assessment run for which you want to generate a report.</p>"""
     report_file_format: "aws_sdk_inspector.types.report_file_format.ReportFileFormat"

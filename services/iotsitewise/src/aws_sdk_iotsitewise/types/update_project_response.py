@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#UpdateProjectResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateProjectResponse(TypedDict):
+class UpdateProjectResponse(TypedDict, closed=True):
     pass
 
 

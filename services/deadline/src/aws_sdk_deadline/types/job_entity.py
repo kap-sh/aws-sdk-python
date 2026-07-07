@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#JobEntity``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.step_details_entity
 
 
-class _JobEntity_jobDetails(TypedDict):
+class _JobEntity_jobDetails(TypedDict, closed=True):
     jobDetails: "aws_sdk_deadline.types.job_details_entity.JobDetailsEntity"
 
 
-class _JobEntity_jobAttachmentDetails(TypedDict):
+class _JobEntity_jobAttachmentDetails(TypedDict, closed=True):
     jobAttachmentDetails: "aws_sdk_deadline.types.job_attachment_details_entity.JobAttachmentDetailsEntity"
 
 
-class _JobEntity_stepDetails(TypedDict):
+class _JobEntity_stepDetails(TypedDict, closed=True):
     stepDetails: "aws_sdk_deadline.types.step_details_entity.StepDetailsEntity"
 
 
-class _JobEntity_environmentDetails(TypedDict):
+class _JobEntity_environmentDetails(TypedDict, closed=True):
     environmentDetails: (
         "aws_sdk_deadline.types.environment_details_entity.EnvironmentDetailsEntity"
     )

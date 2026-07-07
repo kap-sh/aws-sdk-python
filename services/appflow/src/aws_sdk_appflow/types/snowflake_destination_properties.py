@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SnowflakeDestinationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.object
 
 
-class SnowflakeDestinationProperties(TypedDict):
+class SnowflakeDestinationProperties(TypedDict, closed=True):
     object: "aws_sdk_appflow.types.object.Object"
     """<p> The object specified in the Snowflake flow destination. </p>"""
     intermediate_bucket_name: "aws_sdk_appflow.types.bucket_name.BucketName"

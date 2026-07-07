@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#TrafficShapingTpsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__integer
 
 
-class TrafficShapingTpsConfiguration(TypedDict):
+class TrafficShapingTpsConfiguration(TypedDict, closed=True):
     peak_tps: NotRequired["aws_sdk_mediatailor.types.__integer.__integer"]
     """<p>The maximum number of transactions per second (TPS) that your ad decision server (ADS) can handle. MediaTailor uses this value along with concurrent users and headroom multiplier to calculate optimal traffic distribution and prevent ADS overload.</p>"""
     peak_concurrent_users: NotRequired["aws_sdk_mediatailor.types.__integer.__integer"]

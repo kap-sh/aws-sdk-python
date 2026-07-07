@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeUpdateDirectoryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.next_token
     import aws_sdk_directory_service.types.update_activities
 
 
-class DescribeUpdateDirectoryResult(TypedDict):
+class DescribeUpdateDirectoryResult(TypedDict, closed=True):
     update_activities: NotRequired[
         "aws_sdk_directory_service.types.update_activities.UpdateActivities"
     ]

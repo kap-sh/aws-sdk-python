@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#TelephonyChannelSubtypeParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.source_phone_number
 
 
-class TelephonyChannelSubtypeParameters(TypedDict):
+class TelephonyChannelSubtypeParameters(TypedDict, closed=True):
     destination_phone_number: "aws_sdk_connectcampaignsv2.types.destination_phone_number.DestinationPhoneNumber"
     attributes: "aws_sdk_connectcampaignsv2.types.attributes.Attributes"
     connect_source_phone_number: NotRequired[

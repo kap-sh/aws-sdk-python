@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GlueConnectionPatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.authentication_configuration_patch
     import aws_sdk_datazone.types.connection_properties
 
 
-class GlueConnectionPatch(TypedDict):
+class GlueConnectionPatch(TypedDict, closed=True):
     description: NotRequired["str"]
     """<p>The description of the Amazon Web Services Glue connection patch.</p>"""
     connection_properties: NotRequired[

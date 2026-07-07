@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#RegisteredMCPServerDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.mcp_server_authorization_method
 
 
-class RegisteredMCPServerDetails(TypedDict):
+class RegisteredMCPServerDetails(TypedDict, closed=True):
     name: "str"
     """<p>The MCP server name.</p>"""
     endpoint: "str"

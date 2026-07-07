@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#PrefixLevel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.prefix_level_storage_metrics
 
 
-class PrefixLevel(TypedDict):
+class PrefixLevel(TypedDict, closed=True):
     storage_metrics: "aws_sdk_s3_control.types.prefix_level_storage_metrics.PrefixLevelStorageMetrics"
     """<p>A container for the prefix-level storage metrics for S3 Storage Lens.</p>"""
 

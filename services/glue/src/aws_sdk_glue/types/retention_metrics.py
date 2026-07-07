@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#RetentionMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.iceberg_retention_metrics
 
 
-class RetentionMetrics(TypedDict):
+class RetentionMetrics(TypedDict, closed=True):
     iceberg_metrics: NotRequired[
         "aws_sdk_glue.types.iceberg_retention_metrics.IcebergRetentionMetrics"
     ]

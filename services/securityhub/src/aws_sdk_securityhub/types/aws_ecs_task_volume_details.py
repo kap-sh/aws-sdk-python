@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsTaskVolumeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ecs_task_volume_host_details
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsTaskVolumeDetails(TypedDict):
+class AwsEcsTaskVolumeDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>. </p>"""
     host: NotRequired[

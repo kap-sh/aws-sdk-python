@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsBackupRecoveryPointCalculatedLifecycleDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsBackupRecoveryPointCalculatedLifecycleDetails(TypedDict):
+class AwsBackupRecoveryPointCalculatedLifecycleDetails(TypedDict, closed=True):
     delete_at: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>Specifies the number of days after creation that a recovery point is deleted. Must be greater than 90 days plus <code>MoveToColdStorageAfterDays</code>. </p>"""
     move_to_cold_storage_at: NotRequired[

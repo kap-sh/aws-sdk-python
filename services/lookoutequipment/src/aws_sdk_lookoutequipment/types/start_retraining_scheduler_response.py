@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#StartRetrainingSchedulerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.model_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.retraining_scheduler_status
 
 
-class StartRetrainingSchedulerResponse(TypedDict):
+class StartRetrainingSchedulerResponse(TypedDict, closed=True):
     model_name: NotRequired["aws_sdk_lookoutequipment.types.model_name.ModelName"]
     """<p>The name of the model whose retraining scheduler is being started. </p>"""
     model_arn: NotRequired["aws_sdk_lookoutequipment.types.model_arn.ModelArn"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#ServiceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.iam_role_arn
 
 
-class ServiceSettings(TypedDict):
+class ServiceSettings(TypedDict, closed=True):
     explorer_enabling_role_arn: NotRequired[
         "aws_sdk_ssm_quicksetup.types.iam_role_arn.IAMRoleArn"
     ]

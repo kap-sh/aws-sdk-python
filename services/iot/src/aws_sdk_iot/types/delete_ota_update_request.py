@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteOTAUpdateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.delete_stream_
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.ota_update_id
 
 
-class DeleteOTAUpdateRequest(TypedDict):
+class DeleteOTAUpdateRequest(TypedDict, closed=True):
     ota_update_id: "aws_sdk_iot.types.ota_update_id.OTAUpdateId"
     """<p>The ID of the OTA update to delete.</p>"""
     delete_stream: "aws_sdk_iot.types.delete_stream_.DeleteStream_"

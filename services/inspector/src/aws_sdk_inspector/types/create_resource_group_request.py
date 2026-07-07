@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#CreateResourceGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.resource_group_tags
 
 
-class CreateResourceGroupRequest(TypedDict):
+class CreateResourceGroupRequest(TypedDict, closed=True):
     resource_group_tags: "aws_sdk_inspector.types.resource_group_tags.ResourceGroupTags"
     r"""<p>A collection of keys and an array of possible values, '[{\"key\":\"key1\",\"values\":[\"Value1\",\"Value2\"]},{\"key\":\"Key2\",\"values\":[\"Value3\"]}]'.</p> <p>For example,'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]'.</p>"""
 

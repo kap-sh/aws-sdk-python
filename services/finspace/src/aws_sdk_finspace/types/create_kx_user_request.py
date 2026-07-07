@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#CreateKxUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_finspace.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.tag_map
 
 
-class CreateKxUserRequest(TypedDict):
+class CreateKxUserRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_finspace.types.id_type.IdType"
     """<p>A unique identifier for the kdb environment where you want to create a user.</p>"""
     user_name: "aws_sdk_finspace.types.kx_user_name_string.KxUserNameString"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#PhysicalResourceIdContextKeyValuePair``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.value
 
 
-class PhysicalResourceIdContextKeyValuePair(TypedDict):
+class PhysicalResourceIdContextKeyValuePair(TypedDict, closed=True):
     key: NotRequired["aws_sdk_cloudformation.types.key.Key"]
     """<p>The resource context key.</p>"""
     value: NotRequired["aws_sdk_cloudformation.types.value.Value"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.proton#UpdateServiceSyncBlockerInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
 
-class UpdateServiceSyncBlockerInput(TypedDict):
+class UpdateServiceSyncBlockerInput(TypedDict, closed=True):
     id: "str"
     """<p>The ID of the service sync blocker.</p>"""
     resolved_reason: "str"

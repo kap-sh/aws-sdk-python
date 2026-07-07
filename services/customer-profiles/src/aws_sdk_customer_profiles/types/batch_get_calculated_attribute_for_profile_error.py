@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#BatchGetCalculatedAttributeForProfileError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.uuid
 
 
-class BatchGetCalculatedAttributeForProfileError(TypedDict):
+class BatchGetCalculatedAttributeForProfileError(TypedDict, closed=True):
     code: "aws_sdk_customer_profiles.types.string1_to255.string1To255"
     """<p>Status code for why a specific profile and calculated attribute failed.</p>"""
     message: "aws_sdk_customer_profiles.types.string1_to1000.string1To1000"

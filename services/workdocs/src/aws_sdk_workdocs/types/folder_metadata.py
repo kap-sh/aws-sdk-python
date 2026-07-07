@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#FolderMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.hash_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.timestamp_type
 
 
-class FolderMetadata(TypedDict):
+class FolderMetadata(TypedDict, closed=True):
     id: NotRequired["aws_sdk_workdocs.types.resource_id_type.ResourceIdType"]
     """<p>The ID of the folder.</p>"""
     name: NotRequired["aws_sdk_workdocs.types.resource_name_type.ResourceNameType"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataColor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.double
     import aws_sdk_quicksight.types.hex_color
 
 
-class DataColor(TypedDict):
+class DataColor(TypedDict, closed=True):
     color: NotRequired["aws_sdk_quicksight.types.hex_color.HexColor"]
     """<p>The color that is applied to the data value.</p>"""
     data_value: NotRequired["aws_sdk_quicksight.types.double.Double"]

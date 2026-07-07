@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#ListResourceScanRelatedResourcesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.related_resources
 
 
-class ListResourceScanRelatedResourcesOutput(TypedDict):
+class ListResourceScanRelatedResourcesOutput(TypedDict, closed=True):
     related_resources: NotRequired[
         "aws_sdk_cloudformation.types.related_resources.RelatedResources"
     ]

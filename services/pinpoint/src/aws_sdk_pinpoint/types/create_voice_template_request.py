@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#CreateVoiceTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.voice_template_request
 
 
-class CreateVoiceTemplateRequest(TypedDict):
+class CreateVoiceTemplateRequest(TypedDict, closed=True):
     template_name: "aws_sdk_pinpoint.types.__string.__string"
     """<p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>"""
     voice_template_request: NotRequired[

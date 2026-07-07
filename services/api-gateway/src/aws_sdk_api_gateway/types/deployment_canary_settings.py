@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#DeploymentCanarySettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.map_of_string_to_string
 
 
-class DeploymentCanarySettings(TypedDict):
+class DeploymentCanarySettings(TypedDict, closed=True):
     percent_traffic: "aws_sdk_api_gateway.types.double.Double"
     """<p>The percentage (0.0-100.0) of traffic routed to the canary deployment.</p>"""
     stage_variable_overrides: NotRequired[

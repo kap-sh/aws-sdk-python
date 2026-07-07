@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetOTAUpdateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.ota_update_id
 
 
-class GetOTAUpdateRequest(TypedDict):
+class GetOTAUpdateRequest(TypedDict, closed=True):
     ota_update_id: "aws_sdk_iot.types.ota_update_id.OTAUpdateId"
     """<p>The OTA update ID.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AllowedExtension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.file_extension
 
 
-class AllowedExtension(TypedDict):
+class AllowedExtension(TypedDict, closed=True):
     extension: "aws_sdk_connect.types.file_extension.FileExtension"
     """<p>The file extension. The extension must be between 1 and 10 characters and can contain only alphanumeric characters, hyphens, and underscores.</p>"""
 

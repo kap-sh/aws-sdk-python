@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#EvaluatorModelConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.bedrock_evaluator_models
 
 
-class _EvaluatorModelConfig_bedrockEvaluatorModels(TypedDict):
+class _EvaluatorModelConfig_bedrockEvaluatorModels(TypedDict, closed=True):
     bedrockEvaluatorModels: (
         "aws_sdk_bedrock.types.bedrock_evaluator_models.BedrockEvaluatorModels"
     )

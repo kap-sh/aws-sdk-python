@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#OEMEphemeris``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.s3_object
     import aws_sdk_groundstation.types.unbounded_string
 
 
-class OEMEphemeris(TypedDict):
+class OEMEphemeris(TypedDict, closed=True):
     s3_object: NotRequired["aws_sdk_groundstation.types.s3_object.S3Object"]
     """<p>The Amazon S3 object that contains the ephemeris data.</p>"""
     oem_data: NotRequired[

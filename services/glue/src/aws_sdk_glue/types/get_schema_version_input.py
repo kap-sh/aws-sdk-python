@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetSchemaVersionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_version_number
 
 
-class GetSchemaVersionInput(TypedDict):
+class GetSchemaVersionInput(TypedDict, closed=True):
     schema_id: NotRequired["aws_sdk_glue.types.schema_id.SchemaId"]
     """<p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p> </li> </ul>"""
     schema_version_id: NotRequired[

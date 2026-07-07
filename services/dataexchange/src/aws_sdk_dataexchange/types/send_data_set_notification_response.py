@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#SendDataSetNotificationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SendDataSetNotificationResponse(TypedDict):
+class SendDataSetNotificationResponse(TypedDict, closed=True):
     pass
 
 

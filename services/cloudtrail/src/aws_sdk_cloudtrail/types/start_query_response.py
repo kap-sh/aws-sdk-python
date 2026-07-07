@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#StartQueryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.account_id
     import aws_sdk_cloudtrail.types.uuid
 
 
-class StartQueryResponse(TypedDict):
+class StartQueryResponse(TypedDict, closed=True):
     query_id: NotRequired["aws_sdk_cloudtrail.types.uuid.UUID"]
     """<p>The ID of the started query.</p>"""
     event_data_store_owner_account_id: NotRequired[

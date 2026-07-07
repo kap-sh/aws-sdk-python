@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#ScheduledAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.timestamp_type
 
 
-class ScheduledAction(TypedDict):
+class ScheduledAction(TypedDict, closed=True):
     scheduled_action_name: "aws_sdk_application_auto_scaling.types.scheduled_action_name.ScheduledActionName"
     """<p>The name of the scheduled action.</p>"""
     scheduled_action_arn: "aws_sdk_application_auto_scaling.types.resource_id_max_len1600.ResourceIdMaxLen1600"

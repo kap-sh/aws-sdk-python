@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.efs#RootDirectory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.creation_info
     import aws_sdk_efs.types.path
 
 
-class RootDirectory(TypedDict):
+class RootDirectory(TypedDict, closed=True):
     path: NotRequired["aws_sdk_efs.types.path.Path"]
     """<p>Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the <code>CreationInfo</code>.</p>"""
     creation_info: NotRequired["aws_sdk_efs.types.creation_info.CreationInfo"]

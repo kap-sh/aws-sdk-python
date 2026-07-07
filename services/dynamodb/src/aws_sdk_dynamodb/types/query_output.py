@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#QueryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.consumed_capacity
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.key
 
 
-class QueryOutput(TypedDict):
+class QueryOutput(TypedDict, closed=True):
     items: NotRequired["aws_sdk_dynamodb.types.item_list.ItemList"]
     """<p>An array of item attributes that match the query criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>"""
     count: "aws_sdk_dynamodb.types.integer.Integer"

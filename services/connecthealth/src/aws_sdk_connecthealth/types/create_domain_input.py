@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#CreateDomainInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connecthealth.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.tag_map
 
 
-class CreateDomainInput(TypedDict):
+class CreateDomainInput(TypedDict, closed=True):
     name: "aws_sdk_connecthealth.types.domain_name.DomainName"
     """<p>The name for the new Domain.</p>"""
     kms_key_arn: NotRequired["aws_sdk_connecthealth.types.kms_key_arn.KmsKeyArn"]

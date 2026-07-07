@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#InvokeAgentRuntimeCommandStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore._iter import AnyIterator
 from aws_sdk_bedrock_agentcore._protocol.eventstream import Message
@@ -16,39 +18,51 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.response_chunk
 
 
-class _InvokeAgentRuntimeCommandStreamOutput_chunk(TypedDict):
+class _InvokeAgentRuntimeCommandStreamOutput_chunk(TypedDict, closed=True):
     chunk: "aws_sdk_bedrock_agentcore.types.response_chunk.ResponseChunk"
 
 
-class _InvokeAgentRuntimeCommandStreamOutput_accessDeniedException(TypedDict):
+class _InvokeAgentRuntimeCommandStreamOutput_accessDeniedException(
+    TypedDict, closed=True
+):
     accessDeniedException: "aws_sdk_bedrock_agentcore.errors.access_denied_exception.AccessDeniedException_"
 
 
-class _InvokeAgentRuntimeCommandStreamOutput_internalServerException(TypedDict):
+class _InvokeAgentRuntimeCommandStreamOutput_internalServerException(
+    TypedDict, closed=True
+):
     internalServerException: "aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException_"
 
 
-class _InvokeAgentRuntimeCommandStreamOutput_resourceNotFoundException(TypedDict):
+class _InvokeAgentRuntimeCommandStreamOutput_resourceNotFoundException(
+    TypedDict, closed=True
+):
     resourceNotFoundException: "aws_sdk_bedrock_agentcore.errors.resource_not_found_exception.ResourceNotFoundException_"
 
 
-class _InvokeAgentRuntimeCommandStreamOutput_serviceQuotaExceededException(TypedDict):
+class _InvokeAgentRuntimeCommandStreamOutput_serviceQuotaExceededException(
+    TypedDict, closed=True
+):
     serviceQuotaExceededException: "aws_sdk_bedrock_agentcore.errors.service_quota_exceeded_exception.ServiceQuotaExceededException_"
 
 
-class _InvokeAgentRuntimeCommandStreamOutput_throttlingException(TypedDict):
+class _InvokeAgentRuntimeCommandStreamOutput_throttlingException(
+    TypedDict, closed=True
+):
     throttlingException: (
         "aws_sdk_bedrock_agentcore.errors.throttling_exception.ThrottlingException_"
     )
 
 
-class _InvokeAgentRuntimeCommandStreamOutput_validationException(TypedDict):
+class _InvokeAgentRuntimeCommandStreamOutput_validationException(
+    TypedDict, closed=True
+):
     validationException: (
         "aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException_"
     )
 
 
-class _InvokeAgentRuntimeCommandStreamOutput_runtimeClientError(TypedDict):
+class _InvokeAgentRuntimeCommandStreamOutput_runtimeClientError(TypedDict, closed=True):
     runtimeClientError: (
         "aws_sdk_bedrock_agentcore.errors.runtime_client_error.RuntimeClientError_"
     )

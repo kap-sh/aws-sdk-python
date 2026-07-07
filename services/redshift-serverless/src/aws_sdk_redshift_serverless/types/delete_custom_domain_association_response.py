@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#DeleteCustomDomainAssociationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCustomDomainAssociationResponse(TypedDict):
+class DeleteCustomDomainAssociationResponse(TypedDict, closed=True):
     pass
 
 

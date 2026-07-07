@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#DashPackage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.segment_template_format
 
 
-class DashPackage(TypedDict):
+class DashPackage(TypedDict, closed=True):
     dash_manifests: NotRequired[
         "aws_sdk_mediapackage_vod.types.__list_of_dash_manifest.__listOfDashManifest"
     ]

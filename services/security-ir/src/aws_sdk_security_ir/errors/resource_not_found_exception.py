@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#ResourceNotFoundException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
     """<p>The exception message.</p>"""
 

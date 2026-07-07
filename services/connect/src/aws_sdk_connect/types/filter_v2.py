@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#FilterV2``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.filter_v2_string_condition
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.resource_arn_or_id
 
 
-class FilterV2(TypedDict):
+class FilterV2(TypedDict, closed=True):
     filter_key: NotRequired["aws_sdk_connect.types.resource_arn_or_id.ResourceArnOrId"]
     """<p>The key to use for filtering data. For example, <code>QUEUE</code>, <code>ROUTING_PROFILE, AGENT</code>, <code>CHANNEL</code>, <code>AGENT_HIERARCHY_LEVEL_ONE</code>, <code>AGENT_HIERARCHY_LEVEL_TWO</code>, <code>AGENT_HIERARCHY_LEVEL_THREE</code>, <code>AGENT_HIERARCHY_LEVEL_FOUR</code>, <code>AGENT_HIERARCHY_LEVEL_FIVE</code>. There must be at least 1 key and a maximum 5 keys. </p>"""
     filter_values: NotRequired[

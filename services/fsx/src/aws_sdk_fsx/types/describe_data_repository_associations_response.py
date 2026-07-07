@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeDataRepositoryAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.data_repository_associations
     import aws_sdk_fsx.types.next_token
 
 
-class DescribeDataRepositoryAssociationsResponse(TypedDict):
+class DescribeDataRepositoryAssociationsResponse(TypedDict, closed=True):
     associations: NotRequired[
         "aws_sdk_fsx.types.data_repository_associations.DataRepositoryAssociations"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#ImportRestApiRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_api_gateway.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.map_of_string_to_string
 
 
-class ImportRestApiRequest(TypedDict):
+class ImportRestApiRequest(TypedDict, closed=True):
     fail_on_warnings: "aws_sdk_api_gateway.types.boolean.Boolean"
     """<p>A query parameter to indicate whether to rollback the API creation (<code>true</code>) or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</p>"""
     parameters: NotRequired[

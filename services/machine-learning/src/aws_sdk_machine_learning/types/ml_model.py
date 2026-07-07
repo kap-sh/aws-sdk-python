@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#MLModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.algorithm
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.training_parameters
 
 
-class MLModel(TypedDict):
+class MLModel(TypedDict, closed=True):
     ml_model_id: NotRequired["aws_sdk_machine_learning.types.entity_id.EntityId"]
     """<p>The ID assigned to the <code>MLModel</code> at creation.</p>"""
     training_data_source_id: NotRequired[

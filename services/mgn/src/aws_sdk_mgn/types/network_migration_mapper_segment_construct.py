@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#NetworkMigrationMapperSegmentConstruct``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.segment_construct_name
 
 
-class NetworkMigrationMapperSegmentConstruct(TypedDict):
+class NetworkMigrationMapperSegmentConstruct(TypedDict, closed=True):
     construct_id: NotRequired["aws_sdk_mgn.types.construct_id.ConstructID"]
     """<p>The unique identifier of the construct.</p>"""
     construct_type: NotRequired[

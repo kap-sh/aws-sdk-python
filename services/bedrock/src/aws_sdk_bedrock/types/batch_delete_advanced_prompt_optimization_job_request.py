@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#BatchDeleteAdvancedPromptOptimizationJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.advanced_prompt_optimization_job_identifiers
 
 
-class BatchDeleteAdvancedPromptOptimizationJobRequest(TypedDict):
+class BatchDeleteAdvancedPromptOptimizationJobRequest(TypedDict, closed=True):
     job_identifiers: "aws_sdk_bedrock.types.advanced_prompt_optimization_job_identifiers.AdvancedPromptOptimizationJobIdentifiers"
     """<p>A list of advanced prompt optimization job identifiers (ARNs or IDs) to delete.</p>"""
 

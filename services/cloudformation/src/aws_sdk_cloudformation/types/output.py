@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#Output``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.output_value
 
 
-class Output(TypedDict):
+class Output(TypedDict, closed=True):
     output_key: NotRequired["aws_sdk_cloudformation.types.output_key.OutputKey"]
     """<p>The key associated with the output.</p>"""
     output_value: NotRequired["aws_sdk_cloudformation.types.output_value.OutputValue"]

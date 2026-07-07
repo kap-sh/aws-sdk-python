@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ObjectTypes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.object_type_enum
 
 
-class ObjectTypes(TypedDict):
+class ObjectTypes(TypedDict, closed=True):
     source: NotRequired["aws_sdk_codecommit.types.object_type_enum.ObjectTypeEnum"]
     """<p>The type of the object in the source branch.</p>"""
     destination: NotRequired["aws_sdk_codecommit.types.object_type_enum.ObjectTypeEnum"]

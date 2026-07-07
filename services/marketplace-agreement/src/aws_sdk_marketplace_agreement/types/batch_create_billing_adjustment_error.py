@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#BatchCreateBillingAdjustmentError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.client_token
 
 
-class BatchCreateBillingAdjustmentError(TypedDict):
+class BatchCreateBillingAdjustmentError(TypedDict, closed=True):
     code: "aws_sdk_marketplace_agreement.types.billing_adjustment_error_code.BillingAdjustmentErrorCode"
     """<p>The error code indicating the reason for failure.</p>"""
     message: "str"

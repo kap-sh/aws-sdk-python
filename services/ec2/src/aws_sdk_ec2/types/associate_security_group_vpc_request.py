@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AssociateSecurityGroupVpcRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_id
 
 
-class AssociateSecurityGroupVpcRequest(TypedDict):
+class AssociateSecurityGroupVpcRequest(TypedDict, closed=True):
     group_id: NotRequired["aws_sdk_ec2.types.security_group_id.SecurityGroupId"]
     """<p>A security group ID.</p>"""
     vpc_id: NotRequired["aws_sdk_ec2.types.vpc_id.VpcId"]

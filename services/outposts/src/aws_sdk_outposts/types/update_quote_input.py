@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#UpdateQuoteInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.country_code
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.quote_identifier
 
 
-class UpdateQuoteInput(TypedDict):
+class UpdateQuoteInput(TypedDict, closed=True):
     quote_identifier: "aws_sdk_outposts.types.quote_identifier.QuoteIdentifier"
     """<p>The ID or ARN of the quote.</p>"""
     outpost_identifier: NotRequired[

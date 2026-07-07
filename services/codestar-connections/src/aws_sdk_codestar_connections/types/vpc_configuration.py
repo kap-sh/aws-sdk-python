@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#VpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.vpc_id
 
 
-class VpcConfiguration(TypedDict):
+class VpcConfiguration(TypedDict, closed=True):
     vpc_id: "aws_sdk_codestar_connections.types.vpc_id.VpcId"
     """<p>The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.</p>"""
     subnet_ids: "aws_sdk_codestar_connections.types.subnet_ids.SubnetIds"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#TableLFTagPolicyAndPermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_table_tag_policy_lf_permissions
 
 
-class TableLFTagPolicyAndPermissions(TypedDict):
+class TableLFTagPolicyAndPermissions(TypedDict, closed=True):
     expression: "aws_sdk_dataexchange.types.list_of_lf_tags.ListOfLFTags"
     """<p>A list of LF-tag conditions that apply to table resources.</p>"""
     permissions: "aws_sdk_dataexchange.types.list_of_table_tag_policy_lf_permissions.ListOfTableTagPolicyLFPermissions"

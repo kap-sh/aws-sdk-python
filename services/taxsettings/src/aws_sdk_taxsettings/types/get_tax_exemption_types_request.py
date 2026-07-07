@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#GetTaxExemptionTypesRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetTaxExemptionTypesRequest(TypedDict):
+class GetTaxExemptionTypesRequest(TypedDict, closed=True):
     pass
 
 

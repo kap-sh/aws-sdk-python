@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#Preset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.audio_parameters
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.video_parameters
 
 
-class Preset(TypedDict):
+class Preset(TypedDict, closed=True):
     id: NotRequired["aws_sdk_elastic_transcoder.types.id.Id"]
     """<p>Identifier for the new preset. You use this value to get settings for the preset or to delete it.</p>"""
     arn: NotRequired["aws_sdk_elastic_transcoder.types.string.String"]

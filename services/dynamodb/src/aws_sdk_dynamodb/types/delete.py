@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#Delete``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_arn
 
 
-class Delete(TypedDict):
+class Delete(TypedDict, closed=True):
     key: "aws_sdk_dynamodb.types.key.Key"
     """<p>The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.</p>"""
     table_name: "aws_sdk_dynamodb.types.table_arn.TableArn"

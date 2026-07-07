@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#DeleteChannelGroupResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteChannelGroupResponse(TypedDict):
+class DeleteChannelGroupResponse(TypedDict, closed=True):
     pass
 
 

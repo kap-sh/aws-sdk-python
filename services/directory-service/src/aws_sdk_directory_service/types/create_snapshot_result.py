@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#CreateSnapshotResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.snapshot_id
 
 
-class CreateSnapshotResult(TypedDict):
+class CreateSnapshotResult(TypedDict, closed=True):
     snapshot_id: NotRequired["aws_sdk_directory_service.types.snapshot_id.SnapshotId"]
     """<p>The identifier of the snapshot that was created.</p>"""
 

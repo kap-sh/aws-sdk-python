@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CreateNetworkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_ip_pool_create_request
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.tags
 
 
-class CreateNetworkRequest(TypedDict):
+class CreateNetworkRequest(TypedDict, closed=True):
     ip_pools: NotRequired[
         "aws_sdk_medialive.types.__list_of_ip_pool_create_request.__listOfIpPoolCreateRequest"
     ]

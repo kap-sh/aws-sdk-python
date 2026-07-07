@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#FreeTrialInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.free_trial_type
 
 
-class FreeTrialInfo(TypedDict):
+class FreeTrialInfo(TypedDict, closed=True):
     type: "aws_sdk_inspector2.types.free_trial_type.FreeTrialType"
     """<p>The type of scan covered by the Amazon Inspector free trail.</p>"""
     start: "datetime.datetime"

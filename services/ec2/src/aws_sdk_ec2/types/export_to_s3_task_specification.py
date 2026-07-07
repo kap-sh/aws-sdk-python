@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ExportToS3TaskSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class ExportToS3TaskSpecification(TypedDict):
+class ExportToS3TaskSpecification(TypedDict, closed=True):
     disk_image_format: NotRequired[
         "aws_sdk_ec2.types.disk_image_format.DiskImageFormat"
     ]

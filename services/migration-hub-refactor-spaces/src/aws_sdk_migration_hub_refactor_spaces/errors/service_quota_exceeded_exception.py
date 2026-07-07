@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#ServiceQuotaExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migration_hub_refactor_spaces.errors import (
     DeserializationError,
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.string
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "aws_sdk_migration_hub_refactor_spaces.types.string.String"
     resource_id: "aws_sdk_migration_hub_refactor_spaces.types.string.String"
     """<p>The ID of the resource. </p>"""

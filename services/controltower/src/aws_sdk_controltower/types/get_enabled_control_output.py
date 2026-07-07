@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#GetEnabledControlOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.enabled_control_details
 
 
-class GetEnabledControlOutput(TypedDict):
+class GetEnabledControlOutput(TypedDict, closed=True):
     enabled_control_details: (
         "aws_sdk_controltower.types.enabled_control_details.EnabledControlDetails"
     )

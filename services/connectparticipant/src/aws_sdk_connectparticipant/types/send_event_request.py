@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#SendEventRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectparticipant.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.participant_token
 
 
-class SendEventRequest(TypedDict):
+class SendEventRequest(TypedDict, closed=True):
     content_type: "aws_sdk_connectparticipant.types.chat_content_type.ChatContentType"
     """<p>The content type of the request. Supported types are:</p> <ul> <li> <p>application/vnd.amazonaws.connect.event.typing</p> </li> <li> <p>application/vnd.amazonaws.connect.event.connection.acknowledged (is no longer maintained since December 31, 2024) </p> </li> <li> <p>application/vnd.amazonaws.connect.event.message.delivered</p> </li> <li> <p>application/vnd.amazonaws.connect.event.message.read</p> </li> </ul>"""
     content: NotRequired["aws_sdk_connectparticipant.types.chat_content.ChatContent"]

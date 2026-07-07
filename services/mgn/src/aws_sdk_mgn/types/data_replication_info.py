@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DataReplicationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.data_replication_error
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.replicator_id
 
 
-class DataReplicationInfo(TypedDict):
+class DataReplicationInfo(TypedDict, closed=True):
     lag_duration: NotRequired[
         "aws_sdk_mgn.types.iso8601_duration_string.ISO8601DurationString"
     ]

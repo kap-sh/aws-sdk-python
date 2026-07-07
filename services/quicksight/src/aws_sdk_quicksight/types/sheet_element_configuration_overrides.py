@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SheetElementConfigurationOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class SheetElementConfigurationOverrides(TypedDict):
+class SheetElementConfigurationOverrides(TypedDict, closed=True):
     visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>Determines whether or not the overrides are visible. Choose one of the following options:</p> <ul> <li> <p> <code>VISIBLE</code> </p> </li> <li> <p> <code>HIDDEN</code> </p> </li> </ul>"""
 

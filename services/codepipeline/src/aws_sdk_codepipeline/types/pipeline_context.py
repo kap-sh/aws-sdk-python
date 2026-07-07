@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PipelineContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.action_context
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.stage_context
 
 
-class PipelineContext(TypedDict):
+class PipelineContext(TypedDict, closed=True):
     pipeline_name: NotRequired["aws_sdk_codepipeline.types.pipeline_name.PipelineName"]
     """<p>The name of the pipeline. This is a user-specified value. Pipeline names must be unique across all pipeline names under an Amazon Web Services account.</p>"""
     stage: NotRequired["aws_sdk_codepipeline.types.stage_context.StageContext"]

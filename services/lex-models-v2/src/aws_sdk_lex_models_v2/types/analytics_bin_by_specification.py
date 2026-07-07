@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AnalyticsBinBySpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_sort_order
 
 
-class AnalyticsBinBySpecification(TypedDict):
+class AnalyticsBinBySpecification(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.analytics_bin_by_name.AnalyticsBinByName"
     """<p>Specifies the time metric by which to bin the analytics data.</p>"""
     interval: "aws_sdk_lex_models_v2.types.analytics_interval.AnalyticsInterval"

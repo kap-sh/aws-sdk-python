@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#NewAsoDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.aso
     import aws_sdk_detective.types.is_new_for_entire_account
 
 
-class NewAsoDetail(TypedDict):
+class NewAsoDetail(TypedDict, closed=True):
     aso: NotRequired["aws_sdk_detective.types.aso.Aso"]
     """<p>Details about the new Autonomous System Organization (ASO).</p>"""
     is_new_for_entire_account: (

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#DashTtmlConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.dash_ttml_profile
 
 
-class DashTtmlConfiguration(TypedDict):
+class DashTtmlConfiguration(TypedDict, closed=True):
     ttml_profile: "aws_sdk_mediapackagev2.types.dash_ttml_profile.DashTtmlProfile"
     r"""<p>The profile that MediaPackage uses when signaling subtitles in the manifest. <code>IMSC</code> is the default profile. <code>EBU-TT-D</code> produces subtitles that are compliant with the EBU-TT-D TTML profile. MediaPackage passes through subtitle styles to the manifest. For more information about EBU-TT-D subtitles, see <a href=\"https://tech.ebu.ch/publications/tech3380\">EBU-TT-D Subtitling Distribution Format</a>.</p>"""
 

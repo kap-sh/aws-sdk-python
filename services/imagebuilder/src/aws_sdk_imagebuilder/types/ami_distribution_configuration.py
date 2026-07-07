@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#AmiDistributionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.account_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.tag_map
 
 
-class AmiDistributionConfiguration(TypedDict):
+class AmiDistributionConfiguration(TypedDict, closed=True):
     name: NotRequired["aws_sdk_imagebuilder.types.ami_name_string.AmiNameString"]
     """<p>The name of the output AMI.</p>"""
     description: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ManagePropertygraphStatisticsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.statistics_auto_generation_mode
 
 
-class ManagePropertygraphStatisticsInput(TypedDict):
+class ManagePropertygraphStatisticsInput(TypedDict, closed=True):
     mode: NotRequired[
         "aws_sdk_neptunedata.types.statistics_auto_generation_mode.StatisticsAutoGenerationMode"
     ]

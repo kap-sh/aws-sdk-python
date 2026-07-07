@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#ParametricCloudWatchMonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.string256
     import aws_sdk_emr_containers.types.template_parameter
 
 
-class ParametricCloudWatchMonitoringConfiguration(TypedDict):
+class ParametricCloudWatchMonitoringConfiguration(TypedDict, closed=True):
     log_group_name: NotRequired[
         "aws_sdk_emr_containers.types.template_parameter.TemplateParameter"
     ]

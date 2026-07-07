@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterKubernetesConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_kubernetes_labels
     import aws_sdk_sagemaker.types.cluster_kubernetes_taints
 
 
-class ClusterKubernetesConfigDetails(TypedDict):
+class ClusterKubernetesConfigDetails(TypedDict, closed=True):
     current_labels: NotRequired[
         "aws_sdk_sagemaker.types.cluster_kubernetes_labels.ClusterKubernetesLabels"
     ]

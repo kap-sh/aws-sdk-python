@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotjobsdataplane#JobExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_jobs_data_plane.types.approximate_seconds_before_timed_out
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_jobs_data_plane.types.version_number
 
 
-class JobExecution(TypedDict):
+class JobExecution(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_iot_jobs_data_plane.types.job_id.JobId"]
     """<p>The unique identifier you assigned to this job when it was created.</p>"""
     thing_name: NotRequired["aws_sdk_iot_jobs_data_plane.types.thing_name.ThingName"]

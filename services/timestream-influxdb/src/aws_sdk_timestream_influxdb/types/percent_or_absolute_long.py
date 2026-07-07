@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#PercentOrAbsoluteLong``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError, SerializationError
 
 
-class _PercentOrAbsoluteLong_percent(TypedDict):
+class _PercentOrAbsoluteLong_percent(TypedDict, closed=True):
     percent: "str"
 
 
-class _PercentOrAbsoluteLong_absolute(TypedDict):
+class _PercentOrAbsoluteLong_absolute(TypedDict, closed=True):
     absolute: "int"
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#StepFailedDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.retry_details
 
 
-class StepFailedDetails(TypedDict):
+class StepFailedDetails(TypedDict, closed=True):
     error: "aws_sdk_lambda.types.event_error.EventError"
     """<p>Details about the step failure.</p>"""
     retry_details: "aws_sdk_lambda.types.retry_details.RetryDetails"

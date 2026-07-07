@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#SupportedEmailDomainsStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_repostspace.types.allowed_domains_list
     import aws_sdk_repostspace.types.feature_enable_status
 
 
-class SupportedEmailDomainsStatus(TypedDict):
+class SupportedEmailDomainsStatus(TypedDict, closed=True):
     enabled: NotRequired[
         "aws_sdk_repostspace.types.feature_enable_status.FeatureEnableStatus"
     ]

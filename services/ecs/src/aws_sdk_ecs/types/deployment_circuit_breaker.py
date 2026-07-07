@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DeploymentCircuitBreaker``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boolean
 
 
-class DeploymentCircuitBreaker(TypedDict):
+class DeploymentCircuitBreaker(TypedDict, closed=True):
     enable: "aws_sdk_ecs.types.boolean.Boolean"
     """<p>Determines whether to use the deployment circuit breaker logic for the service.</p>"""
     rollback: "aws_sdk_ecs.types.boolean.Boolean"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#UpdateDatabaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.database
 
 
-class UpdateDatabaseResponse(TypedDict):
+class UpdateDatabaseResponse(TypedDict, closed=True):
     database: NotRequired["aws_sdk_timestream_write.types.database.Database"]
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#AutomaticTapeCreationRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tape_size
 
 
-class AutomaticTapeCreationRule(TypedDict):
+class AutomaticTapeCreationRule(TypedDict, closed=True):
     tape_barcode_prefix: (
         "aws_sdk_storage_gateway.types.tape_barcode_prefix.TapeBarcodePrefix"
     )

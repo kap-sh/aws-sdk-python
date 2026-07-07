@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#EnvironmentDeploymentDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.environment_failure_reasons
     import aws_sdk_datazone.types.overall_deployment_status
 
 
-class EnvironmentDeploymentDetails(TypedDict):
+class EnvironmentDeploymentDetails(TypedDict, closed=True):
     overall_deployment_status: NotRequired[
         "aws_sdk_datazone.types.overall_deployment_status.OverallDeploymentStatus"
     ]

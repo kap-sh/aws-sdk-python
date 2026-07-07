@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#UpdateInputResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.input_configuration
 
 
-class UpdateInputResponse(TypedDict):
+class UpdateInputResponse(TypedDict, closed=True):
     input_configuration: NotRequired[
         "aws_sdk_iot_events.types.input_configuration.InputConfiguration"
     ]

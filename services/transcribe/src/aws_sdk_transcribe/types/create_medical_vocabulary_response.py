@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#CreateMedicalVocabularyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.date_time
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.vocabulary_state
 
 
-class CreateMedicalVocabularyResponse(TypedDict):
+class CreateMedicalVocabularyResponse(TypedDict, closed=True):
     vocabulary_name: NotRequired[
         "aws_sdk_transcribe.types.vocabulary_name.VocabularyName"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GetManagedRuleSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.lock_token
     import aws_sdk_wafv2.types.managed_rule_set
 
 
-class GetManagedRuleSetResponse(TypedDict):
+class GetManagedRuleSetResponse(TypedDict, closed=True):
     managed_rule_set: NotRequired["aws_sdk_wafv2.types.managed_rule_set.ManagedRuleSet"]
     """<p>The managed rule set that you requested. </p>"""
     lock_token: NotRequired["aws_sdk_wafv2.types.lock_token.LockToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#CreateMonitorInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_internetmonitor.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.traffic_percentage_to_monitor
 
 
-class CreateMonitorInput(TypedDict):
+class CreateMonitorInput(TypedDict, closed=True):
     monitor_name: "aws_sdk_internetmonitor.types.resource_name.ResourceName"
     """<p>The name of the monitor. </p>"""
     resources: NotRequired["aws_sdk_internetmonitor.types.set_of_ar_ns.SetOfARNs"]

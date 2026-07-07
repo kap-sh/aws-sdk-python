@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_identitystore.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_identitystore.types.request_id
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_identitystore.types.exception_message.ExceptionMessage"
     ]

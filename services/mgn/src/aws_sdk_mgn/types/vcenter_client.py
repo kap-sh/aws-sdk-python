@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#VcenterClient``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.vcenter_client_id
 
 
-class VcenterClient(TypedDict):
+class VcenterClient(TypedDict, closed=True):
     vcenter_client_id: NotRequired[
         "aws_sdk_mgn.types.vcenter_client_id.VcenterClientID"
     ]

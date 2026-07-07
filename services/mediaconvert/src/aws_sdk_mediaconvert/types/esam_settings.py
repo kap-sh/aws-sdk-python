@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#EsamSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max30000
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.esam_signal_processing_notification
 
 
-class EsamSettings(TypedDict):
+class EsamSettings(TypedDict, closed=True):
     manifest_confirm_condition_notification: NotRequired[
         "aws_sdk_mediaconvert.types.esam_manifest_confirm_condition_notification.EsamManifestConfirmConditionNotification"
     ]

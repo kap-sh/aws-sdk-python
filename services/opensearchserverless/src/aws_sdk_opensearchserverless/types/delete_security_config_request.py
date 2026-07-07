@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#DeleteSecurityConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.security_config_id
 
 
-class DeleteSecurityConfigRequest(TypedDict):
+class DeleteSecurityConfigRequest(TypedDict, closed=True):
     id: "aws_sdk_opensearchserverless.types.security_config_id.SecurityConfigId"
     """<p>The security configuration identifier. For SAML the ID will be <code>saml/&lt;accountId&gt;/&lt;idpProviderName&gt;</code>. For example, <code>saml/123456789123/OKTADev</code>.</p>"""
     client_token: NotRequired[

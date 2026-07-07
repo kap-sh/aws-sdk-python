@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#CreateSyncJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.tag_map
 
 
-class CreateSyncJobRequest(TypedDict):
+class CreateSyncJobRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_iottwinmaker.types.id.Id"
     """<p>The workspace ID.</p>"""
     sync_source: "aws_sdk_iottwinmaker.types.sync_source.SyncSource"

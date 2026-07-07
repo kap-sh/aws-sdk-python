@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#LogDelivery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kafkaconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.worker_log_delivery
 
 
-class LogDelivery(TypedDict):
+class LogDelivery(TypedDict, closed=True):
     worker_log_delivery: (
         "aws_sdk_kafkaconnect.types.worker_log_delivery.WorkerLogDelivery"
     )

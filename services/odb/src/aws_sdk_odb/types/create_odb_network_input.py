@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#CreateOdbNetworkInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.string_list
 
 
-class CreateOdbNetworkInput(TypedDict):
+class CreateOdbNetworkInput(TypedDict, closed=True):
     display_name: "aws_sdk_odb.types.resource_display_name.ResourceDisplayName"
     """<p>A user-friendly name for the ODB network.</p>"""
     availability_zone: NotRequired["str"]

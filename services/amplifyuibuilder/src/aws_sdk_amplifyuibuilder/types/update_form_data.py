@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#UpdateFormData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.fields_map
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.sectional_element_map
 
 
-class UpdateFormData(TypedDict):
+class UpdateFormData(TypedDict, closed=True):
     name: NotRequired["aws_sdk_amplifyuibuilder.types.form_name.FormName"]
     """<p>The name of the form.</p>"""
     data_type: NotRequired[

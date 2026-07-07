@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#ListConnectionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_interconnect.types.attach_point
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.provider
 
 
-class ListConnectionsRequest(TypedDict):
+class ListConnectionsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_interconnect.types.max_results.MaxResults"]
     """<p>The max number of list results in a single paginated response.</p>"""
     next_token: NotRequired["aws_sdk_interconnect.types.next_token.NextToken"]

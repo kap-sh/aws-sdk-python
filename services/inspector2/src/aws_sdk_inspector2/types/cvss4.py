@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Cvss4``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cvss_base_score
     import aws_sdk_inspector2.types.cvss_scoring_vector
 
 
-class Cvss4(TypedDict):
+class Cvss4(TypedDict, closed=True):
     base_score: "aws_sdk_inspector2.types.cvss_base_score.CvssBaseScore"
     """<p>The base CVSS v4 score for the vulnerability finding, which rates the severity of the vulnerability on a scale from 0 to 10.</p>"""
     scoring_vector: NotRequired[

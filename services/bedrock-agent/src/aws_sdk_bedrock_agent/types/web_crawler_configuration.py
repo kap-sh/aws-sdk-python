@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#WebCrawlerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.filter_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.web_scope_type
 
 
-class WebCrawlerConfiguration(TypedDict):
+class WebCrawlerConfiguration(TypedDict, closed=True):
     crawler_limits: NotRequired[
         "aws_sdk_bedrock_agent.types.web_crawler_limits.WebCrawlerLimits"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#SpectrumConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.polarization
 
 
-class SpectrumConfig(TypedDict):
+class SpectrumConfig(TypedDict, closed=True):
     center_frequency: "aws_sdk_groundstation.types.frequency.Frequency"
     """<p>Center frequency of a spectral <code>Config</code>. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.</p>"""
     bandwidth: "aws_sdk_groundstation.types.frequency_bandwidth.FrequencyBandwidth"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DataLakeException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.safe_string
 
 
-class DataLakeException(TypedDict):
+class DataLakeException(TypedDict, closed=True):
     region: NotRequired["aws_sdk_securitylake.types.region.Region"]
     """<p>The Amazon Web Services Regions where the exception occurred.</p>"""
     exception: NotRequired["aws_sdk_securitylake.types.safe_string.SafeString"]

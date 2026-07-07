@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#StartDevEnvironmentSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.uuid
 
 
-class StartDevEnvironmentSessionResponse(TypedDict):
+class StartDevEnvironmentSessionResponse(TypedDict, closed=True):
     access_details: "aws_sdk_codecatalyst.types.dev_environment_access_details.DevEnvironmentAccessDetails"
     session_id: NotRequired["str"]
     """<p>The system-generated unique ID of the Dev Environment session.</p>"""

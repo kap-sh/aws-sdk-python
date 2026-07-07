@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ListQualificationTypesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class ListQualificationTypesRequest(TypedDict):
+class ListQualificationTypesRequest(TypedDict, closed=True):
     query: NotRequired["aws_sdk_mturk.types.string.String"]
     """<p> A text query against all of the searchable attributes of Qualification types. </p>"""
     must_be_requestable: "aws_sdk_mturk.types.boolean.Boolean"

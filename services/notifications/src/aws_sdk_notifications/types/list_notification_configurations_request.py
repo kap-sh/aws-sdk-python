@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListNotificationConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.channel_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.source
 
 
-class ListNotificationConfigurationsRequest(TypedDict):
+class ListNotificationConfigurationsRequest(TypedDict, closed=True):
     event_rule_source: NotRequired["aws_sdk_notifications.types.source.Source"]
     r"""<p>The matched event source.</p> <p>Must match one of the valid EventBridge sources. Only Amazon Web Services service sourced events are supported. For example, <code>aws.ec2</code> and <code>aws.cloudwatch</code>. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html#eb-service-event-delivery-level\">Event delivery from Amazon Web Services services</a> in the <i>Amazon EventBridge User Guide</i>.</p>"""
     channel_arn: NotRequired["aws_sdk_notifications.types.channel_arn.ChannelArn"]

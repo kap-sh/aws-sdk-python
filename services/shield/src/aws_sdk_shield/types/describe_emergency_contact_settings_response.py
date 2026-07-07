@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DescribeEmergencyContactSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.emergency_contact_list
 
 
-class DescribeEmergencyContactSettingsResponse(TypedDict):
+class DescribeEmergencyContactSettingsResponse(TypedDict, closed=True):
     emergency_contact_list: NotRequired[
         "aws_sdk_shield.types.emergency_contact_list.EmergencyContactList"
     ]

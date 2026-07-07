@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#RecipientDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.sso_identity
 
 
-class RecipientDetail(TypedDict):
+class RecipientDetail(TypedDict, closed=True):
     sso_identity: NotRequired["aws_sdk_iot_events.types.sso_identity.SSOIdentity"]
     """<p>The AWS Single Sign-On (AWS SSO) authentication information.</p>"""
 

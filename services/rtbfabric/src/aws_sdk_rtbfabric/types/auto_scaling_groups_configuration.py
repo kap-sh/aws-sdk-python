@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#AutoScalingGroupsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.health_check_config
 
 
-class AutoScalingGroupsConfiguration(TypedDict):
+class AutoScalingGroupsConfiguration(TypedDict, closed=True):
     auto_scaling_group_names: (
         "aws_sdk_rtbfabric.types.auto_scaling_group_name_list.AutoScalingGroupNameList"
     )

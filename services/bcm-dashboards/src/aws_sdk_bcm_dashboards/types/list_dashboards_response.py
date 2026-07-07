@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#ListDashboardsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.next_page_token
 
 
-class ListDashboardsResponse(TypedDict):
+class ListDashboardsResponse(TypedDict, closed=True):
     dashboards: (
         "aws_sdk_bcm_dashboards.types.dashboard_reference_list.DashboardReferenceList"
     )

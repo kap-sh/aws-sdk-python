@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RedshiftLineageSyncConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.lineage_sync_schedule
 
 
-class RedshiftLineageSyncConfigurationInput(TypedDict):
+class RedshiftLineageSyncConfigurationInput(TypedDict, closed=True):
     enabled: NotRequired["bool"]
     """<p>Specifies whether the Amaon Redshift lineage sync configuration is enabled.</p>"""
     schedule: NotRequired[

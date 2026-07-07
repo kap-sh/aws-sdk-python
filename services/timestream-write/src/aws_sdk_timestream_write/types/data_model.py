@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#DataModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.time_unit
 
 
-class DataModel(TypedDict):
+class DataModel(TypedDict, closed=True):
     time_column: NotRequired[
         "aws_sdk_timestream_write.types.string_value256.StringValue256"
     ]

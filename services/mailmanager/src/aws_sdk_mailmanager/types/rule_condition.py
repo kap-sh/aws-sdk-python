@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RuleCondition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -13,35 +15,35 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.rule_verdict_expression
 
 
-class _RuleCondition_BooleanExpression(TypedDict):
+class _RuleCondition_BooleanExpression(TypedDict, closed=True):
     BooleanExpression: (
         "aws_sdk_mailmanager.types.rule_boolean_expression.RuleBooleanExpression"
     )
 
 
-class _RuleCondition_StringExpression(TypedDict):
+class _RuleCondition_StringExpression(TypedDict, closed=True):
     StringExpression: (
         "aws_sdk_mailmanager.types.rule_string_expression.RuleStringExpression"
     )
 
 
-class _RuleCondition_NumberExpression(TypedDict):
+class _RuleCondition_NumberExpression(TypedDict, closed=True):
     NumberExpression: (
         "aws_sdk_mailmanager.types.rule_number_expression.RuleNumberExpression"
     )
 
 
-class _RuleCondition_IpExpression(TypedDict):
+class _RuleCondition_IpExpression(TypedDict, closed=True):
     IpExpression: "aws_sdk_mailmanager.types.rule_ip_expression.RuleIpExpression"
 
 
-class _RuleCondition_VerdictExpression(TypedDict):
+class _RuleCondition_VerdictExpression(TypedDict, closed=True):
     VerdictExpression: (
         "aws_sdk_mailmanager.types.rule_verdict_expression.RuleVerdictExpression"
     )
 
 
-class _RuleCondition_DmarcExpression(TypedDict):
+class _RuleCondition_DmarcExpression(TypedDict, closed=True):
     DmarcExpression: (
         "aws_sdk_mailmanager.types.rule_dmarc_expression.RuleDmarcExpression"
     )

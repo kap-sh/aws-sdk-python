@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pricing#GetAttributeValuesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pricing.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pricing.types.string
 
 
-class GetAttributeValuesRequest(TypedDict):
+class GetAttributeValuesRequest(TypedDict, closed=True):
     service_code: "aws_sdk_pricing.types.string.String"
     """<p>The service code for the service whose attributes you want to retrieve. For example, if you want the retrieve an EC2 attribute, use <code>AmazonEC2</code>.</p>"""
     attribute_name: "aws_sdk_pricing.types.string.String"

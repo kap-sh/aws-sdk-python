@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#OnDemandResizingSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.on_demand_capacity_reservation_options
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.whole_number
 
 
-class OnDemandResizingSpecification(TypedDict):
+class OnDemandResizingSpecification(TypedDict, closed=True):
     timeout_duration_minutes: NotRequired["aws_sdk_emr.types.whole_number.WholeNumber"]
     """<p>On-Demand resize timeout in minutes. If On-Demand Instances are not provisioned within this time, the resize workflow stops. The minimum value is 5 minutes, and the maximum value is 10,080 minutes (7 days). The timeout applies to all resize workflows on the Instance Fleet. The resize could be triggered by Amazon EMR Managed Scaling or by the customer (via Amazon EMR Console, Amazon EMR CLI modify-instance-fleet or Amazon EMR SDK ModifyInstanceFleet API) or by Amazon EMR due to Amazon EC2 Spot Reclamation.</p>"""
     allocation_strategy: NotRequired[

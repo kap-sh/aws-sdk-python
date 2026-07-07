@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#ReservationCoverageQuery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.metric_names
 
 
-class ReservationCoverageQuery(TypedDict):
+class ReservationCoverageQuery(TypedDict, closed=True):
     time_range: "aws_sdk_bcm_dashboards.types.date_time_range.DateTimeRange"
     group_by: NotRequired[
         "aws_sdk_bcm_dashboards.types.group_definitions.GroupDefinitions"

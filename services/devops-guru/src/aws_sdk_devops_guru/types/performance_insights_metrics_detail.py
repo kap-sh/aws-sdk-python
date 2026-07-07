@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#PerformanceInsightsMetricsDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.performance_insights_metric_display_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.performance_insights_stats
 
 
-class PerformanceInsightsMetricsDetail(TypedDict):
+class PerformanceInsightsMetricsDetail(TypedDict, closed=True):
     metric_display_name: NotRequired[
         "aws_sdk_devops_guru.types.performance_insights_metric_display_name.PerformanceInsightsMetricDisplayName"
     ]

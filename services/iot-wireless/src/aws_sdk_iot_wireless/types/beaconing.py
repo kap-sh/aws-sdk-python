@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#Beaconing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.beaconing_data_rate
     import aws_sdk_iot_wireless.types.beaconing_frequencies
 
 
-class Beaconing(TypedDict):
+class Beaconing(TypedDict, closed=True):
     data_rate: NotRequired[
         "aws_sdk_iot_wireless.types.beaconing_data_rate.BeaconingDataRate"
     ]

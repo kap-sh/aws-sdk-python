@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#EsamSignalProcessingNotification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_pattern_sn_signal_processing_notification_ns
 
 
-class EsamSignalProcessingNotification(TypedDict):
+class EsamSignalProcessingNotification(TypedDict, closed=True):
     scc_xml: NotRequired[
         "aws_sdk_mediaconvert.types.__string_pattern_sn_signal_processing_notification_ns.__stringPatternSNSignalProcessingNotificationNS"
     ]

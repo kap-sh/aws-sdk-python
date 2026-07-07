@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#GetIdMappingWorkflowInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.entity_name
 
 
-class GetIdMappingWorkflowInput(TypedDict):
+class GetIdMappingWorkflowInput(TypedDict, closed=True):
     workflow_name: "aws_sdk_entityresolution.types.entity_name.EntityName"
     """<p>The name of the workflow.</p>"""
 

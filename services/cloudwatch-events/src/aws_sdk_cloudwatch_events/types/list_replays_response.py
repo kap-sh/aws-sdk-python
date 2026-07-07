@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#ListReplaysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.next_token
     import aws_sdk_cloudwatch_events.types.replay_list
 
 
-class ListReplaysResponse(TypedDict):
+class ListReplaysResponse(TypedDict, closed=True):
     replays: NotRequired["aws_sdk_cloudwatch_events.types.replay_list.ReplayList"]
     """<p>An array of <code>Replay</code> objects that contain information about the replay.</p>"""
     next_token: NotRequired["aws_sdk_cloudwatch_events.types.next_token.NextToken"]

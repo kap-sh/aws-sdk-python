@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ConfirmDeviceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.boolean_type
 
 
-class ConfirmDeviceResponse(TypedDict):
+class ConfirmDeviceResponse(TypedDict, closed=True):
     user_confirmation_necessary: (
         "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
     )

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsCloudFrontDistributionOrigins``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_cloud_front_distribution_origin_item_list
 
 
-class AwsCloudFrontDistributionOrigins(TypedDict):
+class AwsCloudFrontDistributionOrigins(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_securityhub.types.aws_cloud_front_distribution_origin_item_list.AwsCloudFrontDistributionOriginItemList"
     ]

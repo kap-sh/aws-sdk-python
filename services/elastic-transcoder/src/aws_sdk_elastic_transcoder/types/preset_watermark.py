@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#PresetWatermark``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.horizontal_align
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.watermark_sizing_policy
 
 
-class PresetWatermark(TypedDict):
+class PresetWatermark(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_elastic_transcoder.types.preset_watermark_id.PresetWatermarkId"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetCollaborationChangeRequestOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.collaboration_change_request
 
 
-class GetCollaborationChangeRequestOutput(TypedDict):
+class GetCollaborationChangeRequestOutput(TypedDict, closed=True):
     collaboration_change_request: "aws_sdk_cleanrooms.types.collaboration_change_request.CollaborationChangeRequest"
     """<p>The collaboration change request that was requested.</p>"""
 

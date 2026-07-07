@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetGatewayTargetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.gateway_identifier
     import aws_sdk_bedrock_agentcore_control.types.target_id
 
 
-class GetGatewayTargetRequest(TypedDict):
+class GetGatewayTargetRequest(TypedDict, closed=True):
     gateway_identifier: (
         "aws_sdk_bedrock_agentcore_control.types.gateway_identifier.GatewayIdentifier"
     )

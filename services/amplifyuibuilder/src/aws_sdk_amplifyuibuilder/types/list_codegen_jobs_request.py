@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ListCodegenJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.app_id
     import aws_sdk_amplifyuibuilder.types.list_codegen_jobs_limit
 
 
-class ListCodegenJobsRequest(TypedDict):
+class ListCodegenJobsRequest(TypedDict, closed=True):
     app_id: "aws_sdk_amplifyuibuilder.types.app_id.AppId"
     """<p>The unique ID for the Amplify app.</p>"""
     environment_name: "str"

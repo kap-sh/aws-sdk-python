@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarnotifications#ListNotificationRulesFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codestar_notifications.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_notifications.types.list_notification_rules_filter_value
 
 
-class ListNotificationRulesFilter(TypedDict):
+class ListNotificationRulesFilter(TypedDict, closed=True):
     name: "aws_sdk_codestar_notifications.types.list_notification_rules_filter_name.ListNotificationRulesFilterName"
     """<p>The name of the attribute you want to use to filter the returned notification rules.</p>"""
     value: "aws_sdk_codestar_notifications.types.list_notification_rules_filter_value.ListNotificationRulesFilterValue"

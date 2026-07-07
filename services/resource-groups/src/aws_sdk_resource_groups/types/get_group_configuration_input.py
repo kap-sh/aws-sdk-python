@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#GetGroupConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group_string
 
 
-class GetGroupConfigurationInput(TypedDict):
+class GetGroupConfigurationInput(TypedDict, closed=True):
     group: NotRequired["aws_sdk_resource_groups.types.group_string.GroupString"]
     """<p>The name or the Amazon resource name (ARN) of the resource group for which you want to retrive the service configuration.</p>"""
 

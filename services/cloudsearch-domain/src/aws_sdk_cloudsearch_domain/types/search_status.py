@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#SearchStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.long
     import aws_sdk_cloudsearch_domain.types.string
 
 
-class SearchStatus(TypedDict):
+class SearchStatus(TypedDict, closed=True):
     timems: "aws_sdk_cloudsearch_domain.types.long.Long"
     """<p>How long it took to process the request, in milliseconds.</p>"""
     rid: NotRequired["aws_sdk_cloudsearch_domain.types.string.String"]

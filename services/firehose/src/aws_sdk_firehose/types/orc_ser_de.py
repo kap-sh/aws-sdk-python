@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#OrcSerDe``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.block_size_bytes
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.proportion
 
 
-class OrcSerDe(TypedDict):
+class OrcSerDe(TypedDict, closed=True):
     stripe_size_bytes: NotRequired[
         "aws_sdk_firehose.types.orc_stripe_size_bytes.OrcStripeSizeBytes"
     ]

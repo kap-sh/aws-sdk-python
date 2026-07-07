@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DataQualityObservation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_quality_observation_description
     import aws_sdk_glue.types.metric_based_observation
 
 
-class DataQualityObservation(TypedDict):
+class DataQualityObservation(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_glue.types.data_quality_observation_description.DataQualityObservationDescription"
     ]

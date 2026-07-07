@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InstancePatchStateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.instance_patch_state_operator_type
 
 
-class InstancePatchStateFilter(TypedDict):
+class InstancePatchStateFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.instance_patch_state_filter_key.InstancePatchStateFilterKey"
     """<p>The key for the filter. Supported values include the following:</p> <ul> <li> <p> <code>InstalledCount</code> </p> </li> <li> <p> <code>InstalledOtherCount</code> </p> </li> <li> <p> <code>InstalledPendingRebootCount</code> </p> </li> <li> <p> <code>InstalledRejectedCount</code> </p> </li> <li> <p> <code>MissingCount</code> </p> </li> <li> <p> <code>FailedCount</code> </p> </li> <li> <p> <code>UnreportedNotApplicableCount</code> </p> </li> <li> <p> <code>NotApplicableCount</code> </p> </li> </ul>"""
     values: "aws_sdk_ssm.types.instance_patch_state_filter_values.InstancePatchStateFilterValues"

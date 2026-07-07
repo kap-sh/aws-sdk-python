@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#AttributeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.string1_to255
 
 
-class AttributeDetails(TypedDict):
+class AttributeDetails(TypedDict, closed=True):
     attributes: "aws_sdk_customer_profiles.types.attribute_list.AttributeList"
     """<p>A list of attribute items specified in the mathematical expression.</p>"""
     expression: "aws_sdk_customer_profiles.types.string1_to255.string1To255"

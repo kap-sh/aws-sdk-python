@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GetLogObjectResponseStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs._iter import AnyIterator
 from aws_sdk_cloudwatch_logs._protocol.eventstream import Message
@@ -10,11 +12,11 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.fields_data
 
 
-class _GetLogObjectResponseStream_fields(TypedDict):
+class _GetLogObjectResponseStream_fields(TypedDict, closed=True):
     fields: "aws_sdk_cloudwatch_logs.types.fields_data.FieldsData"
 
 
-class _GetLogObjectResponseStream_InternalStreamingException(TypedDict):
+class _GetLogObjectResponseStream_InternalStreamingException(TypedDict, closed=True):
     InternalStreamingException: "aws_sdk_cloudwatch_logs.errors.internal_streaming_exception.InternalStreamingException_"
 
 

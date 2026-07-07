@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#CreatePullRequestOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.pull_request
 
 
-class CreatePullRequestOutput(TypedDict):
+class CreatePullRequestOutput(TypedDict, closed=True):
     pull_request: "aws_sdk_codecommit.types.pull_request.PullRequest"
     """<p>Information about the newly created pull request.</p>"""
 

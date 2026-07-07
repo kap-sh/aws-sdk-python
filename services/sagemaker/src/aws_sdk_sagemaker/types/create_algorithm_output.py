@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateAlgorithmOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.algorithm_arn
 
 
-class CreateAlgorithmOutput(TypedDict):
+class CreateAlgorithmOutput(TypedDict, closed=True):
     algorithm_arn: NotRequired["aws_sdk_sagemaker.types.algorithm_arn.AlgorithmArn"]
     """<p>The Amazon Resource Name (ARN) of the new algorithm.</p>"""
 

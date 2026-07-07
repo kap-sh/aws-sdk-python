@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connector_property_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.response_configuration
 
 
-class SourceConfiguration(TypedDict):
+class SourceConfiguration(TypedDict, closed=True):
     request_method: NotRequired["aws_sdk_glue.types.http_method.HTTPMethod"]
     """<p>The HTTP method to use for requests to this endpoint, such as GET, POST.</p>"""
     request_path: NotRequired["aws_sdk_glue.types.path_string.PathString"]

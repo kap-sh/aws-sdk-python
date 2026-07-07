@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#CapacityProviderPermissionsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.role_arn
 
 
-class CapacityProviderPermissionsConfig(TypedDict):
+class CapacityProviderPermissionsConfig(TypedDict, closed=True):
     capacity_provider_operator_role_arn: "aws_sdk_lambda.types.role_arn.RoleArn"
     """<p>The ARN of the IAM role that the capacity provider uses to manage compute instances and other Amazon Web Services resources.</p>"""
 

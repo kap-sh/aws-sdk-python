@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#UsageTopAccountResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.account_id
     import aws_sdk_guardduty.types.total
 
 
-class UsageTopAccountResult(TypedDict):
+class UsageTopAccountResult(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_guardduty.types.account_id.AccountId"]
     """<p>The unique account ID.</p>"""
     total: NotRequired["aws_sdk_guardduty.types.total.Total"]

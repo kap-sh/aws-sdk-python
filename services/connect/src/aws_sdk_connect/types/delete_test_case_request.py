@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DeleteTestCaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id_or_arn
     import aws_sdk_connect.types.test_case_id
 
 
-class DeleteTestCaseRequest(TypedDict):
+class DeleteTestCaseRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id_or_arn.InstanceIdOrArn"
     """<p>The identifier of the Amazon Connect instance.</p>"""
     test_case_id: "aws_sdk_connect.types.test_case_id.TestCaseId"

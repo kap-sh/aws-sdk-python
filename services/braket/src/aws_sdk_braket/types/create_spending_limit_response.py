@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#CreateSpendingLimitResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.spending_limit_arn
 
 
-class CreateSpendingLimitResponse(TypedDict):
+class CreateSpendingLimitResponse(TypedDict, closed=True):
     spending_limit_arn: "aws_sdk_braket.types.spending_limit_arn.SpendingLimitArn"
     """<p>The Amazon Resource Name (ARN) of the created spending limit.</p>"""
 

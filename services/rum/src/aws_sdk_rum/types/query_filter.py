@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rum#QueryFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.query_filter_key
     import aws_sdk_rum.types.query_filter_value_list
 
 
-class QueryFilter(TypedDict):
+class QueryFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_rum.types.query_filter_key.QueryFilterKey"]
     """<p>The name of a key to search for. The filter returns only the events that match the <code>Name</code> and <code>Values</code> that you specify. </p> <p>Valid values for <code>Name</code> are <code>Browser</code> | <code>Device</code> | <code>Country</code> | <code>Page</code> | <code>OS</code> | <code>EventType</code> | <code>Invert</code> </p>"""
     values: NotRequired[

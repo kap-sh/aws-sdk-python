@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#KernelGatewayAppSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.custom_images
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.resource_spec
 
 
-class KernelGatewayAppSettings(TypedDict):
+class KernelGatewayAppSettings(TypedDict, closed=True):
     default_resource_spec: NotRequired[
         "aws_sdk_sagemaker.types.resource_spec.ResourceSpec"
     ]

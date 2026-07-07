@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#TestExecutionSortBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_execution_sort_attribute
 
 
-class TestExecutionSortBy(TypedDict):
+class TestExecutionSortBy(TypedDict, closed=True):
     attribute: "aws_sdk_lex_models_v2.types.test_execution_sort_attribute.TestExecutionSortAttribute"
     """<p>Specifies whether to sort the test set executions by the date and time at which the test sets were created.</p>"""
     order: "aws_sdk_lex_models_v2.types.sort_order.SortOrder"

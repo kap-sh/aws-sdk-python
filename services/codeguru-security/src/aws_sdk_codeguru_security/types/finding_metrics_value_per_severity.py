@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#FindingMetricsValuePerSeverity``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class FindingMetricsValuePerSeverity(TypedDict):
+class FindingMetricsValuePerSeverity(TypedDict, closed=True):
     info: NotRequired["float"]
     """<p>A numeric value corresponding to an informational finding.</p>"""
     low: NotRequired["float"]

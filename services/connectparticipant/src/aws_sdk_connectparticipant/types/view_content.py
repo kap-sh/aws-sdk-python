@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#ViewContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.view_actions
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.view_template
 
 
-class ViewContent(TypedDict):
+class ViewContent(TypedDict, closed=True):
     input_schema: NotRequired[
         "aws_sdk_connectparticipant.types.view_input_schema.ViewInputSchema"
     ]

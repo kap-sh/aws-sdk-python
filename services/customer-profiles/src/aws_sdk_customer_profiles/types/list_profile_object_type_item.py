@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListProfileObjectTypeItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.type_name
 
 
-class ListProfileObjectTypeItem(TypedDict):
+class ListProfileObjectTypeItem(TypedDict, closed=True):
     object_type_name: "aws_sdk_customer_profiles.types.type_name.typeName"
     """<p>The name of the profile object type.</p>"""
     description: "aws_sdk_customer_profiles.types.text.text"

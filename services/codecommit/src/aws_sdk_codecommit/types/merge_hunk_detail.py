@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#MergeHunkDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.hunk_content
     import aws_sdk_codecommit.types.line_number
 
 
-class MergeHunkDetail(TypedDict):
+class MergeHunkDetail(TypedDict, closed=True):
     start_line: NotRequired["aws_sdk_codecommit.types.line_number.LineNumber"]
     """<p>The start position of the hunk in the merge result.</p>"""
     end_line: NotRequired["aws_sdk_codecommit.types.line_number.LineNumber"]

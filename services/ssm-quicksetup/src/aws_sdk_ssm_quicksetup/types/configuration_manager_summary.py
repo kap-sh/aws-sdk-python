@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#ConfigurationManagerSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_quicksetup.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.status_summaries_list
 
 
-class ConfigurationManagerSummary(TypedDict):
+class ConfigurationManagerSummary(TypedDict, closed=True):
     manager_arn: "str"
     """<p>The ARN of the Quick Setup configuration.</p>"""
     description: NotRequired["str"]

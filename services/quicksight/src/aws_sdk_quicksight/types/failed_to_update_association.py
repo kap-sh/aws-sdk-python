@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FailedToUpdateAssociation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class FailedToUpdateAssociation(TypedDict):
+class FailedToUpdateAssociation(TypedDict, closed=True):
     arn: NotRequired["str"]
     """<p>The ARN that could not be added or removed.</p>"""
     error_message: NotRequired["str"]

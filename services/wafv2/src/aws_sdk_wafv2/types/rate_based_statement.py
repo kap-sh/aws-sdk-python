@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RateBasedStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.statement
 
 
-class RateBasedStatement(TypedDict):
+class RateBasedStatement(TypedDict, closed=True):
     limit: "aws_sdk_wafv2.types.rate_limit.RateLimit"
     r"""<p>The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a <code>ScopeDownStatement</code>, this limit is applied only to the requests that match the statement.</p> <p>Examples: </p> <ul> <li> <p>If you aggregate on just the IP address, this is the limit on requests from any single IP address. </p> </li> <li> <p>If you aggregate on the HTTP method and the query argument name \"city\", then this is the limit on requests for any single method, city pair. </p> </li> </ul>"""
     evaluation_window_sec: (

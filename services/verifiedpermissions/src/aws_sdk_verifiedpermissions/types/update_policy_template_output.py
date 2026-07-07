@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#UpdatePolicyTemplateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.timestamp_format
 
 
-class UpdatePolicyTemplateOutput(TypedDict):
+class UpdatePolicyTemplateOutput(TypedDict, closed=True):
     policy_store_id: "aws_sdk_verifiedpermissions.types.policy_store_id.PolicyStoreId"
     """<p>The ID of the policy store that contains the updated policy template.</p>"""
     policy_template_id: (

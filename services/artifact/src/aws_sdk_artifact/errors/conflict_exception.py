@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_artifact.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p>Identifier of the affected resource.</p>"""

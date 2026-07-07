@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#RuleGroupsNamespaceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.tag_map
 
 
-class RuleGroupsNamespaceSummary(TypedDict):
+class RuleGroupsNamespaceSummary(TypedDict, closed=True):
     arn: "aws_sdk_amp.types.rule_groups_namespace_arn.RuleGroupsNamespaceArn"
     """<p>The ARN of the rule groups namespace.</p>"""
     name: "aws_sdk_amp.types.rule_groups_namespace_name.RuleGroupsNamespaceName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#ListCasesItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.resolver_type
 
 
-class ListCasesItem(TypedDict):
+class ListCasesItem(TypedDict, closed=True):
     case_id: "aws_sdk_security_ir.types.case_id.CaseId"
     """<p/>"""
     last_updated_date: NotRequired["datetime.datetime"]

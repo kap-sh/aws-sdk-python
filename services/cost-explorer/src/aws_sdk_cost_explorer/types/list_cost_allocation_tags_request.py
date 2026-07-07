@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ListCostAllocationTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.cost_allocation_tag_key_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.next_page_token
 
 
-class ListCostAllocationTagsRequest(TypedDict):
+class ListCostAllocationTagsRequest(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_cost_explorer.types.cost_allocation_tag_status.CostAllocationTagStatus"
     ]

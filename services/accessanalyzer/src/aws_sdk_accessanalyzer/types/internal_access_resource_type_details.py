@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#InternalAccessResourceTypeDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class InternalAccessResourceTypeDetails(TypedDict):
+class InternalAccessResourceTypeDetails(TypedDict, closed=True):
     total_active_findings: NotRequired["int"]
     """<p>The total number of active findings for the resource type in the internal access analyzer.</p>"""
     total_resolved_findings: NotRequired["int"]

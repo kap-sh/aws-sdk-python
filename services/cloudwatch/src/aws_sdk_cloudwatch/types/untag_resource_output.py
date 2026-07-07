@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#UntagResourceOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
 
-class UntagResourceOutput(TypedDict):
+class UntagResourceOutput(TypedDict, closed=True):
     pass
 
 

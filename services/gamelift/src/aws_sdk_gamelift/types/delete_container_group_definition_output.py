@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteContainerGroupDefinitionOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteContainerGroupDefinitionOutput(TypedDict):
+class DeleteContainerGroupDefinitionOutput(TypedDict, closed=True):
     pass
 
 

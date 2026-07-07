@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListDataTablePrimaryValuesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.data_table_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.record_ids
 
 
-class ListDataTablePrimaryValuesRequest(TypedDict):
+class ListDataTablePrimaryValuesRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     """<p>The unique identifier for the Amazon Connect instance.</p>"""
     data_table_id: "aws_sdk_connect.types.data_table_id.DataTableId"

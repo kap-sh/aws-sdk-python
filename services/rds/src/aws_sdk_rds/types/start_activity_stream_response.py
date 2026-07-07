@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#StartActivityStreamResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class StartActivityStreamResponse(TypedDict):
+class StartActivityStreamResponse(TypedDict, closed=True):
     kms_key_id: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The Amazon Web Services KMS key identifier for encryption of messages in the database activity stream.</p>"""
     kinesis_stream_name: NotRequired["aws_sdk_rds.types.string.String"]

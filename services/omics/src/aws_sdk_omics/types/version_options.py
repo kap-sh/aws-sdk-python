@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#VersionOptions``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.tsv_version_options
 
 
-class _VersionOptions_tsvVersionOptions(TypedDict):
+class _VersionOptions_tsvVersionOptions(TypedDict, closed=True):
     tsvVersionOptions: "aws_sdk_omics.types.tsv_version_options.TsvVersionOptions"
 
 

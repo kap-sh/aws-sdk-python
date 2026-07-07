@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rum.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.tag_map
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     resource_arn: "aws_sdk_rum.types.arn.Arn"
     """<p>The ARN of the resource that you are viewing.</p>"""
     tags: "aws_sdk_rum.types.tag_map.TagMap"

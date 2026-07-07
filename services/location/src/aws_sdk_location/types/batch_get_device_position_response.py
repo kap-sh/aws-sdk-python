@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#BatchGetDevicePositionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.device_position_list
 
 
-class BatchGetDevicePositionResponse(TypedDict):
+class BatchGetDevicePositionResponse(TypedDict, closed=True):
     errors: "aws_sdk_location.types.batch_get_device_position_error_list.BatchGetDevicePositionErrorList"
     """<p>Contains error details for each device that failed to send its position to the tracker resource.</p>"""
     device_positions: "aws_sdk_location.types.device_position_list.DevicePositionList"

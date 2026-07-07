@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#SqsAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.use_base64
 
 
-class SqsAction(TypedDict):
+class SqsAction(TypedDict, closed=True):
     role_arn: "aws_sdk_iot.types.aws_arn.AwsArn"
     """<p>The ARN of the IAM role that grants access.</p>"""
     queue_url: "aws_sdk_iot.types.queue_url.QueueUrl"

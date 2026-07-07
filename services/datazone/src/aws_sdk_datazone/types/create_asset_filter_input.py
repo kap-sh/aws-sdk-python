@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateAssetFilterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.filter_name
 
 
-class CreateAssetFilterInput(TypedDict):
+class CreateAssetFilterInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain in which you want to create an asset filter.</p>"""
     asset_identifier: "aws_sdk_datazone.types.asset_id.AssetId"

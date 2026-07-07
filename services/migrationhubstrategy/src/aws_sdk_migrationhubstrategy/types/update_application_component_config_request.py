@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#UpdateApplicationComponentConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migrationhubstrategy.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.strategy_option
 
 
-class UpdateApplicationComponentConfigRequest(TypedDict):
+class UpdateApplicationComponentConfigRequest(TypedDict, closed=True):
     application_component_id: "aws_sdk_migrationhubstrategy.types.application_component_id.ApplicationComponentId"
     """<p> The ID of the application component. The ID is unique within an AWS account. </p>"""
     inclusion_status: NotRequired[

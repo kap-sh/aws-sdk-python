@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#ListRouteCalculatorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.token
 
 
-class ListRouteCalculatorsResponse(TypedDict):
+class ListRouteCalculatorsResponse(TypedDict, closed=True):
     entries: "aws_sdk_location.types.list_route_calculators_response_entry_list.ListRouteCalculatorsResponseEntryList"
     """<p>Lists the route calculator resources that exist in your Amazon Web Services account</p>"""
     next_token: NotRequired["aws_sdk_location.types.token.Token"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#MetaLibraryTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.meta_template_name
 
 
-class MetaLibraryTemplate(TypedDict):
+class MetaLibraryTemplate(TypedDict, closed=True):
     template_name: "aws_sdk_socialmessaging.types.meta_template_name.MetaTemplateName"
     """<p>The name to assign to the template.</p>"""
     library_template_name: (

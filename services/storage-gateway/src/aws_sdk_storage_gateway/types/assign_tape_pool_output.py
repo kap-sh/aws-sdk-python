@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#AssignTapePoolOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tape_arn
 
 
-class AssignTapePoolOutput(TypedDict):
+class AssignTapePoolOutput(TypedDict, closed=True):
     tape_arn: NotRequired["aws_sdk_storage_gateway.types.tape_arn.TapeARN"]
     """<p>The unique Amazon Resource Names (ARN) of the virtual tape that was added to the tape pool.</p>"""
 

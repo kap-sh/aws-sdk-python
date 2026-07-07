@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ETag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.e_tag_algorithm
 
 
-class ETag(TypedDict):
+class ETag(TypedDict, closed=True):
     algorithm: NotRequired["aws_sdk_omics.types.e_tag_algorithm.ETagAlgorithm"]
     """<p>The algorithm used to calculate the read set’s ETag(s).</p>"""
     source1: NotRequired["str"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#DeletePrefetchScheduleResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePrefetchScheduleResponse(TypedDict):
+class DeletePrefetchScheduleResponse(TypedDict, closed=True):
     pass
 
 

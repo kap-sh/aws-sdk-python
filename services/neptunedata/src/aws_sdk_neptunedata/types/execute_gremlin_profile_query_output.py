@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteGremlinProfileQueryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.report_as_text
 
 
-class ExecuteGremlinProfileQueryOutput(TypedDict):
+class ExecuteGremlinProfileQueryOutput(TypedDict, closed=True):
     output: NotRequired["aws_sdk_neptunedata.types.report_as_text.ReportAsText"]
     r"""<p>A text blob containing the Gremlin Profile result. See <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-profile-api.html\">Gremlin profile API in Neptune</a> for details.</p>"""
 

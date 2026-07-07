@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListExportJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.export_job_summary_list
     import aws_sdk_sesv2.types.next_token
 
 
-class ListExportJobsResponse(TypedDict):
+class ListExportJobsResponse(TypedDict, closed=True):
     export_jobs: NotRequired[
         "aws_sdk_sesv2.types.export_job_summary_list.ExportJobSummaryList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DescribeDirectConnectGatewayAssociationProposalsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.direct_connect_gateway_association_proposal_list
     import aws_sdk_direct_connect.types.pagination_token
 
 
-class DescribeDirectConnectGatewayAssociationProposalsResult(TypedDict):
+class DescribeDirectConnectGatewayAssociationProposalsResult(TypedDict, closed=True):
     direct_connect_gateway_association_proposals: NotRequired[
         "aws_sdk_direct_connect.types.direct_connect_gateway_association_proposal_list.DirectConnectGatewayAssociationProposalList"
     ]

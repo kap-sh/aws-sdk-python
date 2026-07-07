@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#UpdateMountTargetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.vpc_id
 
 
-class UpdateMountTargetResponse(TypedDict):
+class UpdateMountTargetResponse(TypedDict, closed=True):
     availability_zone_id: NotRequired[
         "aws_sdk_s3files.types.availability_zone_id.AvailabilityZoneId"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#CancelSchemaExtensionResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelSchemaExtensionResult(TypedDict):
+class CancelSchemaExtensionResult(TypedDict, closed=True):
     pass
 
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#DeregisterOrganizationAdminAccountResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeregisterOrganizationAdminAccountResponse(TypedDict):
+class DeregisterOrganizationAdminAccountResponse(TypedDict, closed=True):
     pass
 
 

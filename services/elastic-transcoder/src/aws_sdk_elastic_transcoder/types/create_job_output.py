@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#CreateJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.captions
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.thumbnail_pattern
 
 
-class CreateJobOutput(TypedDict):
+class CreateJobOutput(TypedDict, closed=True):
     key: NotRequired["aws_sdk_elastic_transcoder.types.key.Key"]
     """<p> The name to assign to the transcoded file. Elastic Transcoder saves the file in the Amazon S3 bucket specified by the <code>OutputBucket</code> object in the pipeline that is specified by the pipeline ID. If a file with the specified name already exists in the output bucket, the job fails. </p>"""
     thumbnail_pattern: NotRequired[

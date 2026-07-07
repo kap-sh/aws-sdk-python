@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#PathMatchType``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.path_match_prefix
 
 
-class _PathMatchType_exact(TypedDict):
+class _PathMatchType_exact(TypedDict, closed=True):
     exact: "aws_sdk_vpc_lattice.types.path_match_exact.PathMatchExact"
 
 
-class _PathMatchType_prefix(TypedDict):
+class _PathMatchType_prefix(TypedDict, closed=True):
     prefix: "aws_sdk_vpc_lattice.types.path_match_prefix.PathMatchPrefix"
 
 

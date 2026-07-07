@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#BatchGetCodeSnippetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.finding_arns
 
 
-class BatchGetCodeSnippetRequest(TypedDict):
+class BatchGetCodeSnippetRequest(TypedDict, closed=True):
     finding_arns: "aws_sdk_inspector2.types.finding_arns.FindingArns"
     """<p>An array of finding ARNs for the findings you want to retrieve code snippets from.</p>"""
 

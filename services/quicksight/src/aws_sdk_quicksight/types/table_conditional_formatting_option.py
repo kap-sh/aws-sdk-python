@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableConditionalFormattingOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_cell_conditional_formatting
     import aws_sdk_quicksight.types.table_row_conditional_formatting
 
 
-class TableConditionalFormattingOption(TypedDict):
+class TableConditionalFormattingOption(TypedDict, closed=True):
     cell: NotRequired[
         "aws_sdk_quicksight.types.table_cell_conditional_formatting.TableCellConditionalFormatting"
     ]

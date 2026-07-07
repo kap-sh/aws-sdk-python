@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#PutApplicationAssignmentConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.assignment_required
 
 
-class PutApplicationAssignmentConfigurationRequest(TypedDict):
+class PutApplicationAssignmentConfigurationRequest(TypedDict, closed=True):
     application_arn: "aws_sdk_sso_admin.types.application_arn.ApplicationArn"
     r"""<p>Specifies the ARN of the application. For more information about ARNs, see <a href=\"/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     assignment_required: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ImageRepository``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.image_repository_type
 
 
-class ImageRepository(TypedDict):
+class ImageRepository(TypedDict, closed=True):
     image_identifier: "aws_sdk_apprunner.types.image_identifier.ImageIdentifier"
     r"""<p>The identifier of an image.</p> <p>For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the image name format, see <a href=\"https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-pull-ecr-image.html\">Pulling an image</a> in the <i>Amazon ECR User Guide</i>.</p>"""
     image_configuration: NotRequired[

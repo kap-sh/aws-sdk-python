@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#EC2Capacity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.family
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.quantity
 
 
-class EC2Capacity(TypedDict):
+class EC2Capacity(TypedDict, closed=True):
     family: NotRequired["aws_sdk_outposts.types.family.Family"]
     """<p> The family of the EC2 capacity. </p>"""
     max_size: NotRequired["aws_sdk_outposts.types.max_size.MaxSize"]

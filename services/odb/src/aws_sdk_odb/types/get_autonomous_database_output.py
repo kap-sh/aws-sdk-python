@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetAutonomousDatabaseOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.autonomous_database
 
 
-class GetAutonomousDatabaseOutput(TypedDict):
+class GetAutonomousDatabaseOutput(TypedDict, closed=True):
     autonomous_database: "aws_sdk_odb.types.autonomous_database.AutonomousDatabase"
     """<p>The details of the requested Autonomous Database.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateIpGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.tag_list
 
 
-class CreateIpGroupRequest(TypedDict):
+class CreateIpGroupRequest(TypedDict, closed=True):
     group_name: "aws_sdk_workspaces.types.ip_group_name.IpGroupName"
     """<p>The name of the group.</p>"""
     group_desc: NotRequired["aws_sdk_workspaces.types.ip_group_desc.IpGroupDesc"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#BatchGetMembershipDatasourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_detective.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.graph_arn_list
 
 
-class BatchGetMembershipDatasourcesRequest(TypedDict):
+class BatchGetMembershipDatasourcesRequest(TypedDict, closed=True):
     graph_arns: "aws_sdk_detective.types.graph_arn_list.GraphArnList"
     """<p>The ARN of the behavior graph.</p>"""
 

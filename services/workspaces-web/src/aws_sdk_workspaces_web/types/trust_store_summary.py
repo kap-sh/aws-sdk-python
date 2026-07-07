@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#TrustStoreSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
 
 
-class TrustStoreSummary(TypedDict):
+class TrustStoreSummary(TypedDict, closed=True):
     trust_store_arn: NotRequired["aws_sdk_workspaces_web.types.arn.ARN"]
     """<p>The ARN of the trust store.</p>"""
 

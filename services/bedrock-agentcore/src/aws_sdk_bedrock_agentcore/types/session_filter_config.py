@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#SessionFilterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class SessionFilterConfig(TypedDict):
+class SessionFilterConfig(TypedDict, closed=True):
     start_time: NotRequired["datetime.datetime"]
     """<p>The start time of the time range. Only sessions with activity at or after this timestamp are included.</p>"""
     end_time: NotRequired["datetime.datetime"]

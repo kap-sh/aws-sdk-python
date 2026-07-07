@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetFlowAssociationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.flow_association_resource_type
 
 
-class GetFlowAssociationResponse(TypedDict):
+class GetFlowAssociationResponse(TypedDict, closed=True):
     resource_id: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The identifier of the resource.</p>"""
     flow_id: NotRequired["aws_sdk_connect.types.arn.ARN"]

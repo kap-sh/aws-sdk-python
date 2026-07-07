@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#Snapshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.administrative_actions
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume_id
 
 
-class Snapshot(TypedDict):
+class Snapshot(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_fsx.types.resource_arn.ResourceARN"]
     snapshot_id: NotRequired["aws_sdk_fsx.types.snapshot_id.SnapshotId"]
     """<p>The ID of the snapshot.</p>"""

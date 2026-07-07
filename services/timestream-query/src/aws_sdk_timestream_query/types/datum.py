@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#Datum``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.datum_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.time_series_data_point_list
 
 
-class Datum(TypedDict):
+class Datum(TypedDict, closed=True):
     scalar_value: NotRequired["aws_sdk_timestream_query.types.scalar_value.ScalarValue"]
     """<p> Indicates if the data point is a scalar value such as integer, string, double, or Boolean. </p>"""
     time_series_value: NotRequired[

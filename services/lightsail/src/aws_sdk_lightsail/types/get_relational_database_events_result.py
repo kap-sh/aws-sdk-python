@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetRelationalDatabaseEventsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.relational_database_event_list
     import aws_sdk_lightsail.types.string
 
 
-class GetRelationalDatabaseEventsResult(TypedDict):
+class GetRelationalDatabaseEventsResult(TypedDict, closed=True):
     relational_database_events: NotRequired[
         "aws_sdk_lightsail.types.relational_database_event_list.RelationalDatabaseEventList"
     ]

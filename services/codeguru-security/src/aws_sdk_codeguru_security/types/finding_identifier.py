@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#FindingIdentifier``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguru_security.errors import DeserializationError
 
 
-class FindingIdentifier(TypedDict):
+class FindingIdentifier(TypedDict, closed=True):
     scan_name: "str"
     """<p>The name of the scan that generated the finding. </p>"""
     finding_id: "str"

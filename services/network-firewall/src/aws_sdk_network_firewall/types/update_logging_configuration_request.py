@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#UpdateLoggingConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.enable_monitoring_dashboard
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.resource_name
 
 
-class UpdateLoggingConfigurationRequest(TypedDict):
+class UpdateLoggingConfigurationRequest(TypedDict, closed=True):
     firewall_arn: NotRequired["aws_sdk_network_firewall.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the firewall.</p> <p>You must specify the ARN or the name, and you can specify both. </p>"""
     firewall_name: NotRequired[

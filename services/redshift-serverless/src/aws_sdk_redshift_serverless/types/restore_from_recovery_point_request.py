@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#RestoreFromRecoveryPointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.workgroup_name
 
 
-class RestoreFromRecoveryPointRequest(TypedDict):
+class RestoreFromRecoveryPointRequest(TypedDict, closed=True):
     recovery_point_id: "str"
     """<p>The unique identifier of the recovery point to restore from.</p>"""
     namespace_name: "aws_sdk_redshift_serverless.types.namespace_name.NamespaceName"

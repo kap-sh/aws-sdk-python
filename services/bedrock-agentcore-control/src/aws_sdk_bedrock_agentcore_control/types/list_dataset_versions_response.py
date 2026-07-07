@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListDatasetVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.dataset_version_summary_list
 
 
-class ListDatasetVersionsResponse(TypedDict):
+class ListDatasetVersionsResponse(TypedDict, closed=True):
     versions: "aws_sdk_bedrock_agentcore_control.types.dataset_version_summary_list.DatasetVersionSummaryList"
     """<p> The list of published dataset versions. </p>"""
     next_token: NotRequired["str"]

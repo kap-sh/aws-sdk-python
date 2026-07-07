@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#OutputSampleFileSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.s3_location
 
 
-class _OutputSampleFileSource_fileLocation(TypedDict):
+class _OutputSampleFileSource_fileLocation(TypedDict, closed=True):
     fileLocation: "aws_sdk_b2bi.types.s3_location.S3Location"
 
 

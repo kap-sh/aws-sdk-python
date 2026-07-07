@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CreateNotificationConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.event_type
 
 
-class CreateNotificationConfigurationResponse(TypedDict):
+class CreateNotificationConfigurationResponse(TypedDict, closed=True):
     event_type: NotRequired[
         "aws_sdk_iot_managed_integrations.types.event_type.EventType"
     ]

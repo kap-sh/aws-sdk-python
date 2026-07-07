@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#DimensionValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.string_list
 
 
-class DimensionValues(TypedDict):
+class DimensionValues(TypedDict, closed=True):
     key: "aws_sdk_bcm_dashboards.types.dimension.Dimension"
     """<p>The key of the dimension to filter on (for example, <code>SERVICE</code>, <code>USAGE_TYPE</code>, or <code>OPERATION</code>).</p>"""
     values: "aws_sdk_bcm_dashboards.types.string_list.StringList"

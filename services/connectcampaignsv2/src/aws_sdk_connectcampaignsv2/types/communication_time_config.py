@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#CommunicationTimeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.time_window
 
 
-class CommunicationTimeConfig(TypedDict):
+class CommunicationTimeConfig(TypedDict, closed=True):
     local_time_zone_config: (
         "aws_sdk_connectcampaignsv2.types.local_time_zone_config.LocalTimeZoneConfig"
     )

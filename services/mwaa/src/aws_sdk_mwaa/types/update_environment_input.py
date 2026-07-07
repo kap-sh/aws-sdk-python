@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#UpdateEnvironmentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.airflow_configuration_options
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.worker_replacement_strategy
 
 
-class UpdateEnvironmentInput(TypedDict):
+class UpdateEnvironmentInput(TypedDict, closed=True):
     name: "aws_sdk_mwaa.types.environment_name.EnvironmentName"
     """<p>The name of your Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>"""
     execution_role_arn: NotRequired["aws_sdk_mwaa.types.iam_role_arn.IamRoleArn"]

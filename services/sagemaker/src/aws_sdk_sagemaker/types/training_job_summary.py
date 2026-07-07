@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TrainingJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.secondary_status
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.warm_pool_status
 
 
-class TrainingJobSummary(TypedDict):
+class TrainingJobSummary(TypedDict, closed=True):
     training_job_name: NotRequired[
         "aws_sdk_sagemaker.types.training_job_name.TrainingJobName"
     ]

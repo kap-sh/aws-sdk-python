@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#StorageClassAnalysisDataExport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.storage_class_analysis_schema_version
 
 
-class StorageClassAnalysisDataExport(TypedDict):
+class StorageClassAnalysisDataExport(TypedDict, closed=True):
     output_schema_version: "aws_sdk_s3.types.storage_class_analysis_schema_version.StorageClassAnalysisSchemaVersion"
     """<p>The version of the output schema to use when exporting data. Must be <code>V_1</code>.</p>"""
     destination: (

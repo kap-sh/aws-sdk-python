@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ModerationLabel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.percent
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.u_integer
 
 
-class ModerationLabel(TypedDict):
+class ModerationLabel(TypedDict, closed=True):
     confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]
     """<p>Specifies the confidence that Amazon Rekognition has that the label has been correctly identified.</p> <p>If you don't specify the <code>MinConfidence</code> parameter in the call to <code>DetectModerationLabels</code>, the operation returns labels with a confidence value greater than or equal to 50 percent.</p>"""
     name: NotRequired["aws_sdk_rekognition.types.string.String"]

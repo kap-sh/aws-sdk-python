@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#StartIdMappingJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.entity_name_or_id_mapping_workflow_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.job_type
 
 
-class StartIdMappingJobInput(TypedDict):
+class StartIdMappingJobInput(TypedDict, closed=True):
     workflow_name: "aws_sdk_entityresolution.types.entity_name_or_id_mapping_workflow_arn.EntityNameOrIdMappingWorkflowArn"
     """<p>The name of the ID mapping job to be retrieved.</p>"""
     output_source_config: NotRequired[

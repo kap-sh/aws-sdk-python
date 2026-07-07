@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#ListServiceLevelObjectiveExclusionWindowsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_signals.types.list_service_level_objective_exclusion_windows_max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.service_level_objective_id
 
 
-class ListServiceLevelObjectiveExclusionWindowsInput(TypedDict):
+class ListServiceLevelObjectiveExclusionWindowsInput(TypedDict, closed=True):
     id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId"
     """<p>The ID of the SLO to list exclusion windows for.</p>"""
     max_results: NotRequired[

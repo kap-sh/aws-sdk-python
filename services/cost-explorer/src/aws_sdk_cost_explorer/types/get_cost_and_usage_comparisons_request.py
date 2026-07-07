@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetCostAndUsageComparisonsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.next_page_token
 
 
-class GetCostAndUsageComparisonsRequest(TypedDict):
+class GetCostAndUsageComparisonsRequest(TypedDict, closed=True):
     billing_view_arn: NotRequired[
         "aws_sdk_cost_explorer.types.billing_view_arn.BillingViewArn"
     ]

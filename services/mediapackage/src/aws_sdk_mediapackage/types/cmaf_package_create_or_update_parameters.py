@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#CmafPackageCreateOrUpdateParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.stream_selection
 
 
-class CmafPackageCreateOrUpdateParameters(TypedDict):
+class CmafPackageCreateOrUpdateParameters(TypedDict, closed=True):
     encryption: NotRequired["aws_sdk_mediapackage.types.cmaf_encryption.CmafEncryption"]
     hls_manifests: NotRequired[
         "aws_sdk_mediapackage.types.__list_of_hls_manifest_create_or_update_parameters.__listOfHlsManifestCreateOrUpdateParameters"

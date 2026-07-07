@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#RequestBasedServiceLevelIndicatorConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.service_level_indicator_metric_threshold
 
 
-class RequestBasedServiceLevelIndicatorConfig(TypedDict):
+class RequestBasedServiceLevelIndicatorConfig(TypedDict, closed=True):
     request_based_sli_metric_config: "aws_sdk_application_signals.types.request_based_service_level_indicator_metric_config.RequestBasedServiceLevelIndicatorMetricConfig"
     """<p>Use this structure to specify the metric to be used for the SLO.</p>"""
     metric_threshold: NotRequired[

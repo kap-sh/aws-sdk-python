@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#UpdatePullThroughCacheRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.registry_id
 
 
-class UpdatePullThroughCacheRuleRequest(TypedDict):
+class UpdatePullThroughCacheRuleRequest(TypedDict, closed=True):
     registry_id: NotRequired["aws_sdk_ecr.types.registry_id.RegistryId"]
     """<p>The Amazon Web Services account ID associated with the registry associated with the pull through cache rule. If you do not specify a registry, the default registry is assumed.</p>"""
     ecr_repository_prefix: "aws_sdk_ecr.types.pull_through_cache_rule_repository_prefix.PullThroughCacheRuleRepositoryPrefix"

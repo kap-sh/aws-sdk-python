@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#CreateCertificateAuthorityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.tag_list
 
 
-class CreateCertificateAuthorityRequest(TypedDict):
+class CreateCertificateAuthorityRequest(TypedDict, closed=True):
     certificate_authority_configuration: "aws_sdk_acm_pca.types.certificate_authority_configuration.CertificateAuthorityConfiguration"
     """<p>Name and bit size of the private key algorithm, the name of the signing algorithm, and X.500 certificate subject information.</p>"""
     revocation_configuration: NotRequired[

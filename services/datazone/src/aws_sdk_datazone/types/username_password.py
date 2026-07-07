@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UsernamePassword``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.username
 
 
-class UsernamePassword(TypedDict):
+class UsernamePassword(TypedDict, closed=True):
     password: "aws_sdk_datazone.types.password.Password"
     """<p>The password of a connection.</p>"""
     username: "aws_sdk_datazone.types.username.Username"

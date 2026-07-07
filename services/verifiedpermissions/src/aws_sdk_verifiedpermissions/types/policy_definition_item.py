@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#PolicyDefinitionItem``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.template_linked_policy_definition_item
 
 
-class _PolicyDefinitionItem_static(TypedDict):
+class _PolicyDefinitionItem_static(TypedDict, closed=True):
     static: "aws_sdk_verifiedpermissions.types.static_policy_definition_item.StaticPolicyDefinitionItem"
 
 
-class _PolicyDefinitionItem_templateLinked(TypedDict):
+class _PolicyDefinitionItem_templateLinked(TypedDict, closed=True):
     templateLinked: "aws_sdk_verifiedpermissions.types.template_linked_policy_definition_item.TemplateLinkedPolicyDefinitionItem"
 
 

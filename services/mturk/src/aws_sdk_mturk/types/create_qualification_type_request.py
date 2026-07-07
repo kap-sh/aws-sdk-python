@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#CreateQualificationTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class CreateQualificationTypeRequest(TypedDict):
+class CreateQualificationTypeRequest(TypedDict, closed=True):
     name: "aws_sdk_mturk.types.string.String"
     """<p> The name you give to the Qualification type. The type name is used to represent the Qualification to Workers, and to find the type using a Qualification type search. It must be unique across all of your Qualification types.</p>"""
     keywords: NotRequired["aws_sdk_mturk.types.string.String"]

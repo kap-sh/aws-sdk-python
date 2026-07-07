@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#DeleteResponderGatewayRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.gateway_id
 
 
-class DeleteResponderGatewayRequest(TypedDict):
+class DeleteResponderGatewayRequest(TypedDict, closed=True):
     gateway_id: "aws_sdk_rtbfabric.types.gateway_id.GatewayId"
     """<p>The unique identifier of the gateway.</p>"""
 

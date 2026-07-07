@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ServerlessClientAuthentication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.serverless_sasl
 
 
-class ServerlessClientAuthentication(TypedDict):
+class ServerlessClientAuthentication(TypedDict, closed=True):
     sasl: NotRequired["aws_sdk_kafka.types.serverless_sasl.ServerlessSasl"]
     """<p>Details for ClientAuthentication using SASL.</p>"""
 

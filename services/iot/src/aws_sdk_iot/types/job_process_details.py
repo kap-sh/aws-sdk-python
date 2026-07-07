@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#JobProcessDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.canceled_things
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timed_out_things
 
 
-class JobProcessDetails(TypedDict):
+class JobProcessDetails(TypedDict, closed=True):
     processing_targets: NotRequired[
         "aws_sdk_iot.types.processing_target_name_list.ProcessingTargetNameList"
     ]

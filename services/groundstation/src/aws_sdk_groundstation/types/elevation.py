@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#Elevation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.angle_units
 
 
-class Elevation(TypedDict):
+class Elevation(TypedDict, closed=True):
     value: "float"
     """<p>Elevation angle value.</p>"""
     unit: "aws_sdk_groundstation.types.angle_units.AngleUnits"

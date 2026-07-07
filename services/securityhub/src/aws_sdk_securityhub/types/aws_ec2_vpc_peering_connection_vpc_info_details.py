@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2VpcPeeringConnectionVpcInfoDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.vpc_info_peering_options_details
 
 
-class AwsEc2VpcPeeringConnectionVpcInfoDetails(TypedDict):
+class AwsEc2VpcPeeringConnectionVpcInfoDetails(TypedDict, closed=True):
     cidr_block: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The IPv4 CIDR block for the VPC. </p>"""
     cidr_block_set: NotRequired[

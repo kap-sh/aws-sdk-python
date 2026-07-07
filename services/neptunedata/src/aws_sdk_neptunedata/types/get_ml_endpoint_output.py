@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetMLEndpointOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.ml_config_definition
     import aws_sdk_neptunedata.types.ml_resource_definition
 
 
-class GetMLEndpointOutput(TypedDict):
+class GetMLEndpointOutput(TypedDict, closed=True):
     status: NotRequired["str"]
     """<p>The status of the inference endpoint.</p>"""
     id: NotRequired["str"]

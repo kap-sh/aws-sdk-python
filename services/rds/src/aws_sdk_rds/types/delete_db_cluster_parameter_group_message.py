@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DeleteDBClusterParameterGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DeleteDBClusterParameterGroupMessage(TypedDict):
+class DeleteDBClusterParameterGroupMessage(TypedDict, closed=True):
     db_cluster_parameter_group_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must be the name of an existing DB cluster parameter group.</p> </li> <li> <p>You can't delete a default DB cluster parameter group.</p> </li> <li> <p>Can't be associated with any DB clusters.</p> </li> </ul>"""
 

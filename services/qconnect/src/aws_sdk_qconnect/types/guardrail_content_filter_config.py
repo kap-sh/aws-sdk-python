@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GuardrailContentFilterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.guardrail_filter_strength
 
 
-class GuardrailContentFilterConfig(TypedDict):
+class GuardrailContentFilterConfig(TypedDict, closed=True):
     type: "aws_sdk_qconnect.types.guardrail_content_filter_type.GuardrailContentFilterType"
     """<p>The harmful category that the content filter is applied to.</p>"""
     input_strength: (

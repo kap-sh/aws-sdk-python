@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ListLocalDisksOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.disks
     import aws_sdk_storage_gateway.types.gateway_arn
 
 
-class ListLocalDisksOutput(TypedDict):
+class ListLocalDisksOutput(TypedDict, closed=True):
     gateway_arn: NotRequired["aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"]
     disks: NotRequired["aws_sdk_storage_gateway.types.disks.Disks"]
     """<p>A JSON object containing the following fields:</p> <ul> <li> <p> <a>ListLocalDisksOutput$Disks</a> </p> </li> </ul>"""

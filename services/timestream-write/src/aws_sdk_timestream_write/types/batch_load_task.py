@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#BatchLoadTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.batch_load_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.resource_name
 
 
-class BatchLoadTask(TypedDict):
+class BatchLoadTask(TypedDict, closed=True):
     task_id: NotRequired[
         "aws_sdk_timestream_write.types.batch_load_task_id.BatchLoadTaskId"
     ]

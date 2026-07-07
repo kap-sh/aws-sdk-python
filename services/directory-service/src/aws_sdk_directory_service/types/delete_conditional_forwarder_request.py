@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DeleteConditionalForwarderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.remote_domain_name
 
 
-class DeleteConditionalForwarderRequest(TypedDict):
+class DeleteConditionalForwarderRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>The directory ID for which you are deleting the conditional forwarder.</p>"""
     remote_domain_name: (

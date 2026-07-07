@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ListAccountsForParentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.parent_id
 
 
-class ListAccountsForParentRequest(TypedDict):
+class ListAccountsForParentRequest(TypedDict, closed=True):
     parent_id: "aws_sdk_organizations.types.parent_id.ParentId"
     """<p>The unique identifier (ID) for the parent root or organization unit (OU) whose accounts you want to list.</p>"""
     next_token: NotRequired["aws_sdk_organizations.types.next_token.NextToken"]

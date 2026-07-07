@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#StartJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.timestamp
 
 
-class StartJobResponse(TypedDict):
+class StartJobResponse(TypedDict, closed=True):
     created_at: "aws_sdk_location.types.timestamp.Timestamp"
     r"""<p>Job creation time in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sss</code>.</p>"""
     job_arn: "aws_sdk_location.types.geo_arn.GeoArn"

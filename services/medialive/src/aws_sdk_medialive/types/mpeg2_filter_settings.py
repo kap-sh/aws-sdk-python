@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Mpeg2FilterSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.temporal_filter_settings
 
 
-class Mpeg2FilterSettings(TypedDict):
+class Mpeg2FilterSettings(TypedDict, closed=True):
     temporal_filter_settings: NotRequired[
         "aws_sdk_medialive.types.temporal_filter_settings.TemporalFilterSettings"
     ]

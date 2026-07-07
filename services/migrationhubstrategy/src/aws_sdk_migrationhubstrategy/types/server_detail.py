@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ServerDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.antipattern_report_status
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.time_stamp
 
 
-class ServerDetail(TypedDict):
+class ServerDetail(TypedDict, closed=True):
     id: NotRequired["aws_sdk_migrationhubstrategy.types.resource_id.ResourceId"]
     """<p> The server ID. </p>"""
     name: NotRequired["aws_sdk_migrationhubstrategy.types.resource_name.ResourceName"]

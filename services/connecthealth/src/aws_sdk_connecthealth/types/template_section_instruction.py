@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#TemplateSectionInstruction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connecthealth.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.sensitive_markdown_string
 
 
-class TemplateSectionInstruction(TypedDict):
+class TemplateSectionInstruction(TypedDict, closed=True):
     section_header: "aws_sdk_connecthealth.types.sensitive_alphanumeric_string.SensitiveAlphanumericString"
     """<p>The header for this section of the template</p>"""
     section_instruction: (

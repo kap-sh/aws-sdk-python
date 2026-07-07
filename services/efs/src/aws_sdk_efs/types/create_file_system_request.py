@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#CreateFileSystemRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.throughput_mode
 
 
-class CreateFileSystemRequest(TypedDict):
+class CreateFileSystemRequest(TypedDict, closed=True):
     creation_token: "aws_sdk_efs.types.creation_token.CreationToken"
     """<p>A string of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.</p>"""
     performance_mode: NotRequired["aws_sdk_efs.types.performance_mode.PerformanceMode"]

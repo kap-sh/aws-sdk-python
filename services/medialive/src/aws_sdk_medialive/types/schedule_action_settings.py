@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ScheduleActionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.hls_id3_segment_tagging_schedule_action_settings
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.timed_metadata_schedule_action_settings
 
 
-class ScheduleActionSettings(TypedDict):
+class ScheduleActionSettings(TypedDict, closed=True):
     hls_id3_segment_tagging_settings: NotRequired[
         "aws_sdk_medialive.types.hls_id3_segment_tagging_schedule_action_settings.HlsId3SegmentTaggingScheduleActionSettings"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#DeleteScheduleOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteScheduleOutput(TypedDict):
+class DeleteScheduleOutput(TypedDict, closed=True):
     pass
 
 

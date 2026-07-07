@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#GetAnalysisReportResultsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.analysis_report_next_token
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.status
 
 
-class GetAnalysisReportResultsResponse(TypedDict):
+class GetAnalysisReportResultsResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_network_firewall.types.status.Status"]
     """<p>The status of the analysis report you specify. Statuses include <code>RUNNING</code>, <code>COMPLETED</code>, or <code>FAILED</code>.</p>"""
     start_time: NotRequired["aws_sdk_network_firewall.types.start_time.StartTime"]

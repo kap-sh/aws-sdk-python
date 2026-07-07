@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#AssessmentRunFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.assessment_run_state_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.timestamp_range
 
 
-class AssessmentRunFilter(TypedDict):
+class AssessmentRunFilter(TypedDict, closed=True):
     name_pattern: NotRequired["aws_sdk_inspector.types.name_pattern.NamePattern"]
     """<p>For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the <b>assessmentRunName</b> property of the <a>AssessmentRun</a> data type.</p>"""
     states: NotRequired[

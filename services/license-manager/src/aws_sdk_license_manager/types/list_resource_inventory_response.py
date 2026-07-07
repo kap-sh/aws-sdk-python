@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ListResourceInventoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.resource_inventory_list
     import aws_sdk_license_manager.types.string
 
 
-class ListResourceInventoryResponse(TypedDict):
+class ListResourceInventoryResponse(TypedDict, closed=True):
     resource_inventory_list: NotRequired[
         "aws_sdk_license_manager.types.resource_inventory_list.ResourceInventoryList"
     ]

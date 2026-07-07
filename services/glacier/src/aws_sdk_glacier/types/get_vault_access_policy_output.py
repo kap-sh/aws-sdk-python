@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#GetVaultAccessPolicyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.vault_access_policy
 
 
-class GetVaultAccessPolicyOutput(TypedDict):
+class GetVaultAccessPolicyOutput(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_glacier.types.vault_access_policy.VaultAccessPolicy"]
     """<p>Contains the returned vault access policy as a JSON string.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#OptOutListInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.opt_out_list_name
 
 
-class OptOutListInformation(TypedDict):
+class OptOutListInformation(TypedDict, closed=True):
     opt_out_list_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the OptOutList.</p>"""
     opt_out_list_name: (

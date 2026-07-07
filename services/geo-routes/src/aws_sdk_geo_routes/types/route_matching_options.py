@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteMatchingOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.distance_meters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_string
 
 
-class RouteMatchingOptions(TypedDict):
+class RouteMatchingOptions(TypedDict, closed=True):
     name_hint: NotRequired["aws_sdk_geo_routes.types.sensitive_string.SensitiveString"]
     """<p>Attempts to match the provided position to a road similar to the provided name.</p>"""
     on_road_threshold: "aws_sdk_geo_routes.types.distance_meters.DistanceMeters"

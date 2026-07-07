@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#TaskContainerProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.boolean
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.ulimits
 
 
-class TaskContainerProperties(TypedDict):
+class TaskContainerProperties(TypedDict, closed=True):
     command: NotRequired["aws_sdk_batch.types.string_list.StringList"]
     r"""<p>The command that's passed to the container. This parameter maps to <code>Cmd</code> in the <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>COMMAND</code> parameter to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>. For more information, see <a href=\"https://docs.docker.com/engine/reference/builder/#cmd\">Dockerfile reference: CMD</a>.</p>"""
     depends_on: NotRequired[

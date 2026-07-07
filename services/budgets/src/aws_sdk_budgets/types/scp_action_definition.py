@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#ScpActionDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.target_ids
 
 
-class ScpActionDefinition(TypedDict):
+class ScpActionDefinition(TypedDict, closed=True):
     policy_id: "aws_sdk_budgets.types.policy_id.PolicyId"
     """<p>The policy ID attached. </p>"""
     target_ids: "aws_sdk_budgets.types.target_ids.TargetIds"

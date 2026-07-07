@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#AddOn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
     import aws_sdk_lightsail.types.time_of_day
 
 
-class AddOn(TypedDict):
+class AddOn(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The name of the add-on.</p>"""
     status: NotRequired["aws_sdk_lightsail.types.string.string"]

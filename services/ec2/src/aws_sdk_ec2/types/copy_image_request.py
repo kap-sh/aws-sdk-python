@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CopyImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CopyImageRequest(TypedDict):
+class CopyImageRequest(TypedDict, closed=True):
     client_token: NotRequired[
         "aws_sdk_ec2.types.copy_image_client_token.CopyImageClientToken"
     ]

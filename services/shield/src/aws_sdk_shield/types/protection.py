@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#Protection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.application_layer_automatic_response_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.resource_arn
 
 
-class Protection(TypedDict):
+class Protection(TypedDict, closed=True):
     id: NotRequired["aws_sdk_shield.types.protection_id.ProtectionId"]
     """<p>The unique identifier (ID) of the protection.</p>"""
     name: NotRequired["aws_sdk_shield.types.protection_name.ProtectionName"]

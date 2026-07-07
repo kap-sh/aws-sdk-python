@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#UpdateUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class UpdateUserRequest(TypedDict):
+class UpdateUserRequest(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.existing_user_name_type.existingUserNameType"
     r"""<p>Name of the user to update. If you're changing the name of the user, this is the original user name.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     new_path: NotRequired["aws_sdk_iam.types.path_type.pathType"]

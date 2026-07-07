@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#JobExecutionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.boolean
     import aws_sdk_transcribe.types.data_access_role_arn
 
 
-class JobExecutionSettings(TypedDict):
+class JobExecutionSettings(TypedDict, closed=True):
     allow_deferred_execution: NotRequired["aws_sdk_transcribe.types.boolean.Boolean"]
     """<p>Makes it possible to enable job queuing when your concurrent request limit is exceeded. When <code>AllowDeferredExecution</code> is set to <code>true</code>, transcription job requests are placed in a queue until the number of jobs falls below the concurrent request limit. If <code>AllowDeferredExecution</code> is set to <code>false</code> and the number of transcription job requests exceed the concurrent request limit, you get a <code>LimitExceededException</code> error.</p> <p>If you include <code>AllowDeferredExecution</code> in your request, you must also include <code>DataAccessRoleArn</code>.</p>"""
     data_access_role_arn: NotRequired[

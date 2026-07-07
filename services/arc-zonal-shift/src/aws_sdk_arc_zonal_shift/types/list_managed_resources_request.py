@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#ListManagedResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.max_results
 
 
-class ListManagedResourcesRequest(TypedDict):
+class ListManagedResourcesRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>Specifies that you want to receive the next page of results. Valid only if you received a <code>nextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>nextToken</code> response to request the next page of results.</p>"""
     max_results: NotRequired["aws_sdk_arc_zonal_shift.types.max_results.MaxResults"]

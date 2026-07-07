@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#ListScheduleGroupsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_scheduler.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_scheduler.types.schedule_group_name_prefix
 
 
-class ListScheduleGroupsInput(TypedDict):
+class ListScheduleGroupsInput(TypedDict, closed=True):
     name_prefix: NotRequired[
         "aws_sdk_scheduler.types.schedule_group_name_prefix.ScheduleGroupNamePrefix"
     ]

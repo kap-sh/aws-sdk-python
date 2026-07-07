@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BillInterval``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class BillInterval(TypedDict):
+class BillInterval(TypedDict, closed=True):
     start: NotRequired["datetime.datetime"]
     """<p> The start date and time of the interval. </p>"""
     end: NotRequired["datetime.datetime"]

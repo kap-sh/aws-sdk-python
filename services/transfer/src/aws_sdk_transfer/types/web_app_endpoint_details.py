@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#WebAppEndpointDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.web_app_vpc_config
 
 
-class _WebAppEndpointDetails_Vpc(TypedDict):
+class _WebAppEndpointDetails_Vpc(TypedDict, closed=True):
     Vpc: "aws_sdk_transfer.types.web_app_vpc_config.WebAppVpcConfig"
 
 

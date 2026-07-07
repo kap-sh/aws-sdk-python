@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#DICOMTags``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.dicom_accession_number
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.dicom_study_time
 
 
-class DICOMTags(TypedDict):
+class DICOMTags(TypedDict, closed=True):
     dicom_patient_id: NotRequired[
         "aws_sdk_medical_imaging.types.dicom_patient_id.DICOMPatientId"
     ]

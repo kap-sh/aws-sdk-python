@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeFleetEventsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.event_list
     import aws_sdk_gamelift.types.non_zero_and_max_string
 
 
-class DescribeFleetEventsOutput(TypedDict):
+class DescribeFleetEventsOutput(TypedDict, closed=True):
     events: NotRequired["aws_sdk_gamelift.types.event_list.EventList"]
     """<p>A collection of objects containing event log entries for the specified fleet.</p>"""
     next_token: NotRequired[

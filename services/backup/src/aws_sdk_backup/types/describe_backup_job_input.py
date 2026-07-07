@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeBackupJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class DescribeBackupJobInput(TypedDict):
+class DescribeBackupJobInput(TypedDict, closed=True):
     backup_job_id: "aws_sdk_backup.types.string.string"
     """<p>Uniquely identifies a request to Backup to back up a resource.</p>"""
 

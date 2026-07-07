@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#UsageMetric``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class UsageMetric(TypedDict):
+class UsageMetric(TypedDict, closed=True):
     limit: "int"
     """<p>Configured limit for this metric. A value of -1 indicates no limit is enforced.</p>"""
     usage: "float"

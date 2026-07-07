@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeWorkspacesPoolsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.describe_workspaces_pools_filter_values
 
 
-class DescribeWorkspacesPoolsFilter(TypedDict):
+class DescribeWorkspacesPoolsFilter(TypedDict, closed=True):
     name: "aws_sdk_workspaces.types.describe_workspaces_pools_filter_name.DescribeWorkspacesPoolsFilterName"
     """<p>The name of the pool to filter.</p>"""
     values: "aws_sdk_workspaces.types.describe_workspaces_pools_filter_values.DescribeWorkspacesPoolsFilterValues"

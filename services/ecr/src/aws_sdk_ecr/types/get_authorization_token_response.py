@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#GetAuthorizationTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.authorization_data_list
 
 
-class GetAuthorizationTokenResponse(TypedDict):
+class GetAuthorizationTokenResponse(TypedDict, closed=True):
     authorization_data: NotRequired[
         "aws_sdk_ecr.types.authorization_data_list.AuthorizationDataList"
     ]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.amazon_resource_name
     import aws_sdk_iot_events.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_iot_events.types.amazon_resource_name.AmazonResourceName"
     """<p>The ARN of the resource.</p>"""
     tag_keys: "aws_sdk_iot_events.types.tag_keys.TagKeys"

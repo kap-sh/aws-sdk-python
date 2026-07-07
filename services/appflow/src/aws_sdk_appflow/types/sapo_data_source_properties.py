@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SAPODataSourceProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.object
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.sapo_data_parallelism_config
 
 
-class SAPODataSourceProperties(TypedDict):
+class SAPODataSourceProperties(TypedDict, closed=True):
     object_path: NotRequired["aws_sdk_appflow.types.object.Object"]
     """<p> The object path specified in the SAPOData flow source. </p>"""
     parallelism_config: NotRequired[

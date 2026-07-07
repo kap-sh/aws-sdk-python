@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#CustomResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.response_status_code
 
 
-class CustomResponse(TypedDict):
+class CustomResponse(TypedDict, closed=True):
     response_code: "aws_sdk_wafv2.types.response_status_code.ResponseStatusCode"
     r"""<p>The HTTP status code to return to the client. </p> <p>For a list of status codes that you can use in your custom responses, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html\">Supported status codes for custom response</a> in the <i>WAF Developer Guide</i>. </p>"""
     custom_response_body_key: NotRequired["aws_sdk_wafv2.types.entity_name.EntityName"]

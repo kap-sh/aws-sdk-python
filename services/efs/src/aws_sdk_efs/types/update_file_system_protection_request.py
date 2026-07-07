@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.efs#UpdateFileSystemProtectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.file_system_id
     import aws_sdk_efs.types.replication_overwrite_protection
 
 
-class UpdateFileSystemProtectionRequest(TypedDict):
+class UpdateFileSystemProtectionRequest(TypedDict, closed=True):
     file_system_id: "aws_sdk_efs.types.file_system_id.FileSystemId"
     """<p>The ID of the file system to update. </p>"""
     replication_overwrite_protection: NotRequired[

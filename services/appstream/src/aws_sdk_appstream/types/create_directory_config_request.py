@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateDirectoryConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.certificate_based_auth_properties
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.service_account_credentials
 
 
-class CreateDirectoryConfigRequest(TypedDict):
+class CreateDirectoryConfigRequest(TypedDict, closed=True):
     directory_name: NotRequired["aws_sdk_appstream.types.directory_name.DirectoryName"]
     """<p>The fully qualified name of the directory (for example, corp.example.com).</p>"""
     organizational_unit_distinguished_names: NotRequired[

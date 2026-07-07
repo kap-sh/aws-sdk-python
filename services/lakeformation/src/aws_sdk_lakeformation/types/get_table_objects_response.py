@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#GetTableObjectsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.partitioned_table_objects_list
     import aws_sdk_lakeformation.types.token_string
 
 
-class GetTableObjectsResponse(TypedDict):
+class GetTableObjectsResponse(TypedDict, closed=True):
     objects: NotRequired[
         "aws_sdk_lakeformation.types.partitioned_table_objects_list.PartitionedTableObjectsList"
     ]

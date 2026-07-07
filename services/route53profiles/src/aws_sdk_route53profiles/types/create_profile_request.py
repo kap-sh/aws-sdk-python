@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53profiles#CreateProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53profiles.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53profiles.types.tag_list
 
 
-class CreateProfileRequest(TypedDict):
+class CreateProfileRequest(TypedDict, closed=True):
     name: "aws_sdk_route53profiles.types.name.Name"
     """<p> A name for the Profile. </p>"""
     client_token: "aws_sdk_route53profiles.types.creator_request_id.CreatorRequestId"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#SavingsPlansAmortizedCommitment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
 
 
-class SavingsPlansAmortizedCommitment(TypedDict):
+class SavingsPlansAmortizedCommitment(TypedDict, closed=True):
     amortized_recurring_commitment: NotRequired[
         "aws_sdk_cost_explorer.types.generic_string.GenericString"
     ]

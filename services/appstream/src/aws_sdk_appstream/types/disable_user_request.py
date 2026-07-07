@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DisableUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.authentication_type
     import aws_sdk_appstream.types.username
 
 
-class DisableUserRequest(TypedDict):
+class DisableUserRequest(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_appstream.types.username.Username"]
     """<p>The email address of the user.</p> <note> <p>Users' email addresses are case-sensitive.</p> </note>"""
     authentication_type: NotRequired[

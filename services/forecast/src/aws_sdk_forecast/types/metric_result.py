@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#MetricResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.double
     import aws_sdk_forecast.types.metric_name
 
 
-class MetricResult(TypedDict):
+class MetricResult(TypedDict, closed=True):
     metric_name: NotRequired["aws_sdk_forecast.types.metric_name.MetricName"]
     """<p>The name of the metric.</p>"""
     metric_value: NotRequired["aws_sdk_forecast.types.double.Double"]

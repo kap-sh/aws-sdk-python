@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#BedrockFoundationModelContextEnrichmentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.enrichment_strategy_configuration
 
 
-class BedrockFoundationModelContextEnrichmentConfiguration(TypedDict):
+class BedrockFoundationModelContextEnrichmentConfiguration(TypedDict, closed=True):
     enrichment_strategy_configuration: "aws_sdk_bedrock_agent.types.enrichment_strategy_configuration.EnrichmentStrategyConfiguration"
     """<p>The enrichment stategy used to provide additional context. For example, Neptune GraphRAG uses Amazon Bedrock foundation models to perform chunk entity extraction.</p>"""
     model_arn: "aws_sdk_bedrock_agent.types.bedrock_model_arn.BedrockModelArn"

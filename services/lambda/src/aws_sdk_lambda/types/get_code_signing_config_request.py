@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetCodeSigningConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.code_signing_config_arn
 
 
-class GetCodeSigningConfigRequest(TypedDict):
+class GetCodeSigningConfigRequest(TypedDict, closed=True):
     code_signing_config_arn: (
         "aws_sdk_lambda.types.code_signing_config_arn.CodeSigningConfigArn"
     )

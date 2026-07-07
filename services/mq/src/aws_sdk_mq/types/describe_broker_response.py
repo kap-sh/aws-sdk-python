@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mq#DescribeBrokerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__boolean
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_mq.types.weekly_start_time
 
 
-class DescribeBrokerResponse(TypedDict):
+class DescribeBrokerResponse(TypedDict, closed=True):
     actions_required: NotRequired[
         "aws_sdk_mq.types.__list_of_action_required.__listOfActionRequired"
     ]

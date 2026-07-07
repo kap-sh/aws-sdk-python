@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateNotebookInstanceLifecycleConfigOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateNotebookInstanceLifecycleConfigOutput(TypedDict):
+class UpdateNotebookInstanceLifecycleConfigOutput(TypedDict, closed=True):
     pass
 
 

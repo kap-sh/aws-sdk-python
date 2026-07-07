@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#DescribeStreamSummaryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_description_summary
 
 
-class DescribeStreamSummaryOutput(TypedDict):
+class DescribeStreamSummaryOutput(TypedDict, closed=True):
     stream_description_summary: (
         "aws_sdk_kinesis.types.stream_description_summary.StreamDescriptionSummary"
     )

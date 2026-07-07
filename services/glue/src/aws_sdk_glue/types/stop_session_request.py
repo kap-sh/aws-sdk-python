@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StopSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.orchestration_name_string
 
 
-class StopSessionRequest(TypedDict):
+class StopSessionRequest(TypedDict, closed=True):
     id: "aws_sdk_glue.types.name_string.NameString"
     """<p>The ID of the session to be stopped.</p>"""
     request_origin: NotRequired[

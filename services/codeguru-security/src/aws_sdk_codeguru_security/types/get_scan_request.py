@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#GetScanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.scan_name
     import aws_sdk_codeguru_security.types.uuid
 
 
-class GetScanRequest(TypedDict):
+class GetScanRequest(TypedDict, closed=True):
     scan_name: "aws_sdk_codeguru_security.types.scan_name.ScanName"
     """<p>The name of the scan you want to view details about.</p>"""
     run_id: NotRequired["aws_sdk_codeguru_security.types.uuid.Uuid"]

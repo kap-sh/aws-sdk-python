@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateVpcPeeringConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_id
 
 
-class CreateVpcPeeringConnectionRequest(TypedDict):
+class CreateVpcPeeringConnectionRequest(TypedDict, closed=True):
     peer_region: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.</p> <p>Default: The Region in which you make the request.</p>"""
     tag_specifications: NotRequired[

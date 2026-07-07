@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#ValidationException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError, ServiceError
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: "str"
     """<p>The input fails to satisfy the constraints specified by an Amazon service.</p>"""
 

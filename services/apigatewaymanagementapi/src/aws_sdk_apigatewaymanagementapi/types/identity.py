@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewaymanagementapi#Identity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewaymanagementapi.types.__string
 
 
-class Identity(TypedDict):
+class Identity(TypedDict, closed=True):
     source_ip: NotRequired["aws_sdk_apigatewaymanagementapi.types.__string.__string"]
     """<p>The source IP address of the TCP connection making the request to API Gateway.</p>"""
     user_agent: NotRequired["aws_sdk_apigatewaymanagementapi.types.__string.__string"]

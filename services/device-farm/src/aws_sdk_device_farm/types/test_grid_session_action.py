@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#TestGridSessionAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.date_time
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.string
 
 
-class TestGridSessionAction(TypedDict):
+class TestGridSessionAction(TypedDict, closed=True):
     action: NotRequired["aws_sdk_device_farm.types.string.String"]
     """<p>The action taken by the session.</p>"""
     started: NotRequired["aws_sdk_device_farm.types.date_time.DateTime"]

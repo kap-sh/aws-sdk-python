@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#CreateVariableResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateVariableResult(TypedDict):
+class CreateVariableResult(TypedDict, closed=True):
     pass
 
 

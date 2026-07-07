@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#VpcConnectivity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.vpc_connectivity_client_authentication
 
 
-class VpcConnectivity(TypedDict):
+class VpcConnectivity(TypedDict, closed=True):
     client_authentication: NotRequired[
         "aws_sdk_kafka.types.vpc_connectivity_client_authentication.VpcConnectivityClientAuthentication"
     ]

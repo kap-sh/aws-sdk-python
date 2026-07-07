@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CustomFileSystem``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_file_system
 
 
-class _CustomFileSystem_EFSFileSystem(TypedDict):
+class _CustomFileSystem_EFSFileSystem(TypedDict, closed=True):
     EFSFileSystem: "aws_sdk_sagemaker.types.efs_file_system.EFSFileSystem"
 
 
-class _CustomFileSystem_FSxLustreFileSystem(TypedDict):
+class _CustomFileSystem_FSxLustreFileSystem(TypedDict, closed=True):
     FSxLustreFileSystem: (
         "aws_sdk_sagemaker.types.f_sx_lustre_file_system.FSxLustreFileSystem"
     )
 
 
-class _CustomFileSystem_S3FileSystem(TypedDict):
+class _CustomFileSystem_S3FileSystem(TypedDict, closed=True):
     S3FileSystem: "aws_sdk_sagemaker.types.s3_file_system.S3FileSystem"
 
 

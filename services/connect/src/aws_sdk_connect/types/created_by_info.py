@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreatedByInfo``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
 
 
-class _CreatedByInfo_ConnectUserArn(TypedDict):
+class _CreatedByInfo_ConnectUserArn(TypedDict, closed=True):
     ConnectUserArn: "aws_sdk_connect.types.arn.ARN"
 
 
-class _CreatedByInfo_AWSIdentityArn(TypedDict):
+class _CreatedByInfo_AWSIdentityArn(TypedDict, closed=True):
     AWSIdentityArn: "aws_sdk_connect.types.arn.ARN"
 
 

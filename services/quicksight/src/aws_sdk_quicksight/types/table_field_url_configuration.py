@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableFieldURLConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_field_image_configuration
     import aws_sdk_quicksight.types.table_field_link_configuration
 
 
-class TableFieldURLConfiguration(TypedDict):
+class TableFieldURLConfiguration(TypedDict, closed=True):
     link_configuration: NotRequired[
         "aws_sdk_quicksight.types.table_field_link_configuration.TableFieldLinkConfiguration"
     ]

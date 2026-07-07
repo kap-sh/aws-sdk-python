@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#UpdateActionsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.update_action_list
 
 
-class UpdateActionsMessage(TypedDict):
+class UpdateActionsMessage(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>"""
     update_actions: NotRequired[

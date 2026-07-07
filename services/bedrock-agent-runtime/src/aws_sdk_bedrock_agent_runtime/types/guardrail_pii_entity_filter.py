@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailPiiEntityFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.guardrail_pii_entity_type
     import aws_sdk_bedrock_agent_runtime.types.guardrail_sensitive_information_policy_action
 
 
-class GuardrailPiiEntityFilter(TypedDict):
+class GuardrailPiiEntityFilter(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.guardrail_pii_entity_type.GuardrailPiiEntityType"
     ]

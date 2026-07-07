@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#UpdateACLRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_memorydb.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.user_name_list_input
 
 
-class UpdateACLRequest(TypedDict):
+class UpdateACLRequest(TypedDict, closed=True):
     acl_name: "aws_sdk_memorydb.types.string.String"
     """<p>The name of the Access Control List.</p>"""
     user_names_to_add: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ImportStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.long
 
 
-class ImportStatistics(TypedDict):
+class ImportStatistics(TypedDict, closed=True):
     prefixes_found: NotRequired["aws_sdk_cloudtrail.types.long.Long"]
     """<p> The number of S3 prefixes found for the import. </p>"""
     prefixes_completed: NotRequired["aws_sdk_cloudtrail.types.long.Long"]

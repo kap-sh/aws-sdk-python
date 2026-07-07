@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#JWTConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__list_of__string
     import aws_sdk_apigatewayv2.types.uri_with_length_between1_and2048
 
 
-class JWTConfiguration(TypedDict):
+class JWTConfiguration(TypedDict, closed=True):
     audience: NotRequired[
         "aws_sdk_apigatewayv2.types.__list_of__string.__listOf__string"
     ]

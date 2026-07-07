@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#CreateCommentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.comment
 
 
-class CreateCommentResponse(TypedDict):
+class CreateCommentResponse(TypedDict, closed=True):
     comment: NotRequired["aws_sdk_workdocs.types.comment.Comment"]
     """<p>The comment that has been created.</p>"""
 

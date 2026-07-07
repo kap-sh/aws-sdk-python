@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#PipelineExecutionStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cache_hit_result
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class PipelineExecutionStep(TypedDict):
+class PipelineExecutionStep(TypedDict, closed=True):
     step_name: NotRequired["aws_sdk_sagemaker.types.step_name.StepName"]
     """<p>The name of the step that is executed.</p>"""
     step_display_name: NotRequired[

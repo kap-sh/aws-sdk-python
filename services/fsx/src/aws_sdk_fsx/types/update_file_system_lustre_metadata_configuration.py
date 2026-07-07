@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#UpdateFileSystemLustreMetadataConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.metadata_configuration_mode
     import aws_sdk_fsx.types.metadata_iops
 
 
-class UpdateFileSystemLustreMetadataConfiguration(TypedDict):
+class UpdateFileSystemLustreMetadataConfiguration(TypedDict, closed=True):
     iops: NotRequired["aws_sdk_fsx.types.metadata_iops.MetadataIops"]
     """<p>(USER_PROVISIONED mode only) Specifies the number of Metadata IOPS to provision for your file system.</p> <ul> <li> <p>For SSD file systems, valid values are <code>1500</code>, <code>3000</code>, <code>6000</code>, <code>12000</code>, and multiples of <code>12000</code> up to a maximum of <code>192000</code>.</p> </li> <li> <p>For Intelligent-Tiering file systems, valid values are <code>6000</code> and <code>12000</code>.</p> </li> </ul> <p>The value you provide must be greater than or equal to the current number of Metadata IOPS provisioned for the file system.</p>"""
     mode: NotRequired[

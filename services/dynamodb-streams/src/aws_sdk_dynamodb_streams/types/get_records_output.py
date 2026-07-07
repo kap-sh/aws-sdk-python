@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodbstreams#GetRecordsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.record_list
     import aws_sdk_dynamodb_streams.types.shard_iterator
 
 
-class GetRecordsOutput(TypedDict):
+class GetRecordsOutput(TypedDict, closed=True):
     records: NotRequired["aws_sdk_dynamodb_streams.types.record_list.RecordList"]
     """<p>The stream records from the shard, which were retrieved using the shard iterator.</p>"""
     next_shard_iterator: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscalingplans#CreateScalingPlanResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_auto_scaling_plans.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling_plans.types.scaling_plan_version
 
 
-class CreateScalingPlanResponse(TypedDict):
+class CreateScalingPlanResponse(TypedDict, closed=True):
     scaling_plan_version: (
         "aws_sdk_auto_scaling_plans.types.scaling_plan_version.ScalingPlanVersion"
     )

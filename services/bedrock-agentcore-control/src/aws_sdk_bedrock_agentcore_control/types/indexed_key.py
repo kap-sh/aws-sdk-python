@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#IndexedKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.metadata_value_type
 
 
-class IndexedKey(TypedDict):
+class IndexedKey(TypedDict, closed=True):
     key: "aws_sdk_bedrock_agentcore_control.types.metadata_key.MetadataKey"
     """<p>The metadata key name to index.</p>"""
     type: (

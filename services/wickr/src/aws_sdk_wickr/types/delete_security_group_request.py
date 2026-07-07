@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#DeleteSecurityGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
     import aws_sdk_wickr.types.network_id
 
 
-class DeleteSecurityGroupRequest(TypedDict):
+class DeleteSecurityGroupRequest(TypedDict, closed=True):
     network_id: "aws_sdk_wickr.types.network_id.NetworkId"
     """<p>The ID of the Wickr network from which the security group will be deleted.</p>"""
     group_id: "aws_sdk_wickr.types.generic_string.GenericString"

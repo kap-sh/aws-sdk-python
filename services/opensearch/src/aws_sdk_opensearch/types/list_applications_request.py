@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ListApplicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.application_statuses
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.next_token
 
 
-class ListApplicationsRequest(TypedDict):
+class ListApplicationsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_opensearch.types.next_token.NextToken"]
     statuses: NotRequired[
         "aws_sdk_opensearch.types.application_statuses.ApplicationStatuses"

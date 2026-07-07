@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakeredge#DeploymentModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.deployment_status
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.version
 
 
-class DeploymentModel(TypedDict):
+class DeploymentModel(TypedDict, closed=True):
     model_handle: NotRequired["aws_sdk_sagemaker_edge.types.entity_name.EntityName"]
     """<p>The unique handle of the model.</p>"""
     model_name: NotRequired["aws_sdk_sagemaker_edge.types.model_name.ModelName"]

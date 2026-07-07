@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListExperimentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListExperimentsRequest(TypedDict):
+class ListExperimentsRequest(TypedDict, closed=True):
     created_after: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     """<p>A filter that returns only experiments created after the specified time.</p>"""
     created_before: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]

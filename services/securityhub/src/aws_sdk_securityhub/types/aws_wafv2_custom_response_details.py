@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafv2CustomResponseDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_wafv2_insert_headers_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsWafv2CustomResponseDetails(TypedDict):
+class AwsWafv2CustomResponseDetails(TypedDict, closed=True):
     custom_response_body_key: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

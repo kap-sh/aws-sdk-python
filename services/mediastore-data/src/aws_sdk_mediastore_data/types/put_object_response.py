@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastoredata#PutObjectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediastore_data.types.e_tag
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore_data.types.storage_class
 
 
-class PutObjectResponse(TypedDict):
+class PutObjectResponse(TypedDict, closed=True):
     content_sha256: NotRequired["aws_sdk_mediastore_data.types.sha256_hash.SHA256Hash"]
     """<p>The SHA256 digest of the object that is persisted.</p>"""
     e_tag: NotRequired["aws_sdk_mediastore_data.types.e_tag.ETag"]

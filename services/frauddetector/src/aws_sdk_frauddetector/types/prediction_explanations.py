@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#PredictionExplanations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.list_of_aggregated_variables_impact_explanations
     import aws_sdk_frauddetector.types.list_of_variable_impact_explanations
 
 
-class PredictionExplanations(TypedDict):
+class PredictionExplanations(TypedDict, closed=True):
     variable_impact_explanations: NotRequired[
         "aws_sdk_frauddetector.types.list_of_variable_impact_explanations.listOfVariableImpactExplanations"
     ]

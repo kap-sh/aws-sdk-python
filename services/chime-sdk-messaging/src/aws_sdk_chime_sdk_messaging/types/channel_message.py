@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ChannelMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.channel_message_persistence_type
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.timestamp
 
 
-class ChannelMessage(TypedDict):
+class ChannelMessage(TypedDict, closed=True):
     channel_arn: NotRequired["aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"]
     """<p>The ARN of the channel.</p>"""
     message_id: NotRequired["aws_sdk_chime_sdk_messaging.types.message_id.MessageId"]

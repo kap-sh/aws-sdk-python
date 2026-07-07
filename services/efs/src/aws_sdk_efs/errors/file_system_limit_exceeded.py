@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#FileSystemLimitExceeded``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_efs.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.error_message
 
 
-class FileSystemLimitExceeded_(TypedDict):
+class FileSystemLimitExceeded_(TypedDict, closed=True):
     error_code: "aws_sdk_efs.types.error_code.ErrorCode"
     message: NotRequired["aws_sdk_efs.types.error_message.ErrorMessage"]
 

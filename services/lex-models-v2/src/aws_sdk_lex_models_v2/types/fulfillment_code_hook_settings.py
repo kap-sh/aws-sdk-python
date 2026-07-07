@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#FulfillmentCodeHookSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.post_fulfillment_status_specification
 
 
-class FulfillmentCodeHookSettings(TypedDict):
+class FulfillmentCodeHookSettings(TypedDict, closed=True):
     enabled: "aws_sdk_lex_models_v2.types.boolean.Boolean"
     """<p>Indicates whether a Lambda function should be invoked to fulfill a specific intent.</p>"""
     post_fulfillment_status_specification: NotRequired[

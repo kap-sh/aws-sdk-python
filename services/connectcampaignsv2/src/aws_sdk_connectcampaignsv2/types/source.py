@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#Source``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.event_trigger
 
 
-class _Source_customerProfilesSegmentArn(TypedDict):
+class _Source_customerProfilesSegmentArn(TypedDict, closed=True):
     customerProfilesSegmentArn: "aws_sdk_connectcampaignsv2.types.arn.Arn"
 
 
-class _Source_eventTrigger(TypedDict):
+class _Source_eventTrigger(TypedDict, closed=True):
     eventTrigger: "aws_sdk_connectcampaignsv2.types.event_trigger.EventTrigger"
 
 

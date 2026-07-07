@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#BatchExecuteStatementOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.consumed_capacity_multiple
     import aws_sdk_dynamodb.types.parti_ql_batch_response
 
 
-class BatchExecuteStatementOutput(TypedDict):
+class BatchExecuteStatementOutput(TypedDict, closed=True):
     responses: NotRequired[
         "aws_sdk_dynamodb.types.parti_ql_batch_response.PartiQLBatchResponse"
     ]

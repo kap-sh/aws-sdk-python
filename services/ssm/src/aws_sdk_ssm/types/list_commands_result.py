@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListCommandsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.command_list
     import aws_sdk_ssm.types.next_token
 
 
-class ListCommandsResult(TypedDict):
+class ListCommandsResult(TypedDict, closed=True):
     commands: NotRequired["aws_sdk_ssm.types.command_list.CommandList"]
     """<p>(Optional) The list of commands requested by the user. </p>"""
     next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]

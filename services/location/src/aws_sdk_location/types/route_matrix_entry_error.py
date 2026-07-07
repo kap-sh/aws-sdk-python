@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#RouteMatrixEntryError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.route_matrix_error_code
 
 
-class RouteMatrixEntryError(TypedDict):
+class RouteMatrixEntryError(TypedDict, closed=True):
     code: "aws_sdk_location.types.route_matrix_error_code.RouteMatrixErrorCode"
     """<p>The type of error which occurred for the route calculation.</p>"""
     message: NotRequired["str"]

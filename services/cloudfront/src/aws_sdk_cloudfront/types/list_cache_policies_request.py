@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ListCachePoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class ListCachePoliciesRequest(TypedDict):
+class ListCachePoliciesRequest(TypedDict, closed=True):
     type: NotRequired["aws_sdk_cloudfront.types.cache_policy_type.CachePolicyType"]
     """<p>A filter to return only the specified kinds of cache policies. Valid values are:</p> <ul> <li> <p> <code>managed</code> – Returns only the managed policies created by Amazon Web Services.</p> </li> <li> <p> <code>custom</code> – Returns only the custom policies created in your Amazon Web Services account.</p> </li> </ul>"""
     marker: NotRequired["aws_sdk_cloudfront.types.string.string"]

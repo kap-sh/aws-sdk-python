@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancing#DescribeTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_load_balancing._protocol.xml import Element
 from aws_sdk_elastic_load_balancing.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing.types.load_balancer_names_max20
 
 
-class DescribeTagsInput(TypedDict):
+class DescribeTagsInput(TypedDict, closed=True):
     load_balancer_names: "aws_sdk_elastic_load_balancing.types.load_balancer_names_max20.LoadBalancerNamesMax20"
     """<p>The names of the load balancers.</p>"""
 

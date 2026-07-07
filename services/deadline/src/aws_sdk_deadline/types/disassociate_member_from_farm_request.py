@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#DisassociateMemberFromFarmRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.farm_id
     import aws_sdk_deadline.types.identity_center_principal_id
 
 
-class DisassociateMemberFromFarmRequest(TypedDict):
+class DisassociateMemberFromFarmRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID of the farm to disassociate from the member.</p>"""
     principal_id: (

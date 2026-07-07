@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.braket#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_braket.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>Specify the <code>resourceArn</code> for the resource from which to remove the tags.</p>"""
     tag_keys: "aws_sdk_braket.types.tag_keys.TagKeys"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ListHealthChecksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.page_marker
 
 
-class ListHealthChecksRequest(TypedDict):
+class ListHealthChecksRequest(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_route_53.types.page_marker.PageMarker"]
     """<p>If the value of <code>IsTruncated</code> in the previous response was <code>true</code>, you have more health checks. To get another group, submit another <code>ListHealthChecks</code> request. </p> <p>For the value of <code>marker</code>, specify the value of <code>NextMarker</code> from the previous response, which is the ID of the first health check that Amazon Route 53 will return if you submit another request.</p> <p>If the value of <code>IsTruncated</code> in the previous response was <code>false</code>, there are no more health checks to get.</p>"""
     max_items: NotRequired["int"]

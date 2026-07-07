@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#FieldLevelEncryptionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class FieldLevelEncryptionConfig(TypedDict):
+class FieldLevelEncryptionConfig(TypedDict, closed=True):
     caller_reference: "aws_sdk_cloudfront.types.string.string"
     """<p>A unique number that ensures the request can't be replayed.</p>"""
     comment: NotRequired["aws_sdk_cloudfront.types.string.string"]

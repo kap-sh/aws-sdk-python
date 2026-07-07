@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#EntityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_catalog.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.entity_id
 
 
-class EntityRequest(TypedDict):
+class EntityRequest(TypedDict, closed=True):
     catalog: "aws_sdk_marketplace_catalog.types.catalog.Catalog"
     """<p>The name of the catalog the entity is present in. The only value at this time is <code>AWSMarketplace</code>.</p>"""
     entity_id: "aws_sdk_marketplace_catalog.types.entity_id.EntityId"

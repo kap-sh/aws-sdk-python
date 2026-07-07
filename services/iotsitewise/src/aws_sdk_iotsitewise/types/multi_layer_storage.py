@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#MultiLayerStorage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.customer_managed_s3_storage
 
 
-class MultiLayerStorage(TypedDict):
+class MultiLayerStorage(TypedDict, closed=True):
     customer_managed_s3_storage: (
         "aws_sdk_iotsitewise.types.customer_managed_s3_storage.CustomerManagedS3Storage"
     )

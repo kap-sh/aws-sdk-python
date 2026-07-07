@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#ListAvailableSolutionStacksResultMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.available_solution_stack_names_list
 
 
-class ListAvailableSolutionStacksResultMessage(TypedDict):
+class ListAvailableSolutionStacksResultMessage(TypedDict, closed=True):
     solution_stacks: NotRequired[
         "aws_sdk_elastic_beanstalk.types.available_solution_stack_names_list.AvailableSolutionStackNamesList"
     ]

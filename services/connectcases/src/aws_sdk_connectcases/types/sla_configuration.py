@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#SlaConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.sla_type
 
 
-class SlaConfiguration(TypedDict):
+class SlaConfiguration(TypedDict, closed=True):
     name: "aws_sdk_connectcases.types.sla_name.SlaName"
     """<p>Name of an SLA.</p>"""
     type: "aws_sdk_connectcases.types.sla_type.SlaType"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DisassociateOpsItemRelatedItemResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateOpsItemRelatedItemResponse(TypedDict):
+class DisassociateOpsItemRelatedItemResponse(TypedDict, closed=True):
     pass
 
 

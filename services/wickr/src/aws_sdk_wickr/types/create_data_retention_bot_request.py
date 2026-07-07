@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#CreateDataRetentionBotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.network_id
 
 
-class CreateDataRetentionBotRequest(TypedDict):
+class CreateDataRetentionBotRequest(TypedDict, closed=True):
     network_id: "aws_sdk_wickr.types.network_id.NetworkId"
     """<p>The ID of the Wickr network where the data retention bot will be created.</p>"""
 

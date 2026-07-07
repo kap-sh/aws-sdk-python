@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ProtocolConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.server_protocol
 
 
-class ProtocolConfiguration(TypedDict):
+class ProtocolConfiguration(TypedDict, closed=True):
     server_protocol: (
         "aws_sdk_bedrock_agentcore_control.types.server_protocol.ServerProtocol"
     )

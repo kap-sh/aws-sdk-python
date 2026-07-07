@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#DeregisterNotificationHubRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.region
 
 
-class DeregisterNotificationHubRequest(TypedDict):
+class DeregisterNotificationHubRequest(TypedDict, closed=True):
     notification_hub_region: "aws_sdk_notifications.types.region.Region"
     """<p>The <code>NotificationConfiguration</code> Region.</p>"""
 

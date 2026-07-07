@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EnvironmentParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class EnvironmentParameter(TypedDict):
+class EnvironmentParameter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>The environment key suggested by the Amazon SageMaker Inference Recommender.</p>"""
     value_type: NotRequired["aws_sdk_sagemaker.types.string.String"]

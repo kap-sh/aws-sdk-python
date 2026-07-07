@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#EstimatedDiscounts``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EstimatedDiscounts(TypedDict):
+class EstimatedDiscounts(TypedDict, closed=True):
     savings_plans_discount: NotRequired["float"]
     """<p>Estimated Savings Plans discounts.</p>"""
     reserved_instances_discount: NotRequired["float"]

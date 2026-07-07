@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#UpdateAppInstanceUserEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.allow_messages
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.string64
 
 
-class UpdateAppInstanceUserEndpointRequest(TypedDict):
+class UpdateAppInstanceUserEndpointRequest(TypedDict, closed=True):
     app_instance_user_arn: "aws_sdk_chime_sdk_identity.types.chime_arn.ChimeArn"
     """<p>The ARN of the <code>AppInstanceUser</code>.</p>"""
     endpoint_id: "aws_sdk_chime_sdk_identity.types.string64.String64"

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#DeleteSessionLoggerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
 
 
-class DeleteSessionLoggerRequest(TypedDict):
+class DeleteSessionLoggerRequest(TypedDict, closed=True):
     session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the session logger.</p>"""
 

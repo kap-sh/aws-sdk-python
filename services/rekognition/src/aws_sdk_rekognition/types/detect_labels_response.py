@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DetectLabelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.detect_labels_image_properties
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
 
 
-class DetectLabelsResponse(TypedDict):
+class DetectLabelsResponse(TypedDict, closed=True):
     labels: NotRequired["aws_sdk_rekognition.types.labels.Labels"]
     """<p>An array of labels for the real-world objects detected. </p>"""
     orientation_correction: NotRequired[

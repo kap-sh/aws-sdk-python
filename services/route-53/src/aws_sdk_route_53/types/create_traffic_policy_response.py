@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CreateTrafficPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.traffic_policy
 
 
-class CreateTrafficPolicyResponse(TypedDict):
+class CreateTrafficPolicyResponse(TypedDict, closed=True):
     traffic_policy: "aws_sdk_route_53.types.traffic_policy.TrafficPolicy"
     """<p>A complex type that contains settings for the new traffic policy.</p>"""
     location: "aws_sdk_route_53.types.resource_uri.ResourceURI"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#CreateRecordingConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.recording_configuration
 
 
-class CreateRecordingConfigurationResponse(TypedDict):
+class CreateRecordingConfigurationResponse(TypedDict, closed=True):
     recording_configuration: NotRequired[
         "aws_sdk_ivs.types.recording_configuration.RecordingConfiguration"
     ]

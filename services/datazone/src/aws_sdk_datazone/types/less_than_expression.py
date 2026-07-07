@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LessThanExpression``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class LessThanExpression(TypedDict):
+class LessThanExpression(TypedDict, closed=True):
     column_name: "str"
     """<p>The name of the column.</p>"""
     value: "str"

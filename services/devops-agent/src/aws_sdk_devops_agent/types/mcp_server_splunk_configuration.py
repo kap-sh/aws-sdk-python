@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#MCPServerSplunkConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class MCPServerSplunkConfiguration(TypedDict):
+class MCPServerSplunkConfiguration(TypedDict, closed=True):
     pass
 
 

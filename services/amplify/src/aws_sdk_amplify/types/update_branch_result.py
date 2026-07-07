@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#UpdateBranchResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.branch
 
 
-class UpdateBranchResult(TypedDict):
+class UpdateBranchResult(TypedDict, closed=True):
     branch: "aws_sdk_amplify.types.branch.Branch"
     """<p> The branch for an Amplify app, which maps to a third-party repository branch. </p>"""
 

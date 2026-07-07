@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#CreateConnectorDefinitionVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class CreateConnectorDefinitionVersionResponse(TypedDict):
+class CreateConnectorDefinitionVersionResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The ARN of the version."""
     creation_timestamp: NotRequired["aws_sdk_greengrass.types.__string.__string"]

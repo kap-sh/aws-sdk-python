@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.evs#GetVersionsRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetVersionsRequest(TypedDict):
+class GetVersionsRequest(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#GetDefaultEncryptionConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.kms_key_arn
 
 
-class GetDefaultEncryptionConfigurationResponse(TypedDict):
+class GetDefaultEncryptionConfigurationResponse(TypedDict, closed=True):
     configuration_status: "aws_sdk_iot_managed_integrations.types.configuration_status.ConfigurationStatus"
     """<p>Provides the status of the default encryption configuration for an Amazon Web Services account.</p>"""
     encryption_type: (

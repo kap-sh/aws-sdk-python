@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#DeleteVolumeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.farm_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.volume_id
 
 
-class DeleteVolumeRequest(TypedDict):
+class DeleteVolumeRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID of the farm that contains the fleet.</p>"""
     fleet_id: "aws_sdk_deadline.types.fleet_id.FleetId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#DocumentGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.detected_signature_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.undetected_signature_list
 
 
-class DocumentGroup(TypedDict):
+class DocumentGroup(TypedDict, closed=True):
     type: NotRequired["aws_sdk_textract.types.non_empty_string.NonEmptyString"]
     r"""<p>The type of document that Amazon Textract has detected. See <a href=\"https://docs.aws.amazon.com/textract/latest/dg/lending-response-objects.html\">Analyze Lending Response Objects</a> for a list of all types returned by Textract.</p>"""
     split_documents: NotRequired[

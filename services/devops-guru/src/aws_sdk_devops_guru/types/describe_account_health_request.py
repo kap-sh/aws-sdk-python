@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeAccountHealthRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeAccountHealthRequest(TypedDict):
+class DescribeAccountHealthRequest(TypedDict, closed=True):
     pass
 
 

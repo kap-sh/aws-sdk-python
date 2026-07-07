@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TestCaseSearchCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.string_condition
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.test_case_status
 
 
-class TestCaseSearchCriteria(TypedDict):
+class TestCaseSearchCriteria(TypedDict, closed=True):
     or_conditions: NotRequired[
         "aws_sdk_connect.types.test_case_search_condition_list.TestCaseSearchConditionList"
     ]

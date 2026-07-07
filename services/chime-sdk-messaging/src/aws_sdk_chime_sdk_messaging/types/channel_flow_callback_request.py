@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ChannelFlowCallbackRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_messaging.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.non_nullable_boolean
 
 
-class ChannelFlowCallbackRequest(TypedDict):
+class ChannelFlowCallbackRequest(TypedDict, closed=True):
     callback_id: "aws_sdk_chime_sdk_messaging.types.callback_id_type.CallbackIdType"
     """<p>The identifier passed to the processor by the service when invoked. Use the identifier to call back the service.</p>"""
     channel_arn: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"

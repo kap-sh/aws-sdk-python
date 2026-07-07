@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#GetVerificationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.verification_type
 
 
-class GetVerificationRequest(TypedDict):
+class GetVerificationRequest(TypedDict, closed=True):
     verification_type: (
         "aws_sdk_partnercentral_account.types.verification_type.VerificationType"
     )

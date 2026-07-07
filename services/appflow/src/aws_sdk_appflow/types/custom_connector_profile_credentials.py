@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#CustomConnectorProfileCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.o_auth2_credentials
 
 
-class CustomConnectorProfileCredentials(TypedDict):
+class CustomConnectorProfileCredentials(TypedDict, closed=True):
     authentication_type: "aws_sdk_appflow.types.authentication_type.AuthenticationType"
     """<p>The authentication type that the custom connector uses for authenticating while creating a connector profile.</p>"""
     basic: NotRequired[

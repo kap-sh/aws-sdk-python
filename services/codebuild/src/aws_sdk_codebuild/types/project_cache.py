@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ProjectCache``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class ProjectCache(TypedDict):
+class ProjectCache(TypedDict, closed=True):
     type: "aws_sdk_codebuild.types.cache_type.CacheType"
     """<p>The type of cache used by the build project. Valid values include:</p> <ul> <li> <p> <code>NO_CACHE</code>: The build project does not use any cache.</p> </li> <li> <p> <code>S3</code>: The build project reads and writes from and to S3.</p> </li> <li> <p> <code>LOCAL</code>: The build project stores a cache locally on a build host that is only available to that build host.</p> </li> </ul>"""
     location: NotRequired["aws_sdk_codebuild.types.string.String"]

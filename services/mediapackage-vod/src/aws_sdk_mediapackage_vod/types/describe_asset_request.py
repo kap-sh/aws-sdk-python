@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#DescribeAssetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__string
 
 
-class DescribeAssetRequest(TypedDict):
+class DescribeAssetRequest(TypedDict, closed=True):
     id: "aws_sdk_mediapackage_vod.types.__string.__string"
     """The ID of an MediaPackage VOD Asset resource."""
 

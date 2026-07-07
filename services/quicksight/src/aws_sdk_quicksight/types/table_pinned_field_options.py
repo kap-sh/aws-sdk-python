@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TablePinnedFieldOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_field_order_list
 
 
-class TablePinnedFieldOptions(TypedDict):
+class TablePinnedFieldOptions(TypedDict, closed=True):
     pinned_left_fields: NotRequired[
         "aws_sdk_quicksight.types.table_field_order_list.TableFieldOrderList"
     ]

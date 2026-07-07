@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListIndicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.max_results_integer_for_list_indices_request
     import aws_sdk_kendra.types.next_token
 
 
-class ListIndicesRequest(TypedDict):
+class ListIndicesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_kendra.types.next_token.NextToken"]
     """<p>If the previous response was incomplete (because there is more data to retrieve), Amazon Kendra returns a pagination token in the response. You can use this pagination token to retrieve the next set of indexes. </p>"""
     max_results: NotRequired[

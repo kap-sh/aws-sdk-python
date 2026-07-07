@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListFrameworksOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.framework_list
     import aws_sdk_backup.types.string
 
 
-class ListFrameworksOutput(TypedDict):
+class ListFrameworksOutput(TypedDict, closed=True):
     frameworks: NotRequired["aws_sdk_backup.types.framework_list.FrameworkList"]
     """<p>The frameworks with details for each framework, including the framework name, Amazon Resource Name (ARN), description, number of controls, creation time, and deployment status.</p>"""
     next_token: NotRequired["aws_sdk_backup.types.string.string"]

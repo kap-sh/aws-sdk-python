@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#GetBucketCorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.bucket_name
 
 
-class GetBucketCorsRequest(TypedDict):
+class GetBucketCorsRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     r"""<p>The bucket name for which to get the cors configuration.</p> <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p> <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned. For more information about <code>InvalidAccessPointAliasError</code>, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList\">List of Error Codes</a>.</p>"""
     expected_bucket_owner: NotRequired["aws_sdk_s3.types.account_id.AccountId"]

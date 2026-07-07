@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#Stages``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_stage
 
 
-class Stages(TypedDict):
+class Stages(TypedDict, closed=True):
     item: NotRequired["aws_sdk_api_gateway.types.list_of_stage.ListOfStage"]
     """<p>The current page of elements from this collection.</p>"""
 

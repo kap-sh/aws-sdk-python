@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#ListTaskExecutionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.next_token
     import aws_sdk_datasync.types.task_execution_list
 
 
-class ListTaskExecutionsResponse(TypedDict):
+class ListTaskExecutionsResponse(TypedDict, closed=True):
     task_executions: NotRequired[
         "aws_sdk_datasync.types.task_execution_list.TaskExecutionList"
     ]

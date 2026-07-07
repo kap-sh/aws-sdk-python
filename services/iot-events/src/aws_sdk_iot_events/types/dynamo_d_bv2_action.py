@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#DynamoDBv2Action``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.payload
 
 
-class DynamoDBv2Action(TypedDict):
+class DynamoDBv2Action(TypedDict, closed=True):
     table_name: "aws_sdk_iot_events.types.dynamo_table_name.DynamoTableName"
     """<p>The name of the DynamoDB table.</p>"""
     payload: NotRequired["aws_sdk_iot_events.types.payload.Payload"]

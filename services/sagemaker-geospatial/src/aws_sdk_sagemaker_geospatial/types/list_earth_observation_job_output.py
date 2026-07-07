@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ListEarthObservationJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.next_token
 
 
-class ListEarthObservationJobOutput(TypedDict):
+class ListEarthObservationJobOutput(TypedDict, closed=True):
     earth_observation_job_summaries: "aws_sdk_sagemaker_geospatial.types.earth_observation_job_list.EarthObservationJobList"
     """<p>Contains summary information about the Earth Observation jobs.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker_geospatial.types.next_token.NextToken"]

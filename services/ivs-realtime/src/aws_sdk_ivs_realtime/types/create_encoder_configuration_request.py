@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#CreateEncoderConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.encoder_configuration_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.video
 
 
-class CreateEncoderConfigurationRequest(TypedDict):
+class CreateEncoderConfigurationRequest(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_ivs_realtime.types.encoder_configuration_name.EncoderConfigurationName"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StateTransition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.participant_state
     import aws_sdk_connect.types.timestamp
 
 
-class StateTransition(TypedDict):
+class StateTransition(TypedDict, closed=True):
     state: NotRequired["aws_sdk_connect.types.participant_state.ParticipantState"]
     """<p>The state of the transition.</p>"""
     state_start_timestamp: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]

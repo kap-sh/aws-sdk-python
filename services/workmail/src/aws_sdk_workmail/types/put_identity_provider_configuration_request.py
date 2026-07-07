@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#PutIdentityProviderConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.personal_access_token_configuration
 
 
-class PutIdentityProviderConfigurationRequest(TypedDict):
+class PutIdentityProviderConfigurationRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p> The ID of the WorkMail Organization. </p>"""
     authentication_mode: "aws_sdk_workmail.types.identity_provider_authentication_mode.IdentityProviderAuthenticationMode"

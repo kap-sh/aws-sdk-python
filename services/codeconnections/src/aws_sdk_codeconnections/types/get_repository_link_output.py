@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#GetRepositoryLinkOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeconnections.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.repository_link_info
 
 
-class GetRepositoryLinkOutput(TypedDict):
+class GetRepositoryLinkOutput(TypedDict, closed=True):
     repository_link_info: (
         "aws_sdk_codeconnections.types.repository_link_info.RepositoryLinkInfo"
     )

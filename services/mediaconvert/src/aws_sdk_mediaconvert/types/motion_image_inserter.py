@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#MotionImageInserter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_min11_max11_pattern01_d20305_d205_d
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.motion_image_playback
 
 
-class MotionImageInserter(TypedDict):
+class MotionImageInserter(TypedDict, closed=True):
     framerate: NotRequired[
         "aws_sdk_mediaconvert.types.motion_image_insertion_framerate.MotionImageInsertionFramerate"
     ]

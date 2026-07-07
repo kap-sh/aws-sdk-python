@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#ConfigureLogsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__string
     import aws_sdk_mediapackage_vod.types.egress_access_logs
 
 
-class ConfigureLogsRequest(TypedDict):
+class ConfigureLogsRequest(TypedDict, closed=True):
     egress_access_logs: NotRequired[
         "aws_sdk_mediapackage_vod.types.egress_access_logs.EgressAccessLogs"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AssociationOverview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.association_status_aggregated_count
     import aws_sdk_ssm.types.status_name
 
 
-class AssociationOverview(TypedDict):
+class AssociationOverview(TypedDict, closed=True):
     status: NotRequired["aws_sdk_ssm.types.status_name.StatusName"]
     """<p>The status of the association. Status can be: Pending, Success, or Failed.</p>"""
     detailed_status: NotRequired["aws_sdk_ssm.types.status_name.StatusName"]

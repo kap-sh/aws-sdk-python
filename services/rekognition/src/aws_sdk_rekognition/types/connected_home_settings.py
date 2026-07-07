@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ConnectedHomeSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.percent
 
 
-class ConnectedHomeSettings(TypedDict):
+class ConnectedHomeSettings(TypedDict, closed=True):
     labels: "aws_sdk_rekognition.types.connected_home_labels.ConnectedHomeLabels"
     r"""<p> Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: \"PERSON\", \"PET\", \"PACKAGE\", and \"ALL\". </p>"""
     min_confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]

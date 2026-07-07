@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#HoursOfOperationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.hours_of_operation_time_slice
 
 
-class HoursOfOperationConfig(TypedDict):
+class HoursOfOperationConfig(TypedDict, closed=True):
     day: "aws_sdk_connect.types.hours_of_operation_days.HoursOfOperationDays"
     """<p>The day that the hours of operation applies to.</p>"""
     start_time: (

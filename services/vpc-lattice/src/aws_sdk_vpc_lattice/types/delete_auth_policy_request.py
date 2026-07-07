@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#DeleteAuthPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.resource_identifier
 
 
-class DeleteAuthPolicyRequest(TypedDict):
+class DeleteAuthPolicyRequest(TypedDict, closed=True):
     resource_identifier: (
         "aws_sdk_vpc_lattice.types.resource_identifier.ResourceIdentifier"
     )

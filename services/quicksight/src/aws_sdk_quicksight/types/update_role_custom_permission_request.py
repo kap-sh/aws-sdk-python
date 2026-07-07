@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateRoleCustomPermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.role_name
 
 
-class UpdateRoleCustomPermissionRequest(TypedDict):
+class UpdateRoleCustomPermissionRequest(TypedDict, closed=True):
     custom_permissions_name: "aws_sdk_quicksight.types.role_name.RoleName"
     """<p>The name of the custom permission that you want to update the role with.</p>"""
     role: "aws_sdk_quicksight.types.role.Role"

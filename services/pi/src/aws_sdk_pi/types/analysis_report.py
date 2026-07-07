@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pi#AnalysisReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pi.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_pi.types.service_type
 
 
-class AnalysisReport(TypedDict):
+class AnalysisReport(TypedDict, closed=True):
     analysis_report_id: "aws_sdk_pi.types.analysis_report_id.AnalysisReportId"
     """<p>The name of the analysis report.</p>"""
     identifier: NotRequired["aws_sdk_pi.types.identifier_string.IdentifierString"]

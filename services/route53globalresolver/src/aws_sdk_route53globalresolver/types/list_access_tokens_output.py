@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#ListAccessTokensOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.access_tokens
 
 
-class ListAccessTokensOutput(TypedDict):
+class ListAccessTokensOutput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>A pagination token used for large sets of results that can't be returned in a single response. Provide this token in the next call to get the results not returned in this call.</p>"""
     access_tokens: NotRequired[

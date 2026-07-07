@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#ListFeedsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.feed_summary_list
 
 
-class ListFeedsResponse(TypedDict):
+class ListFeedsResponse(TypedDict, closed=True):
     feeds: "aws_sdk_elementalinference.types.feed_summary_list.FeedSummaryList"
     """<p>A list of FeedSummary objects.</p>"""
     next_token: NotRequired["str"]

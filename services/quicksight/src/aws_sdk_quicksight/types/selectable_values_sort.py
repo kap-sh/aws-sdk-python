@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SelectableValuesSort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.control_sort_direction
 
 
-class SelectableValuesSort(TypedDict):
+class SelectableValuesSort(TypedDict, closed=True):
     direction: "aws_sdk_quicksight.types.control_sort_direction.ControlSortDirection"
     """<p>The sort direction for the selectable values. Choose one of the following options:</p> <ul> <li> <p> <code>ASC</code>: Sort in ascending order.</p> </li> <li> <p> <code>DESC</code>: Sort in descending order.</p> </li> <li> <p> <code>USER_DEFINED_ORDER</code>: Preserve the order in which the values were entered.</p> </li> </ul>"""
 

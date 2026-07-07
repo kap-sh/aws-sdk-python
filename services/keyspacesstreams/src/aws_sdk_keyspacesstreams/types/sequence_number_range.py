@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#SequenceNumberRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.sequence_number
 
 
-class SequenceNumberRange(TypedDict):
+class SequenceNumberRange(TypedDict, closed=True):
     starting_sequence_number: NotRequired[
         "aws_sdk_keyspacesstreams.types.sequence_number.SequenceNumber"
     ]

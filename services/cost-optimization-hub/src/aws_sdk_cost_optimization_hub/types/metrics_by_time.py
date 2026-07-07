@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#MetricsByTime``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class MetricsByTime(TypedDict):
+class MetricsByTime(TypedDict, closed=True):
     score: NotRequired["float"]
     """<p>The efficiency score for this time period. The score represents a measure of how effectively the cloud resources are being optimized, with higher scores indicating better optimization performance.</p>"""
     savings: NotRequired["float"]

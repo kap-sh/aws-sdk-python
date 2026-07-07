@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#ListSignalingChannelsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.channel_info_list
     import aws_sdk_kinesis_video.types.next_token
 
 
-class ListSignalingChannelsOutput(TypedDict):
+class ListSignalingChannelsOutput(TypedDict, closed=True):
     channel_info_list: NotRequired[
         "aws_sdk_kinesis_video.types.channel_info_list.ChannelInfoList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#DeleteMarkerEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.owner
 
 
-class DeleteMarkerEntry(TypedDict):
+class DeleteMarkerEntry(TypedDict, closed=True):
     owner: NotRequired["aws_sdk_s3.types.owner.Owner"]
     """<p>The account that created the delete marker. </p>"""
     key: NotRequired["aws_sdk_s3.types.object_key.ObjectKey"]

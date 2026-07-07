@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#InputSerialization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.csv_input
 
 
-class InputSerialization(TypedDict):
+class InputSerialization(TypedDict, closed=True):
     csv: NotRequired["aws_sdk_glacier.types.csv_input.CSVInput"]
     """<p>Describes the serialization of a CSV-encoded object.</p>"""
 

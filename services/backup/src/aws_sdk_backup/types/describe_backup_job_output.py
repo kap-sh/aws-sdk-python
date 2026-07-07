@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeBackupJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.account_id
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class DescribeBackupJobOutput(TypedDict):
+class DescribeBackupJobOutput(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_backup.types.account_id.AccountId"]
     """<p>Returns the account ID that owns the backup job.</p>"""
     backup_job_id: NotRequired["aws_sdk_backup.types.string.string"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ScoreAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.score_confidence
 
 
-class ScoreAttributes(TypedDict):
+class ScoreAttributes(TypedDict, closed=True):
     score_confidence: NotRequired[
         "aws_sdk_kendra.types.score_confidence.ScoreConfidence"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StopProjectVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.project_version_arn
 
 
-class StopProjectVersionRequest(TypedDict):
+class StopProjectVersionRequest(TypedDict, closed=True):
     project_version_arn: (
         "aws_sdk_rekognition.types.project_version_arn.ProjectVersionArn"
     )

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#GetTableRecordExpirationConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_arn
 
 
-class GetTableRecordExpirationConfigurationRequest(TypedDict):
+class GetTableRecordExpirationConfigurationRequest(TypedDict, closed=True):
     table_arn: "aws_sdk_s3tables.types.table_arn.TableARN"
     """<p>The Amazon Resource Name (ARN) of the table.</p>"""
 

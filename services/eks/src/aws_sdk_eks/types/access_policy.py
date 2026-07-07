@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#AccessPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class AccessPolicy(TypedDict):
+class AccessPolicy(TypedDict, closed=True):
     name: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The name of the access policy.</p>"""
     arn: NotRequired["aws_sdk_eks.types.string.String"]

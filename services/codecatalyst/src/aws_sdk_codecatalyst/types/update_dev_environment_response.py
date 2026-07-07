@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#UpdateDevEnvironmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.uuid
 
 
-class UpdateDevEnvironmentResponse(TypedDict):
+class UpdateDevEnvironmentResponse(TypedDict, closed=True):
     id: "aws_sdk_codecatalyst.types.uuid.Uuid"
     """<p>The system-generated unique ID of the Dev Environment. </p>"""
     space_name: "aws_sdk_codecatalyst.types.name_string.NameString"

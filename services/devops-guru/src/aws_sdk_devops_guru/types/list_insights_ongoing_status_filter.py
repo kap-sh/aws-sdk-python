@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ListInsightsOngoingStatusFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.insight_type
 
 
-class ListInsightsOngoingStatusFilter(TypedDict):
+class ListInsightsOngoingStatusFilter(TypedDict, closed=True):
     type: "aws_sdk_devops_guru.types.insight_type.InsightType"
     """<p> Use to filter for either <code>REACTIVE</code> or <code>PROACTIVE</code> insights. </p>"""
 

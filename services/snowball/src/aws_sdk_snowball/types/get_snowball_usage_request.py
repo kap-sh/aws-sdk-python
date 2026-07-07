@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#GetSnowballUsageRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetSnowballUsageRequest(TypedDict):
+class GetSnowballUsageRequest(TypedDict, closed=True):
     pass
 
 

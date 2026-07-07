@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DeleteBotAnalyzerRecommendationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteBotAnalyzerRecommendationResponse(TypedDict):
+class DeleteBotAnalyzerRecommendationResponse(TypedDict, closed=True):
     pass
 
 

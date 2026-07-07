@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#UpdateMapRunOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateMapRunOutput(TypedDict):
+class UpdateMapRunOutput(TypedDict, closed=True):
     pass
 
 

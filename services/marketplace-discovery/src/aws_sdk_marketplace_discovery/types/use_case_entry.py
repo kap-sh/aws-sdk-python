@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#UseCaseEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.use_case
 
 
-class UseCaseEntry(TypedDict):
+class UseCaseEntry(TypedDict, closed=True):
     use_case: "aws_sdk_marketplace_discovery.types.use_case.UseCase"
     """<p>The use case details.</p>"""
 

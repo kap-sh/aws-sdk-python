@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#UpdateCommentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.comment
 
 
-class UpdateCommentOutput(TypedDict):
+class UpdateCommentOutput(TypedDict, closed=True):
     comment: NotRequired["aws_sdk_codecommit.types.comment.Comment"]
     """<p>Information about the updated comment.</p>"""
 

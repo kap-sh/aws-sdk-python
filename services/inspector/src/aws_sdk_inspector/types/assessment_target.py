@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#AssessmentTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.timestamp
 
 
-class AssessmentTarget(TypedDict):
+class AssessmentTarget(TypedDict, closed=True):
     arn: "aws_sdk_inspector.types.arn.Arn"
     """<p>The ARN that specifies the Amazon Inspector assessment target.</p>"""
     name: "aws_sdk_inspector.types.assessment_target_name.AssessmentTargetName"

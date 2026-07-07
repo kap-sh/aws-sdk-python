@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#UpdateChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__boolean
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.special_router_settings
 
 
-class UpdateChannelRequest(TypedDict):
+class UpdateChannelRequest(TypedDict, closed=True):
     cdi_input_specification: NotRequired[
         "aws_sdk_medialive.types.cdi_input_specification.CdiInputSpecification"
     ]

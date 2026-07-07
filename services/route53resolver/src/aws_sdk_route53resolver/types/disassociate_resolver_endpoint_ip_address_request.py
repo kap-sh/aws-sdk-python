@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#DisassociateResolverEndpointIpAddressRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class DisassociateResolverEndpointIpAddressRequest(TypedDict):
+class DisassociateResolverEndpointIpAddressRequest(TypedDict, closed=True):
     resolver_endpoint_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p>The ID of the Resolver endpoint that you want to disassociate an IP address from.</p>"""
     ip_address: "aws_sdk_route53resolver.types.ip_address_update.IpAddressUpdate"

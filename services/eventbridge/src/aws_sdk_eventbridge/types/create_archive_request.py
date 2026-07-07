@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#CreateArchiveRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.retention_days
 
 
-class CreateArchiveRequest(TypedDict):
+class CreateArchiveRequest(TypedDict, closed=True):
     archive_name: "aws_sdk_eventbridge.types.archive_name.ArchiveName"
     """<p>The name for the archive to create.</p>"""
     event_source_arn: "aws_sdk_eventbridge.types.event_bus_arn.EventBusArn"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#JobSample``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.job_size
     import aws_sdk_databrew.types.sample_mode
 
 
-class JobSample(TypedDict):
+class JobSample(TypedDict, closed=True):
     mode: NotRequired["aws_sdk_databrew.types.sample_mode.SampleMode"]
     """<p>A value that determines whether the profile job is run on the entire dataset or a specified number of rows. This value must be one of the following:</p> <ul> <li> <p>FULL_DATASET - The profile job is run on the entire dataset.</p> </li> <li> <p>CUSTOM_ROWS - The profile job is run on the number of rows specified in the <code>Size</code> parameter.</p> </li> </ul>"""
     size: NotRequired["aws_sdk_databrew.types.job_size.JobSize"]

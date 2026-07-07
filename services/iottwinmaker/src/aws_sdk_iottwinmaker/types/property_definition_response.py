@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#PropertyDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.property_display_name
 
 
-class PropertyDefinitionResponse(TypedDict):
+class PropertyDefinitionResponse(TypedDict, closed=True):
     data_type: "aws_sdk_iottwinmaker.types.data_type.DataType"
     """<p>An object that contains information about the data type.</p>"""
     is_time_series: "aws_sdk_iottwinmaker.types.boolean.Boolean"

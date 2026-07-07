@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeAppBlockBuildersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.string_list
 
 
-class DescribeAppBlockBuildersRequest(TypedDict):
+class DescribeAppBlockBuildersRequest(TypedDict, closed=True):
     names: NotRequired["aws_sdk_appstream.types.string_list.StringList"]
     """<p>The names of the app block builders.</p>"""
     next_token: NotRequired["aws_sdk_appstream.types.string.String"]

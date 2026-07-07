@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#ListRouteCalculatorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.token
 
 
-class ListRouteCalculatorsRequest(TypedDict):
+class ListRouteCalculatorsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>An optional maximum number of results returned in a single call.</p> <p>Default Value: <code>100</code> </p>"""
     next_token: NotRequired["aws_sdk_location.types.token.Token"]

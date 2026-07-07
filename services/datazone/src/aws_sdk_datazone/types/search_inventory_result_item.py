@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SearchInventoryResultItem``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.glossary_term_item
 
 
-class _SearchInventoryResultItem_glossaryItem(TypedDict):
+class _SearchInventoryResultItem_glossaryItem(TypedDict, closed=True):
     glossaryItem: "aws_sdk_datazone.types.glossary_item.GlossaryItem"
 
 
-class _SearchInventoryResultItem_glossaryTermItem(TypedDict):
+class _SearchInventoryResultItem_glossaryTermItem(TypedDict, closed=True):
     glossaryTermItem: "aws_sdk_datazone.types.glossary_term_item.GlossaryTermItem"
 
 
-class _SearchInventoryResultItem_assetItem(TypedDict):
+class _SearchInventoryResultItem_assetItem(TypedDict, closed=True):
     assetItem: "aws_sdk_datazone.types.asset_item.AssetItem"
 
 
-class _SearchInventoryResultItem_dataProductItem(TypedDict):
+class _SearchInventoryResultItem_dataProductItem(TypedDict, closed=True):
     dataProductItem: (
         "aws_sdk_datazone.types.data_product_result_item.DataProductResultItem"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#OrderBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.dimension
     import aws_sdk_compute_optimizer.types.order
 
 
-class OrderBy(TypedDict):
+class OrderBy(TypedDict, closed=True):
     dimension: NotRequired["aws_sdk_compute_optimizer.types.dimension.Dimension"]
     """<p>The dimension values to sort the recommendations.</p>"""
     order: NotRequired["aws_sdk_compute_optimizer.types.order.Order"]

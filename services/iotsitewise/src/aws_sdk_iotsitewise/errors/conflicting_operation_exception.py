@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ConflictingOperationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise._protocol.eventstream import HeaderValue, Message
 from aws_sdk_iotsitewise.errors import DeserializationError, ServiceError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.resource_id
 
 
-class ConflictingOperationException_(TypedDict):
+class ConflictingOperationException_(TypedDict, closed=True):
     message: "aws_sdk_iotsitewise.types.error_message.ErrorMessage"
     resource_id: "aws_sdk_iotsitewise.types.resource_id.ResourceId"
     """<p>The ID of the resource that conflicts with this operation.</p>"""

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedQueryOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.protected_query_s3_output_configuration
 
 
-class _ProtectedQueryOutputConfiguration_s3(TypedDict):
+class _ProtectedQueryOutputConfiguration_s3(TypedDict, closed=True):
     s3: "aws_sdk_cleanrooms.types.protected_query_s3_output_configuration.ProtectedQueryS3OutputConfiguration"
 
 
-class _ProtectedQueryOutputConfiguration_member(TypedDict):
+class _ProtectedQueryOutputConfiguration_member(TypedDict, closed=True):
     member: "aws_sdk_cleanrooms.types.protected_query_member_output_configuration.ProtectedQueryMemberOutputConfiguration"
 
 
-class _ProtectedQueryOutputConfiguration_distribute(TypedDict):
+class _ProtectedQueryOutputConfiguration_distribute(TypedDict, closed=True):
     distribute: "aws_sdk_cleanrooms.types.protected_query_distribute_output_configuration.ProtectedQueryDistributeOutputConfiguration"
 
 

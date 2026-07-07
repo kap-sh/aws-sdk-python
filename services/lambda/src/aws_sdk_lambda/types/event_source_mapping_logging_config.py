@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#EventSourceMappingLoggingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.event_source_mapping_system_log_level
 
 
-class EventSourceMappingLoggingConfig(TypedDict):
+class EventSourceMappingLoggingConfig(TypedDict, closed=True):
     system_log_level: NotRequired[
         "aws_sdk_lambda.types.event_source_mapping_system_log_level.EventSourceMappingSystemLogLevel"
     ]

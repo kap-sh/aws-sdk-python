@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#Button``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.button_value
 
 
-class Button(TypedDict):
+class Button(TypedDict, closed=True):
     text: "aws_sdk_lex_models_v2.types.button_text.ButtonText"
     """<p>The text that appears on the button. Use this to tell the user what value is returned when they choose this button.</p>"""
     value: "aws_sdk_lex_models_v2.types.button_value.ButtonValue"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DeleteProjectPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.project_policy_revision_id
 
 
-class DeleteProjectPolicyRequest(TypedDict):
+class DeleteProjectPolicyRequest(TypedDict, closed=True):
     project_arn: "aws_sdk_rekognition.types.project_arn.ProjectArn"
     """<p>The Amazon Resource Name (ARN) of the project that the project policy you want to delete is attached to.</p>"""
     policy_name: "aws_sdk_rekognition.types.project_policy_name.ProjectPolicyName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateNetworkInsightsAccessScopeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CreateNetworkInsightsAccessScopeRequest(TypedDict):
+class CreateNetworkInsightsAccessScopeRequest(TypedDict, closed=True):
     match_paths: NotRequired[
         "aws_sdk_ec2.types.access_scope_path_list_request.AccessScopePathListRequest"
     ]

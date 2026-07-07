@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#RegisterConnectorV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class RegisterConnectorV2Request(TypedDict):
+class RegisterConnectorV2Request(TypedDict, closed=True):
     auth_code: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The authCode retrieved from authUrl to complete the OAuth 2.0 authorization code flow.</p>"""
     auth_state: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

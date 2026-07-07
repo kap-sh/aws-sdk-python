@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#DescribeResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_policy_status_code
 
 
-class DescribeResourcePolicyResponse(TypedDict):
+class DescribeResourcePolicyResponse(TypedDict, closed=True):
     policy_document: "str"
     """<p>The JSON policy document for the resource-based policy attached to the workspace.</p>"""
     policy_status: (

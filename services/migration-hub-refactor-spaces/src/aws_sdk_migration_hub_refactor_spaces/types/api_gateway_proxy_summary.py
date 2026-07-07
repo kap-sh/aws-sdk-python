@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#ApiGatewayProxySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.api_gateway_endpoint_type
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.vpc_link_id
 
 
-class ApiGatewayProxySummary(TypedDict):
+class ApiGatewayProxySummary(TypedDict, closed=True):
     proxy_url: NotRequired["aws_sdk_migration_hub_refactor_spaces.types.uri.Uri"]
     """<p>The endpoint URL of the API Gateway proxy. </p>"""
     api_gateway_id: NotRequired[

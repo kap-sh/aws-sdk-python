@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#UpdateScheduledQueryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.arn
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class UpdateScheduledQueryResponse(TypedDict):
+class UpdateScheduledQueryResponse(TypedDict, closed=True):
     scheduled_query_arn: NotRequired["aws_sdk_cloudwatch_logs.types.arn.Arn"]
     """<p>The ARN of the updated scheduled query.</p>"""
     name: NotRequired[

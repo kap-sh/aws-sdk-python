@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RetentionPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.retention_type
 
 
-class RetentionPolicy(TypedDict):
+class RetentionPolicy(TypedDict, closed=True):
     home_efs_file_system: NotRequired[
         "aws_sdk_sagemaker.types.retention_type.RetentionType"
     ]

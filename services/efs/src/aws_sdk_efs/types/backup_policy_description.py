@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.efs#BackupPolicyDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.backup_policy
 
 
-class BackupPolicyDescription(TypedDict):
+class BackupPolicyDescription(TypedDict, closed=True):
     backup_policy: NotRequired["aws_sdk_efs.types.backup_policy.BackupPolicy"]
     """<p>Describes the file system's backup policy, indicating whether automatic backups are turned on or off.</p>"""
 

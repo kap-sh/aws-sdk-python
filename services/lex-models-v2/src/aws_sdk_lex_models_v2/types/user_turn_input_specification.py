@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UserTurnInputSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.utterance_input_specification
 
 
-class UserTurnInputSpecification(TypedDict):
+class UserTurnInputSpecification(TypedDict, closed=True):
     utterance_input: "aws_sdk_lex_models_v2.types.utterance_input_specification.UtteranceInputSpecification"
     """<p>The utterance input in the user turn.</p>"""
     request_attributes: NotRequired["aws_sdk_lex_models_v2.types.string_map.StringMap"]

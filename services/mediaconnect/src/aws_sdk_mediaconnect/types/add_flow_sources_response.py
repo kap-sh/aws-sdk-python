@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#AddFlowSourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_source
 
 
-class AddFlowSourcesResponse(TypedDict):
+class AddFlowSourcesResponse(TypedDict, closed=True):
     flow_arn: NotRequired["str"]
     """<p> The ARN of the flow that these sources were added to.</p>"""
     sources: NotRequired["aws_sdk_mediaconnect.types.__list_of_source.__listOfSource"]

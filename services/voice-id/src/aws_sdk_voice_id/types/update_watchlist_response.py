@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#UpdateWatchlistResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.watchlist
 
 
-class UpdateWatchlistResponse(TypedDict):
+class UpdateWatchlistResponse(TypedDict, closed=True):
     watchlist: NotRequired["aws_sdk_voice_id.types.watchlist.Watchlist"]
     """<p>Details about the updated watchlist.</p>"""
 

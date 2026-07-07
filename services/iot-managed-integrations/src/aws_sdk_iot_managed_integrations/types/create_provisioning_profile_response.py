@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CreateProvisioningProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.claim_certificate
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.provisioning_type
 
 
-class CreateProvisioningProfileResponse(TypedDict):
+class CreateProvisioningProfileResponse(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_iot_managed_integrations.types.provisioning_profile_arn.ProvisioningProfileArn"
     ]

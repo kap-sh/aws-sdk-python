@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#MediaPlacement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.uri
 
 
-class MediaPlacement(TypedDict):
+class MediaPlacement(TypedDict, closed=True):
     audio_host_url: NotRequired["aws_sdk_connect.types.uri.URI"]
     """<p>The audio host URL.</p>"""
     audio_fallback_url: NotRequired["aws_sdk_connect.types.uri.URI"]

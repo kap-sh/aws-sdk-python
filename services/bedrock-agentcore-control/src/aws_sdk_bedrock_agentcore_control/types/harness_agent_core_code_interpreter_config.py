@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessAgentCoreCodeInterpreterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.harness_code_interpreter_arn
 
 
-class HarnessAgentCoreCodeInterpreterConfig(TypedDict):
+class HarnessAgentCoreCodeInterpreterConfig(TypedDict, closed=True):
     code_interpreter_arn: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.harness_code_interpreter_arn.HarnessCodeInterpreterArn"
     ]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessTokenUsage``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class HarnessTokenUsage(TypedDict):
+class HarnessTokenUsage(TypedDict, closed=True):
     input_tokens: "int"
     """<p>The number of input tokens consumed.</p>"""
     output_tokens: "int"

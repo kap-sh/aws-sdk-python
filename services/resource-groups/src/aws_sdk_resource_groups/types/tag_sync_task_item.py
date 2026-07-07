@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#TagSyncTaskItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.error_message
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.timestamp
 
 
-class TagSyncTaskItem(TypedDict):
+class TagSyncTaskItem(TypedDict, closed=True):
     group_arn: NotRequired["aws_sdk_resource_groups.types.group_arn_v2.GroupArnV2"]
     """<p>The Amazon resource name (ARN) of the application group. </p>"""
     group_name: NotRequired["aws_sdk_resource_groups.types.group_name.GroupName"]

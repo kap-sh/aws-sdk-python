@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#UpdateEnvironmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.identifier
 
 
-class UpdateEnvironmentResponse(TypedDict):
+class UpdateEnvironmentResponse(TypedDict, closed=True):
     environment_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The unique identifier of the runtime environment that was updated.</p>"""
 

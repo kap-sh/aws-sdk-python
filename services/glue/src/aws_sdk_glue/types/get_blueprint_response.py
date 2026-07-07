@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetBlueprintResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.blueprint
 
 
-class GetBlueprintResponse(TypedDict):
+class GetBlueprintResponse(TypedDict, closed=True):
     blueprint: NotRequired["aws_sdk_glue.types.blueprint.Blueprint"]
     """<p>Returns a <code>Blueprint</code> object.</p>"""
 

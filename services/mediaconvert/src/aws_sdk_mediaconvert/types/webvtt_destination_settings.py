@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#WebvttDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.webvtt_accessibility_subs
     import aws_sdk_mediaconvert.types.webvtt_style_passthrough
 
 
-class WebvttDestinationSettings(TypedDict):
+class WebvttDestinationSettings(TypedDict, closed=True):
     accessibility: NotRequired[
         "aws_sdk_mediaconvert.types.webvtt_accessibility_subs.WebvttAccessibilitySubs"
     ]

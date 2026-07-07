@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ExecutionTrigger``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.trigger_detail
     import aws_sdk_codepipeline.types.trigger_type
 
 
-class ExecutionTrigger(TypedDict):
+class ExecutionTrigger(TypedDict, closed=True):
     trigger_type: NotRequired["aws_sdk_codepipeline.types.trigger_type.TriggerType"]
     """<p>The type of change-detection method, command, or user interaction that started a pipeline execution.</p>"""
     trigger_detail: NotRequired[

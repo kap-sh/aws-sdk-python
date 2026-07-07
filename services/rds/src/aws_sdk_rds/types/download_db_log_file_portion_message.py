@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DownloadDBLogFilePortionMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DownloadDBLogFilePortionMessage(TypedDict):
+class DownloadDBLogFilePortionMessage(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The customer-assigned name of the DB instance that contains the log files you want to list.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DBInstance.</p> </li> </ul>"""
     log_file_name: NotRequired["aws_sdk_rds.types.string.String"]

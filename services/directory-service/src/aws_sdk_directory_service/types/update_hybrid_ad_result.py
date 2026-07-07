@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#UpdateHybridADResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.assessment_id
     import aws_sdk_directory_service.types.directory_id
 
 
-class UpdateHybridADResult(TypedDict):
+class UpdateHybridADResult(TypedDict, closed=True):
     directory_id: NotRequired[
         "aws_sdk_directory_service.types.directory_id.DirectoryId"
     ]

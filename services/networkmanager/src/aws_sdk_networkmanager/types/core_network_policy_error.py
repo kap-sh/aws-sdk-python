@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CoreNetworkPolicyError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkmanager.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.server_side_string
 
 
-class CoreNetworkPolicyError(TypedDict):
+class CoreNetworkPolicyError(TypedDict, closed=True):
     error_code: "aws_sdk_networkmanager.types.server_side_string.ServerSideString"
     """<p>The error code associated with a core network policy error.</p>"""
     message: "aws_sdk_networkmanager.types.server_side_string.ServerSideString"

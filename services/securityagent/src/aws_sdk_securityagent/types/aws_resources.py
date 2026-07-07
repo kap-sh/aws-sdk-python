@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#AWSResources``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.iam_roles
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.vpc_configs
 
 
-class AWSResources(TypedDict):
+class AWSResources(TypedDict, closed=True):
     vpcs: NotRequired["aws_sdk_securityagent.types.vpc_configs.VpcConfigs"]
     """<p>The VPC configurations associated with the agent space.</p>"""
     log_groups: NotRequired["aws_sdk_securityagent.types.log_group_arns.LogGroupArns"]

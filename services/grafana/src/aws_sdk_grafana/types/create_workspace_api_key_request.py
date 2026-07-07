@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#CreateWorkspaceApiKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_id
 
 
-class CreateWorkspaceApiKeyRequest(TypedDict):
+class CreateWorkspaceApiKeyRequest(TypedDict, closed=True):
     key_name: "aws_sdk_grafana.types.api_key_name.ApiKeyName"
     """<p>Specifies the name of the key. Keynames must be unique to the workspace.</p>"""
     key_role: "str"

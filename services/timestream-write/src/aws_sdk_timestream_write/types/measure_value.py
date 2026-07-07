@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#MeasureValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.string_value2048
 
 
-class MeasureValue(TypedDict):
+class MeasureValue(TypedDict, closed=True):
     name: "aws_sdk_timestream_write.types.schema_name.SchemaName"
     r"""<p> The name of the MeasureValue. </p> <p> For constraints on MeasureValue names, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.naming\"> Naming Constraints</a> in the Amazon Timestream Developer Guide.</p>"""
     value: "aws_sdk_timestream_write.types.string_value2048.StringValue2048"

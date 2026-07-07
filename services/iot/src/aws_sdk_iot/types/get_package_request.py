@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetPackageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.package_name
 
 
-class GetPackageRequest(TypedDict):
+class GetPackageRequest(TypedDict, closed=True):
     package_name: "aws_sdk_iot.types.package_name.PackageName"
     """<p>The name of the target software package.</p>"""
 

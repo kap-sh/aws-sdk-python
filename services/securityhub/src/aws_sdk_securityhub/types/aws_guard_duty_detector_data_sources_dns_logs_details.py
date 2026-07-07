@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsGuardDutyDetectorDataSourcesDnsLogsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsGuardDutyDetectorDataSourcesDnsLogsDetails(TypedDict):
+class AwsGuardDutyDetectorDataSourcesDnsLogsDetails(TypedDict, closed=True):
     status: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> Describes whether DNS logs is enabled as a data source for the detector. </p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#HybridUpdateInfoEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.assessment_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.update_status_reason
 
 
-class HybridUpdateInfoEntry(TypedDict):
+class HybridUpdateInfoEntry(TypedDict, closed=True):
     status: NotRequired["aws_sdk_directory_service.types.update_status.UpdateStatus"]
     """<p>The current status of the update activity. Valid values include <code>UPDATED</code>, <code>UPDATING</code>, and <code>UPDATE_FAILED</code>.</p>"""
     status_reason: NotRequired[

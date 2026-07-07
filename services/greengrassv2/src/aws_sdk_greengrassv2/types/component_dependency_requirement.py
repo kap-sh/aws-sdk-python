@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#ComponentDependencyRequirement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.component_dependency_type
     import aws_sdk_greengrassv2.types.non_empty_string
 
 
-class ComponentDependencyRequirement(TypedDict):
+class ComponentDependencyRequirement(TypedDict, closed=True):
     version_requirement: NotRequired[
         "aws_sdk_greengrassv2.types.non_empty_string.NonEmptyString"
     ]

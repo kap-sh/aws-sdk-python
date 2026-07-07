@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ImportNotebookOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.notebook_id
 
 
-class ImportNotebookOutput(TypedDict):
+class ImportNotebookOutput(TypedDict, closed=True):
     notebook_id: NotRequired["aws_sdk_athena.types.notebook_id.NotebookId"]
     """<p>The ID assigned to the imported notebook.</p>"""
 

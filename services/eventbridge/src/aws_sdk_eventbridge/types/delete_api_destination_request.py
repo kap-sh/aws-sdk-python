@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#DeleteApiDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.api_destination_name
 
 
-class DeleteApiDestinationRequest(TypedDict):
+class DeleteApiDestinationRequest(TypedDict, closed=True):
     name: "aws_sdk_eventbridge.types.api_destination_name.ApiDestinationName"
     """<p>The name of the destination to delete.</p>"""
 

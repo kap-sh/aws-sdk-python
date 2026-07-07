@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#PreloadDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.preload_data_type
 
 
-class PreloadDataConfig(TypedDict):
+class PreloadDataConfig(TypedDict, closed=True):
     preload_data_type: "aws_sdk_healthlake.types.preload_data_type.PreloadDataType"
     """<p>The type of preloaded data. Only Synthea preloaded data is supported.</p>"""
 

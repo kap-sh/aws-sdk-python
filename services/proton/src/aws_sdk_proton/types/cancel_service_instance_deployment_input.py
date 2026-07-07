@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#CancelServiceInstanceDeploymentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.resource_name
 
 
-class CancelServiceInstanceDeploymentInput(TypedDict):
+class CancelServiceInstanceDeploymentInput(TypedDict, closed=True):
     service_instance_name: "aws_sdk_proton.types.resource_name.ResourceName"
     """<p>The name of the service instance with the deployment to cancel.</p>"""
     service_name: "aws_sdk_proton.types.resource_name.ResourceName"

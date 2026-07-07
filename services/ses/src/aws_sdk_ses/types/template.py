@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#Template``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.text_part
 
 
-class Template(TypedDict):
+class Template(TypedDict, closed=True):
     template_name: "aws_sdk_ses.types.template_name.TemplateName"
     """<p>The name of the template. You use this name when you send email using the <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations.</p>"""
     subject_part: NotRequired["aws_sdk_ses.types.subject_part.SubjectPart"]

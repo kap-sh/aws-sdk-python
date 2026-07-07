@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#StartCommandExecutionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.command_execution
 
 
-class StartCommandExecutionOutput(TypedDict):
+class StartCommandExecutionOutput(TypedDict, closed=True):
     command_execution: NotRequired[
         "aws_sdk_codebuild.types.command_execution.CommandExecution"
     ]

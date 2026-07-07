@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#StartSearchJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.search_job_arn
 
 
-class StartSearchJobOutput(TypedDict):
+class StartSearchJobOutput(TypedDict, closed=True):
     search_job_arn: NotRequired[
         "aws_sdk_backupsearch.types.search_job_arn.SearchJobArn"
     ]

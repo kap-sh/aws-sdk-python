@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#RegistryRecordCredentialProviderUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,15 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.registry_record_o_auth_credential_provider
 
 
-class _RegistryRecordCredentialProviderUnion_oauthCredentialProvider(TypedDict):
+class _RegistryRecordCredentialProviderUnion_oauthCredentialProvider(
+    TypedDict, closed=True
+):
     oauthCredentialProvider: "aws_sdk_bedrock_agentcore_control.types.registry_record_o_auth_credential_provider.RegistryRecordOAuthCredentialProvider"
 
 
-class _RegistryRecordCredentialProviderUnion_iamCredentialProvider(TypedDict):
+class _RegistryRecordCredentialProviderUnion_iamCredentialProvider(
+    TypedDict, closed=True
+):
     iamCredentialProvider: "aws_sdk_bedrock_agentcore_control.types.registry_record_iam_credential_provider.RegistryRecordIamCredentialProvider"
 
 

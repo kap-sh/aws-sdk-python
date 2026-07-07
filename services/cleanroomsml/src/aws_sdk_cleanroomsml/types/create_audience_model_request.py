@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#CreateAudienceModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.training_dataset_arn
 
 
-class CreateAudienceModelRequest(TypedDict):
+class CreateAudienceModelRequest(TypedDict, closed=True):
     training_data_start_time: NotRequired["datetime.datetime"]
     """<p>The start date and time of the training window.</p>"""
     training_data_end_time: NotRequired["datetime.datetime"]

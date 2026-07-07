@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#HttpConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__string
 
 
-class HttpConfiguration(TypedDict):
+class HttpConfiguration(TypedDict, closed=True):
     base_url: "aws_sdk_mediatailor.types.__string.__string"
     """<p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>"""
 

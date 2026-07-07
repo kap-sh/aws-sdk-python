@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#InvocationStepPayload``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.bedrock_session_content_blocks
 
 
-class _InvocationStepPayload_contentBlocks(TypedDict):
+class _InvocationStepPayload_contentBlocks(TypedDict, closed=True):
     contentBlocks: "aws_sdk_bedrock_agent_runtime.types.bedrock_session_content_blocks.BedrockSessionContentBlocks"
 
 

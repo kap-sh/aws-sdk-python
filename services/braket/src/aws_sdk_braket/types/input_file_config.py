@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#InputFileConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.string256
 
 
-class InputFileConfig(TypedDict):
+class InputFileConfig(TypedDict, closed=True):
     channel_name: "aws_sdk_braket.types.string64.String64"
     """<p>A named input source that an Amazon Braket hybrid job can consume.</p>"""
     content_type: NotRequired["aws_sdk_braket.types.string256.String256"]

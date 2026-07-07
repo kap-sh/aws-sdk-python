@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#GetFileUploadURLResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class GetFileUploadURLResponse(TypedDict):
+class GetFileUploadURLResponse(TypedDict, closed=True):
     file_upload_url: NotRequired["aws_sdk_mturk.types.string.String"]
     """<p> A temporary URL for the file that the Worker uploaded for the answer. </p>"""
 

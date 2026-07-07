@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#DomainResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class DomainResult(TypedDict):
+class DomainResult(TypedDict, closed=True):
     domain: "aws_sdk_cloudfront.types.string.string"
     """<p>The specified domain.</p>"""
     status: NotRequired["aws_sdk_cloudfront.types.domain_status.DomainStatus"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#PutLoggingConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.logging_configuration
 
 
-class PutLoggingConfigurationRequest(TypedDict):
+class PutLoggingConfigurationRequest(TypedDict, closed=True):
     logging_configuration: (
         "aws_sdk_waf_regional.types.logging_configuration.LoggingConfiguration"
     )

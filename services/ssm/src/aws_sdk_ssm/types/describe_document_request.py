@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeDocumentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.document_version_name
 
 
-class DescribeDocumentRequest(TypedDict):
+class DescribeDocumentRequest(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.document_arn.DocumentARN"
     """<p>The name of the SSM document.</p> <note> <p>If you're calling a shared SSM document from a different Amazon Web Services account, <code>Name</code> is the full Amazon Resource Name (ARN) of the document.</p> </note>"""
     document_version: NotRequired["aws_sdk_ssm.types.document_version.DocumentVersion"]

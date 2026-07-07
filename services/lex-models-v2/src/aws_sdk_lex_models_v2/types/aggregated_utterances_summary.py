@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AggregatedUtterancesSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.boxed_boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.utterance
 
 
-class AggregatedUtterancesSummary(TypedDict):
+class AggregatedUtterancesSummary(TypedDict, closed=True):
     utterance: NotRequired["aws_sdk_lex_models_v2.types.utterance.Utterance"]
     """<p>The text of the utterance. If the utterance was used with the <code>RecognizeUtterance</code> operation, the text is the transcription of the audio utterance.</p>"""
     hit_count: NotRequired["aws_sdk_lex_models_v2.types.hit_count.HitCount"]

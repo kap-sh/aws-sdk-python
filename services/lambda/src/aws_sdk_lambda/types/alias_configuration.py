@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#AliasConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.alias
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.version
 
 
-class AliasConfiguration(TypedDict):
+class AliasConfiguration(TypedDict, closed=True):
     alias_arn: NotRequired["aws_sdk_lambda.types.function_arn.FunctionArn"]
     """<p>The Amazon Resource Name (ARN) of the alias.</p>"""
     name: NotRequired["aws_sdk_lambda.types.alias.Alias"]

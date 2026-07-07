@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#DistinguishedName``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.custom_attribute_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.string
 
 
-class DistinguishedName(TypedDict):
+class DistinguishedName(TypedDict, closed=True):
     common_name: NotRequired["aws_sdk_acm.types.string.String"]
     """<p>The common name (CN) attribute.</p>"""
     domain_components: NotRequired[

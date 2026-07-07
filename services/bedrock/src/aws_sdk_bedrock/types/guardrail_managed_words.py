@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailManagedWords``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.guardrail_word_action
 
 
-class GuardrailManagedWords(TypedDict):
+class GuardrailManagedWords(TypedDict, closed=True):
     type: "aws_sdk_bedrock.types.guardrail_managed_words_type.GuardrailManagedWordsType"
     """<p>ManagedWords$type The managed word type that was configured for the guardrail. (For now, we only offer profanity word list)</p>"""
     input_action: NotRequired[

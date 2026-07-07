@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#EksAnywhereSubscription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boolean
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.timestamp
 
 
-class EksAnywhereSubscription(TypedDict):
+class EksAnywhereSubscription(TypedDict, closed=True):
     id: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>UUID identifying a subscription.</p>"""
     arn: NotRequired["aws_sdk_eks.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CreateDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.tag_list
 
 
-class CreateDestinationRequest(TypedDict):
+class CreateDestinationRequest(TypedDict, closed=True):
     name: "aws_sdk_iot_wireless.types.destination_name.DestinationName"
     """<p>The name of the new resource.</p>"""
     expression_type: "aws_sdk_iot_wireless.types.expression_type.ExpressionType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#NeptuneSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class NeptuneSettings(TypedDict):
+class NeptuneSettings(TypedDict, closed=True):
     service_access_role_arn: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

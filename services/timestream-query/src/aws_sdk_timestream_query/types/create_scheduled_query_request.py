@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#CreateScheduledQueryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.target_configuration
 
 
-class CreateScheduledQueryRequest(TypedDict):
+class CreateScheduledQueryRequest(TypedDict, closed=True):
     name: "aws_sdk_timestream_query.types.scheduled_query_name.ScheduledQueryName"
     """<p>Name of the scheduled query.</p>"""
     query_string: "aws_sdk_timestream_query.types.query_string.QueryString"

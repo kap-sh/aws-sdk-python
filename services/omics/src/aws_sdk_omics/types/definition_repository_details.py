@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DefinitionRepositoryDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.connection_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.source_reference
 
 
-class DefinitionRepositoryDetails(TypedDict):
+class DefinitionRepositoryDetails(TypedDict, closed=True):
     connection_arn: NotRequired["aws_sdk_omics.types.connection_arn.ConnectionArn"]
     """<p>The Amazon Resource Name (ARN) of the connection to the source code repository.</p>"""
     full_repository_id: NotRequired[

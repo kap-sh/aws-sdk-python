@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DescribeTestSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
 
 
-class DescribeTestSetRequest(TypedDict):
+class DescribeTestSetRequest(TypedDict, closed=True):
     test_set_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The test set Id for the test set request.</p>"""
 

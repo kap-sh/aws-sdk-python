@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#StatisticsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.statistic_list
     import aws_sdk_databrew.types.statistic_override_list
 
 
-class StatisticsConfiguration(TypedDict):
+class StatisticsConfiguration(TypedDict, closed=True):
     included_statistics: NotRequired[
         "aws_sdk_databrew.types.statistic_list.StatisticList"
     ]

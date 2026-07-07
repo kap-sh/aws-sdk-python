@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentTargetFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.experiment_target_filter_path
     import aws_sdk_fis.types.experiment_target_filter_values
 
 
-class ExperimentTargetFilter(TypedDict):
+class ExperimentTargetFilter(TypedDict, closed=True):
     path: NotRequired[
         "aws_sdk_fis.types.experiment_target_filter_path.ExperimentTargetFilterPath"
     ]

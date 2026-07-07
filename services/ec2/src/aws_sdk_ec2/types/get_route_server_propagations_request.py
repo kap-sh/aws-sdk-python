@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetRouteServerPropagationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.route_table_id
 
 
-class GetRouteServerPropagationsRequest(TypedDict):
+class GetRouteServerPropagationsRequest(TypedDict, closed=True):
     route_server_id: NotRequired["aws_sdk_ec2.types.route_server_id.RouteServerId"]
     """<p>The ID of the route server for which to get propagation information.</p>"""
     route_table_id: NotRequired["aws_sdk_ec2.types.route_table_id.RouteTableId"]

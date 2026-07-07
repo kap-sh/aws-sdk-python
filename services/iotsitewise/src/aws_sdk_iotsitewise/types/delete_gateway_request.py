@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DeleteGatewayRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
 
 
-class DeleteGatewayRequest(TypedDict):
+class DeleteGatewayRequest(TypedDict, closed=True):
     gateway_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the gateway to delete.</p>"""
 

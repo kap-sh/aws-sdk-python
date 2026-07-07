@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#WorkflowExportConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.s3_key_prefix
 
 
-class WorkflowExportConfig(TypedDict):
+class WorkflowExportConfig(TypedDict, closed=True):
     s3_bucket_name: "aws_sdk_nova_act.types.s3_bucket_name.S3BucketName"
     """<p>The name of your Amazon S3 bucket, that Nova Act uses to export your workflow data. Note that the IAM role used to access Nova Act must also have write permissions to this bucket.</p>"""
     s3_key_prefix: NotRequired["aws_sdk_nova_act.types.s3_key_prefix.S3KeyPrefix"]

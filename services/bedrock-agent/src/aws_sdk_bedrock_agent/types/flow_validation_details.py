@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#FlowValidationDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
 
@@ -40,135 +42,135 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.unspecified_flow_validation_details
 
 
-class _FlowValidationDetails_cyclicConnection(TypedDict):
+class _FlowValidationDetails_cyclicConnection(TypedDict, closed=True):
     cyclicConnection: "aws_sdk_bedrock_agent.types.cyclic_connection_flow_validation_details.CyclicConnectionFlowValidationDetails"
 
 
-class _FlowValidationDetails_duplicateConnections(TypedDict):
+class _FlowValidationDetails_duplicateConnections(TypedDict, closed=True):
     duplicateConnections: "aws_sdk_bedrock_agent.types.duplicate_connections_flow_validation_details.DuplicateConnectionsFlowValidationDetails"
 
 
-class _FlowValidationDetails_duplicateConditionExpression(TypedDict):
+class _FlowValidationDetails_duplicateConditionExpression(TypedDict, closed=True):
     duplicateConditionExpression: "aws_sdk_bedrock_agent.types.duplicate_condition_expression_flow_validation_details.DuplicateConditionExpressionFlowValidationDetails"
 
 
-class _FlowValidationDetails_unreachableNode(TypedDict):
+class _FlowValidationDetails_unreachableNode(TypedDict, closed=True):
     unreachableNode: "aws_sdk_bedrock_agent.types.unreachable_node_flow_validation_details.UnreachableNodeFlowValidationDetails"
 
 
-class _FlowValidationDetails_unknownConnectionSource(TypedDict):
+class _FlowValidationDetails_unknownConnectionSource(TypedDict, closed=True):
     unknownConnectionSource: "aws_sdk_bedrock_agent.types.unknown_connection_source_flow_validation_details.UnknownConnectionSourceFlowValidationDetails"
 
 
-class _FlowValidationDetails_unknownConnectionSourceOutput(TypedDict):
+class _FlowValidationDetails_unknownConnectionSourceOutput(TypedDict, closed=True):
     unknownConnectionSourceOutput: "aws_sdk_bedrock_agent.types.unknown_connection_source_output_flow_validation_details.UnknownConnectionSourceOutputFlowValidationDetails"
 
 
-class _FlowValidationDetails_unknownConnectionTarget(TypedDict):
+class _FlowValidationDetails_unknownConnectionTarget(TypedDict, closed=True):
     unknownConnectionTarget: "aws_sdk_bedrock_agent.types.unknown_connection_target_flow_validation_details.UnknownConnectionTargetFlowValidationDetails"
 
 
-class _FlowValidationDetails_unknownConnectionTargetInput(TypedDict):
+class _FlowValidationDetails_unknownConnectionTargetInput(TypedDict, closed=True):
     unknownConnectionTargetInput: "aws_sdk_bedrock_agent.types.unknown_connection_target_input_flow_validation_details.UnknownConnectionTargetInputFlowValidationDetails"
 
 
-class _FlowValidationDetails_unknownConnectionCondition(TypedDict):
+class _FlowValidationDetails_unknownConnectionCondition(TypedDict, closed=True):
     unknownConnectionCondition: "aws_sdk_bedrock_agent.types.unknown_connection_condition_flow_validation_details.UnknownConnectionConditionFlowValidationDetails"
 
 
-class _FlowValidationDetails_malformedConditionExpression(TypedDict):
+class _FlowValidationDetails_malformedConditionExpression(TypedDict, closed=True):
     malformedConditionExpression: "aws_sdk_bedrock_agent.types.malformed_condition_expression_flow_validation_details.MalformedConditionExpressionFlowValidationDetails"
 
 
-class _FlowValidationDetails_malformedNodeInputExpression(TypedDict):
+class _FlowValidationDetails_malformedNodeInputExpression(TypedDict, closed=True):
     malformedNodeInputExpression: "aws_sdk_bedrock_agent.types.malformed_node_input_expression_flow_validation_details.MalformedNodeInputExpressionFlowValidationDetails"
 
 
-class _FlowValidationDetails_mismatchedNodeInputType(TypedDict):
+class _FlowValidationDetails_mismatchedNodeInputType(TypedDict, closed=True):
     mismatchedNodeInputType: "aws_sdk_bedrock_agent.types.mismatched_node_input_type_flow_validation_details.MismatchedNodeInputTypeFlowValidationDetails"
 
 
-class _FlowValidationDetails_mismatchedNodeOutputType(TypedDict):
+class _FlowValidationDetails_mismatchedNodeOutputType(TypedDict, closed=True):
     mismatchedNodeOutputType: "aws_sdk_bedrock_agent.types.mismatched_node_output_type_flow_validation_details.MismatchedNodeOutputTypeFlowValidationDetails"
 
 
-class _FlowValidationDetails_incompatibleConnectionDataType(TypedDict):
+class _FlowValidationDetails_incompatibleConnectionDataType(TypedDict, closed=True):
     incompatibleConnectionDataType: "aws_sdk_bedrock_agent.types.incompatible_connection_data_type_flow_validation_details.IncompatibleConnectionDataTypeFlowValidationDetails"
 
 
-class _FlowValidationDetails_missingConnectionConfiguration(TypedDict):
+class _FlowValidationDetails_missingConnectionConfiguration(TypedDict, closed=True):
     missingConnectionConfiguration: "aws_sdk_bedrock_agent.types.missing_connection_configuration_flow_validation_details.MissingConnectionConfigurationFlowValidationDetails"
 
 
-class _FlowValidationDetails_missingDefaultCondition(TypedDict):
+class _FlowValidationDetails_missingDefaultCondition(TypedDict, closed=True):
     missingDefaultCondition: "aws_sdk_bedrock_agent.types.missing_default_condition_flow_validation_details.MissingDefaultConditionFlowValidationDetails"
 
 
-class _FlowValidationDetails_missingEndingNodes(TypedDict):
+class _FlowValidationDetails_missingEndingNodes(TypedDict, closed=True):
     missingEndingNodes: "aws_sdk_bedrock_agent.types.missing_ending_nodes_flow_validation_details.MissingEndingNodesFlowValidationDetails"
 
 
-class _FlowValidationDetails_missingNodeConfiguration(TypedDict):
+class _FlowValidationDetails_missingNodeConfiguration(TypedDict, closed=True):
     missingNodeConfiguration: "aws_sdk_bedrock_agent.types.missing_node_configuration_flow_validation_details.MissingNodeConfigurationFlowValidationDetails"
 
 
-class _FlowValidationDetails_missingNodeInput(TypedDict):
+class _FlowValidationDetails_missingNodeInput(TypedDict, closed=True):
     missingNodeInput: "aws_sdk_bedrock_agent.types.missing_node_input_flow_validation_details.MissingNodeInputFlowValidationDetails"
 
 
-class _FlowValidationDetails_missingNodeOutput(TypedDict):
+class _FlowValidationDetails_missingNodeOutput(TypedDict, closed=True):
     missingNodeOutput: "aws_sdk_bedrock_agent.types.missing_node_output_flow_validation_details.MissingNodeOutputFlowValidationDetails"
 
 
-class _FlowValidationDetails_missingStartingNodes(TypedDict):
+class _FlowValidationDetails_missingStartingNodes(TypedDict, closed=True):
     missingStartingNodes: "aws_sdk_bedrock_agent.types.missing_starting_nodes_flow_validation_details.MissingStartingNodesFlowValidationDetails"
 
 
-class _FlowValidationDetails_multipleNodeInputConnections(TypedDict):
+class _FlowValidationDetails_multipleNodeInputConnections(TypedDict, closed=True):
     multipleNodeInputConnections: "aws_sdk_bedrock_agent.types.multiple_node_input_connections_flow_validation_details.MultipleNodeInputConnectionsFlowValidationDetails"
 
 
-class _FlowValidationDetails_unfulfilledNodeInput(TypedDict):
+class _FlowValidationDetails_unfulfilledNodeInput(TypedDict, closed=True):
     unfulfilledNodeInput: "aws_sdk_bedrock_agent.types.unfulfilled_node_input_flow_validation_details.UnfulfilledNodeInputFlowValidationDetails"
 
 
-class _FlowValidationDetails_unsatisfiedConnectionConditions(TypedDict):
+class _FlowValidationDetails_unsatisfiedConnectionConditions(TypedDict, closed=True):
     unsatisfiedConnectionConditions: "aws_sdk_bedrock_agent.types.unsatisfied_connection_conditions_flow_validation_details.UnsatisfiedConnectionConditionsFlowValidationDetails"
 
 
-class _FlowValidationDetails_unspecified(TypedDict):
+class _FlowValidationDetails_unspecified(TypedDict, closed=True):
     unspecified: "aws_sdk_bedrock_agent.types.unspecified_flow_validation_details.UnspecifiedFlowValidationDetails"
 
 
-class _FlowValidationDetails_unknownNodeInput(TypedDict):
+class _FlowValidationDetails_unknownNodeInput(TypedDict, closed=True):
     unknownNodeInput: "aws_sdk_bedrock_agent.types.unknown_node_input_flow_validation_details.UnknownNodeInputFlowValidationDetails"
 
 
-class _FlowValidationDetails_unknownNodeOutput(TypedDict):
+class _FlowValidationDetails_unknownNodeOutput(TypedDict, closed=True):
     unknownNodeOutput: "aws_sdk_bedrock_agent.types.unknown_node_output_flow_validation_details.UnknownNodeOutputFlowValidationDetails"
 
 
-class _FlowValidationDetails_missingLoopInputNode(TypedDict):
+class _FlowValidationDetails_missingLoopInputNode(TypedDict, closed=True):
     missingLoopInputNode: "aws_sdk_bedrock_agent.types.missing_loop_input_node_flow_validation_details.MissingLoopInputNodeFlowValidationDetails"
 
 
-class _FlowValidationDetails_missingLoopControllerNode(TypedDict):
+class _FlowValidationDetails_missingLoopControllerNode(TypedDict, closed=True):
     missingLoopControllerNode: "aws_sdk_bedrock_agent.types.missing_loop_controller_node_flow_validation_details.MissingLoopControllerNodeFlowValidationDetails"
 
 
-class _FlowValidationDetails_multipleLoopInputNodes(TypedDict):
+class _FlowValidationDetails_multipleLoopInputNodes(TypedDict, closed=True):
     multipleLoopInputNodes: "aws_sdk_bedrock_agent.types.multiple_loop_input_nodes_flow_validation_details.MultipleLoopInputNodesFlowValidationDetails"
 
 
-class _FlowValidationDetails_multipleLoopControllerNodes(TypedDict):
+class _FlowValidationDetails_multipleLoopControllerNodes(TypedDict, closed=True):
     multipleLoopControllerNodes: "aws_sdk_bedrock_agent.types.multiple_loop_controller_nodes_flow_validation_details.MultipleLoopControllerNodesFlowValidationDetails"
 
 
-class _FlowValidationDetails_loopIncompatibleNodeType(TypedDict):
+class _FlowValidationDetails_loopIncompatibleNodeType(TypedDict, closed=True):
     loopIncompatibleNodeType: "aws_sdk_bedrock_agent.types.loop_incompatible_node_type_flow_validation_details.LoopIncompatibleNodeTypeFlowValidationDetails"
 
 
-class _FlowValidationDetails_invalidLoopBoundary(TypedDict):
+class _FlowValidationDetails_invalidLoopBoundary(TypedDict, closed=True):
     invalidLoopBoundary: "aws_sdk_bedrock_agent.types.invalid_loop_boundary_flow_validation_details.InvalidLoopBoundaryFlowValidationDetails"
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#RangedSocketAddress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.ip_v4_address
 
 
-class RangedSocketAddress(TypedDict):
+class RangedSocketAddress(TypedDict, closed=True):
     name: "aws_sdk_groundstation.types.ip_v4_address.IpV4Address"
     """<p>IPv4 socket address.</p>"""
     port_range: "aws_sdk_groundstation.types.integer_range.IntegerRange"

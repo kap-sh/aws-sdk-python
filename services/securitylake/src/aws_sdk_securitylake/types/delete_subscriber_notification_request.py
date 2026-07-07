@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DeleteSubscriberNotificationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.uuid
 
 
-class DeleteSubscriberNotificationRequest(TypedDict):
+class DeleteSubscriberNotificationRequest(TypedDict, closed=True):
     subscriber_id: "aws_sdk_securitylake.types.uuid.UUID"
     """<p>The ID of the Security Lake subscriber account.</p>"""
 

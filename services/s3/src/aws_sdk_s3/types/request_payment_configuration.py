@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#RequestPaymentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.payer
 
 
-class RequestPaymentConfiguration(TypedDict):
+class RequestPaymentConfiguration(TypedDict, closed=True):
     payer: "aws_sdk_s3.types.payer.Payer"
     """<p>Specifies who pays for the download and request fees.</p>"""
 

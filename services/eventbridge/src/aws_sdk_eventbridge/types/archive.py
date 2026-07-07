@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#Archive``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.archive_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.timestamp
 
 
-class Archive(TypedDict):
+class Archive(TypedDict, closed=True):
     archive_name: NotRequired["aws_sdk_eventbridge.types.archive_name.ArchiveName"]
     """<p>The name of the archive.</p>"""
     event_source_arn: NotRequired["aws_sdk_eventbridge.types.event_bus_arn.EventBusArn"]

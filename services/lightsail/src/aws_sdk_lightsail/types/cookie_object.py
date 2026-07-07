@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CookieObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.forward_values
     import aws_sdk_lightsail.types.string_list
 
 
-class CookieObject(TypedDict):
+class CookieObject(TypedDict, closed=True):
     option: NotRequired["aws_sdk_lightsail.types.forward_values.ForwardValues"]
     """<p>Specifies which cookies to forward to the distribution's origin for a cache behavior: <code>all</code>, <code>none</code>, or <code>allow-list</code> to forward only the cookies specified in the <code>cookiesAllowList</code> parameter.</p>"""
     cookies_allow_list: NotRequired["aws_sdk_lightsail.types.string_list.StringList"]

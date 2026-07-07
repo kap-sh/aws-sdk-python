@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.tag_map
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_neptune_graph.types.arn.Arn"
     """<p>ARN of the resource for which tags need to be added.</p>"""
     tags: "aws_sdk_neptune_graph.types.tag_map.TagMap"

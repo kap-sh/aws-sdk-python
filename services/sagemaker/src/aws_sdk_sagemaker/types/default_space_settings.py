@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DefaultSpaceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.custom_file_system_configs
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.security_group_ids
 
 
-class DefaultSpaceSettings(TypedDict):
+class DefaultSpaceSettings(TypedDict, closed=True):
     execution_role: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]
     """<p>The ARN of the execution role for the space.</p>"""
     security_groups: NotRequired[

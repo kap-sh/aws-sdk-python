@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetModelVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.model_type_enum
 
 
-class GetModelVersionRequest(TypedDict):
+class GetModelVersionRequest(TypedDict, closed=True):
     model_id: "aws_sdk_frauddetector.types.model_identifier.modelIdentifier"
     """<p>The model ID.</p>"""
     model_type: "aws_sdk_frauddetector.types.model_type_enum.ModelTypeEnum"

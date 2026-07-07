@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#ReportTaskProgressInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_data_pipeline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.task_id
 
 
-class ReportTaskProgressInput(TypedDict):
+class ReportTaskProgressInput(TypedDict, closed=True):
     task_id: "aws_sdk_data_pipeline.types.task_id.taskId"
     """<p>The ID of the task assigned to the task runner. This value is provided in the response for <a>PollForTask</a>.</p>"""
     fields: NotRequired["aws_sdk_data_pipeline.types.field_list.fieldList"]

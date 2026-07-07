@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeAccountSubscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.account_info
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DescribeAccountSubscriptionResponse(TypedDict):
+class DescribeAccountSubscriptionResponse(TypedDict, closed=True):
     account_info: NotRequired["aws_sdk_quicksight.types.account_info.AccountInfo"]
     """<p>A structure that contains the following elements:</p> <ul> <li> <p>Your Quick Sight account name.</p> </li> <li> <p>The edition of Quick Sight that your account is using.</p> </li> <li> <p>The notification email address that is associated with the Amazon Quick Sight account. </p> </li> <li> <p>The authentication type of the Quick Sight account.</p> </li> <li> <p>The status of the Quick Sight account's subscription.</p> </li> </ul>"""
     status: "aws_sdk_quicksight.types.status_code.StatusCode"

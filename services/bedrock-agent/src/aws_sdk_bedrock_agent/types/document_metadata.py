@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#DocumentMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.metadata_source_type
 
 
-class DocumentMetadata(TypedDict):
+class DocumentMetadata(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent.types.metadata_source_type.MetadataSourceType"
     """<p>The type of the source source from which to add metadata.</p>"""
     inline_attributes: NotRequired[

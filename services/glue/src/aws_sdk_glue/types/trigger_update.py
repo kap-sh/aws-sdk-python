@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TriggerUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.action_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.predicate
 
 
-class TriggerUpdate(TypedDict):
+class TriggerUpdate(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>Reserved for future use.</p>"""
     description: NotRequired["aws_sdk_glue.types.description_string.DescriptionString"]

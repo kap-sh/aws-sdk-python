@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CisaData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cisa_action
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cisa_date_due
 
 
-class CisaData(TypedDict):
+class CisaData(TypedDict, closed=True):
     date_added: NotRequired["aws_sdk_inspector2.types.cisa_date_added.CisaDateAdded"]
     """<p>The date and time CISA added this vulnerability to their catalogue.</p>"""
     date_due: NotRequired["aws_sdk_inspector2.types.cisa_date_due.CisaDateDue"]

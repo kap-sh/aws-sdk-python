@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#TLDRulesViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53_domains.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.error_message
 
 
-class TLDRulesViolation_(TypedDict):
+class TLDRulesViolation_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_route_53_domains.types.error_message.ErrorMessage"]
     """<p>The top-level domain does not support this operation.</p>"""
 

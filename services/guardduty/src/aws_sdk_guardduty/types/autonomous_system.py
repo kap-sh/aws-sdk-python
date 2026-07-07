@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#AutonomousSystem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.integer
     import aws_sdk_guardduty.types.string
 
 
-class AutonomousSystem(TypedDict):
+class AutonomousSystem(TypedDict, closed=True):
     name: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Name associated with the Autonomous System (AS).</p>"""
     number: NotRequired["aws_sdk_guardduty.types.integer.Integer"]

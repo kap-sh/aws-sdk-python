@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#IdentifierParts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string_min1_max20
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string_min1_max4096
 
 
-class IdentifierParts(TypedDict):
+class IdentifierParts(TypedDict, closed=True):
     method: NotRequired[
         "aws_sdk_apigatewayv2.types.__string_min1_max20.__stringMin1Max20"
     ]

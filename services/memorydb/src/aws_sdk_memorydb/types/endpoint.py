@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#Endpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.integer
     import aws_sdk_memorydb.types.string
 
 
-class Endpoint(TypedDict):
+class Endpoint(TypedDict, closed=True):
     address: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The DNS hostname of the node.</p>"""
     port: "aws_sdk_memorydb.types.integer.Integer"

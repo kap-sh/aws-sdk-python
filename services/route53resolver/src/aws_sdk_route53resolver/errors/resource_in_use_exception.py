@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ResourceInUseException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53resolver.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.string
 
 
-class ResourceInUseException_(TypedDict):
+class ResourceInUseException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_route53resolver.types.string.String"]
     resource_type: NotRequired["aws_sdk_route53resolver.types.string.String"]
     """<p>For a <code>ResourceInUseException</code> error, the type of resource that is currently in use.</p>"""

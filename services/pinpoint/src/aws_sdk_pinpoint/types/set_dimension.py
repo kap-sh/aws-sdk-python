@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SetDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.dimension_type
     import aws_sdk_pinpoint.types.list_of__string
 
 
-class SetDimension(TypedDict):
+class SetDimension(TypedDict, closed=True):
     dimension_type: NotRequired["aws_sdk_pinpoint.types.dimension_type.DimensionType"]
     """<p>The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.</p>"""
     values: NotRequired["aws_sdk_pinpoint.types.list_of__string.ListOf__string"]

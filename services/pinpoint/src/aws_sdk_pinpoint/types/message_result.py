@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#MessageResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.delivery_status
 
 
-class MessageResult(TypedDict):
+class MessageResult(TypedDict, closed=True):
     delivery_status: NotRequired[
         "aws_sdk_pinpoint.types.delivery_status.DeliveryStatus"
     ]

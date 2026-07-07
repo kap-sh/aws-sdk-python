@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListDashboardsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.dashboard_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.pagination_token
 
 
-class ListDashboardsRequest(TypedDict):
+class ListDashboardsRequest(TypedDict, closed=True):
     name_prefix: NotRequired["aws_sdk_cloudtrail.types.dashboard_name.DashboardName"]
     """<p> Specify a name prefix to filter on. </p>"""
     type: NotRequired["aws_sdk_cloudtrail.types.dashboard_type.DashboardType"]

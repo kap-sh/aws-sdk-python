@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteIntermodalPedestrianOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.distance_meters
     import aws_sdk_geo_routes.types.speed_kilometers_per_hour
 
 
-class RouteIntermodalPedestrianOptions(TypedDict):
+class RouteIntermodalPedestrianOptions(TypedDict, closed=True):
     max_distance: NotRequired["aws_sdk_geo_routes.types.distance_meters.DistanceMeters"]
     """<p>Maximum walking distance allowed.</p> <p> <b>Unit</b>: <code>meters</code> </p>"""
     speed: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.pagination_max_results
     import aws_sdk_fms.types.pagination_token
 
 
-class ListPoliciesRequest(TypedDict):
+class ListPoliciesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_fms.types.pagination_token.PaginationToken"]
     """<p>If you specify a value for <code>MaxResults</code> and you have more <code>PolicySummary</code> objects than the number that you specify for <code>MaxResults</code>, Firewall Manager returns a <code>NextToken</code> value in the response that allows you to list another group of <code>PolicySummary</code> objects. For the second and subsequent <code>ListPolicies</code> requests, specify the value of <code>NextToken</code> from the previous response to get information about another batch of <code>PolicySummary</code> objects.</p>"""
     max_results: NotRequired[

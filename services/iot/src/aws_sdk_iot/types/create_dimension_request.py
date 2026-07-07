@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateDimensionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.tag_list
 
 
-class CreateDimensionRequest(TypedDict):
+class CreateDimensionRequest(TypedDict, closed=True):
     name: "aws_sdk_iot.types.dimension_name.DimensionName"
     """<p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>"""
     type: "aws_sdk_iot.types.dimension_type.DimensionType"

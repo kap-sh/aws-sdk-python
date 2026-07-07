@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeReplicationTaskAssessmentRunsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.replication_task_assessment_run_list
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeReplicationTaskAssessmentRunsResponse(TypedDict):
+class DescribeReplicationTaskAssessmentRunsResponse(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>A pagination token returned for you to pass to a subsequent request. If you pass this token as the <code>Marker</code> value in a subsequent request, the response includes only records beyond the marker, up to the value specified in the request by <code>MaxRecords</code>.</p>"""
     replication_task_assessment_runs: NotRequired[

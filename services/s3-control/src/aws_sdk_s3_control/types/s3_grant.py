@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#S3Grant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.s3_permission
 
 
-class S3Grant(TypedDict):
+class S3Grant(TypedDict, closed=True):
     grantee: NotRequired["aws_sdk_s3_control.types.s3_grantee.S3Grantee"]
     """<p></p>"""
     permission: NotRequired["aws_sdk_s3_control.types.s3_permission.S3Permission"]

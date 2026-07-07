@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RenderUiTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.human_task_ui_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ui_template
 
 
-class RenderUiTemplateRequest(TypedDict):
+class RenderUiTemplateRequest(TypedDict, closed=True):
     ui_template: NotRequired["aws_sdk_sagemaker.types.ui_template.UiTemplate"]
     """<p>A <code>Template</code> object containing the worker UI template to render.</p>"""
     task: NotRequired["aws_sdk_sagemaker.types.renderable_task.RenderableTask"]

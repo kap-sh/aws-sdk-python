@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#ChimeSdkMeetingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.artifacts_configuration
     import aws_sdk_chime_sdk_media_pipelines.types.source_configuration
 
 
-class ChimeSdkMeetingConfiguration(TypedDict):
+class ChimeSdkMeetingConfiguration(TypedDict, closed=True):
     source_configuration: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.source_configuration.SourceConfiguration"
     ]

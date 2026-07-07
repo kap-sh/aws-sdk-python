@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eksauth#AssumeRoleForPodIdentityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eks_auth.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks_auth.types.subject
 
 
-class AssumeRoleForPodIdentityResponse(TypedDict):
+class AssumeRoleForPodIdentityResponse(TypedDict, closed=True):
     subject: "aws_sdk_eks_auth.types.subject.Subject"
     """<p>The name of the Kubernetes service account inside the cluster to associate the IAM credentials with.</p>"""
     audience: "str"

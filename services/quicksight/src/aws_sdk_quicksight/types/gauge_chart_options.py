@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GaugeChartOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arc_axis_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.primary_value_display_type
 
 
-class GaugeChartOptions(TypedDict):
+class GaugeChartOptions(TypedDict, closed=True):
     primary_value_display_type: NotRequired[
         "aws_sdk_quicksight.types.primary_value_display_type.PrimaryValueDisplayType"
     ]

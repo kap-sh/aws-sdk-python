@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GenerativeDataDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.sensitive_string
 
 
-class GenerativeDataDetails(TypedDict):
+class GenerativeDataDetails(TypedDict, closed=True):
     completion: "aws_sdk_qconnect.types.sensitive_string.SensitiveString"
     """<p>The LLM response.</p>"""
     references: "aws_sdk_qconnect.types.data_summary_list.DataSummaryList"

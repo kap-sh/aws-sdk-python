@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#CreateJobQueueRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.compute_environment_orders
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.tagris_tags_map
 
 
-class CreateJobQueueRequest(TypedDict):
+class CreateJobQueueRequest(TypedDict, closed=True):
     job_queue_name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name of the job queue. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>"""
     state: NotRequired["aws_sdk_batch.types.jq_state.JQState"]

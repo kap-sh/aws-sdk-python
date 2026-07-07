@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#TagsError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.tags_error_message
 
 
-class TagsError(TypedDict):
+class TagsError(TypedDict, closed=True):
     error_code: "aws_sdk_lambda.types.tags_error_code.TagsErrorCode"
     """<p>The error code.</p>"""
     message: "aws_sdk_lambda.types.tags_error_message.TagsErrorMessage"

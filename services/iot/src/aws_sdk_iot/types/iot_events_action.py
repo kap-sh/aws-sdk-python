@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#IotEventsAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.message_id
 
 
-class IotEventsAction(TypedDict):
+class IotEventsAction(TypedDict, closed=True):
     input_name: "aws_sdk_iot.types.input_name.InputName"
     """<p>The name of the IoT Events input.</p>"""
     message_id: NotRequired["aws_sdk_iot.types.message_id.MessageId"]

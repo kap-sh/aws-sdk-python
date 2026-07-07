@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetCommitmentPurchaseAnalysisResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.zoned_date_time
 
 
-class GetCommitmentPurchaseAnalysisResponse(TypedDict):
+class GetCommitmentPurchaseAnalysisResponse(TypedDict, closed=True):
     estimated_completion_time: (
         "aws_sdk_cost_explorer.types.zoned_date_time.ZonedDateTime"
     )

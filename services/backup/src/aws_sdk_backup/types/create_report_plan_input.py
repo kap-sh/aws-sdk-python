@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CreateReportPlanInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string_map
 
 
-class CreateReportPlanInput(TypedDict):
+class CreateReportPlanInput(TypedDict, closed=True):
     report_plan_name: "aws_sdk_backup.types.report_plan_name.ReportPlanName"
     """<p>The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</p>"""
     report_plan_description: NotRequired[

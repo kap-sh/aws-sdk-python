@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListPoliciesGrantingServiceAccessEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.service_namespace_type
 
 
-class ListPoliciesGrantingServiceAccessEntry(TypedDict):
+class ListPoliciesGrantingServiceAccessEntry(TypedDict, closed=True):
     service_namespace: NotRequired[
         "aws_sdk_iam.types.service_namespace_type.serviceNamespaceType"
     ]

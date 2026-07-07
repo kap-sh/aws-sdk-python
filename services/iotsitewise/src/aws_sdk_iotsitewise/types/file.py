@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#File``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.string
 
 
-class File(TypedDict):
+class File(TypedDict, closed=True):
     bucket: "aws_sdk_iotsitewise.types.bucket.Bucket"
     """<p>The name of the Amazon S3 bucket from which data is imported.</p>"""
     key: "aws_sdk_iotsitewise.types.string.String"

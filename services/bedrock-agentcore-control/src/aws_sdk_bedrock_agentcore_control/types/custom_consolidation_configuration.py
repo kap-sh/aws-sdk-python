@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CustomConsolidationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -14,19 +16,27 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.user_preference_consolidation_override
 
 
-class _CustomConsolidationConfiguration_semanticConsolidationOverride(TypedDict):
+class _CustomConsolidationConfiguration_semanticConsolidationOverride(
+    TypedDict, closed=True
+):
     semanticConsolidationOverride: "aws_sdk_bedrock_agentcore_control.types.semantic_consolidation_override.SemanticConsolidationOverride"
 
 
-class _CustomConsolidationConfiguration_summaryConsolidationOverride(TypedDict):
+class _CustomConsolidationConfiguration_summaryConsolidationOverride(
+    TypedDict, closed=True
+):
     summaryConsolidationOverride: "aws_sdk_bedrock_agentcore_control.types.summary_consolidation_override.SummaryConsolidationOverride"
 
 
-class _CustomConsolidationConfiguration_userPreferenceConsolidationOverride(TypedDict):
+class _CustomConsolidationConfiguration_userPreferenceConsolidationOverride(
+    TypedDict, closed=True
+):
     userPreferenceConsolidationOverride: "aws_sdk_bedrock_agentcore_control.types.user_preference_consolidation_override.UserPreferenceConsolidationOverride"
 
 
-class _CustomConsolidationConfiguration_episodicConsolidationOverride(TypedDict):
+class _CustomConsolidationConfiguration_episodicConsolidationOverride(
+    TypedDict, closed=True
+):
     episodicConsolidationOverride: "aws_sdk_bedrock_agentcore_control.types.episodic_consolidation_override.EpisodicConsolidationOverride"
 
 

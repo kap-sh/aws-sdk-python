@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#SchemaDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.static_column_list
 
 
-class SchemaDefinition(TypedDict):
+class SchemaDefinition(TypedDict, closed=True):
     all_columns: "aws_sdk_keyspaces.types.column_definition_list.ColumnDefinitionList"
     """<p>The regular columns of the table.</p>"""
     partition_keys: "aws_sdk_keyspaces.types.partition_key_list.PartitionKeyList"

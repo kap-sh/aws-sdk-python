@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#NumberFormatConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.numeric_format_configuration
 
 
-class NumberFormatConfiguration(TypedDict):
+class NumberFormatConfiguration(TypedDict, closed=True):
     format_configuration: NotRequired[
         "aws_sdk_quicksight.types.numeric_format_configuration.NumericFormatConfiguration"
     ]

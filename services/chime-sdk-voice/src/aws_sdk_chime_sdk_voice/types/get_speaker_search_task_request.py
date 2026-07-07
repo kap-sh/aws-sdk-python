@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#GetSpeakerSearchTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.non_empty_string128
     import aws_sdk_chime_sdk_voice.types.non_empty_string256
 
 
-class GetSpeakerSearchTaskRequest(TypedDict):
+class GetSpeakerSearchTaskRequest(TypedDict, closed=True):
     voice_connector_id: (
         "aws_sdk_chime_sdk_voice.types.non_empty_string128.NonEmptyString128"
     )

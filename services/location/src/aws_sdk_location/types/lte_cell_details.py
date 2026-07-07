@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#LteCellDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.rsrq
 
 
-class LteCellDetails(TypedDict):
+class LteCellDetails(TypedDict, closed=True):
     cell_id: "aws_sdk_location.types.eutran_cell_id.EutranCellId"
     """<p>The E-UTRAN Cell Identifier (ECI).</p>"""
     mcc: "int"

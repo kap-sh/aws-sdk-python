@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyInstanceCreditSpecificationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.unsuccessful_instance_credit_specification_set
 
 
-class ModifyInstanceCreditSpecificationResult(TypedDict):
+class ModifyInstanceCreditSpecificationResult(TypedDict, closed=True):
     successful_instance_credit_specifications: NotRequired[
         "aws_sdk_ec2.types.successful_instance_credit_specification_set.SuccessfulInstanceCreditSpecificationSet"
     ]

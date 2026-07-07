@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#CreateIdentityCenterApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.instance_arn
 
 
-class CreateIdentityCenterApplicationRequest(TypedDict):
+class CreateIdentityCenterApplicationRequest(TypedDict, closed=True):
     name: "aws_sdk_workmail.types.identity_center_application_name.IdentityCenterApplicationName"
     """<p> The name of the IAM Identity Center application. </p>"""
     instance_arn: "aws_sdk_workmail.types.instance_arn.InstanceArn"

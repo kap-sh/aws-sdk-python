@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#GetCompositionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.composition
 
 
-class GetCompositionResponse(TypedDict):
+class GetCompositionResponse(TypedDict, closed=True):
     composition: NotRequired["aws_sdk_ivs_realtime.types.composition.Composition"]
     """<p>The Composition that was returned.</p>"""
 

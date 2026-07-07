@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#LinkApplicationLogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.link_application_log_sampling
 
 
-class LinkApplicationLogConfiguration(TypedDict):
+class LinkApplicationLogConfiguration(TypedDict, closed=True):
     sampling: "aws_sdk_rtbfabric.types.link_application_log_sampling.LinkApplicationLogSampling"
     """<p>Describes a link application log sample.</p>"""
 

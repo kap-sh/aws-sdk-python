@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CreateUserSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.toolbar_configuration
 
 
-class CreateUserSettingsRequest(TypedDict):
+class CreateUserSettingsRequest(TypedDict, closed=True):
     copy_allowed: "aws_sdk_workspaces_web.types.enabled_type.EnabledType"
     """<p>Specifies whether the user can copy text from the streaming session to the local device.</p>"""
     paste_allowed: "aws_sdk_workspaces_web.types.enabled_type.EnabledType"

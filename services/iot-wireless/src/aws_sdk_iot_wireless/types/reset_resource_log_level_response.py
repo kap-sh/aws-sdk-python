@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ResetResourceLogLevelResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ResetResourceLogLevelResponse(TypedDict):
+class ResetResourceLogLevelResponse(TypedDict, closed=True):
     pass
 
 

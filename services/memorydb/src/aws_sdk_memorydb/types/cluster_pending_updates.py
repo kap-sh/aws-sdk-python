@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ClusterPendingUpdates``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.ac_ls_update_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.resharding_status
 
 
-class ClusterPendingUpdates(TypedDict):
+class ClusterPendingUpdates(TypedDict, closed=True):
     resharding: NotRequired["aws_sdk_memorydb.types.resharding_status.ReshardingStatus"]
     """<p>The status of an online resharding operation.</p>"""
     ac_ls: NotRequired["aws_sdk_memorydb.types.ac_ls_update_status.ACLsUpdateStatus"]

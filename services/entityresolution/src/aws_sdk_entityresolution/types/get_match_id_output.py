@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#GetMatchIdOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetMatchIdOutput(TypedDict):
+class GetMatchIdOutput(TypedDict, closed=True):
     match_id: NotRequired["str"]
     """<p>The unique identifiers for this group of match records.</p>"""
     match_rule: NotRequired["str"]

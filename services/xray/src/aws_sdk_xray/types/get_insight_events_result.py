@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetInsightEventsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.insight_event_list
     import aws_sdk_xray.types.token
 
 
-class GetInsightEventsResult(TypedDict):
+class GetInsightEventsResult(TypedDict, closed=True):
     insight_events: NotRequired[
         "aws_sdk_xray.types.insight_event_list.InsightEventList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#GetCredentialsForIdentityInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.logins_map
 
 
-class GetCredentialsForIdentityInput(TypedDict):
+class GetCredentialsForIdentityInput(TypedDict, closed=True):
     identity_id: "aws_sdk_cognito_identity.types.identity_id.IdentityId"
     """<p>A unique identifier in the format REGION:GUID.</p>"""
     logins: NotRequired["aws_sdk_cognito_identity.types.logins_map.LoginsMap"]

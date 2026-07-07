@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#SsmControls``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.percentage
 
 
-class SsmControls(TypedDict):
+class SsmControls(TypedDict, closed=True):
     concurrent_execution_rate_percentage: NotRequired[
         "aws_sdk_config_service.types.percentage.Percentage"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#PublicRouterNetworkInterfaceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.network_interface_rule_list
 
 
-class PublicRouterNetworkInterfaceConfiguration(TypedDict):
+class PublicRouterNetworkInterfaceConfiguration(TypedDict, closed=True):
     allow_rules: "aws_sdk_mediaconnect.types.network_interface_rule_list.NetworkInterfaceRuleList"
     """<p>The list of allowed CIDR blocks for the public router network interface.</p>"""
 

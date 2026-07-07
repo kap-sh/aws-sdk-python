@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#VpcConnectionProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
 
 
-class VpcConnectionProperties(TypedDict):
+class VpcConnectionProperties(TypedDict, closed=True):
     vpc_connection_arn: "aws_sdk_quicksight.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) for the VPC connection.</p>"""
 

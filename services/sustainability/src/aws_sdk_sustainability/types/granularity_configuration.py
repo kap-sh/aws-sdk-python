@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sustainability#GranularityConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sustainability.types.month
 
 
-class GranularityConfiguration(TypedDict):
+class GranularityConfiguration(TypedDict, closed=True):
     fiscal_year_start_month: "aws_sdk_sustainability.types.month.Month"
     """<p> The month (1-12) when the fiscal year begins. Used for <code>YEARLY_FISCAL</code> and <code>QUARTERLY_FISCAL</code> granularity. Defaults to 1 (January). </p>"""
 

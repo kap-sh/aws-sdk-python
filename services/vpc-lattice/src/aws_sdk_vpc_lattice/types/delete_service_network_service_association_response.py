@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#DeleteServiceNetworkServiceAssociationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_network_service_association_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_network_service_association_status
 
 
-class DeleteServiceNetworkServiceAssociationResponse(TypedDict):
+class DeleteServiceNetworkServiceAssociationResponse(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_vpc_lattice.types.service_network_service_association_identifier.ServiceNetworkServiceAssociationIdentifier"
     ]

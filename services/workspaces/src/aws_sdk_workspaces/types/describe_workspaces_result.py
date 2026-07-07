@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeWorkspacesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.pagination_token
     import aws_sdk_workspaces.types.workspace_list
 
 
-class DescribeWorkspacesResult(TypedDict):
+class DescribeWorkspacesResult(TypedDict, closed=True):
     workspaces: NotRequired["aws_sdk_workspaces.types.workspace_list.WorkspaceList"]
     """<p>Information about the WorkSpaces.</p> <p>Because <a>CreateWorkspaces</a> is an asynchronous operation, some of the returned information could be incomplete.</p>"""
     next_token: NotRequired["aws_sdk_workspaces.types.pagination_token.PaginationToken"]

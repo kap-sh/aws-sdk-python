@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListRoleMembershipsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.groups_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class ListRoleMembershipsResponse(TypedDict):
+class ListRoleMembershipsResponse(TypedDict, closed=True):
     members_list: NotRequired["aws_sdk_quicksight.types.groups_list.GroupsList"]
     """<p>The list of groups associated with a role</p>"""
     next_token: NotRequired["aws_sdk_quicksight.types.string.String"]

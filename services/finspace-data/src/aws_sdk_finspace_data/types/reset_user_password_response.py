@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#ResetUserPasswordResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.password
     import aws_sdk_finspace_data.types.user_id
 
 
-class ResetUserPasswordResponse(TypedDict):
+class ResetUserPasswordResponse(TypedDict, closed=True):
     user_id: NotRequired["aws_sdk_finspace_data.types.user_id.UserId"]
     """<p>The unique identifier of the user that a new password is generated for.</p>"""
     temporary_password: NotRequired["aws_sdk_finspace_data.types.password.Password"]

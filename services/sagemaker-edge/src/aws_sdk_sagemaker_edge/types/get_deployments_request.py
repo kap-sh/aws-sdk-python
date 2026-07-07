@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakeredge#GetDeploymentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.device_fleet_name
     import aws_sdk_sagemaker_edge.types.device_name
 
 
-class GetDeploymentsRequest(TypedDict):
+class GetDeploymentsRequest(TypedDict, closed=True):
     device_name: NotRequired["aws_sdk_sagemaker_edge.types.device_name.DeviceName"]
     """<p>The unique name of the device you want to get the configuration of active deployments from.</p>"""
     device_fleet_name: NotRequired[

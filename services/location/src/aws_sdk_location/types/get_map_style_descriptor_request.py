@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetMapStyleDescriptorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.api_key
     import aws_sdk_location.types.resource_name
 
 
-class GetMapStyleDescriptorRequest(TypedDict):
+class GetMapStyleDescriptorRequest(TypedDict, closed=True):
     map_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The map resource to retrieve the style descriptor from.</p>"""
     key: NotRequired["aws_sdk_location.types.api_key.ApiKey"]

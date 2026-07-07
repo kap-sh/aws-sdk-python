@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ListFacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.face_list
     import aws_sdk_rekognition.types.string
 
 
-class ListFacesResponse(TypedDict):
+class ListFacesResponse(TypedDict, closed=True):
     faces: NotRequired["aws_sdk_rekognition.types.face_list.FaceList"]
     """<p>An array of <code>Face</code> objects. </p>"""
     next_token: NotRequired["aws_sdk_rekognition.types.string.String"]

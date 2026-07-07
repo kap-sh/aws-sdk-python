@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListJobExecutionsForJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.job_execution_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
 
 
-class ListJobExecutionsForJobRequest(TypedDict):
+class ListJobExecutionsForJobRequest(TypedDict, closed=True):
     job_id: "aws_sdk_iot.types.job_id.JobId"
     """<p>The unique identifier you assigned to this job when it was created.</p>"""
     status: NotRequired["aws_sdk_iot.types.job_execution_status.JobExecutionStatus"]

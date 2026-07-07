@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#PurchaseReservedInstancesOfferingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.reserved_instances_offering_id
 
 
-class PurchaseReservedInstancesOfferingRequest(TypedDict):
+class PurchaseReservedInstancesOfferingRequest(TypedDict, closed=True):
     instance_count: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The number of Reserved Instances to purchase.</p>"""
     reserved_instances_offering_id: NotRequired[

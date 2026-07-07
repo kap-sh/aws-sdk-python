@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ArchiveRuleSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.timestamp
 
 
-class ArchiveRuleSummary(TypedDict):
+class ArchiveRuleSummary(TypedDict, closed=True):
     rule_name: "aws_sdk_accessanalyzer.types.name.Name"
     """<p>The name of the archive rule.</p>"""
     filter: "aws_sdk_accessanalyzer.types.filter_criteria_map.FilterCriteriaMap"

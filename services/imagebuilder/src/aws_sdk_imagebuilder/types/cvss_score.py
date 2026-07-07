@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#CvssScore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.non_empty_string
     import aws_sdk_imagebuilder.types.non_negative_double
 
 
-class CvssScore(TypedDict):
+class CvssScore(TypedDict, closed=True):
     base_score: NotRequired[
         "aws_sdk_imagebuilder.types.non_negative_double.NonNegativeDouble"
     ]

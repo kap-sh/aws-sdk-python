@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.value_string_list
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The name of the filter. Filter names are case-sensitive.</p>"""
     values: NotRequired["aws_sdk_ec2.types.value_string_list.ValueStringList"]

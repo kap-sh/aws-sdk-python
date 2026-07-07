@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#DeployedVersionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.version
 
 
-class DeployedVersionSummary(TypedDict):
+class DeployedVersionSummary(TypedDict, closed=True):
     application_version: "aws_sdk_m2.types.version.Version"
     """<p>The version of the deployed application.</p>"""
     status: "aws_sdk_m2.types.deployment_lifecycle.DeploymentLifecycle"

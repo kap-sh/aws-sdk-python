@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ClientStat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.timestamp
 
 
-class ClientStat(TypedDict):
+class ClientStat(TypedDict, closed=True):
     user_agent: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The user agent of the Kubernetes client using the deprecated resource.</p>"""
     number_of_requests_last30_days: "aws_sdk_eks.types.integer.Integer"

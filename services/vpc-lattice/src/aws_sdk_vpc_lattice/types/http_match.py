@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#HttpMatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.header_match_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.path_match
 
 
-class HttpMatch(TypedDict):
+class HttpMatch(TypedDict, closed=True):
     method: NotRequired["aws_sdk_vpc_lattice.types.http_method.HttpMethod"]
     """<p>The HTTP method type.</p>"""
     path_match: NotRequired["aws_sdk_vpc_lattice.types.path_match.PathMatch"]

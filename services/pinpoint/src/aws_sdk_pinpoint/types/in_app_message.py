@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#InAppMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.layout
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of__string
 
 
-class InAppMessage(TypedDict):
+class InAppMessage(TypedDict, closed=True):
     content: NotRequired[
         "aws_sdk_pinpoint.types.list_of_in_app_message_content.ListOfInAppMessageContent"
     ]

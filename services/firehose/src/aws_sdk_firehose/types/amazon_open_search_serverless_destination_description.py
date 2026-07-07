@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#AmazonOpenSearchServerlessDestinationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.amazon_open_search_serverless_buffering_hints
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.vpc_configuration_description
 
 
-class AmazonOpenSearchServerlessDestinationDescription(TypedDict):
+class AmazonOpenSearchServerlessDestinationDescription(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_firehose.types.role_arn.RoleARN"]
     """<p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials.</p>"""
     collection_endpoint: NotRequired[

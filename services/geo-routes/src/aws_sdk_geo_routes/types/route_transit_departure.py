@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteTransitDeparture``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.timestamp_with_timezone_offset
 
 
-class RouteTransitDeparture(TypedDict):
+class RouteTransitDeparture(TypedDict, closed=True):
     delay: NotRequired["aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"]
     """<p>The delay from the scheduled departure time.</p> <p> <b>Unit</b>: <code>seconds</code> </p>"""
     place: "aws_sdk_geo_routes.types.route_transit_place.RouteTransitPlace"

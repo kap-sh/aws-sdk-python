@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ChangeCidrCollectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.uuid
 
 
-class ChangeCidrCollectionRequest(TypedDict):
+class ChangeCidrCollectionRequest(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.uuid.UUID"
     """<p>The UUID of the CIDR collection to update.</p>"""
     collection_version: NotRequired[

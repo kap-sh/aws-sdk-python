@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ApplicationComponentStrategy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.strategy_recommendation
 
 
-class ApplicationComponentStrategy(TypedDict):
+class ApplicationComponentStrategy(TypedDict, closed=True):
     recommendation: NotRequired[
         "aws_sdk_migrationhubstrategy.types.recommendation_set.RecommendationSet"
     ]

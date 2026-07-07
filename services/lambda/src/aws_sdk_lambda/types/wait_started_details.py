@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#WaitStartedDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.execution_timestamp
 
 
-class WaitStartedDetails(TypedDict):
+class WaitStartedDetails(TypedDict, closed=True):
     duration: "aws_sdk_lambda.types.duration_seconds.DurationSeconds"
     """<p>The duration to wait, in seconds.</p>"""
     scheduled_end_timestamp: (

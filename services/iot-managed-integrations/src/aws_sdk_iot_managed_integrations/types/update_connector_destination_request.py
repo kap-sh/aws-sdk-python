@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#UpdateConnectorDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.auth_config_update
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.secrets_manager
 
 
-class UpdateConnectorDestinationRequest(TypedDict):
+class UpdateConnectorDestinationRequest(TypedDict, closed=True):
     identifier: "aws_sdk_iot_managed_integrations.types.connector_destination_id.ConnectorDestinationId"
     """<p>The unique identifier of the connector destination to update.</p>"""
     description: NotRequired[

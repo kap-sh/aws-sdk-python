@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#DeleteLicenseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.iso8601_date_time
     import aws_sdk_license_manager.types.license_deletion_status
 
 
-class DeleteLicenseResponse(TypedDict):
+class DeleteLicenseResponse(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_license_manager.types.license_deletion_status.LicenseDeletionStatus"
     ]

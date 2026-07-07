@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#BandwidthRateLimitInterval``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.minute_of_hour
 
 
-class BandwidthRateLimitInterval(TypedDict):
+class BandwidthRateLimitInterval(TypedDict, closed=True):
     start_hour_of_day: "aws_sdk_storage_gateway.types.hour_of_day.HourOfDay"
     """<p> The hour of the day to start the bandwidth rate limit interval. </p>"""
     start_minute_of_hour: "aws_sdk_storage_gateway.types.minute_of_hour.MinuteOfHour"

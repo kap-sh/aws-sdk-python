@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#AssociateSourceToS3TableIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.data_source
 
 
-class AssociateSourceToS3TableIntegrationRequest(TypedDict):
+class AssociateSourceToS3TableIntegrationRequest(TypedDict, closed=True):
     integration_arn: "aws_sdk_cloudwatch_logs.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the S3 Table Integration to associate the data source with.</p>"""
     data_source: "aws_sdk_cloudwatch_logs.types.data_source.DataSource"

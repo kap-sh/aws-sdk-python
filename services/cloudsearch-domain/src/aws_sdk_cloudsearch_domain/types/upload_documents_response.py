@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#UploadDocumentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.adds
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.string
 
 
-class UploadDocumentsResponse(TypedDict):
+class UploadDocumentsResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_cloudsearch_domain.types.string.String"]
     """<p>The status of an <code>UploadDocumentsRequest</code>.</p>"""
     adds: "aws_sdk_cloudsearch_domain.types.adds.Adds"

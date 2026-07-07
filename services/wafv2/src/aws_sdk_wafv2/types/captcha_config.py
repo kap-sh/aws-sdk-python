@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#CaptchaConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.immunity_time_property
 
 
-class CaptchaConfig(TypedDict):
+class CaptchaConfig(TypedDict, closed=True):
     immunity_time_property: NotRequired[
         "aws_sdk_wafv2.types.immunity_time_property.ImmunityTimeProperty"
     ]

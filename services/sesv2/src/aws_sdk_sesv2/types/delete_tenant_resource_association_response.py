@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DeleteTenantResourceAssociationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteTenantResourceAssociationResponse(TypedDict):
+class DeleteTenantResourceAssociationResponse(TypedDict, closed=True):
     pass
 
 

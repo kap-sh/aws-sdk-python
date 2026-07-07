@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#SyntheticDataEvaluationScores``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.data_privacy_scores
 
 
-class SyntheticDataEvaluationScores(TypedDict):
+class SyntheticDataEvaluationScores(TypedDict, closed=True):
     data_privacy_scores: (
         "aws_sdk_cleanroomsml.types.data_privacy_scores.DataPrivacyScores"
     )

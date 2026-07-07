@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ColorConversion3DLUTSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max2147483647
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.color_space
 
 
-class ColorConversion3DLUTSetting(TypedDict):
+class ColorConversion3DLUTSetting(TypedDict, closed=True):
     file_input: NotRequired[
         "aws_sdk_mediaconvert.types.__string_min14_pattern_s3_cube_cube_https_cube_cube.__stringMin14PatternS3CubeCUBEHttpsCubeCUBE"
     ]

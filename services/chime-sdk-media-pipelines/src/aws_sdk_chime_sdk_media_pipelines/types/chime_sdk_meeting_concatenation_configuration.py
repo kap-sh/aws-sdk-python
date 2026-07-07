@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#ChimeSdkMeetingConcatenationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.artifacts_concatenation_configuration
 
 
-class ChimeSdkMeetingConcatenationConfiguration(TypedDict):
+class ChimeSdkMeetingConcatenationConfiguration(TypedDict, closed=True):
     artifacts_configuration: "aws_sdk_chime_sdk_media_pipelines.types.artifacts_concatenation_configuration.ArtifactsConcatenationConfiguration"
     """<p>The configuration for the artifacts in an Amazon Chime SDK meeting concatenation.</p>"""
 

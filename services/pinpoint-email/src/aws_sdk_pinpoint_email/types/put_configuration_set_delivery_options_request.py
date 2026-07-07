@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#PutConfigurationSetDeliveryOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.configuration_set_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.tls_policy
 
 
-class PutConfigurationSetDeliveryOptionsRequest(TypedDict):
+class PutConfigurationSetDeliveryOptionsRequest(TypedDict, closed=True):
     configuration_set_name: (
         "aws_sdk_pinpoint_email.types.configuration_set_name.ConfigurationSetName"
     )

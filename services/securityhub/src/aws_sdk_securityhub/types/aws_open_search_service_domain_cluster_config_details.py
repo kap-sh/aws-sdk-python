@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsOpenSearchServiceDomainClusterConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_open_search_service_domain_cluster_config_zone_awareness_config_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsOpenSearchServiceDomainClusterConfigDetails(TypedDict):
+class AwsOpenSearchServiceDomainClusterConfigDetails(TypedDict, closed=True):
     instance_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of data nodes to use in the OpenSearch domain.</p>"""
     warm_enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

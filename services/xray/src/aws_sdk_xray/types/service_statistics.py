@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#ServiceStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.error_statistics
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.nullable_long
 
 
-class ServiceStatistics(TypedDict):
+class ServiceStatistics(TypedDict, closed=True):
     ok_count: NotRequired["aws_sdk_xray.types.nullable_long.NullableLong"]
     """<p>The number of requests that completed with a 2xx Success status code.</p>"""
     error_statistics: NotRequired["aws_sdk_xray.types.error_statistics.ErrorStatistics"]

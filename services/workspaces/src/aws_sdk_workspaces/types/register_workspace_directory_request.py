@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#RegisterWorkspaceDirectoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.active_directory_config
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_type
 
 
-class RegisterWorkspaceDirectoryRequest(TypedDict):
+class RegisterWorkspaceDirectoryRequest(TypedDict, closed=True):
     directory_id: NotRequired["aws_sdk_workspaces.types.directory_id.DirectoryId"]
     """<p>The identifier of the directory. You cannot register a directory if it does not have a status of Active. If the directory does not have a status of Active, you will receive an InvalidResourceStateException error. If you have already registered the maximum number of directories that you can register with Amazon WorkSpaces, you will receive a ResourceLimitExceededException error. Deregister directories that you are not using for WorkSpaces, and try again.</p>"""
     subnet_ids: NotRequired["aws_sdk_workspaces.types.subnet_ids.SubnetIds"]

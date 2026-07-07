@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ArgoCdConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.argo_cd_aws_idc_config_response
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class ArgoCdConfigResponse(TypedDict):
+class ArgoCdConfigResponse(TypedDict, closed=True):
     namespace: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The Kubernetes namespace where Argo CD resources are monitored by your Argo CD Capability.</p>"""
     aws_idc: NotRequired[

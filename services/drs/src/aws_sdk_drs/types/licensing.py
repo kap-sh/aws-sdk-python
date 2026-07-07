@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.drs#Licensing``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Licensing(TypedDict):
+class Licensing(TypedDict, closed=True):
     os_byol: NotRequired["bool"]
     r"""<p>Whether to enable \"Bring your own license\" or not.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ListJobsFilterTerm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.list_jobs_filter_key
 
 
-class ListJobsFilterTerm(TypedDict):
+class ListJobsFilterTerm(TypedDict, closed=True):
     comparator: NotRequired["aws_sdk_macie2.types.job_comparator.JobComparator"]
     """<p>The operator to use to filter the results.</p>"""
     key: NotRequired["aws_sdk_macie2.types.list_jobs_filter_key.ListJobsFilterKey"]

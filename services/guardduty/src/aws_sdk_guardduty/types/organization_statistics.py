@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#OrganizationStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.integer
     import aws_sdk_guardduty.types.organization_feature_statistics_results
 
 
-class OrganizationStatistics(TypedDict):
+class OrganizationStatistics(TypedDict, closed=True):
     total_accounts_count: NotRequired["aws_sdk_guardduty.types.integer.Integer"]
     """<p>Total number of accounts in your Amazon Web Services organization.</p>"""
     member_accounts_count: NotRequired["aws_sdk_guardduty.types.integer.Integer"]

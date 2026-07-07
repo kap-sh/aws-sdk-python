@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#GetArchiveMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.archived_message_id
 
 
-class GetArchiveMessageRequest(TypedDict):
+class GetArchiveMessageRequest(TypedDict, closed=True):
     archived_message_id: (
         "aws_sdk_mailmanager.types.archived_message_id.ArchivedMessageId"
     )

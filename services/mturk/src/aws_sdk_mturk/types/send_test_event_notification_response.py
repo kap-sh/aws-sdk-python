@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#SendTestEventNotificationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SendTestEventNotificationResponse(TypedDict):
+class SendTestEventNotificationResponse(TypedDict, closed=True):
     pass
 
 

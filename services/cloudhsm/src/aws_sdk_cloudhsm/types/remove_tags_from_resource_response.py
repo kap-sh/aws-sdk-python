@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#RemoveTagsFromResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudhsm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.string
 
 
-class RemoveTagsFromResourceResponse(TypedDict):
+class RemoveTagsFromResourceResponse(TypedDict, closed=True):
     status: "aws_sdk_cloudhsm.types.string.String"
     """<p>The status of the operation.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#DisassociateAccountsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.account_id_list
     import aws_sdk_compute_optimizer_automation.types.string_list
 
 
-class DisassociateAccountsResponse(TypedDict):
+class DisassociateAccountsResponse(TypedDict, closed=True):
     account_ids: NotRequired[
         "aws_sdk_compute_optimizer_automation.types.account_id_list.AccountIdList"
     ]

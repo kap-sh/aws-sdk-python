@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#MoveReplicationTaskMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class MoveReplicationTaskMessage(TypedDict):
+class MoveReplicationTaskMessage(TypedDict, closed=True):
     replication_task_arn: "aws_sdk_database_migration_service.types.string.String"
     """<p>The Amazon Resource Name (ARN) of the task that you want to move.</p>"""
     target_replication_instance_arn: (

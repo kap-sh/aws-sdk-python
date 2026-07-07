@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleImportJobAnalysisOverridePermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.asset_bundle_restrictive_resource_id_list
 
 
-class AssetBundleImportJobAnalysisOverridePermissions(TypedDict):
+class AssetBundleImportJobAnalysisOverridePermissions(TypedDict, closed=True):
     analysis_ids: "aws_sdk_quicksight.types.asset_bundle_restrictive_resource_id_list.AssetBundleRestrictiveResourceIdList"
     """<p>A list of analysis IDs that you want to apply overrides to. You can use <code>*</code> to override all analyses in this asset bundle.</p>"""
     permissions: "aws_sdk_quicksight.types.asset_bundle_resource_permissions.AssetBundleResourcePermissions"

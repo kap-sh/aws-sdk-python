@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ClientLoginBannerOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class ClientLoginBannerOptions(TypedDict):
+class ClientLoginBannerOptions(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Enable or disable a customizable text banner that will be displayed on Amazon Web Services provided clients when a VPN session is established.</p> <p>Valid values: <code>true | false</code> </p> <p>Default value: <code>false</code> </p>"""
     banner_text: NotRequired["aws_sdk_ec2.types.string.String"]

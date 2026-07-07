@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#RouteServerRouteInstallationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class RouteServerRouteInstallationDetail(TypedDict):
+class RouteServerRouteInstallationDetail(TypedDict, closed=True):
     route_table_id: NotRequired["aws_sdk_ec2.types.route_table_id.RouteTableId"]
     """<p>The ID of the route table where the route is being installed.</p>"""
     route_installation_status: NotRequired[

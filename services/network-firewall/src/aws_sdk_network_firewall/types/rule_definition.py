@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#RuleDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.stateless_actions
 
 
-class RuleDefinition(TypedDict):
+class RuleDefinition(TypedDict, closed=True):
     match_attributes: "aws_sdk_network_firewall.types.match_attributes.MatchAttributes"
     """<p>Criteria for Network Firewall to use to inspect an individual packet in stateless rule inspection. Each match attributes set can include one or more items such as IP address, CIDR range, port number, protocol, and TCP flags. </p>"""
     actions: "aws_sdk_network_firewall.types.stateless_actions.StatelessActions"

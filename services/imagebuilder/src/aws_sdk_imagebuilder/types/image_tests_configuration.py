@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ImageTestsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_tests_timeout_minutes
     import aws_sdk_imagebuilder.types.nullable_boolean
 
 
-class ImageTestsConfiguration(TypedDict):
+class ImageTestsConfiguration(TypedDict, closed=True):
     image_tests_enabled: NotRequired[
         "aws_sdk_imagebuilder.types.nullable_boolean.NullableBoolean"
     ]

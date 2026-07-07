@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#CreateIngressPointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.traffic_policy_id
 
 
-class CreateIngressPointRequest(TypedDict):
+class CreateIngressPointRequest(TypedDict, closed=True):
     client_token: NotRequired[
         "aws_sdk_mailmanager.types.idempotency_token.IdempotencyToken"
     ]

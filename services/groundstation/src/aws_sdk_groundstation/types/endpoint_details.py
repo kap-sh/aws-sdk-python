@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#EndpointDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.aws_ground_station_agent_endpoint
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uplink_aws_ground_station_agent_endpoint_details
 
 
-class EndpointDetails(TypedDict):
+class EndpointDetails(TypedDict, closed=True):
     security_details: NotRequired[
         "aws_sdk_groundstation.types.security_details.SecurityDetails"
     ]

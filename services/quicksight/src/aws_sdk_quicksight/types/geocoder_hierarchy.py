@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeocoderHierarchy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geocoder_hierarchy_city_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geocoder_hierarchy_state_string
 
 
-class GeocoderHierarchy(TypedDict):
+class GeocoderHierarchy(TypedDict, closed=True):
     country: NotRequired[
         "aws_sdk_quicksight.types.geocoder_hierarchy_country_string.GeocoderHierarchyCountryString"
     ]

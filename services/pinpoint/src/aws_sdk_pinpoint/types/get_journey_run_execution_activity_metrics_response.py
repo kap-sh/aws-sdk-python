@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#GetJourneyRunExecutionActivityMetricsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.journey_run_execution_activity_metrics_response
 
 
-class GetJourneyRunExecutionActivityMetricsResponse(TypedDict):
+class GetJourneyRunExecutionActivityMetricsResponse(TypedDict, closed=True):
     journey_run_execution_activity_metrics_response: NotRequired[
         "aws_sdk_pinpoint.types.journey_run_execution_activity_metrics_response.JourneyRunExecutionActivityMetricsResponse"
     ]

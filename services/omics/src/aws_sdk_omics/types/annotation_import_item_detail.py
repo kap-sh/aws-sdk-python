@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#AnnotationImportItemDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.s3_uri
 
 
-class AnnotationImportItemDetail(TypedDict):
+class AnnotationImportItemDetail(TypedDict, closed=True):
     source: "aws_sdk_omics.types.s3_uri.S3Uri"
     """<p>The source file's location in Amazon S3.</p>"""
     job_status: "aws_sdk_omics.types.job_status.JobStatus"

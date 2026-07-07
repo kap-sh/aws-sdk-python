@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#DashBaseUrl``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
 
-class DashBaseUrl(TypedDict):
+class DashBaseUrl(TypedDict, closed=True):
     url: "str"
     """<p>A source location for segments.</p>"""
     service_location: NotRequired["str"]

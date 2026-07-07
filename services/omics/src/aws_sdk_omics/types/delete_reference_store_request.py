@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DeleteReferenceStoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.reference_store_id
 
 
-class DeleteReferenceStoreRequest(TypedDict):
+class DeleteReferenceStoreRequest(TypedDict, closed=True):
     id: "aws_sdk_omics.types.reference_store_id.ReferenceStoreId"
     """<p>The store's ID.</p>"""
 

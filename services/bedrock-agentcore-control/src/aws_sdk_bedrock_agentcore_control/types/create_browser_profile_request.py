@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateBrowserProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.tags_map
 
 
-class CreateBrowserProfileRequest(TypedDict):
+class CreateBrowserProfileRequest(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agentcore_control.types.browser_profile_name.BrowserProfileName"
     """<p>The name of the browser profile. The name must be unique within your account and can contain alphanumeric characters and underscores.</p>"""
     description: NotRequired[

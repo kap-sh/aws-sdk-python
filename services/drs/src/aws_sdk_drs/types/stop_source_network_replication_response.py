@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#StopSourceNetworkReplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.source_network
 
 
-class StopSourceNetworkReplicationResponse(TypedDict):
+class StopSourceNetworkReplicationResponse(TypedDict, closed=True):
     source_network: NotRequired["aws_sdk_drs.types.source_network.SourceNetwork"]
     """<p>Source Network which was requested to stop replication.</p>"""
 

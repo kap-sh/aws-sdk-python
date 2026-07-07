@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.waf#CreateRateBasedRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.change_token
     import aws_sdk_waf.types.rate_based_rule
 
 
-class CreateRateBasedRuleResponse(TypedDict):
+class CreateRateBasedRuleResponse(TypedDict, closed=True):
     rule: NotRequired["aws_sdk_waf.types.rate_based_rule.RateBasedRule"]
     """<p>The <a>RateBasedRule</a> that is returned in the <code>CreateRateBasedRule</code> response.</p>"""
     change_token: NotRequired["aws_sdk_waf.types.change_token.ChangeToken"]

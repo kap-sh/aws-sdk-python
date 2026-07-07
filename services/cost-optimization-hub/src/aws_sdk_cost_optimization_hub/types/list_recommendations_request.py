@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ListRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.order_by
 
 
-class ListRecommendationsRequest(TypedDict):
+class ListRecommendationsRequest(TypedDict, closed=True):
     filter: NotRequired["aws_sdk_cost_optimization_hub.types.filter.Filter"]
     """<p>The constraints that you want all returned recommendations to match.</p>"""
     order_by: NotRequired["aws_sdk_cost_optimization_hub.types.order_by.OrderBy"]

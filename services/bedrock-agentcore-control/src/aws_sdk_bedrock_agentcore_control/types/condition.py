@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#Condition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,13 +14,13 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.match_principals
 
 
-class _Condition_matchPrincipals(TypedDict):
+class _Condition_matchPrincipals(TypedDict, closed=True):
     matchPrincipals: (
         "aws_sdk_bedrock_agentcore_control.types.match_principals.MatchPrincipals"
     )
 
 
-class _Condition_matchPaths(TypedDict):
+class _Condition_matchPaths(TypedDict, closed=True):
     matchPaths: "aws_sdk_bedrock_agentcore_control.types.match_paths.MatchPaths"
 
 

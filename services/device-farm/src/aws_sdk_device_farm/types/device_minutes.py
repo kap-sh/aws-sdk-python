@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#DeviceMinutes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.double
 
 
-class DeviceMinutes(TypedDict):
+class DeviceMinutes(TypedDict, closed=True):
     total: NotRequired["aws_sdk_device_farm.types.double.Double"]
     """<p>When specified, represents the total minutes used by the resource to run tests.</p>"""
     metered: NotRequired["aws_sdk_device_farm.types.double.Double"]

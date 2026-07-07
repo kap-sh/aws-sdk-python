@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ListSnapshotCopyConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.snapshot_copy_configurations
 
 
-class ListSnapshotCopyConfigurationsResponse(TypedDict):
+class ListSnapshotCopyConfigurationsResponse(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_redshift_serverless.types.pagination_token.PaginationToken"
     ]

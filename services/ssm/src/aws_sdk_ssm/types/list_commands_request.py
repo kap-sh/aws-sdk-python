@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListCommandsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.command_filter_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class ListCommandsRequest(TypedDict):
+class ListCommandsRequest(TypedDict, closed=True):
     command_id: NotRequired["aws_sdk_ssm.types.command_id.CommandId"]
     """<p>(Optional) If provided, lists only the specified command.</p>"""
     instance_id: NotRequired["aws_sdk_ssm.types.instance_id.InstanceId"]

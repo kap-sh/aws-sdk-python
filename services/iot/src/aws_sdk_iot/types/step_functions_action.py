@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#StepFunctionsAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.state_machine_name
 
 
-class StepFunctionsAction(TypedDict):
+class StepFunctionsAction(TypedDict, closed=True):
     execution_name_prefix: NotRequired[
         "aws_sdk_iot.types.execution_name_prefix.ExecutionNamePrefix"
     ]

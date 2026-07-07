@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#Pipeline``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.bucket_name
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.string
 
 
-class Pipeline(TypedDict):
+class Pipeline(TypedDict, closed=True):
     id: NotRequired["aws_sdk_elastic_transcoder.types.id.Id"]
     """<p>The identifier for the pipeline. You use this value to identify the pipeline in which you want to perform a variety of operations, such as creating a job or a preset.</p>"""
     arn: NotRequired["aws_sdk_elastic_transcoder.types.string.String"]

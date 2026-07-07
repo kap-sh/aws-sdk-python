@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#CreateDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.tags
 
 
-class CreateDatasetRequest(TypedDict):
+class CreateDatasetRequest(TypedDict, closed=True):
     dataset_name: "aws_sdk_forecast.types.name.Name"
     """<p>A name for the dataset.</p>"""
     domain: "aws_sdk_forecast.types.domain.Domain"

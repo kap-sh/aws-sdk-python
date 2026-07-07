@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchVocabulariesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.vocabulary_next_token
     import aws_sdk_connect.types.vocabulary_summary_list
 
 
-class SearchVocabulariesResponse(TypedDict):
+class SearchVocabulariesResponse(TypedDict, closed=True):
     vocabulary_summary_list: NotRequired[
         "aws_sdk_connect.types.vocabulary_summary_list.VocabularySummaryList"
     ]

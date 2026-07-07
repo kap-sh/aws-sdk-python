@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetGlueIdentityCenterConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.application_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.orchestration_string_list
 
 
-class GetGlueIdentityCenterConfigurationResponse(TypedDict):
+class GetGlueIdentityCenterConfigurationResponse(TypedDict, closed=True):
     application_arn: NotRequired["aws_sdk_glue.types.application_arn.ApplicationArn"]
     """<p>The Amazon Resource Name (ARN) of the Identity Center application associated with the Glue configuration.</p>"""
     instance_arn: NotRequired[

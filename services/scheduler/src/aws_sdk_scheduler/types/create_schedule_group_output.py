@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#CreateScheduleGroupOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_scheduler.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_scheduler.types.schedule_group_arn
 
 
-class CreateScheduleGroupOutput(TypedDict):
+class CreateScheduleGroupOutput(TypedDict, closed=True):
     schedule_group_arn: "aws_sdk_scheduler.types.schedule_group_arn.ScheduleGroupArn"
     """<p>The Amazon Resource Name (ARN) of the schedule group.</p>"""
 

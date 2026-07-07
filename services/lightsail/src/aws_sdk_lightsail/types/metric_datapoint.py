@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#MetricDatapoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.double
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.timestamp
 
 
-class MetricDatapoint(TypedDict):
+class MetricDatapoint(TypedDict, closed=True):
     average: NotRequired["aws_sdk_lightsail.types.double.double"]
     """<p>The average.</p>"""
     maximum: NotRequired["aws_sdk_lightsail.types.double.double"]

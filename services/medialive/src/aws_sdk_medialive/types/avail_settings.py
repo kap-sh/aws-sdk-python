@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AvailSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.esam
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.scte35_time_signal_apos
 
 
-class AvailSettings(TypedDict):
+class AvailSettings(TypedDict, closed=True):
     esam: NotRequired["aws_sdk_medialive.types.esam.Esam"]
     scte35_splice_insert: NotRequired[
         "aws_sdk_medialive.types.scte35_splice_insert.Scte35SpliceInsert"

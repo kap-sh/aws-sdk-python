@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#MedicalScribeBinaryAudioEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connecthealth._protocol.eventstream import HeaderValue, Message
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.audio_chunk
 
 
-class MedicalScribeBinaryAudioEvent(TypedDict):
+class MedicalScribeBinaryAudioEvent(TypedDict, closed=True):
     audio_chunk: "aws_sdk_connecthealth.types.audio_chunk.AudioChunk"
     """<p>The raw binary audio data chunk</p>"""
 

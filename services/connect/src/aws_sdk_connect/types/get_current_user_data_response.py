@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetCurrentUserDataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.approximate_total_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.user_data_list
 
 
-class GetCurrentUserDataResponse(TypedDict):
+class GetCurrentUserDataResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]
     """<p>If there are additional results, this is the token for the next set of results.</p>"""
     user_data_list: NotRequired["aws_sdk_connect.types.user_data_list.UserDataList"]

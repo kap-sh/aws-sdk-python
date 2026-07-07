@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ReadSetFiles``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.file_information
 
 
-class ReadSetFiles(TypedDict):
+class ReadSetFiles(TypedDict, closed=True):
     source1: NotRequired["aws_sdk_omics.types.file_information.FileInformation"]
     """<p>The location of the first file in Amazon S3.</p>"""
     source2: NotRequired["aws_sdk_omics.types.file_information.FileInformation"]

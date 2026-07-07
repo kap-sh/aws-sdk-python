@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#TaskSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.capacity_provider_strategy
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class TaskSet(TypedDict):
+class TaskSet(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The ID of the task set.</p>"""
     task_set_arn: NotRequired["aws_sdk_ecs.types.string.String"]

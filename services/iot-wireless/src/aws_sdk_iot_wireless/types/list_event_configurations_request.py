@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ListEventConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.event_notification_resource_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.next_token
 
 
-class ListEventConfigurationsRequest(TypedDict):
+class ListEventConfigurationsRequest(TypedDict, closed=True):
     resource_type: "aws_sdk_iot_wireless.types.event_notification_resource_type.EventNotificationResourceType"
     """<p>Resource type to filter event configurations.</p>"""
     max_results: "aws_sdk_iot_wireless.types.max_results.MaxResults"

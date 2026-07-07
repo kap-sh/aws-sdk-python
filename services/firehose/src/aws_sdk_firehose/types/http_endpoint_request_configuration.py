@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#HttpEndpointRequestConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.content_encoding
     import aws_sdk_firehose.types.http_endpoint_common_attributes_list
 
 
-class HttpEndpointRequestConfiguration(TypedDict):
+class HttpEndpointRequestConfiguration(TypedDict, closed=True):
     content_encoding: NotRequired[
         "aws_sdk_firehose.types.content_encoding.ContentEncoding"
     ]

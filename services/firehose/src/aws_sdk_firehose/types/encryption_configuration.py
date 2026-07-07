@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#EncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.kms_encryption_config
     import aws_sdk_firehose.types.no_encryption_config
 
 
-class EncryptionConfiguration(TypedDict):
+class EncryptionConfiguration(TypedDict, closed=True):
     no_encryption_config: NotRequired[
         "aws_sdk_firehose.types.no_encryption_config.NoEncryptionConfig"
     ]

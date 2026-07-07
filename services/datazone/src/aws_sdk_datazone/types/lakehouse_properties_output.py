@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LakehousePropertiesOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class LakehousePropertiesOutput(TypedDict):
+class LakehousePropertiesOutput(TypedDict, closed=True):
     glue_lineage_sync_enabled: NotRequired["bool"]
     """<p>Specifies whether Glue lineage sync is enabled for tables managed by Glue crawlers.</p>"""
 

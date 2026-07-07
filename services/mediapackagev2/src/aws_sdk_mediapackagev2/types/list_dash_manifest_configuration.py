@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#ListDashManifestConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.resource_name
 
 
-class ListDashManifestConfiguration(TypedDict):
+class ListDashManifestConfiguration(TypedDict, closed=True):
     manifest_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"
     """<p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>"""
     url: NotRequired["str"]

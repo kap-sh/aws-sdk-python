@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormMultiSelectQuestionAutomation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_form_multi_select_question_automation_option_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.reference_id_list
 
 
-class EvaluationFormMultiSelectQuestionAutomation(TypedDict):
+class EvaluationFormMultiSelectQuestionAutomation(TypedDict, closed=True):
     options: NotRequired[
         "aws_sdk_connect.types.evaluation_form_multi_select_question_automation_option_list.EvaluationFormMultiSelectQuestionAutomationOptionList"
     ]

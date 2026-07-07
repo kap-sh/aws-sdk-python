@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ImageRecipe``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.additional_instance_configuration
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.version_number
 
 
-class ImageRecipe(TypedDict):
+class ImageRecipe(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_imagebuilder.types.image_builder_arn.ImageBuilderArn"]
     """<p>The Amazon Resource Name (ARN) of the image recipe.</p>"""
     type: NotRequired["aws_sdk_imagebuilder.types.image_type.ImageType"]

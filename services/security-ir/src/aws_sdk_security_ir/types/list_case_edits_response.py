@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#ListCaseEditsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.case_edit_items
 
 
-class ListCaseEditsResponse(TypedDict):
+class ListCaseEditsResponse(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>An optional string that, if supplied on subsequent calls to ListCaseEdits, allows the API to fetch the next page of results. </p>"""
     items: NotRequired["aws_sdk_security_ir.types.case_edit_items.CaseEditItems"]

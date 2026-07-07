@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#SourceTableFeatureDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.global_secondary_indexes
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.time_to_live_description
 
 
-class SourceTableFeatureDetails(TypedDict):
+class SourceTableFeatureDetails(TypedDict, closed=True):
     local_secondary_indexes: NotRequired[
         "aws_sdk_dynamodb.types.local_secondary_indexes.LocalSecondaryIndexes"
     ]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#RestoreTableFromSnapshotRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
 
-class RestoreTableFromSnapshotRequest(TypedDict):
+class RestoreTableFromSnapshotRequest(TypedDict, closed=True):
     namespace_name: "str"
     """<p>The namespace of the snapshot to restore from.</p>"""
     workgroup_name: "str"

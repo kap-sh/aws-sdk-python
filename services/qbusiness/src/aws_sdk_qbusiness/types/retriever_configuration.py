@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#RetrieverConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.native_index_configuration
 
 
-class _RetrieverConfiguration_nativeIndexConfiguration(TypedDict):
+class _RetrieverConfiguration_nativeIndexConfiguration(TypedDict, closed=True):
     nativeIndexConfiguration: (
         "aws_sdk_qbusiness.types.native_index_configuration.NativeIndexConfiguration"
     )
 
 
-class _RetrieverConfiguration_kendraIndexConfiguration(TypedDict):
+class _RetrieverConfiguration_kendraIndexConfiguration(TypedDict, closed=True):
     kendraIndexConfiguration: (
         "aws_sdk_qbusiness.types.kendra_index_configuration.KendraIndexConfiguration"
     )

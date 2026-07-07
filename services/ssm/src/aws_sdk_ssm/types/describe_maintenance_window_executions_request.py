@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeMaintenanceWindowExecutionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class DescribeMaintenanceWindowExecutionsRequest(TypedDict):
+class DescribeMaintenanceWindowExecutionsRequest(TypedDict, closed=True):
     window_id: "aws_sdk_ssm.types.maintenance_window_id.MaintenanceWindowId"
     """<p>The ID of the maintenance window whose executions should be retrieved.</p>"""
     filters: NotRequired[

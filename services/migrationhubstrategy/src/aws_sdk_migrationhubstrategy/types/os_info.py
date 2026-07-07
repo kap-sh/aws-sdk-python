@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#OSInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.os_type
     import aws_sdk_migrationhubstrategy.types.os_version
 
 
-class OSInfo(TypedDict):
+class OSInfo(TypedDict, closed=True):
     type: NotRequired["aws_sdk_migrationhubstrategy.types.os_type.OSType"]
     """<p> Information about the type of operating system. </p>"""
     version: NotRequired["aws_sdk_migrationhubstrategy.types.os_version.OSVersion"]

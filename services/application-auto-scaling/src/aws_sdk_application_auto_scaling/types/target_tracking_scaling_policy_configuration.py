@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#TargetTrackingScalingPolicyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.predefined_metric_specification
 
 
-class TargetTrackingScalingPolicyConfiguration(TypedDict):
+class TargetTrackingScalingPolicyConfiguration(TypedDict, closed=True):
     target_value: "aws_sdk_application_auto_scaling.types.metric_scale.MetricScale"
     """<p>The target value for the metric. Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For example, if the metric is CPU utilization, then the target value is a percent value that represents how much of the CPU can be used before scaling out. </p> <note> <p>If the scaling policy specifies the <code>ALBRequestCountPerTarget</code> predefined metric, specify the target utilization as the optimal average request count per target during any one-minute interval.</p> </note>"""
     predefined_metric_specification: NotRequired[

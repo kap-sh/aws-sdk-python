@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#UpdateClientCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_patch_operation
     import aws_sdk_api_gateway.types.string
 
 
-class UpdateClientCertificateRequest(TypedDict):
+class UpdateClientCertificateRequest(TypedDict, closed=True):
     client_certificate_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The identifier of the ClientCertificate resource to be updated.</p>"""
     patch_operations: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DescribeElasticsearchInstanceTypeLimitsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.domain_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.es_partition_instance_type
 
 
-class DescribeElasticsearchInstanceTypeLimitsRequest(TypedDict):
+class DescribeElasticsearchInstanceTypeLimitsRequest(TypedDict, closed=True):
     domain_name: NotRequired[
         "aws_sdk_elasticsearch_service.types.domain_name.DomainName"
     ]

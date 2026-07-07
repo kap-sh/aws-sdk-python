@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#EventTriggerLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.optional_long
     import aws_sdk_customer_profiles.types.periods
 
 
-class EventTriggerLimits(TypedDict):
+class EventTriggerLimits(TypedDict, closed=True):
     event_expiration: NotRequired[
         "aws_sdk_customer_profiles.types.optional_long.optionalLong"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#MetricBasedObservation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_quality_metric_values
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.new_rules
 
 
-class MetricBasedObservation(TypedDict):
+class MetricBasedObservation(TypedDict, closed=True):
     metric_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the data quality metric used for generating the observation.</p>"""
     statistic_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]

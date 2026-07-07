@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#InstanceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.instance_state
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.instance_timeline
 
 
-class InstanceStatus(TypedDict):
+class InstanceStatus(TypedDict, closed=True):
     state: NotRequired["aws_sdk_emr.types.instance_state.InstanceState"]
     """<p>The current state of the instance.</p>"""
     state_change_reason: NotRequired[

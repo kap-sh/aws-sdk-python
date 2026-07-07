@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CreateFlowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.title_input
 
 
-class CreateFlowRequest(TypedDict):
+class CreateFlowRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.account_id.AccountId"
     """<p>The ID of the Amazon Web Services account where you want to create the flow.</p>"""
     name: "aws_sdk_quicksight.types.title_input.TitleInput"

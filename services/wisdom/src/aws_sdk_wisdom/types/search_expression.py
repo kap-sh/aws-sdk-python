@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#SearchExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wisdom.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.filter_list
 
 
-class SearchExpression(TypedDict):
+class SearchExpression(TypedDict, closed=True):
     filters: "aws_sdk_wisdom.types.filter_list.FilterList"
     """<p>The search expression filters.</p>"""
 

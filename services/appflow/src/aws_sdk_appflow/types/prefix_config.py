@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#PrefixConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.path_prefix_hierarchy
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.prefix_type
 
 
-class PrefixConfig(TypedDict):
+class PrefixConfig(TypedDict, closed=True):
     prefix_type: NotRequired["aws_sdk_appflow.types.prefix_type.PrefixType"]
     """<p>Determines the format of the prefix, and whether it applies to the file name, file path, or both. </p>"""
     prefix_format: NotRequired["aws_sdk_appflow.types.prefix_format.PrefixFormat"]

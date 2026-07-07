@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListedHostKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.host_key_type
 
 
-class ListedHostKey(TypedDict):
+class ListedHostKey(TypedDict, closed=True):
     arn: "aws_sdk_transfer.types.arn.Arn"
     """<p>The unique Amazon Resource Name (ARN) of the host key.</p>"""
     host_key_id: NotRequired["aws_sdk_transfer.types.host_key_id.HostKeyId"]

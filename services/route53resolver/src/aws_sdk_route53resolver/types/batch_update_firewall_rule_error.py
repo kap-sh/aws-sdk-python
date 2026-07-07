@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#BatchUpdateFirewallRuleError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.string
     import aws_sdk_route53resolver.types.update_firewall_rule_entry
 
 
-class BatchUpdateFirewallRuleError(TypedDict):
+class BatchUpdateFirewallRuleError(TypedDict, closed=True):
     firewall_rule: NotRequired[
         "aws_sdk_route53resolver.types.update_firewall_rule_entry.UpdateFirewallRuleEntry"
     ]

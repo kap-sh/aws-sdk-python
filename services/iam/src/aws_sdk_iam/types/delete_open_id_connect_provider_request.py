@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#DeleteOpenIDConnectProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.arn_type
 
 
-class DeleteOpenIDConnectProviderRequest(TypedDict):
+class DeleteOpenIDConnectProviderRequest(TypedDict, closed=True):
     open_id_connect_provider_arn: "aws_sdk_iam.types.arn_type.arnType"
     r"""<p>The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html\">ListOpenIDConnectProviders</a> operation.</p>"""
 

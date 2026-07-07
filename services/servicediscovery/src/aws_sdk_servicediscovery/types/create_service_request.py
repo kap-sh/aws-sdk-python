@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#CreateServiceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.tag_list
 
 
-class CreateServiceRequest(TypedDict):
+class CreateServiceRequest(TypedDict, closed=True):
     name: "aws_sdk_servicediscovery.types.service_name.ServiceName"
     r"""<p>The name that you want to assign to the service.</p> <note> <p>Do not include sensitive information in the name if the namespace is discoverable by public DNS queries.</p> </note> <p>If you want Cloud Map to create an <code>SRV</code> record when you register an instance and you're using a system that requires a specific <code>SRV</code> format, such as <a href=\"http://www.haproxy.org/\">HAProxy</a>, specify the following for <code>Name</code>:</p> <ul> <li> <p>Start the name with an underscore (_), such as <code>_exampleservice</code>.</p> </li> <li> <p>End the name with <i>._protocol</i>, such as <code>._tcp</code>.</p> </li> </ul> <p>When you register an instance, Cloud Map creates an <code>SRV</code> record and assigns a name to the record by concatenating the service name and the namespace name (for example,</p> <p> <code>_exampleservice._tcp.example.com</code>).</p> <note> <p>For services that are accessible by DNS queries, you can't create multiple services with names that differ only by case (such as EXAMPLE and example). Otherwise, these services have the same DNS name and can't be distinguished. However, if you use a namespace that's only accessible by API calls, then you can create services that with names that differ only by case.</p> </note>"""
     namespace_id: NotRequired["aws_sdk_servicediscovery.types.arn.Arn"]

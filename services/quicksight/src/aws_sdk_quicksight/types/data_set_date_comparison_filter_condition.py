@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetDateComparisonFilterCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_date_filter_value
 
 
-class DataSetDateComparisonFilterCondition(TypedDict):
+class DataSetDateComparisonFilterCondition(TypedDict, closed=True):
     operator: "aws_sdk_quicksight.types.data_set_date_comparison_filter_operator.DataSetDateComparisonFilterOperator"
     """<p>The comparison operator to use, such as <code>BEFORE</code>, <code>BEFORE_OR_EQUALS_TO</code>, <code>AFTER</code>, or <code>AFTER_OR_EQUALS_TO</code>.</p>"""
     value: NotRequired[

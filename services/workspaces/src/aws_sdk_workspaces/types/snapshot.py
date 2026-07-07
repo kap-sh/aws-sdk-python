@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#Snapshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.timestamp
 
 
-class Snapshot(TypedDict):
+class Snapshot(TypedDict, closed=True):
     snapshot_time: NotRequired["aws_sdk_workspaces.types.timestamp.Timestamp"]
     """<p>The time when the snapshot was created.</p>"""
 

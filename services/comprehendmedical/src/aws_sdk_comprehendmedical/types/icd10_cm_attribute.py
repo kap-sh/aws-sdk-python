@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#ICD10CMAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.float
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.string
 
 
-class ICD10CMAttribute(TypedDict):
+class ICD10CMAttribute(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_comprehendmedical.types.icd10_cm_attribute_type.ICD10CMAttributeType"
     ]

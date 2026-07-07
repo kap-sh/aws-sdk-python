@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#InputParallelism``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.input_parallelism_count
 
 
-class InputParallelism(TypedDict):
+class InputParallelism(TypedDict, closed=True):
     count: NotRequired[
         "aws_sdk_kinesis_analytics.types.input_parallelism_count.InputParallelismCount"
     ]

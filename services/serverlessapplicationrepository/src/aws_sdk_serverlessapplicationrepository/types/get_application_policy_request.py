@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.serverlessapplicationrepository#GetApplicationPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_serverlessapplicationrepository.types.__string
 
 
-class GetApplicationPolicyRequest(TypedDict):
+class GetApplicationPolicyRequest(TypedDict, closed=True):
     application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) of the application.</p>"""
 

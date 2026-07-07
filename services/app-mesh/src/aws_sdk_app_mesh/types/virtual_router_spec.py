@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualRouterSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_router_listeners
 
 
-class VirtualRouterSpec(TypedDict):
+class VirtualRouterSpec(TypedDict, closed=True):
     listeners: NotRequired[
         "aws_sdk_app_mesh.types.virtual_router_listeners.VirtualRouterListeners"
     ]

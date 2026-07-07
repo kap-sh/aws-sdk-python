@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#DescribeResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.resource_info
 
 
-class DescribeResourceResponse(TypedDict):
+class DescribeResourceResponse(TypedDict, closed=True):
     resource_info: NotRequired["aws_sdk_lakeformation.types.resource_info.ResourceInfo"]
     """<p>A structure containing information about an Lake Formation resource.</p>"""
 

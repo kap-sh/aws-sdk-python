@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ses#DeleteReceiptFilterResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
 
-class DeleteReceiptFilterResponse(TypedDict):
+class DeleteReceiptFilterResponse(TypedDict, closed=True):
     pass
 
 

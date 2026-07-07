@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CustomerGateway``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class CustomerGateway(TypedDict):
+class CustomerGateway(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>"""
     device_name: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ScanResourceCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.scan_criterion
 
 
-class ScanResourceCriteria(TypedDict):
+class ScanResourceCriteria(TypedDict, closed=True):
     include: NotRequired["aws_sdk_guardduty.types.scan_criterion.ScanCriterion"]
     """<p>Represents condition that when matched will allow a malware scan for a certain resource.</p>"""
     exclude: NotRequired["aws_sdk_guardduty.types.scan_criterion.ScanCriterion"]

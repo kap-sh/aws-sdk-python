@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#ScheduledQueryRunSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.error_message
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.time
 
 
-class ScheduledQueryRunSummary(TypedDict):
+class ScheduledQueryRunSummary(TypedDict, closed=True):
     invocation_time: NotRequired["aws_sdk_timestream_query.types.time.Time"]
     """<p>InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter <code>@scheduled_runtime</code> can be used in the query to get the value. </p>"""
     trigger_time: NotRequired["aws_sdk_timestream_query.types.time.Time"]

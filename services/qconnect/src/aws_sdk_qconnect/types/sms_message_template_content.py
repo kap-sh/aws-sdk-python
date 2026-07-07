@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SMSMessageTemplateContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.sms_message_template_content_body
 
 
-class SMSMessageTemplateContent(TypedDict):
+class SMSMessageTemplateContent(TypedDict, closed=True):
     body: NotRequired[
         "aws_sdk_qconnect.types.sms_message_template_content_body.SMSMessageTemplateContentBody"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#MatchCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agents_criteria
 
 
-class MatchCriteria(TypedDict):
+class MatchCriteria(TypedDict, closed=True):
     agents_criteria: NotRequired["aws_sdk_connect.types.agents_criteria.AgentsCriteria"]
     """<p>An object to define agentIds.</p>"""
 

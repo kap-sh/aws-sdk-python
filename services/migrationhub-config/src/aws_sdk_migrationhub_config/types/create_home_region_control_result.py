@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubconfig#CreateHomeRegionControlResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhub_config.types.home_region_control
 
 
-class CreateHomeRegionControlResult(TypedDict):
+class CreateHomeRegionControlResult(TypedDict, closed=True):
     home_region_control: NotRequired[
         "aws_sdk_migrationhub_config.types.home_region_control.HomeRegionControl"
     ]

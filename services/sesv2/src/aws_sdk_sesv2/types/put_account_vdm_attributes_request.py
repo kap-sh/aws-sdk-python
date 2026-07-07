@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutAccountVdmAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.vdm_attributes
 
 
-class PutAccountVdmAttributesRequest(TypedDict):
+class PutAccountVdmAttributesRequest(TypedDict, closed=True):
     vdm_attributes: "aws_sdk_sesv2.types.vdm_attributes.VdmAttributes"
     """<p>The VDM attributes that you wish to apply to your Amazon SES account.</p>"""
 

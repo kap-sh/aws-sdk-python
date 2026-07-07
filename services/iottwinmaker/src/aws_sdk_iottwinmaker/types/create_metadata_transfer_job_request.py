@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#CreateMetadataTransferJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.source_configurations
 
 
-class CreateMetadataTransferJobRequest(TypedDict):
+class CreateMetadataTransferJobRequest(TypedDict, closed=True):
     metadata_transfer_job_id: NotRequired["aws_sdk_iottwinmaker.types.id.Id"]
     """<p>The metadata transfer job Id.</p>"""
     description: NotRequired["aws_sdk_iottwinmaker.types.description.Description"]

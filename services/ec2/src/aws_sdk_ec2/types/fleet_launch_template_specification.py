@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#FleetLaunchTemplateSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class FleetLaunchTemplateSpecification(TypedDict):
+class FleetLaunchTemplateSpecification(TypedDict, closed=True):
     launch_template_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the launch template.</p> <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>"""
     launch_template_name: NotRequired[

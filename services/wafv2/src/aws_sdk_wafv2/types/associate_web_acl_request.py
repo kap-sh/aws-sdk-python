@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#AssociateWebACLRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.resource_arn
 
 
-class AssociateWebACLRequest(TypedDict):
+class AssociateWebACLRequest(TypedDict, closed=True):
     web_acl_arn: "aws_sdk_wafv2.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.</p>"""
     resource_arn: "aws_sdk_wafv2.types.resource_arn.ResourceArn"

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#S3Location``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
 
-class S3Location(TypedDict):
+class S3Location(TypedDict, closed=True):
     bucket: "str"
     """<p> The bucket name.</p>"""
     key: "str"

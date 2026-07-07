@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetFoundationModelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.foundation_model_details
 
 
-class GetFoundationModelResponse(TypedDict):
+class GetFoundationModelResponse(TypedDict, closed=True):
     model_details: NotRequired[
         "aws_sdk_bedrock.types.foundation_model_details.FoundationModelDetails"
     ]

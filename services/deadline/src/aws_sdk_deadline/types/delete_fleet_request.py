@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#DeleteFleetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.fleet_id
 
 
-class DeleteFleetRequest(TypedDict):
+class DeleteFleetRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID of the farm to remove from the fleet.</p>"""
     fleet_id: "aws_sdk_deadline.types.fleet_id.FleetId"

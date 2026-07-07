@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#SchemaChangeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.schema_change_type
 
 
-class SchemaChangeDetails(TypedDict):
+class SchemaChangeDetails(TypedDict, closed=True):
     name: "aws_sdk_dataexchange.types.__string.__string"
     """<p>Name of the changing field. This value can be up to 255 characters long.</p>"""
     type: "aws_sdk_dataexchange.types.schema_change_type.SchemaChangeType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListWorkflowBuildVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.pagination_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.workflow_wildcard_version_arn
 
 
-class ListWorkflowBuildVersionsRequest(TypedDict):
+class ListWorkflowBuildVersionsRequest(TypedDict, closed=True):
     workflow_version_arn: NotRequired[
         "aws_sdk_imagebuilder.types.workflow_wildcard_version_arn.WorkflowWildcardVersionArn"
     ]

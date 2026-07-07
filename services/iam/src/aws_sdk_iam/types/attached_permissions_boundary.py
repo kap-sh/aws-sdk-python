@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#AttachedPermissionsBoundary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.permissions_boundary_attachment_type
 
 
-class AttachedPermissionsBoundary(TypedDict):
+class AttachedPermissionsBoundary(TypedDict, closed=True):
     permissions_boundary_type: NotRequired[
         "aws_sdk_iam.types.permissions_boundary_attachment_type.PermissionsBoundaryAttachmentType"
     ]

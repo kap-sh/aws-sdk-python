@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#CreateScheduledQueryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.arn
     import aws_sdk_cloudwatch_logs.types.scheduled_query_state
 
 
-class CreateScheduledQueryResponse(TypedDict):
+class CreateScheduledQueryResponse(TypedDict, closed=True):
     scheduled_query_arn: NotRequired["aws_sdk_cloudwatch_logs.types.arn.Arn"]
     """<p>The ARN of the created scheduled query.</p>"""
     state: NotRequired[

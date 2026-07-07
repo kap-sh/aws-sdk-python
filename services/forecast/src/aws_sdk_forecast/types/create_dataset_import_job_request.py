@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#CreateDatasetImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.use_geolocation_for_time_zone
 
 
-class CreateDatasetImportJobRequest(TypedDict):
+class CreateDatasetImportJobRequest(TypedDict, closed=True):
     dataset_import_job_name: "aws_sdk_forecast.types.name.Name"
     """<p>The name for the dataset import job. We recommend including the current timestamp in the name, for example, <code>20190721DatasetImport</code>. This can help you avoid getting a <code>ResourceAlreadyExistsException</code> exception.</p>"""
     dataset_arn: "aws_sdk_forecast.types.arn.Arn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#ObjectLambdaAccessPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.object_lambda_access_point_name
 
 
-class ObjectLambdaAccessPoint(TypedDict):
+class ObjectLambdaAccessPoint(TypedDict, closed=True):
     name: "aws_sdk_s3_control.types.object_lambda_access_point_name.ObjectLambdaAccessPointName"
     """<p>The name of the Object Lambda Access Point.</p>"""
     object_lambda_access_point_arn: NotRequired[

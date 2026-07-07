@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#Application``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.name
 
 
-class Application(TypedDict):
+class Application(TypedDict, closed=True):
     id: NotRequired["aws_sdk_appconfig.types.id.Id"]
     """<p>The application ID.</p>"""
     name: NotRequired["aws_sdk_appconfig.types.name.Name"]

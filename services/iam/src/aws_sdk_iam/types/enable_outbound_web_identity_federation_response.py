@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#EnableOutboundWebIdentityFederationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.string_type
 
 
-class EnableOutboundWebIdentityFederationResponse(TypedDict):
+class EnableOutboundWebIdentityFederationResponse(TypedDict, closed=True):
     issuer_identifier: NotRequired["aws_sdk_iam.types.string_type.stringType"]
     """<p>A unique issuer URL for your Amazon Web Services account that hosts the OpenID Connect (OIDC) discovery endpoints at <code>/.well-known/openid-configuration and /.well-known/jwks.json</code>. The OpenID Connect (OIDC) discovery endpoints contain verification keys and metadata necessary for token verification.</p>"""
 

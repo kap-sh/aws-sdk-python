@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#ListMetricsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.owning_accounts
 
 
-class ListMetricsOutput(TypedDict):
+class ListMetricsOutput(TypedDict, closed=True):
     metrics: NotRequired["aws_sdk_cloudwatch.types.metrics.Metrics"]
     """<p>The metrics that match your request. </p>"""
     next_token: NotRequired["aws_sdk_cloudwatch.types.next_token.NextToken"]

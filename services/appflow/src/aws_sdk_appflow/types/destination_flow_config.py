@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#DestinationFlowConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.destination_connector_properties
 
 
-class DestinationFlowConfig(TypedDict):
+class DestinationFlowConfig(TypedDict, closed=True):
     connector_type: "aws_sdk_appflow.types.connector_type.ConnectorType"
     """<p> The type of connector, such as Salesforce, Amplitude, and so on. </p>"""
     api_version: NotRequired["aws_sdk_appflow.types.api_version.ApiVersion"]

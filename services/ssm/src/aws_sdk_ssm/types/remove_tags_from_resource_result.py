@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#RemoveTagsFromResourceResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveTagsFromResourceResult(TypedDict):
+class RemoveTagsFromResourceResult(TypedDict, closed=True):
     pass
 
 

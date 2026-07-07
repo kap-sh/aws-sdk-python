@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#CatalogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.glue_data_catalog_arn
     import aws_sdk_firehose.types.warehouse_location
 
 
-class CatalogConfiguration(TypedDict):
+class CatalogConfiguration(TypedDict, closed=True):
     catalog_arn: NotRequired[
         "aws_sdk_firehose.types.glue_data_catalog_arn.GlueDataCatalogARN"
     ]

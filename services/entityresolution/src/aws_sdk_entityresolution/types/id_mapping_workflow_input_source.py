@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#IdMappingWorkflowInputSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.input_source_arn
 
 
-class IdMappingWorkflowInputSource(TypedDict):
+class IdMappingWorkflowInputSource(TypedDict, closed=True):
     input_source_arn: "aws_sdk_entityresolution.types.input_source_arn.InputSourceARN"
     """<p>An Glue table Amazon Resource Name (ARN) or a matching workflow ARN for the input source table.</p>"""
     schema_name: NotRequired["aws_sdk_entityresolution.types.entity_name.EntityName"]

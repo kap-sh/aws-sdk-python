@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#EbsBlockDevice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.volume_type
 
 
-class EbsBlockDevice(TypedDict):
+class EbsBlockDevice(TypedDict, closed=True):
     delete_on_termination: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     r"""<p>Indicates whether the EBS volume is deleted on instance termination. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination\">Preserving Amazon EBS volumes on instance termination</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     iops: NotRequired["aws_sdk_ec2.types.integer.Integer"]

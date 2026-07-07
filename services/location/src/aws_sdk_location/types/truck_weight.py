@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#TruckWeight``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.sensitive_double
     import aws_sdk_location.types.vehicle_weight_unit
 
 
-class TruckWeight(TypedDict):
+class TruckWeight(TypedDict, closed=True):
     total: NotRequired["aws_sdk_location.types.sensitive_double.SensitiveDouble"]
     """<p>The total weight of the truck. </p> <ul> <li> <p>For example, <code>3500</code>.</p> </li> </ul>"""
     unit: NotRequired["aws_sdk_location.types.vehicle_weight_unit.VehicleWeightUnit"]

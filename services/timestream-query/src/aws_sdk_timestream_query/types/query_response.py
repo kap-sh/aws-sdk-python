@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#QueryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.row_list
 
 
-class QueryResponse(TypedDict):
+class QueryResponse(TypedDict, closed=True):
     query_id: "aws_sdk_timestream_query.types.query_id.QueryId"
     """<p> A unique ID for the given query. </p>"""
     next_token: NotRequired[

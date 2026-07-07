@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#SegmentDefinitionItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.timestamp
 
 
-class SegmentDefinitionItem(TypedDict):
+class SegmentDefinitionItem(TypedDict, closed=True):
     segment_definition_name: NotRequired["aws_sdk_customer_profiles.types.name.name"]
     """<p>Name of the segment definition.</p>"""
     display_name: NotRequired[

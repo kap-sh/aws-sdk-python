@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#QuickConnectConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.user_quick_connect_config
 
 
-class QuickConnectConfig(TypedDict):
+class QuickConnectConfig(TypedDict, closed=True):
     quick_connect_type: "aws_sdk_connect.types.quick_connect_type.QuickConnectType"
     """<p>The type of quick connect. In the Connect Customer admin website, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE). </p>"""
     user_config: NotRequired[

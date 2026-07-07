@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetCostCategoriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.sort_definitions
 
 
-class GetCostCategoriesRequest(TypedDict):
+class GetCostCategoriesRequest(TypedDict, closed=True):
     search_string: NotRequired["aws_sdk_cost_explorer.types.search_string.SearchString"]
     """<p>The value that you want to search the filter values for.</p> <p>If you don't specify a <code>CostCategoryName</code>, <code>SearchString</code> is used to filter cost category names that match the <code>SearchString</code> pattern. If you specify a <code>CostCategoryName</code>, <code>SearchString</code> is used to filter cost category values that match the <code>SearchString</code> pattern.</p>"""
     time_period: "aws_sdk_cost_explorer.types.date_interval.DateInterval"

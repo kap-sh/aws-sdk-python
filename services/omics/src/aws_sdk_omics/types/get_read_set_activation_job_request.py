@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetReadSetActivationJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.activation_job_id
     import aws_sdk_omics.types.sequence_store_id
 
 
-class GetReadSetActivationJobRequest(TypedDict):
+class GetReadSetActivationJobRequest(TypedDict, closed=True):
     id: "aws_sdk_omics.types.activation_job_id.ActivationJobId"
     """<p>The job's ID.</p>"""
     sequence_store_id: "aws_sdk_omics.types.sequence_store_id.SequenceStoreId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CloudWatchAlarmTemplateGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.tag_map
 
 
-class CloudWatchAlarmTemplateGroupSummary(TypedDict):
+class CloudWatchAlarmTemplateGroupSummary(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_medialive.types.__string_pattern_arn_medialive_cloudwatch_alarm_template_group.__stringPatternArnMedialiveCloudwatchAlarmTemplateGroup"
     ]

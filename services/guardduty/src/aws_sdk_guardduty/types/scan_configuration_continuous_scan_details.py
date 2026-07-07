@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ScanConfigurationContinuousScanDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_guardduty.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.timestamp
 
 
-class ScanConfigurationContinuousScanDetails(TypedDict):
+class ScanConfigurationContinuousScanDetails(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_guardduty.types.timestamp.Timestamp"]
     """<p>The timestamp representing the start of the time range that was scanned.</p>"""
     end_time: "aws_sdk_guardduty.types.timestamp.Timestamp"

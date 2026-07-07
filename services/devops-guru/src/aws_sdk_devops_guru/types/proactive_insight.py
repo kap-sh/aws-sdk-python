@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ProactiveInsight``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.insight_description
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.ssm_ops_item_id
 
 
-class ProactiveInsight(TypedDict):
+class ProactiveInsight(TypedDict, closed=True):
     id: NotRequired["aws_sdk_devops_guru.types.insight_id.InsightId"]
     """<p>The ID of the proactive insight. </p>"""
     name: NotRequired["aws_sdk_devops_guru.types.insight_name.InsightName"]

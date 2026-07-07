@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#CreateTapesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tape_ar_ns
 
 
-class CreateTapesOutput(TypedDict):
+class CreateTapesOutput(TypedDict, closed=True):
     tape_ar_ns: NotRequired["aws_sdk_storage_gateway.types.tape_ar_ns.TapeARNs"]
     """<p>A list of unique Amazon Resource Names (ARNs) that represents the virtual tapes that were created.</p>"""
 

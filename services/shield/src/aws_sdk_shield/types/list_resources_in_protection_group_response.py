@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#ListResourcesInProtectionGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.token
 
 
-class ListResourcesInProtectionGroupResponse(TypedDict):
+class ListResourcesInProtectionGroupResponse(TypedDict, closed=True):
     resource_arns: "aws_sdk_shield.types.resource_arn_list.ResourceArnList"
     """<p>The Amazon Resource Names (ARNs) of the resources that are included in the protection group.</p>"""
     next_token: NotRequired["aws_sdk_shield.types.token.Token"]

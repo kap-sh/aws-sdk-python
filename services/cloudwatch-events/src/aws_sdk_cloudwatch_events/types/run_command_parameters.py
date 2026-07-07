@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#RunCommandParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.run_command_targets
 
 
-class RunCommandParameters(TypedDict):
+class RunCommandParameters(TypedDict, closed=True):
     run_command_targets: (
         "aws_sdk_cloudwatch_events.types.run_command_targets.RunCommandTargets"
     )

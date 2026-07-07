@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#TooManyTagsException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_servicediscovery.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.error_message
 
 
-class TooManyTagsException_(TypedDict):
+class TooManyTagsException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_servicediscovery.types.error_message.ErrorMessage"]
     resource_name: NotRequired[
         "aws_sdk_servicediscovery.types.amazon_resource_name.AmazonResourceName"

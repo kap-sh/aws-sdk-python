@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribeConnectorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.described_connector
 
 
-class DescribeConnectorResponse(TypedDict):
+class DescribeConnectorResponse(TypedDict, closed=True):
     connector: "aws_sdk_transfer.types.described_connector.DescribedConnector"
     """<p>The structure that contains the details of the connector.</p>"""
 

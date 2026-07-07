@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListRecoveryPointsByLegalHoldOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.recovery_points_list
     import aws_sdk_backup.types.string
 
 
-class ListRecoveryPointsByLegalHoldOutput(TypedDict):
+class ListRecoveryPointsByLegalHoldOutput(TypedDict, closed=True):
     recovery_points: NotRequired[
         "aws_sdk_backup.types.recovery_points_list.RecoveryPointsList"
     ]

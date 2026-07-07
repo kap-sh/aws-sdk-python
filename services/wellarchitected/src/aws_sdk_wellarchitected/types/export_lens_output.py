@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ExportLensOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens_json
 
 
-class ExportLensOutput(TypedDict):
+class ExportLensOutput(TypedDict, closed=True):
     lens_json: NotRequired["aws_sdk_wellarchitected.types.lens_json.LensJSON"]
     """<p>The JSON representation of a lens.</p>"""
 

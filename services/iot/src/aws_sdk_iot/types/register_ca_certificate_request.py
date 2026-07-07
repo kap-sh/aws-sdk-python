@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#RegisterCACertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.tag_list
 
 
-class RegisterCACertificateRequest(TypedDict):
+class RegisterCACertificateRequest(TypedDict, closed=True):
     ca_certificate: "aws_sdk_iot.types.certificate_pem.CertificatePem"
     """<p>The CA certificate.</p>"""
     verification_certificate: NotRequired[

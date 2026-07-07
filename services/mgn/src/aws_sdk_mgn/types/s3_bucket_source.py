@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#S3BucketSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.s3_key
 
 
-class S3BucketSource(TypedDict):
+class S3BucketSource(TypedDict, closed=True):
     s3_bucket: "aws_sdk_mgn.types.s3_bucket_name.S3BucketName"
     """<p>S3 bucket source s3 bucket.</p>"""
     s3_key: "aws_sdk_mgn.types.s3_key.S3Key"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateSubscriptionTargetOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.updated_by
 
 
-class UpdateSubscriptionTargetOutput(TypedDict):
+class UpdateSubscriptionTargetOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.subscription_target_id.SubscriptionTargetId"
     """<p>Identifier of the subscription target that is to be updated.</p>"""
     authorized_principals: "aws_sdk_datazone.types.authorized_principal_identifiers.AuthorizedPrincipalIdentifiers"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#Import``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class Import(TypedDict):
+class Import(TypedDict, closed=True):
     import_id: NotRequired["aws_sdk_cloudwatch_logs.types.import_id.ImportId"]
     """<p>The unique identifier of the import task.</p>"""
     import_source_arn: NotRequired["aws_sdk_cloudwatch_logs.types.arn.Arn"]

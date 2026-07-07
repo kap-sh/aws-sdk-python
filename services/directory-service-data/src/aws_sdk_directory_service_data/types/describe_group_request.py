@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservicedata#DescribeGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_directory_service_data.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service_data.types.realm
 
 
-class DescribeGroupRequest(TypedDict):
+class DescribeGroupRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_directory_service_data.types.directory_id.DirectoryId"
     """<p>The Identifier (ID) of the directory associated with the group.</p>"""
     realm: NotRequired["aws_sdk_directory_service_data.types.realm.Realm"]

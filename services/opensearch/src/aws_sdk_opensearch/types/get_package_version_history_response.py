@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#GetPackageVersionHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.package_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
 
 
-class GetPackageVersionHistoryResponse(TypedDict):
+class GetPackageVersionHistoryResponse(TypedDict, closed=True):
     package_id: NotRequired["aws_sdk_opensearch.types.package_id.PackageID"]
     """<p>The unique identifier of the package.</p>"""
     package_version_history_list: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#StaticFileS3SourceOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class StaticFileS3SourceOptions(TypedDict):
+class StaticFileS3SourceOptions(TypedDict, closed=True):
     bucket_name: "aws_sdk_quicksight.types.string.String"
     """<p>The name of the Amazon S3 bucket.</p>"""
     object_key: "aws_sdk_quicksight.types.string.String"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#GetDataViewResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.boolean
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.timestamp_epoch
 
 
-class GetDataViewResponse(TypedDict):
+class GetDataViewResponse(TypedDict, closed=True):
     auto_update: "aws_sdk_finspace_data.types.boolean.Boolean"
     """<p>Flag to indicate Dataview should be updated automatically.</p>"""
     partition_columns: NotRequired[

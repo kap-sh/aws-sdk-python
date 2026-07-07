@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#OpenSearchResourceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.integration_status_message
     import aws_sdk_cloudwatch_logs.types.open_search_resource_status_type
 
 
-class OpenSearchResourceStatus(TypedDict):
+class OpenSearchResourceStatus(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_cloudwatch_logs.types.open_search_resource_status_type.OpenSearchResourceStatusType"
     ]

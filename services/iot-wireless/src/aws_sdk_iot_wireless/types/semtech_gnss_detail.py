@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SemtechGnssDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.position_configuration_fec
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.position_solver_type
 
 
-class SemtechGnssDetail(TypedDict):
+class SemtechGnssDetail(TypedDict, closed=True):
     provider: NotRequired[
         "aws_sdk_iot_wireless.types.position_solver_provider.PositionSolverProvider"
     ]

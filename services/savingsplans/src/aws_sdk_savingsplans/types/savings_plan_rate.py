@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.savingsplans#SavingsPlanRate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_savingsplans.types.amount
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_savingsplans.types.savings_plan_rate_usage_type
 
 
-class SavingsPlanRate(TypedDict):
+class SavingsPlanRate(TypedDict, closed=True):
     rate: NotRequired["aws_sdk_savingsplans.types.amount.Amount"]
     """<p>The rate.</p>"""
     currency: NotRequired["aws_sdk_savingsplans.types.currency_code.CurrencyCode"]

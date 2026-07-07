@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#FrameRate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer
 
 
-class FrameRate(TypedDict):
+class FrameRate(TypedDict, closed=True):
     denominator: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]
     """The denominator, or bottom number, in the fractional frame rate. For example, if your frame rate is 24000 / 1001 (23.976 frames per second), then the denominator would be 1001."""
     numerator: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]

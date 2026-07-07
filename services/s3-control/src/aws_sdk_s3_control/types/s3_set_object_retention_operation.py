@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#S3SetObjectRetentionOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.s3_retention
 
 
-class S3SetObjectRetentionOperation(TypedDict):
+class S3SetObjectRetentionOperation(TypedDict, closed=True):
     bypass_governance_retention: NotRequired["aws_sdk_s3_control.types.boolean.Boolean"]
     """<p>Indicates if the action should be applied to objects in the Batch Operations job even if they have Object Lock <code> GOVERNANCE</code> type in place.</p>"""
     retention: "aws_sdk_s3_control.types.s3_retention.S3Retention"

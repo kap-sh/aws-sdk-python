@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateLocationObjectStorageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.server_hostname
 
 
-class CreateLocationObjectStorageRequest(TypedDict):
+class CreateLocationObjectStorageRequest(TypedDict, closed=True):
     server_hostname: "aws_sdk_datasync.types.server_hostname.ServerHostname"
     """<p>Specifies the domain name or IP address (IPv4 or IPv6) of the object storage server that your DataSync agent connects to.</p>"""
     server_port: NotRequired[

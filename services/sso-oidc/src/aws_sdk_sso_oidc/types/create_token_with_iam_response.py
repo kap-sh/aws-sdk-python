@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssooidc#CreateTokenWithIAMResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_oidc.types.access_token
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_oidc.types.token_type_uri
 
 
-class CreateTokenWithIAMResponse(TypedDict):
+class CreateTokenWithIAMResponse(TypedDict, closed=True):
     access_token: NotRequired["aws_sdk_sso_oidc.types.access_token.AccessToken"]
     """<p>A bearer token to access Amazon Web Services accounts and applications assigned to a user.</p>"""
     token_type: NotRequired["aws_sdk_sso_oidc.types.token_type.TokenType"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#FeaturedDocumentWithMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.document_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.url
 
 
-class FeaturedDocumentWithMetadata(TypedDict):
+class FeaturedDocumentWithMetadata(TypedDict, closed=True):
     id: NotRequired["aws_sdk_kendra.types.document_id.DocumentId"]
     r"""<p>The identifier of the featured document with its metadata. You can use the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_Query.html\">Query</a> API to search for specific documents with their document IDs included in the result items, or you can use the console.</p>"""
     title: NotRequired["aws_sdk_kendra.types.string.String"]

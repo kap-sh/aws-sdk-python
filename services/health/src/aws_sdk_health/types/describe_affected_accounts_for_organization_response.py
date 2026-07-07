@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeAffectedAccountsForOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.affected_accounts_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.next_token
 
 
-class DescribeAffectedAccountsForOrganizationResponse(TypedDict):
+class DescribeAffectedAccountsForOrganizationResponse(TypedDict, closed=True):
     affected_accounts: NotRequired[
         "aws_sdk_health.types.affected_accounts_list.affectedAccountsList"
     ]

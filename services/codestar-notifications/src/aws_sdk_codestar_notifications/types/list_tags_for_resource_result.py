@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codestarnotifications#ListTagsForResourceResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codestar_notifications.types.tags
 
 
-class ListTagsForResourceResult(TypedDict):
+class ListTagsForResourceResult(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_codestar_notifications.types.tags.Tags"]
     """<p>The tags associated with the notification rule.</p>"""
 

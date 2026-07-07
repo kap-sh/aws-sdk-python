@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#Anomaly``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.metric
 
 
-class Anomaly(TypedDict):
+class Anomaly(TypedDict, closed=True):
     metric: "aws_sdk_codeguruprofiler.types.metric.Metric"
     """<p> Details about the metric that the analysis used when it detected the anomaly. The metric includes the name of the frame that was analyzed with the type and thread states used to derive the metric value for that frame. </p>"""
     reason: "str"

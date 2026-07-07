@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeScriptOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.script
 
 
-class DescribeScriptOutput(TypedDict):
+class DescribeScriptOutput(TypedDict, closed=True):
     script: NotRequired["aws_sdk_gamelift.types.script.Script"]
     """<p>A set of properties describing the requested script.</p>"""
 

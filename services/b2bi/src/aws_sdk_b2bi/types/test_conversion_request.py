@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#TestConversionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.conversion_target
 
 
-class TestConversionRequest(TypedDict):
+class TestConversionRequest(TypedDict, closed=True):
     source: "aws_sdk_b2bi.types.conversion_source.ConversionSource"
     """<p>Specify the source file for an outbound EDI request.</p>"""
     target: "aws_sdk_b2bi.types.conversion_target.ConversionTarget"

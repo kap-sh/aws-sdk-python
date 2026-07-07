@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribeExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.workflow_id
 
 
-class DescribeExecutionRequest(TypedDict):
+class DescribeExecutionRequest(TypedDict, closed=True):
     execution_id: "aws_sdk_transfer.types.execution_id.ExecutionId"
     """<p>A unique identifier for the execution of a workflow.</p>"""
     workflow_id: "aws_sdk_transfer.types.workflow_id.WorkflowId"

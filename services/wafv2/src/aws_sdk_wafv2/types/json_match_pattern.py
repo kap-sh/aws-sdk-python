@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#JsonMatchPattern``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.all
     import aws_sdk_wafv2.types.json_pointer_paths
 
 
-class JsonMatchPattern(TypedDict):
+class JsonMatchPattern(TypedDict, closed=True):
     all: NotRequired["aws_sdk_wafv2.types.all.All"]
     """<p>Match all of the elements. See also <code>MatchScope</code> in <a>JsonBody</a>. </p> <p>You must specify either this setting or the <code>IncludedPaths</code> setting, but not both.</p>"""
     included_paths: NotRequired[

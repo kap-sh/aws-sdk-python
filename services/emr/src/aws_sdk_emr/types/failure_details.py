@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#FailureDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.string
 
 
-class FailureDetails(TypedDict):
+class FailureDetails(TypedDict, closed=True):
     reason: NotRequired["aws_sdk_emr.types.string.String"]
     r"""<p>The reason for the step failure. In the case where the service cannot successfully determine the root cause of the failure, it returns \"Unknown Error\" as a reason.</p>"""
     message: NotRequired["aws_sdk_emr.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#CreateIntegrationWorkflowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.uuid
 
 
-class CreateIntegrationWorkflowResponse(TypedDict):
+class CreateIntegrationWorkflowResponse(TypedDict, closed=True):
     workflow_id: "aws_sdk_customer_profiles.types.uuid.uuid"
     """<p>Unique identifier for the workflow.</p>"""
     message: "aws_sdk_customer_profiles.types.string1_to255.string1To255"

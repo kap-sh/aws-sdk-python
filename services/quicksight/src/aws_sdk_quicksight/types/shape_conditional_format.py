@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ShapeConditionalFormat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.conditional_formatting_color
 
 
-class ShapeConditionalFormat(TypedDict):
+class ShapeConditionalFormat(TypedDict, closed=True):
     background_color: "aws_sdk_quicksight.types.conditional_formatting_color.ConditionalFormattingColor"
     """<p>The conditional formatting for the shape background color of a filled map visual.</p>"""
 

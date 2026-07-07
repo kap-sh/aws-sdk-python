@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#CreateRuleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.tag_list
 
 
-class CreateRuleInput(TypedDict):
+class CreateRuleInput(TypedDict, closed=True):
     listener_arn: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.listener_arn.ListenerArn"
     ]

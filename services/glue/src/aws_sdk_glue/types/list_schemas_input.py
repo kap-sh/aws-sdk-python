@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListSchemasInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.max_results_number
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_registry_token_string
 
 
-class ListSchemasInput(TypedDict):
+class ListSchemasInput(TypedDict, closed=True):
     registry_id: NotRequired["aws_sdk_glue.types.registry_id.RegistryId"]
     """<p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>"""
     max_results: NotRequired["aws_sdk_glue.types.max_results_number.MaxResultsNumber"]

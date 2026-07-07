@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#InternalServerException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>An internal service error occurred. Retry your request. If the problem persists, contact Amazon Web Services Support.</p>"""
 

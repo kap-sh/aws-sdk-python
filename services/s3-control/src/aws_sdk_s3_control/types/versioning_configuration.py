@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#VersioningConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.mfa_delete
 
 
-class VersioningConfiguration(TypedDict):
+class VersioningConfiguration(TypedDict, closed=True):
     mfa_delete: NotRequired["aws_sdk_s3_control.types.mfa_delete.MFADelete"]
     """<p>Specifies whether MFA delete is enabled or disabled in the bucket versioning configuration for the S3 on Outposts bucket.</p>"""
     status: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#AwsCloudMapServiceDiscovery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.ip_preference
 
 
-class AwsCloudMapServiceDiscovery(TypedDict):
+class AwsCloudMapServiceDiscovery(TypedDict, closed=True):
     namespace_name: "aws_sdk_app_mesh.types.aws_cloud_map_name.AwsCloudMapName"
     """<p>The name of the Cloud Map namespace to use.</p>"""
     service_name: "aws_sdk_app_mesh.types.aws_cloud_map_name.AwsCloudMapName"

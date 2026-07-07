@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreatePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.tag_list
 
 
-class CreatePolicyRequest(TypedDict):
+class CreatePolicyRequest(TypedDict, closed=True):
     policy_name: "aws_sdk_iot.types.policy_name.PolicyName"
     """<p>The policy name.</p>"""
     policy_document: "aws_sdk_iot.types.policy_document.PolicyDocument"

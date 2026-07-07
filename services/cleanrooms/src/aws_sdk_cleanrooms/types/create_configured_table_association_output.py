@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#CreateConfiguredTableAssociationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.configured_table_association
 
 
-class CreateConfiguredTableAssociationOutput(TypedDict):
+class CreateConfiguredTableAssociationOutput(TypedDict, closed=True):
     configured_table_association: "aws_sdk_cleanrooms.types.configured_table_association.ConfiguredTableAssociation"
     """<p>The configured table association.</p>"""
 

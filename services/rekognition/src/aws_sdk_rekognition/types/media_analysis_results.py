@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#MediaAnalysisResults``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.media_analysis_model_versions
     import aws_sdk_rekognition.types.s3_object
 
 
-class MediaAnalysisResults(TypedDict):
+class MediaAnalysisResults(TypedDict, closed=True):
     s3_object: NotRequired["aws_sdk_rekognition.types.s3_object.S3Object"]
     model_versions: NotRequired[
         "aws_sdk_rekognition.types.media_analysis_model_versions.MediaAnalysisModelVersions"

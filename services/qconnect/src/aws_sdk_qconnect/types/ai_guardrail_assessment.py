@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AIGuardrailAssessment``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
 
-class AIGuardrailAssessment(TypedDict):
+class AIGuardrailAssessment(TypedDict, closed=True):
     blocked: "bool"
     """<p>Indicates whether the AI Guardrail blocked the content.</p>"""
 

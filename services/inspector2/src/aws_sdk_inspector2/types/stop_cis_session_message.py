@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#StopCisSessionMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.stop_cis_session_status
 
 
-class StopCisSessionMessage(TypedDict):
+class StopCisSessionMessage(TypedDict, closed=True):
     status: "aws_sdk_inspector2.types.stop_cis_session_status.StopCisSessionStatus"
     """<p>The status of the message.</p>"""
     reason: NotRequired["aws_sdk_inspector2.types.reason.Reason"]

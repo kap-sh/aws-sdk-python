@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#MonitorSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_networkflowmonitor.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.resource_name
 
 
-class MonitorSummary(TypedDict):
+class MonitorSummary(TypedDict, closed=True):
     monitor_arn: "aws_sdk_networkflowmonitor.types.monitor_arn.MonitorArn"
     """<p>The Amazon Resource Name (ARN) of the monitor.</p>"""
     monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName"

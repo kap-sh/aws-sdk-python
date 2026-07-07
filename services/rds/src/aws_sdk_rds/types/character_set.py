@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CharacterSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class CharacterSet(TypedDict):
+class CharacterSet(TypedDict, closed=True):
     character_set_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name of the character set.</p>"""
     character_set_description: NotRequired["aws_sdk_rds.types.string.String"]

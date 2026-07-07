@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#StopInstanceOnIdleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class StopInstanceOnIdleRequest(TypedDict):
+class StopInstanceOnIdleRequest(TypedDict, closed=True):
     threshold: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The value to compare with the duration.</p>"""
     duration: NotRequired["aws_sdk_lightsail.types.string.string"]

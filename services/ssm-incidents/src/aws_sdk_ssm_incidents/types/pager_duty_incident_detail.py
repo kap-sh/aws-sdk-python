@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#PagerDutyIncidentDetail``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
 
-class PagerDutyIncidentDetail(TypedDict):
+class PagerDutyIncidentDetail(TypedDict, closed=True):
     id: "str"
     """<p>The ID of the incident associated with the PagerDuty service for the response plan.</p>"""
     auto_resolve: NotRequired["bool"]

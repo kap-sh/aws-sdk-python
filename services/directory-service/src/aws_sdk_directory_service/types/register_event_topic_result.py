@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#RegisterEventTopicResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RegisterEventTopicResult(TypedDict):
+class RegisterEventTopicResult(TypedDict, closed=True):
     pass
 
 

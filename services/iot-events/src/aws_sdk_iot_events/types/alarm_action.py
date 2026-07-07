@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#AlarmAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.dynamo_d_bv2_action
@@ -42,6 +42,7 @@ AlarmAction = TypedDict(
             "aws_sdk_iot_events.types.iot_site_wise_action.IotSiteWiseAction"
         ],
     },
+    closed=True,
 )
 
 

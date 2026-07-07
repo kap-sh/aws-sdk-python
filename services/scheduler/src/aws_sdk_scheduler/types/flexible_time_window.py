@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#FlexibleTimeWindow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_scheduler.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_scheduler.types.maximum_window_in_minutes
 
 
-class FlexibleTimeWindow(TypedDict):
+class FlexibleTimeWindow(TypedDict, closed=True):
     mode: "aws_sdk_scheduler.types.flexible_time_window_mode.FlexibleTimeWindowMode"
     """<p>Determines whether the schedule is invoked within a flexible time window.</p>"""
     maximum_window_in_minutes: NotRequired[

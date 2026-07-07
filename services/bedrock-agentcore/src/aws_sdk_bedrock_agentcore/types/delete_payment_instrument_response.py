@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#DeletePaymentInstrumentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.payment_instrument_status
 
 
-class DeletePaymentInstrumentResponse(TypedDict):
+class DeletePaymentInstrumentResponse(TypedDict, closed=True):
     status: "aws_sdk_bedrock_agentcore.types.payment_instrument_status.PaymentInstrumentStatus"
     """<p>The status of the instrument after deletion. Always DELETED for successful soft delete.</p>"""
 

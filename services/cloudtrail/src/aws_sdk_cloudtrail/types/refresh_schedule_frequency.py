@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#RefreshScheduleFrequency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.refresh_schedule_frequency_unit
     import aws_sdk_cloudtrail.types.refresh_schedule_frequency_value
 
 
-class RefreshScheduleFrequency(TypedDict):
+class RefreshScheduleFrequency(TypedDict, closed=True):
     unit: NotRequired[
         "aws_sdk_cloudtrail.types.refresh_schedule_frequency_unit.RefreshScheduleFrequencyUnit"
     ]

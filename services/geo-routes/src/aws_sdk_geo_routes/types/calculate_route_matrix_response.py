@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#CalculateRouteMatrixResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_matrix_boundary
 
 
-class CalculateRouteMatrixResponse(TypedDict):
+class CalculateRouteMatrixResponse(TypedDict, closed=True):
     error_count: "int"
     """<p>The count of error results in the route matrix. If this number is 0, all routes were calculated successfully.</p>"""
     pricing_bucket: "str"

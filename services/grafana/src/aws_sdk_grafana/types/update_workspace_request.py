@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#UpdateWorkspaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.account_access_type
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_name
 
 
-class UpdateWorkspaceRequest(TypedDict):
+class UpdateWorkspaceRequest(TypedDict, closed=True):
     account_access_type: NotRequired[
         "aws_sdk_grafana.types.account_access_type.AccountAccessType"
     ]

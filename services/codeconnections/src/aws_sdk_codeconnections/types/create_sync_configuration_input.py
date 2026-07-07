@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#CreateSyncConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeconnections.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.trigger_resource_update_on
 
 
-class CreateSyncConfigurationInput(TypedDict):
+class CreateSyncConfigurationInput(TypedDict, closed=True):
     branch: "aws_sdk_codeconnections.types.branch_name.BranchName"
     """<p>The branch in the repository from which changes will be synced.</p>"""
     config_file: "aws_sdk_codeconnections.types.deployment_file_path.DeploymentFilePath"

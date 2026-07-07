@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomPromptInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.custom_prompt_profile
 
 
-class _CustomPromptInput_ExistingPrompt(TypedDict):
+class _CustomPromptInput_ExistingPrompt(TypedDict, closed=True):
     ExistingPrompt: "aws_sdk_quicksight.types.custom_prompt_profile.CustomPromptProfile"
 
 
-class _CustomPromptInput_NewPrompt(TypedDict):
+class _CustomPromptInput_NewPrompt(TypedDict, closed=True):
     NewPrompt: "aws_sdk_quicksight.types.custom_prompt_input_parameters.CustomPromptInputParameters"
 
 

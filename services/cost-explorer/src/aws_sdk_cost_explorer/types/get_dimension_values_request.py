@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetDimensionValuesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.sort_definitions
 
 
-class GetDimensionValuesRequest(TypedDict):
+class GetDimensionValuesRequest(TypedDict, closed=True):
     search_string: NotRequired["aws_sdk_cost_explorer.types.search_string.SearchString"]
     """<p>The value that you want to search the filter values for.</p>"""
     time_period: "aws_sdk_cost_explorer.types.date_interval.DateInterval"

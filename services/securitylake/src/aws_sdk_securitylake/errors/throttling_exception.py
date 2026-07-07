@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securitylake.errors import ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: NotRequired["str"]
     service_code: NotRequired["str"]
     """<p>The code for the service in Service Quotas.</p>"""

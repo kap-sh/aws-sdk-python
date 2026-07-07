@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#S3Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__string
 
 
-class S3Destination(TypedDict):
+class S3Destination(TypedDict, closed=True):
     bucket_name: NotRequired["aws_sdk_mediapackage.types.__string.__string"]
     """The name of an S3 bucket within which harvested content will be exported"""
     manifest_key: NotRequired["aws_sdk_mediapackage.types.__string.__string"]

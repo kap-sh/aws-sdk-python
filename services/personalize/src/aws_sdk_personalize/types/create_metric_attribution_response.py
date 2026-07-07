@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#CreateMetricAttributionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class CreateMetricAttributionResponse(TypedDict):
+class CreateMetricAttributionResponse(TypedDict, closed=True):
     metric_attribution_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) for the new metric attribution.</p>"""
 

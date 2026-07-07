@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetTokenVaultResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.token_vault_id_type
 
 
-class GetTokenVaultResponse(TypedDict):
+class GetTokenVaultResponse(TypedDict, closed=True):
     token_vault_id: (
         "aws_sdk_bedrock_agentcore_control.types.token_vault_id_type.TokenVaultIdType"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#DeviceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.user_id
 
 
-class DeviceSummary(TypedDict):
+class DeviceSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_workspaces_thin_client.types.device_id.DeviceId"]
     """<p>The ID of the device.</p>"""
     serial_number: NotRequired["str"]

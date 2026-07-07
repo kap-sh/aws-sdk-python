@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#ReceiverAddress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.basic_string
 
 
-class ReceiverAddress(TypedDict):
+class ReceiverAddress(TypedDict, closed=True):
     address_line1: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]
     """<p> The first line of the address. </p>"""
     address_line2: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]

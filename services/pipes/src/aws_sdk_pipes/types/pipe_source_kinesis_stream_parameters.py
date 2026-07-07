@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeSourceKinesisStreamParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.timestamp
 
 
-class PipeSourceKinesisStreamParameters(TypedDict):
+class PipeSourceKinesisStreamParameters(TypedDict, closed=True):
     batch_size: NotRequired["aws_sdk_pipes.types.limit_max10000.LimitMax10000"]
     """<p>The maximum number of records to include in each batch.</p>"""
     dead_letter_config: NotRequired[

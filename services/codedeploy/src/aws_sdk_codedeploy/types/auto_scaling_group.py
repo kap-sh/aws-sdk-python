@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#AutoScalingGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.auto_scaling_group_hook
     import aws_sdk_codedeploy.types.auto_scaling_group_name
 
 
-class AutoScalingGroup(TypedDict):
+class AutoScalingGroup(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_codedeploy.types.auto_scaling_group_name.AutoScalingGroupName"
     ]

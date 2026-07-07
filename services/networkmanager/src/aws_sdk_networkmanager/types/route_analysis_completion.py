@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#RouteAnalysisCompletion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.reason_context_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.route_analysis_completion_result_code
 
 
-class RouteAnalysisCompletion(TypedDict):
+class RouteAnalysisCompletion(TypedDict, closed=True):
     result_code: NotRequired[
         "aws_sdk_networkmanager.types.route_analysis_completion_result_code.RouteAnalysisCompletionResultCode"
     ]

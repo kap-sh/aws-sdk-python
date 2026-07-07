@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ResourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.instance_groups
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.training_plan_arn
 
 
-class ResourceConfig(TypedDict):
+class ResourceConfig(TypedDict, closed=True):
     instance_type: NotRequired[
         "aws_sdk_sagemaker.types.training_instance_type.TrainingInstanceType"
     ]

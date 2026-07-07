@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetBackupPlanFromJSONInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class GetBackupPlanFromJSONInput(TypedDict):
+class GetBackupPlanFromJSONInput(TypedDict, closed=True):
     backup_plan_template_json: "aws_sdk_backup.types.string.string"
     """<p>A customer-supplied backup plan document in JSON format.</p>"""
 

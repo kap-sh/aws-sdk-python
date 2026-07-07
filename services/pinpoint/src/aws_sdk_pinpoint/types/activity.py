@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#Activity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.wait_activity
 
 
-class Activity(TypedDict):
+class Activity(TypedDict, closed=True):
     custom: NotRequired[
         "aws_sdk_pinpoint.types.custom_message_activity.CustomMessageActivity"
     ]

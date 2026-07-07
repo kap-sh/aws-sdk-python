@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#LandingZoneOperationFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.landing_zone_operation_statuses
     import aws_sdk_controltower.types.landing_zone_operation_types
 
 
-class LandingZoneOperationFilter(TypedDict):
+class LandingZoneOperationFilter(TypedDict, closed=True):
     types: NotRequired[
         "aws_sdk_controltower.types.landing_zone_operation_types.LandingZoneOperationTypes"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#DescribeCanariesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.describe_canaries_name_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.token
 
 
-class DescribeCanariesRequest(TypedDict):
+class DescribeCanariesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_synthetics.types.token.Token"]
     """<p>A token that indicates that there is more data available. You can use this token in a subsequent operation to retrieve the next set of results.</p>"""
     max_results: NotRequired[

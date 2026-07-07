@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#ProtectionGroupLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.protection_group_pattern_type_limits
 
 
-class ProtectionGroupLimits(TypedDict):
+class ProtectionGroupLimits(TypedDict, closed=True):
     max_protection_groups: "aws_sdk_shield.types.long.Long"
     """<p>The maximum number of protection groups that you can have at one time. </p>"""
     pattern_type_limits: "aws_sdk_shield.types.protection_group_pattern_type_limits.ProtectionGroupPatternTypeLimits"

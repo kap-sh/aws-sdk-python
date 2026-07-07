@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetStringListFilterCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_string_list_filter_value
 
 
-class DataSetStringListFilterCondition(TypedDict):
+class DataSetStringListFilterCondition(TypedDict, closed=True):
     operator: "aws_sdk_quicksight.types.data_set_string_list_filter_operator.DataSetStringListFilterOperator"
     """<p>The list operator to use, either <code>INCLUDE</code> to match values in the list or <code>EXCLUDE</code> to filter out values in the list.</p>"""
     values: NotRequired[

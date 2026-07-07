@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateKeysAndCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.set_as_active
 
 
-class CreateKeysAndCertificateRequest(TypedDict):
+class CreateKeysAndCertificateRequest(TypedDict, closed=True):
     set_as_active: "aws_sdk_iot.types.set_as_active.SetAsActive"
     """<p>Specifies whether the certificate is active.</p>"""
 

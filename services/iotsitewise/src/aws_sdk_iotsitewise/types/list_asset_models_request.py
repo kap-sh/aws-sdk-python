@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListAssetModelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.asset_model_version_filter
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class ListAssetModelsRequest(TypedDict):
+class ListAssetModelsRequest(TypedDict, closed=True):
     asset_model_types: NotRequired[
         "aws_sdk_iotsitewise.types.list_asset_models_type_filter.ListAssetModelsTypeFilter"
     ]

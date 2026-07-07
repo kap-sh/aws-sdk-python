@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormSingleSelectQuestionAutomation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_form_question_automation_answer_source
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.reference_id
 
 
-class EvaluationFormSingleSelectQuestionAutomation(TypedDict):
+class EvaluationFormSingleSelectQuestionAutomation(TypedDict, closed=True):
     options: "aws_sdk_connect.types.evaluation_form_single_select_question_automation_option_list.EvaluationFormSingleSelectQuestionAutomationOptionList"
     """<p>The automation options of the single select question.</p>"""
     default_option_ref_id: NotRequired["aws_sdk_connect.types.reference_id.ReferenceId"]

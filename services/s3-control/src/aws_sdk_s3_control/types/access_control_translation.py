@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#AccessControlTranslation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.owner_override
 
 
-class AccessControlTranslation(TypedDict):
+class AccessControlTranslation(TypedDict, closed=True):
     owner: "aws_sdk_s3_control.types.owner_override.OwnerOverride"
     """<p>Specifies the replica ownership.</p>"""
 

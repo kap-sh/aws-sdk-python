@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#BatchGetServiceLevelObjectiveBudgetReportInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.service_level_objective_ids
 
 
-class BatchGetServiceLevelObjectiveBudgetReportInput(TypedDict):
+class BatchGetServiceLevelObjectiveBudgetReportInput(TypedDict, closed=True):
     timestamp: "datetime.datetime"
     """<p>The date and time that you want the report to be for. It is expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>"""
     slo_ids: "aws_sdk_application_signals.types.service_level_objective_ids.ServiceLevelObjectiveIds"

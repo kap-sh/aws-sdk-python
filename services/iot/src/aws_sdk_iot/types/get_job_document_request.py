@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetJobDocumentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.before_substitution_flag
     import aws_sdk_iot.types.job_id
 
 
-class GetJobDocumentRequest(TypedDict):
+class GetJobDocumentRequest(TypedDict, closed=True):
     job_id: "aws_sdk_iot.types.job_id.JobId"
     """<p>The unique identifier you assigned to this job when it was created.</p>"""
     before_substitution: (

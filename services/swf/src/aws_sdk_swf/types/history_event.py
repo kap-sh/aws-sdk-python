@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#HistoryEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -66,7 +66,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_execution_timed_out_event_attributes
 
 
-class HistoryEvent(TypedDict):
+class HistoryEvent(TypedDict, closed=True):
     event_timestamp: "aws_sdk_swf.types.timestamp.Timestamp"
     """<p>The date and time when the event occurred.</p>"""
     event_type: "aws_sdk_swf.types.event_type.EventType"

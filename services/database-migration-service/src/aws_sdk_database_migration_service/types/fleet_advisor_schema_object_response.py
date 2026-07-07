@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#FleetAdvisorSchemaObjectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.long_optional
     import aws_sdk_database_migration_service.types.string
 
 
-class FleetAdvisorSchemaObjectResponse(TypedDict):
+class FleetAdvisorSchemaObjectResponse(TypedDict, closed=True):
     schema_id: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The ID of a schema object in a Fleet Advisor collector inventory.</p>"""
     object_type: NotRequired["aws_sdk_database_migration_service.types.string.String"]

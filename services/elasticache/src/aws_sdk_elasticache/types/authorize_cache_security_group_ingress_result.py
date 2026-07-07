@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#AuthorizeCacheSecurityGroupIngressResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.cache_security_group
 
 
-class AuthorizeCacheSecurityGroupIngressResult(TypedDict):
+class AuthorizeCacheSecurityGroupIngressResult(TypedDict, closed=True):
     cache_security_group: NotRequired[
         "aws_sdk_elasticache.types.cache_security_group.CacheSecurityGroup"
     ]

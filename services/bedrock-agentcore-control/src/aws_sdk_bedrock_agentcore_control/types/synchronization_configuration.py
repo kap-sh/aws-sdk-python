@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#SynchronizationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.from_url_synchronization_configuration
 
 
-class SynchronizationConfiguration(TypedDict):
+class SynchronizationConfiguration(TypedDict, closed=True):
     from_url: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.from_url_synchronization_configuration.FromUrlSynchronizationConfiguration"
     ]

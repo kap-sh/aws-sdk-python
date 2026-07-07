@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#DescribeKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
 
 
-class DescribeKeyRequest(TypedDict):
+class DescribeKeyRequest(TypedDict, closed=True):
     key_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the API key resource.</p>"""
 

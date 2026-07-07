@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#GetThemeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.theme
 
 
-class GetThemeResponse(TypedDict):
+class GetThemeResponse(TypedDict, closed=True):
     theme: NotRequired["aws_sdk_amplifyuibuilder.types.theme.Theme"]
     """<p>Represents the configuration settings for the theme.</p>"""
 

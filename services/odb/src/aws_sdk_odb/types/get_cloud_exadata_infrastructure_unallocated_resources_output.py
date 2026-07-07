@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetCloudExadataInfrastructureUnallocatedResourcesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.cloud_exadata_infrastructure_unallocated_resources
 
 
-class GetCloudExadataInfrastructureUnallocatedResourcesOutput(TypedDict):
+class GetCloudExadataInfrastructureUnallocatedResourcesOutput(TypedDict, closed=True):
     cloud_exadata_infrastructure_unallocated_resources: NotRequired[
         "aws_sdk_odb.types.cloud_exadata_infrastructure_unallocated_resources.CloudExadataInfrastructureUnallocatedResources"
     ]

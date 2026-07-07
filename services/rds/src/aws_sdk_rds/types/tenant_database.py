@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#TenantDatabase``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tenant_database_pending_modified_values
 
 
-class TenantDatabase(TypedDict):
+class TenantDatabase(TypedDict, closed=True):
     tenant_database_create_time: NotRequired["aws_sdk_rds.types.t_stamp.TStamp"]
     """<p>The creation time of the tenant database.</p>"""
     db_instance_identifier: NotRequired["aws_sdk_rds.types.string.String"]

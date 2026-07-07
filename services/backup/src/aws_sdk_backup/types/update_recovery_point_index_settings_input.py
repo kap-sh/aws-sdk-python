@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#UpdateRecoveryPointIndexSettingsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.index
 
 
-class UpdateRecoveryPointIndexSettingsInput(TypedDict):
+class UpdateRecoveryPointIndexSettingsInput(TypedDict, closed=True):
     backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
     """<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.</p> <p>Accepted characters include lowercase letters, numbers, and hyphens.</p>"""
     recovery_point_arn: "aws_sdk_backup.types.arn.ARN"

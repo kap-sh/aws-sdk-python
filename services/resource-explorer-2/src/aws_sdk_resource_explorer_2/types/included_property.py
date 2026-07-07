@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#IncludedProperty``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
 
-class IncludedProperty(TypedDict):
+class IncludedProperty(TypedDict, closed=True):
     name: "str"
     """<p>The name of the property that is included in this view.</p> <p>You can specify the following property names for this field:</p> <ul> <li> <p> <code>tags</code> </p> </li> </ul>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SemanticType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.limited_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.type_parameters
 
 
-class SemanticType(TypedDict):
+class SemanticType(TypedDict, closed=True):
     type_name: NotRequired["aws_sdk_quicksight.types.limited_string.LimitedString"]
     """<p>The semantic type name.</p>"""
     sub_type_name: NotRequired["aws_sdk_quicksight.types.limited_string.LimitedString"]

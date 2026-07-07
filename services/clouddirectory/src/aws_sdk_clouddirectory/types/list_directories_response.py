@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ListDirectoriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.next_token
 
 
-class ListDirectoriesResponse(TypedDict):
+class ListDirectoriesResponse(TypedDict, closed=True):
     directories: "aws_sdk_clouddirectory.types.directory_list.DirectoryList"
     """<p>Lists all directories that are associated with your account in pagination fashion.</p>"""
     next_token: NotRequired["aws_sdk_clouddirectory.types.next_token.NextToken"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#CustomDirectoriesType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.home_directory
 
 
-class CustomDirectoriesType(TypedDict):
+class CustomDirectoriesType(TypedDict, closed=True):
     failed_files_directory: "aws_sdk_transfer.types.home_directory.HomeDirectory"
     """<p>Specifies a location to store failed AS2 message files.</p>"""
     mdn_files_directory: "aws_sdk_transfer.types.home_directory.HomeDirectory"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#CreateRepositoryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.tag_list
 
 
-class CreateRepositoryInput(TypedDict):
+class CreateRepositoryInput(TypedDict, closed=True):
     provider: "aws_sdk_proton.types.repository_provider.RepositoryProvider"
     """<p>The repository provider.</p>"""
     name: "aws_sdk_proton.types.repository_name.RepositoryName"

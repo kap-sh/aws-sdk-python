@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetDistributionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
     import aws_sdk_lightsail.types.string
 
 
-class GetDistributionsRequest(TypedDict):
+class GetDistributionsRequest(TypedDict, closed=True):
     distribution_name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
     """<p>The name of the distribution for which to return information.</p> <p>When omitted, the response includes all of your distributions in the Amazon Web Services Region where the request is made.</p>"""
     page_token: NotRequired["aws_sdk_lightsail.types.string.string"]

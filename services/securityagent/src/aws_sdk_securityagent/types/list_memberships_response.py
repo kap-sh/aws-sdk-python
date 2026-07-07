@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#ListMembershipsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.next_token
 
 
-class ListMembershipsResponse(TypedDict):
+class ListMembershipsResponse(TypedDict, closed=True):
     membership_summaries: (
         "aws_sdk_securityagent.types.membership_summary_list.MembershipSummaryList"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#GetSceneResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.twin_maker_arn
 
 
-class GetSceneResponse(TypedDict):
+class GetSceneResponse(TypedDict, closed=True):
     workspace_id: "aws_sdk_iottwinmaker.types.id.Id"
     """<p>The ID of the workspace that contains the scene.</p>"""
     scene_id: "aws_sdk_iottwinmaker.types.id.Id"

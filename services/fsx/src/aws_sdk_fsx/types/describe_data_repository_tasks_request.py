@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeDataRepositoryTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.data_repository_task_filters
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.task_ids
 
 
-class DescribeDataRepositoryTasksRequest(TypedDict):
+class DescribeDataRepositoryTasksRequest(TypedDict, closed=True):
     task_ids: NotRequired["aws_sdk_fsx.types.task_ids.TaskIds"]
     """<p>(Optional) IDs of the tasks whose descriptions you want to retrieve (String).</p>"""
     filters: NotRequired[

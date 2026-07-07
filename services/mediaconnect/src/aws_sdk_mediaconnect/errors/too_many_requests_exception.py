@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#TooManyRequestsException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import ServiceError
 
 
-class TooManyRequestsException_(TypedDict):
+class TooManyRequestsException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

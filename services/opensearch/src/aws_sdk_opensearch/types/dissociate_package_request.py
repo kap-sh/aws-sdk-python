@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DissociatePackageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_name
     import aws_sdk_opensearch.types.package_id
 
 
-class DissociatePackageRequest(TypedDict):
+class DissociatePackageRequest(TypedDict, closed=True):
     package_id: "aws_sdk_opensearch.types.package_id.PackageID"
     """<p>Internal ID of the package to dissociate from the domain. Use <code>ListPackagesForDomain</code> to find this value.</p>"""
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SubnetAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.transit_gateway_mulitcast_domain_association_state
 
 
-class SubnetAssociation(TypedDict):
+class SubnetAssociation(TypedDict, closed=True):
     subnet_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the subnet.</p>"""
     state: NotRequired[

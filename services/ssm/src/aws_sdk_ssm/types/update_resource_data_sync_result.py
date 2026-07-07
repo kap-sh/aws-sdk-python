@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateResourceDataSyncResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateResourceDataSyncResult(TypedDict):
+class UpdateResourceDataSyncResult(TypedDict, closed=True):
     pass
 
 

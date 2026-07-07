@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#CreateTestSetDiscrepancyReportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_set_discrepancy_report_resource_target
 
 
-class CreateTestSetDiscrepancyReportRequest(TypedDict):
+class CreateTestSetDiscrepancyReportRequest(TypedDict, closed=True):
     test_set_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The test set Id for the test set discrepancy report.</p>"""
     target: "aws_sdk_lex_models_v2.types.test_set_discrepancy_report_resource_target.TestSetDiscrepancyReportResourceTarget"

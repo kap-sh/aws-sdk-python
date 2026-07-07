@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.autoscalingplans#TagFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auto_scaling_plans.types.tag_values
     import aws_sdk_auto_scaling_plans.types.xml_string_max_len128
 
 
-class TagFilter(TypedDict):
+class TagFilter(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_auto_scaling_plans.types.xml_string_max_len128.XmlStringMaxLen128"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdatedDescriptorsUnion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.updated_a2a_descriptor
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.updated_mcp_descriptor
 
 
-class UpdatedDescriptorsUnion(TypedDict):
+class UpdatedDescriptorsUnion(TypedDict, closed=True):
     mcp: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.updated_mcp_descriptor.UpdatedMcpDescriptor"
     ]

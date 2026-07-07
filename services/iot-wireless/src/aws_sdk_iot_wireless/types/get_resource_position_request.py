@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetResourcePositionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.position_resource_identifier
     import aws_sdk_iot_wireless.types.position_resource_type
 
 
-class GetResourcePositionRequest(TypedDict):
+class GetResourcePositionRequest(TypedDict, closed=True):
     resource_identifier: "aws_sdk_iot_wireless.types.position_resource_identifier.PositionResourceIdentifier"
     """<p>The identifier of the resource for which position information is retrieved. It can be the wireless device ID or the wireless gateway ID, depending on the resource type.</p>"""
     resource_type: (

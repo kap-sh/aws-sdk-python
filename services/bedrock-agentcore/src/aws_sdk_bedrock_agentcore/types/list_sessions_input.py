@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ListSessionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.actor_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.session_filter
 
 
-class ListSessionsInput(TypedDict):
+class ListSessionsInput(TypedDict, closed=True):
     memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId"
     """<p>The identifier of the AgentCore Memory resource for which to list sessions.</p>"""
     actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId"

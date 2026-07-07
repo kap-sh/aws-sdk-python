@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationAnswerData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -12,23 +14,23 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.iso8601_datetime
 
 
-class _EvaluationAnswerData_StringValue(TypedDict):
+class _EvaluationAnswerData_StringValue(TypedDict, closed=True):
     StringValue: "aws_sdk_connect.types.evaluation_answer_data_string_value.EvaluationAnswerDataStringValue"
 
 
-class _EvaluationAnswerData_NumericValue(TypedDict):
+class _EvaluationAnswerData_NumericValue(TypedDict, closed=True):
     NumericValue: "aws_sdk_connect.types.evaluation_answer_data_numeric_value.EvaluationAnswerDataNumericValue"
 
 
-class _EvaluationAnswerData_StringValues(TypedDict):
+class _EvaluationAnswerData_StringValues(TypedDict, closed=True):
     StringValues: "aws_sdk_connect.types.evaluation_answer_data_string_value_list.EvaluationAnswerDataStringValueList"
 
 
-class _EvaluationAnswerData_DateTimeValue(TypedDict):
+class _EvaluationAnswerData_DateTimeValue(TypedDict, closed=True):
     DateTimeValue: "aws_sdk_connect.types.iso8601_datetime.ISO8601Datetime"
 
 
-class _EvaluationAnswerData_NotApplicable(TypedDict):
+class _EvaluationAnswerData_NotApplicable(TypedDict, closed=True):
     NotApplicable: "aws_sdk_connect.types.boolean.Boolean"
 
 

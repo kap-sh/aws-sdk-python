@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#GetDatasetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.alias_string
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.timestamp_epoch
 
 
-class GetDatasetResponse(TypedDict):
+class GetDatasetResponse(TypedDict, closed=True):
     dataset_id: NotRequired["aws_sdk_finspace_data.types.dataset_id.DatasetId"]
     """<p>The unique identifier for a Dataset.</p>"""
     dataset_arn: NotRequired["aws_sdk_finspace_data.types.dataset_arn.DatasetArn"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FunnelChartAggregatedFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.funnel_chart_dimension_field_list
     import aws_sdk_quicksight.types.funnel_chart_measure_field_list
 
 
-class FunnelChartAggregatedFieldWells(TypedDict):
+class FunnelChartAggregatedFieldWells(TypedDict, closed=True):
     category: NotRequired[
         "aws_sdk_quicksight.types.funnel_chart_dimension_field_list.FunnelChartDimensionFieldList"
     ]

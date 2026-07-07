@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ClientPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.client_policy_tls
 
 
-class ClientPolicy(TypedDict):
+class ClientPolicy(TypedDict, closed=True):
     tls: NotRequired["aws_sdk_app_mesh.types.client_policy_tls.ClientPolicyTls"]
     """<p>A reference to an object that represents a Transport Layer Security (TLS) client policy.</p>"""
 

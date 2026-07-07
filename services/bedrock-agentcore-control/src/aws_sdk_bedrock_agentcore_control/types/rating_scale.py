@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#RatingScale``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.numerical_scale_definitions
 
 
-class _RatingScale_numerical(TypedDict):
+class _RatingScale_numerical(TypedDict, closed=True):
     numerical: "aws_sdk_bedrock_agentcore_control.types.numerical_scale_definitions.NumericalScaleDefinitions"
 
 
-class _RatingScale_categorical(TypedDict):
+class _RatingScale_categorical(TypedDict, closed=True):
     categorical: "aws_sdk_bedrock_agentcore_control.types.categorical_scale_definitions.CategoricalScaleDefinitions"
 
 

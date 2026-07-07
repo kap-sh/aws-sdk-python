@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateBackupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.backup
 
 
-class CreateBackupResponse(TypedDict):
+class CreateBackupResponse(TypedDict, closed=True):
     backup: NotRequired["aws_sdk_fsx.types.backup.Backup"]
     """<p>A description of the backup.</p>"""
 

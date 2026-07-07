@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#AssignTapePoolInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tape_arn
 
 
-class AssignTapePoolInput(TypedDict):
+class AssignTapePoolInput(TypedDict, closed=True):
     tape_arn: "aws_sdk_storage_gateway.types.tape_arn.TapeARN"
     """<p>The unique Amazon Resource Name (ARN) of the virtual tape that you want to add to the tape pool.</p>"""
     pool_id: "aws_sdk_storage_gateway.types.pool_id.PoolId"

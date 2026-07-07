@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#VectorSearchRerankingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.vector_search_reranking_configuration_type
 
 
-class VectorSearchRerankingConfiguration(TypedDict):
+class VectorSearchRerankingConfiguration(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent_runtime.types.vector_search_reranking_configuration_type.VectorSearchRerankingConfigurationType"
     """<p>The type of reranker model.</p>"""
     bedrock_reranking_configuration: NotRequired[

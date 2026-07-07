@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#NotesDataDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.non_empty_sensitive_string
 
 
-class NotesDataDetails(TypedDict):
+class NotesDataDetails(TypedDict, closed=True):
     completion: NotRequired[
         "aws_sdk_qconnect.types.non_empty_sensitive_string.NonEmptySensitiveString"
     ]

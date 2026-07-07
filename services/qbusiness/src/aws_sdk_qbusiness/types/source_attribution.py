@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#SourceAttribution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.timestamp
 
 
-class SourceAttribution(TypedDict):
+class SourceAttribution(TypedDict, closed=True):
     title: NotRequired["aws_sdk_qbusiness.types.string.String"]
     """<p>The title of the document which is the source for the Amazon Q Business generated response. </p>"""
     snippet: NotRequired["aws_sdk_qbusiness.types.string.String"]

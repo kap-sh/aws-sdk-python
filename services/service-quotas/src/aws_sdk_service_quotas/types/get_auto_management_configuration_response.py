@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#GetAutoManagementConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.amazon_resource_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.opt_in_type
 
 
-class GetAutoManagementConfigurationResponse(TypedDict):
+class GetAutoManagementConfigurationResponse(TypedDict, closed=True):
     opt_in_level: NotRequired["aws_sdk_service_quotas.types.opt_in_level.OptInLevel"]
     """<p>Information on the opt-in level for Automatic Management. Only Amazon Web Services account level is supported.</p>"""
     opt_in_type: NotRequired["aws_sdk_service_quotas.types.opt_in_type.OptInType"]

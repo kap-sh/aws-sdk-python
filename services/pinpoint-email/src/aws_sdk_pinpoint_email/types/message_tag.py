@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#MessageTag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.message_tag_value
 
 
-class MessageTag(TypedDict):
+class MessageTag(TypedDict, closed=True):
     name: "aws_sdk_pinpoint_email.types.message_tag_name.MessageTagName"
     """<p>The name of the message tag. The message tag name has to meet the following criteria:</p> <ul> <li> <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p> </li> <li> <p>It can contain no more than 256 characters.</p> </li> </ul>"""
     value: "aws_sdk_pinpoint_email.types.message_tag_value.MessageTagValue"

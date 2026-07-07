@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakeredge#SendHeartbeatRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.deployment_result
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.version
 
 
-class SendHeartbeatRequest(TypedDict):
+class SendHeartbeatRequest(TypedDict, closed=True):
     agent_metrics: NotRequired["aws_sdk_sagemaker_edge.types.edge_metrics.EdgeMetrics"]
     """<p>For internal use. Returns a list of SageMaker Edge Manager agent operating metrics.</p>"""
     models: NotRequired["aws_sdk_sagemaker_edge.types.models.Models"]

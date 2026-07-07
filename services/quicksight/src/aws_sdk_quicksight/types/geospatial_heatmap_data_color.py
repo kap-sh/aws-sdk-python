@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialHeatmapDataColor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.hex_color
 
 
-class GeospatialHeatmapDataColor(TypedDict):
+class GeospatialHeatmapDataColor(TypedDict, closed=True):
     color: "aws_sdk_quicksight.types.hex_color.HexColor"
     """<p>The hex color to be used in the heatmap point style.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PromptModelInferenceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.maximum_length
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.top_p
 
 
-class PromptModelInferenceConfiguration(TypedDict):
+class PromptModelInferenceConfiguration(TypedDict, closed=True):
     temperature: NotRequired["aws_sdk_bedrock_agent.types.temperature.Temperature"]
     """<p>Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.</p>"""
     top_p: NotRequired["aws_sdk_bedrock_agent.types.top_p.TopP"]

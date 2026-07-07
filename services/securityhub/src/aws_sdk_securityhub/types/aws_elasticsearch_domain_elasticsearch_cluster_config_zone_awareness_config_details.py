@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
 
 
 class AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails(
-    TypedDict
+    TypedDict, closed=True
 ):
     availability_zone_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>he number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>"""

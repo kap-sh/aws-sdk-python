@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#EnablementStatusSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.enablement_status
     import aws_sdk_controltower.types.operation_identifier
 
 
-class EnablementStatusSummary(TypedDict):
+class EnablementStatusSummary(TypedDict, closed=True):
     status: NotRequired["aws_sdk_controltower.types.enablement_status.EnablementStatus"]
     """<p> The deployment status of the enabled resource.</p> <p>Valid values:</p> <ul> <li> <p> <code>SUCCEEDED</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration was deployed successfully.</p> </li> <li> <p> <code>UNDER_CHANGE</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration is changing. </p> </li> <li> <p> <code>FAILED</code>: The <code>EnabledControl</code> or <code>EnabledBaseline</code> configuration failed to deploy.</p> </li> </ul>"""
     last_operation_identifier: NotRequired[

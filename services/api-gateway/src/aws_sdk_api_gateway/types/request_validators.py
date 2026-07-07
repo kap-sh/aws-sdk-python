@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#RequestValidators``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_request_validator
     import aws_sdk_api_gateway.types.string
 
 
-class RequestValidators(TypedDict):
+class RequestValidators(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_api_gateway.types.list_of_request_validator.ListOfRequestValidator"
     ]

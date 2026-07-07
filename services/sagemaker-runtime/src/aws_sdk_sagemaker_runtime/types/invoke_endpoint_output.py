@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntime#InvokeEndpointOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.body_blob
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.session_id_header
 
 
-class InvokeEndpointOutput(TypedDict):
+class InvokeEndpointOutput(TypedDict, closed=True):
     body: NotRequired["aws_sdk_sagemaker_runtime.types.body_blob.BodyBlob"]
     r"""<p>Includes the inference provided by the model. </p> <p>For information about the format of the response body, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\">Common Data Formats-Inference</a>.</p> <p>If the explainer is activated, the body includes the explanations provided by the model. For more information, see the <b>Response section</b> under <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-invoke-endpoint.html#clarify-online-explainability-response\">Invoke the Endpoint</a> in the Developer Guide.</p>"""
     content_type: NotRequired["aws_sdk_sagemaker_runtime.types.header.Header"]

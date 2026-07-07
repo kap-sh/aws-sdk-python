@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DeleteKeyPairRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class DeleteKeyPairRequest(TypedDict):
+class DeleteKeyPairRequest(TypedDict, closed=True):
     key_pair_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of the key pair to delete.</p>"""
     expected_fingerprint: NotRequired["aws_sdk_lightsail.types.string.string"]

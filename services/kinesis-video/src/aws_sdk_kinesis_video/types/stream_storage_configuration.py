@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#StreamStorageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.default_storage_tier
 
 
-class StreamStorageConfiguration(TypedDict):
+class StreamStorageConfiguration(TypedDict, closed=True):
     default_storage_tier: (
         "aws_sdk_kinesis_video.types.default_storage_tier.DefaultStorageTier"
     )

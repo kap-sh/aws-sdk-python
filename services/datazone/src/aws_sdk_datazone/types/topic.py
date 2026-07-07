@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#Topic``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.notification_role
 
 
-class Topic(TypedDict):
+class Topic(TypedDict, closed=True):
     subject: "str"
     """<p>The subject of the resource mentioned in a notification.</p>"""
     resource: "aws_sdk_datazone.types.notification_resource.NotificationResource"

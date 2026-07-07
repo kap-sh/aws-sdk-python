@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#BatchDeleteRumMetricDefinitionsError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rum.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.metric_definition_id
 
 
-class BatchDeleteRumMetricDefinitionsError(TypedDict):
+class BatchDeleteRumMetricDefinitionsError(TypedDict, closed=True):
     metric_definition_id: "aws_sdk_rum.types.metric_definition_id.MetricDefinitionId"
     """<p>The ID of the metric definition that caused this error.</p>"""
     error_code: "str"

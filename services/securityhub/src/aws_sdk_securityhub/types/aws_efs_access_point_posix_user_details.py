@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEfsAccessPointPosixUserDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsEfsAccessPointPosixUserDetails(TypedDict):
+class AwsEfsAccessPointPosixUserDetails(TypedDict, closed=True):
     gid: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The POSIX group ID used for all file system operations using this access point. </p>"""
     secondary_gids: NotRequired[

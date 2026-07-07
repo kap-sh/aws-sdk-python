@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#FirewallSubnetIsOutOfScopeViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.length_bounded_string
     import aws_sdk_fms.types.resource_id
 
 
-class FirewallSubnetIsOutOfScopeViolation(TypedDict):
+class FirewallSubnetIsOutOfScopeViolation(TypedDict, closed=True):
     firewall_subnet_id: NotRequired["aws_sdk_fms.types.resource_id.ResourceId"]
     """<p>The ID of the firewall subnet that violates the policy scope.</p>"""
     vpc_id: NotRequired["aws_sdk_fms.types.resource_id.ResourceId"]

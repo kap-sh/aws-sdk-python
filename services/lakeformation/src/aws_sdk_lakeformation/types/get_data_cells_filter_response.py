@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#GetDataCellsFilterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.data_cells_filter
 
 
-class GetDataCellsFilterResponse(TypedDict):
+class GetDataCellsFilterResponse(TypedDict, closed=True):
     data_cells_filter: NotRequired[
         "aws_sdk_lakeformation.types.data_cells_filter.DataCellsFilter"
     ]

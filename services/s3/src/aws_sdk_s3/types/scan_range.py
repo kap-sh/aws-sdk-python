@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ScanRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.start
 
 
-class ScanRange(TypedDict):
+class ScanRange(TypedDict, closed=True):
     start: NotRequired["aws_sdk_s3.types.start.Start"]
     """<p>Specifies the start of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is 0. If only <code>start</code> is supplied, it means scan from that point to the end of the file. For example, <code><scanrange><start>50</start></scanrange></code> means scan from byte 50 until the end of the file.</p>"""
     end: NotRequired["aws_sdk_s3.types.end.End"]

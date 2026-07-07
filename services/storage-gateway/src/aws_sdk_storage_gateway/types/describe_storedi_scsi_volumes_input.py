@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeStorediSCSIVolumesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.volume_ar_ns
 
 
-class DescribeStorediSCSIVolumesInput(TypedDict):
+class DescribeStorediSCSIVolumesInput(TypedDict, closed=True):
     volume_ar_ns: "aws_sdk_storage_gateway.types.volume_ar_ns.VolumeARNs"
     """<p>An array of strings where each string represents the Amazon Resource Name (ARN) of a stored volume. All of the specified stored volumes must be from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>"""
 

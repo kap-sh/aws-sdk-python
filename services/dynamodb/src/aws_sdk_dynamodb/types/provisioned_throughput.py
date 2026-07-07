@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ProvisionedThroughput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.positive_long_object
 
 
-class ProvisionedThroughput(TypedDict):
+class ProvisionedThroughput(TypedDict, closed=True):
     read_capacity_units: (
         "aws_sdk_dynamodb.types.positive_long_object.PositiveLongObject"
     )

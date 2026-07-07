@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateListingChangeSetOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class CreateListingChangeSetOutput(TypedDict):
+class CreateListingChangeSetOutput(TypedDict, closed=True):
     listing_id: "aws_sdk_datazone.types.listing_id.ListingId"
     """<p>The ID of the listing (a record of an asset at a given time).</p>"""
     listing_revision: "aws_sdk_datazone.types.revision.Revision"

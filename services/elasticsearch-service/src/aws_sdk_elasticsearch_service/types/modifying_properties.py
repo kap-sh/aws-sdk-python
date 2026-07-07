@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ModifyingProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.property_value_type
     import aws_sdk_elasticsearch_service.types.string
 
 
-class ModifyingProperties(TypedDict):
+class ModifyingProperties(TypedDict, closed=True):
     name: NotRequired["aws_sdk_elasticsearch_service.types.string.String"]
     """<p>The name of the property that is currently being modified.</p>"""
     active_value: NotRequired["aws_sdk_elasticsearch_service.types.string.String"]

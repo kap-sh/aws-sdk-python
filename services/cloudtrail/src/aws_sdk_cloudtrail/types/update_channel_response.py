@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#UpdateChannelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.channel_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.source
 
 
-class UpdateChannelResponse(TypedDict):
+class UpdateChannelResponse(TypedDict, closed=True):
     channel_arn: NotRequired["aws_sdk_cloudtrail.types.channel_arn.ChannelArn"]
     """<p>The ARN of the channel that was updated.</p>"""
     name: NotRequired["aws_sdk_cloudtrail.types.channel_name.ChannelName"]

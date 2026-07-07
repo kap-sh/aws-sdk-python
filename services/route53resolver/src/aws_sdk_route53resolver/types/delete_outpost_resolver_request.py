@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#DeleteOutpostResolverRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class DeleteOutpostResolverRequest(TypedDict):
+class DeleteOutpostResolverRequest(TypedDict, closed=True):
     id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p>A unique string that identifies the Resolver on the Outpost.</p>"""
 

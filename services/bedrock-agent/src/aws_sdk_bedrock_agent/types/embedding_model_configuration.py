@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#EmbeddingModelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.bedrock_embedding_model_configuration
 
 
-class EmbeddingModelConfiguration(TypedDict):
+class EmbeddingModelConfiguration(TypedDict, closed=True):
     bedrock_embedding_model_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.bedrock_embedding_model_configuration.BedrockEmbeddingModelConfiguration"
     ]

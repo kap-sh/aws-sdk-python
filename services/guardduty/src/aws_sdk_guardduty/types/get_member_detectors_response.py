@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#GetMemberDetectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.member_data_source_configurations
     import aws_sdk_guardduty.types.unprocessed_accounts
 
 
-class GetMemberDetectorsResponse(TypedDict):
+class GetMemberDetectorsResponse(TypedDict, closed=True):
     member_data_source_configurations: NotRequired[
         "aws_sdk_guardduty.types.member_data_source_configurations.MemberDataSourceConfigurations"
     ]

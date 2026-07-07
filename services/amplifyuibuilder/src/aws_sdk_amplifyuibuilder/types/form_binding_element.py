@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FormBindingElement``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
 
-class FormBindingElement(TypedDict):
+class FormBindingElement(TypedDict, closed=True):
     element: "str"
     """<p>The name of the component to retrieve a value from.</p>"""
     property: "str"

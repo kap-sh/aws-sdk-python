@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateParam``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
     import aws_sdk_eks.types.update_param_type
 
 
-class UpdateParam(TypedDict):
+class UpdateParam(TypedDict, closed=True):
     type: NotRequired["aws_sdk_eks.types.update_param_type.UpdateParamType"]
     """<p>The keys associated with an update request.</p>"""
     value: NotRequired["aws_sdk_eks.types.string.String"]

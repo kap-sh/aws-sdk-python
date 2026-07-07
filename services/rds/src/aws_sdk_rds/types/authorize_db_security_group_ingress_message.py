@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#AuthorizeDBSecurityGroupIngressMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class AuthorizeDBSecurityGroupIngressMessage(TypedDict):
+class AuthorizeDBSecurityGroupIngressMessage(TypedDict, closed=True):
     db_security_group_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name of the DB security group to add authorization to.</p>"""
     cidrip: NotRequired["aws_sdk_rds.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#TestDNSAnswerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.subnet_mask
 
 
-class TestDNSAnswerRequest(TypedDict):
+class TestDNSAnswerRequest(TypedDict, closed=True):
     hosted_zone_id: "aws_sdk_route_53.types.resource_id.ResourceId"
     """<p>The ID of the hosted zone that you want Amazon Route 53 to simulate a query for.</p>"""
     record_name: "aws_sdk_route_53.types.dns_name.DNSName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#EksCluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.cluster_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.timestamp
 
 
-class EksCluster(TypedDict):
+class EksCluster(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The Amazon Resource Name (ARN) that uniquely identifies the Amazon EKS cluster involved in the finding.</p>"""
     created_at: NotRequired["aws_sdk_guardduty.types.timestamp.Timestamp"]

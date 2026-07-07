@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#RunBatchListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.run_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.submission_status
 
 
-class RunBatchListItem(TypedDict):
+class RunBatchListItem(TypedDict, closed=True):
     run_setting_id: NotRequired["aws_sdk_omics.types.run_setting_id.RunSettingId"]
     """<p>The customer-provided identifier for the run configuration. Use this to correlate results back to the input configuration provided in <code>inlineSettings</code> or <code>s3UriSettings</code>.</p>"""
     run_id: NotRequired["aws_sdk_omics.types.run_id.RunId"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#AnalysisSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.query_tables
 
 
-class AnalysisSchema(TypedDict):
+class AnalysisSchema(TypedDict, closed=True):
     referenced_tables: NotRequired["aws_sdk_cleanrooms.types.query_tables.QueryTables"]
     """<p>The tables referenced in the analysis schema.</p>"""
 

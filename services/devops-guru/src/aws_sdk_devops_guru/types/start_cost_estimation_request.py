@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#StartCostEstimationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.cost_estimation_resource_collection_filter
 
 
-class StartCostEstimationRequest(TypedDict):
+class StartCostEstimationRequest(TypedDict, closed=True):
     resource_collection: "aws_sdk_devops_guru.types.cost_estimation_resource_collection_filter.CostEstimationResourceCollectionFilter"
     """<p>The collection of Amazon Web Services resources used to create a monthly DevOps Guru cost estimate.</p>"""
     client_token: NotRequired["aws_sdk_devops_guru.types.client_token.ClientToken"]

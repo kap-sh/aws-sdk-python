@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#VerificationScriptEnvVar``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class VerificationScriptEnvVar(TypedDict):
+class VerificationScriptEnvVar(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the environment variable.</p>"""
     value: NotRequired["str"]

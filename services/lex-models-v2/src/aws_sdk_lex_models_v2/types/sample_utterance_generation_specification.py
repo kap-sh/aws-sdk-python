@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SampleUtteranceGenerationSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bedrock_model_specification
     import aws_sdk_lex_models_v2.types.boolean
 
 
-class SampleUtteranceGenerationSpecification(TypedDict):
+class SampleUtteranceGenerationSpecification(TypedDict, closed=True):
     enabled: "aws_sdk_lex_models_v2.types.boolean.Boolean"
     """<p>Specifies whether to enable sample utterance generation or not.</p>"""
     bedrock_model_specification: NotRequired[

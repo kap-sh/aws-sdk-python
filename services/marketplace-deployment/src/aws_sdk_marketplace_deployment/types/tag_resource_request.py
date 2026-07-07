@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacedeployment#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_deployment.types.tags
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The Amazon Resource Name (ARN) associated with the resource you want to tag.</p>"""
     tags: NotRequired["aws_sdk_marketplace_deployment.types.tags.Tags"]

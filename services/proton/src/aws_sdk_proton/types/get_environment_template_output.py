@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetEnvironmentTemplateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.environment_template
 
 
-class GetEnvironmentTemplateOutput(TypedDict):
+class GetEnvironmentTemplateOutput(TypedDict, closed=True):
     environment_template: (
         "aws_sdk_proton.types.environment_template.EnvironmentTemplate"
     )

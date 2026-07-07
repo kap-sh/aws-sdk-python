@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningLogicStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_natural_language_statement_content
 
 
-class AutomatedReasoningLogicStatement(TypedDict):
+class AutomatedReasoningLogicStatement(TypedDict, closed=True):
     logic: "aws_sdk_bedrock.types.automated_reasoning_logic_statement_content.AutomatedReasoningLogicStatementContent"
     """<p>The formal logic representation of the statement using mathematical notation and logical operators.</p>"""
     natural_language: NotRequired[

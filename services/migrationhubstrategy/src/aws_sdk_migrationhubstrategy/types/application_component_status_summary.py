@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ApplicationComponentStatusSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.integer
     import aws_sdk_migrationhubstrategy.types.src_code_or_db_analysis_status
 
 
-class ApplicationComponentStatusSummary(TypedDict):
+class ApplicationComponentStatusSummary(TypedDict, closed=True):
     src_code_or_db_analysis_status: NotRequired[
         "aws_sdk_migrationhubstrategy.types.src_code_or_db_analysis_status.SrcCodeOrDbAnalysisStatus"
     ]

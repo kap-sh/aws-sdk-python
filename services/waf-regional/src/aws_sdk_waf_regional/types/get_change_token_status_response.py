@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#GetChangeTokenStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.change_token_status
 
 
-class GetChangeTokenStatusResponse(TypedDict):
+class GetChangeTokenStatusResponse(TypedDict, closed=True):
     change_token_status: NotRequired[
         "aws_sdk_waf_regional.types.change_token_status.ChangeTokenStatus"
     ]

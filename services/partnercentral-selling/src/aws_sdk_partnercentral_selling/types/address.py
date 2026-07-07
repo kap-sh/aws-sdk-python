@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#Address``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.address_part
     import aws_sdk_partnercentral_selling.types.country_code
 
 
-class Address(TypedDict):
+class Address(TypedDict, closed=True):
     city: NotRequired["aws_sdk_partnercentral_selling.types.address_part.AddressPart"]
     """<p>Specifies the end <code>Customer</code>'s city associated with the <code>Opportunity</code>.</p>"""
     postal_code: NotRequired[

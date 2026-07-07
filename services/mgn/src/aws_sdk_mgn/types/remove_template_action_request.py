@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#RemoveTemplateActionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.launch_configuration_template_id
 
 
-class RemoveTemplateActionRequest(TypedDict):
+class RemoveTemplateActionRequest(TypedDict, closed=True):
     launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID"
     """<p>Launch configuration template ID of the post migration custom action to remove.</p>"""
     action_id: "aws_sdk_mgn.types.action_id.ActionID"

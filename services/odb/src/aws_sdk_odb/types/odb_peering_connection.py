@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#OdbPeeringConnection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_status
 
 
-class OdbPeeringConnection(TypedDict):
+class OdbPeeringConnection(TypedDict, closed=True):
     odb_peering_connection_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
     """<p>The unique identifier of the ODB peering connection. A sample ID is <code>odbpcx-abcdefgh12345678</code>.</p>"""
     display_name: NotRequired["str"]

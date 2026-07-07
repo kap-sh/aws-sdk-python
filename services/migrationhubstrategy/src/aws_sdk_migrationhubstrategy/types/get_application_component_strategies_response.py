@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#GetApplicationComponentStrategiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.application_component_strategies
 
 
-class GetApplicationComponentStrategiesResponse(TypedDict):
+class GetApplicationComponentStrategiesResponse(TypedDict, closed=True):
     application_component_strategies: NotRequired[
         "aws_sdk_migrationhubstrategy.types.application_component_strategies.ApplicationComponentStrategies"
     ]

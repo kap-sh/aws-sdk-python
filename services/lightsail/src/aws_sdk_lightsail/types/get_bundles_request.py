@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetBundlesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.app_category
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class GetBundlesRequest(TypedDict):
+class GetBundlesRequest(TypedDict, closed=True):
     include_inactive: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]
     """<p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the response of your request.</p>"""
     page_token: NotRequired["aws_sdk_lightsail.types.string.string"]

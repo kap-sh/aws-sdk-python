@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#GetSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.session_arn
 
 
-class GetSessionRequest(TypedDict):
+class GetSessionRequest(TypedDict, closed=True):
     session_arn: "aws_sdk_mpa.types.session_arn.SessionArn"
     """<p>Amazon Resource Name (ARN) for the session.</p>"""
 

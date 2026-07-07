@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#S3Bucket``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.server_side_encryption
 
 
-class S3Bucket(TypedDict):
+class S3Bucket(TypedDict, closed=True):
     allows_unencrypted_object_uploads: NotRequired[
         "aws_sdk_macie2.types.allows_unencrypted_object_uploads.AllowsUnencryptedObjectUploads"
     ]

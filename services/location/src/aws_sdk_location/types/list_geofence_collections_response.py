@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#ListGeofenceCollectionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.token
 
 
-class ListGeofenceCollectionsResponse(TypedDict):
+class ListGeofenceCollectionsResponse(TypedDict, closed=True):
     entries: "aws_sdk_location.types.list_geofence_collections_response_entry_list.ListGeofenceCollectionsResponseEntryList"
     """<p>Lists the geofence collections that exist in your Amazon Web Services account.</p>"""
     next_token: NotRequired["aws_sdk_location.types.token.Token"]

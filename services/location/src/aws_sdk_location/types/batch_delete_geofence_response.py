@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#BatchDeleteGeofenceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.batch_delete_geofence_error_list
 
 
-class BatchDeleteGeofenceResponse(TypedDict):
+class BatchDeleteGeofenceResponse(TypedDict, closed=True):
     errors: "aws_sdk_location.types.batch_delete_geofence_error_list.BatchDeleteGeofenceErrorList"
     """<p>Contains error details for each geofence that failed to delete.</p>"""
 

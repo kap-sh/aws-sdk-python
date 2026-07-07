@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#CreateDelegationRequestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.session_duration_type
 
 
-class CreateDelegationRequestRequest(TypedDict):
+class CreateDelegationRequestRequest(TypedDict, closed=True):
     owner_account_id: NotRequired["aws_sdk_iam.types.account_id_type.accountIdType"]
     """<p>The Amazon Web Services account ID this delegation request is targeted to.</p> <p>If the account ID is not known, this parameter can be omitted, resulting in a request that can be associated by any account. If the account ID passed, then the created delegation request can only be associated with an identity of that target account.</p>"""
     description: "aws_sdk_iam.types.delegation_request_description_type.delegationRequestDescriptionType"

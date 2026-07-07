@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ListAddonInstancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.addon_instances
     import aws_sdk_mailmanager.types.pagination_token
 
 
-class ListAddonInstancesResponse(TypedDict):
+class ListAddonInstancesResponse(TypedDict, closed=True):
     addon_instances: NotRequired[
         "aws_sdk_mailmanager.types.addon_instances.AddonInstances"
     ]

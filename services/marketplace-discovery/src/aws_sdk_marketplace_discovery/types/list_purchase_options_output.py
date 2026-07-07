@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#ListPurchaseOptionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.next_token
     import aws_sdk_marketplace_discovery.types.purchase_option_summary_list
 
 
-class ListPurchaseOptionsOutput(TypedDict):
+class ListPurchaseOptionsOutput(TypedDict, closed=True):
     purchase_options: NotRequired[
         "aws_sdk_marketplace_discovery.types.purchase_option_summary_list.PurchaseOptionSummaryList"
     ]

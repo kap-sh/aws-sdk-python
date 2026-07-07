@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetServiceTemplateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.service_template
 
 
-class GetServiceTemplateOutput(TypedDict):
+class GetServiceTemplateOutput(TypedDict, closed=True):
     service_template: "aws_sdk_proton.types.service_template.ServiceTemplate"
     """<p>The detailed data of the requested service template.</p>"""
 

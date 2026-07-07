@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#Deployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.path_to_map_of_method_snapshot
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.timestamp
 
 
-class Deployment(TypedDict):
+class Deployment(TypedDict, closed=True):
     id: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The identifier for the deployment resource.</p>"""
     description: NotRequired["aws_sdk_api_gateway.types.string.String"]

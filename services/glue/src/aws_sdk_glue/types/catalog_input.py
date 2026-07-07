@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CatalogInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.allow_full_table_external_data_access_enum
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.target_redshift_catalog
 
 
-class CatalogInput(TypedDict):
+class CatalogInput(TypedDict, closed=True):
     description: NotRequired["aws_sdk_glue.types.description_string.DescriptionString"]
     """<p>Description string, not more than 2048 bytes long, matching the URI address multi-line string pattern. A description of the catalog.</p>"""
     federated_catalog: NotRequired[

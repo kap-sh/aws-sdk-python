@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#DeregisterServiceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.service_id
 
 
-class DeregisterServiceInput(TypedDict):
+class DeregisterServiceInput(TypedDict, closed=True):
     service_id: "aws_sdk_devops_agent.types.service_id.ServiceId"
     """<p>The service id to deregister. A service can only be deregistered if it is not associated with any AgentSpace.</p>"""
 

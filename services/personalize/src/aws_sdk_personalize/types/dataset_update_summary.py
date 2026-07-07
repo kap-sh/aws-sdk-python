@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DatasetUpdateSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.status
 
 
-class DatasetUpdateSummary(TypedDict):
+class DatasetUpdateSummary(TypedDict, closed=True):
     schema_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the schema that replaced the previous schema of the dataset.</p>"""
     status: NotRequired["aws_sdk_personalize.types.status.Status"]

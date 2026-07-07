@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#DnsOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.private_dns_preference
     import aws_sdk_vpc_lattice.types.private_dns_specified_domains_list
 
 
-class DnsOptions(TypedDict):
+class DnsOptions(TypedDict, closed=True):
     private_dns_preference: NotRequired[
         "aws_sdk_vpc_lattice.types.private_dns_preference.PrivateDnsPreference"
     ]

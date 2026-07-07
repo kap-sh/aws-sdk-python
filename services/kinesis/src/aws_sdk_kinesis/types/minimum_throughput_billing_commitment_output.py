@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#MinimumThroughputBillingCommitmentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.timestamp
 
 
-class MinimumThroughputBillingCommitmentOutput(TypedDict):
+class MinimumThroughputBillingCommitmentOutput(TypedDict, closed=True):
     status: "aws_sdk_kinesis.types.minimum_throughput_billing_commitment_output_status.MinimumThroughputBillingCommitmentOutputStatus"
     """<p>The current status of the minimum throughput billing commitment.</p>"""
     started_at: NotRequired["aws_sdk_kinesis.types.timestamp.Timestamp"]

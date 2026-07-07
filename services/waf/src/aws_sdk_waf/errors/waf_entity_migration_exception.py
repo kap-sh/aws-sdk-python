@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#WAFEntityMigrationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.migration_error_type
 
 
-class WAFEntityMigrationException_(TypedDict):
+class WAFEntityMigrationException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_waf.types.error_message.errorMessage"]
     migration_error_type: NotRequired[
         "aws_sdk_waf.types.migration_error_type.MigrationErrorType"

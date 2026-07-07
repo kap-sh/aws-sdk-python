@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimeservice#PredictedIntent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.intent_confidence
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.string_map
 
 
-class PredictedIntent(TypedDict):
+class PredictedIntent(TypedDict, closed=True):
     intent_name: NotRequired["aws_sdk_lex_runtime_service.types.intent_name.IntentName"]
     """<p>The name of the intent that Amazon Lex suggests satisfies the user's intent.</p>"""
     nlu_intent_confidence: NotRequired[

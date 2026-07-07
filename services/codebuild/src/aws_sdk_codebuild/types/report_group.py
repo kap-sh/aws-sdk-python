@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ReportGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.timestamp
 
 
-class ReportGroup(TypedDict):
+class ReportGroup(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p>The ARN of the <code>ReportGroup</code>. </p>"""
     name: NotRequired["aws_sdk_codebuild.types.report_group_name.ReportGroupName"]

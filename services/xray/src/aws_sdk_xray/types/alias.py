@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#Alias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.alias_names
     import aws_sdk_xray.types.string
 
 
-class Alias(TypedDict):
+class Alias(TypedDict, closed=True):
     name: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>The canonical name of the alias.</p>"""
     names: NotRequired["aws_sdk_xray.types.alias_names.AliasNames"]

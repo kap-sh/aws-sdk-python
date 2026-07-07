@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#SelectedVideoStreams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.attendee_id_list
     import aws_sdk_chime_sdk_media_pipelines.types.external_user_id_list
 
 
-class SelectedVideoStreams(TypedDict):
+class SelectedVideoStreams(TypedDict, closed=True):
     attendee_ids: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.attendee_id_list.AttendeeIdList"
     ]

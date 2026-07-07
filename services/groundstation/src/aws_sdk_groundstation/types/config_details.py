@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.s3_recording_details
 
 
-class _ConfigDetails_endpointDetails(TypedDict):
+class _ConfigDetails_endpointDetails(TypedDict, closed=True):
     endpointDetails: "aws_sdk_groundstation.types.endpoint_details.EndpointDetails"
 
 
-class _ConfigDetails_antennaDemodDecodeDetails(TypedDict):
+class _ConfigDetails_antennaDemodDecodeDetails(TypedDict, closed=True):
     antennaDemodDecodeDetails: "aws_sdk_groundstation.types.antenna_demod_decode_details.AntennaDemodDecodeDetails"
 
 
-class _ConfigDetails_s3RecordingDetails(TypedDict):
+class _ConfigDetails_s3RecordingDetails(TypedDict, closed=True):
     s3RecordingDetails: (
         "aws_sdk_groundstation.types.s3_recording_details.S3RecordingDetails"
     )

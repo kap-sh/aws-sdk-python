@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#DisassociateCreatedArtifactResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateCreatedArtifactResult(TypedDict):
+class DisassociateCreatedArtifactResult(TypedDict, closed=True):
     pass
 
 

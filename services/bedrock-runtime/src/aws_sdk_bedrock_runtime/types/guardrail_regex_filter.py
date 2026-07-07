@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailRegexFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_sensitive_information_policy_action
 
 
-class GuardrailRegexFilter(TypedDict):
+class GuardrailRegexFilter(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The regex filter name.</p>"""
     match: NotRequired["str"]

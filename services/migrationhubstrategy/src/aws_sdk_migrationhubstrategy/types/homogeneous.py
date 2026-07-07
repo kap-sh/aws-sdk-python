@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#Homogeneous``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.homogeneous_target_database_engines
 
 
-class Homogeneous(TypedDict):
+class Homogeneous(TypedDict, closed=True):
     target_database_engine: NotRequired[
         "aws_sdk_migrationhubstrategy.types.homogeneous_target_database_engines.HomogeneousTargetDatabaseEngines"
     ]

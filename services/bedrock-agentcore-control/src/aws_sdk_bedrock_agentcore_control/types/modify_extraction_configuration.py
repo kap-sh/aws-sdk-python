@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ModifyExtractionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,9 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.custom_extraction_configuration_input
 
 
-class _ModifyExtractionConfiguration_customExtractionConfiguration(TypedDict):
+class _ModifyExtractionConfiguration_customExtractionConfiguration(
+    TypedDict, closed=True
+):
     customExtractionConfiguration: "aws_sdk_bedrock_agentcore_control.types.custom_extraction_configuration_input.CustomExtractionConfigurationInput"
 
 

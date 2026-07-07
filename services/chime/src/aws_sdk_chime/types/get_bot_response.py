@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#GetBotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.bot
 
 
-class GetBotResponse(TypedDict):
+class GetBotResponse(TypedDict, closed=True):
     bot: NotRequired["aws_sdk_chime.types.bot.Bot"]
     """<p>The chat bot details.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LineageNodeSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.updated_by
 
 
-class LineageNodeSummary(TypedDict):
+class LineageNodeSummary(TypedDict, closed=True):
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain of the data lineage node.</p>"""
     name: NotRequired["str"]

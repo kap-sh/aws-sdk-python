@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GetImportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.import_job_data
 
 
-class GetImportJobResponse(TypedDict):
+class GetImportJobResponse(TypedDict, closed=True):
     import_job: NotRequired["aws_sdk_qconnect.types.import_job_data.ImportJobData"]
     """<p>The import job.</p>"""
 

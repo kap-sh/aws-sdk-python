@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#ValidationExceptionField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.basic_string
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "aws_sdk_invoicing.types.basic_string.BasicString"
     """<p> The input fails to satisfy the constraints specified by an Amazon Web Services service. </p>"""
     message: "aws_sdk_invoicing.types.basic_string.BasicString"

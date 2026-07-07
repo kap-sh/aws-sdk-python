@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetParameterHistoryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
     import aws_sdk_ssm.types.parameter_history_list
 
 
-class GetParameterHistoryResult(TypedDict):
+class GetParameterHistoryResult(TypedDict, closed=True):
     parameters: NotRequired[
         "aws_sdk_ssm.types.parameter_history_list.ParameterHistoryList"
     ]

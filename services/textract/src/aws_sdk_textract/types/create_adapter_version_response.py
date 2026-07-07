@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#CreateAdapterVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.adapter_id
     import aws_sdk_textract.types.adapter_version
 
 
-class CreateAdapterVersionResponse(TypedDict):
+class CreateAdapterVersionResponse(TypedDict, closed=True):
     adapter_id: NotRequired["aws_sdk_textract.types.adapter_id.AdapterId"]
     """<p>A string containing the unique ID for the adapter that has received a new version.</p>"""
     adapter_version: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#InvocationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.arn
 
 
-class InvocationConfiguration(TypedDict):
+class InvocationConfiguration(TypedDict, closed=True):
     topic_arn: "aws_sdk_bedrock_agentcore_control.types.arn.Arn"
     """<p>The ARN of the SNS topic for job notifications.</p>"""
     payload_delivery_bucket_name: "str"

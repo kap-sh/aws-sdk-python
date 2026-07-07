@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#DeleteDBClusterSnapshotMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class DeleteDBClusterSnapshotMessage(TypedDict):
+class DeleteDBClusterSnapshotMessage(TypedDict, closed=True):
     db_cluster_snapshot_identifier: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The identifier of the cluster snapshot to delete.</p> <p>Constraints: Must be the name of an existing cluster snapshot in the <code>available</code> state.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ListDataSetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.identifier
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.string200
 
 
-class ListDataSetsRequest(TypedDict):
+class ListDataSetsRequest(TypedDict, closed=True):
     application_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The unique identifier of the application for which you want to list the associated data sets.</p>"""
     next_token: NotRequired["aws_sdk_m2.types.next_token.NextToken"]

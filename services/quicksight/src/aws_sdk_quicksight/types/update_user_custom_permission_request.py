@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateUserCustomPermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.user_name
 
 
-class UpdateUserCustomPermissionRequest(TypedDict):
+class UpdateUserCustomPermissionRequest(TypedDict, closed=True):
     user_name: "aws_sdk_quicksight.types.user_name.UserName"
     """<p>The username of the user that you want to update custom permissions for.</p>"""
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"

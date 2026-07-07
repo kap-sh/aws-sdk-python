@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StopMaterializedViewRefreshTaskRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class StopMaterializedViewRefreshTaskRunRequest(TypedDict):
+class StopMaterializedViewRefreshTaskRunRequest(TypedDict, closed=True):
     catalog_id: "aws_sdk_glue.types.name_string.NameString"
     """<p>The ID of the Data Catalog where the table reside. If none is supplied, the account ID is used by default.</p>"""
     database_name: "aws_sdk_glue.types.name_string.NameString"

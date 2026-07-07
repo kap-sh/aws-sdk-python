@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#QueryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.facet_result_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.warning_list
 
 
-class QueryResult(TypedDict):
+class QueryResult(TypedDict, closed=True):
     query_id: NotRequired["aws_sdk_kendra.types.query_id.QueryId"]
     r"""<p>The identifier for the search. You also use <code>QueryId</code> to identify the search when using the <a href=\"https://docs.aws.amazon.com/kendra/latest/APIReference/API_SubmitFeedback.html\">SubmitFeedback</a> API.</p>"""
     result_items: NotRequired[

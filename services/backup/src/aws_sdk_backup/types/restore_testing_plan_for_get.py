@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#RestoreTestingPlanForGet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.restore_testing_recovery_point_selection
 
 
-class RestoreTestingPlanForGet(TypedDict):
+class RestoreTestingPlanForGet(TypedDict, closed=True):
     creation_time: "datetime.datetime"
     """<p>The date and time that a restore testing plan was created, in Unix format and Coordinated Universal Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>"""
     creator_request_id: NotRequired["str"]

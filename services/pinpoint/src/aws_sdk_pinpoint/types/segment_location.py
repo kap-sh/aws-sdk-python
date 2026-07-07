@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SegmentLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.gps_point_dimension
     import aws_sdk_pinpoint.types.set_dimension
 
 
-class SegmentLocation(TypedDict):
+class SegmentLocation(TypedDict, closed=True):
     country: NotRequired["aws_sdk_pinpoint.types.set_dimension.SetDimension"]
     """<p>The country or region code, in ISO 3166-1 alpha-2 format, for the segment.</p>"""
     gps_point: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#Blueprint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.app_category
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class Blueprint(TypedDict):
+class Blueprint(TypedDict, closed=True):
     blueprint_id: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]
     """<p>The ID for the virtual private server image (<code>app_wordpress_x_x</code> or <code>app_lamp_x_x</code>).</p>"""
     name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#ListRegionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.max_results
     import aws_sdk_workspaces_instances.types.next_token
 
 
-class ListRegionsRequest(TypedDict):
+class ListRegionsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_workspaces_instances.types.max_results.MaxResults"
     ]

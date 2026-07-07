@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#HlsPackage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.hls_encryption
 
 
-class HlsPackage(TypedDict):
+class HlsPackage(TypedDict, closed=True):
     encryption: NotRequired[
         "aws_sdk_mediapackage_vod.types.hls_encryption.HlsEncryption"
     ]

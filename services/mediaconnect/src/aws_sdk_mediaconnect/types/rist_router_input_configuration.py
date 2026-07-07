@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RistRouterInputConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
 
-class RistRouterInputConfiguration(TypedDict):
+class RistRouterInputConfiguration(TypedDict, closed=True):
     port: "int"
     """<p>The port number used for the RIST protocol in the router input configuration.</p>"""
     recovery_latency_milliseconds: "int"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideomedia#StartSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_video_media.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video_media.types.timestamp
 
 
-class StartSelector(TypedDict):
+class StartSelector(TypedDict, closed=True):
     start_selector_type: (
         "aws_sdk_kinesis_video_media.types.start_selector_type.StartSelectorType"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ConsumerGroupReplication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.consumer_group_offset_sync_mode
 
 
-class ConsumerGroupReplication(TypedDict):
+class ConsumerGroupReplication(TypedDict, closed=True):
     consumer_groups_to_exclude: NotRequired[
         "aws_sdk_kafka.types.__list_of__string_max256.__listOf__stringMax256"
     ]

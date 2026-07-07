@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#Serverless``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of_vpc_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.serverless_connectivity_info
 
 
-class Serverless(TypedDict):
+class Serverless(TypedDict, closed=True):
     vpc_configs: NotRequired[
         "aws_sdk_kafka.types.__list_of_vpc_config.__listOfVpcConfig"
     ]

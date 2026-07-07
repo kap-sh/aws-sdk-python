@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ListAWSServiceAccessForOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.enabled_service_principals
     import aws_sdk_organizations.types.next_token
 
 
-class ListAWSServiceAccessForOrganizationResponse(TypedDict):
+class ListAWSServiceAccessForOrganizationResponse(TypedDict, closed=True):
     enabled_service_principals: NotRequired[
         "aws_sdk_organizations.types.enabled_service_principals.EnabledServicePrincipals"
     ]

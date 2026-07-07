@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#RecommendationDetailHourlyMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
     import aws_sdk_cost_explorer.types.zoned_date_time
 
 
-class RecommendationDetailHourlyMetrics(TypedDict):
+class RecommendationDetailHourlyMetrics(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_cost_explorer.types.zoned_date_time.ZonedDateTime"]
     estimated_on_demand_cost: NotRequired[
         "aws_sdk_cost_explorer.types.generic_string.GenericString"

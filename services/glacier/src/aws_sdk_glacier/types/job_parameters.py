@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#JobParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.inventory_retrieval_job_input
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
 
 
-class JobParameters(TypedDict):
+class JobParameters(TypedDict, closed=True):
     format: NotRequired["aws_sdk_glacier.types.string.string"]
     r"""<p>When initiating a job to retrieve a vault inventory, you can optionally add this parameter to your request to specify the output format. If you are initiating an inventory job and do not specify a Format field, JSON is the default format. Valid values are \"CSV\" and \"JSON\".</p>"""
     type: NotRequired["aws_sdk_glacier.types.string.string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#HttpEndpointConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.http_endpoint_url
 
 
-class HttpEndpointConfiguration(TypedDict):
+class HttpEndpointConfiguration(TypedDict, closed=True):
     url: "aws_sdk_firehose.types.http_endpoint_url.HttpEndpointUrl"
     r"""<p>The URL of the HTTP endpoint selected as the destination.</p> <important> <p>If you choose an HTTP endpoint as your destination, review and follow the instructions in the <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/httpdeliveryrequestresponse.html\">Appendix - HTTP Endpoint Delivery Request and Response Specifications</a>.</p> </important>"""
     name: NotRequired["aws_sdk_firehose.types.http_endpoint_name.HttpEndpointName"]

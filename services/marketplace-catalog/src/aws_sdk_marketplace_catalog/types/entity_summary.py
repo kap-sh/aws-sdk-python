@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#EntitySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.ami_product_summary
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.visibility_value
 
 
-class EntitySummary(TypedDict):
+class EntitySummary(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_marketplace_catalog.types.entity_name_string.EntityNameString"
     ]

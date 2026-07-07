@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UserIdentity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.assumed_role
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.user_identity_type
 
 
-class UserIdentity(TypedDict):
+class UserIdentity(TypedDict, closed=True):
     assumed_role: NotRequired["aws_sdk_macie2.types.assumed_role.AssumedRole"]
     """<p>If the action was performed with temporary security credentials that were obtained using the AssumeRole operation of the Security Token Service (STS) API, the identifiers, session context, and other details about the identity.</p>"""
     aws_account: NotRequired["aws_sdk_macie2.types.aws_account.AwsAccount"]

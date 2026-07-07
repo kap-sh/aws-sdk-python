@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#RedshiftDataSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.s3_url
 
 
-class RedshiftDataSpec(TypedDict):
+class RedshiftDataSpec(TypedDict, closed=True):
     database_information: (
         "aws_sdk_machine_learning.types.redshift_database.RedshiftDatabase"
     )

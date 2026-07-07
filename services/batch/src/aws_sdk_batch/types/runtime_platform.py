@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#RuntimePlatform``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class RuntimePlatform(TypedDict):
+class RuntimePlatform(TypedDict, closed=True):
     operating_system_family: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The operating system for the compute environment. Valid values are: <code>LINUX</code> (default), <code>WINDOWS_SERVER_2019_CORE</code>, <code>WINDOWS_SERVER_2019_FULL</code>, <code>WINDOWS_SERVER_2022_CORE</code>, and <code>WINDOWS_SERVER_2022_FULL</code>.</p> <note> <p>The following parameters can’t be set for Windows containers: <code>linuxParameters</code>, <code>privileged</code>, <code>user</code>, <code>ulimits</code>, <code>readonlyRootFilesystem</code>, and <code>efsVolumeConfiguration</code>.</p> </note> <note> <p>The Batch Scheduler checks the compute environments that are attached to the job queue before registering a task definition with Fargate. In this scenario, the job queue is where the job is submitted. If the job requires a Windows container and the first compute environment is <code>LINUX</code>, the compute environment is skipped and the next compute environment is checked until a Windows-based compute environment is found.</p> </note> <note> <p>Fargate Spot is not supported on Windows-based containers on Fargate. A job queue will be blocked if a Windows job is submitted to a job queue with only Fargate Spot compute environments. However, you can attach both <code>FARGATE</code> and <code>FARGATE_SPOT</code> compute environments to the same job queue.</p> </note>"""
     cpu_architecture: NotRequired["aws_sdk_batch.types.string.String"]

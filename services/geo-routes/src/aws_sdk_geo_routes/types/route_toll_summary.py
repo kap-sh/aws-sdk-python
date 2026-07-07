@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteTollSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_toll_price_summary
 
 
-class RouteTollSummary(TypedDict):
+class RouteTollSummary(TypedDict, closed=True):
     total: NotRequired[
         "aws_sdk_geo_routes.types.route_toll_price_summary.RouteTollPriceSummary"
     ]

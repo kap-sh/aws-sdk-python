@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CollectionConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.vector_config
 
 
-class _CollectionConfig_VectorConfig(TypedDict):
+class _CollectionConfig_VectorConfig(TypedDict, closed=True):
     VectorConfig: "aws_sdk_sagemaker.types.vector_config.VectorConfig"
 
 

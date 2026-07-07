@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#DeleteNamespaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.namespace_name
     import aws_sdk_s3tables.types.table_bucket_arn
 
 
-class DeleteNamespaceRequest(TypedDict):
+class DeleteNamespaceRequest(TypedDict, closed=True):
     table_bucket_arn: "aws_sdk_s3tables.types.table_bucket_arn.TableBucketARN"
     """<p>The Amazon Resource Name (ARN) of the table bucket associated with the namespace.</p>"""
     namespace: "aws_sdk_s3tables.types.namespace_name.NamespaceName"

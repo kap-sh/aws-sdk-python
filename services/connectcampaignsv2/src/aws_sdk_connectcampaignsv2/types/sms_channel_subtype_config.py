@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#SmsChannelSubtypeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.sms_outbound_mode
 
 
-class SmsChannelSubtypeConfig(TypedDict):
+class SmsChannelSubtypeConfig(TypedDict, closed=True):
     capacity: NotRequired["aws_sdk_connectcampaignsv2.types.capacity.Capacity"]
     outbound_mode: "aws_sdk_connectcampaignsv2.types.sms_outbound_mode.SmsOutboundMode"
     default_outbound_config: (

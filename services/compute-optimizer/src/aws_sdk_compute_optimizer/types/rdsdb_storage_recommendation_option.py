@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#RDSDBStorageRecommendationOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.db_storage_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.savings_opportunity
 
 
-class RDSDBStorageRecommendationOption(TypedDict):
+class RDSDBStorageRecommendationOption(TypedDict, closed=True):
     storage_configuration: NotRequired[
         "aws_sdk_compute_optimizer.types.db_storage_configuration.DBStorageConfiguration"
     ]

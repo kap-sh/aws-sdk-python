@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#DashDvbMetricsReporting``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
 
-class DashDvbMetricsReporting(TypedDict):
+class DashDvbMetricsReporting(TypedDict, closed=True):
     reporting_url: "str"
     """<p>The URL where playback devices send error reports.</p>"""
     probability: NotRequired["int"]

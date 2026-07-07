@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DBClusterSnapshotAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DBClusterSnapshotAttribute(TypedDict):
+class DBClusterSnapshotAttribute(TypedDict, closed=True):
     attribute_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name of the manual DB cluster snapshot attribute.</p> <p>The attribute named <code>restore</code> refers to the list of Amazon Web Services accounts that have permission to copy or restore the manual DB cluster snapshot. For more information, see the <code>ModifyDBClusterSnapshotAttribute</code> API action.</p>"""
     attribute_values: NotRequired[

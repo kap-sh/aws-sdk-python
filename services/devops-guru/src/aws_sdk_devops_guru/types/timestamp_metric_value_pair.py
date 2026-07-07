@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#TimestampMetricValuePair``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.metric_value
     import aws_sdk_devops_guru.types.timestamp
 
 
-class TimestampMetricValuePair(TypedDict):
+class TimestampMetricValuePair(TypedDict, closed=True):
     timestamp: NotRequired["aws_sdk_devops_guru.types.timestamp.Timestamp"]
     """<p>A <code>Timestamp</code> that specifies the time the event occurred. </p>"""
     metric_value: NotRequired["aws_sdk_devops_guru.types.metric_value.MetricValue"]

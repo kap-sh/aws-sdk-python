@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#WrapOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.wrap_format
 
 
-class WrapOptions(TypedDict):
+class WrapOptions(TypedDict, closed=True):
     wrap_by: "aws_sdk_b2bi.types.wrap_format.WrapFormat"
     """<p>Specifies the method used for wrapping lines in the EDI output. Valid values:</p> <ul> <li> <p> <code>SEGMENT</code>: Wraps by segment.</p> </li> <li> <p> <code>ONE_LINE</code>: Indicates that the entire content is on a single line.</p> <note> <p>When you specify <code>ONE_LINE</code>, do not provide either the line length nor the line terminator value.</p> </note> </li> <li> <p> <code>LINE_LENGTH</code>: Wraps by character count, as specified by <code>lineLength</code> value.</p> </li> </ul>"""
     line_terminator: NotRequired["aws_sdk_b2bi.types.line_terminator.LineTerminator"]

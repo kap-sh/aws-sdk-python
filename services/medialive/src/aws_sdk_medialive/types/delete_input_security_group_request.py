@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DeleteInputSecurityGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class DeleteInputSecurityGroupRequest(TypedDict):
+class DeleteInputSecurityGroupRequest(TypedDict, closed=True):
     input_security_group_id: "aws_sdk_medialive.types.__string.__string"
     """The Input Security Group to delete"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#PutSecretValueResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.secret_arn_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.secret_version_stages_type
 
 
-class PutSecretValueResponse(TypedDict):
+class PutSecretValueResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_secrets_manager.types.secret_arn_type.SecretARNType"]
     """<p>The ARN of the secret.</p>"""
     name: NotRequired["aws_sdk_secrets_manager.types.secret_name_type.SecretNameType"]

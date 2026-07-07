@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#GetTableRecordExpirationConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_record_expiration_configuration_value
 
 
-class GetTableRecordExpirationConfigurationResponse(TypedDict):
+class GetTableRecordExpirationConfigurationResponse(TypedDict, closed=True):
     configuration: "aws_sdk_s3tables.types.table_record_expiration_configuration_value.TableRecordExpirationConfigurationValue"
     """<p>The record expiration configuration for the table, including the status and retention settings.</p>"""
 

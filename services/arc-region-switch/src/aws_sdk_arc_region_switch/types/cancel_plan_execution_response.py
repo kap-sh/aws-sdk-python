@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#CancelPlanExecutionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelPlanExecutionResponse(TypedDict):
+class CancelPlanExecutionResponse(TypedDict, closed=True):
     pass
 
 

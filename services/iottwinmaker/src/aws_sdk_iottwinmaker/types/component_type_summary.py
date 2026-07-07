@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ComponentTypeSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.twin_maker_arn
 
 
-class ComponentTypeSummary(TypedDict):
+class ComponentTypeSummary(TypedDict, closed=True):
     arn: "aws_sdk_iottwinmaker.types.twin_maker_arn.TwinMakerArn"
     """<p>The ARN of the component type.</p>"""
     component_type_id: "aws_sdk_iottwinmaker.types.component_type_id.ComponentTypeId"

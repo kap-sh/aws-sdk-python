@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsCloudFrontDistributionOriginS3OriginConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsCloudFrontDistributionOriginS3OriginConfig(TypedDict):
+class AwsCloudFrontDistributionOriginS3OriginConfig(TypedDict, closed=True):
     origin_access_identity: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

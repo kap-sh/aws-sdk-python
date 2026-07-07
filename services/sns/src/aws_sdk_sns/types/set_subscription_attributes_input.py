@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#SetSubscriptionAttributesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.subscription_arn
 
 
-class SetSubscriptionAttributesInput(TypedDict):
+class SetSubscriptionAttributesInput(TypedDict, closed=True):
     subscription_arn: "aws_sdk_sns.types.subscription_arn.subscriptionARN"
     """<p>The ARN of the subscription to modify.</p>"""
     attribute_name: "aws_sdk_sns.types.attribute_name.attributeName"

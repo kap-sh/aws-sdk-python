@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DeleteCustomVocabularyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.custom_vocabulary_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.locale_id
 
 
-class DeleteCustomVocabularyResponse(TypedDict):
+class DeleteCustomVocabularyResponse(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The identifier of the bot that the custom vocabulary was removed from.</p>"""
     bot_version: NotRequired[

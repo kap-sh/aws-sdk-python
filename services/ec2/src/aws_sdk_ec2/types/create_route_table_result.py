@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateRouteTableResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class CreateRouteTableResult(TypedDict):
+class CreateRouteTableResult(TypedDict, closed=True):
     route_table: NotRequired["aws_sdk_ec2.types.route_table.RouteTable"]
     """<p>Information about the route table.</p>"""
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#KPIConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.kpi_field_wells
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_interaction_options
 
 
-class KPIConfiguration(TypedDict):
+class KPIConfiguration(TypedDict, closed=True):
     field_wells: NotRequired["aws_sdk_quicksight.types.kpi_field_wells.KPIFieldWells"]
     """<p>The field well configuration of a KPI visual.</p>"""
     sort_configuration: NotRequired[

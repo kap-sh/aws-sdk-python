@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DeleteWorkspaceBundleResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteWorkspaceBundleResult(TypedDict):
+class DeleteWorkspaceBundleResult(TypedDict, closed=True):
     pass
 
 

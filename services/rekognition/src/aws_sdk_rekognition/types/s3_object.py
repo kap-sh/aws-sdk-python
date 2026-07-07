@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#S3Object``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.s3_bucket
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.s3_object_version
 
 
-class S3Object(TypedDict):
+class S3Object(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_rekognition.types.s3_bucket.S3Bucket"]
     """<p>Name of the S3 bucket.</p>"""
     name: NotRequired["aws_sdk_rekognition.types.s3_object_name.S3ObjectName"]

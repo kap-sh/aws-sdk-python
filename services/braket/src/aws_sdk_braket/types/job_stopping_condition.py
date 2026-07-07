@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.braket#JobStoppingCondition``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class JobStoppingCondition(TypedDict):
+class JobStoppingCondition(TypedDict, closed=True):
     max_runtime_in_seconds: NotRequired["int"]
     """<p>The maximum length of time, in seconds, that an Amazon Braket hybrid job can run.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#NegateSavingsPlanAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.uuid
 
 
-class NegateSavingsPlanAction(TypedDict):
+class NegateSavingsPlanAction(TypedDict, closed=True):
     savings_plan_id: NotRequired["aws_sdk_bcm_pricing_calculator.types.uuid.Uuid"]
     """<p> The ID of the Savings Plan to remove. </p>"""
 

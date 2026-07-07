@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AdditionalS3DataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.additional_s3_data_source_data_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class AdditionalS3DataSource(TypedDict):
+class AdditionalS3DataSource(TypedDict, closed=True):
     s3_data_type: NotRequired[
         "aws_sdk_sagemaker.types.additional_s3_data_source_data_type.AdditionalS3DataSourceDataType"
     ]

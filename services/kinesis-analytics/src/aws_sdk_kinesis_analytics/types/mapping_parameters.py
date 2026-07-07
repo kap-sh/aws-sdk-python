@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#MappingParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.csv_mapping_parameters
     import aws_sdk_kinesis_analytics.types.json_mapping_parameters
 
 
-class MappingParameters(TypedDict):
+class MappingParameters(TypedDict, closed=True):
     json_mapping_parameters: NotRequired[
         "aws_sdk_kinesis_analytics.types.json_mapping_parameters.JSONMappingParameters"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetAlarmsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.alarms_list
     import aws_sdk_lightsail.types.string
 
 
-class GetAlarmsResult(TypedDict):
+class GetAlarmsResult(TypedDict, closed=True):
     alarms: NotRequired["aws_sdk_lightsail.types.alarms_list.AlarmsList"]
     """<p>An array of objects that describe the alarms.</p>"""
     next_page_token: NotRequired["aws_sdk_lightsail.types.string.string"]

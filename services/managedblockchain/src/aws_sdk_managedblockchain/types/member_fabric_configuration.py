@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#MemberFabricConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_managedblockchain.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.username_string
 
 
-class MemberFabricConfiguration(TypedDict):
+class MemberFabricConfiguration(TypedDict, closed=True):
     admin_username: "aws_sdk_managedblockchain.types.username_string.UsernameString"
     """<p>The user name for the member's initial administrative user.</p>"""
     admin_password: "aws_sdk_managedblockchain.types.password_string.PasswordString"

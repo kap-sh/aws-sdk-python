@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateDevEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.worker_type
 
 
-class CreateDevEndpointRequest(TypedDict):
+class CreateDevEndpointRequest(TypedDict, closed=True):
     endpoint_name: "aws_sdk_glue.types.generic_string.GenericString"
     """<p>The name to be assigned to the new <code>DevEndpoint</code>.</p>"""
     role_arn: "aws_sdk_glue.types.role_arn.RoleArn"

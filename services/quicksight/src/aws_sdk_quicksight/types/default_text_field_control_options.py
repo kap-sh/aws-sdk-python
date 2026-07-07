@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultTextFieldControlOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.text_field_control_display_options
 
 
-class DefaultTextFieldControlOptions(TypedDict):
+class DefaultTextFieldControlOptions(TypedDict, closed=True):
     display_options: NotRequired[
         "aws_sdk_quicksight.types.text_field_control_display_options.TextFieldControlDisplayOptions"
     ]

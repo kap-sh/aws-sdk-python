@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#DeclineHandshakeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.handshake
 
 
-class DeclineHandshakeResponse(TypedDict):
+class DeclineHandshakeResponse(TypedDict, closed=True):
     handshake: NotRequired["aws_sdk_organizations.types.handshake.Handshake"]
     """<p>A <code>Handshake</code> object. Contains details for the declined handshake.</p>"""
 

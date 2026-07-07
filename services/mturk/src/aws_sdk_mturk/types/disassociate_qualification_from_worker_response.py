@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#DisassociateQualificationFromWorkerResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateQualificationFromWorkerResponse(TypedDict):
+class DisassociateQualificationFromWorkerResponse(TypedDict, closed=True):
     pass
 
 

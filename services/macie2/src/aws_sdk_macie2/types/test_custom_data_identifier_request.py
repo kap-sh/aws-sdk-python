@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#TestCustomDataIdentifierRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class TestCustomDataIdentifierRequest(TypedDict):
+class TestCustomDataIdentifierRequest(TypedDict, closed=True):
     ignore_words: NotRequired["aws_sdk_macie2.types.__list_of__string.__listOf__string"]
     """<p>An array that lists specific character sequences (<i>ignore words</i>) to exclude from the results. If the text matched by the regular expression contains any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4-90 UTF-8 characters. Ignore words are case sensitive.</p>"""
     keywords: NotRequired["aws_sdk_macie2.types.__list_of__string.__listOf__string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#WebhookFilterRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.match_equals
 
 
-class WebhookFilterRule(TypedDict):
+class WebhookFilterRule(TypedDict, closed=True):
     json_path: "aws_sdk_codepipeline.types.json_path.JsonPath"
     r"""<p>A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the <code>MatchEquals</code> field. Otherwise, the request is ignored. For more information, see <a href=\"https://github.com/json-path/JsonPath\">Java JsonPath implementation</a> in GitHub.</p>"""
     match_equals: NotRequired["aws_sdk_codepipeline.types.match_equals.MatchEquals"]

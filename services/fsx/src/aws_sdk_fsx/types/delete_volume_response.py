@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteVolumeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.delete_volume_ontap_response
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume_lifecycle
 
 
-class DeleteVolumeResponse(TypedDict):
+class DeleteVolumeResponse(TypedDict, closed=True):
     volume_id: NotRequired["aws_sdk_fsx.types.volume_id.VolumeId"]
     """<p>The ID of the volume that's being deleted.</p>"""
     lifecycle: NotRequired["aws_sdk_fsx.types.volume_lifecycle.VolumeLifecycle"]

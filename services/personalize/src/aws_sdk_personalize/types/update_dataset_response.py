@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#UpdateDatasetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class UpdateDatasetResponse(TypedDict):
+class UpdateDatasetResponse(TypedDict, closed=True):
     dataset_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the dataset you updated.</p>"""
 

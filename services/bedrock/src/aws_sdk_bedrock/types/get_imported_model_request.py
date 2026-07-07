@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetImportedModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.imported_model_identifier
 
 
-class GetImportedModelRequest(TypedDict):
+class GetImportedModelRequest(TypedDict, closed=True):
     model_identifier: (
         "aws_sdk_bedrock.types.imported_model_identifier.ImportedModelIdentifier"
     )

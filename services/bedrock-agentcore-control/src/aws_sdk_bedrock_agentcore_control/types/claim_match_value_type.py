@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ClaimMatchValueType``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,13 +14,13 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.match_value_string_list
 
 
-class _ClaimMatchValueType_matchValueString(TypedDict):
+class _ClaimMatchValueType_matchValueString(TypedDict, closed=True):
     matchValueString: (
         "aws_sdk_bedrock_agentcore_control.types.match_value_string.MatchValueString"
     )
 
 
-class _ClaimMatchValueType_matchValueStringList(TypedDict):
+class _ClaimMatchValueType_matchValueStringList(TypedDict, closed=True):
     matchValueStringList: "aws_sdk_bedrock_agentcore_control.types.match_value_string_list.MatchValueStringList"
 
 

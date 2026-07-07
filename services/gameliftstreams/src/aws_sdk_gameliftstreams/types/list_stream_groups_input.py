@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#ListStreamGroupsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.max_results
     import aws_sdk_gameliftstreams.types.next_token
 
 
-class ListStreamGroupsInput(TypedDict):
+class ListStreamGroupsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_gameliftstreams.types.next_token.NextToken"]
     """<p>A token that marks the start of the next set of results. Use this token when you retrieve results as sequential pages. To get the first page of results, omit a token value. To get the remaining pages, provide the token returned with the previous result set. </p>"""
     max_results: NotRequired["aws_sdk_gameliftstreams.types.max_results.MaxResults"]

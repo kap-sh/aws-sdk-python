@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#EnvironmentPlatform``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.environment_languages
     import aws_sdk_codebuild.types.platform_type
 
 
-class EnvironmentPlatform(TypedDict):
+class EnvironmentPlatform(TypedDict, closed=True):
     platform: NotRequired["aws_sdk_codebuild.types.platform_type.PlatformType"]
     """<p>The platform's name.</p>"""
     languages: NotRequired[

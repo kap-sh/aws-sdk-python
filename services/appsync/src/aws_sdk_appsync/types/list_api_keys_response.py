@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ListApiKeysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.api_keys
     import aws_sdk_appsync.types.pagination_token
 
 
-class ListApiKeysResponse(TypedDict):
+class ListApiKeysResponse(TypedDict, closed=True):
     api_keys: NotRequired["aws_sdk_appsync.types.api_keys.ApiKeys"]
     """<p>The <code>ApiKey</code> objects.</p>"""
     next_token: NotRequired["aws_sdk_appsync.types.pagination_token.PaginationToken"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeletePartnerAppRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.client_token
     import aws_sdk_sagemaker.types.partner_app_arn
 
 
-class DeletePartnerAppRequest(TypedDict):
+class DeletePartnerAppRequest(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.partner_app_arn.PartnerAppArn"]
     """<p>The ARN of the SageMaker Partner AI App to delete.</p>"""
     client_token: NotRequired["aws_sdk_sagemaker.types.client_token.ClientToken"]

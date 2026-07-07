@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#DeleteEventIntegrationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteEventIntegrationResponse(TypedDict):
+class DeleteEventIntegrationResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#RegionSetupInProgressException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class RegionSetupInProgressException_(TypedDict):
+class RegionSetupInProgressException_(TypedDict, closed=True):
     code: NotRequired["aws_sdk_lightsail.types.string.string"]
     docs: NotRequired["aws_sdk_lightsail.types.string.string"]
     r"""<p> <a href=\"https://docs.aws.amazon.com/lightsail/latest/userguide/understanding-regions-and-availability-zones-in-amazon-lightsail.html\">Regions and Availability Zones for Lightsail</a> </p>"""

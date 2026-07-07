@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetCostComparisonDriversResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.cost_comparison_drivers
     import aws_sdk_cost_explorer.types.next_page_token
 
 
-class GetCostComparisonDriversResponse(TypedDict):
+class GetCostComparisonDriversResponse(TypedDict, closed=True):
     cost_comparison_drivers: NotRequired[
         "aws_sdk_cost_explorer.types.cost_comparison_drivers.CostComparisonDrivers"
     ]

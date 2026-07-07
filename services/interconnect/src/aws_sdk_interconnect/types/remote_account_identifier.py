@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#RemoteAccountIdentifier``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.remote_owner_account
 
 
-class _RemoteAccountIdentifier_identifier(TypedDict):
+class _RemoteAccountIdentifier_identifier(TypedDict, closed=True):
     identifier: "aws_sdk_interconnect.types.remote_owner_account.RemoteOwnerAccount"
 
 

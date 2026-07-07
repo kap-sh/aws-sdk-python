@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#DeleteJobTaggingResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
 
-class DeleteJobTaggingResult(TypedDict):
+class DeleteJobTaggingResult(TypedDict, closed=True):
     pass
 
 

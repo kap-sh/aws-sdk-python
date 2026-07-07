@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#PutEventsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.integer
     import aws_sdk_cloudwatch_events.types.put_events_result_entry_list
 
 
-class PutEventsResponse(TypedDict):
+class PutEventsResponse(TypedDict, closed=True):
     failed_entry_count: "aws_sdk_cloudwatch_events.types.integer.Integer"
     """<p>The number of failed entries.</p>"""
     entries: NotRequired[

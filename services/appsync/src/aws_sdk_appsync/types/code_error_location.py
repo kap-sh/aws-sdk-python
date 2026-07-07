@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#CodeErrorLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.code_error_column
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.code_error_span
 
 
-class CodeErrorLocation(TypedDict):
+class CodeErrorLocation(TypedDict, closed=True):
     line: "aws_sdk_appsync.types.code_error_line.CodeErrorLine"
     """<p>The line number in the code. Defaults to <code>0</code> if unknown.</p>"""
     column: "aws_sdk_appsync.types.code_error_column.CodeErrorColumn"

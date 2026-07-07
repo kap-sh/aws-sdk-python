@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#EnvironmentAccountConnection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.role_arn
 
 
-class EnvironmentAccountConnection(TypedDict):
+class EnvironmentAccountConnection(TypedDict, closed=True):
     id: "aws_sdk_proton.types.environment_account_connection_id.EnvironmentAccountConnectionId"
     """<p>The ID of the environment account connection.</p>"""
     arn: "aws_sdk_proton.types.environment_account_connection_arn.EnvironmentAccountConnectionArn"

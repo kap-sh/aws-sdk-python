@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DeleteIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.integration_name
 
 
-class DeleteIntegrationRequest(TypedDict):
+class DeleteIntegrationRequest(TypedDict, closed=True):
     integration_name: "aws_sdk_cloudwatch_logs.types.integration_name.IntegrationName"
     r"""<p>The name of the integration to delete. To find the name of your integration, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html\">ListIntegrations</a>.</p>"""
     force: "aws_sdk_cloudwatch_logs.types.force.Force"

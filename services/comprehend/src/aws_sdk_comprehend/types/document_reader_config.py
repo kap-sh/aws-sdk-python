@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DocumentReaderConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.list_of_document_read_feature_types
 
 
-class DocumentReaderConfig(TypedDict):
+class DocumentReaderConfig(TypedDict, closed=True):
     document_read_action: (
         "aws_sdk_comprehend.types.document_read_action.DocumentReadAction"
     )

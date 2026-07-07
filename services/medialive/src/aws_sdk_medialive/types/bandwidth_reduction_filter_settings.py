@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#BandwidthReductionFilterSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.bandwidth_reduction_filter_strength
     import aws_sdk_medialive.types.bandwidth_reduction_post_filter_sharpening
 
 
-class BandwidthReductionFilterSettings(TypedDict):
+class BandwidthReductionFilterSettings(TypedDict, closed=True):
     post_filter_sharpening: NotRequired[
         "aws_sdk_medialive.types.bandwidth_reduction_post_filter_sharpening.BandwidthReductionPostFilterSharpening"
     ]

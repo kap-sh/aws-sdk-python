@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
 
-class GuardrailConfiguration(TypedDict):
+class GuardrailConfiguration(TypedDict, closed=True):
     guardrail_id: "str"
     """<p>The unique identifier for the guardrail.</p>"""
     guardrail_version: "str"

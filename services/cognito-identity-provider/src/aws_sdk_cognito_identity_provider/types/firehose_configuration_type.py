@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#FirehoseConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.arn_type
 
 
-class FirehoseConfigurationType(TypedDict):
+class FirehoseConfigurationType(TypedDict, closed=True):
     stream_arn: NotRequired["aws_sdk_cognito_identity_provider.types.arn_type.ArnType"]
     """<p>The ARN of an Amazon Data Firehose stream that's the destination for threat protection log export.</p>"""
 

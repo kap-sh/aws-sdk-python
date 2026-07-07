@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#MachineLearningProductSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.machine_learning_product_title_string
     import aws_sdk_marketplace_catalog.types.machine_learning_product_visibility_string
 
 
-class MachineLearningProductSummary(TypedDict):
+class MachineLearningProductSummary(TypedDict, closed=True):
     product_title: NotRequired[
         "aws_sdk_marketplace_catalog.types.machine_learning_product_title_string.MachineLearningProductTitleString"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#VideoOverlayInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of_video_overlay_input_clipping
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.input_timecode_source
 
 
-class VideoOverlayInput(TypedDict):
+class VideoOverlayInput(TypedDict, closed=True):
     audio_selectors: NotRequired[
         "aws_sdk_mediaconvert.types.__map_of_audio_selector.__mapOfAudioSelector"
     ]

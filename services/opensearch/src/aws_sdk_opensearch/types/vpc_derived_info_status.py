@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#VPCDerivedInfoStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.vpc_derived_info
 
 
-class VPCDerivedInfoStatus(TypedDict):
+class VPCDerivedInfoStatus(TypedDict, closed=True):
     options: "aws_sdk_opensearch.types.vpc_derived_info.VPCDerivedInfo"
     """<p>The VPC options for the specified domain.</p>"""
     status: "aws_sdk_opensearch.types.option_status.OptionStatus"

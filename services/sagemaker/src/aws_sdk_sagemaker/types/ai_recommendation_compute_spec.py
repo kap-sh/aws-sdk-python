@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIRecommendationComputeSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_capacity_reservation_config
     import aws_sdk_sagemaker.types.ai_recommendation_instance_type_list
 
 
-class AIRecommendationComputeSpec(TypedDict):
+class AIRecommendationComputeSpec(TypedDict, closed=True):
     instance_types: NotRequired[
         "aws_sdk_sagemaker.types.ai_recommendation_instance_type_list.AIRecommendationInstanceTypeList"
     ]

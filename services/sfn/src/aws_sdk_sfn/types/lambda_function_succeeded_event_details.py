@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#LambdaFunctionSucceededEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.history_event_execution_data_details
     import aws_sdk_sfn.types.sensitive_data
 
 
-class LambdaFunctionSucceededEventDetails(TypedDict):
+class LambdaFunctionSucceededEventDetails(TypedDict, closed=True):
     output: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]
     """<p>The JSON data output by the Lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>"""
     output_details: NotRequired[

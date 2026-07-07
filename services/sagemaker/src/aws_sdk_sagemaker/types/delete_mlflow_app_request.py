@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteMlflowAppRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.mlflow_app_arn
 
 
-class DeleteMlflowAppRequest(TypedDict):
+class DeleteMlflowAppRequest(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.mlflow_app_arn.MlflowAppArn"]
     """<p>The ARN of the MLflow App to delete.</p>"""
 

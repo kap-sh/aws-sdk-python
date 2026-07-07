@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ListIngestConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.ingest_configuration_state
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.stage_arn
 
 
-class ListIngestConfigurationsRequest(TypedDict):
+class ListIngestConfigurationsRequest(TypedDict, closed=True):
     filter_by_stage_arn: NotRequired["aws_sdk_ivs_realtime.types.stage_arn.StageArn"]
     """<p>Filters the response list to match the specified stage ARN. Only one filter (by stage ARN or by state) can be used at a time.</p>"""
     filter_by_state: NotRequired[

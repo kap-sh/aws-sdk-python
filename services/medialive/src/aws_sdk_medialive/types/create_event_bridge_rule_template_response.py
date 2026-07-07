@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CreateEventBridgeRuleTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_event_bridge_rule_template_target
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.tag_map
 
 
-class CreateEventBridgeRuleTemplateResponse(TypedDict):
+class CreateEventBridgeRuleTemplateResponse(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_medialive.types.__string_pattern_arn_medialive_eventbridge_rule_template.__stringPatternArnMedialiveEventbridgeRuleTemplate"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#UpdateTelemetryPipelineInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.telemetry_pipeline_identifier
 
 
-class UpdateTelemetryPipelineInput(TypedDict):
+class UpdateTelemetryPipelineInput(TypedDict, closed=True):
     pipeline_identifier: "aws_sdk_observabilityadmin.types.telemetry_pipeline_identifier.TelemetryPipelineIdentifier"
     """<p>The ARN of the telemetry pipeline to update.</p>"""
     configuration: "aws_sdk_observabilityadmin.types.telemetry_pipeline_configuration.TelemetryPipelineConfiguration"

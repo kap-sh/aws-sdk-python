@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ConnectorItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.endpoint_type
 
 
-class ConnectorItem(TypedDict):
+class ConnectorItem(TypedDict, closed=True):
     name: "aws_sdk_iot_managed_integrations.types.display_name.DisplayName"
     """<p>The display name of the C2C connector.</p>"""
     endpoint_config: (

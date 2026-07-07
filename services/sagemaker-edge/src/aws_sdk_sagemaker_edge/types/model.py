@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakeredge#Model``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.edge_metrics
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.version
 
 
-class Model(TypedDict):
+class Model(TypedDict, closed=True):
     model_name: NotRequired["aws_sdk_sagemaker_edge.types.model_name.ModelName"]
     """<p>The name of the model.</p>"""
     model_version: NotRequired["aws_sdk_sagemaker_edge.types.version.Version"]

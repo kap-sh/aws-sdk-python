@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateDomainConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.application_protocol
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.tls_config
 
 
-class UpdateDomainConfigurationRequest(TypedDict):
+class UpdateDomainConfigurationRequest(TypedDict, closed=True):
     domain_configuration_name: "aws_sdk_iot.types.reserved_domain_configuration_name.ReservedDomainConfigurationName"
     """<p>The name of the domain configuration to be updated.</p>"""
     authorizer_config: NotRequired[

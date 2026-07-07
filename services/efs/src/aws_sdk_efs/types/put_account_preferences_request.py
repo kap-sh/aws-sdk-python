@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#PutAccountPreferencesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.resource_id_type
 
 
-class PutAccountPreferencesRequest(TypedDict):
+class PutAccountPreferencesRequest(TypedDict, closed=True):
     resource_id_type: "aws_sdk_efs.types.resource_id_type.ResourceIdType"
     """<p>Specifies the EFS resource ID preference to set for the user's Amazon Web Services account, in the current Amazon Web Services Region, either <code>LONG_ID</code> (17 characters), or <code>SHORT_ID</code> (8 characters).</p> <note> <p>Starting in October, 2021, you will receive an error when setting the account preference to <code>SHORT_ID</code>. Contact Amazon Web Services support if you receive an error and must use short IDs for file system and mount target resources.</p> </note>"""
 

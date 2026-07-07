@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UpdateAggregatorV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.string_list
 
 
-class UpdateAggregatorV2Request(TypedDict):
+class UpdateAggregatorV2Request(TypedDict, closed=True):
     aggregator_v2_arn: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     """<p>The ARN of the Aggregator V2.</p>"""
     region_linking_mode: NotRequired[

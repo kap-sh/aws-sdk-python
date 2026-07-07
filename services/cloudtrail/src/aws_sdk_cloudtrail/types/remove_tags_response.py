@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#RemoveTagsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveTagsResponse(TypedDict):
+class RemoveTagsResponse(TypedDict, closed=True):
     pass
 
 

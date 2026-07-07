@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#RotationsListEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.backing_key_id_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.rotation_type
 
 
-class RotationsListEntry(TypedDict):
+class RotationsListEntry(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
     """<p>Unique identifier of the key.</p>"""
     key_material_id: NotRequired[

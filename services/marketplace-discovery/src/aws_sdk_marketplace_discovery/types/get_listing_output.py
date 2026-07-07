@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#GetListingOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.use_case_list
 
 
-class GetListingOutput(TypedDict):
+class GetListingOutput(TypedDict, closed=True):
     associated_entities: "aws_sdk_marketplace_discovery.types.listing_associated_entity_list.ListingAssociatedEntityList"
     """<p>The products and offers associated with this listing. Each entity contains product and offer information.</p>"""
     badges: "aws_sdk_marketplace_discovery.types.listing_badge_list.ListingBadgeList"

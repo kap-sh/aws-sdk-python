@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#Service``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.availability_zone_rebalancing
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class Service(TypedDict):
+class Service(TypedDict, closed=True):
     service_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     r"""<p>The ARN that identifies the service. For more information about the ARN format, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids\">Amazon Resource Name (ARN)</a> in the <i>Amazon ECS Developer Guide</i>.</p>"""
     service_name: NotRequired["aws_sdk_ecs.types.string.String"]

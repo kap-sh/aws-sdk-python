@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#RetryPolicyExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_emr_containers.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.java_integer
 
 
-class RetryPolicyExecution(TypedDict):
+class RetryPolicyExecution(TypedDict, closed=True):
     current_attempt_count: "aws_sdk_emr_containers.types.java_integer.JavaInteger"
     """<p>The current number of attempts made on the driver of the job.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#LogDestinationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.log_type
 
 
-class LogDestinationConfig(TypedDict):
+class LogDestinationConfig(TypedDict, closed=True):
     log_type: "aws_sdk_network_firewall.types.log_type.LogType"
     r"""<p>The type of log to record. You can record the following types of logs from your Network Firewall stateful engine.</p> <ul> <li> <p> <code>ALERT</code> - Logs for traffic that matches your stateful rules and that have an action that sends an alert. A stateful rule sends alerts for the rule actions DROP, ALERT, and REJECT. For more information, see <a>StatefulRule</a>.</p> </li> <li> <p> <code>FLOW</code> - Standard network traffic flow logs. The stateful rules engine records flow logs for all network traffic that it receives. Each flow log record captures the network flow for a specific standard stateless rule group.</p> </li> <li> <p> <code>TLS</code> - Logs for events that are related to TLS inspection. For more information, see <a href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-configurations.html\">Inspecting SSL/TLS traffic with TLS inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.</p> </li> </ul>"""
     log_destination_type: (

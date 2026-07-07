@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#GetDiscoverySummaryRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetDiscoverySummaryRequest(TypedDict):
+class GetDiscoverySummaryRequest(TypedDict, closed=True):
     pass
 
 

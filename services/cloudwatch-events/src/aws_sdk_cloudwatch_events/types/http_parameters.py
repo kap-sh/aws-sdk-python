@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#HttpParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.header_parameters_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.query_string_parameters_map
 
 
-class HttpParameters(TypedDict):
+class HttpParameters(TypedDict, closed=True):
     path_parameter_values: NotRequired[
         "aws_sdk_cloudwatch_events.types.path_parameter_list.PathParameterList"
     ]

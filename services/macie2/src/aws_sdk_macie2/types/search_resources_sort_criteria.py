@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#SearchResourcesSortCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.order_by
     import aws_sdk_macie2.types.search_resources_sort_attribute_name
 
 
-class SearchResourcesSortCriteria(TypedDict):
+class SearchResourcesSortCriteria(TypedDict, closed=True):
     attribute_name: NotRequired[
         "aws_sdk_macie2.types.search_resources_sort_attribute_name.SearchResourcesSortAttributeName"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ListBuildsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.build_list
     import aws_sdk_gamelift.types.non_empty_string
 
 
-class ListBuildsOutput(TypedDict):
+class ListBuildsOutput(TypedDict, closed=True):
     builds: NotRequired["aws_sdk_gamelift.types.build_list.BuildList"]
     """<p>A collection of build resources that match the request.</p>"""
     next_token: NotRequired["aws_sdk_gamelift.types.non_empty_string.NonEmptyString"]

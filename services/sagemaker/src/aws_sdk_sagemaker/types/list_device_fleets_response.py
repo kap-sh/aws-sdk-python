@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListDeviceFleetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.device_fleet_summaries
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListDeviceFleetsResponse(TypedDict):
+class ListDeviceFleetsResponse(TypedDict, closed=True):
     device_fleet_summaries: NotRequired[
         "aws_sdk_sagemaker.types.device_fleet_summaries.DeviceFleetSummaries"
     ]

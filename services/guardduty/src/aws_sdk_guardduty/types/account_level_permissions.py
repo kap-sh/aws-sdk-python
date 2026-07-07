@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#AccountLevelPermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.block_public_access
 
 
-class AccountLevelPermissions(TypedDict):
+class AccountLevelPermissions(TypedDict, closed=True):
     block_public_access: NotRequired[
         "aws_sdk_guardduty.types.block_public_access.BlockPublicAccess"
     ]

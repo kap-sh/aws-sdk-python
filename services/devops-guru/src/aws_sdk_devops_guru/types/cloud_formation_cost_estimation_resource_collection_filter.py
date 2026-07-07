@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#CloudFormationCostEstimationResourceCollectionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.cost_estimation_stack_names
 
 
-class CloudFormationCostEstimationResourceCollectionFilter(TypedDict):
+class CloudFormationCostEstimationResourceCollectionFilter(TypedDict, closed=True):
     stack_names: NotRequired[
         "aws_sdk_devops_guru.types.cost_estimation_stack_names.CostEstimationStackNames"
     ]

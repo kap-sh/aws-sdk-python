@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#OperationFailureDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.error_info
     import aws_sdk_kinesis_analytics_v2.types.operation_id
 
 
-class OperationFailureDetails(TypedDict):
+class OperationFailureDetails(TypedDict, closed=True):
     rollback_operation_id: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.operation_id.OperationId"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.signin#DeleteConsoleAuthorizationConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signin.types.target_id
 
 
-class DeleteConsoleAuthorizationConfigurationInput(TypedDict):
+class DeleteConsoleAuthorizationConfigurationInput(TypedDict, closed=True):
     target_id: NotRequired["aws_sdk_signin.types.target_id.TargetId"]
     """Target account identifier"""
 

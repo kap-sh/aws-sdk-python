@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.tag_map
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_security_ir.types.arn.Arn"
     """<p>Required element for TagResource to identify the ARN for the resource to add a tag to.</p>"""
     tags: "aws_sdk_security_ir.types.tag_map.TagMap"

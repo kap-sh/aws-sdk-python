@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#GetIdentityCenterAuthTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class GetIdentityCenterAuthTokenResponse(TypedDict):
+class GetIdentityCenterAuthTokenResponse(TypedDict, closed=True):
     token: NotRequired["str"]
     """<p>The Identity Center authentication token that can be used to access data in the specified workgroups.</p> <p>This token contains the Identity Center identity information and is encrypted for secure transmission.</p>"""
     expiration_time: NotRequired["datetime.datetime"]

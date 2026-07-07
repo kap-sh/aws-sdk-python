@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ExecuteStatementOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.consumed_capacity
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.parti_ql_next_token
 
 
-class ExecuteStatementOutput(TypedDict):
+class ExecuteStatementOutput(TypedDict, closed=True):
     items: NotRequired["aws_sdk_dynamodb.types.item_list.ItemList"]
     """<p>If a read operation was used, this property will contain the result of the read operation; a map of attribute names and their values. For the write operations this value will be empty.</p>"""
     next_token: NotRequired[

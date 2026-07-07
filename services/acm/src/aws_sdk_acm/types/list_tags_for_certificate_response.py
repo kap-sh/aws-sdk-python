@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.acm#ListTagsForCertificateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.tag_list
 
 
-class ListTagsForCertificateResponse(TypedDict):
+class ListTagsForCertificateResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_acm.types.tag_list.TagList"]
     """<p>The key-value pairs that define the applied tags.</p>"""
 

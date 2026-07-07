@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#DescribeScalingActivitiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.scaling_activities
     import aws_sdk_application_auto_scaling.types.xml_string
 
 
-class DescribeScalingActivitiesResponse(TypedDict):
+class DescribeScalingActivitiesResponse(TypedDict, closed=True):
     scaling_activities: NotRequired[
         "aws_sdk_application_auto_scaling.types.scaling_activities.ScalingActivities"
     ]

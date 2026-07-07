@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pi#DimensionKeyDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.detail_status
     import aws_sdk_pi.types.string
 
 
-class DimensionKeyDetail(TypedDict):
+class DimensionKeyDetail(TypedDict, closed=True):
     value: NotRequired["aws_sdk_pi.types.string.String"]
     """<p>The value of the dimension detail data. Depending on the return status, this value is either the full or truncated SQL query for the following dimensions:</p> <ul> <li> <p> <code>db.query.statement</code> (Amazon DocumentDB)</p> </li> <li> <p> <code>db.sql.statement</code> (Amazon RDS and Aurora)</p> </li> </ul>"""
     dimension: NotRequired["aws_sdk_pi.types.string.String"]

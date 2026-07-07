@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#SubscribedRuleGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_name
 
 
-class SubscribedRuleGroupSummary(TypedDict):
+class SubscribedRuleGroupSummary(TypedDict, closed=True):
     rule_group_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>A unique identifier for a <code>RuleGroup</code>.</p>"""
     name: "aws_sdk_waf.types.resource_name.ResourceName"

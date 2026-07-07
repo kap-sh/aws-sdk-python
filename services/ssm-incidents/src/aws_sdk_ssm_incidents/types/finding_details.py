@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#FindingDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.code_deploy_deployment
 
 
-class _FindingDetails_codeDeployDeployment(TypedDict):
+class _FindingDetails_codeDeployDeployment(TypedDict, closed=True):
     codeDeployDeployment: (
         "aws_sdk_ssm_incidents.types.code_deploy_deployment.CodeDeployDeployment"
     )
 
 
-class _FindingDetails_cloudFormationStackUpdate(TypedDict):
+class _FindingDetails_cloudFormationStackUpdate(TypedDict, closed=True):
     cloudFormationStackUpdate: "aws_sdk_ssm_incidents.types.cloud_formation_stack_update.CloudFormationStackUpdate"
 
 

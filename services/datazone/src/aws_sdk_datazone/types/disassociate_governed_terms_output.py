@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DisassociateGovernedTermsOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateGovernedTermsOutput(TypedDict):
+class DisassociateGovernedTermsOutput(TypedDict, closed=True):
     pass
 
 

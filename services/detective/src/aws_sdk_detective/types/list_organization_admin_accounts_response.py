@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#ListOrganizationAdminAccountsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.administrator_list
     import aws_sdk_detective.types.pagination_token
 
 
-class ListOrganizationAdminAccountsResponse(TypedDict):
+class ListOrganizationAdminAccountsResponse(TypedDict, closed=True):
     administrators: NotRequired[
         "aws_sdk_detective.types.administrator_list.AdministratorList"
     ]

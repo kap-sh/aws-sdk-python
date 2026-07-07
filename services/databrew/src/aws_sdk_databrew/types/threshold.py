@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#Threshold``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.threshold_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.threshold_value
 
 
-class Threshold(TypedDict):
+class Threshold(TypedDict, closed=True):
     value: "aws_sdk_databrew.types.threshold_value.ThresholdValue"
     """<p>The value of a threshold.</p>"""
     type: NotRequired["aws_sdk_databrew.types.threshold_type.ThresholdType"]

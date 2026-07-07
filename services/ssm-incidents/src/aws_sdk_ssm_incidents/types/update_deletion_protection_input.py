@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#UpdateDeletionProtectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.client_token
 
 
-class UpdateDeletionProtectionInput(TypedDict):
+class UpdateDeletionProtectionInput(TypedDict, closed=True):
     arn: "aws_sdk_ssm_incidents.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the replication set to update.</p>"""
     deletion_protected: "bool"

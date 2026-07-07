@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsSsmPatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ssm_compliance_summary
 
 
-class AwsSsmPatch(TypedDict):
+class AwsSsmPatch(TypedDict, closed=True):
     compliance_summary: NotRequired[
         "aws_sdk_securityhub.types.aws_ssm_compliance_summary.AwsSsmComplianceSummary"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#AllRowsWildcard``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AllRowsWildcard(TypedDict):
+class AllRowsWildcard(TypedDict, closed=True):
     pass
 
 

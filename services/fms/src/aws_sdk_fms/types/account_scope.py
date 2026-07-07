@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#AccountScope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.account_id_list
     import aws_sdk_fms.types.boolean
 
 
-class AccountScope(TypedDict):
+class AccountScope(TypedDict, closed=True):
     accounts: NotRequired["aws_sdk_fms.types.account_id_list.AccountIdList"]
     """<p>The list of accounts within the organization that the specified Firewall Manager administrator either can or cannot apply policies to, based on the value of <code>ExcludeSpecifiedAccounts</code>. If <code>ExcludeSpecifiedAccounts</code> is set to <code>true</code>, then the Firewall Manager administrator can apply policies to all members of the organization except for the accounts in this list. If <code>ExcludeSpecifiedAccounts</code> is set to <code>false</code>, then the Firewall Manager administrator can only apply policies to the accounts in this list.</p>"""
     all_accounts_enabled: "aws_sdk_fms.types.boolean.Boolean"

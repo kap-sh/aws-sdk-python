@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#AdditionalInstanceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.systems_manager_agent
     import aws_sdk_imagebuilder.types.user_data_override
 
 
-class AdditionalInstanceConfiguration(TypedDict):
+class AdditionalInstanceConfiguration(TypedDict, closed=True):
     systems_manager_agent: NotRequired[
         "aws_sdk_imagebuilder.types.systems_manager_agent.SystemsManagerAgent"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#EcsEphemeralStorage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.ephemeral_storage_size
 
 
-class EcsEphemeralStorage(TypedDict):
+class EcsEphemeralStorage(TypedDict, closed=True):
     size_in_gi_b: "aws_sdk_pipes.types.ephemeral_storage_size.EphemeralStorageSize"
     """<p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</p>"""
 

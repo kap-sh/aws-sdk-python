@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ListClustersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
     import aws_sdk_ecs.types.string_list
 
 
-class ListClustersResponse(TypedDict):
+class ListClustersResponse(TypedDict, closed=True):
     cluster_arns: NotRequired["aws_sdk_ecs.types.string_list.StringList"]
     """<p>The list of full Amazon Resource Name (ARN) entries for each cluster that's associated with your account.</p>"""
     next_token: NotRequired["aws_sdk_ecs.types.string.String"]

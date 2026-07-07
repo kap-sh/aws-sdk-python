@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ParentDataSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.input_column_list
 
 
-class ParentDataSet(TypedDict):
+class ParentDataSet(TypedDict, closed=True):
     data_set_arn: "aws_sdk_quicksight.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the parent dataset.</p>"""
     input_columns: "aws_sdk_quicksight.types.input_column_list.InputColumnList"

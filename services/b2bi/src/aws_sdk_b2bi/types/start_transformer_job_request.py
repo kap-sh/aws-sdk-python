@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#StartTransformerJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.transformer_id
 
 
-class StartTransformerJobRequest(TypedDict):
+class StartTransformerJobRequest(TypedDict, closed=True):
     input_file: "aws_sdk_b2bi.types.s3_location.S3Location"
     """<p>Specifies the location of the input file for the transformation. The location consists of an Amazon S3 bucket and prefix.</p>"""
     output_location: "aws_sdk_b2bi.types.s3_location.S3Location"

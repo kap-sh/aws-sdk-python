@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#CreateSubscriptionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.domain_id
 
 
-class CreateSubscriptionInput(TypedDict):
+class CreateSubscriptionInput(TypedDict, closed=True):
     domain_id: "aws_sdk_connecthealth.types.domain_id.DomainId"
     """<p>The unique identifier of the parent Domain.</p>"""
 

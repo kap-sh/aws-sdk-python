@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ServiceJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.latest_service_job_attempt
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class ServiceJobSummary(TypedDict):
+class ServiceJobSummary(TypedDict, closed=True):
     latest_attempt: NotRequired[
         "aws_sdk_batch.types.latest_service_job_attempt.LatestServiceJobAttempt"
     ]

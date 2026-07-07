@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CreateIngestionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class CreateIngestionRequest(TypedDict):
+class CreateIngestionRequest(TypedDict, closed=True):
     data_set_id: "aws_sdk_quicksight.types.string.String"
     """<p>The ID of the dataset used in the ingestion.</p>"""
     ingestion_id: "aws_sdk_quicksight.types.ingestion_id.IngestionId"

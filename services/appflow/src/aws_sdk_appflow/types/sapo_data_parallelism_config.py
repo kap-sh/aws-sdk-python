@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SAPODataParallelismConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.sapo_data_max_parallelism
 
 
-class SAPODataParallelismConfig(TypedDict):
+class SAPODataParallelismConfig(TypedDict, closed=True):
     max_parallelism: (
         "aws_sdk_appflow.types.sapo_data_max_parallelism.SAPODataMaxParallelism"
     )

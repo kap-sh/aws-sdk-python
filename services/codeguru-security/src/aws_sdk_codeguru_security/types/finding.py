@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#Finding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.vulnerability
 
 
-class Finding(TypedDict):
+class Finding(TypedDict, closed=True):
     created_at: NotRequired["datetime.datetime"]
     """<p>The time when the finding was created.</p>"""
     description: NotRequired["str"]

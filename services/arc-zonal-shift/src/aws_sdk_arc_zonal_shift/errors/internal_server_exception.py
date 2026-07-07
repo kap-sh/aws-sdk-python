@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#InternalServerException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_zonal_shift.errors import ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

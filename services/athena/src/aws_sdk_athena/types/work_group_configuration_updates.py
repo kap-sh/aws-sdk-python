@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#WorkGroupConfigurationUpdates``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.boxed_boolean
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.role_arn
 
 
-class WorkGroupConfigurationUpdates(TypedDict):
+class WorkGroupConfigurationUpdates(TypedDict, closed=True):
     enforce_work_group_configuration: NotRequired[
         "aws_sdk_athena.types.boxed_boolean.BoxedBoolean"
     ]

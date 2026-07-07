@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#RelativeTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.percentage
 
 
-class RelativeTimeRange(TypedDict):
+class RelativeTimeRange(TypedDict, closed=True):
     start_percentage: NotRequired["aws_sdk_transcribe.types.percentage.Percentage"]
     """<p>The time, in percentage, when Amazon Transcribe starts searching for the specified criteria in your media file. If you include <code>StartPercentage</code> in your request, you must also include <code>EndPercentage</code>.</p>"""
     end_percentage: NotRequired["aws_sdk_transcribe.types.percentage.Percentage"]

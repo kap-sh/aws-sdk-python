@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotjobsdataplane#IotLaserThingJobManagerExternalService``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_iot_jobs_data_plane._auth._signers
@@ -54,7 +54,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_jobs_data_plane.types.update_job_execution_response
 
 
-class AsyncIoTJobsDataPlaneClientConfig(TypedDict, total=False):
+class AsyncIoTJobsDataPlaneClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

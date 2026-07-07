@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#ImportApiRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__boolean
     import aws_sdk_apigatewayv2.types.__string
 
 
-class ImportApiRequest(TypedDict):
+class ImportApiRequest(TypedDict, closed=True):
     basepath: NotRequired["aws_sdk_apigatewayv2.types.__string.__string"]
     r"""<p>Specifies how to interpret the base path of the API during import. Valid values are ignore, prepend, and split. The default value is ignore. To learn more, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html\">Set the OpenAPI basePath Property</a>. Supported only for HTTP APIs.</p>"""
     body: NotRequired["aws_sdk_apigatewayv2.types.__string.__string"]

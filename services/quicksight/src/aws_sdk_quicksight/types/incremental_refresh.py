@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#IncrementalRefresh``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.lookback_window
 
 
-class IncrementalRefresh(TypedDict):
+class IncrementalRefresh(TypedDict, closed=True):
     lookback_window: "aws_sdk_quicksight.types.lookback_window.LookbackWindow"
     """<p>The lookback window setup for an incremental refresh configuration.</p>"""
 

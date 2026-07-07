@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#DescribeSecurityConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string
 
 
-class DescribeSecurityConfigurationOutput(TypedDict):
+class DescribeSecurityConfigurationOutput(TypedDict, closed=True):
     name: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]
     """<p>The name of the security configuration.</p>"""
     security_configuration: NotRequired["aws_sdk_emr.types.string.String"]

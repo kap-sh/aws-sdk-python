@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.braket#SearchSpendingLimitsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_braket.types.search_spending_limits_filter_list
 
 
-class SearchSpendingLimitsRequest(TypedDict):
+class SearchSpendingLimitsRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The token to retrieve the next page of results. This value is returned from a previous call to SearchSpendingLimits when there are more results available.</p>"""
     max_results: NotRequired["int"]

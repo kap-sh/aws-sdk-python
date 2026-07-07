@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#Consent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53_domains.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.price
 
 
-class Consent(TypedDict):
+class Consent(TypedDict, closed=True):
     max_price: "aws_sdk_route_53_domains.types.price.Price"
     """<p> Maximum amount the customer agreed to accept. </p>"""
     currency: "aws_sdk_route_53_domains.types.currency.Currency"

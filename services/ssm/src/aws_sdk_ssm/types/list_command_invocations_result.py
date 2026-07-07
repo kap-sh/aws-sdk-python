@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListCommandInvocationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.command_invocation_list
     import aws_sdk_ssm.types.next_token
 
 
-class ListCommandInvocationsResult(TypedDict):
+class ListCommandInvocationsResult(TypedDict, closed=True):
     command_invocations: NotRequired[
         "aws_sdk_ssm.types.command_invocation_list.CommandInvocationList"
     ]

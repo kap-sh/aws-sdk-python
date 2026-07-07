@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DeleteEvaluationResultsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string_with_char_limit64
 
 
-class DeleteEvaluationResultsRequest(TypedDict):
+class DeleteEvaluationResultsRequest(TypedDict, closed=True):
     config_rule_name: (
         "aws_sdk_config_service.types.string_with_char_limit64.StringWithCharLimit64"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ListDelegatedServicesForAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.next_token
 
 
-class ListDelegatedServicesForAccountRequest(TypedDict):
+class ListDelegatedServicesForAccountRequest(TypedDict, closed=True):
     account_id: "aws_sdk_organizations.types.account_id.AccountId"
     """<p>The account ID number of a delegated administrator account in the organization.</p>"""
     next_token: NotRequired["aws_sdk_organizations.types.next_token.NextToken"]

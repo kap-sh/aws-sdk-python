@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#UpdateRevisionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.id
 
 
-class UpdateRevisionRequest(TypedDict):
+class UpdateRevisionRequest(TypedDict, closed=True):
     comment: NotRequired[
         "aws_sdk_dataexchange.types.__string_min0_max16384.__stringMin0Max16384"
     ]

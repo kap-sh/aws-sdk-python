@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#ActionInvocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.uri
 
 
-class ActionInvocation(TypedDict):
+class ActionInvocation(TypedDict, closed=True):
     extension_identifier: NotRequired["aws_sdk_appconfig.types.identifier.Identifier"]
     """<p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>"""
     action_name: NotRequired["aws_sdk_appconfig.types.name.Name"]

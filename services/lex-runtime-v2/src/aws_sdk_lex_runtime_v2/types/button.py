@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#Button``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.button_value
 
 
-class Button(TypedDict):
+class Button(TypedDict, closed=True):
     text: "aws_sdk_lex_runtime_v2.types.button_text.ButtonText"
     """<p>The text that is displayed on the button.</p>"""
     value: "aws_sdk_lex_runtime_v2.types.button_value.ButtonValue"

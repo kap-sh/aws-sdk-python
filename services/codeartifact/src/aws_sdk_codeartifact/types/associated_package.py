@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#AssociatedPackage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_format
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_namespace
 
 
-class AssociatedPackage(TypedDict):
+class AssociatedPackage(TypedDict, closed=True):
     format: NotRequired["aws_sdk_codeartifact.types.package_format.PackageFormat"]
     """<p>A format that specifies the type of the associated package.</p>"""
     namespace: NotRequired[

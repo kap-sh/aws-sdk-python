@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RowLevelPermissionTagConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status
 
 
-class RowLevelPermissionTagConfiguration(TypedDict):
+class RowLevelPermissionTagConfiguration(TypedDict, closed=True):
     status: NotRequired["aws_sdk_quicksight.types.status.Status"]
     """<p>The status of row-level security tags. If enabled, the status is <code>ENABLED</code>. If disabled, the status is <code>DISABLED</code>.</p>"""
     tag_rules: "aws_sdk_quicksight.types.row_level_permission_tag_rule_list.RowLevelPermissionTagRuleList"

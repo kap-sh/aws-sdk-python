@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#DeleteUsageLimitRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
 
-class DeleteUsageLimitRequest(TypedDict):
+class DeleteUsageLimitRequest(TypedDict, closed=True):
     usage_limit_id: "str"
     """<p>The unique identifier of the usage limit to delete.</p>"""
 

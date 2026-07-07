@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#InputDecryptionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_min9_max19_pattern_az26_east_west_central_north_south_east_west1912
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.decryption_mode
 
 
-class InputDecryptionSettings(TypedDict):
+class InputDecryptionSettings(TypedDict, closed=True):
     decryption_mode: NotRequired[
         "aws_sdk_mediaconvert.types.decryption_mode.DecryptionMode"
     ]

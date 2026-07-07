@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#CreateDelegationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.control_set_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.role_type
 
 
-class CreateDelegationRequest(TypedDict):
+class CreateDelegationRequest(TypedDict, closed=True):
     comment: NotRequired[
         "aws_sdk_auditmanager.types.delegation_comment.DelegationComment"
     ]

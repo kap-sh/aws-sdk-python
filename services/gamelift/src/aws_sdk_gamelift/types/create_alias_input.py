@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#CreateAliasInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_blank_and_length_constraint_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.tag_list
 
 
-class CreateAliasInput(TypedDict):
+class CreateAliasInput(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_gamelift.types.non_blank_and_length_constraint_string.NonBlankAndLengthConstraintString"
     ]

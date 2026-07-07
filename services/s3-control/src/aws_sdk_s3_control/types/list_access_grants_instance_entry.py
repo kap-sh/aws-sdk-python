@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#ListAccessGrantsInstanceEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.identity_center_arn
 
 
-class ListAccessGrantsInstanceEntry(TypedDict):
+class ListAccessGrantsInstanceEntry(TypedDict, closed=True):
     access_grants_instance_id: NotRequired[
         "aws_sdk_s3_control.types.access_grants_instance_id.AccessGrantsInstanceId"
     ]

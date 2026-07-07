@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListOauth2CredentialProvidersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.oauth2_credential_providers
 
 
-class ListOauth2CredentialProvidersResponse(TypedDict):
+class ListOauth2CredentialProvidersResponse(TypedDict, closed=True):
     credential_providers: "aws_sdk_bedrock_agentcore_control.types.oauth2_credential_providers.Oauth2CredentialProviders"
     """<p>The list of OAuth2 credential providers.</p>"""
     next_token: NotRequired["str"]

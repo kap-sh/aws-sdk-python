@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#KinesisVideoStreamSourceTaskConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.kinesis_video_stream_arn
 
 
-class KinesisVideoStreamSourceTaskConfiguration(TypedDict):
+class KinesisVideoStreamSourceTaskConfiguration(TypedDict, closed=True):
     stream_arn: "aws_sdk_chime_sdk_media_pipelines.types.kinesis_video_stream_arn.KinesisVideoStreamArn"
     """<p>The ARN of the stream.</p>"""
     channel_id: "aws_sdk_chime_sdk_media_pipelines.types.channel_id.ChannelId"

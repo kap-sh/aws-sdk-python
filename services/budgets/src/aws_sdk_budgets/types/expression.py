@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#Expression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_budgets.types.cost_category_values
@@ -25,6 +25,7 @@ Expression = TypedDict(
             "aws_sdk_budgets.types.cost_category_values.CostCategoryValues"
         ],
     },
+    closed=True,
 )
 
 

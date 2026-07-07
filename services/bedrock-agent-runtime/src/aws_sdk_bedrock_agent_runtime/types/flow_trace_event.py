@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowTraceEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.flow_trace
 
 
-class FlowTraceEvent(TypedDict):
+class FlowTraceEvent(TypedDict, closed=True):
     trace: "aws_sdk_bedrock_agent_runtime.types.flow_trace.FlowTrace"
     """<p>The trace object containing information about an input or output for a node in the flow.</p>"""
 

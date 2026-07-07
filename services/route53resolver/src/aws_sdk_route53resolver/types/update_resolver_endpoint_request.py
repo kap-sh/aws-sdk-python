@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#UpdateResolverEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.update_ip_addresses
 
 
-class UpdateResolverEndpointRequest(TypedDict):
+class UpdateResolverEndpointRequest(TypedDict, closed=True):
     resolver_endpoint_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p>The ID of the Resolver endpoint that you want to update.</p>"""
     name: NotRequired["aws_sdk_route53resolver.types.name.Name"]

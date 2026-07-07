@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationcostprofiler#GetReportDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_applicationcostprofiler.types.report_id
 
 
-class GetReportDefinitionRequest(TypedDict):
+class GetReportDefinitionRequest(TypedDict, closed=True):
     report_id: "aws_sdk_applicationcostprofiler.types.report_id.ReportId"
     """<p>ID of the report to retrieve.</p>"""
 

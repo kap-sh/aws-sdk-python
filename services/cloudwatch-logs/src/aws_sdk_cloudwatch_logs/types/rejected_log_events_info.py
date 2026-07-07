@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#RejectedLogEventsInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.log_event_index
 
 
-class RejectedLogEventsInfo(TypedDict):
+class RejectedLogEventsInfo(TypedDict, closed=True):
     too_new_log_event_start_index: NotRequired[
         "aws_sdk_cloudwatch_logs.types.log_event_index.LogEventIndex"
     ]

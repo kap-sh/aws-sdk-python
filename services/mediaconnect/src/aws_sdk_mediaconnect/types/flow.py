@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#Flow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_entitlement
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.status
 
 
-class Flow(TypedDict):
+class Flow(TypedDict, closed=True):
     availability_zone: NotRequired["str"]
     """<p> The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current Amazon Web Services Region.</p>"""
     description: NotRequired["str"]

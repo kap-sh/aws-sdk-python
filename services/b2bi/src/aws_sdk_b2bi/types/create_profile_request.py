@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#CreateProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.tag_list
 
 
-class CreateProfileRequest(TypedDict):
+class CreateProfileRequest(TypedDict, closed=True):
     name: "aws_sdk_b2bi.types.profile_name.ProfileName"
     """<p>Specifies the name of the profile.</p>"""
     email: NotRequired["aws_sdk_b2bi.types.email.Email"]

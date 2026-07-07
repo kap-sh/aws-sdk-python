@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#GetDatabaseOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.database
     import aws_sdk_ssm_sap.types.tag_map
 
 
-class GetDatabaseOutput(TypedDict):
+class GetDatabaseOutput(TypedDict, closed=True):
     database: NotRequired["aws_sdk_ssm_sap.types.database.Database"]
     """<p>The SAP HANA database of an application registered with AWS Systems Manager for SAP.</p>"""
     tags: NotRequired["aws_sdk_ssm_sap.types.tag_map.TagMap"]

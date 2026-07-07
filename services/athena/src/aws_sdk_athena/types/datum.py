@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#Datum``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.datum_string
 
 
-class Datum(TypedDict):
+class Datum(TypedDict, closed=True):
     var_char_value: NotRequired["aws_sdk_athena.types.datum_string.datumString"]
     """<p>The value of the datum.</p>"""
 

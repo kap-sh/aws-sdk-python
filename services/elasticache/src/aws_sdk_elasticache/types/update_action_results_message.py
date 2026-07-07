@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#UpdateActionResultsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.unprocessed_update_action_list
 
 
-class UpdateActionResultsMessage(TypedDict):
+class UpdateActionResultsMessage(TypedDict, closed=True):
     processed_update_actions: NotRequired[
         "aws_sdk_elasticache.types.processed_update_action_list.ProcessedUpdateActionList"
     ]

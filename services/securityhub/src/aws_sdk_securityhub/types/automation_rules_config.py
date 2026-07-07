@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AutomationRulesConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.action_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.timestamp
 
 
-class AutomationRulesConfig(TypedDict):
+class AutomationRulesConfig(TypedDict, closed=True):
     rule_arn: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The Amazon Resource Name (ARN) of a rule. </p>"""
     rule_status: NotRequired["aws_sdk_securityhub.types.rule_status.RuleStatus"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleExportJobResourceIdOverrideConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class AssetBundleExportJobResourceIdOverrideConfiguration(TypedDict):
+class AssetBundleExportJobResourceIdOverrideConfiguration(TypedDict, closed=True):
     prefix_for_all_resources: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>An option to request a CloudFormation variable for a prefix to be prepended to each resource's ID before import. The prefix is only added to the asset IDs and does not change the name of the asset.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#RevokeRestoreAccessBackupVaultInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.requester_comment
 
 
-class RevokeRestoreAccessBackupVaultInput(TypedDict):
+class RevokeRestoreAccessBackupVaultInput(TypedDict, closed=True):
     backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
     """<p>The name of the source backup vault associated with the restore access backup vault to be revoked.</p>"""
     restore_access_backup_vault_arn: "aws_sdk_backup.types.arn.ARN"

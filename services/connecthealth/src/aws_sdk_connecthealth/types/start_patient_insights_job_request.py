@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#StartPatientInsightsJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connecthealth.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.user_context
 
 
-class StartPatientInsightsJobRequest(TypedDict):
+class StartPatientInsightsJobRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_connecthealth.types.domain_id.DomainId"
     """<p/>"""
     patient_context: "aws_sdk_connecthealth.types.patient_insights_patient_context.PatientInsightsPatientContext"

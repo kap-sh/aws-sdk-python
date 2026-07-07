@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#MedicalScribeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.uri
 
 
-class MedicalScribeOutput(TypedDict):
+class MedicalScribeOutput(TypedDict, closed=True):
     transcript_file_uri: "aws_sdk_transcribe.types.uri.Uri"
     """<p>Holds the Amazon S3 URI for the Transcript.</p>"""
     clinical_document_uri: "aws_sdk_transcribe.types.uri.Uri"

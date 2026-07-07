@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#ProvisionedCapacityDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__integer
 
 
-class ProvisionedCapacityDescription(TypedDict):
+class ProvisionedCapacityDescription(TypedDict, closed=True):
     mcu_count: "aws_sdk_kafkaconnect.types.__integer.__integer"
     """<p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>"""
     worker_count: "aws_sdk_kafkaconnect.types.__integer.__integer"

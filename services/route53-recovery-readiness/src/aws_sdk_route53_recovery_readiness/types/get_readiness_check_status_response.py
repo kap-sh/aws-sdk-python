@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#GetReadinessCheckStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__list_of_message
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.readiness
 
 
-class GetReadinessCheckStatusResponse(TypedDict):
+class GetReadinessCheckStatusResponse(TypedDict, closed=True):
     messages: NotRequired[
         "aws_sdk_route53_recovery_readiness.types.__list_of_message.__listOfMessage"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#IngressStringExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.string_list
 
 
-class IngressStringExpression(TypedDict):
+class IngressStringExpression(TypedDict, closed=True):
     evaluate: (
         "aws_sdk_mailmanager.types.ingress_string_to_evaluate.IngressStringToEvaluate"
     )

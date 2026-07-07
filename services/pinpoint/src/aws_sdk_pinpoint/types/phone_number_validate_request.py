@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#PhoneNumberValidateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.number_validate_request
 
 
-class PhoneNumberValidateRequest(TypedDict):
+class PhoneNumberValidateRequest(TypedDict, closed=True):
     number_validate_request: NotRequired[
         "aws_sdk_pinpoint.types.number_validate_request.NumberValidateRequest"
     ]

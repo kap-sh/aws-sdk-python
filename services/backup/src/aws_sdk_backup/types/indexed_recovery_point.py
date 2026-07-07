@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#IndexedRecoveryPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class IndexedRecoveryPoint(TypedDict):
+class IndexedRecoveryPoint(TypedDict, closed=True):
     recovery_point_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
     """<p>An ARN that uniquely identifies a recovery point; for example, <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code> </p>"""
     source_resource_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]

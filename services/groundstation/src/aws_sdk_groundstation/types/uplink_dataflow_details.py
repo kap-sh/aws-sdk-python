@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#UplinkDataflowDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uplink_connection_details
 
 
-class _UplinkDataflowDetails_agentConnectionDetails(TypedDict):
+class _UplinkDataflowDetails_agentConnectionDetails(TypedDict, closed=True):
     agentConnectionDetails: (
         "aws_sdk_groundstation.types.uplink_connection_details.UplinkConnectionDetails"
     )

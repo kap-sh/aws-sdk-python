@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codestarnotifications#UpdateNotificationRuleResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateNotificationRuleResult(TypedDict):
+class UpdateNotificationRuleResult(TypedDict, closed=True):
     pass
 
 

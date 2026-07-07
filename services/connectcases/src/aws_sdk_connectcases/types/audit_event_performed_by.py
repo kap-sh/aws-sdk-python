@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#AuditEventPerformedBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.user_union
 
 
-class AuditEventPerformedBy(TypedDict):
+class AuditEventPerformedBy(TypedDict, closed=True):
     user: NotRequired["aws_sdk_connectcases.types.user_union.UserUnion"]
     iam_principal_arn: "aws_sdk_connectcases.types.iam_principal_arn.IamPrincipalArn"
     """<p>Unique identifier of an IAM role.</p>"""

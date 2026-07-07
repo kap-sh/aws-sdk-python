@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CreateManagedThingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.wi_fi_simple_setup_configuration
 
 
-class CreateManagedThingRequest(TypedDict):
+class CreateManagedThingRequest(TypedDict, closed=True):
     role: "aws_sdk_iot_managed_integrations.types.role.Role"
     """<p>The type of device used. This will be the hub controller, cloud device, or AWS IoT device.</p>"""
     owner: NotRequired["aws_sdk_iot_managed_integrations.types.owner.Owner"]

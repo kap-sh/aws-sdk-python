@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsServiceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ecs_service_capacity_provider_strategy_list
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsServiceDetails(TypedDict):
+class AwsEcsServiceDetails(TypedDict, closed=True):
     capacity_provider_strategy: NotRequired[
         "aws_sdk_securityhub.types.aws_ecs_service_capacity_provider_strategy_list.AwsEcsServiceCapacityProviderStrategyList"
     ]

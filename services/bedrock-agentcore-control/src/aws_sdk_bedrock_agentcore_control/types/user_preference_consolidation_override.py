@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UserPreferenceConsolidationOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.prompt
 
 
-class UserPreferenceConsolidationOverride(TypedDict):
+class UserPreferenceConsolidationOverride(TypedDict, closed=True):
     append_to_prompt: "aws_sdk_bedrock_agentcore_control.types.prompt.Prompt"
     """<p>The text to append to the prompt for user preference consolidation.</p>"""
     model_id: "str"

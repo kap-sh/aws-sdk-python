@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DatabaseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.sql_configuration
 
 
-class DatabaseConfiguration(TypedDict):
+class DatabaseConfiguration(TypedDict, closed=True):
     database_engine_type: "aws_sdk_kendra.types.database_engine_type.DatabaseEngineType"
     """<p>The type of database engine that runs the database.</p>"""
     connection_configuration: (

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#UserFeedback``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.feedback_type
 
 
-class UserFeedback(TypedDict):
+class UserFeedback(TypedDict, closed=True):
     type: "aws_sdk_codeguruprofiler.types.feedback_type.FeedbackType"
     """<p>Optional <code>Positive</code> or <code>Negative</code> feedback submitted by the user about whether the recommendation is useful or not.</p>"""
 

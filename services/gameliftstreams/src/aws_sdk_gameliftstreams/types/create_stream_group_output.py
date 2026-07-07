@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#CreateStreamGroupOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_gameliftstreams.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.stream_group_status_reason
 
 
-class CreateStreamGroupOutput(TypedDict):
+class CreateStreamGroupOutput(TypedDict, closed=True):
     arn: "aws_sdk_gameliftstreams.types.identifier.Identifier"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> that is assigned to the stream group resource and that uniquely identifies the group across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamgroup/[resource ID]</code>.</p>"""
     description: NotRequired["aws_sdk_gameliftstreams.types.description.Description"]

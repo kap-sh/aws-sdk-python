@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#UpdateIngestConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.ingest_configuration
 
 
-class UpdateIngestConfigurationResponse(TypedDict):
+class UpdateIngestConfigurationResponse(TypedDict, closed=True):
     ingest_configuration: NotRequired[
         "aws_sdk_ivs_realtime.types.ingest_configuration.IngestConfiguration"
     ]

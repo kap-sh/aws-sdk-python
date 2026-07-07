@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#GetJobManifestResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class GetJobManifestResult(TypedDict):
+class GetJobManifestResult(TypedDict, closed=True):
     manifest_uri: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The Amazon S3 presigned URL for the manifest file associated with the specified <code>JobId</code> value.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#StopCisSessionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopCisSessionResponse(TypedDict):
+class StopCisSessionResponse(TypedDict, closed=True):
     pass
 
 

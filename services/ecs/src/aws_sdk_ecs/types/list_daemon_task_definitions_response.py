@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ListDaemonTaskDefinitionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.daemon_task_definition_summaries
     import aws_sdk_ecs.types.string
 
 
-class ListDaemonTaskDefinitionsResponse(TypedDict):
+class ListDaemonTaskDefinitionsResponse(TypedDict, closed=True):
     daemon_task_definitions: NotRequired[
         "aws_sdk_ecs.types.daemon_task_definition_summaries.DaemonTaskDefinitionSummaries"
     ]

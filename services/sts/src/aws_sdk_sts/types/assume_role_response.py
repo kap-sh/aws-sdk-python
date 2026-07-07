@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#AssumeRoleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.source_identity_type
 
 
-class AssumeRoleResponse(TypedDict):
+class AssumeRoleResponse(TypedDict, closed=True):
     credentials: NotRequired["aws_sdk_sts.types.credentials.Credentials"]
     """<p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p> <note> <p>The size of the security token that STS API operations return is not fixed. We strongly recommend that you make no assumptions about the maximum size.</p> </note>"""
     assumed_role_user: NotRequired[

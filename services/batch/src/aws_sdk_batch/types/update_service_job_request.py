@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#UpdateServiceJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
     import aws_sdk_batch.types.string
 
 
-class UpdateServiceJobRequest(TypedDict):
+class UpdateServiceJobRequest(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Batch job ID of the job to update.</p>"""
     scheduling_priority: NotRequired["aws_sdk_batch.types.integer.Integer"]

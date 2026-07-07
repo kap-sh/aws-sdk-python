@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#ScteDash``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.ad_marker_dash
     import aws_sdk_mediapackagev2.types.scte_in_manifests
 
 
-class ScteDash(TypedDict):
+class ScteDash(TypedDict, closed=True):
     ad_marker_dash: NotRequired[
         "aws_sdk_mediapackagev2.types.ad_marker_dash.AdMarkerDash"
     ]

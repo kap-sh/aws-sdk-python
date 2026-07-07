@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetPortalResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__list_of__string_min20_max2048
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.tags
 
 
-class GetPortalResponse(TypedDict):
+class GetPortalResponse(TypedDict, closed=True):
     authorization: NotRequired["aws_sdk_apigatewayv2.types.authorization.Authorization"]
     """<p>The authorization for the portal.</p>"""
     endpoint_configuration: NotRequired[

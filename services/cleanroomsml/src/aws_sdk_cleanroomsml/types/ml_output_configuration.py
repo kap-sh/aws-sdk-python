@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#MLOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.iam_role_arn
 
 
-class MLOutputConfiguration(TypedDict):
+class MLOutputConfiguration(TypedDict, closed=True):
     destination: NotRequired["aws_sdk_cleanroomsml.types.destination.Destination"]
     """<p>The Amazon S3 location where exported model artifacts are stored.</p>"""
     role_arn: "aws_sdk_cleanroomsml.types.iam_role_arn.IamRoleArn"

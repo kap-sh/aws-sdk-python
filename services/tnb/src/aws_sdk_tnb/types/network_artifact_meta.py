@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#NetworkArtifactMeta``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.override_list
 
 
-class NetworkArtifactMeta(TypedDict):
+class NetworkArtifactMeta(TypedDict, closed=True):
     overrides: NotRequired["aws_sdk_tnb.types.override_list.OverrideList"]
     """<p>Lists network package overrides.</p>"""
 

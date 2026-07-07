@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#UpdateRegionSettingsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.resource_type_management_preference
     import aws_sdk_backup.types.resource_type_opt_in_preference
 
 
-class UpdateRegionSettingsInput(TypedDict):
+class UpdateRegionSettingsInput(TypedDict, closed=True):
     resource_type_opt_in_preference: NotRequired[
         "aws_sdk_backup.types.resource_type_opt_in_preference.ResourceTypeOptInPreference"
     ]

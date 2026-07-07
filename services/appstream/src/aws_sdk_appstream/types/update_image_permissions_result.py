@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#UpdateImagePermissionsResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateImagePermissionsResult(TypedDict):
+class UpdateImagePermissionsResult(TypedDict, closed=True):
     pass
 
 

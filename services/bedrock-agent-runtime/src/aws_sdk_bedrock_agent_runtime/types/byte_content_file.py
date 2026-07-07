@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ByteContentFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.mime_type
 
 
-class ByteContentFile(TypedDict):
+class ByteContentFile(TypedDict, closed=True):
     media_type: "aws_sdk_bedrock_agent_runtime.types.mime_type.MimeType"
     """<p>The MIME type of data contained in the file used for chat.</p>"""
     data: "aws_sdk_bedrock_agent_runtime.types.byte_content_blob.ByteContentBlob"

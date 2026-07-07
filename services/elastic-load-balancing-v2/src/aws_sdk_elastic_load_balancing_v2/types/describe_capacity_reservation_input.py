@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#DescribeCapacityReservationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.load_balancer_arn
 
 
-class DescribeCapacityReservationInput(TypedDict):
+class DescribeCapacityReservationInput(TypedDict, closed=True):
     load_balancer_arn: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.load_balancer_arn.LoadBalancerArn"
     ]

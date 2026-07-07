@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.ec2_resource_details
 
 
-class ResourceDetails(TypedDict):
+class ResourceDetails(TypedDict, closed=True):
     ec2_resource_details: NotRequired[
         "aws_sdk_cost_explorer.types.ec2_resource_details.EC2ResourceDetails"
     ]

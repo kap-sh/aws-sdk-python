@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubconfig#GetHomeRegionRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetHomeRegionRequest(TypedDict):
+class GetHomeRegionRequest(TypedDict, closed=True):
     pass
 
 

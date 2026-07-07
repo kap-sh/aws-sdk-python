@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#SamplingStatisticsDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.timestamp
 
 
-class SamplingStatisticsDocument(TypedDict):
+class SamplingStatisticsDocument(TypedDict, closed=True):
     rule_name: "aws_sdk_xray.types.rule_name.RuleName"
     """<p>The name of the sampling rule.</p>"""
     client_id: "aws_sdk_xray.types.client_id.ClientID"

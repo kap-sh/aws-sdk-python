@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#RuleGroupSourceStatelessRulesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.rule_group_source_stateless_rule_definition
 
 
-class RuleGroupSourceStatelessRulesDetails(TypedDict):
+class RuleGroupSourceStatelessRulesDetails(TypedDict, closed=True):
     priority: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>Indicates the order in which to run this rule relative to all of the rules in the stateless rule group.</p>"""
     rule_definition: NotRequired[

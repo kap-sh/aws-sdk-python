@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetStatisticsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.statistics
 
 
-class GetStatisticsResponse(TypedDict):
+class GetStatisticsResponse(TypedDict, closed=True):
     statistics: NotRequired["aws_sdk_iot.types.statistics.Statistics"]
     """<p>The statistics returned by the Fleet Indexing service based on the query and aggregation field.</p>"""
 

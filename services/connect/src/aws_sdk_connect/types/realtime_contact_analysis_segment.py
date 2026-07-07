@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RealtimeContactAnalysisSegment``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -13,27 +15,27 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.real_time_contact_analysis_segment_transcript
 
 
-class _RealtimeContactAnalysisSegment_Transcript(TypedDict):
+class _RealtimeContactAnalysisSegment_Transcript(TypedDict, closed=True):
     Transcript: "aws_sdk_connect.types.real_time_contact_analysis_segment_transcript.RealTimeContactAnalysisSegmentTranscript"
 
 
-class _RealtimeContactAnalysisSegment_Categories(TypedDict):
+class _RealtimeContactAnalysisSegment_Categories(TypedDict, closed=True):
     Categories: "aws_sdk_connect.types.real_time_contact_analysis_segment_categories.RealTimeContactAnalysisSegmentCategories"
 
 
-class _RealtimeContactAnalysisSegment_Issues(TypedDict):
+class _RealtimeContactAnalysisSegment_Issues(TypedDict, closed=True):
     Issues: "aws_sdk_connect.types.real_time_contact_analysis_segment_issues.RealTimeContactAnalysisSegmentIssues"
 
 
-class _RealtimeContactAnalysisSegment_Event(TypedDict):
+class _RealtimeContactAnalysisSegment_Event(TypedDict, closed=True):
     Event: "aws_sdk_connect.types.real_time_contact_analysis_segment_event.RealTimeContactAnalysisSegmentEvent"
 
 
-class _RealtimeContactAnalysisSegment_Attachments(TypedDict):
+class _RealtimeContactAnalysisSegment_Attachments(TypedDict, closed=True):
     Attachments: "aws_sdk_connect.types.real_time_contact_analysis_segment_attachments.RealTimeContactAnalysisSegmentAttachments"
 
 
-class _RealtimeContactAnalysisSegment_PostContactSummary(TypedDict):
+class _RealtimeContactAnalysisSegment_PostContactSummary(TypedDict, closed=True):
     PostContactSummary: "aws_sdk_connect.types.real_time_contact_analysis_segment_post_contact_summary.RealTimeContactAnalysisSegmentPostContactSummary"
 
 

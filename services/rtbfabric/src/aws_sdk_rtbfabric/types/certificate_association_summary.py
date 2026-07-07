@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#CertificateAssociationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.certificate_association_status
 
 
-class CertificateAssociationSummary(TypedDict):
+class CertificateAssociationSummary(TypedDict, closed=True):
     acm_certificate_arn: "aws_sdk_rtbfabric.types.acm_certificate_arn.AcmCertificateArn"
     """<p>The Amazon Resource Name (ARN) of the ACM certificate.</p>"""
     status: "aws_sdk_rtbfabric.types.certificate_association_status.CertificateAssociationStatus"

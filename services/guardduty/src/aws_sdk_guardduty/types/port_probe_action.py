@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#PortProbeAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
     import aws_sdk_guardduty.types.port_probe_details
 
 
-class PortProbeAction(TypedDict):
+class PortProbeAction(TypedDict, closed=True):
     blocked: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>Indicates whether EC2 blocked the port probe to the instance, such as with an ACL.</p>"""
     port_probe_details: NotRequired[

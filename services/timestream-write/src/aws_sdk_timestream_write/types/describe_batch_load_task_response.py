@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#DescribeBatchLoadTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.batch_load_task_description
 
 
-class DescribeBatchLoadTaskResponse(TypedDict):
+class DescribeBatchLoadTaskResponse(TypedDict, closed=True):
     batch_load_task_description: "aws_sdk_timestream_write.types.batch_load_task_description.BatchLoadTaskDescription"
     """<p>Description of the batch load task.</p>"""
 

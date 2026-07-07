@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ConsolidatedPolicyV1``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.consolidated_policy_list
 
 
-class _ConsolidatedPolicyV1_list(TypedDict):
+class _ConsolidatedPolicyV1_list(TypedDict, closed=True):
     list: "aws_sdk_cleanrooms.types.consolidated_policy_list.ConsolidatedPolicyList"
 
 
-class _ConsolidatedPolicyV1_aggregation(TypedDict):
+class _ConsolidatedPolicyV1_aggregation(TypedDict, closed=True):
     aggregation: "aws_sdk_cleanrooms.types.consolidated_policy_aggregation.ConsolidatedPolicyAggregation"
 
 
-class _ConsolidatedPolicyV1_custom(TypedDict):
+class _ConsolidatedPolicyV1_custom(TypedDict, closed=True):
     custom: (
         "aws_sdk_cleanrooms.types.consolidated_policy_custom.ConsolidatedPolicyCustom"
     )

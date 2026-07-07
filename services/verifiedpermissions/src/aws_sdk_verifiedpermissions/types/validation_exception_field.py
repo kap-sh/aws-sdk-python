@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     path: "str"
     """<p>The path to the specific element that Verified Permissions found to be not valid.</p>"""
     message: "str"

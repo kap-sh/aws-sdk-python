@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#SendDestinationNumberVerificationCodeResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
 
-class SendDestinationNumberVerificationCodeResult(TypedDict):
+class SendDestinationNumberVerificationCodeResult(TypedDict, closed=True):
     message_id: "str"
     """<p>The unique identifier for the message.</p>"""
 

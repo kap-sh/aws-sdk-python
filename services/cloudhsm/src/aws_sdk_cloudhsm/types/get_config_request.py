@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#GetConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudhsm.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.hapg_list
 
 
-class GetConfigRequest(TypedDict):
+class GetConfigRequest(TypedDict, closed=True):
     client_arn: "aws_sdk_cloudhsm.types.client_arn.ClientArn"
     """<p>The ARN of the client.</p>"""
     client_version: "aws_sdk_cloudhsm.types.client_version.ClientVersion"

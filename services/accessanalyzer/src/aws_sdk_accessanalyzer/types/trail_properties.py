@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#TrailProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.region_list
 
 
-class TrailProperties(TypedDict):
+class TrailProperties(TypedDict, closed=True):
     cloud_trail_arn: "aws_sdk_accessanalyzer.types.cloud_trail_arn.CloudTrailArn"
     """<p>Specifies the ARN of the trail. The format of a trail ARN is <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>.</p>"""
     regions: NotRequired["aws_sdk_accessanalyzer.types.region_list.RegionList"]

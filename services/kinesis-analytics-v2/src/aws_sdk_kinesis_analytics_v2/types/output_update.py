@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#OutputUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.lambda_output_update
 
 
-class OutputUpdate(TypedDict):
+class OutputUpdate(TypedDict, closed=True):
     output_id: "aws_sdk_kinesis_analytics_v2.types.id.Id"
     """<p>Identifies the specific output configuration that you want to update.</p>"""
     name_update: NotRequired[

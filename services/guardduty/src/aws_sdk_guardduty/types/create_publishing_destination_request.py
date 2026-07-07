@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#CreatePublishingDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.client_token
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.tag_map
 
 
-class CreatePublishingDestinationRequest(TypedDict):
+class CreatePublishingDestinationRequest(TypedDict, closed=True):
     detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
     r"""<p>The ID of the GuardDuty detector associated with the publishing destination.</p> <p>To find the <code>detectorId</code> in the current Region, see the Settings page in the GuardDuty console, or run the <a href=\"https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html\">ListDetectors</a> API.</p>"""
     destination_type: NotRequired[

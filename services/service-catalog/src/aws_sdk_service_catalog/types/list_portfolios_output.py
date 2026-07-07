@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ListPortfoliosOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.page_token
     import aws_sdk_service_catalog.types.portfolio_details
 
 
-class ListPortfoliosOutput(TypedDict):
+class ListPortfoliosOutput(TypedDict, closed=True):
     portfolio_details: NotRequired[
         "aws_sdk_service_catalog.types.portfolio_details.PortfolioDetails"
     ]

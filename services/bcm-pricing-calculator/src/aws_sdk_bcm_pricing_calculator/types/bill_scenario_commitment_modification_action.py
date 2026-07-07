@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BillScenarioCommitmentModificationAction``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import (
     DeserializationError,
@@ -14,19 +16,27 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.negate_savings_plan_action
 
 
-class _BillScenarioCommitmentModificationAction_addReservedInstanceAction(TypedDict):
+class _BillScenarioCommitmentModificationAction_addReservedInstanceAction(
+    TypedDict, closed=True
+):
     addReservedInstanceAction: "aws_sdk_bcm_pricing_calculator.types.add_reserved_instance_action.AddReservedInstanceAction"
 
 
-class _BillScenarioCommitmentModificationAction_addSavingsPlanAction(TypedDict):
+class _BillScenarioCommitmentModificationAction_addSavingsPlanAction(
+    TypedDict, closed=True
+):
     addSavingsPlanAction: "aws_sdk_bcm_pricing_calculator.types.add_savings_plan_action.AddSavingsPlanAction"
 
 
-class _BillScenarioCommitmentModificationAction_negateReservedInstanceAction(TypedDict):
+class _BillScenarioCommitmentModificationAction_negateReservedInstanceAction(
+    TypedDict, closed=True
+):
     negateReservedInstanceAction: "aws_sdk_bcm_pricing_calculator.types.negate_reserved_instance_action.NegateReservedInstanceAction"
 
 
-class _BillScenarioCommitmentModificationAction_negateSavingsPlanAction(TypedDict):
+class _BillScenarioCommitmentModificationAction_negateSavingsPlanAction(
+    TypedDict, closed=True
+):
     negateSavingsPlanAction: "aws_sdk_bcm_pricing_calculator.types.negate_savings_plan_action.NegateSavingsPlanAction"
 
 

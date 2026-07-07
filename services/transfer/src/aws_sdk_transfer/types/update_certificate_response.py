@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#UpdateCertificateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.certificate_id
 
 
-class UpdateCertificateResponse(TypedDict):
+class UpdateCertificateResponse(TypedDict, closed=True):
     certificate_id: "aws_sdk_transfer.types.certificate_id.CertificateId"
     """<p>Returns the identifier of the certificate object that you are updating.</p>"""
 

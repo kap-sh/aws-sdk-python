@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#ServiceQuotaExceededException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import ServiceError
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>The requested operation would exceed the service quota for this resource. Review the service quotas and adjust your request accordingly.</p>"""
 

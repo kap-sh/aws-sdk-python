@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#ResourceNotFoundException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
     resource_id: NotRequired["str"]
     """<p>The unique ID of the resource referenced in the failed request.</p>"""

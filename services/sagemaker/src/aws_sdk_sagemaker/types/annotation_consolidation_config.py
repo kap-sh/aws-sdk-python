@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AnnotationConsolidationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.lambda_function_arn
 
 
-class AnnotationConsolidationConfig(TypedDict):
+class AnnotationConsolidationConfig(TypedDict, closed=True):
     annotation_consolidation_lambda_arn: NotRequired[
         "aws_sdk_sagemaker.types.lambda_function_arn.LambdaFunctionArn"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideoarchivedmedia#ClipFragmentSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_video_archived_media.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.clip_timestamp_range
 
 
-class ClipFragmentSelector(TypedDict):
+class ClipFragmentSelector(TypedDict, closed=True):
     fragment_selector_type: "aws_sdk_kinesis_video_archived_media.types.clip_fragment_selector_type.ClipFragmentSelectorType"
     """<p>The origin of the timestamps to use (Server or Producer).</p>"""
     timestamp_range: "aws_sdk_kinesis_video_archived_media.types.clip_timestamp_range.ClipTimestampRange"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#HostedConfigurationVersions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.hosted_configuration_version_summary_list
     import aws_sdk_appconfig.types.next_token
 
 
-class HostedConfigurationVersions(TypedDict):
+class HostedConfigurationVersions(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_appconfig.types.hosted_configuration_version_summary_list.HostedConfigurationVersionSummaryList"
     ]

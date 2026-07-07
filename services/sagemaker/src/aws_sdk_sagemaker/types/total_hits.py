@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TotalHits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.long
     import aws_sdk_sagemaker.types.relation
 
 
-class TotalHits(TypedDict):
+class TotalHits(TypedDict, closed=True):
     value: NotRequired["aws_sdk_sagemaker.types.long.Long"]
     """<p>The total number of matching results. This value may be exact or an estimate, depending on the <code>Relation</code> field.</p>"""
     relation: NotRequired["aws_sdk_sagemaker.types.relation.Relation"]

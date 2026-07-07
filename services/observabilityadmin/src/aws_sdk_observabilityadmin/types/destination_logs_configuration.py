@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#DestinationLogsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.log_group_name_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.logs_encryption_configuration
 
 
-class DestinationLogsConfiguration(TypedDict):
+class DestinationLogsConfiguration(TypedDict, closed=True):
     logs_encryption_configuration: NotRequired[
         "aws_sdk_observabilityadmin.types.logs_encryption_configuration.LogsEncryptionConfiguration"
     ]

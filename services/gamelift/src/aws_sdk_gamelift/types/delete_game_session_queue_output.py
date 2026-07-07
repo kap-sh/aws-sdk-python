@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteGameSessionQueueOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteGameSessionQueueOutput(TypedDict):
+class DeleteGameSessionQueueOutput(TypedDict, closed=True):
     pass
 
 

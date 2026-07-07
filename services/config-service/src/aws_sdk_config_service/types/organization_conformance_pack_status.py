@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#OrganizationConformancePackStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class OrganizationConformancePackStatus(TypedDict):
+class OrganizationConformancePackStatus(TypedDict, closed=True):
     organization_conformance_pack_name: "aws_sdk_config_service.types.organization_conformance_pack_name.OrganizationConformancePackName"
     """<p>The name that you assign to organization conformance pack.</p>"""
     status: "aws_sdk_config_service.types.organization_resource_status.OrganizationResourceStatus"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ObjectAttributeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.attribute_key
     import aws_sdk_clouddirectory.types.typed_attribute_value_range
 
 
-class ObjectAttributeRange(TypedDict):
+class ObjectAttributeRange(TypedDict, closed=True):
     attribute_key: NotRequired[
         "aws_sdk_clouddirectory.types.attribute_key.AttributeKey"
     ]

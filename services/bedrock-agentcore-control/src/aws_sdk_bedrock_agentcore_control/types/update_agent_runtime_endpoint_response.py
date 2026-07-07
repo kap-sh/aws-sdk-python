@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdateAgentRuntimeEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
 
 
-class UpdateAgentRuntimeEndpointResponse(TypedDict):
+class UpdateAgentRuntimeEndpointResponse(TypedDict, closed=True):
     live_version: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.agent_runtime_version.AgentRuntimeVersion"
     ]

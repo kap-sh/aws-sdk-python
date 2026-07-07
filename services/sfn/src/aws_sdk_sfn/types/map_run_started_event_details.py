@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#MapRunStartedEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.long_arn
 
 
-class MapRunStartedEventDetails(TypedDict):
+class MapRunStartedEventDetails(TypedDict, closed=True):
     map_run_arn: NotRequired["aws_sdk_sfn.types.long_arn.LongArn"]
     """<p>The Amazon Resource Name (ARN) of a Map Run that was started.</p>"""
 

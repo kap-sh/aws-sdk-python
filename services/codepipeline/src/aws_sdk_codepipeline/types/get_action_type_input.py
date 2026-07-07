@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#GetActionTypeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.version
 
 
-class GetActionTypeInput(TypedDict):
+class GetActionTypeInput(TypedDict, closed=True):
     category: "aws_sdk_codepipeline.types.action_category.ActionCategory"
     """<p>Defines what kind of action can be taken in the stage. The following are the valid values:</p> <ul> <li> <p> <code>Source</code> </p> </li> <li> <p> <code>Build</code> </p> </li> <li> <p> <code>Test</code> </p> </li> <li> <p> <code>Deploy</code> </p> </li> <li> <p> <code>Approval</code> </p> </li> <li> <p> <code>Invoke</code> </p> </li> <li> <p> <code>Compute</code> </p> </li> </ul>"""
     owner: "aws_sdk_codepipeline.types.action_type_owner.ActionTypeOwner"

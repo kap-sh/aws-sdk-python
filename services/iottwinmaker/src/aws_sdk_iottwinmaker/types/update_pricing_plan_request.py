@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#UpdatePricingPlanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.pricing_mode
 
 
-class UpdatePricingPlanRequest(TypedDict):
+class UpdatePricingPlanRequest(TypedDict, closed=True):
     pricing_mode: "aws_sdk_iottwinmaker.types.pricing_mode.PricingMode"
     """<p>The pricing mode.</p>"""
     bundle_names: NotRequired[

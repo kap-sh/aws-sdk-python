@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ImportKeyPairResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class ImportKeyPairResult(TypedDict):
+class ImportKeyPairResult(TypedDict, closed=True):
     key_fingerprint: NotRequired["aws_sdk_ec2.types.string.String"]
     r"""<ul> <li> <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.</p> </li> <li> <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href=\"http://www.openssh.com/txt/release-6.8\">OpenSSH 6.8</a>.</p> </li> </ul>"""
     key_name: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ReplaceTopicRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.topic_rule_payload
 
 
-class ReplaceTopicRuleRequest(TypedDict):
+class ReplaceTopicRuleRequest(TypedDict, closed=True):
     rule_name: "aws_sdk_iot.types.rule_name.RuleName"
     """<p>The name of the rule.</p>"""
     topic_rule_payload: "aws_sdk_iot.types.topic_rule_payload.TopicRulePayload"

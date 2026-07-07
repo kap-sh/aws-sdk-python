@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeAccountModificationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.pagination_token
 
 
-class DescribeAccountModificationsRequest(TypedDict):
+class DescribeAccountModificationsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_workspaces.types.pagination_token.PaginationToken"]
     """<p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>"""
 

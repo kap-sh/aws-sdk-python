@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TrainingSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.additional_s3_data_source
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.training_instance_types
 
 
-class TrainingSpecification(TypedDict):
+class TrainingSpecification(TypedDict, closed=True):
     training_image: NotRequired[
         "aws_sdk_sagemaker.types.container_image.ContainerImage"
     ]

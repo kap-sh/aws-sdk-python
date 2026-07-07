@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#CalculatedSpend``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.spend
 
 
-class CalculatedSpend(TypedDict):
+class CalculatedSpend(TypedDict, closed=True):
     actual_spend: "aws_sdk_budgets.types.spend.Spend"
     """<p>The amount of cost, usage, RI units, or Savings Plans units that you used.</p>"""
     forecasted_spend: NotRequired["aws_sdk_budgets.types.spend.Spend"]

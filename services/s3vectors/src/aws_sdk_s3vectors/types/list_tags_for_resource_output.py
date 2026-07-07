@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#ListTagsForResourceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3vectors.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.tags_map
 
 
-class ListTagsForResourceOutput(TypedDict):
+class ListTagsForResourceOutput(TypedDict, closed=True):
     tags: "aws_sdk_s3vectors.types.tags_map.TagsMap"
     r"""<p>The user-defined tags that are applied to the S3 Vectors resource. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html\">Tagging for cost allocation or attribute-based access control (ABAC)</a>.</p>"""
 

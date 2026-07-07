@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#TraceLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.trace_location_type
 
 
-class TraceLocation(TypedDict):
+class TraceLocation(TypedDict, closed=True):
     location_type: "aws_sdk_nova_act.types.trace_location_type.TraceLocationType"
     """<p>The type of storage location for the trace data.</p>"""
     location: "aws_sdk_nova_act.types.non_blank_string.NonBlankString"

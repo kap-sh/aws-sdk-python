@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#CommunicationLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.communication_limit_time_unit
 
 
-class CommunicationLimit(TypedDict):
+class CommunicationLimit(TypedDict, closed=True):
     max_count_per_recipient: "int"
     """Maximum number of contacts allowed for a given target within the given frequency."""
     frequency: "int"

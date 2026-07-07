@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AssociateEmailAddressAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id
 
 
-class AssociateEmailAddressAliasRequest(TypedDict):
+class AssociateEmailAddressAliasRequest(TypedDict, closed=True):
     email_address_id: "aws_sdk_connect.types.email_address_id.EmailAddressId"
     """<p>The identifier of the email address.</p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"

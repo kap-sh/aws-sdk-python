@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#GetSessionEndpointInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cluster_id
     import aws_sdk_emr.types.session_id
 
 
-class GetSessionEndpointInput(TypedDict):
+class GetSessionEndpointInput(TypedDict, closed=True):
     cluster_id: NotRequired["aws_sdk_emr.types.cluster_id.ClusterId"]
     """<p>The ID of the cluster that the session belongs to.</p>"""
     session_id: NotRequired["aws_sdk_emr.types.session_id.SessionId"]

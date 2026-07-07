@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#IpAccessSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.timestamp
 
 
-class IpAccessSettings(TypedDict):
+class IpAccessSettings(TypedDict, closed=True):
     ip_access_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the IP access settings resource.</p>"""
     associated_portal_arns: NotRequired["aws_sdk_workspaces_web.types.arn_list.ArnList"]

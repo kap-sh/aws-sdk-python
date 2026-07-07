@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ResourceServerScopeType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.resource_server_scope_name_type
 
 
-class ResourceServerScopeType(TypedDict):
+class ResourceServerScopeType(TypedDict, closed=True):
     scope_name: "aws_sdk_cognito_identity_provider.types.resource_server_scope_name_type.ResourceServerScopeNameType"
     """<p>The name of the scope. Amazon Cognito renders custom scopes in the format <code>resourceServerIdentifier/ScopeName</code>. For example, if this parameter is <code>exampleScope</code> in the resource server with the identifier <code>exampleResourceServer</code>, you request and receive the scope <code>exampleResourceServer/exampleScope</code>.</p>"""
     scope_description: "aws_sdk_cognito_identity_provider.types.resource_server_scope_description_type.ResourceServerScopeDescriptionType"

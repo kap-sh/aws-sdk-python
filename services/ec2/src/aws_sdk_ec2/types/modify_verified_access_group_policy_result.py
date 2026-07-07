@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyVerifiedAccessGroupPolicyResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.verified_access_sse_specification_response
 
 
-class ModifyVerifiedAccessGroupPolicyResult(TypedDict):
+class ModifyVerifiedAccessGroupPolicyResult(TypedDict, closed=True):
     policy_enabled: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>The status of the Verified Access policy.</p>"""
     policy_document: NotRequired["aws_sdk_ec2.types.string.String"]

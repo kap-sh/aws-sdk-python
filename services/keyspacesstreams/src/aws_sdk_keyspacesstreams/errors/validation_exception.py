@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspacesstreams.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.validation_exception_type
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>The input fails to satisfy the constraints specified by the service. Check the error details and modify your request.</p>"""
     error_code: NotRequired[

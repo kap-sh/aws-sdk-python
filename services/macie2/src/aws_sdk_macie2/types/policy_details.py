@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#PolicyDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.finding_action
     import aws_sdk_macie2.types.finding_actor
 
 
-class PolicyDetails(TypedDict):
+class PolicyDetails(TypedDict, closed=True):
     action: NotRequired["aws_sdk_macie2.types.finding_action.FindingAction"]
     """<p>The action that produced the finding.</p>"""
     actor: NotRequired["aws_sdk_macie2.types.finding_actor.FindingActor"]

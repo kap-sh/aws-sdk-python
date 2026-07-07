@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#BatchAssociateCodeSecurityScanConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.failed_association_result_list
     import aws_sdk_inspector2.types.successful_association_result_list
 
 
-class BatchAssociateCodeSecurityScanConfigurationResponse(TypedDict):
+class BatchAssociateCodeSecurityScanConfigurationResponse(TypedDict, closed=True):
     failed_associations: NotRequired[
         "aws_sdk_inspector2.types.failed_association_result_list.FailedAssociationResultList"
     ]

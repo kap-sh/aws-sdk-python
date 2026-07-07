@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#Application``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.ssm_sap_arn
 
 
-class Application(TypedDict):
+class Application(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ssm_sap.types.application_id.ApplicationId"]
     """<p>The ID of the application.</p>"""
     type: NotRequired["aws_sdk_ssm_sap.types.application_type.ApplicationType"]

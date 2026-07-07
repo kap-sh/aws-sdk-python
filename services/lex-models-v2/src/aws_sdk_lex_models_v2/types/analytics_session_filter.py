@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AnalyticsSessionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_session_filter_name
 
 
-class AnalyticsSessionFilter(TypedDict):
+class AnalyticsSessionFilter(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.analytics_session_filter_name.AnalyticsSessionFilterName"
     """<p>The category by which to filter the sessions. The descriptions for each option are as follows:</p> <ul> <li> <p> <code>BotAlias</code> – The name of the bot alias.</p> </li> <li> <p> <code>BotVersion</code> – The version of the bot.</p> </li> <li> <p> <code>LocaleId</code> – The locale of the bot.</p> </li> <li> <p> <code>Modality</code> – The modality of the session with the bot (audio, DTMF, or text).</p> </li> <li> <p> <code>Channel</code> – The channel that the bot is integrated with.</p> </li> <li> <p> <code>Duration</code> – The duration of the session.</p> </li> <li> <p> <code>conversationEndState</code> – The final state of the session.</p> </li> <li> <p> <code>SessionId</code> – The identifier of the session with the bot.</p> </li> <li> <p> <code>OriginatingRequestId</code> – The identifier of the first request in a session.</p> </li> <li> <p> <code>IntentPath</code> – The order of intents taken in a session.</p> </li> </ul>"""
     operator: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ServiceLastAccessed``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.tracked_actions_last_accessed
 
 
-class ServiceLastAccessed(TypedDict):
+class ServiceLastAccessed(TypedDict, closed=True):
     service_name: "aws_sdk_iam.types.service_name_type.serviceNameType"
     """<p>The name of the service in which access was attempted.</p>"""
     last_authenticated: NotRequired["aws_sdk_iam.types.date_type.dateType"]

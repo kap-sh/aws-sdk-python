@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#StreamDeliveryResources``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.stream_delivery_resources_list
 
 
-class StreamDeliveryResources(TypedDict):
+class StreamDeliveryResources(TypedDict, closed=True):
     resources: "aws_sdk_bedrock_agentcore_control.types.stream_delivery_resources_list.StreamDeliveryResourcesList"
     """<p>List of stream delivery resource configurations.</p>"""
 

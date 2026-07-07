@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#Shard``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.shard_id
 
 
-class Shard(TypedDict):
+class Shard(TypedDict, closed=True):
     shard_id: "aws_sdk_kinesis.types.shard_id.ShardId"
     """<p>The unique identifier of the shard within the stream.</p>"""
     parent_shard_id: NotRequired["aws_sdk_kinesis.types.shard_id.ShardId"]

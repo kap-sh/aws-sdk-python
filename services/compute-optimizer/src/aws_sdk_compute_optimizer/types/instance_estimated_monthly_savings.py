@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#InstanceEstimatedMonthlySavings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.currency
     import aws_sdk_compute_optimizer.types.value
 
 
-class InstanceEstimatedMonthlySavings(TypedDict):
+class InstanceEstimatedMonthlySavings(TypedDict, closed=True):
     currency: NotRequired["aws_sdk_compute_optimizer.types.currency.Currency"]
     """<p> The currency of the estimated monthly savings. </p>"""
     value: "aws_sdk_compute_optimizer.types.value.Value"

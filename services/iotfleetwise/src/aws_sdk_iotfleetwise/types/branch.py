@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#Branch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.string
 
 
-class Branch(TypedDict):
+class Branch(TypedDict, closed=True):
     fully_qualified_name: "aws_sdk_iotfleetwise.types.string.string"
     """<p>The fully qualified name of the branch. For example, the fully qualified name of a branch might be <code>Vehicle.Body.Engine</code>.</p>"""
     description: NotRequired["aws_sdk_iotfleetwise.types.description.description"]

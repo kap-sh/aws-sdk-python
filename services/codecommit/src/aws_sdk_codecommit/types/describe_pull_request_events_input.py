@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#DescribePullRequestEventsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.pull_request_id
 
 
-class DescribePullRequestEventsInput(TypedDict):
+class DescribePullRequestEventsInput(TypedDict, closed=True):
     pull_request_id: "aws_sdk_codecommit.types.pull_request_id.PullRequestId"
     """<p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>"""
     pull_request_event_type: NotRequired[

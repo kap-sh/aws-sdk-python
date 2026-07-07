@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#ChangesetErrorInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.error_category
     import aws_sdk_finspace_data.types.error_message
 
 
-class ChangesetErrorInfo(TypedDict):
+class ChangesetErrorInfo(TypedDict, closed=True):
     error_message: NotRequired["aws_sdk_finspace_data.types.error_message.ErrorMessage"]
     """<p>The text of the error message.</p>"""
     error_category: NotRequired[

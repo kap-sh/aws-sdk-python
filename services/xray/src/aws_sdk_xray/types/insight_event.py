@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#InsightEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.anomalous_service_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.timestamp
 
 
-class InsightEvent(TypedDict):
+class InsightEvent(TypedDict, closed=True):
     summary: NotRequired["aws_sdk_xray.types.event_summary_text.EventSummaryText"]
     """<p>A brief description of the event.</p>"""
     event_time: NotRequired["aws_sdk_xray.types.timestamp.Timestamp"]

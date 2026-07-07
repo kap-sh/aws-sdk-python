@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#TerminateSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.session_id
 
 
-class TerminateSessionRequest(TypedDict):
+class TerminateSessionRequest(TypedDict, closed=True):
     session_id: "aws_sdk_ssm.types.session_id.SessionId"
     """<p>The ID of the session to terminate.</p>"""
 

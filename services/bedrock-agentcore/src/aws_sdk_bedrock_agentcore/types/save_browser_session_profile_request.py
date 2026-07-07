@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#SaveBrowserSessionProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.client_token
 
 
-class SaveBrowserSessionProfileRequest(TypedDict):
+class SaveBrowserSessionProfileRequest(TypedDict, closed=True):
     trace_id: NotRequired["str"]
     """<p>The trace identifier for request tracking.</p>"""
     trace_parent: NotRequired["str"]

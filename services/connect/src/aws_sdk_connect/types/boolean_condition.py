@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#BooleanCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean_comparison_type
     import aws_sdk_connect.types.string
 
 
-class BooleanCondition(TypedDict):
+class BooleanCondition(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_connect.types.string.String"]
     """<p>A name of the property to be searched.</p>"""
     comparison_type: NotRequired[

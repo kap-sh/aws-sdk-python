@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ApplicationProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.resource_server_config
 
 
-class ApplicationProvider(TypedDict):
+class ApplicationProvider(TypedDict, closed=True):
     application_provider_arn: (
         "aws_sdk_sso_admin.types.application_provider_arn.ApplicationProviderArn"
     )

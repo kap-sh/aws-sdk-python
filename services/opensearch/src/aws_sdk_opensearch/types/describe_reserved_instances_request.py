@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeReservedInstancesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.guid
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.next_token
 
 
-class DescribeReservedInstancesRequest(TypedDict):
+class DescribeReservedInstancesRequest(TypedDict, closed=True):
     reserved_instance_id: NotRequired["aws_sdk_opensearch.types.guid.GUID"]
     """<p>The reserved instance identifier filter value. Use this parameter to show only the reservation that matches the specified reserved OpenSearch instance ID.</p>"""
     max_results: "aws_sdk_opensearch.types.max_results.MaxResults"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#SolutionSort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.sort_order
 
 
-class SolutionSort(TypedDict):
+class SolutionSort(TypedDict, closed=True):
     sort_order: "aws_sdk_partnercentral_selling.types.sort_order.SortOrder"
     """<p>Specifies the sorting order, either <code>Ascending</code> or <code>Descending</code>. The default is <code>Descending</code>.</p>"""
     sort_by: "aws_sdk_partnercentral_selling.types.solution_sort_name.SolutionSortName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#InputUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.kinesis_streams_input_update
 
 
-class InputUpdate(TypedDict):
+class InputUpdate(TypedDict, closed=True):
     input_id: "aws_sdk_kinesis_analytics.types.id.Id"
     """<p>Input ID of the application input to be updated.</p>"""
     name_prefix_update: NotRequired[

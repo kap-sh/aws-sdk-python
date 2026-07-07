@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.resource_data_container
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     id: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The resource ID, used to refer to a resource in the Lambda function configuration. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''. This must be unique within a Greengrass group."""
     name: NotRequired["aws_sdk_greengrass.types.__string.__string"]

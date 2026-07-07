@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#BatchDeleteDetectorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.batch_delete_detector_error_entries
 
 
-class BatchDeleteDetectorResponse(TypedDict):
+class BatchDeleteDetectorResponse(TypedDict, closed=True):
     batch_delete_detector_error_entries: NotRequired[
         "aws_sdk_iot_events_data.types.batch_delete_detector_error_entries.BatchDeleteDetectorErrorEntries"
     ]

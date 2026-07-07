@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetCostForecastRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.prediction_interval_level
 
 
-class GetCostForecastRequest(TypedDict):
+class GetCostForecastRequest(TypedDict, closed=True):
     time_period: "aws_sdk_cost_explorer.types.date_interval.DateInterval"
     """<p>The period of time that you want the forecast to cover. The start date must be equal to or no later than the current date to avoid a validation error.</p>"""
     metric: "aws_sdk_cost_explorer.types.metric.Metric"

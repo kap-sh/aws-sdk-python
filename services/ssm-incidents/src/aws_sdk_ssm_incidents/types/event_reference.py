@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#EventReference``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.generated_id
 
 
-class _EventReference_resource(TypedDict):
+class _EventReference_resource(TypedDict, closed=True):
     resource: "aws_sdk_ssm_incidents.types.arn.Arn"
 
 
-class _EventReference_relatedItemId(TypedDict):
+class _EventReference_relatedItemId(TypedDict, closed=True):
     relatedItemId: "aws_sdk_ssm_incidents.types.generated_id.GeneratedId"
 
 

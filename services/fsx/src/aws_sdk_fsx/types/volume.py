@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#Volume``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.administrative_actions
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume_type
 
 
-class Volume(TypedDict):
+class Volume(TypedDict, closed=True):
     creation_time: NotRequired["aws_sdk_fsx.types.creation_time.CreationTime"]
     file_system_id: NotRequired["aws_sdk_fsx.types.file_system_id.FileSystemId"]
     lifecycle: NotRequired["aws_sdk_fsx.types.volume_lifecycle.VolumeLifecycle"]

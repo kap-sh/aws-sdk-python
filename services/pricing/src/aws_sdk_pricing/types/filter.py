@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pricing#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pricing.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pricing.types.value
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     type: "aws_sdk_pricing.types.filter_type.FilterType"
     """<p>The type of filter that you want to use.</p> <p>Valid values are:</p> <ul> <li> <p> <code>TERM_MATCH</code>: Returns only products that match both the given filter field and the given value.</p> </li> <li> <p> <code>EQUALS</code>: Returns products that have a field value exactly matching the provided value.</p> </li> <li> <p> <code>CONTAINS</code>: Returns products where the field value contains the provided value as a substring.</p> </li> <li> <p> <code>ANY_OF</code>: Returns products where the field value is any of the provided values.</p> </li> <li> <p> <code>NONE_OF</code>: Returns products where the field value is not any of the provided values.</p> </li> </ul>"""
     field: "aws_sdk_pricing.types.field.Field"

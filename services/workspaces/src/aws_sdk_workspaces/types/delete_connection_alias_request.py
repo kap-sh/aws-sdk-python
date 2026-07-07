@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DeleteConnectionAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.connection_alias_id
 
 
-class DeleteConnectionAliasRequest(TypedDict):
+class DeleteConnectionAliasRequest(TypedDict, closed=True):
     alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId"
     """<p>The identifier of the connection alias to delete.</p>"""
 

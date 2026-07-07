@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#DeviceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.snowcone_device_configuration
 
 
-class DeviceConfiguration(TypedDict):
+class DeviceConfiguration(TypedDict, closed=True):
     snowcone_device_configuration: NotRequired[
         "aws_sdk_snowball.types.snowcone_device_configuration.SnowconeDeviceConfiguration"
     ]

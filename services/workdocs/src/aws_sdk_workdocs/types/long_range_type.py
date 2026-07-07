@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#LongRangeType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.long_type
 
 
-class LongRangeType(TypedDict):
+class LongRangeType(TypedDict, closed=True):
     start_value: NotRequired["aws_sdk_workdocs.types.long_type.LongType"]
     """<p>The size start range (in bytes).</p>"""
     end_value: NotRequired["aws_sdk_workdocs.types.long_type.LongType"]

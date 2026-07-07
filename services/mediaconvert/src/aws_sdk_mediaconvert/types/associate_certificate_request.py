@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AssociateCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
 
 
-class AssociateCertificateRequest(TypedDict):
+class AssociateCertificateRequest(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """The ARN of the ACM certificate that you want to associate with your MediaConvert resource."""
 

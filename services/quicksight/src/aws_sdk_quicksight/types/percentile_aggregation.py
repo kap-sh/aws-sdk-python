@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PercentileAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.percentile_value
 
 
-class PercentileAggregation(TypedDict):
+class PercentileAggregation(TypedDict, closed=True):
     percentile_value: NotRequired[
         "aws_sdk_quicksight.types.percentile_value.PercentileValue"
     ]

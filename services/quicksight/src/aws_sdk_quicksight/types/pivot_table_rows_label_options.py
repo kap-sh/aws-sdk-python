@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotTableRowsLabelOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pivot_table_rows_label_text
     import aws_sdk_quicksight.types.visibility
 
 
-class PivotTableRowsLabelOptions(TypedDict):
+class PivotTableRowsLabelOptions(TypedDict, closed=True):
     visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>The visibility of the rows label.</p>"""
     custom_label: NotRequired[

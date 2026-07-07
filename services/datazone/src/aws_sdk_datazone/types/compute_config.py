@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ComputeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.instance_type
 
 
-class ComputeConfig(TypedDict):
+class ComputeConfig(TypedDict, closed=True):
     instance_type: NotRequired["aws_sdk_datazone.types.instance_type.InstanceType"]
     """<p>The instance type for the notebook run compute.</p>"""
     environment_version: NotRequired["str"]

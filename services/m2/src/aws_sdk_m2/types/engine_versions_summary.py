@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.m2#EngineVersionsSummary``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
 
-class EngineVersionsSummary(TypedDict):
+class EngineVersionsSummary(TypedDict, closed=True):
     engine_type: "str"
     """<p>The type of target platform for the application.</p>"""
     engine_version: "str"

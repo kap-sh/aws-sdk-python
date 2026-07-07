@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#GetMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.features_map
 
 
-class GetMetadataResponse(TypedDict):
+class GetMetadataResponse(TypedDict, closed=True):
     features: "aws_sdk_amplifyuibuilder.types.features_map.FeaturesMap"
     """<p>Represents the configuration settings for the features metadata.</p>"""
 

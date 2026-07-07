@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#ModuleLoggingConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mwaa.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.logging_level
 
 
-class ModuleLoggingConfigurationInput(TypedDict):
+class ModuleLoggingConfigurationInput(TypedDict, closed=True):
     enabled: "aws_sdk_mwaa.types.logging_enabled.LoggingEnabled"
     """<p>Indicates whether to enable the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>).</p>"""
     log_level: "aws_sdk_mwaa.types.logging_level.LoggingLevel"

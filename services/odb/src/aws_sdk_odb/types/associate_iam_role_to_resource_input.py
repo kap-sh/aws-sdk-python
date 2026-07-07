@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#AssociateIamRoleToResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.supported_aws_integration
 
 
-class AssociateIamRoleToResourceInput(TypedDict):
+class AssociateIamRoleToResourceInput(TypedDict, closed=True):
     iam_role_arn: "aws_sdk_odb.types.role_arn.RoleArn"
     """<p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) service role to associate with the resource.</p>"""
     aws_integration: (

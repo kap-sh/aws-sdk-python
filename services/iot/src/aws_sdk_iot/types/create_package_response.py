@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreatePackageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.package_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.resource_description
 
 
-class CreatePackageResponse(TypedDict):
+class CreatePackageResponse(TypedDict, closed=True):
     package_name: NotRequired["aws_sdk_iot.types.package_name.PackageName"]
     """<p>The name of the software package.</p>"""
     package_arn: NotRequired["aws_sdk_iot.types.package_arn.PackageArn"]

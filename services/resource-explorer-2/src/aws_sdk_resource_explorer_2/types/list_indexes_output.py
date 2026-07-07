@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ListIndexesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.index_list
 
 
-class ListIndexesOutput(TypedDict):
+class ListIndexesOutput(TypedDict, closed=True):
     indexes: NotRequired["aws_sdk_resource_explorer_2.types.index_list.IndexList"]
     """<p>A structure that contains the details and status of each index.</p>"""
     next_token: NotRequired["str"]

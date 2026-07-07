@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowExecutionDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_execution_open_counts
 
 
-class WorkflowExecutionDetail(TypedDict):
+class WorkflowExecutionDetail(TypedDict, closed=True):
     execution_info: "aws_sdk_swf.types.workflow_execution_info.WorkflowExecutionInfo"
     """<p>Information about the workflow execution.</p>"""
     execution_configuration: "aws_sdk_swf.types.workflow_execution_configuration.WorkflowExecutionConfiguration"

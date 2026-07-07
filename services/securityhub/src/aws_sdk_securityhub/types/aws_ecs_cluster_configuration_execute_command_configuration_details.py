@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsClusterConfigurationExecuteCommandConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ecs_cluster_configuration_execute_command_configuration_log_configuration_details
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsClusterConfigurationExecuteCommandConfigurationDetails(TypedDict):
+class AwsEcsClusterConfigurationExecuteCommandConfigurationDetails(
+    TypedDict, closed=True
+):
     kms_key_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The identifier of the KMS key that is used to encrypt the data between the local client and the container.</p>"""
     log_configuration: NotRequired[

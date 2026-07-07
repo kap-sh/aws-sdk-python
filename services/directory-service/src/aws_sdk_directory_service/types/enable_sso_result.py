@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#EnableSsoResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EnableSsoResult(TypedDict):
+class EnableSsoResult(TypedDict, closed=True):
     pass
 
 

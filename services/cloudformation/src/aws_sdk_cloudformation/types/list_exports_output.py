@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#ListExportsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.next_token
 
 
-class ListExportsOutput(TypedDict):
+class ListExportsOutput(TypedDict, closed=True):
     exports: NotRequired["aws_sdk_cloudformation.types.exports.Exports"]
     """<p>The output for the <a>ListExports</a> action.</p>"""
     next_token: NotRequired["aws_sdk_cloudformation.types.next_token.NextToken"]

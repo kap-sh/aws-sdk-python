@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CommandParameterValueCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.command_parameter_value_comparison_operator
 
 
-class CommandParameterValueCondition(TypedDict):
+class CommandParameterValueCondition(TypedDict, closed=True):
     comparison_operator: "aws_sdk_iot.types.command_parameter_value_comparison_operator.CommandParameterValueComparisonOperator"
     """<p>The comparison operator for the command parameter.</p> <note> <p>IN_RANGE, and NOT_IN_RANGE operators include boundary values.</p> </note>"""
     operand: "aws_sdk_iot.types.command_parameter_value_comparison_operand.CommandParameterValueComparisonOperand"

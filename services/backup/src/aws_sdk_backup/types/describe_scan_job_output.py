@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeScanJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.scan_state
 
 
-class DescribeScanJobOutput(TypedDict):
+class DescribeScanJobOutput(TypedDict, closed=True):
     account_id: "str"
     """<p>Returns the account ID that owns the scan job.</p> <p>Pattern: <code>^[0-9]{12}$</code> </p>"""
     backup_vault_arn: "str"

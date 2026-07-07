@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeImageVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.failure_reason
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.vendor_guidance
 
 
-class DescribeImageVersionResponse(TypedDict):
+class DescribeImageVersionResponse(TypedDict, closed=True):
     base_image: NotRequired["aws_sdk_sagemaker.types.image_base_image.ImageBaseImage"]
     """<p>The registry path of the container image on which this image version is based.</p>"""
     container_image: NotRequired[

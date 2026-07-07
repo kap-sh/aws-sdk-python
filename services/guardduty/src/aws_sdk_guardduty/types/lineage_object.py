@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#LineageObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.timestamp
 
 
-class LineageObject(TypedDict):
+class LineageObject(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_guardduty.types.timestamp.Timestamp"]
     """<p>The time when the process started. This is in UTC format.</p>"""
     namespace_pid: NotRequired["aws_sdk_guardduty.types.integer.Integer"]

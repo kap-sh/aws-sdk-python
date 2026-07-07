@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeleteResourceDataSyncRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_data_sync_type
 
 
-class DeleteResourceDataSyncRequest(TypedDict):
+class DeleteResourceDataSyncRequest(TypedDict, closed=True):
     sync_name: "aws_sdk_ssm.types.resource_data_sync_name.ResourceDataSyncName"
     """<p>The name of the configuration to delete.</p>"""
     sync_type: NotRequired[

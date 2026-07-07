@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#StorageConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.kms_key_arn
     import aws_sdk_datazone.types.s3_path
 
 
-class StorageConfig(TypedDict):
+class StorageConfig(TypedDict, closed=True):
     project_s3_path: NotRequired["aws_sdk_datazone.types.s3_path.S3Path"]
     """<p>The Amazon Simple Storage Service path for the project storage.</p>"""
     kms_key_arn: NotRequired["aws_sdk_datazone.types.kms_key_arn.KmsKeyArn"]

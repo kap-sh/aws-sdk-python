@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ContactDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_detail_description
     import aws_sdk_connect.types.contact_detail_name
 
 
-class ContactDetails(TypedDict):
+class ContactDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_connect.types.contact_detail_name.ContactDetailName"]
     """<p>The name of the contact details.</p>"""
     description: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#PlaybackConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__integer_min1
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.manifest_processing_rules
 
 
-class PlaybackConfiguration(TypedDict):
+class PlaybackConfiguration(TypedDict, closed=True):
     ad_decision_server_url: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</p>"""
     avail_suppression: NotRequired[

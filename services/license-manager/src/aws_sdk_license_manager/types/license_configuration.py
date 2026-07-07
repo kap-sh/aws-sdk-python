@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#LicenseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.automated_discovery_information
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string_list
 
 
-class LicenseConfiguration(TypedDict):
+class LicenseConfiguration(TypedDict, closed=True):
     license_configuration_id: NotRequired["aws_sdk_license_manager.types.string.String"]
     """<p>Unique ID of the license configuration.</p>"""
     license_configuration_arn: NotRequired[

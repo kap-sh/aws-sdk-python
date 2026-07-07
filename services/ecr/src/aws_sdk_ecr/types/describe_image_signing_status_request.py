@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#DescribeImageSigningStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.repository_name
 
 
-class DescribeImageSigningStatusRequest(TypedDict):
+class DescribeImageSigningStatusRequest(TypedDict, closed=True):
     repository_name: "aws_sdk_ecr.types.repository_name.RepositoryName"
     """<p>The name of the repository that contains the image.</p>"""
     image_id: "aws_sdk_ecr.types.image_identifier.ImageIdentifier"

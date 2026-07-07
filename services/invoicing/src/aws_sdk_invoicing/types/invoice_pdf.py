@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#InvoicePDF``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.supplemental_documents
 
 
-class InvoicePDF(TypedDict):
+class InvoicePDF(TypedDict, closed=True):
     invoice_id: NotRequired[
         "aws_sdk_invoicing.types.string_without_new_line.StringWithoutNewLine"
     ]

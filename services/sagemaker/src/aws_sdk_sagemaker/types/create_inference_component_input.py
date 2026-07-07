@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateInferenceComponentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.variant_name
 
 
-class CreateInferenceComponentInput(TypedDict):
+class CreateInferenceComponentInput(TypedDict, closed=True):
     inference_component_name: NotRequired[
         "aws_sdk_sagemaker.types.inference_component_name.InferenceComponentName"
     ]

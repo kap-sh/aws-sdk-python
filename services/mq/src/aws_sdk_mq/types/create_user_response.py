@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mq#CreateUserResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateUserResponse(TypedDict):
+class CreateUserResponse(TypedDict, closed=True):
     pass
 
 

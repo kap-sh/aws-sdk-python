@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#CreateProfileInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.client_request_token
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.tag_map
 
 
-class CreateProfileInput(TypedDict):
+class CreateProfileInput(TypedDict, closed=True):
     profile_name: NotRequired["aws_sdk_wellarchitected.types.profile_name.ProfileName"]
     """<p>Name of the profile.</p>"""
     profile_description: NotRequired[

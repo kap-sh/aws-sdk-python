@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#BatchAssociateResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.identifier
 
 
-class BatchAssociateResourceResponse(TypedDict):
+class BatchAssociateResourceResponse(TypedDict, closed=True):
     resource_set_identifier: "aws_sdk_fms.types.identifier.Identifier"
     """<p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>"""
     failed_items: "aws_sdk_fms.types.failed_item_list.FailedItemList"

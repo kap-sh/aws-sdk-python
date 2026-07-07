@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#StartDiscovererResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__string
     import aws_sdk_schemas.types.discoverer_state
 
 
-class StartDiscovererResponse(TypedDict):
+class StartDiscovererResponse(TypedDict, closed=True):
     discoverer_id: NotRequired["aws_sdk_schemas.types.__string.__string"]
     """<p>The ID of the discoverer.</p>"""
     state: NotRequired["aws_sdk_schemas.types.discoverer_state.DiscovererState"]

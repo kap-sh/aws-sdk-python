@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#LambdaManagedInstancesCapacityProviderConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.per_execution_environment_max_concurrency
 
 
-class LambdaManagedInstancesCapacityProviderConfig(TypedDict):
+class LambdaManagedInstancesCapacityProviderConfig(TypedDict, closed=True):
     capacity_provider_arn: (
         "aws_sdk_lambda.types.capacity_provider_arn.CapacityProviderArn"
     )

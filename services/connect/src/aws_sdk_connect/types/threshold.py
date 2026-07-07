@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Threshold``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.comparison
     import aws_sdk_connect.types.threshold_value
 
 
-class Threshold(TypedDict):
+class Threshold(TypedDict, closed=True):
     comparison: NotRequired["aws_sdk_connect.types.comparison.Comparison"]
     r"""<p>The type of comparison. Only \"less than\" (LT) comparisons are supported.</p>"""
     threshold_value: NotRequired["aws_sdk_connect.types.threshold_value.ThresholdValue"]

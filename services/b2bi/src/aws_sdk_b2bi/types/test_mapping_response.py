@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#TestMappingResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
 
-class TestMappingResponse(TypedDict):
+class TestMappingResponse(TypedDict, closed=True):
     mapped_file_content: "str"
     """<p>Returns a string for the mapping that can be used to identify the mapping. Similar to a fingerprint</p>"""
 

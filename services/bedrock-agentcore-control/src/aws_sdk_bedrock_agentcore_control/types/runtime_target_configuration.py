@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#RuntimeTargetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.runtime_qualifier
 
 
-class RuntimeTargetConfiguration(TypedDict):
+class RuntimeTargetConfiguration(TypedDict, closed=True):
     arn: "aws_sdk_bedrock_agentcore_control.types.runtime_arn.RuntimeArn"
     """<p>The Amazon Resource Name (ARN) of the AgentCore Runtime to route requests to.</p>"""
     qualifier: NotRequired[

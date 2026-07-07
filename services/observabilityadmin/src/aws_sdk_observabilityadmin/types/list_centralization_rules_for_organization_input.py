@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ListCentralizationRulesForOrganizationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.list_centralization_rules_for_organization_max_results
     import aws_sdk_observabilityadmin.types.next_token
 
 
-class ListCentralizationRulesForOrganizationInput(TypedDict):
+class ListCentralizationRulesForOrganizationInput(TypedDict, closed=True):
     rule_name_prefix: NotRequired["str"]
     """<p>A string to filter organization centralization rules whose names begin with the specified prefix.</p>"""
     all_regions: NotRequired["bool"]

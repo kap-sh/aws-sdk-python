@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#ResourceFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_groups.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.resource_filter_values
 
 
-class ResourceFilter(TypedDict):
+class ResourceFilter(TypedDict, closed=True):
     name: "aws_sdk_resource_groups.types.resource_filter_name.ResourceFilterName"
     """<p>The name of the filter. Filter names are case-sensitive.</p>"""
     values: "aws_sdk_resource_groups.types.resource_filter_values.ResourceFilterValues"

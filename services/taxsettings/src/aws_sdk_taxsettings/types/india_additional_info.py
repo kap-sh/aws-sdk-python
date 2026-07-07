@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#IndiaAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.pan
 
 
-class IndiaAdditionalInfo(TypedDict):
+class IndiaAdditionalInfo(TypedDict, closed=True):
     pan: NotRequired["aws_sdk_taxsettings.types.pan.Pan"]
     """<p> India pan information associated with the account. </p>"""
 

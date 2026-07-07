@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#ObjectLambdaConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.object_lambda_transformation_configurations_list
 
 
-class ObjectLambdaConfiguration(TypedDict):
+class ObjectLambdaConfiguration(TypedDict, closed=True):
     supporting_access_point: "aws_sdk_s3_control.types.object_lambda_supporting_access_point_arn.ObjectLambdaSupportingAccessPointArn"
     """<p>Standard access point associated with the Object Lambda Access Point.</p>"""
     cloud_watch_metrics_enabled: "aws_sdk_s3_control.types.boolean.Boolean"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#BrowserActionResult``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -15,35 +17,35 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.screenshot_result
 
 
-class _BrowserActionResult_mouseClick(TypedDict):
+class _BrowserActionResult_mouseClick(TypedDict, closed=True):
     mouseClick: "aws_sdk_bedrock_agentcore.types.mouse_click_result.MouseClickResult"
 
 
-class _BrowserActionResult_mouseMove(TypedDict):
+class _BrowserActionResult_mouseMove(TypedDict, closed=True):
     mouseMove: "aws_sdk_bedrock_agentcore.types.mouse_move_result.MouseMoveResult"
 
 
-class _BrowserActionResult_mouseDrag(TypedDict):
+class _BrowserActionResult_mouseDrag(TypedDict, closed=True):
     mouseDrag: "aws_sdk_bedrock_agentcore.types.mouse_drag_result.MouseDragResult"
 
 
-class _BrowserActionResult_mouseScroll(TypedDict):
+class _BrowserActionResult_mouseScroll(TypedDict, closed=True):
     mouseScroll: "aws_sdk_bedrock_agentcore.types.mouse_scroll_result.MouseScrollResult"
 
 
-class _BrowserActionResult_keyType(TypedDict):
+class _BrowserActionResult_keyType(TypedDict, closed=True):
     keyType: "aws_sdk_bedrock_agentcore.types.key_type_result.KeyTypeResult"
 
 
-class _BrowserActionResult_keyPress(TypedDict):
+class _BrowserActionResult_keyPress(TypedDict, closed=True):
     keyPress: "aws_sdk_bedrock_agentcore.types.key_press_result.KeyPressResult"
 
 
-class _BrowserActionResult_keyShortcut(TypedDict):
+class _BrowserActionResult_keyShortcut(TypedDict, closed=True):
     keyShortcut: "aws_sdk_bedrock_agentcore.types.key_shortcut_result.KeyShortcutResult"
 
 
-class _BrowserActionResult_screenshot(TypedDict):
+class _BrowserActionResult_screenshot(TypedDict, closed=True):
     screenshot: "aws_sdk_bedrock_agentcore.types.screenshot_result.ScreenshotResult"
 
 

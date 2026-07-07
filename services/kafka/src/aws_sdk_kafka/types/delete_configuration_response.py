@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#DeleteConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
     import aws_sdk_kafka.types.configuration_state
 
 
-class DeleteConfigurationResponse(TypedDict):
+class DeleteConfigurationResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration.</p>"""
     state: NotRequired["aws_sdk_kafka.types.configuration_state.ConfigurationState"]

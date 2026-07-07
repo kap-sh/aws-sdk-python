@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetResourceApiKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.workload_identity_token_type
 
 
-class GetResourceApiKeyRequest(TypedDict):
+class GetResourceApiKeyRequest(TypedDict, closed=True):
     workload_identity_token: "aws_sdk_bedrock_agentcore.types.workload_identity_token_type.WorkloadIdentityTokenType"
     """<p>The identity token of the workload from which you want to retrieve the API key.</p>"""
     resource_credential_provider_name: "aws_sdk_bedrock_agentcore.types.credential_provider_name.CredentialProviderName"

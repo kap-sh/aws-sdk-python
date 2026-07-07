@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListBotVersionReplicasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_version_replica_sort_by
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.replica_region
 
 
-class ListBotVersionReplicasRequest(TypedDict):
+class ListBotVersionReplicasRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The request for the unique ID in the list of replicated bots.</p>"""
     replica_region: "aws_sdk_lex_models_v2.types.replica_region.ReplicaRegion"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#PortMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.port_protocol
 
 
-class PortMapping(TypedDict):
+class PortMapping(TypedDict, closed=True):
     port: "aws_sdk_app_mesh.types.port_number.PortNumber"
     """<p>The port used for the port mapping.</p>"""
     protocol: "aws_sdk_app_mesh.types.port_protocol.PortProtocol"

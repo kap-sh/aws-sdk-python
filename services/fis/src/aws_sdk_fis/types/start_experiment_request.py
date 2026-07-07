@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#StartExperimentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fis.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.tag_map
 
 
-class StartExperimentRequest(TypedDict):
+class StartExperimentRequest(TypedDict, closed=True):
     client_token: "aws_sdk_fis.types.client_token.ClientToken"
     """<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"""
     experiment_template_id: (

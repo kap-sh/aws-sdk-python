@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#PutInstanceCommunicationLimitsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.instance_id
 
 
-class PutInstanceCommunicationLimitsRequest(TypedDict):
+class PutInstanceCommunicationLimitsRequest(TypedDict, closed=True):
     connect_instance_id: "aws_sdk_connectcampaignsv2.types.instance_id.InstanceId"
     communication_limits_config: "aws_sdk_connectcampaignsv2.types.instance_communication_limits_config.InstanceCommunicationLimitsConfig"
 

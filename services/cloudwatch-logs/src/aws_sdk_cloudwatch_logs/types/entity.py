@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#Entity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.entity_attributes
     import aws_sdk_cloudwatch_logs.types.entity_key_attributes
 
 
-class Entity(TypedDict):
+class Entity(TypedDict, closed=True):
     key_attributes: NotRequired[
         "aws_sdk_cloudwatch_logs.types.entity_key_attributes.EntityKeyAttributes"
     ]

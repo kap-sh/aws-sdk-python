@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#X12ControlNumbers``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_b2bi.types.starting_functional_group_control_number
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.starting_transaction_set_control_number
 
 
-class X12ControlNumbers(TypedDict):
+class X12ControlNumbers(TypedDict, closed=True):
     starting_interchange_control_number: NotRequired[
         "aws_sdk_b2bi.types.starting_interchange_control_number.StartingInterchangeControlNumber"
     ]

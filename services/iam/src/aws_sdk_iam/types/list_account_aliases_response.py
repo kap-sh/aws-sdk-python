@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListAccountAliasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.response_marker_type
 
 
-class ListAccountAliasesResponse(TypedDict):
+class ListAccountAliasesResponse(TypedDict, closed=True):
     account_aliases: "aws_sdk_iam.types.account_alias_list_type.accountAliasListType"
     """<p>A list of aliases associated with the account. Amazon Web Services supports only one alias per account.</p>"""
     is_truncated: "aws_sdk_iam.types.boolean_type.booleanType"

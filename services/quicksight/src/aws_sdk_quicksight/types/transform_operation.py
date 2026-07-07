@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TransformOperation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -15,45 +17,45 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.untag_column_operation
 
 
-class _TransformOperation_ProjectOperation(TypedDict):
+class _TransformOperation_ProjectOperation(TypedDict, closed=True):
     ProjectOperation: "aws_sdk_quicksight.types.project_operation.ProjectOperation"
 
 
-class _TransformOperation_FilterOperation(TypedDict):
+class _TransformOperation_FilterOperation(TypedDict, closed=True):
     FilterOperation: "aws_sdk_quicksight.types.filter_operation.FilterOperation"
 
 
-class _TransformOperation_CreateColumnsOperation(TypedDict):
+class _TransformOperation_CreateColumnsOperation(TypedDict, closed=True):
     CreateColumnsOperation: (
         "aws_sdk_quicksight.types.create_columns_operation.CreateColumnsOperation"
     )
 
 
-class _TransformOperation_RenameColumnOperation(TypedDict):
+class _TransformOperation_RenameColumnOperation(TypedDict, closed=True):
     RenameColumnOperation: (
         "aws_sdk_quicksight.types.rename_column_operation.RenameColumnOperation"
     )
 
 
-class _TransformOperation_CastColumnTypeOperation(TypedDict):
+class _TransformOperation_CastColumnTypeOperation(TypedDict, closed=True):
     CastColumnTypeOperation: (
         "aws_sdk_quicksight.types.cast_column_type_operation.CastColumnTypeOperation"
     )
 
 
-class _TransformOperation_TagColumnOperation(TypedDict):
+class _TransformOperation_TagColumnOperation(TypedDict, closed=True):
     TagColumnOperation: (
         "aws_sdk_quicksight.types.tag_column_operation.TagColumnOperation"
     )
 
 
-class _TransformOperation_UntagColumnOperation(TypedDict):
+class _TransformOperation_UntagColumnOperation(TypedDict, closed=True):
     UntagColumnOperation: (
         "aws_sdk_quicksight.types.untag_column_operation.UntagColumnOperation"
     )
 
 
-class _TransformOperation_OverrideDatasetParameterOperation(TypedDict):
+class _TransformOperation_OverrideDatasetParameterOperation(TypedDict, closed=True):
     OverrideDatasetParameterOperation: "aws_sdk_quicksight.types.override_dataset_parameter_operation.OverrideDatasetParameterOperation"
 
 

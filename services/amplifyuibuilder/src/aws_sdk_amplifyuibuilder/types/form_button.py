@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FormButton``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.field_position
 
 
-class FormButton(TypedDict):
+class FormButton(TypedDict, closed=True):
     excluded: NotRequired["bool"]
     """<p>Specifies whether the button is visible on the form.</p>"""
     children: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeNotebookInstanceLifecycleConfigOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.creation_time
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.notebook_instance_lifecycle_config_name
 
 
-class DescribeNotebookInstanceLifecycleConfigOutput(TypedDict):
+class DescribeNotebookInstanceLifecycleConfigOutput(TypedDict, closed=True):
     notebook_instance_lifecycle_config_arn: NotRequired[
         "aws_sdk_sagemaker.types.notebook_instance_lifecycle_config_arn.NotebookInstanceLifecycleConfigArn"
     ]

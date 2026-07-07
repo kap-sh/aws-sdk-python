@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LaunchActionParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_action_parameter_type
     import aws_sdk_drs.types.launch_action_parameter_value
 
 
-class LaunchActionParameter(TypedDict):
+class LaunchActionParameter(TypedDict, closed=True):
     value: NotRequired[
         "aws_sdk_drs.types.launch_action_parameter_value.LaunchActionParameterValue"
     ]

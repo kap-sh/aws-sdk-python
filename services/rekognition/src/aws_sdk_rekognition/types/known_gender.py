@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#KnownGender``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.known_gender_type
 
 
-class KnownGender(TypedDict):
+class KnownGender(TypedDict, closed=True):
     type: NotRequired["aws_sdk_rekognition.types.known_gender_type.KnownGenderType"]
     """<p>A string value of the KnownGender info about the Celebrity.</p>"""
 

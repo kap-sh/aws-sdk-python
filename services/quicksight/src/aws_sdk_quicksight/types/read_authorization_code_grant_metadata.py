@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ReadAuthorizationCodeGrantMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.read_authorization_code_grant_credentials_details
 
 
-class ReadAuthorizationCodeGrantMetadata(TypedDict):
+class ReadAuthorizationCodeGrantMetadata(TypedDict, closed=True):
     base_endpoint: "aws_sdk_quicksight.types.endpoint.Endpoint"
     """<p>The base endpoint URL for the OAuth2 authorization code grant flow.</p>"""
     redirect_url: "aws_sdk_quicksight.types.endpoint.Endpoint"

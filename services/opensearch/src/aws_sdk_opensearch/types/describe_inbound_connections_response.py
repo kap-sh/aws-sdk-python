@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeInboundConnectionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.inbound_connections
     import aws_sdk_opensearch.types.next_token
 
 
-class DescribeInboundConnectionsResponse(TypedDict):
+class DescribeInboundConnectionsResponse(TypedDict, closed=True):
     connections: NotRequired[
         "aws_sdk_opensearch.types.inbound_connections.InboundConnections"
     ]

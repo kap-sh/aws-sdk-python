@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#InternalAccessDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.action_list
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.service_control_policy_restriction
 
 
-class InternalAccessDetails(TypedDict):
+class InternalAccessDetails(TypedDict, closed=True):
     action: NotRequired["aws_sdk_accessanalyzer.types.action_list.ActionList"]
     """<p>The action in the analyzed policy statement that has internal access permission to use.</p>"""
     condition: NotRequired[

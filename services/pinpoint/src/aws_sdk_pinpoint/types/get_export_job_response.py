@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#GetExportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.export_job_response
 
 
-class GetExportJobResponse(TypedDict):
+class GetExportJobResponse(TypedDict, closed=True):
     export_job_response: NotRequired[
         "aws_sdk_pinpoint.types.export_job_response.ExportJobResponse"
     ]

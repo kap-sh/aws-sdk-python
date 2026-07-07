@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#CreatePrivateGraphEndpointOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.vpc_id
 
 
-class CreatePrivateGraphEndpointOutput(TypedDict):
+class CreatePrivateGraphEndpointOutput(TypedDict, closed=True):
     vpc_id: "aws_sdk_neptune_graph.types.vpc_id.VpcId"
     """<p>VPC in which the private graph endpoint is created.</p>"""
     subnet_ids: "aws_sdk_neptune_graph.types.subnet_ids.SubnetIds"

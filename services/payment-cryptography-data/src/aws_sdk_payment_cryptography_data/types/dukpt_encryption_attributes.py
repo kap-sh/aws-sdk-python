@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#DukptEncryptionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.initialization_vector_type
 
 
-class DukptEncryptionAttributes(TypedDict):
+class DukptEncryptionAttributes(TypedDict, closed=True):
     key_serial_number: "aws_sdk_payment_cryptography_data.types.hex_length16_or20_or24.HexLength16Or20Or24"
     """<p>The unique identifier known as Key Serial Number (KSN) that comes from an encrypting device using DUKPT encryption method. The KSN is derived from the encrypting device unique identifier and an internal transaction counter.</p>"""
     mode: NotRequired[

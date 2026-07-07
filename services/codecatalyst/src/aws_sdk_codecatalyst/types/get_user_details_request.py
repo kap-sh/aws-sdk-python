@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#GetUserDetailsRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetUserDetailsRequest(TypedDict):
+class GetUserDetailsRequest(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The system-generated unique ID of the user. </p>"""
     user_name: NotRequired["str"]

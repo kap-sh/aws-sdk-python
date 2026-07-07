@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#DescribeTopicPartitionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of_topic_partition_info
     import aws_sdk_kafka.types.__string
 
 
-class DescribeTopicPartitionsResponse(TypedDict):
+class DescribeTopicPartitionsResponse(TypedDict, closed=True):
     partitions: NotRequired[
         "aws_sdk_kafka.types.__list_of_topic_partition_info.__listOfTopicPartitionInfo"
     ]

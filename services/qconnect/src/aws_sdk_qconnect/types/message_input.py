@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#MessageInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.message_data
 
 
-class MessageInput(TypedDict):
+class MessageInput(TypedDict, closed=True):
     value: "aws_sdk_qconnect.types.message_data.MessageData"
     """<p>The message input value.</p>"""
 

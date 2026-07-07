@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#Message``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.text
 
 
-class Message(TypedDict):
+class Message(TypedDict, closed=True):
     content: NotRequired["aws_sdk_lex_runtime_v2.types.text.Text"]
     """<p>The text of the message.</p>"""
     content_type: "aws_sdk_lex_runtime_v2.types.message_content_type.MessageContentType"

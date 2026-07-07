@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#DICOMStudyDateAndTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.dicom_study_time
 
 
-class DICOMStudyDateAndTime(TypedDict):
+class DICOMStudyDateAndTime(TypedDict, closed=True):
     dicom_study_date: "aws_sdk_medical_imaging.types.dicom_study_date.DICOMStudyDate"
     """<p>The DICOM study date provided in <code>yyMMdd</code> format.</p>"""
     dicom_study_time: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FontWeight``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.font_weight_name
 
 
-class FontWeight(TypedDict):
+class FontWeight(TypedDict, closed=True):
     name: NotRequired["aws_sdk_quicksight.types.font_weight_name.FontWeightName"]
     """<p>The lexical name for the level of boldness of the text display.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AssistantAssociationInputData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class _AssistantAssociationInputData_knowledgeBaseId(TypedDict):
+class _AssistantAssociationInputData_knowledgeBaseId(TypedDict, closed=True):
     knowledgeBaseId: "aws_sdk_qconnect.types.uuid.Uuid"
 
 
-class _AssistantAssociationInputData_externalBedrockKnowledgeBaseConfig(TypedDict):
+class _AssistantAssociationInputData_externalBedrockKnowledgeBaseConfig(
+    TypedDict, closed=True
+):
     externalBedrockKnowledgeBaseConfig: "aws_sdk_qconnect.types.external_bedrock_knowledge_base_config.ExternalBedrockKnowledgeBaseConfig"
 
 

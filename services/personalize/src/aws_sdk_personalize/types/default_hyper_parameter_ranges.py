@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DefaultHyperParameterRanges``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.default_categorical_hyper_parameter_ranges
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.default_integer_hyper_parameter_ranges
 
 
-class DefaultHyperParameterRanges(TypedDict):
+class DefaultHyperParameterRanges(TypedDict, closed=True):
     integer_hyper_parameter_ranges: NotRequired[
         "aws_sdk_personalize.types.default_integer_hyper_parameter_ranges.DefaultIntegerHyperParameterRanges"
     ]

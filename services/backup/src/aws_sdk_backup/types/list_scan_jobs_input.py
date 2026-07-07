@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListScanJobsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.scan_state
 
 
-class ListScanJobsInput(TypedDict):
+class ListScanJobsInput(TypedDict, closed=True):
     by_account_id: NotRequired["str"]
     """<p>The account ID to list the jobs from. Returns only backup jobs associated with the specified account ID.</p> <p>If used from an Amazon Web Services Organizations management account, passing <code>*</code> returns all jobs across the organization.</p> <p>Pattern: <code>^[0-9]{12}$</code> </p>"""
     by_backup_vault_name: NotRequired["str"]

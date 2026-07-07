@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RequestInspection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.username_field
 
 
-class RequestInspection(TypedDict):
+class RequestInspection(TypedDict, closed=True):
     payload_type: "aws_sdk_wafv2.types.payload_type.PayloadType"
     """<p>The payload type for your login endpoint, either JSON or form encoded.</p>"""
     username_field: "aws_sdk_wafv2.types.username_field.UsernameField"

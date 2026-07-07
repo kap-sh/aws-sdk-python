@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SlackChannel``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class SlackChannel(TypedDict):
+class SlackChannel(TypedDict, closed=True):
     channel_name: NotRequired["str"]
     """<p>Slack channel name</p>"""
     channel_id: "str"

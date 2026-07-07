@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#ListDictionariesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.dictionary_summary_list
 
 
-class ListDictionariesResponse(TypedDict):
+class ListDictionariesResponse(TypedDict, closed=True):
     dictionaries: (
         "aws_sdk_elementalinference.types.dictionary_summary_list.DictionarySummaryList"
     )

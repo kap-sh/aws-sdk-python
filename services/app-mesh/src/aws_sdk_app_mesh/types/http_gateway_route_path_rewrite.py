@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#HttpGatewayRoutePathRewrite``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.http_path_exact
 
 
-class HttpGatewayRoutePathRewrite(TypedDict):
+class HttpGatewayRoutePathRewrite(TypedDict, closed=True):
     exact: NotRequired["aws_sdk_app_mesh.types.http_path_exact.HttpPathExact"]
     """<p>The exact path to rewrite.</p>"""
 

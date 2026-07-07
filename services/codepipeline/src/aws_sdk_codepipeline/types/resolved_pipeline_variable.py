@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ResolvedPipelineVariable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.string
 
 
-class ResolvedPipelineVariable(TypedDict):
+class ResolvedPipelineVariable(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codepipeline.types.string.String"]
     """<p>The name of a pipeline-level variable.</p>"""
     resolved_value: NotRequired["aws_sdk_codepipeline.types.string.String"]

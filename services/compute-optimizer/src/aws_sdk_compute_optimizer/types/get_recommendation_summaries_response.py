@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetRecommendationSummariesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.next_token
     import aws_sdk_compute_optimizer.types.recommendation_summaries
 
 
-class GetRecommendationSummariesResponse(TypedDict):
+class GetRecommendationSummariesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_compute_optimizer.types.next_token.NextToken"]
     """<p>The token to use to advance to the next page of recommendation summaries.</p> <p>This value is null when there are no more pages of recommendation summaries to return.</p>"""
     recommendation_summaries: NotRequired[

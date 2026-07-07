@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycluster#RoutingControl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_cluster.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_cluster.types.routing_control_state
 
 
-class RoutingControl(TypedDict):
+class RoutingControl(TypedDict, closed=True):
     control_panel_arn: NotRequired["aws_sdk_route53_recovery_cluster.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the control panel where the routing control is located.</p>"""
     control_panel_name: NotRequired[

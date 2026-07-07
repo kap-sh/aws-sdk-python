@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#IsraelAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.israel_dealer_type
 
 
-class IsraelAdditionalInfo(TypedDict):
+class IsraelAdditionalInfo(TypedDict, closed=True):
     dealer_type: "aws_sdk_taxsettings.types.israel_dealer_type.IsraelDealerType"
     """<p> Dealer type for your TRN in Israel. If you're not a local authorized dealer with an Israeli VAT ID, specify your tax identification number so that Amazon Web Services can send you a compliant tax invoice.</p>"""
     customer_type: "aws_sdk_taxsettings.types.israel_customer_type.IsraelCustomerType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ReplicationPendingModifiedValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.boolean_optional
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class ReplicationPendingModifiedValues(TypedDict):
+class ReplicationPendingModifiedValues(TypedDict, closed=True):
     replication_instance_class: NotRequired[
         "aws_sdk_database_migration_service.types.replication_instance_class.ReplicationInstanceClass"
     ]

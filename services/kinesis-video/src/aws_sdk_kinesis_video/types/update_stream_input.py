@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#UpdateStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.version
 
 
-class UpdateStreamInput(TypedDict):
+class UpdateStreamInput(TypedDict, closed=True):
     stream_name: NotRequired["aws_sdk_kinesis_video.types.stream_name.StreamName"]
     """<p>The name of the stream whose metadata you want to update.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>"""
     stream_arn: NotRequired["aws_sdk_kinesis_video.types.resource_arn.ResourceARN"]

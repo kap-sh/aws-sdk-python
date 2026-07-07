@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#FlaggedIpAddressDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.ip_address
     import aws_sdk_detective.types.reason
 
 
-class FlaggedIpAddressDetail(TypedDict):
+class FlaggedIpAddressDetail(TypedDict, closed=True):
     ip_address: NotRequired["aws_sdk_detective.types.ip_address.IpAddress"]
     """<p>IP address of the suspicious entity.</p>"""
     reason: NotRequired["aws_sdk_detective.types.reason.Reason"]

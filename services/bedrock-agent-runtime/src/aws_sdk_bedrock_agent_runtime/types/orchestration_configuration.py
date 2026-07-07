@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#OrchestrationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.additional_model_request_fields
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.query_transformation_configuration
 
 
-class OrchestrationConfiguration(TypedDict):
+class OrchestrationConfiguration(TypedDict, closed=True):
     prompt_template: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.prompt_template.PromptTemplate"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListTimeSeriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.time_series_summaries
 
 
-class ListTimeSeriesResponse(TypedDict):
+class ListTimeSeriesResponse(TypedDict, closed=True):
     time_series_summaries: (
         "aws_sdk_iotsitewise.types.time_series_summaries.TimeSeriesSummaries"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ECSServiceRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.account_id
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.tags
 
 
-class ECSServiceRecommendation(TypedDict):
+class ECSServiceRecommendation(TypedDict, closed=True):
     service_arn: NotRequired["aws_sdk_compute_optimizer.types.service_arn.ServiceArn"]
     """<p> The Amazon Resource Name (ARN) of the current Amazon ECS service. </p> <p> The following is the format of the ARN: </p> <p> <code>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</code> </p>"""
     account_id: NotRequired["aws_sdk_compute_optimizer.types.account_id.AccountId"]

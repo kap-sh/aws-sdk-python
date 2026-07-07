@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListMessagesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.messages
     import aws_sdk_qbusiness.types.next_token
 
 
-class ListMessagesResponse(TypedDict):
+class ListMessagesResponse(TypedDict, closed=True):
     messages: NotRequired["aws_sdk_qbusiness.types.messages.Messages"]
     """<p>An array of information on one or more messages.</p>"""
     next_token: NotRequired["aws_sdk_qbusiness.types.next_token.NextToken"]

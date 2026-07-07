@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#UpdatePackageGroupOriginConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_group_allowed_repository_updates
     import aws_sdk_codeartifact.types.package_group_description
 
 
-class UpdatePackageGroupOriginConfigurationResult(TypedDict):
+class UpdatePackageGroupOriginConfigurationResult(TypedDict, closed=True):
     package_group: NotRequired[
         "aws_sdk_codeartifact.types.package_group_description.PackageGroupDescription"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#CreateBotReplicaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.replica_region
 
 
-class CreateBotReplicaRequest(TypedDict):
+class CreateBotReplicaRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The request for the unique bot ID of the source bot to be replicated in the secondary region.</p>"""
     replica_region: "aws_sdk_lex_models_v2.types.replica_region.ReplicaRegion"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DBClusterSnapshotAttributesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DBClusterSnapshotAttributesResult(TypedDict):
+class DBClusterSnapshotAttributesResult(TypedDict, closed=True):
     db_cluster_snapshot_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The identifier of the manual DB cluster snapshot that the attributes apply to.</p>"""
     db_cluster_snapshot_attributes: NotRequired[

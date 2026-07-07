@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GlueTableReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.glue_table_name
 
 
-class GlueTableReference(TypedDict):
+class GlueTableReference(TypedDict, closed=True):
     region: NotRequired["aws_sdk_cleanrooms.types.commercial_region.CommercialRegion"]
     """<p>The Amazon Web Services Region where the Glue table is located. This parameter is required to uniquely identify and access tables across different Regions.</p>"""
     table_name: "aws_sdk_cleanrooms.types.glue_table_name.GlueTableName"

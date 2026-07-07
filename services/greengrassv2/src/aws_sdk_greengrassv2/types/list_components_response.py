@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#ListComponentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.component_list
     import aws_sdk_greengrassv2.types.next_token_string
 
 
-class ListComponentsResponse(TypedDict):
+class ListComponentsResponse(TypedDict, closed=True):
     components: NotRequired["aws_sdk_greengrassv2.types.component_list.ComponentList"]
     """<p>A list that summarizes each component.</p>"""
     next_token: NotRequired[

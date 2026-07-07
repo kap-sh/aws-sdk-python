@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AuthResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.allowed
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.missing_context_values
 
 
-class AuthResult(TypedDict):
+class AuthResult(TypedDict, closed=True):
     auth_info: NotRequired["aws_sdk_iot.types.auth_info.AuthInfo"]
     """<p>Authorization information.</p>"""
     allowed: NotRequired["aws_sdk_iot.types.allowed.Allowed"]

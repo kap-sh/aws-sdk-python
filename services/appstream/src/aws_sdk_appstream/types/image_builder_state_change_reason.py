@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ImageBuilderStateChangeReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.image_builder_state_change_reason_code
     import aws_sdk_appstream.types.string
 
 
-class ImageBuilderStateChangeReason(TypedDict):
+class ImageBuilderStateChangeReason(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_appstream.types.image_builder_state_change_reason_code.ImageBuilderStateChangeReasonCode"
     ]

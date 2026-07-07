@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#MetricV2``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.metric_filters_v2_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.threshold_collections
 
 
-class MetricV2(TypedDict):
+class MetricV2(TypedDict, closed=True):
     name: NotRequired["aws_sdk_connect.types.metric_name_v2.MetricNameV2"]
     """<p>The name of the metric.</p>"""
     threshold: NotRequired[

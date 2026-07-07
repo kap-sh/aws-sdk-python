@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ListConfigurationPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.max_results
     import aws_sdk_securityhub.types.next_token
 
 
-class ListConfigurationPoliciesRequest(TypedDict):
+class ListConfigurationPoliciesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_securityhub.types.next_token.NextToken"]
     """<p> The NextToken value that's returned from a previous paginated <code>ListConfigurationPolicies</code> request where <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when there are no more results to return. </p>"""
     max_results: NotRequired["aws_sdk_securityhub.types.max_results.MaxResults"]

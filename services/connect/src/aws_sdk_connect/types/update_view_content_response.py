@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateViewContentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.view
 
 
-class UpdateViewContentResponse(TypedDict):
+class UpdateViewContentResponse(TypedDict, closed=True):
     view: NotRequired["aws_sdk_connect.types.view.View"]
     """<p>A view resource object. Contains metadata and content necessary to render the view.</p>"""
 

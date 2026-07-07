@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#ImageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.image_uri
 
 
-class ImageConfiguration(TypedDict):
+class ImageConfiguration(TypedDict, closed=True):
     image_uri: "aws_sdk_emr_serverless.types.image_uri.ImageUri"
     """<p>The image URI.</p>"""
     resolved_image_digest: NotRequired[

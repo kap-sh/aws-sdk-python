@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#DescribeConfigurationRevisionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__long
     import aws_sdk_kafka.types.__string
 
 
-class DescribeConfigurationRevisionRequest(TypedDict):
+class DescribeConfigurationRevisionRequest(TypedDict, closed=True):
     arn: "aws_sdk_kafka.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) that uniquely identifies an MSK configuration and all of its revisions.</p>"""
     revision: "aws_sdk_kafka.types.__long.__long"

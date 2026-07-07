@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RelationalFilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.filter_expressions
 
 
-class RelationalFilterConfiguration(TypedDict):
+class RelationalFilterConfiguration(TypedDict, closed=True):
     database_name: "str"
     """<p>The database name specified in the relational filter configuration for the data source.</p>"""
     schema_name: NotRequired["str"]

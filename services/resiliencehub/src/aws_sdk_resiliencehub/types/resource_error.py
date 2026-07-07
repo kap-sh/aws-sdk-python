@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ResourceError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.error_message
     import aws_sdk_resiliencehub.types.string255
 
 
-class ResourceError(TypedDict):
+class ResourceError(TypedDict, closed=True):
     logical_resource_id: NotRequired["aws_sdk_resiliencehub.types.string255.String255"]
     """<p>Identifier of the logical resource. </p>"""
     physical_resource_id: NotRequired["aws_sdk_resiliencehub.types.string255.String255"]

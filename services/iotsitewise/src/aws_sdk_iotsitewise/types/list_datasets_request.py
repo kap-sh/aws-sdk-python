@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListDatasetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.dataset_source_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class ListDatasetsRequest(TypedDict):
+class ListDatasetsRequest(TypedDict, closed=True):
     source_type: "aws_sdk_iotsitewise.types.dataset_source_type.DatasetSourceType"
     """<p>The type of data source for the dataset.</p>"""
     next_token: NotRequired["aws_sdk_iotsitewise.types.next_token.NextToken"]

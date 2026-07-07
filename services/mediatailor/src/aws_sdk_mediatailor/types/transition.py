@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#Transition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.relative_position
 
 
-class Transition(TypedDict):
+class Transition(TypedDict, closed=True):
     duration_millis: NotRequired["aws_sdk_mediatailor.types.__long.__long"]
     """<p>The duration of the live program in seconds.</p>"""
     relative_position: "aws_sdk_mediatailor.types.relative_position.RelativePosition"

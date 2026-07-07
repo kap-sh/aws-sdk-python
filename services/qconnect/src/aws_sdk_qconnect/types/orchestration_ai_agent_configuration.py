@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#OrchestrationAIAgentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid_with_qualifier
 
 
-class OrchestrationAIAgentConfiguration(TypedDict):
+class OrchestrationAIAgentConfiguration(TypedDict, closed=True):
     orchestration_ai_prompt_id: (
         "aws_sdk_qconnect.types.uuid_with_qualifier.UuidWithQualifier"
     )

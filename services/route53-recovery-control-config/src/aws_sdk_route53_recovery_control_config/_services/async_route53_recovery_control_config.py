@@ -2,9 +2,9 @@
 
 import warnings
 from collections.abc import AsyncIterator
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_route53_recovery_control_config._auth._signers
@@ -99,7 +99,9 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.update_safety_rule_response
 
 
-class AsyncRoute53RecoveryControlConfigClientConfig(TypedDict, total=False):
+class AsyncRoute53RecoveryControlConfigClientConfig(
+    TypedDict, total=False, closed=True
+):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     use_dual_stack: bool | None

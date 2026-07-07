@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#FindingAggregationAccountDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.finding_aggregation_account_details_map
 
 
-class FindingAggregationAccountDetails(TypedDict):
+class FindingAggregationAccountDetails(TypedDict, closed=True):
     account: NotRequired["str"]
     """<p>The ID of the Amazon Web Services account for which unused access finding details are provided.</p>"""
     number_of_active_findings: NotRequired["int"]

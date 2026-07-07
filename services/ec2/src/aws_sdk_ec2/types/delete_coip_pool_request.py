@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeleteCoipPoolRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.ipv4_pool_coip_id
 
 
-class DeleteCoipPoolRequest(TypedDict):
+class DeleteCoipPoolRequest(TypedDict, closed=True):
     coip_pool_id: NotRequired["aws_sdk_ec2.types.ipv4_pool_coip_id.Ipv4PoolCoipId"]
     """<p>The ID of the CoIP pool that you want to delete. </p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

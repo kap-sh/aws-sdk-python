@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SimpleCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.event_condition
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.segment_dimensions
 
 
-class SimpleCondition(TypedDict):
+class SimpleCondition(TypedDict, closed=True):
     event_condition: NotRequired[
         "aws_sdk_pinpoint.types.event_condition.EventCondition"
     ]

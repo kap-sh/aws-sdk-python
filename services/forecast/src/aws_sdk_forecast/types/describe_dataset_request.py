@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#DescribeDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
 
 
-class DescribeDatasetRequest(TypedDict):
+class DescribeDatasetRequest(TypedDict, closed=True):
     dataset_arn: "aws_sdk_forecast.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the dataset.</p>"""
 

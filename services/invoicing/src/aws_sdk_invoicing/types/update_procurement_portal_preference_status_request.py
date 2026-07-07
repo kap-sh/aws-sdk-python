@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#UpdateProcurementPortalPreferenceStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.procurement_portal_preference_status
 
 
-class UpdateProcurementPortalPreferenceStatusRequest(TypedDict):
+class UpdateProcurementPortalPreferenceStatusRequest(TypedDict, closed=True):
     procurement_portal_preference_arn: "aws_sdk_invoicing.types.procurement_portal_preference_arn_string.ProcurementPortalPreferenceArnString"
     """<p>The Amazon Resource Name (ARN) of the procurement portal preference to update.</p>"""
     einvoice_delivery_preference_status: NotRequired[

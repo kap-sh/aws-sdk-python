@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#ListSubscriptionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.next_token
     import aws_sdk_iot_data_plane.types.subscription_list
 
 
-class ListSubscriptionsResponse(TypedDict):
+class ListSubscriptionsResponse(TypedDict, closed=True):
     subscriptions: NotRequired[
         "aws_sdk_iot_data_plane.types.subscription_list.SubscriptionList"
     ]

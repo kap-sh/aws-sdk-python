@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#EnvironmentError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.sensitive_string
     import aws_sdk_lambda.types.string
 
 
-class EnvironmentError(TypedDict):
+class EnvironmentError(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>The error code.</p>"""
     message: NotRequired["aws_sdk_lambda.types.sensitive_string.SensitiveString"]

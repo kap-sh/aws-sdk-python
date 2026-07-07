@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ExportAs2805KeyCryptogram``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.key_arn_or_key_alias_type
 
 
-class ExportAs2805KeyCryptogram(TypedDict):
+class ExportAs2805KeyCryptogram(TypedDict, closed=True):
     wrapping_key_identifier: "aws_sdk_payment_cryptography.types.key_arn_or_key_alias_type.KeyArnOrKeyAliasType"
     as2805_key_variant: (
         "aws_sdk_payment_cryptography.types.as2805_key_variant.As2805KeyVariant"

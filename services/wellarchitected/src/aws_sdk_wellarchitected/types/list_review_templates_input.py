@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListReviewTemplatesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.max_results
     import aws_sdk_wellarchitected.types.next_token
 
 
-class ListReviewTemplatesInput(TypedDict):
+class ListReviewTemplatesInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_wellarchitected.types.next_token.NextToken"]
     max_results: NotRequired["aws_sdk_wellarchitected.types.max_results.MaxResults"]
 

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#DeleteMonitoringSubscriptionResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
 
-class DeleteMonitoringSubscriptionResult(TypedDict):
+class DeleteMonitoringSubscriptionResult(TypedDict, closed=True):
     pass
 
 

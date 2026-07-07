@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#SearchSampleQueriesSearchResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.sample_query_description
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.sample_query_sql
 
 
-class SearchSampleQueriesSearchResult(TypedDict):
+class SearchSampleQueriesSearchResult(TypedDict, closed=True):
     name: NotRequired["aws_sdk_cloudtrail.types.sample_query_name.SampleQueryName"]
     """<p> The name of a sample query. </p>"""
     description: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#MetricDestinationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.destination_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.metric_destination
 
 
-class MetricDestinationSummary(TypedDict):
+class MetricDestinationSummary(TypedDict, closed=True):
     destination: NotRequired["aws_sdk_rum.types.metric_destination.MetricDestination"]
     """<p>Specifies whether the destination is <code>CloudWatch</code> or <code>Evidently</code>.</p>"""
     destination_arn: NotRequired["aws_sdk_rum.types.destination_arn.DestinationArn"]

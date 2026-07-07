@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#ListProductSubscriptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.identity_provider
 
 
-class ListProductSubscriptionsRequest(TypedDict):
+class ListProductSubscriptionsRequest(TypedDict, closed=True):
     product: NotRequired["str"]
     """<p>The name of the user-based subscription product.</p> <p>Valid values: <code>VISUAL_STUDIO_ENTERPRISE</code> | <code>VISUAL_STUDIO_PROFESSIONAL</code> | <code>OFFICE_PROFESSIONAL_PLUS</code> | <code>REMOTE_DESKTOP_SERVICES</code> </p>"""
     identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"

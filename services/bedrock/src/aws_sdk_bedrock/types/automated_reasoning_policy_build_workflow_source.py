@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyBuildWorkflowSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_definition
     import aws_sdk_bedrock.types.automated_reasoning_policy_workflow_type_content
 
 
-class AutomatedReasoningPolicyBuildWorkflowSource(TypedDict):
+class AutomatedReasoningPolicyBuildWorkflowSource(TypedDict, closed=True):
     policy_definition: NotRequired[
         "aws_sdk_bedrock.types.automated_reasoning_policy_definition.AutomatedReasoningPolicyDefinition"
     ]

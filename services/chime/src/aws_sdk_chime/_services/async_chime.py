@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chime#UCBuzzConsoleService``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_chime._auth._signers
@@ -181,7 +181,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.voice_connector_settings
 
 
-class AsyncChimeClientConfig(TypedDict, total=False):
+class AsyncChimeClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#CodeCoverageReportSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_negative_int
     import aws_sdk_codebuild.types.percentage
 
 
-class CodeCoverageReportSummary(TypedDict):
+class CodeCoverageReportSummary(TypedDict, closed=True):
     line_coverage_percentage: NotRequired[
         "aws_sdk_codebuild.types.percentage.Percentage"
     ]

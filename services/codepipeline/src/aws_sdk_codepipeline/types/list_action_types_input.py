@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ListActionTypesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.action_owner
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.next_token
 
 
-class ListActionTypesInput(TypedDict):
+class ListActionTypesInput(TypedDict, closed=True):
     action_owner_filter: NotRequired[
         "aws_sdk_codepipeline.types.action_owner.ActionOwner"
     ]

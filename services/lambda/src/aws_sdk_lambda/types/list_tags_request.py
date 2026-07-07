@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.taggable_resource
 
 
-class ListTagsRequest(TypedDict):
+class ListTagsRequest(TypedDict, closed=True):
     resource: "aws_sdk_lambda.types.taggable_resource.TaggableResource"
     """<p>The resource's Amazon Resource Name (ARN). Note: Lambda does not support adding tags to function aliases or versions.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ArgoCdAwsIdcConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class ArgoCdAwsIdcConfigRequest(TypedDict):
+class ArgoCdAwsIdcConfigRequest(TypedDict, closed=True):
     idc_instance_arn: "aws_sdk_eks.types.string.String"
     """<p>The Amazon Resource Name (ARN) of the IAM Identity CenterIAM; Identity Center instance to use for authentication.</p>"""
     idc_region: NotRequired["aws_sdk_eks.types.string.String"]

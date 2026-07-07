@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#PutInsightSelectorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.string
 
 
-class PutInsightSelectorsRequest(TypedDict):
+class PutInsightSelectorsRequest(TypedDict, closed=True):
     trail_name: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>The name of the CloudTrail trail for which you want to change or add Insights selectors.</p> <p>You cannot use this parameter with the <code>EventDataStore</code> and <code>InsightsDestination</code> parameters.</p>"""
     insight_selectors: "aws_sdk_cloudtrail.types.insight_selectors.InsightSelectors"

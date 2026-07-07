@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.date_range
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class DateFilter(TypedDict):
+class DateFilter(TypedDict, closed=True):
     start: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     r"""<p>A timestamp that provides the start date for the date filter.</p> <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href=\"https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps\">Timestamps</a>.</p>"""
     end: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

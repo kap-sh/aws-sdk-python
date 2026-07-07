@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_compute_optimizer_automation.types.tag_key.TagKey"
     """<p>The tag key, which can be up to 128 characters long.</p>"""
     value: "aws_sdk_compute_optimizer_automation.types.tag_value.TagValue"

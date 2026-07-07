@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputChannelLevel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0_max15
     import aws_sdk_medialive.types.__integer_min_negative60_max6
 
 
-class InputChannelLevel(TypedDict):
+class InputChannelLevel(TypedDict, closed=True):
     gain: NotRequired[
         "aws_sdk_medialive.types.__integer_min_negative60_max6.__integerMinNegative60Max6"
     ]

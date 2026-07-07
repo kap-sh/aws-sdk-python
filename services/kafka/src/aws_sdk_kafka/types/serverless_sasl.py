@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ServerlessSasl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.iam
 
 
-class ServerlessSasl(TypedDict):
+class ServerlessSasl(TypedDict, closed=True):
     iam: NotRequired["aws_sdk_kafka.types.iam.Iam"]
     """<p>Indicates whether IAM access control is enabled.</p>"""
 

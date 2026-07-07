@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AnonymousUserDashboardFeatureConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.shared_view_configurations
 
 
-class AnonymousUserDashboardFeatureConfigurations(TypedDict):
+class AnonymousUserDashboardFeatureConfigurations(TypedDict, closed=True):
     shared_view: NotRequired[
         "aws_sdk_quicksight.types.shared_view_configurations.SharedViewConfigurations"
     ]

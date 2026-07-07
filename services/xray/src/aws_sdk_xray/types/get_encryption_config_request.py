@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetEncryptionConfigRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetEncryptionConfigRequest(TypedDict):
+class GetEncryptionConfigRequest(TypedDict, closed=True):
     pass
 
 

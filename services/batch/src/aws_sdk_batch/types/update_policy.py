@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#UpdatePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.boolean
     import aws_sdk_batch.types.job_execution_timeout_minutes
 
 
-class UpdatePolicy(TypedDict):
+class UpdatePolicy(TypedDict, closed=True):
     terminate_jobs_on_update: NotRequired["aws_sdk_batch.types.boolean.Boolean"]
     """<p>Specifies whether jobs are automatically terminated when the compute environment infrastructure is updated. The default value is <code>false</code>.</p>"""
     job_execution_timeout_minutes: NotRequired[

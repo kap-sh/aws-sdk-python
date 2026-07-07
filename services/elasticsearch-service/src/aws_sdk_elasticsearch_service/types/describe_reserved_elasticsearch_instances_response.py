@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DescribeReservedElasticsearchInstancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.reserved_elasticsearch_instance_list
     import aws_sdk_elasticsearch_service.types.string
 
 
-class DescribeReservedElasticsearchInstancesResponse(TypedDict):
+class DescribeReservedElasticsearchInstancesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_elasticsearch_service.types.string.String"]
     """<p>Provides an identifier to allow retrieval of paginated results.</p>"""
     reserved_elasticsearch_instances: NotRequired[

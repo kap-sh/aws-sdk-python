@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#GetWorkloadInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_id
 
 
-class GetWorkloadInput(TypedDict):
+class GetWorkloadInput(TypedDict, closed=True):
     workload_id: "aws_sdk_wellarchitected.types.workload_id.WorkloadId"
 
 

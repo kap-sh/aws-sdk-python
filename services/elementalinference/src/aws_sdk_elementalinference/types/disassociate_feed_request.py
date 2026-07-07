@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#DisassociateFeedRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.feed_id
 
 
-class DisassociateFeedRequest(TypedDict):
+class DisassociateFeedRequest(TypedDict, closed=True):
     id: "aws_sdk_elementalinference.types.feed_id.FeedId"
     """<p>The ID of the feed where you want to release the resource.</p>"""
     associated_resource_name: "aws_sdk_elementalinference.types.associated_resource_name.AssociatedResourceName"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#PutRetentionConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.retention_configuration
 
 
-class PutRetentionConfigurationResponse(TypedDict):
+class PutRetentionConfigurationResponse(TypedDict, closed=True):
     retention_configuration: NotRequired[
         "aws_sdk_config_service.types.retention_configuration.RetentionConfiguration"
     ]

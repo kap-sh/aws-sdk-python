@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#ListPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.max_results
     import aws_sdk_mpa.types.token
 
 
-class ListPoliciesRequest(TypedDict):
+class ListPoliciesRequest(TypedDict, closed=True):
     max_results: "aws_sdk_mpa.types.max_results.MaxResults"
     """<p>The maximum number of items to return in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that you can retrieve the remaining results.</p>"""
     next_token: NotRequired["aws_sdk_mpa.types.token.Token"]

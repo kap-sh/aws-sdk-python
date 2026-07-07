@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeFlowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
 
 
-class DescribeFlowResponse(TypedDict):
+class DescribeFlowResponse(TypedDict, closed=True):
     flow: "aws_sdk_quicksight.types.flow_detail.FlowDetail"
     """<p>The full details of the flow.</p>"""
     request_id: NotRequired["str"]

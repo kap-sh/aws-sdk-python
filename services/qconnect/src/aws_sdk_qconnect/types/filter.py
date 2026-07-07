@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.non_empty_string
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     field: "aws_sdk_qconnect.types.filter_field.FilterField"
     """<p>The field on which to filter.</p>"""
     operator: "aws_sdk_qconnect.types.filter_operator.FilterOperator"

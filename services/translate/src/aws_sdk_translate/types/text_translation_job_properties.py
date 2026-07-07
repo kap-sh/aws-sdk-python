@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#TextTranslationJobProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.iam_role_arn
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.unbounded_length_string
 
 
-class TextTranslationJobProperties(TypedDict):
+class TextTranslationJobProperties(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_translate.types.job_id.JobId"]
     """<p>The ID of the translation job.</p>"""
     job_name: NotRequired["aws_sdk_translate.types.job_name.JobName"]

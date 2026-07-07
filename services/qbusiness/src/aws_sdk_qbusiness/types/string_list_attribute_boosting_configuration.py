@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#StringListAttributeBoostingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.document_attribute_boosting_level
 
 
-class StringListAttributeBoostingConfiguration(TypedDict):
+class StringListAttributeBoostingConfiguration(TypedDict, closed=True):
     boosting_level: "aws_sdk_qbusiness.types.document_attribute_boosting_level.DocumentAttributeBoostingLevel"
     """<p>Specifies the priority of boosted document attributes in relation to other boosted attributes. This parameter determines how strongly the attribute influences document ranking in search results. <code>STRING_LIST</code> attributes can serve as additional boosting factors when needed, but are not supported when using <code>NativeIndexConfiguration</code> version 2.</p>"""
 

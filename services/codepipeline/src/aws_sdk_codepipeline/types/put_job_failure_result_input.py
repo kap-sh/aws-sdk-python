@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PutJobFailureResultInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.job_id
 
 
-class PutJobFailureResultInput(TypedDict):
+class PutJobFailureResultInput(TypedDict, closed=True):
     job_id: "aws_sdk_codepipeline.types.job_id.JobId"
     """<p>The unique system-generated ID of the job that failed. This is the same ID returned from <code>PollForJobs</code>.</p>"""
     failure_details: "aws_sdk_codepipeline.types.failure_details.FailureDetails"

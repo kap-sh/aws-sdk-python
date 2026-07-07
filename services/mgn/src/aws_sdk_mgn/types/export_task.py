@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ExportTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.tags_map
 
 
-class ExportTask(TypedDict):
+class ExportTask(TypedDict, closed=True):
     export_id: NotRequired["aws_sdk_mgn.types.export_id.ExportID"]
     """<p>Export task id.</p>"""
     arn: NotRequired["aws_sdk_mgn.types.arn.ARN"]

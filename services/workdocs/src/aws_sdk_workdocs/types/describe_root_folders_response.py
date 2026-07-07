@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#DescribeRootFoldersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.folder_metadata_list
     import aws_sdk_workdocs.types.page_marker_type
 
 
-class DescribeRootFoldersResponse(TypedDict):
+class DescribeRootFoldersResponse(TypedDict, closed=True):
     folders: NotRequired[
         "aws_sdk_workdocs.types.folder_metadata_list.FolderMetadataList"
     ]

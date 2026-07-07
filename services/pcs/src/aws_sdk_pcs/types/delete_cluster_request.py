@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#DeleteClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.sb_client_token
 
 
-class DeleteClusterRequest(TypedDict):
+class DeleteClusterRequest(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_pcs.types.cluster_identifier.ClusterIdentifier"
     """<p>The name or ID of the cluster to delete.</p>"""
     client_token: NotRequired["aws_sdk_pcs.types.sb_client_token.SBClientToken"]

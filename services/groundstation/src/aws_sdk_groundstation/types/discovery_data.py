@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#DiscoveryData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.ip_address_list
 
 
-class DiscoveryData(TypedDict):
+class DiscoveryData(TypedDict, closed=True):
     public_ip_addresses: "aws_sdk_groundstation.types.ip_address_list.IpAddressList"
     """<p>List of public IP addresses to associate with agent.</p>"""
     private_ip_addresses: "aws_sdk_groundstation.types.ip_address_list.IpAddressList"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#CreateReplicationSubnetGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.replication_subnet_group
 
 
-class CreateReplicationSubnetGroupResponse(TypedDict):
+class CreateReplicationSubnetGroupResponse(TypedDict, closed=True):
     replication_subnet_group: NotRequired[
         "aws_sdk_database_migration_service.types.replication_subnet_group.ReplicationSubnetGroup"
     ]

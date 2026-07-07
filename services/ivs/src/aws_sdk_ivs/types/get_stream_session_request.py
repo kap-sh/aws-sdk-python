@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#GetStreamSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.stream_id
 
 
-class GetStreamSessionRequest(TypedDict):
+class GetStreamSessionRequest(TypedDict, closed=True):
     channel_arn: "aws_sdk_ivs.types.channel_arn.ChannelArn"
     """<p>ARN of the channel resource</p>"""
     stream_id: NotRequired["aws_sdk_ivs.types.stream_id.StreamId"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#TraceHeader``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.x_amzn_trace_id
 
 
-class TraceHeader(TypedDict):
+class TraceHeader(TypedDict, closed=True):
     x_amzn_trace_id: NotRequired["aws_sdk_lambda.types.x_amzn_trace_id.XAmznTraceId"]
     """<p>The X-Ray trace header associated with the durable execution.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CreateConnectPeerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkmanager.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.tag_list
 
 
-class CreateConnectPeerRequest(TypedDict):
+class CreateConnectPeerRequest(TypedDict, closed=True):
     connect_attachment_id: "aws_sdk_networkmanager.types.attachment_id.AttachmentId"
     """<p>The ID of the connection attachment.</p>"""
     core_network_address: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ListAliasesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.alias_list
     import aws_sdk_gamelift.types.non_empty_string
 
 
-class ListAliasesOutput(TypedDict):
+class ListAliasesOutput(TypedDict, closed=True):
     aliases: NotRequired["aws_sdk_gamelift.types.alias_list.AliasList"]
     """<p>A collection of alias resources that match the request parameters.</p>"""
     next_token: NotRequired["aws_sdk_gamelift.types.non_empty_string.NonEmptyString"]

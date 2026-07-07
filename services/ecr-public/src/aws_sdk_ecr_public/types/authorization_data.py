@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#AuthorizationData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.base64
     import aws_sdk_ecr_public.types.expiration_timestamp
 
 
-class AuthorizationData(TypedDict):
+class AuthorizationData(TypedDict, closed=True):
     authorization_token: NotRequired["aws_sdk_ecr_public.types.base64.Base64"]
     """<p>A base64-encoded string that contains authorization data for a public Amazon ECR registry. When the string is decoded, it's presented in the format <code>user:password</code> for public registry authentication using <code>docker login</code>.</p>"""
     expires_at: NotRequired[

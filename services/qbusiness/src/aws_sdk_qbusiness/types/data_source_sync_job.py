@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DataSourceSyncJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.data_source_sync_job_metrics
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.timestamp
 
 
-class DataSourceSyncJob(TypedDict):
+class DataSourceSyncJob(TypedDict, closed=True):
     execution_id: NotRequired["aws_sdk_qbusiness.types.execution_id.ExecutionId"]
     """<p>The identifier of a data source synchronization job.</p>"""
     start_time: NotRequired["aws_sdk_qbusiness.types.timestamp.Timestamp"]

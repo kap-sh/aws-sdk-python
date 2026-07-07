@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#ReplicationInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_arn
 
 
-class ReplicationInformation(TypedDict):
+class ReplicationInformation(TypedDict, closed=True):
     source_table_arn: "aws_sdk_s3tables.types.table_arn.TableARN"
     """<p>The Amazon Resource Name (ARN) of the source table from which this table is replicated.</p>"""
 

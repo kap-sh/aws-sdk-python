@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#JobRunAsUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.windows_user
 
 
-class JobRunAsUser(TypedDict):
+class JobRunAsUser(TypedDict, closed=True):
     posix: NotRequired["aws_sdk_deadline.types.posix_user.PosixUser"]
     """<p>The user and group that the jobs in the queue run as.</p>"""
     windows: NotRequired["aws_sdk_deadline.types.windows_user.WindowsUser"]

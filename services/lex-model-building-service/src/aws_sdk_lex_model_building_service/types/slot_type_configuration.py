@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#SlotTypeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.slot_type_regex_configuration
 
 
-class SlotTypeConfiguration(TypedDict):
+class SlotTypeConfiguration(TypedDict, closed=True):
     regex_configuration: NotRequired[
         "aws_sdk_lex_model_building_service.types.slot_type_regex_configuration.SlotTypeRegexConfiguration"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#DeleteMeetingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.guid_string
 
 
-class DeleteMeetingRequest(TypedDict):
+class DeleteMeetingRequest(TypedDict, closed=True):
     meeting_id: "aws_sdk_chime_sdk_meetings.types.guid_string.GuidString"
     """<p>The Amazon Chime SDK meeting ID.</p>"""
 

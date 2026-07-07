@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#ReadJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.job
 
 
-class ReadJobResponse(TypedDict):
+class ReadJobResponse(TypedDict, closed=True):
     job: NotRequired["aws_sdk_elastic_transcoder.types.job.Job"]
     """<p>A section of the response body that provides information about the job.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#AwsEc2NetworkInterfaceViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_id_list
     import aws_sdk_fms.types.violation_target
 
 
-class AwsEc2NetworkInterfaceViolation(TypedDict):
+class AwsEc2NetworkInterfaceViolation(TypedDict, closed=True):
     violation_target: NotRequired["aws_sdk_fms.types.violation_target.ViolationTarget"]
     """<p>The resource ID of the network interface.</p>"""
     violating_security_groups: NotRequired[

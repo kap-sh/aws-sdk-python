@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#PasswordRequirements``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class PasswordRequirements(TypedDict):
+class PasswordRequirements(TypedDict, closed=True):
     lowercase: NotRequired["int"]
     """<p>The minimum number of lowercase letters required in passwords.</p>"""
     min_length: NotRequired["int"]

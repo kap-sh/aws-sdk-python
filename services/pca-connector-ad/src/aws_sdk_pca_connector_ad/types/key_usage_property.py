@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#KeyUsageProperty``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pca_connector_ad.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.key_usage_property_type
 
 
-class _KeyUsageProperty_PropertyType(TypedDict):
+class _KeyUsageProperty_PropertyType(TypedDict, closed=True):
     PropertyType: (
         "aws_sdk_pca_connector_ad.types.key_usage_property_type.KeyUsagePropertyType"
     )
 
 
-class _KeyUsageProperty_PropertyFlags(TypedDict):
+class _KeyUsageProperty_PropertyFlags(TypedDict, closed=True):
     PropertyFlags: (
         "aws_sdk_pca_connector_ad.types.key_usage_property_flags.KeyUsagePropertyFlags"
     )

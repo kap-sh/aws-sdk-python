@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ServiceMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.aws_service_name
     import aws_sdk_auditmanager.types.non_empty_string
 
 
-class ServiceMetadata(TypedDict):
+class ServiceMetadata(TypedDict, closed=True):
     name: NotRequired["aws_sdk_auditmanager.types.aws_service_name.AWSServiceName"]
     """<p> The name of the Amazon Web Services service. </p>"""
     display_name: NotRequired[

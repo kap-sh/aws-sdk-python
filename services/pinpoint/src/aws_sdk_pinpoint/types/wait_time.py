@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#WaitTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class WaitTime(TypedDict):
+class WaitTime(TypedDict, closed=True):
     wait_for: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The amount of time to wait, as a duration in ISO 8601 format, before determining whether the activity's conditions have been met or moving participants to the next activity in the journey.</p>"""
     wait_until: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

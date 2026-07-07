@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#AssociateResolverQueryLogConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class AssociateResolverQueryLogConfigRequest(TypedDict):
+class AssociateResolverQueryLogConfigRequest(TypedDict, closed=True):
     resolver_query_log_config_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p>The ID of the query logging configuration that you want to associate a VPC with.</p>"""
     resource_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"

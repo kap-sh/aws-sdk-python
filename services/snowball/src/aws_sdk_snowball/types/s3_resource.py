@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#S3Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.key_range
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.target_on_device_service_list
 
 
-class S3Resource(TypedDict):
+class S3Resource(TypedDict, closed=True):
     bucket_arn: NotRequired["aws_sdk_snowball.types.resource_arn.ResourceARN"]
     """<p>The Amazon Resource Name (ARN) of an Amazon S3 bucket.</p>"""
     key_range: NotRequired["aws_sdk_snowball.types.key_range.KeyRange"]

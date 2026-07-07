@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#MatterCapabilityReportEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.matter_capability_report_endpoint_semantic_tags
 
 
-class MatterCapabilityReportEndpoint(TypedDict):
+class MatterCapabilityReportEndpoint(TypedDict, closed=True):
     id: "aws_sdk_iot_managed_integrations.types.endpoint_id.EndpointId"
     """<p>The id of the Amazon Web Services Matter capability report endpoint.</p>"""
     device_types: "aws_sdk_iot_managed_integrations.types.device_types.DeviceTypes"

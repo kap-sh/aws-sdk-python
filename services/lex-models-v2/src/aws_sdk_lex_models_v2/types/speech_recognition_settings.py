@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SpeechRecognitionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.speech_model_config
     import aws_sdk_lex_models_v2.types.speech_model_preference
 
 
-class SpeechRecognitionSettings(TypedDict):
+class SpeechRecognitionSettings(TypedDict, closed=True):
     speech_model_preference: NotRequired[
         "aws_sdk_lex_models_v2.types.speech_model_preference.SpeechModelPreference"
     ]

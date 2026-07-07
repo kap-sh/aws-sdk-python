@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.support#SupportedHour``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.end_time
     import aws_sdk_support.types.start_time
 
 
-class SupportedHour(TypedDict):
+class SupportedHour(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_support.types.start_time.StartTime"]
     """<p> Start Time. RFC 3339 format <code>'HH:mm:ss.SSS'</code>. </p>"""
     end_time: NotRequired["aws_sdk_support.types.end_time.EndTime"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#HttpGatewayRoutePrefixRewrite``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.default_gateway_route_rewrite
     import aws_sdk_app_mesh.types.http_gateway_route_prefix
 
 
-class HttpGatewayRoutePrefixRewrite(TypedDict):
+class HttpGatewayRoutePrefixRewrite(TypedDict, closed=True):
     default_prefix: NotRequired[
         "aws_sdk_app_mesh.types.default_gateway_route_rewrite.DefaultGatewayRouteRewrite"
     ]

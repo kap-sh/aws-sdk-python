@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#TimestampRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.timestamp
 
 
-class TimestampRange(TypedDict):
+class TimestampRange(TypedDict, closed=True):
     start_timestamp: "aws_sdk_chime_sdk_media_pipelines.types.timestamp.Timestamp"
     """<p>The starting timestamp for the specified range.</p>"""
     end_timestamp: "aws_sdk_chime_sdk_media_pipelines.types.timestamp.Timestamp"

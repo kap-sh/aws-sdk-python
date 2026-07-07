@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#EventSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.event_parameters
     import aws_sdk_dlm.types.event_source_values
 
 
-class EventSource(TypedDict):
+class EventSource(TypedDict, closed=True):
     type: NotRequired["aws_sdk_dlm.types.event_source_values.EventSourceValues"]
     """<p>The source of the event. Currently only managed CloudWatch Events rules are supported.</p>"""
     parameters: NotRequired["aws_sdk_dlm.types.event_parameters.EventParameters"]

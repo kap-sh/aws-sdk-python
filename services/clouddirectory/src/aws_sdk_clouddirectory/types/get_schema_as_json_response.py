@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#GetSchemaAsJsonResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.schema_json_document
     import aws_sdk_clouddirectory.types.schema_name
 
 
-class GetSchemaAsJsonResponse(TypedDict):
+class GetSchemaAsJsonResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_clouddirectory.types.schema_name.SchemaName"]
     """<p>The name of the retrieved schema.</p>"""
     document: NotRequired[

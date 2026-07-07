@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#TimestampRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.long
 
 
-class TimestampRange(TypedDict):
+class TimestampRange(TypedDict, closed=True):
     begin_offset_millis: NotRequired["aws_sdk_transcribe_streaming.types.long.Long"]
     """<p>The time, in milliseconds, from the beginning of the audio stream to the start of the category match.</p>"""
     end_offset_millis: NotRequired["aws_sdk_transcribe_streaming.types.long.Long"]

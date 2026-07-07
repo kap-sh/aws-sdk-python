@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SpotFleetLaunchSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.subnet_id
 
 
-class SpotFleetLaunchSpecification(TypedDict):
+class SpotFleetLaunchSpecification(TypedDict, closed=True):
     addressing_type: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>Deprecated.</p>"""
     block_device_mappings: NotRequired[

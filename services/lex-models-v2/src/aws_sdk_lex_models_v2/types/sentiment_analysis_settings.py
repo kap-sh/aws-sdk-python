@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SentimentAnalysisSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.boolean
 
 
-class SentimentAnalysisSettings(TypedDict):
+class SentimentAnalysisSettings(TypedDict, closed=True):
     detect_sentiment: "aws_sdk_lex_models_v2.types.boolean.Boolean"
     """<p>Sets whether Amazon Lex uses Amazon Comprehend to detect the sentiment of user utterances.</p>"""
 

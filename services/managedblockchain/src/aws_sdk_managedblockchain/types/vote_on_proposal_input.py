@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#VoteOnProposalInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_managedblockchain.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.vote_value
 
 
-class VoteOnProposalInput(TypedDict):
+class VoteOnProposalInput(TypedDict, closed=True):
     network_id: "aws_sdk_managedblockchain.types.resource_id_string.ResourceIdString"
     """<p> The unique identifier of the network. </p>"""
     proposal_id: "aws_sdk_managedblockchain.types.resource_id_string.ResourceIdString"

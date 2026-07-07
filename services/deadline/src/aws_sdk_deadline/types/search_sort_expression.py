@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#SearchSortExpression``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.user_jobs_first
 
 
-class _SearchSortExpression_userJobsFirst(TypedDict):
+class _SearchSortExpression_userJobsFirst(TypedDict, closed=True):
     userJobsFirst: "aws_sdk_deadline.types.user_jobs_first.UserJobsFirst"
 
 
-class _SearchSortExpression_fieldSort(TypedDict):
+class _SearchSortExpression_fieldSort(TypedDict, closed=True):
     fieldSort: "aws_sdk_deadline.types.field_sort_expression.FieldSortExpression"
 
 
-class _SearchSortExpression_parameterSort(TypedDict):
+class _SearchSortExpression_parameterSort(TypedDict, closed=True):
     parameterSort: (
         "aws_sdk_deadline.types.parameter_sort_expression.ParameterSortExpression"
     )

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.s3_location
 
 
-class DataSource(TypedDict):
+class DataSource(TypedDict, closed=True):
     data_location: NotRequired["aws_sdk_personalize.types.s3_location.S3Location"]
     """<p>For dataset import jobs, the path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored. For data deletion jobs, the path to the Amazon S3 bucket that stores the list of records to delete. </p> <p> For example: </p> <p> <code>s3://bucket-name/folder-name/fileName.csv</code> </p> <p>If your CSV files are in a folder in your Amazon S3 bucket and you want your import job or data deletion job to consider multiple files, you can specify the path to the folder. With a data deletion job, Amazon Personalize uses all files in the folder and any sub folder. Use the following syntax with a <code>/</code> after the folder name:</p> <p> <code>s3://bucket-name/folder-name/</code> </p>"""
 

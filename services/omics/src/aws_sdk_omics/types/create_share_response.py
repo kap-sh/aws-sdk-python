@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#CreateShareResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.share_name
     import aws_sdk_omics.types.share_status
 
 
-class CreateShareResponse(TypedDict):
+class CreateShareResponse(TypedDict, closed=True):
     share_id: NotRequired["str"]
     """<p>The ID that HealthOmics generates for the share.</p>"""
     status: NotRequired["aws_sdk_omics.types.share_status.ShareStatus"]

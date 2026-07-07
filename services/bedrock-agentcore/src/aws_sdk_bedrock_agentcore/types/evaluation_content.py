@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EvaluationContent``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
 
-class _EvaluationContent_text(TypedDict):
+class _EvaluationContent_text(TypedDict, closed=True):
     text: "str"
 
 

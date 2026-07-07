@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeWorkforceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workforce_name
 
 
-class DescribeWorkforceRequest(TypedDict):
+class DescribeWorkforceRequest(TypedDict, closed=True):
     workforce_name: NotRequired["aws_sdk_sagemaker.types.workforce_name.WorkforceName"]
     """<p>The name of the private workforce whose access you want to restrict. <code>WorkforceName</code> is automatically set to <code>default</code> when a workforce is created and cannot be modified. </p>"""
 

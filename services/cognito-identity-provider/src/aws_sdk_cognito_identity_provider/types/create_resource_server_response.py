@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#CreateResourceServerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.resource_server_type
 
 
-class CreateResourceServerResponse(TypedDict):
+class CreateResourceServerResponse(TypedDict, closed=True):
     resource_server: "aws_sdk_cognito_identity_provider.types.resource_server_type.ResourceServerType"
     """<p>The details of the new resource server.</p>"""
 

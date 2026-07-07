@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GetIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.integration_name
 
 
-class GetIntegrationRequest(TypedDict):
+class GetIntegrationRequest(TypedDict, closed=True):
     integration_name: "aws_sdk_cloudwatch_logs.types.integration_name.IntegrationName"
     r"""<p>The name of the integration that you want to find information about. To find the name of your integration, use <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListIntegrations.html\">ListIntegrations</a> </p>"""
 

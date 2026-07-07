@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#InsightResourceDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.insight_status
     import aws_sdk_eks.types.string
 
 
-class InsightResourceDetail(TypedDict):
+class InsightResourceDetail(TypedDict, closed=True):
     insight_status: NotRequired["aws_sdk_eks.types.insight_status.InsightStatus"]
     """<p>An object containing more detail on the status of the insight resource.</p>"""
     kubernetes_resource_uri: NotRequired["aws_sdk_eks.types.string.String"]

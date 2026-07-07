@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#DescribeBatchPredictionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.batch_predictions
     import aws_sdk_machine_learning.types.string_type
 
 
-class DescribeBatchPredictionsOutput(TypedDict):
+class DescribeBatchPredictionsOutput(TypedDict, closed=True):
     results: NotRequired[
         "aws_sdk_machine_learning.types.batch_predictions.BatchPredictions"
     ]

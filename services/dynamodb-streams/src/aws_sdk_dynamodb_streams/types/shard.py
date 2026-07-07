@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodbstreams#Shard``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.sequence_number_range
     import aws_sdk_dynamodb_streams.types.shard_id
 
 
-class Shard(TypedDict):
+class Shard(TypedDict, closed=True):
     shard_id: NotRequired["aws_sdk_dynamodb_streams.types.shard_id.ShardId"]
     """<p>The system-generated identifier for this shard.</p>"""
     sequence_number_range: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListCustomEntityTypesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.page_size
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.tags_map
 
 
-class ListCustomEntityTypesRequest(TypedDict):
+class ListCustomEntityTypesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_glue.types.pagination_token.PaginationToken"]
     """<p>A paginated token to offset the results.</p>"""
     max_results: NotRequired["aws_sdk_glue.types.page_size.PageSize"]

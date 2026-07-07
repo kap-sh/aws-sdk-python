@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#LongFormatText``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.long_plain_text
     import aws_sdk_quicksight.types.long_rich_text
 
 
-class LongFormatText(TypedDict):
+class LongFormatText(TypedDict, closed=True):
     plain_text: NotRequired["aws_sdk_quicksight.types.long_plain_text.LongPlainText"]
     """<p>Plain text format.</p>"""
     rich_text: NotRequired["aws_sdk_quicksight.types.long_rich_text.LongRichText"]

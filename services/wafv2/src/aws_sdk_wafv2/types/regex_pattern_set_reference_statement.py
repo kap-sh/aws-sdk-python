@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RegexPatternSetReferenceStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.text_transformations
 
 
-class RegexPatternSetReferenceStatement(TypedDict):
+class RegexPatternSetReferenceStatement(TypedDict, closed=True):
     arn: "aws_sdk_wafv2.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the <a>RegexPatternSet</a> that this statement references.</p>"""
     field_to_match: "aws_sdk_wafv2.types.field_to_match.FieldToMatch"

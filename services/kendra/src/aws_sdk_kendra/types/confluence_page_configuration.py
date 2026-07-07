@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ConfluencePageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.confluence_page_field_mappings_list
 
 
-class ConfluencePageConfiguration(TypedDict):
+class ConfluencePageConfiguration(TypedDict, closed=True):
     page_field_mappings: NotRequired[
         "aws_sdk_kendra.types.confluence_page_field_mappings_list.ConfluencePageFieldMappingsList"
     ]

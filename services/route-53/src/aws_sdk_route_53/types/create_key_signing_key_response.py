@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CreateKeySigningKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.resource_uri
 
 
-class CreateKeySigningKeyResponse(TypedDict):
+class CreateKeySigningKeyResponse(TypedDict, closed=True):
     change_info: "aws_sdk_route_53.types.change_info.ChangeInfo"
     key_signing_key: "aws_sdk_route_53.types.key_signing_key.KeySigningKey"
     """<p>The key-signing key (KSK) that the request creates.</p>"""

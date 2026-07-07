@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetAllowListResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string_min1_max128_pattern
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.tag_map
 
 
-class GetAllowListResponse(TypedDict):
+class GetAllowListResponse(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_macie2.types.__string_min71_max89_pattern_arn_aws_aws_cn_aws_us_gov_macie2_az19920_d12_allow_list_az0922.__stringMin71Max89PatternArnAwsAwsCnAwsUsGovMacie2AZ19920D12AllowListAZ0922"
     ]

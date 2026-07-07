@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#CreateLibraryItemOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.uuid
 
 
-class CreateLibraryItemOutput(TypedDict):
+class CreateLibraryItemOutput(TypedDict, closed=True):
     library_item_id: "aws_sdk_qapps.types.uuid.UUID"
     """<p>The unique identifier of the new library item.</p>"""
     status: "str"

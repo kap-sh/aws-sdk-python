@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ImportDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.contact_list_destination
     import aws_sdk_sesv2.types.suppression_list_destination
 
 
-class ImportDestination(TypedDict):
+class ImportDestination(TypedDict, closed=True):
     suppression_list_destination: NotRequired[
         "aws_sdk_sesv2.types.suppression_list_destination.SuppressionListDestination"
     ]

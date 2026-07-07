@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ToolUseBlockDelta``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
 
-class ToolUseBlockDelta(TypedDict):
+class ToolUseBlockDelta(TypedDict, closed=True):
     input: "str"
     """<p>The input for a requested tool.</p>"""
 

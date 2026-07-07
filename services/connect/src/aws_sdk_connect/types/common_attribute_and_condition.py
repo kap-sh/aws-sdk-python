@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CommonAttributeAndCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.tag_and_condition_list
 
 
-class CommonAttributeAndCondition(TypedDict):
+class CommonAttributeAndCondition(TypedDict, closed=True):
     tag_conditions: NotRequired[
         "aws_sdk_connect.types.tag_and_condition_list.TagAndConditionList"
     ]

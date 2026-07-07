@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListContactsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.list_of_contacts
     import aws_sdk_sesv2.types.next_token
 
 
-class ListContactsResponse(TypedDict):
+class ListContactsResponse(TypedDict, closed=True):
     contacts: NotRequired["aws_sdk_sesv2.types.list_of_contacts.ListOfContacts"]
     """<p>The contacts present in a specific contact list.</p>"""
     next_token: NotRequired["aws_sdk_sesv2.types.next_token.NextToken"]

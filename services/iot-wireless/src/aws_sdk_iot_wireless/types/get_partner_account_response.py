@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetPartnerAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.account_linked
     import aws_sdk_iot_wireless.types.sidewalk_account_info_with_fingerprint
 
 
-class GetPartnerAccountResponse(TypedDict):
+class GetPartnerAccountResponse(TypedDict, closed=True):
     sidewalk: NotRequired[
         "aws_sdk_iot_wireless.types.sidewalk_account_info_with_fingerprint.SidewalkAccountInfoWithFingerprint"
     ]

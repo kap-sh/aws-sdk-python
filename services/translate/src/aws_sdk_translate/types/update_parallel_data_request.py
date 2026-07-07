@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#UpdateParallelDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.resource_name
 
 
-class UpdateParallelDataRequest(TypedDict):
+class UpdateParallelDataRequest(TypedDict, closed=True):
     name: "aws_sdk_translate.types.resource_name.ResourceName"
     """<p>The name of the parallel data resource being updated.</p>"""
     description: NotRequired["aws_sdk_translate.types.description.Description"]

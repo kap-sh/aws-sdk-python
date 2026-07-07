@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateLocationNfsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.server_hostname
 
 
-class CreateLocationNfsRequest(TypedDict):
+class CreateLocationNfsRequest(TypedDict, closed=True):
     subdirectory: "aws_sdk_datasync.types.nfs_subdirectory.NfsSubdirectory"
     r"""<p>Specifies the export path in your NFS file server that you want DataSync to mount.</p> <p>This path (or a subdirectory of the path) is where DataSync transfers data to or from. For information on configuring an export for DataSync, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#accessing-nfs\">Accessing NFS file servers</a>.</p>"""
     server_hostname: "aws_sdk_datasync.types.server_hostname.ServerHostname"

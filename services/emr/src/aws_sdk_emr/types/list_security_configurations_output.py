@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListSecurityConfigurationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.marker
     import aws_sdk_emr.types.security_configuration_list
 
 
-class ListSecurityConfigurationsOutput(TypedDict):
+class ListSecurityConfigurationsOutput(TypedDict, closed=True):
     security_configurations: NotRequired[
         "aws_sdk_emr.types.security_configuration_list.SecurityConfigurationList"
     ]

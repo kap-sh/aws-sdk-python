@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#BrokerLogs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.cloud_watch_logs
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.s3
 
 
-class BrokerLogs(TypedDict):
+class BrokerLogs(TypedDict, closed=True):
     cloud_watch_logs: NotRequired["aws_sdk_kafka.types.cloud_watch_logs.CloudWatchLogs"]
     firehose: NotRequired["aws_sdk_kafka.types.firehose.Firehose"]
     s3: NotRequired["aws_sdk_kafka.types.s3.S3"]

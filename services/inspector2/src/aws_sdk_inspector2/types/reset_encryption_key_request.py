@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ResetEncryptionKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.scan_type
 
 
-class ResetEncryptionKeyRequest(TypedDict):
+class ResetEncryptionKeyRequest(TypedDict, closed=True):
     scan_type: "aws_sdk_inspector2.types.scan_type.ScanType"
     """<p>The scan type the key encrypts.</p>"""
     resource_type: "aws_sdk_inspector2.types.resource_type.ResourceType"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#RdsLimitlessDbDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
     import aws_sdk_guardduty.types.tags
 
 
-class RdsLimitlessDbDetails(TypedDict):
+class RdsLimitlessDbDetails(TypedDict, closed=True):
     db_shard_group_identifier: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The name associated with the Limitless DB shard group.</p>"""
     db_shard_group_resource_id: NotRequired["aws_sdk_guardduty.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#DeploymentTargets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.organizational_unit_id_list
 
 
-class DeploymentTargets(TypedDict):
+class DeploymentTargets(TypedDict, closed=True):
     accounts: NotRequired["aws_sdk_cloudformation.types.account_list.AccountList"]
     """<p>The Amazon Web Services account IDs where you want to perform stack operations. How these accounts are used depends on the <code>AccountFilterType</code> property.</p> <p>If you have many account numbers, you can provide those accounts using the <code>AccountsUrl</code> property instead.</p>"""
     accounts_url: NotRequired["aws_sdk_cloudformation.types.accounts_url.AccountsUrl"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ListRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.recommendation_list
 
 
-class ListRecommendationsResponse(TypedDict):
+class ListRecommendationsResponse(TypedDict, closed=True):
     recommendations: "aws_sdk_devops_agent.types.recommendation_list.RecommendationList"
     """<p>List of recommendations matching the request criteria</p>"""
     next_token: NotRequired["str"]

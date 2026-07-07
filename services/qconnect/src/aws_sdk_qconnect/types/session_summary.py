@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SessionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class SessionSummary(TypedDict):
+class SessionSummary(TypedDict, closed=True):
     session_id: "aws_sdk_qconnect.types.uuid.Uuid"
     """<p>The identifier of the session.</p>"""
     session_arn: "aws_sdk_qconnect.types.arn.Arn"

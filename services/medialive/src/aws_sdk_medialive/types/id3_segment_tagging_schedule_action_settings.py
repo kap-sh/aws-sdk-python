@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Id3SegmentTaggingScheduleActionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class Id3SegmentTaggingScheduleActionSettings(TypedDict):
+class Id3SegmentTaggingScheduleActionSettings(TypedDict, closed=True):
     id3: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Complete this parameter if you want to specify the entire ID3 metadata. Enter a base64 string that contains one or more fully formed ID3 tags, according to the ID3 specification: http://id3.org/id3v2.4.0-structure"""
     tag: NotRequired["aws_sdk_medialive.types.__string.__string"]

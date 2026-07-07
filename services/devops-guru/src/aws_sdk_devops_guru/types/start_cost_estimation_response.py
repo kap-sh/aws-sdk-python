@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#StartCostEstimationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartCostEstimationResponse(TypedDict):
+class StartCostEstimationResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#AutoScalingSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.auto_scaling_policy
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.capacity_units
 
 
-class AutoScalingSettings(TypedDict):
+class AutoScalingSettings(TypedDict, closed=True):
     auto_scaling_disabled: "aws_sdk_keyspaces.types.boolean_object.BooleanObject"
     """<p>This optional parameter enables auto scaling for the table if set to <code>false</code>.</p>"""
     minimum_units: NotRequired["aws_sdk_keyspaces.types.capacity_units.CapacityUnits"]

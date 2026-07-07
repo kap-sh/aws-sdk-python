@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#VisualPalette``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_path_color_list
     import aws_sdk_quicksight.types.hex_color
 
 
-class VisualPalette(TypedDict):
+class VisualPalette(TypedDict, closed=True):
     chart_color: NotRequired["aws_sdk_quicksight.types.hex_color.HexColor"]
     """<p>The chart color options for the visual palette.</p>"""
     color_map: NotRequired[

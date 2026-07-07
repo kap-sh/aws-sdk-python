@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#CreateTrustRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.trust_type
 
 
-class CreateTrustRequest(TypedDict):
+class CreateTrustRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>The Directory ID of the Managed Microsoft AD directory for which to establish the trust relationship.</p>"""
     remote_domain_name: (

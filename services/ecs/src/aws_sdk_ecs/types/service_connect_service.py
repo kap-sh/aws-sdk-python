@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ServiceConnectService``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timeout_configuration
 
 
-class ServiceConnectService(TypedDict):
+class ServiceConnectService(TypedDict, closed=True):
     port_name: "aws_sdk_ecs.types.string.String"
     """<p>The <code>portName</code> must match the name of one of the <code>portMappings</code> from all the containers in the task definition of this Amazon ECS service.</p>"""
     discovery_name: NotRequired["aws_sdk_ecs.types.string.String"]

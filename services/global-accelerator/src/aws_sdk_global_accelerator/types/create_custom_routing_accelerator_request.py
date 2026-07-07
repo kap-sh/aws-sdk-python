@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#CreateCustomRoutingAcceleratorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_global_accelerator.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.tags
 
 
-class CreateCustomRoutingAcceleratorRequest(TypedDict):
+class CreateCustomRoutingAcceleratorRequest(TypedDict, closed=True):
     name: "aws_sdk_global_accelerator.types.generic_string.GenericString"
     """<p>The name of a custom routing accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters or hyphens (-), and must not begin or end with a hyphen.</p>"""
     ip_address_type: NotRequired[

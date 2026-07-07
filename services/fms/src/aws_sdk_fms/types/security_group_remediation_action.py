@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#SecurityGroupRemediationAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.security_group_rule_description
 
 
-class SecurityGroupRemediationAction(TypedDict):
+class SecurityGroupRemediationAction(TypedDict, closed=True):
     remediation_action_type: NotRequired[
         "aws_sdk_fms.types.remediation_action_type.RemediationActionType"
     ]

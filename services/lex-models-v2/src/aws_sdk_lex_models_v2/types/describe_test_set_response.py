@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DescribeTestSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.count
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class DescribeTestSetResponse(TypedDict):
+class DescribeTestSetResponse(TypedDict, closed=True):
     test_set_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The test set Id for the test set response.</p>"""
     test_set_name: NotRequired["aws_sdk_lex_models_v2.types.name.Name"]

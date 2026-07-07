@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DataQualityMetricValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.nullable_double
 
 
-class DataQualityMetricValues(TypedDict):
+class DataQualityMetricValues(TypedDict, closed=True):
     actual_value: NotRequired["aws_sdk_glue.types.nullable_double.NullableDouble"]
     """<p>The actual value of the data quality metric.</p>"""
     expected_value: NotRequired["aws_sdk_glue.types.nullable_double.NullableDouble"]

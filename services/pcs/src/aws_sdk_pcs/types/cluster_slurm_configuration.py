@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ClusterSlurmConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pcs.types.accounting
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.slurmdbd_custom_settings
 
 
-class ClusterSlurmConfiguration(TypedDict):
+class ClusterSlurmConfiguration(TypedDict, closed=True):
     scale_down_idle_time_in_seconds: NotRequired["int"]
     """<p>The time (in seconds) before an idle node is scaled down.</p> <p>Default: <code>600</code> </p>"""
     slurm_custom_settings: NotRequired[

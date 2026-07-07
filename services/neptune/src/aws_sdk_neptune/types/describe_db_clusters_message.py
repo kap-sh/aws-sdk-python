@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#DescribeDBClustersMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.string
 
 
-class DescribeDBClustersMessage(TypedDict):
+class DescribeDBClustersMessage(TypedDict, closed=True):
     db_cluster_identifier: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>The user-supplied DB cluster identifier. If this parameter is specified, information from only the specific DB cluster is returned. This parameter isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match an existing DBClusterIdentifier.</p> </li> </ul>"""
     filters: NotRequired["aws_sdk_neptune.types.filter_list.FilterList"]

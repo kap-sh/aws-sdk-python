@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ProfileTypeDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.profile_type_values
 
 
-class ProfileTypeDimension(TypedDict):
+class ProfileTypeDimension(TypedDict, closed=True):
     dimension_type: "aws_sdk_customer_profiles.types.profile_type_dimension_type.ProfileTypeDimensionType"
     """<p>The action to segment on.</p>"""
     values: "aws_sdk_customer_profiles.types.profile_type_values.ProfileTypeValues"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#LeadContact``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.phone_number
 
 
-class LeadContact(TypedDict):
+class LeadContact(TypedDict, closed=True):
     business_title: "aws_sdk_partnercentral_selling.types.job_title.JobTitle"
     """<p>The lead contact's business title or job role associated with the engagement.</p>"""
     email: "aws_sdk_partnercentral_selling.types.email.Email"

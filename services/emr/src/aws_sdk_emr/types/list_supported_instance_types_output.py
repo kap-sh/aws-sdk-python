@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListSupportedInstanceTypesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.string
     import aws_sdk_emr.types.supported_instance_types_list
 
 
-class ListSupportedInstanceTypesOutput(TypedDict):
+class ListSupportedInstanceTypesOutput(TypedDict, closed=True):
     supported_instance_types: NotRequired[
         "aws_sdk_emr.types.supported_instance_types_list.SupportedInstanceTypesList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#RouteAnalysisPath``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.path_component_list
     import aws_sdk_networkmanager.types.route_analysis_completion
 
 
-class RouteAnalysisPath(TypedDict):
+class RouteAnalysisPath(TypedDict, closed=True):
     completion_status: NotRequired[
         "aws_sdk_networkmanager.types.route_analysis_completion.RouteAnalysisCompletion"
     ]

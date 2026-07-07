@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#PutEventTypeResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutEventTypeResult(TypedDict):
+class PutEventTypeResult(TypedDict, closed=True):
     pass
 
 

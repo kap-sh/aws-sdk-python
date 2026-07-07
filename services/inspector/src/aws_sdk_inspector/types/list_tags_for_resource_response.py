@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.tag_list
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: "aws_sdk_inspector.types.tag_list.TagList"
     """<p>A collection of key and value pairs.</p>"""
 

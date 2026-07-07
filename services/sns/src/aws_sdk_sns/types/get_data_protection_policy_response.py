@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#GetDataProtectionPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.attribute_value
 
 
-class GetDataProtectionPolicyResponse(TypedDict):
+class GetDataProtectionPolicyResponse(TypedDict, closed=True):
     data_protection_policy: NotRequired[
         "aws_sdk_sns.types.attribute_value.attributeValue"
     ]

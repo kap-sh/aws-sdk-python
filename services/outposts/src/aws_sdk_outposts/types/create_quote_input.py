@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#CreateQuoteInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_outposts.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.quote_description
 
 
-class CreateQuoteInput(TypedDict):
+class CreateQuoteInput(TypedDict, closed=True):
     outpost_identifier: NotRequired[
         "aws_sdk_outposts.types.outpost_identifier.OutpostIdentifier"
     ]

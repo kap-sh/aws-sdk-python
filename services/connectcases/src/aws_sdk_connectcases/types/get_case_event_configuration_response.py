@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#GetCaseEventConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.event_bridge_configuration
 
 
-class GetCaseEventConfigurationResponse(TypedDict):
+class GetCaseEventConfigurationResponse(TypedDict, closed=True):
     event_bridge: (
         "aws_sdk_connectcases.types.event_bridge_configuration.EventBridgeConfiguration"
     )

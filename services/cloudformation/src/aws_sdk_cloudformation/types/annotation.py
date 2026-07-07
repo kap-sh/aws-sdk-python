@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#Annotation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.remediation_message_status_message
 
 
-class Annotation(TypedDict):
+class Annotation(TypedDict, closed=True):
     annotation_name: NotRequired[
         "aws_sdk_cloudformation.types.annotation_name.AnnotationName"
     ]

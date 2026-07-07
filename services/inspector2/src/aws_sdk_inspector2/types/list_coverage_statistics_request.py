@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListCoverageStatisticsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.coverage_filter_criteria
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.next_token
 
 
-class ListCoverageStatisticsRequest(TypedDict):
+class ListCoverageStatisticsRequest(TypedDict, closed=True):
     filter_criteria: NotRequired[
         "aws_sdk_inspector2.types.coverage_filter_criteria.CoverageFilterCriteria"
     ]

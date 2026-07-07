@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#SourceProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.cpus
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.positive_integer
 
 
-class SourceProperties(TypedDict):
+class SourceProperties(TypedDict, closed=True):
     last_updated_date_time: NotRequired[
         "aws_sdk_mgn.types.iso8601_datetime_string.ISO8601DatetimeString"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DisassociatedFace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.face_id
 
 
-class DisassociatedFace(TypedDict):
+class DisassociatedFace(TypedDict, closed=True):
     face_id: NotRequired["aws_sdk_rekognition.types.face_id.FaceId"]
     """<p>Unique identifier assigned to the face.</p>"""
 

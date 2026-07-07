@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#AssessmentEvidenceFolder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment_evidence_folder_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class AssessmentEvidenceFolder(TypedDict):
+class AssessmentEvidenceFolder(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_auditmanager.types.assessment_evidence_folder_name.AssessmentEvidenceFolderName"
     ]

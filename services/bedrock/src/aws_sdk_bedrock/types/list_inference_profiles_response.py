@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListInferenceProfilesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.inference_profile_summaries
     import aws_sdk_bedrock.types.pagination_token
 
 
-class ListInferenceProfilesResponse(TypedDict):
+class ListInferenceProfilesResponse(TypedDict, closed=True):
     inference_profile_summaries: NotRequired[
         "aws_sdk_bedrock.types.inference_profile_summaries.InferenceProfileSummaries"
     ]

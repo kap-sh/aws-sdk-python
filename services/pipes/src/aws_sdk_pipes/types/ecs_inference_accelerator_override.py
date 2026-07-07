@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#EcsInferenceAcceleratorOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.string
 
 
-class EcsInferenceAcceleratorOverride(TypedDict):
+class EcsInferenceAcceleratorOverride(TypedDict, closed=True):
     device_name: NotRequired["aws_sdk_pipes.types.string.String"]
     """<p>The Elastic Inference accelerator device name to override for the task. This parameter must match a <code>deviceName</code> specified in the task definition.</p>"""
     device_type: NotRequired["aws_sdk_pipes.types.string.String"]

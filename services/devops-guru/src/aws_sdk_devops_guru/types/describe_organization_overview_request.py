@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeOrganizationOverviewRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.timestamp
 
 
-class DescribeOrganizationOverviewRequest(TypedDict):
+class DescribeOrganizationOverviewRequest(TypedDict, closed=True):
     from_time: "aws_sdk_devops_guru.types.timestamp.Timestamp"
     """<p> The start of the time range passed in. The start time granularity is at the day level. The floor of the start time is used. Returned information occurred after this day. </p>"""
     to_time: NotRequired["aws_sdk_devops_guru.types.timestamp.Timestamp"]

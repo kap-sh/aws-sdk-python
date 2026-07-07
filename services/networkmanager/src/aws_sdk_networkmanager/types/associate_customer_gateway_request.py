@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#AssociateCustomerGatewayRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkmanager.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.link_id
 
 
-class AssociateCustomerGatewayRequest(TypedDict):
+class AssociateCustomerGatewayRequest(TypedDict, closed=True):
     customer_gateway_arn: (
         "aws_sdk_networkmanager.types.customer_gateway_arn.CustomerGatewayArn"
     )

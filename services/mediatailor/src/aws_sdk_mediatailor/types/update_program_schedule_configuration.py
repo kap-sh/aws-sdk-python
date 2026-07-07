@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#UpdateProgramScheduleConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.clip_range
     import aws_sdk_mediatailor.types.update_program_transition
 
 
-class UpdateProgramScheduleConfiguration(TypedDict):
+class UpdateProgramScheduleConfiguration(TypedDict, closed=True):
     transition: NotRequired[
         "aws_sdk_mediatailor.types.update_program_transition.UpdateProgramTransition"
     ]

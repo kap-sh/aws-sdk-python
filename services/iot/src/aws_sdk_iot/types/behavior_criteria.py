@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#BehaviorCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.comparison_operator
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.statistical_threshold
 
 
-class BehaviorCriteria(TypedDict):
+class BehaviorCriteria(TypedDict, closed=True):
     comparison_operator: NotRequired[
         "aws_sdk_iot.types.comparison_operator.ComparisonOperator"
     ]

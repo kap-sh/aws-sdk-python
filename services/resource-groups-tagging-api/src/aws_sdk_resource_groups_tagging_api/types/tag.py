@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_groups_tagging_api.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_resource_groups_tagging_api.types.tag_key.TagKey"
     """<p>One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.</p>"""
     value: "aws_sdk_resource_groups_tagging_api.types.tag_value.TagValue"

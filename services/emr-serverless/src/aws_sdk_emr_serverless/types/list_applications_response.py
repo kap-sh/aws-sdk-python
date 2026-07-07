@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#ListApplicationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.next_token
 
 
-class ListApplicationsResponse(TypedDict):
+class ListApplicationsResponse(TypedDict, closed=True):
     applications: "aws_sdk_emr_serverless.types.application_list.ApplicationList"
     """<p>The output lists the specified applications.</p>"""
     next_token: NotRequired["aws_sdk_emr_serverless.types.next_token.NextToken"]

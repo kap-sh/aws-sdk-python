@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PipelineDeclaration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.role_arn
 
 
-class PipelineDeclaration(TypedDict):
+class PipelineDeclaration(TypedDict, closed=True):
     name: "aws_sdk_codepipeline.types.pipeline_name.PipelineName"
     """<p>The name of the pipeline.</p>"""
     role_arn: "aws_sdk_codepipeline.types.role_arn.RoleArn"

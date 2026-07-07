@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ProcessingS3Input``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.processing_local_path
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class ProcessingS3Input(TypedDict):
+class ProcessingS3Input(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     """<p>The URI of the Amazon S3 prefix Amazon SageMaker downloads data required to run a processing job.</p>"""
     local_path: NotRequired[

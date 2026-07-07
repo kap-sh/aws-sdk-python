@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DTMFSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.time_in_milli_seconds
 
 
-class DTMFSpecification(TypedDict):
+class DTMFSpecification(TypedDict, closed=True):
     max_length: "aws_sdk_lex_models_v2.types.max_utterance_digits.MaxUtteranceDigits"
     """<p>The maximum number of DTMF digits allowed in an utterance.</p>"""
     end_timeout_ms: (

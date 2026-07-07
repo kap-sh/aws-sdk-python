@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#AwsService``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class AwsService(TypedDict):
+class AwsService(TypedDict, closed=True):
     invoked_by: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The name of the Amazon Web Service that performed the action.</p>"""
 

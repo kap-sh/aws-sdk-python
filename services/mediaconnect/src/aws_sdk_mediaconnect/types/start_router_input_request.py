@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#StartRouterInputRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_input_arn
 
 
-class StartRouterInputRequest(TypedDict):
+class StartRouterInputRequest(TypedDict, closed=True):
     arn: "aws_sdk_mediaconnect.types.router_input_arn.RouterInputArn"
     """<p>The Amazon Resource Name (ARN) of the router input that you want to start.</p>"""
 

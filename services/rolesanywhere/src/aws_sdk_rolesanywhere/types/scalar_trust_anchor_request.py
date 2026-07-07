@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#ScalarTrustAnchorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.uuid
 
 
-class ScalarTrustAnchorRequest(TypedDict):
+class ScalarTrustAnchorRequest(TypedDict, closed=True):
     trust_anchor_id: "aws_sdk_rolesanywhere.types.uuid.Uuid"
     """<p>The unique identifier of the trust anchor.</p>"""
 

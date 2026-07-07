@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#SetupExecutionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.iso_date
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class SetupExecutionDetails(TypedDict):
+class SetupExecutionDetails(TypedDict, closed=True):
     command: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The command that was executed.</p>"""
     date_time: NotRequired["aws_sdk_lightsail.types.iso_date.IsoDate"]

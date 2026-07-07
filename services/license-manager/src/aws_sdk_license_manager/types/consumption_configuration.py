@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ConsumptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.borrow_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.renew_type
 
 
-class ConsumptionConfiguration(TypedDict):
+class ConsumptionConfiguration(TypedDict, closed=True):
     renew_type: NotRequired["aws_sdk_license_manager.types.renew_type.RenewType"]
     """<p>Renewal frequency.</p>"""
     provisional_configuration: NotRequired[

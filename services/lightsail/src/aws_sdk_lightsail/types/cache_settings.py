@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CacheSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.cookie_object
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.query_string_object
 
 
-class CacheSettings(TypedDict):
+class CacheSettings(TypedDict, closed=True):
     default_ttl: NotRequired["aws_sdk_lightsail.types.long.long"]
     """<p>The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.</p> <note> <p>The value specified applies only when the origin does not add HTTP headers such as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and <code>Expires</code> to objects.</p> </note>"""
     minimum_ttl: NotRequired["aws_sdk_lightsail.types.long.long"]

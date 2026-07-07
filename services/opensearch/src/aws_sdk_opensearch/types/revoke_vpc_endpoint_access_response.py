@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#RevokeVpcEndpointAccessResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RevokeVpcEndpointAccessResponse(TypedDict):
+class RevokeVpcEndpointAccessResponse(TypedDict, closed=True):
     pass
 
 

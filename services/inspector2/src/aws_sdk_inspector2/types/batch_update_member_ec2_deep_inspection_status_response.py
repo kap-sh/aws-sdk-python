@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#BatchUpdateMemberEc2DeepInspectionStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.failed_member_account_ec2_deep_inspection_status_state_list
     import aws_sdk_inspector2.types.member_account_ec2_deep_inspection_status_state_list
 
 
-class BatchUpdateMemberEc2DeepInspectionStatusResponse(TypedDict):
+class BatchUpdateMemberEc2DeepInspectionStatusResponse(TypedDict, closed=True):
     account_ids: NotRequired[
         "aws_sdk_inspector2.types.member_account_ec2_deep_inspection_status_state_list.MemberAccountEc2DeepInspectionStatusStateList"
     ]

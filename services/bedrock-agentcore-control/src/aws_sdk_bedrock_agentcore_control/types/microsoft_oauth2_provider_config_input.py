@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#MicrosoftOauth2ProviderConfigInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.tenant_id_type
 
 
-class MicrosoftOauth2ProviderConfigInput(TypedDict):
+class MicrosoftOauth2ProviderConfigInput(TypedDict, closed=True):
     client_id: "aws_sdk_bedrock_agentcore_control.types.client_id_type.ClientIdType"
     """<p>The client ID for the Microsoft OAuth2 provider.</p>"""
     client_secret: "aws_sdk_bedrock_agentcore_control.types.default_client_secret_type.DefaultClientSecretType"

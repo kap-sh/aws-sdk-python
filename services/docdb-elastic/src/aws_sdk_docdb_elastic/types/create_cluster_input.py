@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#CreateClusterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.tag_map
 
 
-class CreateClusterInput(TypedDict):
+class CreateClusterInput(TypedDict, closed=True):
     cluster_name: "str"
     """<p>The name of the new elastic cluster. This parameter is stored as a lowercase string.</p> <p> <i>Constraints</i>:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p> <i>Example</i>: <code>my-cluster</code> </p>"""
     auth_type: "aws_sdk_docdb_elastic.types.auth.Auth"

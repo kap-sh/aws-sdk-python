@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#CustomFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.custom_fields_filter
 
 
-class CustomFilter(TypedDict):
+class CustomFilter(TypedDict, closed=True):
     fields: NotRequired[
         "aws_sdk_connectcases.types.custom_fields_filter.CustomFieldsFilter"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ExportToS3Task``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class ExportToS3Task(TypedDict):
+class ExportToS3Task(TypedDict, closed=True):
     container_format: NotRequired["aws_sdk_ec2.types.container_format.ContainerFormat"]
     """<p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.</p>"""
     disk_image_format: NotRequired[

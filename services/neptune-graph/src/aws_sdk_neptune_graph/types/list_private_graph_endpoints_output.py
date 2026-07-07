@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#ListPrivateGraphEndpointsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.private_graph_endpoint_summary_list
 
 
-class ListPrivateGraphEndpointsOutput(TypedDict):
+class ListPrivateGraphEndpointsOutput(TypedDict, closed=True):
     private_graph_endpoints: "aws_sdk_neptune_graph.types.private_graph_endpoint_summary_list.PrivateGraphEndpointSummaryList"
     """<p>A list of private endpoints for the specified Neptune Analytics graph.</p>"""
     next_token: NotRequired[

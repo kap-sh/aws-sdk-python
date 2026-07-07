@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#RequestPhoneNumberRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.tag_list
 
 
-class RequestPhoneNumberRequest(TypedDict):
+class RequestPhoneNumberRequest(TypedDict, closed=True):
     iso_country_code: (
         "aws_sdk_pinpoint_sms_voice_v2.types.iso_country_code.IsoCountryCode"
     )

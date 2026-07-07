@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#GetEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.id
 
 
-class GetEnvironmentRequest(TypedDict):
+class GetEnvironmentRequest(TypedDict, closed=True):
     application_id: "aws_sdk_appconfig.types.id.Id"
     """<p>The ID of the application that includes the environment you want to get.</p>"""
     environment_id: "aws_sdk_appconfig.types.id.Id"

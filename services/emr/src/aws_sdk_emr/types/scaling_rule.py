@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ScalingRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.scaling_action
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.string
 
 
-class ScalingRule(TypedDict):
+class ScalingRule(TypedDict, closed=True):
     name: NotRequired["aws_sdk_emr.types.string.String"]
     """<p>The name used to identify an automatic scaling rule. Rule names must be unique within a scaling policy.</p>"""
     description: NotRequired["aws_sdk_emr.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ExportSortBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.sort_order
 
 
-class ExportSortBy(TypedDict):
+class ExportSortBy(TypedDict, closed=True):
     attribute: "aws_sdk_lex_models_v2.types.export_sort_attribute.ExportSortAttribute"
     """<p>The export field to use for sorting.</p>"""
     order: "aws_sdk_lex_models_v2.types.sort_order.SortOrder"

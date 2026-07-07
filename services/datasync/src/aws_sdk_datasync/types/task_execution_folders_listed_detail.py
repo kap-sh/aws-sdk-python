@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#TaskExecutionFoldersListedDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.long
 
 
-class TaskExecutionFoldersListedDetail(TypedDict):
+class TaskExecutionFoldersListedDetail(TypedDict, closed=True):
     at_source: "aws_sdk_datasync.types.long.long"
     r"""<p>The number of directories that DataSync finds at your source location.</p> <ul> <li> <p>With a <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html\">manifest</a>, DataSync lists only what's in your manifest (and not everything at your source location).</p> </li> <li> <p>With an include <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html\">filter</a>, DataSync lists only what matches the filter at your source location.</p> </li> <li> <p>With an exclude filter, DataSync lists everything at your source location before applying the filter.</p> </li> </ul>"""
     at_destination_for_delete: "aws_sdk_datasync.types.long.long"

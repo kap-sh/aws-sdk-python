@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#ExtensionAssociationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.arn
     import aws_sdk_appconfig.types.identifier
 
 
-class ExtensionAssociationSummary(TypedDict):
+class ExtensionAssociationSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_appconfig.types.identifier.Identifier"]
     """<p>The extension association ID. This ID is used to call other <code>ExtensionAssociation</code> API actions such as <code>GetExtensionAssociation</code> or <code>DeleteExtensionAssociation</code>.</p>"""
     extension_arn: NotRequired["aws_sdk_appconfig.types.arn.Arn"]

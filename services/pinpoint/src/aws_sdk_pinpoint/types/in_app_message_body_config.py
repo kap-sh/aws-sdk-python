@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#InAppMessageBodyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.alignment
 
 
-class InAppMessageBodyConfig(TypedDict):
+class InAppMessageBodyConfig(TypedDict, closed=True):
     alignment: NotRequired["aws_sdk_pinpoint.types.alignment.Alignment"]
     """<p>The alignment of the text. Valid values: LEFT, CENTER, RIGHT.</p>"""
     body: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

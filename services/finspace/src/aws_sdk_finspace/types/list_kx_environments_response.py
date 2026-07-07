@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#ListKxEnvironmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_environment_list
     import aws_sdk_finspace.types.pagination_token
 
 
-class ListKxEnvironmentsResponse(TypedDict):
+class ListKxEnvironmentsResponse(TypedDict, closed=True):
     environments: NotRequired[
         "aws_sdk_finspace.types.kx_environment_list.KxEnvironmentList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#SubjectFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.common_name_filter
 
 
-class _SubjectFilter_CommonName(TypedDict):
+class _SubjectFilter_CommonName(TypedDict, closed=True):
     CommonName: "aws_sdk_acm.types.common_name_filter.CommonNameFilter"
 
 

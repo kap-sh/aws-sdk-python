@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#TargetFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.target_filter_name
     import aws_sdk_codepipeline.types.target_filter_value_list
 
 
-class TargetFilter(TypedDict):
+class TargetFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codepipeline.types.target_filter_name.TargetFilterName"]
     """<p>The name on which to filter.</p>"""
     values: NotRequired[

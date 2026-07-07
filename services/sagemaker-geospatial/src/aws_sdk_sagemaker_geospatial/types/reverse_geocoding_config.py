@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ReverseGeocodingConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
 
-class ReverseGeocodingConfig(TypedDict):
+class ReverseGeocodingConfig(TypedDict, closed=True):
     y_attribute_name: "str"
     """<p>The field name for the data that describes y-axis coordinate, eg. latitude of a point.</p>"""
     x_attribute_name: "str"

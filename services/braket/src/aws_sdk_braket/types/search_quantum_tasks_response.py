@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#SearchQuantumTasksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.quantum_task_summary_list
 
 
-class SearchQuantumTasksResponse(TypedDict):
+class SearchQuantumTasksResponse(TypedDict, closed=True):
     quantum_tasks: (
         "aws_sdk_braket.types.quantum_task_summary_list.QuantumTaskSummaryList"
     )

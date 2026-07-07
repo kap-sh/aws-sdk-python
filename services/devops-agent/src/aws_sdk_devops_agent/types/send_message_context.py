@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SendMessageContext``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SendMessageContext(TypedDict):
+class SendMessageContext(TypedDict, closed=True):
     current_page: NotRequired["str"]
     """<p>The current page or view the user is on</p>"""
     last_message: NotRequired["str"]

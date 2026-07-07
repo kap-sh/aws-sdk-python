@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.proton#DeleteRepositoryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.repository
 
 
-class DeleteRepositoryOutput(TypedDict):
+class DeleteRepositoryOutput(TypedDict, closed=True):
     repository: NotRequired["aws_sdk_proton.types.repository.Repository"]
     """<p>The deleted repository link's detail data that's returned by Proton.</p>"""
 

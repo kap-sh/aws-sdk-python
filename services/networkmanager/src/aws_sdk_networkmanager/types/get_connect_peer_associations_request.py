@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetConnectPeerAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.connect_peer_id_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.next_token
 
 
-class GetConnectPeerAssociationsRequest(TypedDict):
+class GetConnectPeerAssociationsRequest(TypedDict, closed=True):
     global_network_id: "aws_sdk_networkmanager.types.global_network_id.GlobalNetworkId"
     """<p>The ID of the global network.</p>"""
     connect_peer_ids: NotRequired[

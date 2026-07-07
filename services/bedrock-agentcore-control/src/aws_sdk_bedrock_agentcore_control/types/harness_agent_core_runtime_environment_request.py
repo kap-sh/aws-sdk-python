@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessAgentCoreRuntimeEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.filesystem_configurations
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.network_configuration
 
 
-class HarnessAgentCoreRuntimeEnvironmentRequest(TypedDict):
+class HarnessAgentCoreRuntimeEnvironmentRequest(TypedDict, closed=True):
     lifecycle_configuration: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.lifecycle_configuration.LifecycleConfiguration"
     ]

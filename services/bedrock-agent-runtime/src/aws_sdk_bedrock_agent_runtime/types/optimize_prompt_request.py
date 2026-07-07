@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#OptimizePromptRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.input_prompt
 
 
-class OptimizePromptRequest(TypedDict):
+class OptimizePromptRequest(TypedDict, closed=True):
     input: "aws_sdk_bedrock_agent_runtime.types.input_prompt.InputPrompt"
     """<p>Contains the prompt to optimize.</p>"""
     target_model_id: "str"

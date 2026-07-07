@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#SubjectIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_digest
 
 
-class SubjectIdentifier(TypedDict):
+class SubjectIdentifier(TypedDict, closed=True):
     image_digest: "aws_sdk_ecr.types.image_digest.ImageDigest"
     """<p>The digest of the image.</p>"""
 

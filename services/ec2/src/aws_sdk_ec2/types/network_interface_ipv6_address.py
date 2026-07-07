@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#NetworkInterfaceIpv6Address``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class NetworkInterfaceIpv6Address(TypedDict):
+class NetworkInterfaceIpv6Address(TypedDict, closed=True):
     ipv6_address: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The IPv6 address.</p>"""
     public_ipv6_dns_name: NotRequired["aws_sdk_ec2.types.string.String"]

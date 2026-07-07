@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#Address``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.address_definition
 
 
-class Address(TypedDict):
+class Address(TypedDict, closed=True):
     address_definition: (
         "aws_sdk_network_firewall.types.address_definition.AddressDefinition"
     )

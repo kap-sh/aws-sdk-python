@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#Attachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.attachment_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.status_message
 
 
-class Attachment(TypedDict):
+class Attachment(TypedDict, closed=True):
     subnet_id: NotRequired["aws_sdk_network_firewall.types.az_subnet.AzSubnet"]
     """<p>The unique identifier of the subnet that you've specified to be used for a firewall endpoint. </p>"""
     endpoint_id: NotRequired["aws_sdk_network_firewall.types.endpoint_id.EndpointId"]

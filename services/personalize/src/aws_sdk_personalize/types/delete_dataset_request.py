@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DeleteDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class DeleteDatasetRequest(TypedDict):
+class DeleteDatasetRequest(TypedDict, closed=True):
     dataset_arn: "aws_sdk_personalize.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the dataset to delete.</p>"""
 

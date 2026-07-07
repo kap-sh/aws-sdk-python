@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#CreateAutonomousDatabaseWalletOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.autonomous_database_wallet_file
 
 
-class CreateAutonomousDatabaseWalletOutput(TypedDict):
+class CreateAutonomousDatabaseWalletOutput(TypedDict, closed=True):
     autonomous_database_wallet_file: (
         "aws_sdk_odb.types.autonomous_database_wallet_file.AutonomousDatabaseWalletFile"
     )

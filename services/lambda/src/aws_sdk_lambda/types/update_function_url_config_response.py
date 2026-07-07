@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#UpdateFunctionUrlConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.timestamp
 
 
-class UpdateFunctionUrlConfigResponse(TypedDict):
+class UpdateFunctionUrlConfigResponse(TypedDict, closed=True):
     function_url: "aws_sdk_lambda.types.function_url.FunctionUrl"
     """<p>The HTTP URL endpoint for your function.</p>"""
     function_arn: "aws_sdk_lambda.types.function_arn.FunctionArn"

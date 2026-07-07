@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#EntitledApplication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
 
 
-class EntitledApplication(TypedDict):
+class EntitledApplication(TypedDict, closed=True):
     application_identifier: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>The identifier of the application.</p>"""
 

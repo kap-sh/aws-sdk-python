@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#DeleteClusterPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.policy_version
 
 
-class DeleteClusterPolicyInput(TypedDict):
+class DeleteClusterPolicyInput(TypedDict, closed=True):
     identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     expected_policy_version: NotRequired[
         "aws_sdk_dsql.types.policy_version.PolicyVersion"

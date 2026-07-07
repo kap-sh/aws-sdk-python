@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#TagFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.tag_comparison
 
 
-class TagFilter(TypedDict):
+class TagFilter(TypedDict, closed=True):
     comparison: "aws_sdk_inspector2.types.tag_comparison.TagComparison"
     """<p>The tag filter comparison value.</p>"""
     key: "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"

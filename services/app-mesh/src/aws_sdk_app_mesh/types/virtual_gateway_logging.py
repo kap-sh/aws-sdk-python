@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualGatewayLogging``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_gateway_access_log
 
 
-class VirtualGatewayLogging(TypedDict):
+class VirtualGatewayLogging(TypedDict, closed=True):
     access_log: NotRequired[
         "aws_sdk_app_mesh.types.virtual_gateway_access_log.VirtualGatewayAccessLog"
     ]

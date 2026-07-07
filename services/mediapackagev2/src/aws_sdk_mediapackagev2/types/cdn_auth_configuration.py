@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#CdnAuthConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.cdn_identifier_secret_arns
 
 
-class CdnAuthConfiguration(TypedDict):
+class CdnAuthConfiguration(TypedDict, closed=True):
     cdn_identifier_secret_arns: "aws_sdk_mediapackagev2.types.cdn_identifier_secret_arns.CdnIdentifierSecretArns"
     """<p>The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.</p>"""
     secrets_role_arn: "str"

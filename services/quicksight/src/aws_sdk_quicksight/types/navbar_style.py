@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#NavbarStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.palette
 
 
-class NavbarStyle(TypedDict):
+class NavbarStyle(TypedDict, closed=True):
     global_navbar: NotRequired["aws_sdk_quicksight.types.palette.Palette"]
     """<p>The global navigation bar style.</p>"""
     contextual_navbar: NotRequired["aws_sdk_quicksight.types.palette.Palette"]

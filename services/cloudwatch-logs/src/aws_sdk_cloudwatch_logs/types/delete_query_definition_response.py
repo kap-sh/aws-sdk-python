@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DeleteQueryDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.success
 
 
-class DeleteQueryDefinitionResponse(TypedDict):
+class DeleteQueryDefinitionResponse(TypedDict, closed=True):
     success: "aws_sdk_cloudwatch_logs.types.success.Success"
     """<p>A value of TRUE indicates that the operation succeeded. FALSE indicates that the operation failed.</p>"""
 

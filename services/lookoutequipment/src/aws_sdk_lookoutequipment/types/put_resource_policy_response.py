@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#PutResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.policy_revision_id
     import aws_sdk_lookoutequipment.types.resource_arn
 
 
-class PutResourcePolicyResponse(TypedDict):
+class PutResourcePolicyResponse(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_lookoutequipment.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the resource for which the policy was created.</p>"""
     policy_revision_id: NotRequired[

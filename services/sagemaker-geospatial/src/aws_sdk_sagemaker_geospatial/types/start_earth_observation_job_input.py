@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#StartEarthObservationJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.tags
 
 
-class StartEarthObservationJobInput(TypedDict):
+class StartEarthObservationJobInput(TypedDict, closed=True):
     name: "str"
     """<p>The name of the Earth Observation job.</p>"""
     client_token: NotRequired["str"]

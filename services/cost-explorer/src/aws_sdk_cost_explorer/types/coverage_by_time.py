@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#CoverageByTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.coverage
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.reservation_coverage_groups
 
 
-class CoverageByTime(TypedDict):
+class CoverageByTime(TypedDict, closed=True):
     time_period: NotRequired["aws_sdk_cost_explorer.types.date_interval.DateInterval"]
     """<p>The period that this coverage was used over.</p>"""
     groups: NotRequired[

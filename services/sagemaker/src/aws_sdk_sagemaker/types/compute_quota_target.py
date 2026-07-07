@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ComputeQuotaTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.compute_quota_target_team_name
     import aws_sdk_sagemaker.types.fair_share_weight
 
 
-class ComputeQuotaTarget(TypedDict):
+class ComputeQuotaTarget(TypedDict, closed=True):
     team_name: NotRequired[
         "aws_sdk_sagemaker.types.compute_quota_target_team_name.ComputeQuotaTargetTeamName"
     ]

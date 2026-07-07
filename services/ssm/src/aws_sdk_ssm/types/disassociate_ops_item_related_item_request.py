@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DisassociateOpsItemRelatedItemRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ops_item_related_item_association_id
 
 
-class DisassociateOpsItemRelatedItemRequest(TypedDict):
+class DisassociateOpsItemRelatedItemRequest(TypedDict, closed=True):
     ops_item_id: "aws_sdk_ssm.types.ops_item_id.OpsItemId"
     """<p>The ID of the OpsItem for which you want to delete an association between the OpsItem and a related item.</p>"""
     association_id: "aws_sdk_ssm.types.ops_item_related_item_association_id.OpsItemRelatedItemAssociationId"

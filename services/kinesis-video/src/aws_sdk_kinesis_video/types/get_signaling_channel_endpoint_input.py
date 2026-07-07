@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#GetSignalingChannelEndpointInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.single_master_channel_endpoint_configuration
 
 
-class GetSignalingChannelEndpointInput(TypedDict):
+class GetSignalingChannelEndpointInput(TypedDict, closed=True):
     channel_arn: "aws_sdk_kinesis_video.types.resource_arn.ResourceARN"
     """<p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.</p>"""
     single_master_channel_endpoint_configuration: NotRequired[

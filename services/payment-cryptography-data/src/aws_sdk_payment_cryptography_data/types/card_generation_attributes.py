@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#CardGenerationAttributes``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -17,31 +19,31 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.dynamic_card_verification_value
 
 
-class _CardGenerationAttributes_AmexCardSecurityCodeVersion1(TypedDict):
+class _CardGenerationAttributes_AmexCardSecurityCodeVersion1(TypedDict, closed=True):
     AmexCardSecurityCodeVersion1: "aws_sdk_payment_cryptography_data.types.amex_card_security_code_version1.AmexCardSecurityCodeVersion1"
 
 
-class _CardGenerationAttributes_AmexCardSecurityCodeVersion2(TypedDict):
+class _CardGenerationAttributes_AmexCardSecurityCodeVersion2(TypedDict, closed=True):
     AmexCardSecurityCodeVersion2: "aws_sdk_payment_cryptography_data.types.amex_card_security_code_version2.AmexCardSecurityCodeVersion2"
 
 
-class _CardGenerationAttributes_CardVerificationValue1(TypedDict):
+class _CardGenerationAttributes_CardVerificationValue1(TypedDict, closed=True):
     CardVerificationValue1: "aws_sdk_payment_cryptography_data.types.card_verification_value1.CardVerificationValue1"
 
 
-class _CardGenerationAttributes_CardVerificationValue2(TypedDict):
+class _CardGenerationAttributes_CardVerificationValue2(TypedDict, closed=True):
     CardVerificationValue2: "aws_sdk_payment_cryptography_data.types.card_verification_value2.CardVerificationValue2"
 
 
-class _CardGenerationAttributes_CardHolderVerificationValue(TypedDict):
+class _CardGenerationAttributes_CardHolderVerificationValue(TypedDict, closed=True):
     CardHolderVerificationValue: "aws_sdk_payment_cryptography_data.types.card_holder_verification_value.CardHolderVerificationValue"
 
 
-class _CardGenerationAttributes_DynamicCardVerificationCode(TypedDict):
+class _CardGenerationAttributes_DynamicCardVerificationCode(TypedDict, closed=True):
     DynamicCardVerificationCode: "aws_sdk_payment_cryptography_data.types.dynamic_card_verification_code.DynamicCardVerificationCode"
 
 
-class _CardGenerationAttributes_DynamicCardVerificationValue(TypedDict):
+class _CardGenerationAttributes_DynamicCardVerificationValue(TypedDict, closed=True):
     DynamicCardVerificationValue: "aws_sdk_payment_cryptography_data.types.dynamic_card_verification_value.DynamicCardVerificationValue"
 
 

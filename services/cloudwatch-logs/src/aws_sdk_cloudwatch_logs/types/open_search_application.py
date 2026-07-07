@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#OpenSearchApplication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.open_search_resource_status
 
 
-class OpenSearchApplication(TypedDict):
+class OpenSearchApplication(TypedDict, closed=True):
     application_endpoint: NotRequired[
         "aws_sdk_cloudwatch_logs.types.open_search_application_endpoint.OpenSearchApplicationEndpoint"
     ]

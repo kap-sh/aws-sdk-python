@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#SourceResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migration_hub.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.status_detail
 
 
-class SourceResource(TypedDict):
+class SourceResource(TypedDict, closed=True):
     name: "aws_sdk_migration_hub.types.source_resource_name.SourceResourceName"
     """<p>This is the name that you want to use to identify the resource. If the resource is an AWS resource, we recommend that you set this parameter to the ARN of the resource.</p>"""
     description: NotRequired[

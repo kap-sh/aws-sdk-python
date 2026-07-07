@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#ProcurementPortalPreferenceSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.invoice_unit_arns
     import aws_sdk_invoicing.types.seller_of_records
 
 
-class ProcurementPortalPreferenceSelector(TypedDict):
+class ProcurementPortalPreferenceSelector(TypedDict, closed=True):
     invoice_unit_arns: NotRequired[
         "aws_sdk_invoicing.types.invoice_unit_arns.InvoiceUnitArns"
     ]

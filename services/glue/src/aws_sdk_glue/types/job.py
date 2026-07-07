@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Job``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.code_gen_configuration_nodes
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.worker_type
 
 
-class Job(TypedDict):
+class Job(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name you assign to this job definition.</p>"""
     job_mode: NotRequired["aws_sdk_glue.types.job_mode.JobMode"]

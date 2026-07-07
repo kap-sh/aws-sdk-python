@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#ListDeploymentConfigsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.deployment_configs_list
     import aws_sdk_codedeploy.types.next_token
 
 
-class ListDeploymentConfigsOutput(TypedDict):
+class ListDeploymentConfigsOutput(TypedDict, closed=True):
     deployment_configs_list: NotRequired[
         "aws_sdk_codedeploy.types.deployment_configs_list.DeploymentConfigsList"
     ]

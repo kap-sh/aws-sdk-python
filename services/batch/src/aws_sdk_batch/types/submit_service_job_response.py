@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#SubmitServiceJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class SubmitServiceJobResponse(TypedDict):
+class SubmitServiceJobResponse(TypedDict, closed=True):
     job_arn: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Amazon Resource Name (ARN) for the service job.</p>"""
     job_name: NotRequired["aws_sdk_batch.types.string.String"]

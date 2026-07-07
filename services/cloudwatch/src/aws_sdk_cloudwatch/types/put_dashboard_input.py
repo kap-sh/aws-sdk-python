@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#PutDashboardInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.tag_list
 
 
-class PutDashboardInput(TypedDict):
+class PutDashboardInput(TypedDict, closed=True):
     dashboard_name: NotRequired["aws_sdk_cloudwatch.types.dashboard_name.DashboardName"]
     r"""<p>The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, \"-\", and \"_\". This parameter is required.</p>"""
     dashboard_body: NotRequired["aws_sdk_cloudwatch.types.dashboard_body.DashboardBody"]

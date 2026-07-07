@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#TranscriptConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.channel_labeling_configuration
     import aws_sdk_bedrock_data_automation.types.speaker_labeling_configuration
 
 
-class TranscriptConfiguration(TypedDict):
+class TranscriptConfiguration(TypedDict, closed=True):
     speaker_labeling: NotRequired[
         "aws_sdk_bedrock_data_automation.types.speaker_labeling_configuration.SpeakerLabelingConfiguration"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#GetEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.environment_id
 
 
-class GetEnvironmentRequest(TypedDict):
+class GetEnvironmentRequest(TypedDict, closed=True):
     id: "aws_sdk_interconnect.types.environment_id.EnvironmentId"
     """<p>The identifier of the specific <a>Environment</a> to describe.</p>"""
 

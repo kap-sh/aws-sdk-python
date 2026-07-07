@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#ListTagsForVaultOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.tag_map
 
 
-class ListTagsForVaultOutput(TypedDict):
+class ListTagsForVaultOutput(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_glacier.types.tag_map.TagMap"]
     """<p>The tags attached to the vault. Each tag is composed of a key and a value.</p>"""
 

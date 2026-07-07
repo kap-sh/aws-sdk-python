@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#GetUsagePlanKeysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.nullable_integer
     import aws_sdk_api_gateway.types.string
 
 
-class GetUsagePlanKeysRequest(TypedDict):
+class GetUsagePlanKeysRequest(TypedDict, closed=True):
     usage_plan_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The Id of the UsagePlan resource representing the usage plan containing the to-be-retrieved UsagePlanKey resource representing a plan customer.</p>"""
     position: NotRequired["aws_sdk_api_gateway.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#IAMFederationOptionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.iam_federation_subject_key
 
 
-class IAMFederationOptionsInput(TypedDict):
+class IAMFederationOptionsInput(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_opensearch.types.boolean.Boolean"]
     """<p>Specifies whether IAM identity federation is enabled for the OpenSearch domain.</p>"""
     subject_key: NotRequired[

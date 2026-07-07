@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicSortClause``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.identifier
     import aws_sdk_quicksight.types.topic_sort_direction
 
 
-class TopicSortClause(TypedDict):
+class TopicSortClause(TypedDict, closed=True):
     operand: NotRequired["aws_sdk_quicksight.types.identifier.Identifier"]
     """<p>The operand for a <code>TopicSortClause</code>.</p>"""
     sort_direction: NotRequired[

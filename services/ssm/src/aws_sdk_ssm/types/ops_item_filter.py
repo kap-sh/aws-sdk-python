@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#OpsItemFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ops_item_filter_values
 
 
-class OpsItemFilter(TypedDict):
+class OpsItemFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.ops_item_filter_key.OpsItemFilterKey"
     """<p>The name of the filter.</p>"""
     values: "aws_sdk_ssm.types.ops_item_filter_values.OpsItemFilterValues"

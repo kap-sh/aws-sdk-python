@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#CheckpointConfigurationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.boolean_object
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.min_pause_between_checkpoints
 
 
-class CheckpointConfigurationDescription(TypedDict):
+class CheckpointConfigurationDescription(TypedDict, closed=True):
     configuration_type: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.configuration_type.ConfigurationType"
     ]

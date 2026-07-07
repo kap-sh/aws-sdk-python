@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#CreateDomainNameRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.tag_map
 
 
-class CreateDomainNameRequest(TypedDict):
+class CreateDomainNameRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_appsync.types.domain_name.DomainName"
     """<p>The domain name.</p>"""
     certificate_arn: "aws_sdk_appsync.types.certificate_arn.CertificateArn"

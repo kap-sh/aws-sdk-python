@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CreateWirelessDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_device_type
 
 
-class CreateWirelessDeviceRequest(TypedDict):
+class CreateWirelessDeviceRequest(TypedDict, closed=True):
     type: "aws_sdk_iot_wireless.types.wireless_device_type.WirelessDeviceType"
     """<p>The wireless device type.</p>"""
     name: NotRequired[

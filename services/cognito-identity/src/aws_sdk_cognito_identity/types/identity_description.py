@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#IdentityDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.date_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.logins_list
 
 
-class IdentityDescription(TypedDict):
+class IdentityDescription(TypedDict, closed=True):
     identity_id: NotRequired["aws_sdk_cognito_identity.types.identity_id.IdentityId"]
     """<p>A unique identifier in the format REGION:GUID.</p>"""
     logins: NotRequired["aws_sdk_cognito_identity.types.logins_list.LoginsList"]

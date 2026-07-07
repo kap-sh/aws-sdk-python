@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GetMessageTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid_or_arn
     import aws_sdk_qconnect.types.uuid_or_arn_or_either_with_qualifier
 
 
-class GetMessageTemplateRequest(TypedDict):
+class GetMessageTemplateRequest(TypedDict, closed=True):
     message_template_id: "aws_sdk_qconnect.types.uuid_or_arn_or_either_with_qualifier.UuidOrArnOrEitherWithQualifier"
     """<p>The identifier of the message template. Can be either the ID or the ARN.</p>"""
     knowledge_base_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"

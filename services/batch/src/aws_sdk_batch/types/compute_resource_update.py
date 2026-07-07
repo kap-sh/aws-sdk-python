@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ComputeResourceUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.boolean
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.tags_map
 
 
-class ComputeResourceUpdate(TypedDict):
+class ComputeResourceUpdate(TypedDict, closed=True):
     minv_cpus: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The minimum number of vCPUs that an environment should maintain (even if the compute environment is <code>DISABLED</code>).</p> <note> <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p> </note>"""
     maxv_cpus: NotRequired["aws_sdk_batch.types.integer.Integer"]

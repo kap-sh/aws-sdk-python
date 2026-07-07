@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#GetLimitRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.farm_id
     import aws_sdk_deadline.types.limit_id
 
 
-class GetLimitRequest(TypedDict):
+class GetLimitRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The unique identifier of the farm that contains the limit.</p>"""
     limit_id: "aws_sdk_deadline.types.limit_id.LimitId"

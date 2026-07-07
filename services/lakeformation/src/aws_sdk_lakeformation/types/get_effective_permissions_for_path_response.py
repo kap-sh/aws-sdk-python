@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#GetEffectivePermissionsForPathResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.principal_resource_permissions_list
     import aws_sdk_lakeformation.types.token
 
 
-class GetEffectivePermissionsForPathResponse(TypedDict):
+class GetEffectivePermissionsForPathResponse(TypedDict, closed=True):
     permissions: NotRequired[
         "aws_sdk_lakeformation.types.principal_resource_permissions_list.PrincipalResourcePermissionsList"
     ]

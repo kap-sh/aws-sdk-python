@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#EfsFileLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.efs_file_system_id
     import aws_sdk_transfer.types.efs_path
 
 
-class EfsFileLocation(TypedDict):
+class EfsFileLocation(TypedDict, closed=True):
     file_system_id: NotRequired[
         "aws_sdk_transfer.types.efs_file_system_id.EfsFileSystemId"
     ]

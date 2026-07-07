@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notificationscontacts#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_notificationscontacts.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_notificationscontacts.types.tag_map
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     arn: "aws_sdk_notificationscontacts.types.email_contact_arn.EmailContactArn"
     """<p>The ARN of the configuration.</p>"""
     tags: "aws_sdk_notificationscontacts.types.tag_map.TagMap"

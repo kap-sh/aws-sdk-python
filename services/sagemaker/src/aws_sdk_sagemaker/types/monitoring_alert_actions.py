@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MonitoringAlertActions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_dashboard_indicator_action
 
 
-class MonitoringAlertActions(TypedDict):
+class MonitoringAlertActions(TypedDict, closed=True):
     model_dashboard_indicator: NotRequired[
         "aws_sdk_sagemaker.types.model_dashboard_indicator_action.ModelDashboardIndicatorAction"
     ]

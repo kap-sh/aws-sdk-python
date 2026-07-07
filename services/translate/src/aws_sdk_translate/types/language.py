@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#Language``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.localized_name_string
 
 
-class Language(TypedDict):
+class Language(TypedDict, closed=True):
     language_name: "aws_sdk_translate.types.localized_name_string.LocalizedNameString"
     """<p>Language name of the supported language.</p>"""
     language_code: "aws_sdk_translate.types.language_code_string.LanguageCodeString"

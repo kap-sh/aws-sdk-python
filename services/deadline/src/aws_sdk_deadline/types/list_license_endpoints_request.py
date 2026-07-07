@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ListLicenseEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.max_results
     import aws_sdk_deadline.types.next_token
 
 
-class ListLicenseEndpointsRequest(TypedDict):
+class ListLicenseEndpointsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_deadline.types.next_token.NextToken"]
     """<p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>"""
     max_results: "aws_sdk_deadline.types.max_results.MaxResults"

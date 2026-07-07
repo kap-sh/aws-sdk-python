@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#SegmentGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.include_options
     import aws_sdk_customer_profiles.types.segment_group_list
 
 
-class SegmentGroup(TypedDict):
+class SegmentGroup(TypedDict, closed=True):
     groups: NotRequired[
         "aws_sdk_customer_profiles.types.segment_group_list.SegmentGroupList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#Target``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.target_input_path
 
 
-class Target(TypedDict):
+class Target(TypedDict, closed=True):
     id: "aws_sdk_cloudwatch_events.types.target_id.TargetId"
     """<p>The ID of the target. We recommend using a memorable and unique string.</p>"""
     arn: "aws_sdk_cloudwatch_events.types.target_arn.TargetArn"

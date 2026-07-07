@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ListLayoutsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.domain_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.next_token
 
 
-class ListLayoutsRequest(TypedDict):
+class ListLayoutsRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_connectcases.types.domain_id.DomainId"
     """<p>The unique identifier of the Cases domain. </p>"""
     max_results: NotRequired["aws_sdk_connectcases.types.max_results.MaxResults"]

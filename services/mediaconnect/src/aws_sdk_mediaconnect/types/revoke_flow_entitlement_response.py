@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RevokeFlowEntitlementResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RevokeFlowEntitlementResponse(TypedDict):
+class RevokeFlowEntitlementResponse(TypedDict, closed=True):
     entitlement_arn: NotRequired["str"]
     """<p> The ARN of the entitlement that was revoked.</p>"""
     flow_arn: NotRequired["str"]

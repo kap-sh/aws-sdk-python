@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UserDetails``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class UserDetails(TypedDict):
+class UserDetails(TypedDict, closed=True):
     user_id: "str"
     """<p>The identifier of the Amazon DataZone user.</p>"""
 

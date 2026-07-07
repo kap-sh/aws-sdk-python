@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ListGraphqlApisRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.graph_ql_api_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.pagination_token
 
 
-class ListGraphqlApisRequest(TypedDict):
+class ListGraphqlApisRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_appsync.types.pagination_token.PaginationToken"]
     """<p>An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.</p>"""
     max_results: "aws_sdk_appsync.types.max_results.MaxResults"

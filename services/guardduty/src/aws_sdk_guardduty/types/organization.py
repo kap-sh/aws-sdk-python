@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Organization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class Organization(TypedDict):
+class Organization(TypedDict, closed=True):
     asn: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The Autonomous System Number (ASN) of the internet provider of the remote IP address.</p>"""
     asn_org: NotRequired["aws_sdk_guardduty.types.string.String"]

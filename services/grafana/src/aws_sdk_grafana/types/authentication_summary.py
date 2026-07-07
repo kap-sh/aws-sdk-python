@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#AuthenticationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.saml_configuration_status
 
 
-class AuthenticationSummary(TypedDict):
+class AuthenticationSummary(TypedDict, closed=True):
     providers: "aws_sdk_grafana.types.authentication_providers.AuthenticationProviders"
     """<p>Specifies whether the workspace uses SAML, IAM Identity Center, or both methods for user authentication.</p>"""
     saml_configuration_status: NotRequired[

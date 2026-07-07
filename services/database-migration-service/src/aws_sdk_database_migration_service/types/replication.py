@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#Replication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.boolean_optional
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.t_stamp
 
 
-class Replication(TypedDict):
+class Replication(TypedDict, closed=True):
     replication_config_identifier: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

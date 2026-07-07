@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ListModelManifestsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.next_token
 
 
-class ListModelManifestsRequest(TypedDict):
+class ListModelManifestsRequest(TypedDict, closed=True):
     signal_catalog_arn: NotRequired["aws_sdk_iotfleetwise.types.arn.arn"]
     """<p> The ARN of a signal catalog. If you specify a signal catalog, only the vehicle models associated with it are returned.</p>"""
     next_token: NotRequired["aws_sdk_iotfleetwise.types.next_token.nextToken"]

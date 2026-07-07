@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#SecretsManager``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.secrets_manager_version_id
 
 
-class SecretsManager(TypedDict):
+class SecretsManager(TypedDict, closed=True):
     arn: "aws_sdk_iot_managed_integrations.types.secrets_manager_arn.SecretsManagerArn"
     """<p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret.</p>"""
     version_id: "aws_sdk_iot_managed_integrations.types.secrets_manager_version_id.SecretsManagerVersionId"

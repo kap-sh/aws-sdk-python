@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#BatchDisassociateAnalyticsDataSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.data_set_ids
     import aws_sdk_connect.types.error_results
 
 
-class BatchDisassociateAnalyticsDataSetResponse(TypedDict):
+class BatchDisassociateAnalyticsDataSetResponse(TypedDict, closed=True):
     deleted: NotRequired["aws_sdk_connect.types.data_set_ids.DataSetIds"]
     """<p>An array of successfully disassociated dataset identifiers.</p>"""
     errors: NotRequired["aws_sdk_connect.types.error_results.ErrorResults"]

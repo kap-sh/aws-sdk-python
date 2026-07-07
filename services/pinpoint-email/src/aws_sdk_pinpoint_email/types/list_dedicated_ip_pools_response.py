@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#ListDedicatedIpPoolsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.list_of_dedicated_ip_pools
     import aws_sdk_pinpoint_email.types.next_token
 
 
-class ListDedicatedIpPoolsResponse(TypedDict):
+class ListDedicatedIpPoolsResponse(TypedDict, closed=True):
     dedicated_ip_pools: NotRequired[
         "aws_sdk_pinpoint_email.types.list_of_dedicated_ip_pools.ListOfDedicatedIpPools"
     ]

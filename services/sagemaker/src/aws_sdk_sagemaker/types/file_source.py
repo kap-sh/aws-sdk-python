@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#FileSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.content_digest
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class FileSource(TypedDict):
+class FileSource(TypedDict, closed=True):
     content_type: NotRequired["aws_sdk_sagemaker.types.content_type.ContentType"]
     """<p>The type of content stored in the file source.</p>"""
     content_digest: NotRequired["aws_sdk_sagemaker.types.content_digest.ContentDigest"]

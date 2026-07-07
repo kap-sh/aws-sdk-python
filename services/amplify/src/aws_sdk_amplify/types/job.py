@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#Job``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.steps
 
 
-class Job(TypedDict):
+class Job(TypedDict, closed=True):
     summary: "aws_sdk_amplify.types.job_summary.JobSummary"
     """<p> Describes the summary for an execution job for an Amplify app. </p>"""
     steps: "aws_sdk_amplify.types.steps.Steps"

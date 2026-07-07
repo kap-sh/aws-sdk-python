@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#LibraryTemplateButtonList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.button_type
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.zero_tap_terms_accepted
 
 
-class LibraryTemplateButtonList(TypedDict):
+class LibraryTemplateButtonList(TypedDict, closed=True):
     type: NotRequired["aws_sdk_socialmessaging.types.button_type.ButtonType"]
     """<p>The type of button (for example, QUICK_REPLY, CALL, or URL).</p>"""
     text: NotRequired["aws_sdk_socialmessaging.types.meta_text.MetaText"]

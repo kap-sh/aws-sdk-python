@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UserIndexCapacityFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.user_name_or_email_filter
 
 
-class _UserIndexCapacityFilter_userNameOrEmail(TypedDict):
+class _UserIndexCapacityFilter_userNameOrEmail(TypedDict, closed=True):
     userNameOrEmail: (
         "aws_sdk_quicksight.types.user_name_or_email_filter.UserNameOrEmailFilter"
     )
 
 
-class _UserIndexCapacityFilter_totalCapacityBytes(TypedDict):
+class _UserIndexCapacityFilter_totalCapacityBytes(TypedDict, closed=True):
     totalCapacityBytes: (
         "aws_sdk_quicksight.types.capacity_bytes_range_filter.CapacityBytesRangeFilter"
     )

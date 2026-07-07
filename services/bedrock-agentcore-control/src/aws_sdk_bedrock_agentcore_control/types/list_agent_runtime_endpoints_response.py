@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListAgentRuntimeEndpointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.next_token
 
 
-class ListAgentRuntimeEndpointsResponse(TypedDict):
+class ListAgentRuntimeEndpointsResponse(TypedDict, closed=True):
     runtime_endpoints: "aws_sdk_bedrock_agentcore_control.types.agent_runtime_endpoints.AgentRuntimeEndpoints"
     """<p>The list of AgentCore Runtime endpoints.</p>"""
     next_token: NotRequired[

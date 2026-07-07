@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.amp#LoggingFilter``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
 
-class LoggingFilter(TypedDict):
+class LoggingFilter(TypedDict, closed=True):
     qsp_threshold: "int"
     """<p>The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.</p>"""
 

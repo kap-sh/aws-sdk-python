@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#GetAutomationEventResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.rule_id
 
 
-class GetAutomationEventResponse(TypedDict):
+class GetAutomationEventResponse(TypedDict, closed=True):
     event_id: NotRequired["aws_sdk_compute_optimizer_automation.types.event_id.EventId"]
     """<p>The ID of the automation event to retrieve.</p>"""
     event_description: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#BatchDeleteDocumentResponseFailedDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.data_source_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.error_message
 
 
-class BatchDeleteDocumentResponseFailedDocument(TypedDict):
+class BatchDeleteDocumentResponseFailedDocument(TypedDict, closed=True):
     id: NotRequired["aws_sdk_kendra.types.document_id.DocumentId"]
     """<p>The identifier of the document that couldn't be removed from the index.</p>"""
     data_source_id: NotRequired["aws_sdk_kendra.types.data_source_id.DataSourceId"]

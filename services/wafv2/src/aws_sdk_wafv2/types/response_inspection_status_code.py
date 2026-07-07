@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ResponseInspectionStatusCode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.response_inspection_status_code_success_codes
 
 
-class ResponseInspectionStatusCode(TypedDict):
+class ResponseInspectionStatusCode(TypedDict, closed=True):
     success_codes: "aws_sdk_wafv2.types.response_inspection_status_code_success_codes.ResponseInspectionStatusCodeSuccessCodes"
     r"""<p>Status codes in the response that indicate a successful login or account creation attempt. To be counted as a success, the response status code must match one of these. Each code must be unique among the success and failure status codes. </p> <p>JSON example: <code>\"SuccessCodes\": [ 200, 201 ]</code> </p>"""
     failure_codes: "aws_sdk_wafv2.types.response_inspection_status_code_failure_codes.ResponseInspectionStatusCodeFailureCodes"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#StartExecutionPreviewRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.execution_inputs
 
 
-class StartExecutionPreviewRequest(TypedDict):
+class StartExecutionPreviewRequest(TypedDict, closed=True):
     document_name: "aws_sdk_ssm.types.document_name.DocumentName"
     """<p>The name of the Automation runbook to run. The result of the execution preview indicates what the impact would be of running this runbook.</p>"""
     document_version: NotRequired["aws_sdk_ssm.types.document_version.DocumentVersion"]

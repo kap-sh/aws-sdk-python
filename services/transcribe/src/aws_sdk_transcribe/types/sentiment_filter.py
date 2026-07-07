@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#SentimentFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.sentiment_value_list
 
 
-class SentimentFilter(TypedDict):
+class SentimentFilter(TypedDict, closed=True):
     sentiments: "aws_sdk_transcribe.types.sentiment_value_list.SentimentValueList"
     """<p>Specify the sentiments that you want to flag.</p>"""
     absolute_time_range: NotRequired[

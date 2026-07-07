@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DeleteLagRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_direct_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.lag_id
 
 
-class DeleteLagRequest(TypedDict):
+class DeleteLagRequest(TypedDict, closed=True):
     lag_id: "aws_sdk_direct_connect.types.lag_id.LagId"
     """<p>The ID of the LAG.</p>"""
 

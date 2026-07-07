@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#NotificationFilterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.insight_severities
     import aws_sdk_devops_guru.types.notification_message_types
 
 
-class NotificationFilterConfig(TypedDict):
+class NotificationFilterConfig(TypedDict, closed=True):
     severities: NotRequired[
         "aws_sdk_devops_guru.types.insight_severities.InsightSeverities"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#StartImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid_or_arn
 
 
-class StartImportJobRequest(TypedDict):
+class StartImportJobRequest(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p> <ul> <li> <p>For importing Amazon Q in Connect quick responses, this should be a <code>QUICK_RESPONSES</code> type knowledge base.</p> </li> </ul>"""
     import_job_type: "aws_sdk_qconnect.types.import_job_type.ImportJobType"

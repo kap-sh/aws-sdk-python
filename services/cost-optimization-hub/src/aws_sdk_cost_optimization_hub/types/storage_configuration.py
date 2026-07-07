@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#StorageConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class StorageConfiguration(TypedDict):
+class StorageConfiguration(TypedDict, closed=True):
     type: NotRequired["str"]
     """<p>The storage type.</p>"""
     size_in_gb: NotRequired["float"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#MediaInsightsPipelineConfigurationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline_configuration_name_string
 
 
-class MediaInsightsPipelineConfigurationSummary(TypedDict):
+class MediaInsightsPipelineConfigurationSummary(TypedDict, closed=True):
     media_insights_pipeline_configuration_name: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline_configuration_name_string.MediaInsightsPipelineConfigurationNameString"
     ]

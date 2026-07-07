@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#GetManagedNotificationConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.managed_notification_configuration_os_arn
 
 
-class GetManagedNotificationConfigurationResponse(TypedDict):
+class GetManagedNotificationConfigurationResponse(TypedDict, closed=True):
     arn: "aws_sdk_notifications.types.managed_notification_configuration_os_arn.ManagedNotificationConfigurationOsArn"
     """<p>The ARN of the <code>ManagedNotificationConfiguration</code> resource.</p>"""
     name: "aws_sdk_notifications.types.managed_notification_configuration_name.ManagedNotificationConfigurationName"

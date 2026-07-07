@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetEvidenceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.evidence
 
 
-class GetEvidenceResponse(TypedDict):
+class GetEvidenceResponse(TypedDict, closed=True):
     evidence: NotRequired["aws_sdk_auditmanager.types.evidence.Evidence"]
     """<p> The evidence that the <code>GetEvidence</code> API returned. </p>"""
 

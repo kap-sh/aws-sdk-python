@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#SqlParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.field
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds_data.types.type_hint
 
 
-class SqlParameter(TypedDict):
+class SqlParameter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_rds_data.types.parameter_name.ParameterName"]
     """<p>The name of the parameter.</p>"""
     value: NotRequired["aws_sdk_rds_data.types.field.Field"]

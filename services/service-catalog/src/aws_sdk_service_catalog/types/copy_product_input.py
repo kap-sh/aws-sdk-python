@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#CopyProductInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.source_provisioning_artifact_properties
 
 
-class CopyProductInput(TypedDict):
+class CopyProductInput(TypedDict, closed=True):
     accept_language: NotRequired[
         "aws_sdk_service_catalog.types.accept_language.AcceptLanguage"
     ]

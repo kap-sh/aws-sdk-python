@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ZeppelinMonitoringConfigurationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.log_level
 
 
-class ZeppelinMonitoringConfigurationUpdate(TypedDict):
+class ZeppelinMonitoringConfigurationUpdate(TypedDict, closed=True):
     log_level_update: "aws_sdk_kinesis_analytics_v2.types.log_level.LogLevel"
     """<p>Updates to the logging level for Apache Zeppelin within a Managed Service for Apache Flink Studio notebook.</p>"""
 

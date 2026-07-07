@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#Transcript``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.result_list
 
 
-class Transcript(TypedDict):
+class Transcript(TypedDict, closed=True):
     results: NotRequired["aws_sdk_transcribe_streaming.types.result_list.ResultList"]
     """<p>Contains a set of transcription results from one or more audio segments, along with additional information per your request parameters. This can include information relating to alternative transcriptions, channel identification, partial result stabilization, language identification, and other transcription-related data.</p>"""
 

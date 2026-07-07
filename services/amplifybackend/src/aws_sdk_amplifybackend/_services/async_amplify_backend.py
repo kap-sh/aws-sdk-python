@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#AmplifyBackend``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_amplifybackend._auth._signers
@@ -102,7 +102,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.update_backend_storage_response
 
 
-class AsyncAmplifyBackendClientConfig(TypedDict, total=False):
+class AsyncAmplifyBackendClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RegisteredUserQuickSightConsoleEmbeddingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.entry_path
     import aws_sdk_quicksight.types.registered_user_console_feature_configurations
 
 
-class RegisteredUserQuickSightConsoleEmbeddingConfiguration(TypedDict):
+class RegisteredUserQuickSightConsoleEmbeddingConfiguration(TypedDict, closed=True):
     initial_path: NotRequired["aws_sdk_quicksight.types.entry_path.EntryPath"]
     """<p>The initial URL path for the Amazon Quick Sight console. <code>InitialPath</code> is required.</p> <p>The entry point URL is constrained to the following paths:</p> <ul> <li> <p> <code>/start</code> </p> </li> <li> <p> <code>/start/analyses</code> </p> </li> <li> <p> <code>/start/dashboards</code> </p> </li> <li> <p> <code>/start/favorites</code> </p> </li> <li> <p> <code>/dashboards/DashboardId</code>. <i>DashboardId</i> is the actual ID key from the Amazon Quick Sight console URL of the dashboard.</p> </li> <li> <p> <code>/analyses/AnalysisId</code>. <i>AnalysisId</i> is the actual ID key from the Amazon Quick Sight console URL of the analysis.</p> </li> </ul>"""
     feature_configurations: NotRequired[

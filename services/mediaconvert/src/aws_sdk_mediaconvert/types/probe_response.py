@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ProbeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of_probe_result
 
 
-class ProbeResponse(TypedDict):
+class ProbeResponse(TypedDict, closed=True):
     probe_results: NotRequired[
         "aws_sdk_mediaconvert.types.__list_of_probe_result.__listOfProbeResult"
     ]

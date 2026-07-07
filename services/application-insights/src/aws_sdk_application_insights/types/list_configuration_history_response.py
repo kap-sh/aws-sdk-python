@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#ListConfigurationHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.configuration_event_list
     import aws_sdk_application_insights.types.pagination_token
 
 
-class ListConfigurationHistoryResponse(TypedDict):
+class ListConfigurationHistoryResponse(TypedDict, closed=True):
     event_list: NotRequired[
         "aws_sdk_application_insights.types.configuration_event_list.ConfigurationEventList"
     ]

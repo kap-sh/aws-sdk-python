@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#LeadInvitationInteraction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.lead_source_type
 
 
-class LeadInvitationInteraction(TypedDict):
+class LeadInvitationInteraction(TypedDict, closed=True):
     source_type: "aws_sdk_partnercentral_selling.types.lead_source_type.LeadSourceType"
     r"""<p>Specifies the type of source that generated the lead interaction, such as \"Event\", \"Website\", or \"Campaign\". This helps partners understand the lead generation channel and assess lead quality based on the source type.</p>"""
     source_id: "aws_sdk_partnercentral_selling.types.lead_source_id.LeadSourceId"

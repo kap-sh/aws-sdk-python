@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DocumentStandardExtraction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.document_extraction_granularity
 
 
-class DocumentStandardExtraction(TypedDict):
+class DocumentStandardExtraction(TypedDict, closed=True):
     granularity: "aws_sdk_bedrock_data_automation.types.document_extraction_granularity.DocumentExtractionGranularity"
     bounding_box: "aws_sdk_bedrock_data_automation.types.document_bounding_box.DocumentBoundingBox"
 

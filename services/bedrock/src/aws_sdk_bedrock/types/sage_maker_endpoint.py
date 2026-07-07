@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#SageMakerEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.vpc_config
 
 
-class SageMakerEndpoint(TypedDict):
+class SageMakerEndpoint(TypedDict, closed=True):
     initial_instance_count: "aws_sdk_bedrock.types.instance_count.InstanceCount"
     """<p>The number of Amazon EC2 compute instances to deploy for initial endpoint creation.</p>"""
     instance_type: "aws_sdk_bedrock.types.instance_type.InstanceType"

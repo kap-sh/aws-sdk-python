@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.resource_arn
     import aws_sdk_sagemaker.types.tag_key_list
 
 
-class DeleteTagsInput(TypedDict):
+class DeleteTagsInput(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_sagemaker.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the resource whose tags you want to delete.</p>"""
     tag_keys: NotRequired["aws_sdk_sagemaker.types.tag_key_list.TagKeyList"]

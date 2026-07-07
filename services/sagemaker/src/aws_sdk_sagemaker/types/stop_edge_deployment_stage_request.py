@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#StopEdgeDeploymentStageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.entity_name
 
 
-class StopEdgeDeploymentStageRequest(TypedDict):
+class StopEdgeDeploymentStageRequest(TypedDict, closed=True):
     edge_deployment_plan_name: NotRequired[
         "aws_sdk_sagemaker.types.entity_name.EntityName"
     ]

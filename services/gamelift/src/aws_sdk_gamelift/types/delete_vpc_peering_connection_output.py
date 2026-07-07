@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteVpcPeeringConnectionOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteVpcPeeringConnectionOutput(TypedDict):
+class DeleteVpcPeeringConnectionOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#GetDomainInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.domain_id
 
 
-class GetDomainInput(TypedDict):
+class GetDomainInput(TypedDict, closed=True):
     domain_id: "aws_sdk_connecthealth.types.domain_id.DomainId"
     """<p>The id of the Domain to get</p>"""
 

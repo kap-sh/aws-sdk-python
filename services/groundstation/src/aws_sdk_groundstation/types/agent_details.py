@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#AgentDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.version_string
 
 
-class AgentDetails(TypedDict):
+class AgentDetails(TypedDict, closed=True):
     agent_version: "aws_sdk_groundstation.types.version_string.VersionString"
     """<p>Current agent version.</p>"""
     instance_id: "aws_sdk_groundstation.types.instance_id.InstanceId"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#DescribePersistentAppUIOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.persistent_app_ui
 
 
-class DescribePersistentAppUIOutput(TypedDict):
+class DescribePersistentAppUIOutput(TypedDict, closed=True):
     persistent_app_ui: NotRequired[
         "aws_sdk_emr.types.persistent_app_ui.PersistentAppUI"
     ]

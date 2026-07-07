@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#PutAssetModelInterfaceRelationshipRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.property_mapping_configuration
 
 
-class PutAssetModelInterfaceRelationshipRequest(TypedDict):
+class PutAssetModelInterfaceRelationshipRequest(TypedDict, closed=True):
     asset_model_id: "aws_sdk_iotsitewise.types.custom_id.CustomID"
     """<p>The ID of the asset model. This can be either the actual ID in UUID format, or else externalId: followed by the external ID.</p>"""
     interface_asset_model_id: "aws_sdk_iotsitewise.types.custom_id.CustomID"

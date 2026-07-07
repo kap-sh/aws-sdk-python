@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.signerdata#InternalServiceErrorException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_signer_data.errors import ServiceError
 
 
-class InternalServiceErrorException_(TypedDict):
+class InternalServiceErrorException_(TypedDict, closed=True):
     message: NotRequired["str"]
     code: NotRequired["str"]
 

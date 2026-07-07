@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#DeleteStatisticsValueMap``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DeleteStatisticsValueMap(TypedDict):
+class DeleteStatisticsValueMap(TypedDict, closed=True):
     active: NotRequired["bool"]
     """<p>The current status of the statistics.</p>"""
     statistics_id: NotRequired["str"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#GetSendQuotaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.sent_last24_hours
 
 
-class GetSendQuotaResponse(TypedDict):
+class GetSendQuotaResponse(TypedDict, closed=True):
     max24_hour_send: "aws_sdk_ses.types.max24_hour_send.Max24HourSend"
     """<p>The maximum number of emails the user is allowed to send in a 24-hour interval. A value of -1 signifies an unlimited quota.</p>"""
     max_send_rate: "aws_sdk_ses.types.max_send_rate.MaxSendRate"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#DateTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.timestamp
@@ -13,6 +13,7 @@ DateTimeRange = TypedDict(
         "from": NotRequired["aws_sdk_health.types.timestamp.timestamp"],
         "to": NotRequired["aws_sdk_health.types.timestamp.timestamp"],
     },
+    closed=True,
 )
 
 

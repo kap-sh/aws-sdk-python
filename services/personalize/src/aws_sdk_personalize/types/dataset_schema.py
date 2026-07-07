@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DatasetSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.name
 
 
-class DatasetSchema(TypedDict):
+class DatasetSchema(TypedDict, closed=True):
     name: NotRequired["aws_sdk_personalize.types.name.Name"]
     """<p>The name of the schema.</p>"""
     schema_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]

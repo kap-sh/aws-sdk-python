@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ResourceTagParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.tag_value
 
 
-class ResourceTagParameter(TypedDict):
+class ResourceTagParameter(TypedDict, closed=True):
     key: "aws_sdk_datazone.types.tag_key.TagKey"
     """<p>The key of the resource tag parameter of the project profile.</p>"""
     value: "aws_sdk_datazone.types.tag_value.TagValue"

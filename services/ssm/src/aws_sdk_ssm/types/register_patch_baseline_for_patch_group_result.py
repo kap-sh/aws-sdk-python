@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#RegisterPatchBaselineForPatchGroupResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.baseline_id
     import aws_sdk_ssm.types.patch_group
 
 
-class RegisterPatchBaselineForPatchGroupResult(TypedDict):
+class RegisterPatchBaselineForPatchGroupResult(TypedDict, closed=True):
     baseline_id: NotRequired["aws_sdk_ssm.types.baseline_id.BaselineId"]
     """<p>The ID of the patch baseline the patch group was registered with.</p>"""
     patch_group: NotRequired["aws_sdk_ssm.types.patch_group.PatchGroup"]

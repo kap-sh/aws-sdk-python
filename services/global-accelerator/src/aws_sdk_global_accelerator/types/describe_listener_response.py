@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#DescribeListenerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.listener
 
 
-class DescribeListenerResponse(TypedDict):
+class DescribeListenerResponse(TypedDict, closed=True):
     listener: NotRequired["aws_sdk_global_accelerator.types.listener.Listener"]
     """<p>The description of a listener.</p>"""
 

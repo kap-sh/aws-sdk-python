@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationAcknowledgementSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class EvaluationAcknowledgementSummary(TypedDict):
+class EvaluationAcknowledgementSummary(TypedDict, closed=True):
     acknowledged_time: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]
     """<p>The time when an agent acknowledged the evaluation.</p>"""
     acknowledged_by: NotRequired["aws_sdk_connect.types.arn.ARN"]

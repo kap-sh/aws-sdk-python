@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#UpdateDevEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.client_token
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.uuid
 
 
-class UpdateDevEnvironmentRequest(TypedDict):
+class UpdateDevEnvironmentRequest(TypedDict, closed=True):
     space_name: "aws_sdk_codecatalyst.types.name_string.NameString"
     """<p>The name of the space.</p>"""
     project_name: "aws_sdk_codecatalyst.types.name_string.NameString"

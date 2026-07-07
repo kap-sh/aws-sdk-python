@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudcontrol#ListResourcesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.handler_next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.type_name
 
 
-class ListResourcesOutput(TypedDict):
+class ListResourcesOutput(TypedDict, closed=True):
     type_name: NotRequired["aws_sdk_cloudcontrol.types.type_name.TypeName"]
     """<p>The name of the resource type.</p>"""
     resource_descriptions: NotRequired[

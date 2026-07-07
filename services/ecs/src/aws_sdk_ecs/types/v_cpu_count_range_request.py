@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#VCpuCountRangeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
 
 
-class VCpuCountRangeRequest(TypedDict):
+class VCpuCountRangeRequest(TypedDict, closed=True):
     min: "aws_sdk_ecs.types.boxed_integer.BoxedInteger"
     """<p>The minimum number of vCPUs. Instance types with fewer vCPUs than this value are excluded from selection.</p>"""
     max: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]

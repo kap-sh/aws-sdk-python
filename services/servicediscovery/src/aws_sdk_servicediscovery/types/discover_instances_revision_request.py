@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#DiscoverInstancesRevisionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.service_name
 
 
-class DiscoverInstancesRevisionRequest(TypedDict):
+class DiscoverInstancesRevisionRequest(TypedDict, closed=True):
     namespace_name: "aws_sdk_servicediscovery.types.namespace_name.NamespaceName"
     """<p>The <code>HttpName</code> name of the namespace. The <code>HttpName</code> is found in the <code>HttpProperties</code> member of the <code>Properties</code> member of the namespace.</p>"""
     service_name: "aws_sdk_servicediscovery.types.service_name.ServiceName"

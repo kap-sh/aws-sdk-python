@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetResourceDashboardResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.string
 
 
-class GetResourceDashboardResponse(TypedDict):
+class GetResourceDashboardResponse(TypedDict, closed=True):
     url: "aws_sdk_athena.types.string.String"
     """<p>The Live UI/Persistence UI url for a session.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#SamlConfigOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.saml_user_attribute
 
 
-class SamlConfigOptions(TypedDict):
+class SamlConfigOptions(TypedDict, closed=True):
     metadata: "aws_sdk_opensearchserverless.types.saml_metadata.samlMetadata"
     """<p>The XML IdP metadata file generated from your identity provider.</p>"""
     user_attribute: NotRequired[

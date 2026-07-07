@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#OffPeakWindowOptionsStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.off_peak_window_options
     import aws_sdk_opensearch.types.option_status
 
 
-class OffPeakWindowOptionsStatus(TypedDict):
+class OffPeakWindowOptionsStatus(TypedDict, closed=True):
     options: NotRequired[
         "aws_sdk_opensearch.types.off_peak_window_options.OffPeakWindowOptions"
     ]

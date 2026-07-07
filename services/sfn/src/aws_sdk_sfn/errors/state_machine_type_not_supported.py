@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#StateMachineTypeNotSupported``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.error_message
 
 
-class StateMachineTypeNotSupported_(TypedDict):
+class StateMachineTypeNotSupported_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_sfn.types.error_message.ErrorMessage"]
 
 

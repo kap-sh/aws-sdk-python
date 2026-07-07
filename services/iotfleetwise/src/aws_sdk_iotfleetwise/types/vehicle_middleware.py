@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#VehicleMiddleware``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.vehicle_middleware_protocol
 
 
-class VehicleMiddleware(TypedDict):
+class VehicleMiddleware(TypedDict, closed=True):
     name: "aws_sdk_iotfleetwise.types.vehicle_middleware_name.VehicleMiddlewareName"
     """<p>The name of the vehicle middleware. </p>"""
     protocol_name: "aws_sdk_iotfleetwise.types.vehicle_middleware_protocol.VehicleMiddlewareProtocol"

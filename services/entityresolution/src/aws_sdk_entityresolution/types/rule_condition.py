@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#RuleCondition``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
 
-class RuleCondition(TypedDict):
+class RuleCondition(TypedDict, closed=True):
     rule_name: "str"
     """<p>A name for the matching rule.</p> <p>For example: <code>Rule1</code> </p>"""
     condition: "str"

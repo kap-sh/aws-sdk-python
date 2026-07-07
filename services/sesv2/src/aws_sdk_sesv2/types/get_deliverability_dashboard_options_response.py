@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetDeliverabilityDashboardOptionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.deliverability_dashboard_account_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class GetDeliverabilityDashboardOptionsResponse(TypedDict):
+class GetDeliverabilityDashboardOptionsResponse(TypedDict, closed=True):
     dashboard_enabled: "aws_sdk_sesv2.types.enabled.Enabled"
     """<p>Specifies whether the Deliverability dashboard is enabled. If this value is <code>true</code>, the dashboard is enabled.</p>"""
     subscription_expiry_date: NotRequired["aws_sdk_sesv2.types.timestamp.Timestamp"]

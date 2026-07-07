@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Actor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.actor_session
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class Actor(TypedDict):
+class Actor(TypedDict, closed=True):
     id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The ID of the threat actor. </p>"""
     user: NotRequired["aws_sdk_securityhub.types.actor_user.ActorUser"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#DeleteNotificationSubscriptionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.id_type
 
 
-class DeleteNotificationSubscriptionRequest(TypedDict):
+class DeleteNotificationSubscriptionRequest(TypedDict, closed=True):
     subscription_id: "aws_sdk_workdocs.types.id_type.IdType"
     """<p>The ID of the subscription.</p>"""
     organization_id: "aws_sdk_workdocs.types.id_type.IdType"

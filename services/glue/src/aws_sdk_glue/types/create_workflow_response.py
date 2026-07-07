@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateWorkflowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class CreateWorkflowResponse(TypedDict):
+class CreateWorkflowResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the workflow which was provided as part of the request.</p>"""
 

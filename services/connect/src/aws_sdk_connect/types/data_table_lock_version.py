@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DataTableLockVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.string
 
 
-class DataTableLockVersion(TypedDict):
+class DataTableLockVersion(TypedDict, closed=True):
     data_table: NotRequired["aws_sdk_connect.types.string.String"]
     """<p>The lock version for the data table itself. Used for optimistic locking and table versioning. Changes with each update to the table's metadata or structure.</p>"""
     attribute: NotRequired["aws_sdk_connect.types.string.String"]

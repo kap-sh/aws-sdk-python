@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ListAccountAssignmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.account_assignment_list
     import aws_sdk_sso_admin.types.token
 
 
-class ListAccountAssignmentsResponse(TypedDict):
+class ListAccountAssignmentsResponse(TypedDict, closed=True):
     account_assignments: NotRequired[
         "aws_sdk_sso_admin.types.account_assignment_list.AccountAssignmentList"
     ]

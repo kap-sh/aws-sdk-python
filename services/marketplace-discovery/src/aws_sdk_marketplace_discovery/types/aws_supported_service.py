@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#AwsSupportedService``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
 
-class AwsSupportedService(TypedDict):
+class AwsSupportedService(TypedDict, closed=True):
     supported_service_type: "str"
     """<p>The machine-readable identifier of the supported service.</p>"""
     display_name: "str"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#S3LogDeliveryDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__boolean
     import aws_sdk_kafkaconnect.types.__string
 
 
-class S3LogDeliveryDescription(TypedDict):
+class S3LogDeliveryDescription(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]
     """<p>The name of the S3 bucket that is the destination for log delivery.</p>"""
     enabled: "aws_sdk_kafkaconnect.types.__boolean.__boolean"

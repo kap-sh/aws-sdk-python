@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ApplicationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.app_display_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.launch_parameters
 
 
-class ApplicationConfig(TypedDict):
+class ApplicationConfig(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.app_name.AppName"]
     """<p>The name of the application. This is a required field that must be unique within the application catalog and between 1-100 characters, matching the pattern ^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,99}$.</p>"""
     display_name: NotRequired["aws_sdk_appstream.types.app_display_name.AppDisplayName"]

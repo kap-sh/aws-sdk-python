@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#BackendAPIAppSyncAuthSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__double
     import aws_sdk_amplifybackend.types.__string
 
 
-class BackendAPIAppSyncAuthSettings(TypedDict):
+class BackendAPIAppSyncAuthSettings(TypedDict, closed=True):
     cognito_user_pool_id: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>The Amazon Cognito user pool ID, if Amazon Cognito was used as an authentication setting to access your data models.</p>"""
     description: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]

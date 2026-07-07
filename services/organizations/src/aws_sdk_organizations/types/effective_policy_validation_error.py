@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#EffectivePolicyValidationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.error_code
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.policy_ids
 
 
-class EffectivePolicyValidationError(TypedDict):
+class EffectivePolicyValidationError(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_organizations.types.error_code.ErrorCode"]
     """<p>The error code for the validation error. For example, <code>ELEMENTS_TOO_MANY</code>.</p>"""
     error_message: NotRequired["aws_sdk_organizations.types.error_message.ErrorMessage"]

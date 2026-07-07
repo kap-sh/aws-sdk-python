@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#FileSystemDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.directory_path
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.file_system_type
 
 
-class FileSystemDataSource(TypedDict):
+class FileSystemDataSource(TypedDict, closed=True):
     file_system_id: NotRequired["aws_sdk_sagemaker.types.file_system_id.FileSystemId"]
     """<p>The file system id.</p>"""
     file_system_access_mode: NotRequired[

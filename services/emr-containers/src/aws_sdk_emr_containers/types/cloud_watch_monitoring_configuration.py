@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#CloudWatchMonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_containers.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.string256
 
 
-class CloudWatchMonitoringConfiguration(TypedDict):
+class CloudWatchMonitoringConfiguration(TypedDict, closed=True):
     log_group_name: "aws_sdk_emr_containers.types.log_group_name.LogGroupName"
     """<p>The name of the log group for log publishing.</p>"""
     log_stream_name_prefix: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#HtmlMotionGraphicsSettings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class HtmlMotionGraphicsSettings(TypedDict):
+class HtmlMotionGraphicsSettings(TypedDict, closed=True):
     pass
 
 

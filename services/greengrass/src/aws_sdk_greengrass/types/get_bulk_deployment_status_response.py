@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#GetBulkDeploymentStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrass.types.tags
 
 
-class GetBulkDeploymentStatusResponse(TypedDict):
+class GetBulkDeploymentStatusResponse(TypedDict, closed=True):
     bulk_deployment_metrics: NotRequired[
         "aws_sdk_greengrass.types.bulk_deployment_metrics.BulkDeploymentMetrics"
     ]

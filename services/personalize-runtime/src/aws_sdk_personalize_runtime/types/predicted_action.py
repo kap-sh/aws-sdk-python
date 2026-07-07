@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeruntime#PredictedAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.action_id
     import aws_sdk_personalize_runtime.types.score
 
 
-class PredictedAction(TypedDict):
+class PredictedAction(TypedDict, closed=True):
     action_id: NotRequired["aws_sdk_personalize_runtime.types.action_id.ActionID"]
     """<p>The ID of the recommended action.</p>"""
     score: NotRequired["aws_sdk_personalize_runtime.types.score.Score"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#ColumnInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.type
 
 
-class ColumnInfo(TypedDict):
+class ColumnInfo(TypedDict, closed=True):
     name: NotRequired["aws_sdk_timestream_query.types.string.String"]
     """<p> The name of the result set column. The name of the result set is available for columns of all data types except for arrays. </p>"""
     type: "aws_sdk_timestream_query.types.type.Type"

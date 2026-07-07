@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#AutonomousDatabaseConnectionUrls``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AutonomousDatabaseConnectionUrls(TypedDict):
+class AutonomousDatabaseConnectionUrls(TypedDict, closed=True):
     apex_url: NotRequired["str"]
     """<p>The URL for accessing Oracle Application Express (APEX) for the Autonomous Database.</p>"""
     database_transforms_url: NotRequired["str"]

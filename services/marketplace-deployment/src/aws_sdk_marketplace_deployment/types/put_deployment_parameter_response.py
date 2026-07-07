@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacedeployment#PutDeploymentParameterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_deployment.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_deployment.types.tags_map
 
 
-class PutDeploymentParameterResponse(TypedDict):
+class PutDeploymentParameterResponse(TypedDict, closed=True):
     resource_arn: "aws_sdk_marketplace_deployment.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) associated with the deployment parameter resource you want to create or update.</p>"""
     agreement_id: "aws_sdk_marketplace_deployment.types.resource_id.ResourceId"

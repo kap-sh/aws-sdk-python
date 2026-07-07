@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#OpsMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class OpsMetadata(TypedDict):
+class OpsMetadata(TypedDict, closed=True):
     resource_id: NotRequired[
         "aws_sdk_ssm.types.ops_metadata_resource_id.OpsMetadataResourceId"
     ]

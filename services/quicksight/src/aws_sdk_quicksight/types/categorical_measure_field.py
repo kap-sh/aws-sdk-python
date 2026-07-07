@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CategoricalMeasureField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string_format_configuration
 
 
-class CategoricalMeasureField(TypedDict):
+class CategoricalMeasureField(TypedDict, closed=True):
     field_id: "aws_sdk_quicksight.types.field_id.FieldId"
     """<p>The custom field ID.</p>"""
     column: "aws_sdk_quicksight.types.column_identifier.ColumnIdentifier"

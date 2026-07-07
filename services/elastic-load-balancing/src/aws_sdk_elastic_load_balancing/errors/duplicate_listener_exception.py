@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancing#DuplicateListenerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing._protocol.xml import Element
 from aws_sdk_elastic_load_balancing.errors import ServiceError
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing.types.error_description
 
 
-class DuplicateListenerException_(TypedDict):
+class DuplicateListenerException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_elastic_load_balancing.types.error_description.ErrorDescription"
     ]

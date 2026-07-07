@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ListMembersOfAddressListRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.pagination_token
 
 
-class ListMembersOfAddressListRequest(TypedDict):
+class ListMembersOfAddressListRequest(TypedDict, closed=True):
     address_list_id: "aws_sdk_mailmanager.types.address_list_id.AddressListId"
     """<p>The unique identifier of the address list to list the addresses from.</p>"""
     filter: NotRequired["aws_sdk_mailmanager.types.address_filter.AddressFilter"]

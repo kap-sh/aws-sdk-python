@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GroupDetails``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class GroupDetails(TypedDict):
+class GroupDetails(TypedDict, closed=True):
     group_id: "str"
     """<p>The identifier of the group in Amazon DataZone.</p>"""
 

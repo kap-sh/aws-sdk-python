@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#PredictorExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
     import aws_sdk_forecast.types.test_window_details
 
 
-class PredictorExecution(TypedDict):
+class PredictorExecution(TypedDict, closed=True):
     algorithm_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]
     """<p>The ARN of the algorithm used to test the predictor.</p>"""
     test_windows: NotRequired[

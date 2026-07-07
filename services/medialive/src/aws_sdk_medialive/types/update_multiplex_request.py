@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#UpdateMultiplexRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.multiplex_settings
 
 
-class UpdateMultiplexRequest(TypedDict):
+class UpdateMultiplexRequest(TypedDict, closed=True):
     multiplex_id: "aws_sdk_medialive.types.__string.__string"
     """ID of the multiplex to update."""
     multiplex_settings: NotRequired[

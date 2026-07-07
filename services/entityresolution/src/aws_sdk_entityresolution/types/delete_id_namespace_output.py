@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#DeleteIdNamespaceOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
 
-class DeleteIdNamespaceOutput(TypedDict):
+class DeleteIdNamespaceOutput(TypedDict, closed=True):
     message: "str"
     """<p>A successful operation message.</p>"""
 

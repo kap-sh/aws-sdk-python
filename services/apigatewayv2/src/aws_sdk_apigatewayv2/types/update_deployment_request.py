@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#UpdateDeploymentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
     import aws_sdk_apigatewayv2.types.string_with_length_between0_and1024
 
 
-class UpdateDeploymentRequest(TypedDict):
+class UpdateDeploymentRequest(TypedDict, closed=True):
     api_id: "aws_sdk_apigatewayv2.types.__string.__string"
     """<p>The API identifier.</p>"""
     deployment_id: "aws_sdk_apigatewayv2.types.__string.__string"

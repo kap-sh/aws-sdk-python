@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#DeletePolicyTemplateOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePolicyTemplateOutput(TypedDict):
+class DeletePolicyTemplateOutput(TypedDict, closed=True):
     pass
 
 

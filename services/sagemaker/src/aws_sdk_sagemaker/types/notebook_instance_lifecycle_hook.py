@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#NotebookInstanceLifecycleHook``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.notebook_instance_lifecycle_config_content
 
 
-class NotebookInstanceLifecycleHook(TypedDict):
+class NotebookInstanceLifecycleHook(TypedDict, closed=True):
     content: NotRequired[
         "aws_sdk_sagemaker.types.notebook_instance_lifecycle_config_content.NotebookInstanceLifecycleConfigContent"
     ]

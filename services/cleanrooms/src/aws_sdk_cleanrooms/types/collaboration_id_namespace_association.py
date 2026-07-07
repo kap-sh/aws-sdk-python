@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#CollaborationIdNamespaceAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.uuid
 
 
-class CollaborationIdNamespaceAssociation(TypedDict):
+class CollaborationIdNamespaceAssociation(TypedDict, closed=True):
     id: "aws_sdk_cleanrooms.types.id_namespace_association_identifier.IdNamespaceAssociationIdentifier"
     """<p>The unique identifier of the collaboration ID namespace association.</p>"""
     arn: "aws_sdk_cleanrooms.types.id_namespace_association_arn.IdNamespaceAssociationArn"

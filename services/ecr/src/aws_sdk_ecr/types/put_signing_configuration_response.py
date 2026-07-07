@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#PutSigningConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.signing_configuration
 
 
-class PutSigningConfigurationResponse(TypedDict):
+class PutSigningConfigurationResponse(TypedDict, closed=True):
     signing_configuration: NotRequired[
         "aws_sdk_ecr.types.signing_configuration.SigningConfiguration"
     ]

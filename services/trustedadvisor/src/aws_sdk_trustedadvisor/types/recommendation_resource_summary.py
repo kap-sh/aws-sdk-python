@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.trustedadvisor#RecommendationResourceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_trustedadvisor.errors import DeserializationError
 
@@ -15,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_trustedadvisor.types.string_map
 
 
-class RecommendationResourceSummary(TypedDict):
+class RecommendationResourceSummary(TypedDict, closed=True):
     id: "str"
     """<p>The ID of the Recommendation Resource</p>"""
     arn: "aws_sdk_trustedadvisor.types.recommendation_resource_arn.RecommendationResourceArn"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ResponseExtractionMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connector_property_key
     import aws_sdk_glue.types.json_path_string
 
 
-class ResponseExtractionMapping(TypedDict):
+class ResponseExtractionMapping(TypedDict, closed=True):
     content_path: NotRequired["aws_sdk_glue.types.json_path_string.JsonPathString"]
     """<p>A JSON path expression that specifies how to extract a value from the response body content.</p>"""
     header_key: NotRequired[

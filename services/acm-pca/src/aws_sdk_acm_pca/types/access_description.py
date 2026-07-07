@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#AccessDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.general_name
 
 
-class AccessDescription(TypedDict):
+class AccessDescription(TypedDict, closed=True):
     access_method: "aws_sdk_acm_pca.types.access_method.AccessMethod"
     """<p>The type and format of <code>AccessDescription</code> information.</p>"""
     access_location: "aws_sdk_acm_pca.types.general_name.GeneralName"

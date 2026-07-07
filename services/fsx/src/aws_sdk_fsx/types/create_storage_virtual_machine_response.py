@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateStorageVirtualMachineResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.storage_virtual_machine
 
 
-class CreateStorageVirtualMachineResponse(TypedDict):
+class CreateStorageVirtualMachineResponse(TypedDict, closed=True):
     storage_virtual_machine: NotRequired[
         "aws_sdk_fsx.types.storage_virtual_machine.StorageVirtualMachine"
     ]

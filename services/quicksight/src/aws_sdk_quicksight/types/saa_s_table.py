@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SaaSTable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_path_element_list
 
 
-class SaaSTable(TypedDict):
+class SaaSTable(TypedDict, closed=True):
     data_source_arn: "aws_sdk_quicksight.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the SaaS data source.</p>"""
     table_path: "aws_sdk_quicksight.types.table_path_element_list.TablePathElementList"

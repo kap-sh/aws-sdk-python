@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#RdsDbInstanceStorageConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RdsDbInstanceStorageConfiguration(TypedDict):
+class RdsDbInstanceStorageConfiguration(TypedDict, closed=True):
     storage_type: NotRequired["str"]
     """<p>The storage type to associate with the DB instance.</p>"""
     allocated_storage_in_gb: NotRequired["float"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ModelDiagnosticsS3OutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.s3_prefix
 
 
-class ModelDiagnosticsS3OutputConfiguration(TypedDict):
+class ModelDiagnosticsS3OutputConfiguration(TypedDict, closed=True):
     bucket: "aws_sdk_lookoutequipment.types.s3_bucket.S3Bucket"
     """<p>The name of the Amazon S3 bucket where the pointwise model diagnostics are located. You must be the owner of the Amazon S3 bucket. </p>"""
     prefix: NotRequired["aws_sdk_lookoutequipment.types.s3_prefix.S3Prefix"]

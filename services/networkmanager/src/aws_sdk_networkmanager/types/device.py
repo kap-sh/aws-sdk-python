@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#Device``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.aws_location
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.tag_list
 
 
-class Device(TypedDict):
+class Device(TypedDict, closed=True):
     device_id: NotRequired["aws_sdk_networkmanager.types.device_id.DeviceId"]
     """<p>The ID of the device.</p>"""
     device_arn: NotRequired["aws_sdk_networkmanager.types.device_arn.DeviceArn"]

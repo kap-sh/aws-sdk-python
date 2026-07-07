@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#S3ContentLocationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.bucket_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.object_version
 
 
-class S3ContentLocationUpdate(TypedDict):
+class S3ContentLocationUpdate(TypedDict, closed=True):
     bucket_arn_update: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.bucket_arn.BucketARN"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#DescribeEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.home_region
 
 
-class DescribeEndpointRequest(TypedDict):
+class DescribeEndpointRequest(TypedDict, closed=True):
     name: "aws_sdk_eventbridge.types.endpoint_name.EndpointName"
     r"""<p>The name of the endpoint you want to get information about. For example, <code>\"Name\":\"us-east-2-custom_bus_A-endpoint\"</code>.</p>"""
     home_region: NotRequired["aws_sdk_eventbridge.types.home_region.HomeRegion"]

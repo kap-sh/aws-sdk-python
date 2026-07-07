@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsGuardDutyDetectorDataSourcesFlowLogsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsGuardDutyDetectorDataSourcesFlowLogsDetails(TypedDict):
+class AwsGuardDutyDetectorDataSourcesFlowLogsDetails(TypedDict, closed=True):
     status: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> Describes whether VPC Flow Logs are activated as a data source for the detector. </p>"""
 

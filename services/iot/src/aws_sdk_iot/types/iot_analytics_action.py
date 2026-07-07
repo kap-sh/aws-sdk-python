@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#IotAnalyticsAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.aws_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.channel_name
 
 
-class IotAnalyticsAction(TypedDict):
+class IotAnalyticsAction(TypedDict, closed=True):
     channel_arn: NotRequired["aws_sdk_iot.types.aws_arn.AwsArn"]
     """<p>(deprecated) The ARN of the IoT Analytics channel to which message data will be sent.</p>"""
     channel_name: NotRequired["aws_sdk_iot.types.channel_name.ChannelName"]

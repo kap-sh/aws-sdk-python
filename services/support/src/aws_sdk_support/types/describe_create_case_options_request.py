@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeCreateCaseOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_support.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.service_code2
 
 
-class DescribeCreateCaseOptionsRequest(TypedDict):
+class DescribeCreateCaseOptionsRequest(TypedDict, closed=True):
     issue_type: "aws_sdk_support.types.issue_type.IssueType"
     """<p>The type of issue for the case. You can specify <code>customer-service</code> or <code>technical</code>. If you don't specify a value, the default is <code>technical</code>.</p>"""
     service_code: "aws_sdk_support.types.service_code2.ServiceCode2"

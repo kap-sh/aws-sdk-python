@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ResourceDataSyncDestinationDataSharing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_data_sync_destination_data_sharing_type
 
 
-class ResourceDataSyncDestinationDataSharing(TypedDict):
+class ResourceDataSyncDestinationDataSharing(TypedDict, closed=True):
     destination_data_sharing_type: NotRequired[
         "aws_sdk_ssm.types.resource_data_sync_destination_data_sharing_type.ResourceDataSyncDestinationDataSharingType"
     ]

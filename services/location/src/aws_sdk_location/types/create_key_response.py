@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#CreateKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.timestamp
 
 
-class CreateKeyResponse(TypedDict):
+class CreateKeyResponse(TypedDict, closed=True):
     key: "aws_sdk_location.types.api_key.ApiKey"
     r"""<p>The key value/string of an API key. This value is used when making API calls to authorize the call. For example, see <a href=\"https://docs.aws.amazon.com/location/previous/APIReference/API_GetMapGlyphs.html\">GetMapGlyphs</a>.</p>"""
     key_arn: "aws_sdk_location.types.arn.Arn"

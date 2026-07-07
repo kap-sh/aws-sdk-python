@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#GetSampledRequestsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.population_size
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.time_window
 
 
-class GetSampledRequestsResponse(TypedDict):
+class GetSampledRequestsResponse(TypedDict, closed=True):
     sampled_requests: NotRequired[
         "aws_sdk_waf_regional.types.sampled_http_requests.SampledHTTPRequests"
     ]

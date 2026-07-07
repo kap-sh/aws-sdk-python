@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GetSampledRequestsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.time_window
 
 
-class GetSampledRequestsRequest(TypedDict):
+class GetSampledRequestsRequest(TypedDict, closed=True):
     web_acl_arn: "aws_sdk_wafv2.types.resource_arn.ResourceArn"
     """<p>The Amazon resource name (ARN) of the <code>WebACL</code> for which you want a sample of requests.</p>"""
     rule_metric_name: "aws_sdk_wafv2.types.metric_name.MetricName"

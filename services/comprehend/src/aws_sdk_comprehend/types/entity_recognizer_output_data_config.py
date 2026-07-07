@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EntityRecognizerOutputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.s3_uri
 
 
-class EntityRecognizerOutputDataConfig(TypedDict):
+class EntityRecognizerOutputDataConfig(TypedDict, closed=True):
     flywheel_stats_s3_prefix: NotRequired["aws_sdk_comprehend.types.s3_uri.S3Uri"]
     """<p>The Amazon S3 prefix for the data lake location of the flywheel statistics.</p>"""
 

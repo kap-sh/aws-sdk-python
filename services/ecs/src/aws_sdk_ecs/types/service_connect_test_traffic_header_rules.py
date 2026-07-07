@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ServiceConnectTestTrafficHeaderRules``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class ServiceConnectTestTrafficHeaderRules(TypedDict):
+class ServiceConnectTestTrafficHeaderRules(TypedDict, closed=True):
     name: "aws_sdk_ecs.types.string.String"
     """<p>The name of the HTTP header to examine for test traffic routing. Common examples include custom headers like <code>X-Test-Version</code> or <code>X-Canary-Request</code> that can be used to identify test traffic.</p>"""
     value: NotRequired[

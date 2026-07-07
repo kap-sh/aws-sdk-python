@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#NotebookS3LocationFromInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.uri_string
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class NotebookS3LocationFromInput(TypedDict):
+class NotebookS3LocationFromInput(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"]
     """<p>The Amazon S3 bucket that stores the notebook execution input.</p>"""
     key: NotRequired["aws_sdk_emr.types.uri_string.UriString"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#ConnectDirectoryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.directory_id
 
 
-class ConnectDirectoryResult(TypedDict):
+class ConnectDirectoryResult(TypedDict, closed=True):
     directory_id: NotRequired[
         "aws_sdk_directory_service.types.directory_id.DirectoryId"
     ]

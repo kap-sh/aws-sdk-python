@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#FlowDefinitionOutputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.kms_key_id
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class FlowDefinitionOutputConfig(TypedDict):
+class FlowDefinitionOutputConfig(TypedDict, closed=True):
     s3_output_path: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     r"""<p>The Amazon S3 path where the object containing human output will be made available.</p> <p>To learn more about the format of Amazon A2I output data, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-output-data.html\">Amazon A2I Output Data</a>.</p>"""
     kms_key_id: NotRequired["aws_sdk_sagemaker.types.kms_key_id.KmsKeyId"]

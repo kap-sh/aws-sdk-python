@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ExecutiveSummaryConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class ExecutiveSummaryConfigurations(TypedDict):
+class ExecutiveSummaryConfigurations(TypedDict, closed=True):
     enabled: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>The executive summary settings of an embedded Quick Sight console or dashboard.</p>"""
 

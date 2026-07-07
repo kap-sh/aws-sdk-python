@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#GeneratedPolicyProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.principal_arn
 
 
-class GeneratedPolicyProperties(TypedDict):
+class GeneratedPolicyProperties(TypedDict, closed=True):
     is_complete: NotRequired["bool"]
     """<p>This value is set to <code>true</code> if the generated policy contains all possible actions for a service that IAM Access Analyzer identified from the CloudTrail trail that you specified, and <code>false</code> otherwise.</p>"""
     principal_arn: "aws_sdk_accessanalyzer.types.principal_arn.PrincipalArn"

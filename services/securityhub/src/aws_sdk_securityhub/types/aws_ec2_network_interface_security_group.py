@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2NetworkInterfaceSecurityGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2NetworkInterfaceSecurityGroup(TypedDict):
+class AwsEc2NetworkInterfaceSecurityGroup(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The name of the security group.</p>"""
     group_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

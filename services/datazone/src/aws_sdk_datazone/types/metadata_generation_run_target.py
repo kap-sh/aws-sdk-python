@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#MetadataGenerationRunTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class MetadataGenerationRunTarget(TypedDict):
+class MetadataGenerationRunTarget(TypedDict, closed=True):
     type: "aws_sdk_datazone.types.metadata_generation_target_type.MetadataGenerationTargetType"
     """<p>The type of the asset for which metadata was generated.</p>"""
     identifier: "str"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#ResizeProgressMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class ResizeProgressMessage(TypedDict):
+class ResizeProgressMessage(TypedDict, closed=True):
     target_node_type: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The node type that the cluster will have after the resize operation is complete.</p>"""
     target_number_of_nodes: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#CheckSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.account_summary
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.timestamp
 
 
-class CheckSummary(TypedDict):
+class CheckSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_wellarchitected.types.check_id.CheckId"]
     """<p>Trusted Advisor check ID.</p>"""
     name: NotRequired["aws_sdk_wellarchitected.types.check_name.CheckName"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#IngestEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__string
     import aws_sdk_mediapackage.types.sensitive_string
 
 
-class IngestEndpoint(TypedDict):
+class IngestEndpoint(TypedDict, closed=True):
     id: NotRequired["aws_sdk_mediapackage.types.__string.__string"]
     """The system generated unique identifier for the IngestEndpoint"""
     password: NotRequired["aws_sdk_mediapackage.types.sensitive_string.SensitiveString"]

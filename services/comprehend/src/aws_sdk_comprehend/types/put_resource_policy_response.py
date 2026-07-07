@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#PutResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.policy_revision_id
 
 
-class PutResourcePolicyResponse(TypedDict):
+class PutResourcePolicyResponse(TypedDict, closed=True):
     policy_revision_id: NotRequired[
         "aws_sdk_comprehend.types.policy_revision_id.PolicyRevisionId"
     ]

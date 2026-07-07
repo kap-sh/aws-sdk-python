@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetAuthorizerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__boolean
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.uri_with_length_between1_and2048
 
 
-class GetAuthorizerResponse(TypedDict):
+class GetAuthorizerResponse(TypedDict, closed=True):
     authorizer_credentials_arn: NotRequired["aws_sdk_apigatewayv2.types.arn.Arn"]
     """<p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>"""
     authorizer_id: NotRequired["aws_sdk_apigatewayv2.types.id.Id"]

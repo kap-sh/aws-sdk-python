@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#CreateIndexResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.index_id
 
 
-class CreateIndexResponse(TypedDict):
+class CreateIndexResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_kendra.types.index_id.IndexId"]
     """<p>The identifier of the index. Use this identifier when you query an index, set up a data source, or index a document.</p>"""
 

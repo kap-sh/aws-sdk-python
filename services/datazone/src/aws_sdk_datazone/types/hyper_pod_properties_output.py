@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#HyperPodPropertiesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.hyper_pod_orchestrator
 
 
-class HyperPodPropertiesOutput(TypedDict):
+class HyperPodPropertiesOutput(TypedDict, closed=True):
     cluster_name: "str"
     """<p>The cluster name the hyper pod properties.</p>"""
     cluster_arn: NotRequired["str"]

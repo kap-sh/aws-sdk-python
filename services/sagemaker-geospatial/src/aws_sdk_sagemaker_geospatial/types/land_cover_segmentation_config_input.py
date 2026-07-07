@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#LandCoverSegmentationConfigInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class LandCoverSegmentationConfigInput(TypedDict):
+class LandCoverSegmentationConfigInput(TypedDict, closed=True):
     pass
 
 

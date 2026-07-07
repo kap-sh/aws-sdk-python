@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DatabaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.collectors_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class DatabaseResponse(TypedDict):
+class DatabaseResponse(TypedDict, closed=True):
     database_id: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The ID of a database in a Fleet Advisor collector inventory.</p>"""
     database_name: NotRequired["aws_sdk_database_migration_service.types.string.String"]

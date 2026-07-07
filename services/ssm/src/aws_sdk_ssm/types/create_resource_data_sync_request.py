@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CreateResourceDataSyncRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_data_sync_type
 
 
-class CreateResourceDataSyncRequest(TypedDict):
+class CreateResourceDataSyncRequest(TypedDict, closed=True):
     sync_name: "aws_sdk_ssm.types.resource_data_sync_name.ResourceDataSyncName"
     """<p>A name for the configuration.</p>"""
     s3_destination: NotRequired[

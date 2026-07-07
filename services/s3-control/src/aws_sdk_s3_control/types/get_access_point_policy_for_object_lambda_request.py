@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#GetAccessPointPolicyForObjectLambdaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.object_lambda_access_point_name
 
 
-class GetAccessPointPolicyForObjectLambdaRequest(TypedDict):
+class GetAccessPointPolicyForObjectLambdaRequest(TypedDict, closed=True):
     account_id: "aws_sdk_s3_control.types.account_id.AccountId"
     """<p>The account ID for the account that owns the specified Object Lambda Access Point.</p>"""
     name: "aws_sdk_s3_control.types.object_lambda_access_point_name.ObjectLambdaAccessPointName"

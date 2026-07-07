@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#UpdateAutoshiftObserverNotificationStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_zonal_shift.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.autoshift_observer_notification_status
 
 
-class UpdateAutoshiftObserverNotificationStatusRequest(TypedDict):
+class UpdateAutoshiftObserverNotificationStatusRequest(TypedDict, closed=True):
     status: "aws_sdk_arc_zonal_shift.types.autoshift_observer_notification_status.AutoshiftObserverNotificationStatus"
     """<p>The status to set for autoshift observer notification. If the status is <code>ENABLED</code>, ARC includes all autoshift events when you use the Amazon EventBridge pattern <code>Autoshift In Progress</code>. When the status is <code>DISABLED</code>, ARC includes only autoshift events for autoshifts when one or more of your resources is included in the autoshift. </p>"""
 

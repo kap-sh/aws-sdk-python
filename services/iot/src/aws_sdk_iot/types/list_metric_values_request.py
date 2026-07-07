@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListMetricValuesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.behavior_metric
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestamp
 
 
-class ListMetricValuesRequest(TypedDict):
+class ListMetricValuesRequest(TypedDict, closed=True):
     thing_name: "aws_sdk_iot.types.device_defender_thing_name.DeviceDefenderThingName"
     """<p>The name of the thing for which security profile metric values are returned.</p>"""
     metric_name: "aws_sdk_iot.types.behavior_metric.BehaviorMetric"

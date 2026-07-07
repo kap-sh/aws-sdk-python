@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SegmentGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.list_of_segment_dimensions
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.type
 
 
-class SegmentGroup(TypedDict):
+class SegmentGroup(TypedDict, closed=True):
     dimensions: NotRequired[
         "aws_sdk_pinpoint.types.list_of_segment_dimensions.ListOfSegmentDimensions"
     ]

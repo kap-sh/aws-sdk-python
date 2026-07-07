@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#GetTelemetryRuleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.is_replicated
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.telemetry_rule
 
 
-class GetTelemetryRuleOutput(TypedDict):
+class GetTelemetryRuleOutput(TypedDict, closed=True):
     rule_name: NotRequired["aws_sdk_observabilityadmin.types.rule_name.RuleName"]
     """<p> The name of the telemetry rule. </p>"""
     rule_arn: NotRequired["aws_sdk_observabilityadmin.types.resource_arn.ResourceArn"]

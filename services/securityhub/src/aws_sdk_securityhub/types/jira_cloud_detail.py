@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#JiraCloudDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.connector_auth_status
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class JiraCloudDetail(TypedDict):
+class JiraCloudDetail(TypedDict, closed=True):
     cloud_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The cloud id of the Jira Cloud.</p>"""
     project_key: NotRequired[

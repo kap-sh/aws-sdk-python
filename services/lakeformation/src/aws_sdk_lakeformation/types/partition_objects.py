@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#PartitionObjects``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.partition_values_list
     import aws_sdk_lakeformation.types.table_object_list
 
 
-class PartitionObjects(TypedDict):
+class PartitionObjects(TypedDict, closed=True):
     partition_values: NotRequired[
         "aws_sdk_lakeformation.types.partition_values_list.PartitionValuesList"
     ]

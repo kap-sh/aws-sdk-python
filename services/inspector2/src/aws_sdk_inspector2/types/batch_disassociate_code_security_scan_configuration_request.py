@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#BatchDisassociateCodeSecurityScanConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.disassociate_configuration_request_list
 
 
-class BatchDisassociateCodeSecurityScanConfigurationRequest(TypedDict):
+class BatchDisassociateCodeSecurityScanConfigurationRequest(TypedDict, closed=True):
     disassociate_configuration_requests: "aws_sdk_inspector2.types.disassociate_configuration_request_list.DisassociateConfigurationRequestList"
     """<p>A list of code repositories to disassociate from the specified scan configuration.</p>"""
 

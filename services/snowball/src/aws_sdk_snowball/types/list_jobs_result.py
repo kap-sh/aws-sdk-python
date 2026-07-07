@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#ListJobsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.job_list_entry_list
     import aws_sdk_snowball.types.string
 
 
-class ListJobsResult(TypedDict):
+class ListJobsResult(TypedDict, closed=True):
     job_list_entries: NotRequired[
         "aws_sdk_snowball.types.job_list_entry_list.JobListEntryList"
     ]

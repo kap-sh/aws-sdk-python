@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AudioSilenceFailoverSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1000
     import aws_sdk_medialive.types.__string
 
 
-class AudioSilenceFailoverSettings(TypedDict):
+class AudioSilenceFailoverSettings(TypedDict, closed=True):
     audio_selector_name: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank."""
     audio_silence_threshold_msec: NotRequired[

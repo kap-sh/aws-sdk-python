@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#Group``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.dimension_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.source_segment_list
 
 
-class Group(TypedDict):
+class Group(TypedDict, closed=True):
     dimensions: NotRequired[
         "aws_sdk_customer_profiles.types.dimension_list.DimensionList"
     ]

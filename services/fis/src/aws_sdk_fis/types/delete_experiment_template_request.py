@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#DeleteExperimentTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.experiment_template_id
 
 
-class DeleteExperimentTemplateRequest(TypedDict):
+class DeleteExperimentTemplateRequest(TypedDict, closed=True):
     id: "aws_sdk_fis.types.experiment_template_id.ExperimentTemplateId"
     """<p>The ID of the experiment template.</p>"""
 

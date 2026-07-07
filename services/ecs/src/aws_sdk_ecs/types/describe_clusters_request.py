@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DescribeClustersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.cluster_field_list
     import aws_sdk_ecs.types.string_list
 
 
-class DescribeClustersRequest(TypedDict):
+class DescribeClustersRequest(TypedDict, closed=True):
     clusters: NotRequired["aws_sdk_ecs.types.string_list.StringList"]
     """<p>A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.</p>"""
     include: NotRequired["aws_sdk_ecs.types.cluster_field_list.ClusterFieldList"]

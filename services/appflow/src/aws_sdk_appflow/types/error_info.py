@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ErrorInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.execution_message
     import aws_sdk_appflow.types.long
 
 
-class ErrorInfo(TypedDict):
+class ErrorInfo(TypedDict, closed=True):
     put_failures_count: NotRequired["aws_sdk_appflow.types.long.Long"]
     """<p> Specifies the failure count for the attempted flow. </p>"""
     execution_message: NotRequired[

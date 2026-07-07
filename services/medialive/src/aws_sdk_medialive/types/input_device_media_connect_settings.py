@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputDeviceMediaConnectSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class InputDeviceMediaConnectSettings(TypedDict):
+class InputDeviceMediaConnectSettings(TypedDict, closed=True):
     flow_arn: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The ARN of the MediaConnect flow."""
     role_arn: NotRequired["aws_sdk_medialive.types.__string.__string"]

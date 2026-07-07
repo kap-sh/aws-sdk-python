@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#GetPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.revision_id
 
 
-class GetPolicyResponse(TypedDict):
+class GetPolicyResponse(TypedDict, closed=True):
     policy: "str"
     """<p>The JSON-formatted resource-based policy attached to the <code>ProfilingGroup</code>.</p>"""
     revision_id: "aws_sdk_codeguruprofiler.types.revision_id.RevisionId"

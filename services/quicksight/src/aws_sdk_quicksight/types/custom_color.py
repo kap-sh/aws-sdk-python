@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomColor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.special_value
 
 
-class CustomColor(TypedDict):
+class CustomColor(TypedDict, closed=True):
     field_value: NotRequired["aws_sdk_quicksight.types.field_value.FieldValue"]
     """<p>The data value that the color is applied to.</p>"""
     color: "aws_sdk_quicksight.types.hex_color.HexColor"

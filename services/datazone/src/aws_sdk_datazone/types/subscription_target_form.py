@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SubscriptionTargetForm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.form_name
 
 
-class SubscriptionTargetForm(TypedDict):
+class SubscriptionTargetForm(TypedDict, closed=True):
     form_name: "aws_sdk_datazone.types.form_name.FormName"
     """<p>The form name included in the subscription target configuration.</p>"""
     content: "str"

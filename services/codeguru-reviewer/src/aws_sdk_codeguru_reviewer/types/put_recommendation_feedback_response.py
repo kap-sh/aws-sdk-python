@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#PutRecommendationFeedbackResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutRecommendationFeedbackResponse(TypedDict):
+class PutRecommendationFeedbackResponse(TypedDict, closed=True):
     pass
 
 

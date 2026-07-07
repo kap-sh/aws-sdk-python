@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateVpcRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_encryption_control_configuration
 
 
-class CreateVpcRequest(TypedDict):
+class CreateVpcRequest(TypedDict, closed=True):
     cidr_block: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The IPv4 network range for the VPC, in CIDR notation. For example, <code>10.0.0.0/16</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>"""
     ipv6_pool: NotRequired["aws_sdk_ec2.types.ipv6_pool_ec2_id.Ipv6PoolEc2Id"]

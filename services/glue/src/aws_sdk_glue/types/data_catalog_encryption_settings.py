@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DataCatalogEncryptionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connection_password_encryption
     import aws_sdk_glue.types.encryption_at_rest
 
 
-class DataCatalogEncryptionSettings(TypedDict):
+class DataCatalogEncryptionSettings(TypedDict, closed=True):
     encryption_at_rest: NotRequired[
         "aws_sdk_glue.types.encryption_at_rest.EncryptionAtRest"
     ]

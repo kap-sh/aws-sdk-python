@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyVerifiedAccessEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.verified_access_group_id
 
 
-class ModifyVerifiedAccessEndpointRequest(TypedDict):
+class ModifyVerifiedAccessEndpointRequest(TypedDict, closed=True):
     verified_access_endpoint_id: NotRequired[
         "aws_sdk_ec2.types.verified_access_endpoint_id.VerifiedAccessEndpointId"
     ]

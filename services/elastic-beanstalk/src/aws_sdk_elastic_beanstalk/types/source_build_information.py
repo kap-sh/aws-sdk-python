@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#SourceBuildInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 from aws_sdk_elastic_beanstalk.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.source_type
 
 
-class SourceBuildInformation(TypedDict):
+class SourceBuildInformation(TypedDict, closed=True):
     source_type: "aws_sdk_elastic_beanstalk.types.source_type.SourceType"
     """<p>The type of repository.</p> <ul> <li> <p> <code>Git</code> </p> </li> <li> <p> <code>Zip</code> </p> </li> </ul>"""
     source_repository: (

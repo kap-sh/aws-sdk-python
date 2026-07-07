@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#OutputColumn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_data_sub_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_name
 
 
-class OutputColumn(TypedDict):
+class OutputColumn(TypedDict, closed=True):
     name: NotRequired["aws_sdk_quicksight.types.column_name.ColumnName"]
     """<p>The display name of the column..</p>"""
     id: NotRequired["aws_sdk_quicksight.types.column_id.ColumnId"]

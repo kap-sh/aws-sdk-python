@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#Stairs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.number_of_steps
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.users_per_step
 
 
-class Stairs(TypedDict):
+class Stairs(TypedDict, closed=True):
     duration_in_seconds: NotRequired[
         "aws_sdk_sagemaker.types.traffic_duration_in_seconds.TrafficDurationInSeconds"
     ]

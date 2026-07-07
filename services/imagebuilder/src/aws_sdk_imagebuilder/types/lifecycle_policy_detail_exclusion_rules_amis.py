@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LifecyclePolicyDetailExclusionRulesAmis``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.account_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.tag_map
 
 
-class LifecyclePolicyDetailExclusionRulesAmis(TypedDict):
+class LifecyclePolicyDetailExclusionRulesAmis(TypedDict, closed=True):
     is_public: "aws_sdk_imagebuilder.types.boolean.Boolean"
     """<p>Configures whether public AMIs are excluded from the lifecycle action.</p>"""
     regions: NotRequired["aws_sdk_imagebuilder.types.string_list.StringList"]

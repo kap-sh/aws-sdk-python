@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DetectSyntaxResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.list_of_syntax_tokens
 
 
-class DetectSyntaxResponse(TypedDict):
+class DetectSyntaxResponse(TypedDict, closed=True):
     syntax_tokens: NotRequired[
         "aws_sdk_comprehend.types.list_of_syntax_tokens.ListOfSyntaxTokens"
     ]

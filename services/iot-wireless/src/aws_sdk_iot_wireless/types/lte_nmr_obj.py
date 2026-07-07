@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LteNmrObj``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.rsrq
 
 
-class LteNmrObj(TypedDict):
+class LteNmrObj(TypedDict, closed=True):
     pci: "aws_sdk_iot_wireless.types.pci.PCI"
     """<p>Physical cell ID.</p>"""
     earfcn: "aws_sdk_iot_wireless.types.earfcn.EARFCN"

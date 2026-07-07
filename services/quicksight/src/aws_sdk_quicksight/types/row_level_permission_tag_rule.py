@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RowLevelPermissionTagRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class RowLevelPermissionTagRule(TypedDict):
+class RowLevelPermissionTagRule(TypedDict, closed=True):
     tag_key: "aws_sdk_quicksight.types.session_tag_key.SessionTagKey"
     """<p>The unique key for a tag.</p>"""
     column_name: "aws_sdk_quicksight.types.string.String"

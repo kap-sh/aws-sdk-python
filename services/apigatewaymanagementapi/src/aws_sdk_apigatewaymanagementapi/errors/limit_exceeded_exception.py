@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewaymanagementapi#LimitExceededException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_apigatewaymanagementapi.errors import ServiceError
 
 
-class LimitExceededException_(TypedDict):
+class LimitExceededException_(TypedDict, closed=True):
     pass
 
 

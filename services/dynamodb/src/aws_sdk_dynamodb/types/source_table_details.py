@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#SourceTableDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_name
 
 
-class SourceTableDetails(TypedDict):
+class SourceTableDetails(TypedDict, closed=True):
     table_name: "aws_sdk_dynamodb.types.table_name.TableName"
     """<p>The name of the table for which the backup was created. </p>"""
     table_id: "aws_sdk_dynamodb.types.table_id.TableId"

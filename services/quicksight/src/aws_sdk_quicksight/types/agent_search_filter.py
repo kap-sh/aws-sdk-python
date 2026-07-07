@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AgentSearchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.agent_ownership_filter_attribute
     import aws_sdk_quicksight.types.comparison_operator
 
 
-class AgentSearchFilter(TypedDict):
+class AgentSearchFilter(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_quicksight.types.agent_ownership_filter_attribute.AgentOwnershipFilterAttribute"
     ]

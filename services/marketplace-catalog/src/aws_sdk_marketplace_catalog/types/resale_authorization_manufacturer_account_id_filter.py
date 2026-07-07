@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#ResaleAuthorizationManufacturerAccountIdFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.resale_authorization_manufacturer_account_id_filter_value_list
     import aws_sdk_marketplace_catalog.types.resale_authorization_manufacturer_account_id_filter_wildcard
 
 
-class ResaleAuthorizationManufacturerAccountIdFilter(TypedDict):
+class ResaleAuthorizationManufacturerAccountIdFilter(TypedDict, closed=True):
     value_list: NotRequired[
         "aws_sdk_marketplace_catalog.types.resale_authorization_manufacturer_account_id_filter_value_list.ResaleAuthorizationManufacturerAccountIdFilterValueList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#VpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.ip_address_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.vpc_id_string
 
 
-class VpcConfiguration(TypedDict):
+class VpcConfiguration(TypedDict, closed=True):
     vpc_id: NotRequired["aws_sdk_finspace.types.vpc_id_string.VpcIdString"]
     """<p>The identifier of the VPC endpoint.</p>"""
     security_group_ids: NotRequired[

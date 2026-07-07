@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AnalyticsDataSetsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.data_set_id
     import aws_sdk_connect.types.string
 
 
-class AnalyticsDataSetsResult(TypedDict):
+class AnalyticsDataSetsResult(TypedDict, closed=True):
     data_set_id: NotRequired["aws_sdk_connect.types.data_set_id.DataSetId"]
     """<p>The identifier of the dataset.</p>"""
     data_set_name: NotRequired["aws_sdk_connect.types.string.String"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#CreateEmailIdentityPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateEmailIdentityPolicyResponse(TypedDict):
+class CreateEmailIdentityPolicyResponse(TypedDict, closed=True):
     pass
 
 

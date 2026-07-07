@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DomainEndpointOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.tls_security_policy
 
 
-class DomainEndpointOptions(TypedDict):
+class DomainEndpointOptions(TypedDict, closed=True):
     enforce_https: NotRequired["aws_sdk_elasticsearch_service.types.boolean.Boolean"]
     """<p>Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.</p>"""
     tls_security_policy: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#TargetId``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_networkflowmonitor.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.account_id
 
 
-class _TargetId_accountId(TypedDict):
+class _TargetId_accountId(TypedDict, closed=True):
     accountId: "aws_sdk_networkflowmonitor.types.account_id.AccountId"
 
 

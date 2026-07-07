@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#StreamKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.channel_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.tags
 
 
-class StreamKey(TypedDict):
+class StreamKey(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_ivs.types.stream_key_arn.StreamKeyArn"]
     """<p>Stream-key ARN.</p>"""
     value: NotRequired["aws_sdk_ivs.types.stream_key_value.StreamKeyValue"]

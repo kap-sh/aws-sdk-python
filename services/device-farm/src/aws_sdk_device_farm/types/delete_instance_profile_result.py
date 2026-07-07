@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#DeleteInstanceProfileResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteInstanceProfileResult(TypedDict):
+class DeleteInstanceProfileResult(TypedDict, closed=True):
     pass
 
 

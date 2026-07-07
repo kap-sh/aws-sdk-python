@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetFunctionScalingConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.published_function_qualifier
     import aws_sdk_lambda.types.unqualified_function_name
 
 
-class GetFunctionScalingConfigRequest(TypedDict):
+class GetFunctionScalingConfigRequest(TypedDict, closed=True):
     function_name: (
         "aws_sdk_lambda.types.unqualified_function_name.UnqualifiedFunctionName"
     )

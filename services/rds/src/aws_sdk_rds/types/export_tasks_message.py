@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ExportTasksMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class ExportTasksMessage(TypedDict):
+class ExportTasksMessage(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>A pagination token that can be used in a later <code>DescribeExportTasks</code> request. A marker is used for pagination to identify the location to begin output for the next response of <code>DescribeExportTasks</code>.</p>"""
     export_tasks: NotRequired["aws_sdk_rds.types.export_tasks_list.ExportTasksList"]

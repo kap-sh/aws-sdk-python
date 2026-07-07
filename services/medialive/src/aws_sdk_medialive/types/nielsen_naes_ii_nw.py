@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#NielsenNaesIiNw``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double_min1_max65535
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.nielsen_watermark_timezones
 
 
-class NielsenNaesIiNw(TypedDict):
+class NielsenNaesIiNw(TypedDict, closed=True):
     check_digit_string: NotRequired[
         "aws_sdk_medialive.types.__string_min2_max2.__stringMin2Max2"
     ]

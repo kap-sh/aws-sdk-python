@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#AudioOverrideConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.audio_language_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.sensitive_data_configuration
 
 
-class AudioOverrideConfiguration(TypedDict):
+class AudioOverrideConfiguration(TypedDict, closed=True):
     modality_processing: NotRequired[
         "aws_sdk_bedrock_data_automation.types.modality_processing_configuration.ModalityProcessingConfiguration"
     ]

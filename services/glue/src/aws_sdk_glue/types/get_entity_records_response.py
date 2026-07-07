@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetEntityRecordsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.next_token
     import aws_sdk_glue.types.records
 
 
-class GetEntityRecordsResponse(TypedDict):
+class GetEntityRecordsResponse(TypedDict, closed=True):
     records: NotRequired["aws_sdk_glue.types.records.Records"]
     """<p>A list of the requested objects.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.next_token.NextToken"]

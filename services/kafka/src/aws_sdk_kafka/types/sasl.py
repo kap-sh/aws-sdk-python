@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#Sasl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.iam
     import aws_sdk_kafka.types.scram
 
 
-class Sasl(TypedDict):
+class Sasl(TypedDict, closed=True):
     scram: NotRequired["aws_sdk_kafka.types.scram.Scram"]
     """<p>Details for SASL/SCRAM client authentication.</p>"""
     iam: NotRequired["aws_sdk_kafka.types.iam.Iam"]

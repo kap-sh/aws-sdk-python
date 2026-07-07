@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#AddCustomAttributesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AddCustomAttributesResponse(TypedDict):
+class AddCustomAttributesResponse(TypedDict, closed=True):
     pass
 
 

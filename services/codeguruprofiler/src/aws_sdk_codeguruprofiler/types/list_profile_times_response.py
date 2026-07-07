@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#ListProfileTimesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.profile_times
 
 
-class ListProfileTimesResponse(TypedDict):
+class ListProfileTimesResponse(TypedDict, closed=True):
     profile_times: "aws_sdk_codeguruprofiler.types.profile_times.ProfileTimes"
     """<p>The list of start times of the available profiles for the aggregation period in the specified time range. </p>"""
     next_token: NotRequired[

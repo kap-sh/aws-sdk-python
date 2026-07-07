@@ -3,9 +3,9 @@
 import datetime
 import warnings
 from collections.abc import Iterator
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_backup._auth._signers
@@ -312,7 +312,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.window_minutes
 
 
-class BackupClientConfig(TypedDict, total=False):
+class BackupClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.trustedadvisor#CheckSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_trustedadvisor.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_trustedadvisor.types.string_map
 
 
-class CheckSummary(TypedDict):
+class CheckSummary(TypedDict, closed=True):
     id: "str"
     """<p>The unique identifier of the AWS Trusted Advisor Check</p>"""
     arn: "aws_sdk_trustedadvisor.types.check_arn.CheckArn"

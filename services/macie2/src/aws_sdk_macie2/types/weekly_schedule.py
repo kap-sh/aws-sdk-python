@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#WeeklySchedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.day_of_week
 
 
-class WeeklySchedule(TypedDict):
+class WeeklySchedule(TypedDict, closed=True):
     day_of_week: NotRequired["aws_sdk_macie2.types.day_of_week.DayOfWeek"]
     """<p>The day of the week when Amazon Macie runs the job.</p>"""
 

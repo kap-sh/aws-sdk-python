@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#StatusCounts``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class StatusCounts(TypedDict):
+class StatusCounts(TypedDict, closed=True):
     failed: NotRequired["int"]
     """<p>The number of checks that failed.</p>"""
     skipped: NotRequired["int"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#SetDefaultSenderIdResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name
     import aws_sdk_pinpoint_sms_voice_v2.types.sender_id
 
 
-class SetDefaultSenderIdResult(TypedDict):
+class SetDefaultSenderIdResult(TypedDict, closed=True):
     configuration_set_arn: NotRequired["str"]
     """<p>The Amazon Resource Name (ARN) of the updated configuration set.</p>"""
     configuration_set_name: NotRequired[

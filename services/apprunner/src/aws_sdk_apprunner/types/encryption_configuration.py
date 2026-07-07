@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#EncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.kms_key_arn
 
 
-class EncryptionConfiguration(TypedDict):
+class EncryptionConfiguration(TypedDict, closed=True):
     kms_key: "aws_sdk_apprunner.types.kms_key_arn.KmsKeyArn"
     """<p>The ARN of the KMS key that's used for encryption.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#EcrRepositoryConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.ecr_repository_policy
 
 
-class EcrRepositoryConfiguration(TypedDict):
+class EcrRepositoryConfiguration(TypedDict, closed=True):
     repository_policy: NotRequired[
         "aws_sdk_accessanalyzer.types.ecr_repository_policy.EcrRepositoryPolicy"
     ]

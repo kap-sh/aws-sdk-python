@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ServerSideEncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.server_side_encryption_rules
 
 
-class ServerSideEncryptionConfiguration(TypedDict):
+class ServerSideEncryptionConfiguration(TypedDict, closed=True):
     rules: "aws_sdk_s3.types.server_side_encryption_rules.ServerSideEncryptionRules"
     """<p>Container for information about a particular server-side encryption configuration rule.</p>"""
 

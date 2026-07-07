@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#ListAvailableZonesRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListAvailableZonesRequest(TypedDict):
+class ListAvailableZonesRequest(TypedDict, closed=True):
     pass
 
 

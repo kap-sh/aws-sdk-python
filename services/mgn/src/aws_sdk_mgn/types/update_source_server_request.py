@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#UpdateSourceServerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.source_server_id
 
 
-class UpdateSourceServerRequest(TypedDict):
+class UpdateSourceServerRequest(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]
     """<p>Update Source Server request account ID.</p>"""
     source_server_id: "aws_sdk_mgn.types.source_server_id.SourceServerID"

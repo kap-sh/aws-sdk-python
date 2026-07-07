@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListStudioLifecycleConfigsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListStudioLifecycleConfigsRequest(TypedDict):
+class ListStudioLifecycleConfigsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_sagemaker.types.max_results.MaxResults"]
     """<p>The total number of items to return in the response. If the total number of items available is more than the value specified, a <code>NextToken</code> is provided in the response. To resume pagination, provide the <code>NextToken</code> value in the as part of a subsequent call. The default value is 10.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]

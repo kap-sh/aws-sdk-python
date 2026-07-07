@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#OutputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.s3_configuration
 
 
-class _OutputDataConfig_S3Configuration(TypedDict):
+class _OutputDataConfig_S3Configuration(TypedDict, closed=True):
     S3Configuration: "aws_sdk_healthlake.types.s3_configuration.S3Configuration"
 
 

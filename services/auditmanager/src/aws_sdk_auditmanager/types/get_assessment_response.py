@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetAssessmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment
     import aws_sdk_auditmanager.types.role
 
 
-class GetAssessmentResponse(TypedDict):
+class GetAssessmentResponse(TypedDict, closed=True):
     assessment: NotRequired["aws_sdk_auditmanager.types.assessment.Assessment"]
     user_role: NotRequired["aws_sdk_auditmanager.types.role.Role"]
 

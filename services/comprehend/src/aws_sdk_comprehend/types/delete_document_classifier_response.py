@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DeleteDocumentClassifierResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteDocumentClassifierResponse(TypedDict):
+class DeleteDocumentClassifierResponse(TypedDict, closed=True):
     pass
 
 

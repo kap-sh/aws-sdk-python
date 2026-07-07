@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#ResourceUtilization``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ResourceUtilization(TypedDict):
+class ResourceUtilization(TypedDict, closed=True):
     v_cpu_hour: NotRequired["float"]
     """<p>The aggregated vCPU used per hour from the time the job starts executing until the job is terminated.</p>"""
     memory_gb_hour: NotRequired["float"]

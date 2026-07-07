@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#BasePathMappings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_base_path_mapping
     import aws_sdk_api_gateway.types.string
 
 
-class BasePathMappings(TypedDict):
+class BasePathMappings(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_api_gateway.types.list_of_base_path_mapping.ListOfBasePathMapping"
     ]

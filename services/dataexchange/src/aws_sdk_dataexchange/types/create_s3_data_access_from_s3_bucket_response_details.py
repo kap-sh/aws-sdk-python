@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#CreateS3DataAccessFromS3BucketResponseDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.s3_data_access_asset_source_entry
 
 
-class CreateS3DataAccessFromS3BucketResponseDetails(TypedDict):
+class CreateS3DataAccessFromS3BucketResponseDetails(TypedDict, closed=True):
     asset_source: "aws_sdk_dataexchange.types.s3_data_access_asset_source_entry.S3DataAccessAssetSourceEntry"
     """<p>Details about the asset source from an Amazon S3 bucket.</p>"""
     data_set_id: "aws_sdk_dataexchange.types.id.Id"

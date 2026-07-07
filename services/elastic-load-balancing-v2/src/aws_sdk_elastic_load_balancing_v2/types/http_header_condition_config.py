@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#HttpHeaderConditionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.list_of_string
 
 
-class HttpHeaderConditionConfig(TypedDict):
+class HttpHeaderConditionConfig(TypedDict, closed=True):
     http_header_name: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.http_header_condition_name.HttpHeaderConditionName"
     ]

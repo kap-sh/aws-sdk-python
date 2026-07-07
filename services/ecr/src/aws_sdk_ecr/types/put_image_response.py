@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#PutImageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image
 
 
-class PutImageResponse(TypedDict):
+class PutImageResponse(TypedDict, closed=True):
     image: NotRequired["aws_sdk_ecr.types.image.Image"]
     """<p>Details of the image uploaded.</p>"""
 

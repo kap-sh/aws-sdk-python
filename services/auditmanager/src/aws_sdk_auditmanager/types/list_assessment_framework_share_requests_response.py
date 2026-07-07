@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ListAssessmentFrameworkShareRequestsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment_framework_share_request_list
     import aws_sdk_auditmanager.types.token
 
 
-class ListAssessmentFrameworkShareRequestsResponse(TypedDict):
+class ListAssessmentFrameworkShareRequestsResponse(TypedDict, closed=True):
     assessment_framework_share_requests: NotRequired[
         "aws_sdk_auditmanager.types.assessment_framework_share_request_list.AssessmentFrameworkShareRequestList"
     ]

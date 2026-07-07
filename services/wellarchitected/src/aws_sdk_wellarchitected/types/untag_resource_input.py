@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#UntagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.tag_key_list
     import aws_sdk_wellarchitected.types.workload_arn
 
 
-class UntagResourceInput(TypedDict):
+class UntagResourceInput(TypedDict, closed=True):
     workload_arn: "aws_sdk_wellarchitected.types.workload_arn.WorkloadArn"
     tag_keys: NotRequired["aws_sdk_wellarchitected.types.tag_key_list.TagKeyList"]
     """<p>A list of tag keys. Existing tags of the resource whose keys are members of this list are removed from the resource.</p>"""

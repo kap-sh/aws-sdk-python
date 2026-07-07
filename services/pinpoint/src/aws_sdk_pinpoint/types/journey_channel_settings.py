@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#JourneyChannelSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class JourneyChannelSettings(TypedDict):
+class JourneyChannelSettings(TypedDict, closed=True):
     connect_campaign_arn: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>Amazon Resource Name (ARN) of the Connect Campaign.</p>"""
     connect_campaign_execution_role_arn: NotRequired[

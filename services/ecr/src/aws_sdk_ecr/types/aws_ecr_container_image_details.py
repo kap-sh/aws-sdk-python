@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#AwsEcrContainerImageDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.arch
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.repository_name
 
 
-class AwsEcrContainerImageDetails(TypedDict):
+class AwsEcrContainerImageDetails(TypedDict, closed=True):
     architecture: NotRequired["aws_sdk_ecr.types.arch.Arch"]
     """<p>The architecture of the Amazon ECR container image.</p>"""
     author: NotRequired["aws_sdk_ecr.types.author.Author"]

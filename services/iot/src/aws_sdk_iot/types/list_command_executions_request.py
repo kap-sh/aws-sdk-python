@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListCommandExecutionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.command_arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.time_filter
 
 
-class ListCommandExecutionsRequest(TypedDict):
+class ListCommandExecutionsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_iot.types.command_max_results.CommandMaxResults"]
     """<p>The maximum number of results to return in this operation.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

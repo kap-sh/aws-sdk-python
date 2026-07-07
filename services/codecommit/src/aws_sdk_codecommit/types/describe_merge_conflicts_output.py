@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#DescribeMergeConflictsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.object_id
 
 
-class DescribeMergeConflictsOutput(TypedDict):
+class DescribeMergeConflictsOutput(TypedDict, closed=True):
     conflict_metadata: "aws_sdk_codecommit.types.conflict_metadata.ConflictMetadata"
     """<p>Contains metadata about the conflicts found in the merge.</p>"""
     merge_hunks: "aws_sdk_codecommit.types.merge_hunks.MergeHunks"

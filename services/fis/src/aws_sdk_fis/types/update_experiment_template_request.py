@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#UpdateExperimentTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.experiment_template_description
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.update_experiment_template_target_input_map
 
 
-class UpdateExperimentTemplateRequest(TypedDict):
+class UpdateExperimentTemplateRequest(TypedDict, closed=True):
     id: "aws_sdk_fis.types.experiment_template_id.ExperimentTemplateId"
     """<p>The ID of the experiment template.</p>"""
     description: NotRequired[

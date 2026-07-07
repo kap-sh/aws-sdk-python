@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeDomainsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_status_list
 
 
-class DescribeDomainsResponse(TypedDict):
+class DescribeDomainsResponse(TypedDict, closed=True):
     domain_status_list: "aws_sdk_opensearch.types.domain_status_list.DomainStatusList"
     """<p>The status of the requested domains.</p>"""
 

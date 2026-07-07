@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#S3Content``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.s3_location
 
 
-class S3Content(TypedDict):
+class S3Content(TypedDict, closed=True):
     s3_location: "aws_sdk_bedrock_agent.types.s3_location.S3Location"
     """<p>The S3 location of the file containing the content to ingest.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#WaterfallChartOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class WaterfallChartOptions(TypedDict):
+class WaterfallChartOptions(TypedDict, closed=True):
     total_bar_label: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>This option determines the total bar label of a waterfall visual.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#AcceptConnectionInvitationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.connection
 
 
-class AcceptConnectionInvitationResponse(TypedDict):
+class AcceptConnectionInvitationResponse(TypedDict, closed=True):
     connection: "aws_sdk_partnercentral_account.types.connection.Connection"
     """<p>The details of the accepted connection between the two partners.</p>"""
 

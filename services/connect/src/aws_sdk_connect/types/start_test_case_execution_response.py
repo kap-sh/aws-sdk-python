@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StartTestCaseExecutionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.test_case_execution_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.test_case_id
 
 
-class StartTestCaseExecutionResponse(TypedDict):
+class StartTestCaseExecutionResponse(TypedDict, closed=True):
     test_case_execution_id: NotRequired[
         "aws_sdk_connect.types.test_case_execution_id.TestCaseExecutionId"
     ]

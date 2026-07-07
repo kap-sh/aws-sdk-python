@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetBucketsAggregationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.buckets
     import aws_sdk_iot.types.count
 
 
-class GetBucketsAggregationResponse(TypedDict):
+class GetBucketsAggregationResponse(TypedDict, closed=True):
     total_count: "aws_sdk_iot.types.count.Count"
     """<p>The total number of things that fit the query string criteria.</p>"""
     buckets: NotRequired["aws_sdk_iot.types.buckets.Buckets"]

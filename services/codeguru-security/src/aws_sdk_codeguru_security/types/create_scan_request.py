@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#CreateScanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguru_security.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.tag_map
 
 
-class CreateScanRequest(TypedDict):
+class CreateScanRequest(TypedDict, closed=True):
     client_token: NotRequired[
         "aws_sdk_codeguru_security.types.client_token.ClientToken"
     ]

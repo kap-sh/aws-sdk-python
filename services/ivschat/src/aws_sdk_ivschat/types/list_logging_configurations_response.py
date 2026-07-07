@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#ListLoggingConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivschat.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.pagination_token
 
 
-class ListLoggingConfigurationsResponse(TypedDict):
+class ListLoggingConfigurationsResponse(TypedDict, closed=True):
     logging_configurations: (
         "aws_sdk_ivschat.types.logging_configuration_list.LoggingConfigurationList"
     )

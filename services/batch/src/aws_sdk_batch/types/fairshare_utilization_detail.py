@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#FairshareUtilizationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.fairshare_capacity_utilization_list
     import aws_sdk_batch.types.long
 
 
-class FairshareUtilizationDetail(TypedDict):
+class FairshareUtilizationDetail(TypedDict, closed=True):
     active_share_count: NotRequired["aws_sdk_batch.types.long.Long"]
     """<p>The total number of active shares in the fairshare scheduling job queue that are currently utilizing capacity.</p>"""
     top_capacity_utilization: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DescribeConfigurationTemplatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.delivery_destination_types
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.service
 
 
-class DescribeConfigurationTemplatesRequest(TypedDict):
+class DescribeConfigurationTemplatesRequest(TypedDict, closed=True):
     service: NotRequired["aws_sdk_cloudwatch_logs.types.service.Service"]
     """<p>Use this parameter to filter the response to include only the configuration templates that apply to the Amazon Web Services service that you specify here.</p>"""
     log_types: NotRequired["aws_sdk_cloudwatch_logs.types.log_types.LogTypes"]

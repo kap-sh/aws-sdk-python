@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#EvaluationInferenceConfigSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.evaluation_model_config_summary
     import aws_sdk_bedrock.types.evaluation_rag_config_summary
 
 
-class EvaluationInferenceConfigSummary(TypedDict):
+class EvaluationInferenceConfigSummary(TypedDict, closed=True):
     model_config_summary: NotRequired[
         "aws_sdk_bedrock.types.evaluation_model_config_summary.EvaluationModelConfigSummary"
     ]

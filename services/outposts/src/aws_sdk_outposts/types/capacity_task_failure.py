@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#CapacityTaskFailure``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_outposts.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.capacity_task_status_reason
 
 
-class CapacityTaskFailure(TypedDict):
+class CapacityTaskFailure(TypedDict, closed=True):
     reason: (
         "aws_sdk_outposts.types.capacity_task_status_reason.CapacityTaskStatusReason"
     )

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#StartQueryWorkloadInsightsTopContributorsDataOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_networkflowmonitor.errors import DeserializationError
 
 
-class StartQueryWorkloadInsightsTopContributorsDataOutput(TypedDict):
+class StartQueryWorkloadInsightsTopContributorsDataOutput(TypedDict, closed=True):
     query_id: "str"
     """<p>The identifier for the query. A query ID is an internally-generated identifier for a specific query returned from an API call to start a query.</p>"""
 

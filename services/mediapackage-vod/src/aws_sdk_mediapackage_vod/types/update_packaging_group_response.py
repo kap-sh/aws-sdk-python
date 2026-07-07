@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#UpdatePackagingGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.tags
 
 
-class UpdatePackagingGroupResponse(TypedDict):
+class UpdatePackagingGroupResponse(TypedDict, closed=True):
     approximate_asset_count: NotRequired[
         "aws_sdk_mediapackage_vod.types.__integer.__integer"
     ]

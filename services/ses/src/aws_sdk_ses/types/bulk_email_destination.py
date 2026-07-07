@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#BulkEmailDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.template_data
 
 
-class BulkEmailDestination(TypedDict):
+class BulkEmailDestination(TypedDict, closed=True):
     destination: "aws_sdk_ses.types.destination.Destination"
     replacement_tags: NotRequired["aws_sdk_ses.types.message_tag_list.MessageTagList"]
     """<p>A list of tags, in the form of name/value pairs, to apply to an email that you send using <code>SendBulkTemplatedEmail</code>. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>"""

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#VideoArtifactsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.video_mux_type
 
 
-class VideoArtifactsConfiguration(TypedDict):
+class VideoArtifactsConfiguration(TypedDict, closed=True):
     state: "aws_sdk_chime_sdk_media_pipelines.types.artifacts_state.ArtifactsState"
     """<p>Indicates whether the video artifact is enabled or disabled.</p>"""
     mux_type: NotRequired[

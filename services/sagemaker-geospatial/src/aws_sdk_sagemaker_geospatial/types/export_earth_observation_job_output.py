@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ExportEarthObservationJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.output_config_input
 
 
-class ExportEarthObservationJobOutput(TypedDict):
+class ExportEarthObservationJobOutput(TypedDict, closed=True):
     arn: "aws_sdk_sagemaker_geospatial.types.earth_observation_job_arn.EarthObservationJobArn"
     """<p>The output Amazon Resource Name (ARN) of the Earth Observation job being exported.</p>"""
     creation_time: "datetime.datetime"

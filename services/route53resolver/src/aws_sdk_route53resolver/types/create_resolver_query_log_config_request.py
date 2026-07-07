@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#CreateResolverQueryLogConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.tag_list
 
 
-class CreateResolverQueryLogConfigRequest(TypedDict):
+class CreateResolverQueryLogConfigRequest(TypedDict, closed=True):
     name: "aws_sdk_route53resolver.types.resolver_query_log_config_name.ResolverQueryLogConfigName"
     """<p>The name that you want to give the query logging configuration.</p>"""
     destination_arn: "aws_sdk_route53resolver.types.destination_arn.DestinationArn"

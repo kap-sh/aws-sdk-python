@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#AWSLicenseManager``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_license_manager._auth._signers
@@ -204,7 +204,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.update_service_settings_response
 
 
-class AsyncLicenseManagerClientConfig(TypedDict, total=False):
+class AsyncLicenseManagerClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

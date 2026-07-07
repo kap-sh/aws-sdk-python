@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UseAssetTypePolicyGrantDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_unit_id
 
 
-class UseAssetTypePolicyGrantDetail(TypedDict):
+class UseAssetTypePolicyGrantDetail(TypedDict, closed=True):
     domain_unit_id: NotRequired["aws_sdk_datazone.types.domain_unit_id.DomainUnitId"]
     """<p>The ID of the domain unit.</p>"""
 

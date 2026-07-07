@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#StartMessageMoveTaskResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class StartMessageMoveTaskResult(TypedDict):
+class StartMessageMoveTaskResult(TypedDict, closed=True):
     task_handle: NotRequired["aws_sdk_sqs.types.string.String"]
     """<p>An identifier associated with a message movement task. You can use this identifier to cancel a specified message movement task using the <code>CancelMessageMoveTask</code> action.</p>"""
 

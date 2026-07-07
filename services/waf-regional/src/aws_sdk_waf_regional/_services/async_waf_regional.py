@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#AWSWAF_Regional_20161128``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_waf_regional._auth._signers
@@ -221,7 +221,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.xss_match_set_updates
 
 
-class AsyncWAFRegionalClientConfig(TypedDict, total=False):
+class AsyncWAFRegionalClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

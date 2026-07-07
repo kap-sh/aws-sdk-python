@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#CountTokensRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.foundation_model_version_identifier
 
 
-class CountTokensRequest(TypedDict):
+class CountTokensRequest(TypedDict, closed=True):
     model_id: "aws_sdk_bedrock_runtime.types.foundation_model_version_identifier.FoundationModelVersionIdentifier"
     """<p>The unique identifier or ARN of the foundation model to use for token counting. Each model processes tokens differently, so the token count is specific to the model you specify.</p>"""
     input: "aws_sdk_bedrock_runtime.types.count_tokens_input.CountTokensInput"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ConnectionHttpParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.connection_body_parameters_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.connection_query_string_parameters_list
 
 
-class ConnectionHttpParameters(TypedDict):
+class ConnectionHttpParameters(TypedDict, closed=True):
     header_parameters: NotRequired[
         "aws_sdk_eventbridge.types.connection_header_parameters_list.ConnectionHeaderParametersList"
     ]

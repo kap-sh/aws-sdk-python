@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#DescribeJobResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.job_descriptor
 
 
-class DescribeJobResult(TypedDict):
+class DescribeJobResult(TypedDict, closed=True):
     job: NotRequired["aws_sdk_s3_control.types.job_descriptor.JobDescriptor"]
     """<p>Contains the configuration parameters and status for the job specified in the <code>Describe Job</code> request.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ExtractedParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connector_property_key
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.response_extraction_mapping
 
 
-class ExtractedParameter(TypedDict):
+class ExtractedParameter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_glue.types.connector_property_key.ConnectorPropertyKey"]
     """<p>The parameter key name that will be used in subsequent requests.</p>"""
     default_value: NotRequired["aws_sdk_glue.types.default_value.DefaultValue"]

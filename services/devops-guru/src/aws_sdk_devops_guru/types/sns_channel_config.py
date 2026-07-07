@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#SnsChannelConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.topic_arn
 
 
-class SnsChannelConfig(TypedDict):
+class SnsChannelConfig(TypedDict, closed=True):
     topic_arn: NotRequired["aws_sdk_devops_guru.types.topic_arn.TopicArn"]
     """<p> The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic. </p>"""
 

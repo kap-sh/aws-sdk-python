@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#PostLineageEventInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.lineage_event
 
 
-class PostLineageEventInput(TypedDict):
+class PostLineageEventInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain where you want to post a data lineage event.</p>"""
     event: "aws_sdk_datazone.types.lineage_event.LineageEvent"

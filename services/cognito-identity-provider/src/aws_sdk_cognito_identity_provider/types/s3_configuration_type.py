@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#S3ConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.s3_arn_type
 
 
-class S3ConfigurationType(TypedDict):
+class S3ConfigurationType(TypedDict, closed=True):
     bucket_arn: NotRequired[
         "aws_sdk_cognito_identity_provider.types.s3_arn_type.S3ArnType"
     ]

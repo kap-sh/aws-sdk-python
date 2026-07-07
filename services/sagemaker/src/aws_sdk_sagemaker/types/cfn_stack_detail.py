@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CfnStackDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cfn_stack_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cfn_stack_status_message
 
 
-class CfnStackDetail(TypedDict):
+class CfnStackDetail(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sagemaker.types.cfn_stack_name.CfnStackName"]
     """<p> The name of the CloudFormation stack. </p>"""
     id: NotRequired["aws_sdk_sagemaker.types.cfn_stack_id.CfnStackId"]

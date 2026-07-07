@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#DescribeEventBusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.dead_letter_config
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.timestamp
 
 
-class DescribeEventBusResponse(TypedDict):
+class DescribeEventBusResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_eventbridge.types.string.String"]
     """<p>The name of the event bus. Currently, this is always <code>default</code>.</p>"""
     arn: NotRequired["aws_sdk_eventbridge.types.string.String"]

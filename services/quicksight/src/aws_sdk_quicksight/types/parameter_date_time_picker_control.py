@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ParameterDateTimePickerControl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.short_restrictive_resource_id
 
 
-class ParameterDateTimePickerControl(TypedDict):
+class ParameterDateTimePickerControl(TypedDict, closed=True):
     parameter_control_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
     """<p>The ID of the <code>ParameterDateTimePickerControl</code>.</p>"""
     title: "aws_sdk_quicksight.types.sheet_control_title.SheetControlTitle"

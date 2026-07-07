@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchListAttachedIndicesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.index_attachment_list
     import aws_sdk_clouddirectory.types.next_token
 
 
-class BatchListAttachedIndicesResponse(TypedDict):
+class BatchListAttachedIndicesResponse(TypedDict, closed=True):
     index_attachments: NotRequired[
         "aws_sdk_clouddirectory.types.index_attachment_list.IndexAttachmentList"
     ]

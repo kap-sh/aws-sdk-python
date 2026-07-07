@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#BatchGetAttachedFileMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.attached_file_errors_list
     import aws_sdk_connect.types.attached_files_list
 
 
-class BatchGetAttachedFileMetadataResponse(TypedDict):
+class BatchGetAttachedFileMetadataResponse(TypedDict, closed=True):
     files: NotRequired["aws_sdk_connect.types.attached_files_list.AttachedFilesList"]
     """<p>List of attached files that were successfully retrieved. </p>"""
     errors: NotRequired[

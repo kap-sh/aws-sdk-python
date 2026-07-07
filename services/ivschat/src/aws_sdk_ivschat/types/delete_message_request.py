@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#DeleteMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivschat.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.room_identifier
 
 
-class DeleteMessageRequest(TypedDict):
+class DeleteMessageRequest(TypedDict, closed=True):
     room_identifier: "aws_sdk_ivschat.types.room_identifier.RoomIdentifier"
     """<p>Identifier of the room where the message should be deleted. Currently this must be an ARN. </p>"""
     id: "aws_sdk_ivschat.types.message_id.MessageID"

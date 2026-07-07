@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SearchTablesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.table_list
     import aws_sdk_glue.types.token
 
 
-class SearchTablesResponse(TypedDict):
+class SearchTablesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_glue.types.token.Token"]
     """<p>A continuation token, present if the current list segment is not the last.</p>"""
     table_list: NotRequired["aws_sdk_glue.types.table_list.TableList"]

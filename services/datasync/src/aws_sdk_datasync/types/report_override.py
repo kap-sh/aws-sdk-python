@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#ReportOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.report_level
 
 
-class ReportOverride(TypedDict):
+class ReportOverride(TypedDict, closed=True):
     report_level: NotRequired["aws_sdk_datasync.types.report_level.ReportLevel"]
     r"""<p>Specifies whether your task report includes errors only or successes and errors.</p> <p>For example, your report might mostly include only what didn't go well in your transfer (<code>ERRORS_ONLY</code>). At the same time, you want to verify that your <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html\">task filter</a> is working correctly. In this situation, you can get a list of what files DataSync successfully skipped and if something transferred that you didn't to transfer (<code>SUCCESSES_AND_ERRORS</code>).</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ListTapesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.marker
     import aws_sdk_storage_gateway.types.tape_infos
 
 
-class ListTapesOutput(TypedDict):
+class ListTapesOutput(TypedDict, closed=True):
     tape_infos: NotRequired["aws_sdk_storage_gateway.types.tape_infos.TapeInfos"]
     marker: NotRequired["aws_sdk_storage_gateway.types.marker.Marker"]
     """<p>A string that indicates the position at which to begin returning the next list of tapes. Use the marker in your next request to continue pagination of tapes. If there are no more tapes to list, this element does not appear in the response body.</p>"""

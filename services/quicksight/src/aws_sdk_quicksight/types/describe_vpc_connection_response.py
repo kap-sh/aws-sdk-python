@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeVPCConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.vpc_connection
 
 
-class DescribeVPCConnectionResponse(TypedDict):
+class DescribeVPCConnectionResponse(TypedDict, closed=True):
     vpc_connection: NotRequired["aws_sdk_quicksight.types.vpc_connection.VPCConnection"]
     """<p>A response object that provides information for the specified VPC connection.</p>"""
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]

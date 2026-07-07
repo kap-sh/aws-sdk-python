@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ContinuousParameterRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hyper_parameter_scaling_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.parameter_value
 
 
-class ContinuousParameterRange(TypedDict):
+class ContinuousParameterRange(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sagemaker.types.parameter_key.ParameterKey"]
     """<p>The name of the continuous hyperparameter to tune.</p>"""
     min_value: NotRequired["aws_sdk_sagemaker.types.parameter_value.ParameterValue"]

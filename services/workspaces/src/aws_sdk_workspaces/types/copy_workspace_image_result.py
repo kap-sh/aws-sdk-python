@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CopyWorkspaceImageResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_image_id
 
 
-class CopyWorkspaceImageResult(TypedDict):
+class CopyWorkspaceImageResult(TypedDict, closed=True):
     image_id: NotRequired[
         "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId"
     ]

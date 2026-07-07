@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GlueConnection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.property_map
 
 
-class GlueConnection(TypedDict):
+class GlueConnection(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the Amazon Web Services Glue connection.</p>"""
     description: NotRequired["str"]

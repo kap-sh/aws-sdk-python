@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#RootCauseException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class RootCauseException(TypedDict):
+class RootCauseException(TypedDict, closed=True):
     name: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>The name of the exception.</p>"""
     message: NotRequired["aws_sdk_xray.types.string.String"]

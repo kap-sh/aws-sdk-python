@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CreateLogicallyAirGappedBackupVaultInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.tags
 
 
-class CreateLogicallyAirGappedBackupVaultInput(TypedDict):
+class CreateLogicallyAirGappedBackupVaultInput(TypedDict, closed=True):
     backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
     """<p>The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.</p>"""
     backup_vault_tags: NotRequired["aws_sdk_backup.types.tags.Tags"]

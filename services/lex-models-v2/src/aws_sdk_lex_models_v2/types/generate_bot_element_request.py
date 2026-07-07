@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#GenerateBotElementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.locale_id
 
 
-class GenerateBotElementRequest(TypedDict):
+class GenerateBotElementRequest(TypedDict, closed=True):
     intent_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The intent unique Id for the bot request to generate utterances.</p>"""
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"

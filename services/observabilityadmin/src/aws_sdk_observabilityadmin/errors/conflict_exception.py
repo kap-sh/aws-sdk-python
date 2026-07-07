@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ConflictException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_observabilityadmin.errors import ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: NotRequired["str"]
     resource_id: NotRequired["str"]
     """<p> The identifier of the resource which is in conflict with the requested operation. </p>"""

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#BatchIsAuthorizedWithTokenInputItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.action_identifier
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.entity_identifier
 
 
-class BatchIsAuthorizedWithTokenInputItem(TypedDict):
+class BatchIsAuthorizedWithTokenInputItem(TypedDict, closed=True):
     action: NotRequired[
         "aws_sdk_verifiedpermissions.types.action_identifier.ActionIdentifier"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetStaticIpsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.static_ip_list
     import aws_sdk_lightsail.types.string
 
 
-class GetStaticIpsResult(TypedDict):
+class GetStaticIpsResult(TypedDict, closed=True):
     static_ips: NotRequired["aws_sdk_lightsail.types.static_ip_list.StaticIpList"]
     """<p>An array of key-value pairs containing information about your get static IPs request.</p>"""
     next_page_token: NotRequired["aws_sdk_lightsail.types.string.string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#IsolineAvoidanceAreaGeometry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.bounding_box
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.polyline_ring_list
 
 
-class IsolineAvoidanceAreaGeometry(TypedDict):
+class IsolineAvoidanceAreaGeometry(TypedDict, closed=True):
     bounding_box: NotRequired["aws_sdk_geo_routes.types.bounding_box.BoundingBox"]
     """<p>A rectangular area defined by its southwest and northeast corners: <code>[min longitude, min latitude, max longitude, max latitude]</code>.</p>"""
     corridor: NotRequired["aws_sdk_geo_routes.types.corridor.Corridor"]

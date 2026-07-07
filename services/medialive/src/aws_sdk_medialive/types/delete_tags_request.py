@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DeleteTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of__string
     import aws_sdk_medialive.types.__string
 
 
-class DeleteTagsRequest(TypedDict):
+class DeleteTagsRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_medialive.types.__string.__string"
     tag_keys: NotRequired["aws_sdk_medialive.types.__list_of__string.__listOf__string"]
     """An array of tag keys to delete"""

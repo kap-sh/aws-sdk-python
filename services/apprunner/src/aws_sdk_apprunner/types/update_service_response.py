@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#UpdateServiceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.uuid
 
 
-class UpdateServiceResponse(TypedDict):
+class UpdateServiceResponse(TypedDict, closed=True):
     service: "aws_sdk_apprunner.types.service.Service"
     """<p>A description of the App Runner service updated by this request. All configuration values in the returned <code>Service</code> structure reflect configuration changes that are being applied by this request.</p>"""
     operation_id: "aws_sdk_apprunner.types.uuid.UUID"

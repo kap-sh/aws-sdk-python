@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rbin#LockConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rbin.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rbin.types.unlock_delay
 
 
-class LockConfiguration(TypedDict):
+class LockConfiguration(TypedDict, closed=True):
     unlock_delay: "aws_sdk_rbin.types.unlock_delay.UnlockDelay"
     """<p>Information about the retention rule unlock delay.</p>"""
 

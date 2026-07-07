@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ListVoiceConnectorGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.string
     import aws_sdk_chime_sdk_voice.types.voice_connector_group_list
 
 
-class ListVoiceConnectorGroupsResponse(TypedDict):
+class ListVoiceConnectorGroupsResponse(TypedDict, closed=True):
     voice_connector_groups: NotRequired[
         "aws_sdk_chime_sdk_voice.types.voice_connector_group_list.VoiceConnectorGroupList"
     ]

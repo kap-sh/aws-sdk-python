@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ListTagsForResourceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.tags
 
 
-class ListTagsForResourceOutput(TypedDict):
+class ListTagsForResourceOutput(TypedDict, closed=True):
     tags: "aws_sdk_payment_cryptography.types.tags.Tags"
     """<p>The list of tags associated with a <code>ResourceArn</code>. Each tag will list the key-value pair contained within that tag.</p>"""
     next_token: NotRequired["aws_sdk_payment_cryptography.types.next_token.NextToken"]

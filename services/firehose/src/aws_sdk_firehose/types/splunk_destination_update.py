@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#SplunkDestinationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.cloud_watch_logging_options
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.splunk_s3_backup_mode
 
 
-class SplunkDestinationUpdate(TypedDict):
+class SplunkDestinationUpdate(TypedDict, closed=True):
     hec_endpoint: NotRequired["aws_sdk_firehose.types.hec_endpoint.HECEndpoint"]
     """<p>The HTTP Event Collector (HEC) endpoint to which Firehose sends your data.</p>"""
     hec_endpoint_type: NotRequired[

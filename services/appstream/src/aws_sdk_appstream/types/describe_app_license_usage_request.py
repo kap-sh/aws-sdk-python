@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeAppLicenseUsageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.integer
     import aws_sdk_appstream.types.string
 
 
-class DescribeAppLicenseUsageRequest(TypedDict):
+class DescribeAppLicenseUsageRequest(TypedDict, closed=True):
     billing_period: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>Billing period for the usage record.</p> <p>Specify the value in <i>yyyy-mm</i> format. For example, for August 2025, use <i>2025-08</i>.</p>"""
     max_results: NotRequired["aws_sdk_appstream.types.integer.Integer"]

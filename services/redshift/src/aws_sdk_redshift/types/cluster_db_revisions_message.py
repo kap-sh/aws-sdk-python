@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#ClusterDbRevisionsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class ClusterDbRevisionsMessage(TypedDict):
+class ClusterDbRevisionsMessage(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>A string representing the starting point for the next set of revisions. If a value is returned in a response, you can retrieve the next set of revisions by providing the value in the <code>marker</code> parameter and retrying the command. If the <code>marker</code> field is empty, all revisions have already been returned.</p>"""
     cluster_db_revisions: NotRequired[

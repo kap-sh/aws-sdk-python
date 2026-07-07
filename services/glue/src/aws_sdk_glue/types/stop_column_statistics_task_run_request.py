@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StopColumnStatisticsTaskRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class StopColumnStatisticsTaskRunRequest(TypedDict):
+class StopColumnStatisticsTaskRunRequest(TypedDict, closed=True):
     database_name: "aws_sdk_glue.types.database_name.DatabaseName"
     """<p>The name of the database where the table resides.</p>"""
     table_name: "aws_sdk_glue.types.name_string.NameString"

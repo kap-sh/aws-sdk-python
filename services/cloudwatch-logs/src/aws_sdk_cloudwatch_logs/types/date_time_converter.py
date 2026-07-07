@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DateTimeConverter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.target_timezone
 
 
-class DateTimeConverter(TypedDict):
+class DateTimeConverter(TypedDict, closed=True):
     source: "aws_sdk_cloudwatch_logs.types.source.Source"
     """<p>The key to apply the date conversion to.</p>"""
     target: "aws_sdk_cloudwatch_logs.types.target.Target"

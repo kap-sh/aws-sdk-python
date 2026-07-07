@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomFilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.parameter_name
 
 
-class CustomFilterConfiguration(TypedDict):
+class CustomFilterConfiguration(TypedDict, closed=True):
     match_operator: "aws_sdk_quicksight.types.category_filter_match_operator.CategoryFilterMatchOperator"
     """<p>The match operator that is used to determine if a filter should be applied.</p>"""
     category_value: NotRequired["aws_sdk_quicksight.types.category_value.CategoryValue"]

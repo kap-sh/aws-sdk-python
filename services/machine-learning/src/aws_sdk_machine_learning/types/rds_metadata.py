@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#RDSMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.edp_pipeline_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.rds_select_sql_query
 
 
-class RDSMetadata(TypedDict):
+class RDSMetadata(TypedDict, closed=True):
     database: NotRequired["aws_sdk_machine_learning.types.rds_database.RDSDatabase"]
     """<p>The database details required to connect to an Amazon RDS.</p>"""
     database_user_name: NotRequired[

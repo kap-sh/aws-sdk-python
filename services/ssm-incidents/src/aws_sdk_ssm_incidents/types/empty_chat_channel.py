@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#EmptyChatChannel``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EmptyChatChannel(TypedDict):
+class EmptyChatChannel(TypedDict, closed=True):
     pass
 
 

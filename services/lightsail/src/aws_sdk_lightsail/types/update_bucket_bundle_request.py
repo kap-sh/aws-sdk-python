@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#UpdateBucketBundleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.non_empty_string
 
 
-class UpdateBucketBundleRequest(TypedDict):
+class UpdateBucketBundleRequest(TypedDict, closed=True):
     bucket_name: "aws_sdk_lightsail.types.bucket_name.BucketName"
     """<p>The name of the bucket for which to update the bundle.</p>"""
     bundle_id: "aws_sdk_lightsail.types.non_empty_string.NonEmptyString"

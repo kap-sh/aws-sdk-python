@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#CreateCaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.watchers
 
 
-class CreateCaseRequest(TypedDict):
+class CreateCaseRequest(TypedDict, closed=True):
     client_token: NotRequired["str"]
     """<note> <p>The <code>clientToken</code> field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided. </p> </note>"""
     resolver_type: "aws_sdk_security_ir.types.resolver_type.ResolverType"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#EphemeralStorage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.ephemeral_storage_size
 
 
-class EphemeralStorage(TypedDict):
+class EphemeralStorage(TypedDict, closed=True):
     size: "aws_sdk_lambda.types.ephemeral_storage_size.EphemeralStorageSize"
     """<p>The size of the function's <code>/tmp</code> directory.</p>"""
 

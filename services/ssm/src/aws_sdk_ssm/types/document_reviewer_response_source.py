@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DocumentReviewerResponseSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.reviewer
 
 
-class DocumentReviewerResponseSource(TypedDict):
+class DocumentReviewerResponseSource(TypedDict, closed=True):
     create_time: NotRequired["aws_sdk_ssm.types.date_time.DateTime"]
     """<p>The date and time that a reviewer entered a response to a document review request.</p>"""
     updated_time: NotRequired["aws_sdk_ssm.types.date_time.DateTime"]

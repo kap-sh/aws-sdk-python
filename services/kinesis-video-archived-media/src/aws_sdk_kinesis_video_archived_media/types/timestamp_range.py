@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideoarchivedmedia#TimestampRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_video_archived_media.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.timestamp
 
 
-class TimestampRange(TypedDict):
+class TimestampRange(TypedDict, closed=True):
     start_timestamp: "aws_sdk_kinesis_video_archived_media.types.timestamp.Timestamp"
     """<p>The starting timestamp in the range of timestamps for which to return fragments.</p>"""
     end_timestamp: "aws_sdk_kinesis_video_archived_media.types.timestamp.Timestamp"

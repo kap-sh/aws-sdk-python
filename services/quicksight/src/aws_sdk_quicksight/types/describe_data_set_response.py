@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeDataSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DescribeDataSetResponse(TypedDict):
+class DescribeDataSetResponse(TypedDict, closed=True):
     data_set: NotRequired["aws_sdk_quicksight.types.data_set.DataSet"]
     """<p>Information on the dataset.</p>"""
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]

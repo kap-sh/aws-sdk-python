@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#RecommendationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class RecommendationSettings(TypedDict):
+class RecommendationSettings(TypedDict, closed=True):
     instance_sizing_type: "aws_sdk_database_migration_service.types.string.String"
     r"""<p>The size of your target instance. Fleet Advisor calculates this value based on your data collection type, such as total capacity and resource utilization. Valid values include <code>\"total-capacity\"</code> and <code>\"utilization\"</code>.</p>"""
     workload_type: "aws_sdk_database_migration_service.types.string.String"

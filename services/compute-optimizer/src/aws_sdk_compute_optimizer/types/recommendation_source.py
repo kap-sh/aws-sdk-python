@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#RecommendationSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.recommendation_source_arn
     import aws_sdk_compute_optimizer.types.recommendation_source_type
 
 
-class RecommendationSource(TypedDict):
+class RecommendationSource(TypedDict, closed=True):
     recommendation_source_arn: NotRequired[
         "aws_sdk_compute_optimizer.types.recommendation_source_arn.RecommendationSourceArn"
     ]

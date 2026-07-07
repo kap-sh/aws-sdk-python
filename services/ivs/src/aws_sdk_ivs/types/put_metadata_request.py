@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#PutMetadataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.stream_metadata
 
 
-class PutMetadataRequest(TypedDict):
+class PutMetadataRequest(TypedDict, closed=True):
     channel_arn: "aws_sdk_ivs.types.channel_arn.ChannelArn"
     """<p>ARN of the channel into which metadata is inserted. This channel must have an active stream.</p>"""
     metadata: "aws_sdk_ivs.types.stream_metadata.StreamMetadata"

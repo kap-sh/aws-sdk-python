@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#AccessPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.position
 
 
-class AccessPoint(TypedDict):
+class AccessPoint(TypedDict, closed=True):
     position: NotRequired["aws_sdk_geo_places.types.position.Position"]
     """<p>The position in World Geodetic System (WGS 84) format: [longitude, latitude].</p>"""
 

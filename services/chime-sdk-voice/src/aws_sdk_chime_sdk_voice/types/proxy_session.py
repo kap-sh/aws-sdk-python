@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ProxySession``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.capability_list
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.string128
 
 
-class ProxySession(TypedDict):
+class ProxySession(TypedDict, closed=True):
     voice_connector_id: NotRequired[
         "aws_sdk_chime_sdk_voice.types.non_empty_string128.NonEmptyString128"
     ]

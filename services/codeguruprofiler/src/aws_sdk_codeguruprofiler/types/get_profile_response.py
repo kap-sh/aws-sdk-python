@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#GetProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.aggregated_profile
 
 
-class GetProfileResponse(TypedDict):
+class GetProfileResponse(TypedDict, closed=True):
     profile: "aws_sdk_codeguruprofiler.types.aggregated_profile.AggregatedProfile"
     """<p>Information about the profile.</p>"""
     content_type: "str"

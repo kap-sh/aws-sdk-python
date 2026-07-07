@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#CreatePermissionSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.permission_set
 
 
-class CreatePermissionSetResponse(TypedDict):
+class CreatePermissionSetResponse(TypedDict, closed=True):
     permission_set: NotRequired["aws_sdk_sso_admin.types.permission_set.PermissionSet"]
     """<p>Defines the level of access on an Amazon Web Services account.</p>"""
 

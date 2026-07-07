@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#StreamNameCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.comparison_operator
     import aws_sdk_kinesis_video.types.stream_name
 
 
-class StreamNameCondition(TypedDict):
+class StreamNameCondition(TypedDict, closed=True):
     comparison_operator: NotRequired[
         "aws_sdk_kinesis_video.types.comparison_operator.ComparisonOperator"
     ]

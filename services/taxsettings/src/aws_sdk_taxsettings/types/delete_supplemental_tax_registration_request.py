@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#DeleteSupplementalTaxRegistrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.generic_string
 
 
-class DeleteSupplementalTaxRegistrationRequest(TypedDict):
+class DeleteSupplementalTaxRegistrationRequest(TypedDict, closed=True):
     authority_id: "aws_sdk_taxsettings.types.generic_string.GenericString"
     """<p> The unique authority Id for the supplemental TRN information that needs to be deleted. </p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#CreateMediaLiveConnectorPipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.tag_list
 
 
-class CreateMediaLiveConnectorPipelineRequest(TypedDict):
+class CreateMediaLiveConnectorPipelineRequest(TypedDict, closed=True):
     sources: "aws_sdk_chime_sdk_media_pipelines.types.live_connector_source_list.LiveConnectorSourceList"
     """<p>The media live connector pipeline's data sources.</p>"""
     sinks: "aws_sdk_chime_sdk_media_pipelines.types.live_connector_sink_list.LiveConnectorSinkList"

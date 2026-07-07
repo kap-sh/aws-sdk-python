@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#GetBlacklistReportsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.blacklist_item_names
 
 
-class GetBlacklistReportsRequest(TypedDict):
+class GetBlacklistReportsRequest(TypedDict, closed=True):
     blacklist_item_names: (
         "aws_sdk_pinpoint_email.types.blacklist_item_names.BlacklistItemNames"
     )

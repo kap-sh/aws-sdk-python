@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ListCommonControlsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.pagination_token
 
 
-class ListCommonControlsResponse(TypedDict):
+class ListCommonControlsResponse(TypedDict, closed=True):
     common_controls: "aws_sdk_controlcatalog.types.common_control_summary_list.CommonControlSummaryList"
     """<p>The list of common controls that the <code>ListCommonControls</code> API returns.</p>"""
     next_token: NotRequired[

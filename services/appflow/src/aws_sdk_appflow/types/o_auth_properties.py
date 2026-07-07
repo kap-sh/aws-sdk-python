@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#OAuthProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.token_url
 
 
-class OAuthProperties(TypedDict):
+class OAuthProperties(TypedDict, closed=True):
     token_url: "aws_sdk_appflow.types.token_url.TokenUrl"
     """<p> The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.</p>"""
     auth_code_url: "aws_sdk_appflow.types.auth_code_url.AuthCodeUrl"

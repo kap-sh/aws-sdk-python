@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotTableFieldCollapseStateTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_path_value_list
     import aws_sdk_quicksight.types.string
 
 
-class PivotTableFieldCollapseStateTarget(TypedDict):
+class PivotTableFieldCollapseStateTarget(TypedDict, closed=True):
     field_id: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The field ID of the pivot table that the collapse state needs to be set to.</p>"""
     field_data_path_values: NotRequired[

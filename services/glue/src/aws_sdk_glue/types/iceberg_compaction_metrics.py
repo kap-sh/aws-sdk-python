@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IcebergCompactionMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.dpu_counts
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.metric_counts
 
 
-class IcebergCompactionMetrics(TypedDict):
+class IcebergCompactionMetrics(TypedDict, closed=True):
     number_of_bytes_compacted: "aws_sdk_glue.types.metric_counts.metricCounts"
     """<p>The number of bytes removed by the compaction job run.</p>"""
     number_of_files_compacted: "aws_sdk_glue.types.metric_counts.metricCounts"

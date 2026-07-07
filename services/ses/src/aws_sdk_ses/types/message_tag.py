@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#MessageTag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.message_tag_value
 
 
-class MessageTag(TypedDict):
+class MessageTag(TypedDict, closed=True):
     name: "aws_sdk_ses.types.message_tag_name.MessageTagName"
     """<p>The name of the tag. The name must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Contain 256 characters or fewer.</p> </li> </ul>"""
     value: "aws_sdk_ses.types.message_tag_value.MessageTagValue"

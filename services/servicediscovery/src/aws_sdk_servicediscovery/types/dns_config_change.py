@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#DnsConfigChange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.dns_record_list
 
 
-class DnsConfigChange(TypedDict):
+class DnsConfigChange(TypedDict, closed=True):
     dns_records: "aws_sdk_servicediscovery.types.dns_record_list.DnsRecordList"
     """<p>An array that contains one <code>DnsRecord</code> object for each Route 53 record that you want Cloud Map to create when you register an instance.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DeleteAttachmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.user_id
 
 
-class DeleteAttachmentRequest(TypedDict):
+class DeleteAttachmentRequest(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The unique identifier for the Amazon Q Business application environment.</p>"""
     conversation_id: "aws_sdk_qbusiness.types.conversation_id.ConversationId"

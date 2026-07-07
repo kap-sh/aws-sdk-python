@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#Domain``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.hosted_zone_id
 
 
-class Domain(TypedDict):
+class Domain(TypedDict, closed=True):
     domain_name: "aws_sdk_workmail.types.domain_name.DomainName"
     """<p>The fully qualified domain name.</p>"""
     hosted_zone_id: NotRequired["aws_sdk_workmail.types.hosted_zone_id.HostedZoneId"]

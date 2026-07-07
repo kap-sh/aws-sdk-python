@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#LexBotConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.lex_bot
     import aws_sdk_connect.types.lex_v2_bot
 
 
-class LexBotConfig(TypedDict):
+class LexBotConfig(TypedDict, closed=True):
     lex_bot: NotRequired["aws_sdk_connect.types.lex_bot.LexBot"]
     lex_v2_bot: NotRequired["aws_sdk_connect.types.lex_v2_bot.LexV2Bot"]
     """<p>Configuration information of an Amazon Lex V2 bot.</p>"""

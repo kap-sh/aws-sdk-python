@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ActionPayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.action_payload_string
 
 
-class ActionPayload(TypedDict):
+class ActionPayload(TypedDict, closed=True):
     string_value: "aws_sdk_iotsitewise.types.action_payload_string.ActionPayloadString"
     """<p>The payload of the action in a JSON string.</p>"""
 

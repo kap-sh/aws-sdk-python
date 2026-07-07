@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#BucketCorsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.bucket_cors_rules
 
 
-class BucketCorsConfig(TypedDict):
+class BucketCorsConfig(TypedDict, closed=True):
     rules: NotRequired["aws_sdk_lightsail.types.bucket_cors_rules.BucketCorsRules"]
     """<p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 20 rules to the configuration. The total size is limited to 64 KB.</p>"""
 

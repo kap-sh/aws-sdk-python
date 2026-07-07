@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CloudWatchLogsInputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.service_names_list
 
 
-class CloudWatchLogsInputConfig(TypedDict):
+class CloudWatchLogsInputConfig(TypedDict, closed=True):
     log_group_names: (
         "aws_sdk_bedrock_agentcore_control.types.log_group_names_list.LogGroupNamesList"
     )

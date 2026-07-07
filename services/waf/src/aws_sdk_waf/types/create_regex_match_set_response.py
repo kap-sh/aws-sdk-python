@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.waf#CreateRegexMatchSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.change_token
     import aws_sdk_waf.types.regex_match_set
 
 
-class CreateRegexMatchSetResponse(TypedDict):
+class CreateRegexMatchSetResponse(TypedDict, closed=True):
     regex_match_set: NotRequired["aws_sdk_waf.types.regex_match_set.RegexMatchSet"]
     """<p>A <a>RegexMatchSet</a> that contains no <code>RegexMatchTuple</code> objects.</p>"""
     change_token: NotRequired["aws_sdk_waf.types.change_token.ChangeToken"]

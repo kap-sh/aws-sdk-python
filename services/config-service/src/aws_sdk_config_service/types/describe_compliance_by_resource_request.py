@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DescribeComplianceByResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.base_resource_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string_with_char_limit256
 
 
-class DescribeComplianceByResourceRequest(TypedDict):
+class DescribeComplianceByResourceRequest(TypedDict, closed=True):
     resource_type: NotRequired[
         "aws_sdk_config_service.types.string_with_char_limit256.StringWithCharLimit256"
     ]

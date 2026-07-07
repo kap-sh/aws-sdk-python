@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsOpenSearchServiceDomainDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_open_search_service_domain_advanced_security_options_details
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsOpenSearchServiceDomainDetails(TypedDict):
+class AwsOpenSearchServiceDomainDetails(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The ARN of the OpenSearch Service domain.</p>"""
     access_policies: NotRequired[

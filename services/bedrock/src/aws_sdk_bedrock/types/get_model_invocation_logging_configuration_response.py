@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetModelInvocationLoggingConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.logging_config
 
 
-class GetModelInvocationLoggingConfigurationResponse(TypedDict):
+class GetModelInvocationLoggingConfigurationResponse(TypedDict, closed=True):
     logging_config: NotRequired["aws_sdk_bedrock.types.logging_config.LoggingConfig"]
     """<p>The current configuration values.</p>"""
 

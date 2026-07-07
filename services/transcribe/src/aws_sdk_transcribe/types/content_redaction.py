@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#ContentRedaction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.redaction_type
 
 
-class ContentRedaction(TypedDict):
+class ContentRedaction(TypedDict, closed=True):
     redaction_type: "aws_sdk_transcribe.types.redaction_type.RedactionType"
     """<p>Specify the category of information you want to redact; <code>PII</code> (personally identifiable information) is the only valid value. You can use <code>PiiEntityTypes</code> to choose which types of PII you want to redact. If you do not include <code>PiiEntityTypes</code> in your request, all PII is redacted.</p>"""
     redaction_output: "aws_sdk_transcribe.types.redaction_output.RedactionOutput"

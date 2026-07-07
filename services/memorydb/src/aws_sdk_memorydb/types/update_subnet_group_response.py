@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#UpdateSubnetGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.subnet_group
 
 
-class UpdateSubnetGroupResponse(TypedDict):
+class UpdateSubnetGroupResponse(TypedDict, closed=True):
     subnet_group: NotRequired["aws_sdk_memorydb.types.subnet_group.SubnetGroup"]
     """<p>The updated subnet group</p>"""
 

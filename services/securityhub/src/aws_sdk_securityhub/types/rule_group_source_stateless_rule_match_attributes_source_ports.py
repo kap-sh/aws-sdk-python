@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#RuleGroupSourceStatelessRuleMatchAttributesSourcePorts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
 
 
-class RuleGroupSourceStatelessRuleMatchAttributesSourcePorts(TypedDict):
+class RuleGroupSourceStatelessRuleMatchAttributesSourcePorts(TypedDict, closed=True):
     from_port: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The starting port value for the port range.</p>"""
     to_port: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

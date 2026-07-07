@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AIGuardrailContentPolicyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.guardrail_content_filters_config
 
 
-class AIGuardrailContentPolicyConfig(TypedDict):
+class AIGuardrailContentPolicyConfig(TypedDict, closed=True):
     filters_config: "aws_sdk_qconnect.types.guardrail_content_filters_config.GuardrailContentFiltersConfig"
     """<p>Contains the type of the content filter and how strongly it should apply to prompts and model responses.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#CacheDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.cache_ttl
 
 
-class CacheDetail(TypedDict):
+class CacheDetail(TypedDict, closed=True):
     ttl: "aws_sdk_bedrock_runtime.types.cache_ttl.CacheTTL"
     """<p>TTL duration for these cached tokens</p>"""
     input_tokens: "int"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#AddTagsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.entity_id
     import aws_sdk_machine_learning.types.taggable_resource_type
 
 
-class AddTagsOutput(TypedDict):
+class AddTagsOutput(TypedDict, closed=True):
     resource_id: NotRequired["aws_sdk_machine_learning.types.entity_id.EntityId"]
     """<p>The ID of the ML object that was tagged.</p>"""
     resource_type: NotRequired[

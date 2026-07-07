@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListNotificationConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.notification_configurations
 
 
-class ListNotificationConfigurationsResponse(TypedDict):
+class ListNotificationConfigurationsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_notifications.types.next_token.NextToken"]
     """<p>A pagination token. If a non-null pagination token is returned in a result, pass its value in another request to retrieve more entries.</p>"""
     notification_configurations: "aws_sdk_notifications.types.notification_configurations.NotificationConfigurations"

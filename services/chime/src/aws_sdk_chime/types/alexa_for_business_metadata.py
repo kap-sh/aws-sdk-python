@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chime#AlexaForBusinessMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.boolean
     import aws_sdk_chime.types.sensitive_string
 
 
-class AlexaForBusinessMetadata(TypedDict):
+class AlexaForBusinessMetadata(TypedDict, closed=True):
     is_alexa_for_business_enabled: NotRequired["aws_sdk_chime.types.boolean.Boolean"]
     """<p>Starts or stops Alexa for Business.</p>"""
     alexa_for_business_room_arn: NotRequired[

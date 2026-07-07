@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#Principal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.id_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.principal_type
 
 
-class Principal(TypedDict):
+class Principal(TypedDict, closed=True):
     id: NotRequired["aws_sdk_workdocs.types.id_type.IdType"]
     """<p>The ID of the resource.</p>"""
     type: NotRequired["aws_sdk_workdocs.types.principal_type.PrincipalType"]

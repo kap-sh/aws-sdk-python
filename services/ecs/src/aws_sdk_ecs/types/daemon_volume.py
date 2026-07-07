@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DaemonVolume``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.host_volume_properties
     import aws_sdk_ecs.types.string
 
 
-class DaemonVolume(TypedDict):
+class DaemonVolume(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p>"""
     host: NotRequired["aws_sdk_ecs.types.host_volume_properties.HostVolumeProperties"]

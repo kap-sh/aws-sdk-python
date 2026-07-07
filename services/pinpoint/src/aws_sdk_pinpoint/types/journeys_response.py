@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#JourneysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.list_of_journey_response
 
 
-class JourneysResponse(TypedDict):
+class JourneysResponse(TypedDict, closed=True):
     item: NotRequired[
         "aws_sdk_pinpoint.types.list_of_journey_response.ListOfJourneyResponse"
     ]

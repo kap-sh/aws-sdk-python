@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DescribeUserGroupsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.user_group_list
 
 
-class DescribeUserGroupsResult(TypedDict):
+class DescribeUserGroupsResult(TypedDict, closed=True):
     user_groups: NotRequired["aws_sdk_elasticache.types.user_group_list.UserGroupList"]
     """<p>Returns a list of user groups.</p>"""
     marker: NotRequired["aws_sdk_elasticache.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#AccountAssociationItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.connector_destination_id
 
 
-class AccountAssociationItem(TypedDict):
+class AccountAssociationItem(TypedDict, closed=True):
     account_association_id: "aws_sdk_iot_managed_integrations.types.account_association_id.AccountAssociationId"
     """<p>The unique identifier of the account association.</p>"""
     association_state: (

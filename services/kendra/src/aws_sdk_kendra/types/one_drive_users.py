@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#OneDriveUsers``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.one_drive_user_list
     import aws_sdk_kendra.types.s3_path
 
 
-class OneDriveUsers(TypedDict):
+class OneDriveUsers(TypedDict, closed=True):
     one_drive_user_list: NotRequired[
         "aws_sdk_kendra.types.one_drive_user_list.OneDriveUserList"
     ]

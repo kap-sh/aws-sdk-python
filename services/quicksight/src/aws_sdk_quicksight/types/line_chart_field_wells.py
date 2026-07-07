@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#LineChartFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.line_chart_aggregated_field_wells
 
 
-class LineChartFieldWells(TypedDict):
+class LineChartFieldWells(TypedDict, closed=True):
     line_chart_aggregated_field_wells: NotRequired[
         "aws_sdk_quicksight.types.line_chart_aggregated_field_wells.LineChartAggregatedFieldWells"
     ]

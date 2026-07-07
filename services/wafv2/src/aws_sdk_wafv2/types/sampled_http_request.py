@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#SampledHTTPRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.timestamp
 
 
-class SampledHTTPRequest(TypedDict):
+class SampledHTTPRequest(TypedDict, closed=True):
     request: "aws_sdk_wafv2.types.http_request.HTTPRequest"
     """<p>A complex type that contains detailed information about the request.</p>"""
     weight: "aws_sdk_wafv2.types.sample_weight.SampleWeight"

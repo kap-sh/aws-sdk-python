@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedJobConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.protected_job_direct_analysis_configuration_details
 
 
-class _ProtectedJobConfigurationDetails_directAnalysisConfigurationDetails(TypedDict):
+class _ProtectedJobConfigurationDetails_directAnalysisConfigurationDetails(
+    TypedDict, closed=True
+):
     directAnalysisConfigurationDetails: "aws_sdk_cleanrooms.types.protected_job_direct_analysis_configuration_details.ProtectedJobDirectAnalysisConfigurationDetails"
 
 

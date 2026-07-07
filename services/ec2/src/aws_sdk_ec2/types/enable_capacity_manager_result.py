@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#EnableCapacityManagerResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.capacity_manager_status
 
 
-class EnableCapacityManagerResult(TypedDict):
+class EnableCapacityManagerResult(TypedDict, closed=True):
     capacity_manager_status: NotRequired[
         "aws_sdk_ec2.types.capacity_manager_status.CapacityManagerStatus"
     ]

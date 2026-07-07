@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#AttributeDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.scalar_attribute_type
 
 
-class AttributeDefinition(TypedDict):
+class AttributeDefinition(TypedDict, closed=True):
     attribute_name: (
         "aws_sdk_dynamodb.types.key_schema_attribute_name.KeySchemaAttributeName"
     )

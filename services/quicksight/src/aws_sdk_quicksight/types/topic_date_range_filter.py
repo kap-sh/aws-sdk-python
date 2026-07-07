@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicDateRangeFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
     import aws_sdk_quicksight.types.topic_range_filter_constant
 
 
-class TopicDateRangeFilter(TypedDict):
+class TopicDateRangeFilter(TypedDict, closed=True):
     inclusive: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>A Boolean value that indicates whether the date range filter should include the boundary values. If set to true, the filter includes the start and end dates. If set to false, the filter excludes them.</p>"""
     constant: NotRequired[

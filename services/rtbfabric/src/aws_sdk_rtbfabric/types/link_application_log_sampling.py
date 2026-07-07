@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#LinkApplicationLogSampling``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
 
-class LinkApplicationLogSampling(TypedDict):
+class LinkApplicationLogSampling(TypedDict, closed=True):
     error_log: "float"
     """<p>An error log entry.</p>"""
     filter_log: "float"

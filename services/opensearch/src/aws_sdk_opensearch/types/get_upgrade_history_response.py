@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#GetUpgradeHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
     import aws_sdk_opensearch.types.upgrade_history_list
 
 
-class GetUpgradeHistoryResponse(TypedDict):
+class GetUpgradeHistoryResponse(TypedDict, closed=True):
     upgrade_histories: NotRequired[
         "aws_sdk_opensearch.types.upgrade_history_list.UpgradeHistoryList"
     ]

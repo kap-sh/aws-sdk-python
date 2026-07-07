@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeCacheOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.disk_ids
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.long
 
 
-class DescribeCacheOutput(TypedDict):
+class DescribeCacheOutput(TypedDict, closed=True):
     gateway_arn: NotRequired["aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"]
     disk_ids: NotRequired["aws_sdk_storage_gateway.types.disk_ids.DiskIds"]
     """<p>An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the <a>ListLocalDisks</a> API.</p>"""

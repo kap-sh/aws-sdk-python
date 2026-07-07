@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ReplaceImageCriteriaInAllowedImagesSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.image_criterion_request_list
 
 
-class ReplaceImageCriteriaInAllowedImagesSettingsRequest(TypedDict):
+class ReplaceImageCriteriaInAllowedImagesSettingsRequest(TypedDict, closed=True):
     image_criteria: NotRequired[
         "aws_sdk_ec2.types.image_criterion_request_list.ImageCriterionRequestList"
     ]

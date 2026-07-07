@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#GetSpeakerSearchTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.speaker_search_task
 
 
-class GetSpeakerSearchTaskResponse(TypedDict):
+class GetSpeakerSearchTaskResponse(TypedDict, closed=True):
     speaker_search_task: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.speaker_search_task.SpeakerSearchTask"
     ]

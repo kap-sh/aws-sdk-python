@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GetQueryResultsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.query_id
 
 
-class GetQueryResultsRequest(TypedDict):
+class GetQueryResultsRequest(TypedDict, closed=True):
     query_id: "aws_sdk_cloudwatch_logs.types.query_id.QueryId"
     """<p>The ID number of the query.</p>"""
     next_token: NotRequired[

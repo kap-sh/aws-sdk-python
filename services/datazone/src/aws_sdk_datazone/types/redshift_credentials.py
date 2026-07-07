@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RedshiftCredentials``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.username_password
 
 
-class _RedshiftCredentials_secretArn(TypedDict):
+class _RedshiftCredentials_secretArn(TypedDict, closed=True):
     secretArn: "str"
 
 
-class _RedshiftCredentials_usernamePassword(TypedDict):
+class _RedshiftCredentials_usernamePassword(TypedDict, closed=True):
     usernamePassword: "aws_sdk_datazone.types.username_password.UsernamePassword"
 
 

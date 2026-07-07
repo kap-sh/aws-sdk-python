@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeletePaymentManagerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.client_token
     import aws_sdk_bedrock_agentcore_control.types.payment_manager_id
 
 
-class DeletePaymentManagerRequest(TypedDict):
+class DeletePaymentManagerRequest(TypedDict, closed=True):
     payment_manager_id: (
         "aws_sdk_bedrock_agentcore_control.types.payment_manager_id.PaymentManagerId"
     )

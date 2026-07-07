@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#StopBgpFailoverTestResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.virtual_interface_test_history
 
 
-class StopBgpFailoverTestResponse(TypedDict):
+class StopBgpFailoverTestResponse(TypedDict, closed=True):
     virtual_interface_test: NotRequired[
         "aws_sdk_direct_connect.types.virtual_interface_test_history.VirtualInterfaceTestHistory"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#DeleteVpcEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.delete_vpc_endpoint_detail
 
 
-class DeleteVpcEndpointResponse(TypedDict):
+class DeleteVpcEndpointResponse(TypedDict, closed=True):
     delete_vpc_endpoint_detail: NotRequired[
         "aws_sdk_opensearchserverless.types.delete_vpc_endpoint_detail.DeleteVpcEndpointDetail"
     ]

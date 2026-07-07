@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#WrappedKeyMaterial``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.tr31_wrapped_key_block
 
 
-class _WrappedKeyMaterial_Tr31KeyBlock(TypedDict):
+class _WrappedKeyMaterial_Tr31KeyBlock(TypedDict, closed=True):
     Tr31KeyBlock: "aws_sdk_payment_cryptography_data.types.tr31_wrapped_key_block.Tr31WrappedKeyBlock"
 
 
-class _WrappedKeyMaterial_DiffieHellmanSymmetricKey(TypedDict):
+class _WrappedKeyMaterial_DiffieHellmanSymmetricKey(TypedDict, closed=True):
     DiffieHellmanSymmetricKey: "aws_sdk_payment_cryptography_data.types.ecdh_derivation_attributes.EcdhDerivationAttributes"
 
 

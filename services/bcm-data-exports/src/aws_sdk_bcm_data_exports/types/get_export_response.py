@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#GetExportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.export
     import aws_sdk_bcm_data_exports.types.export_status
 
 
-class GetExportResponse(TypedDict):
+class GetExportResponse(TypedDict, closed=True):
     export: NotRequired["aws_sdk_bcm_data_exports.types.export.Export"]
     """<p>The data for this specific export.</p>"""
     export_status: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#ResourceInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.account_id_string
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.verification_status
 
 
-class ResourceInfo(TypedDict):
+class ResourceInfo(TypedDict, closed=True):
     resource_arn: NotRequired[
         "aws_sdk_lakeformation.types.resource_arn_string.ResourceArnString"
     ]

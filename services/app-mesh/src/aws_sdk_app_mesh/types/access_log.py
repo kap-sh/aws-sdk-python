@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#AccessLog``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.file_access_log
 
 
-class _AccessLog_file(TypedDict):
+class _AccessLog_file(TypedDict, closed=True):
     file: "aws_sdk_app_mesh.types.file_access_log.FileAccessLog"
 
 

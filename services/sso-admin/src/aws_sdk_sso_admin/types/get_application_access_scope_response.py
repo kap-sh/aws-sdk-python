@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#GetApplicationAccessScopeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.scope_targets
 
 
-class GetApplicationAccessScopeResponse(TypedDict):
+class GetApplicationAccessScopeResponse(TypedDict, closed=True):
     scope: "aws_sdk_sso_admin.types.scope.Scope"
     """<p>The name of the access scope that can be used with the authorized targets.</p>"""
     authorized_targets: NotRequired[

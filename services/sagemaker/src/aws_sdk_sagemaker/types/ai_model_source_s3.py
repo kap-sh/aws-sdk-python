@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIModelSourceS3``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class AIModelSourceS3(TypedDict):
+class AIModelSourceS3(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     """<p>The Amazon S3 URI of the model artifacts.</p>"""
 

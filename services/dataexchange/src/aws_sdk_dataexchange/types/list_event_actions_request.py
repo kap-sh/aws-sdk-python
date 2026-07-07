@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ListEventActionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__string
     import aws_sdk_dataexchange.types.max_results
 
 
-class ListEventActionsRequest(TypedDict):
+class ListEventActionsRequest(TypedDict, closed=True):
     event_source_id: NotRequired["aws_sdk_dataexchange.types.__string.__string"]
     """<p>The unique identifier for the event source.</p>"""
     max_results: "aws_sdk_dataexchange.types.max_results.MaxResults"

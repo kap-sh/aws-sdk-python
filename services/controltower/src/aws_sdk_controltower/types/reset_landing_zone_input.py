@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#ResetLandingZoneInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
 
-class ResetLandingZoneInput(TypedDict):
+class ResetLandingZoneInput(TypedDict, closed=True):
     landing_zone_identifier: "str"
     """<p>The unique identifier of the landing zone.</p>"""
 

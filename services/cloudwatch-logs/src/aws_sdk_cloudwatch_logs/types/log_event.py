@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#LogEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.event_message
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class LogEvent(TypedDict):
+class LogEvent(TypedDict, closed=True):
     timestamp: NotRequired["aws_sdk_cloudwatch_logs.types.timestamp.Timestamp"]
     """<p>The time stamp of the log event.</p>"""
     message: NotRequired["aws_sdk_cloudwatch_logs.types.event_message.EventMessage"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mq#DeleteTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__list_of__string
     import aws_sdk_mq.types.__string
 
 
-class DeleteTagsRequest(TypedDict):
+class DeleteTagsRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_mq.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) of the resource tag.</p>"""
     tag_keys: NotRequired["aws_sdk_mq.types.__list_of__string.__listOf__string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SparkEmrPropertiesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.username_password
 
 
-class SparkEmrPropertiesOutput(TypedDict):
+class SparkEmrPropertiesOutput(TypedDict, closed=True):
     compute_arn: NotRequired["str"]
     """<p>The compute ARN of the Spark EMR.</p>"""
     credentials: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListReportPlansInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.max_results
     import aws_sdk_backup.types.string
 
 
-class ListReportPlansInput(TypedDict):
+class ListReportPlansInput(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_backup.types.max_results.MaxResults"]
     """<p>The number of desired results from 1 to 1000. Optional. If unspecified, the query will return 1 MB of data.</p>"""
     next_token: NotRequired["aws_sdk_backup.types.string.string"]

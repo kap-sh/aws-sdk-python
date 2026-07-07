@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#OrchestrationExecutor``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
 
@@ -12,6 +14,7 @@ _OrchestrationExecutor_lambda = TypedDict(
     {
         "lambda": "aws_sdk_bedrock_agent.types.lambda_arn.LambdaArn",
     },
+    closed=True,
 )
 
 OrchestrationExecutor: TypeAlias = _OrchestrationExecutor_lambda

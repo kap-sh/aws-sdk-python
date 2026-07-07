@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#Parent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.parent_id
     import aws_sdk_organizations.types.parent_type
 
 
-class Parent(TypedDict):
+class Parent(TypedDict, closed=True):
     id: NotRequired["aws_sdk_organizations.types.parent_id.ParentId"]
     r"""<p>The unique identifier (ID) of the parent entity.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a parent ID string requires one of the following:</p> <ul> <li> <p> <b>Root</b> - A string that begins with \"r-\" followed by from 4 to 32 lowercase letters or digits.</p> </li> <li> <p> <b>Organizational unit (OU)</b> - A string that begins with \"ou-\" followed by from 4 to 32 lowercase letters or digits (the ID of the root that the OU is in). This string is followed by a second \"-\" dash and from 8 to 32 additional lowercase letters or digits.</p> </li> </ul>"""
     type: NotRequired["aws_sdk_organizations.types.parent_type.ParentType"]

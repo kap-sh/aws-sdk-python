@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ProgressEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.eventstream import HeaderValue, Message
 from aws_sdk_s3._protocol.xml import Element, SubElement, fromstring, tostring
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.progress
 
 
-class ProgressEvent(TypedDict):
+class ProgressEvent(TypedDict, closed=True):
     details: NotRequired["aws_sdk_s3.types.progress.Progress"]
     """<p>The Progress event details.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#PutMaintenanceStartTimeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup_gateway.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.minute_of_hour
 
 
-class PutMaintenanceStartTimeInput(TypedDict):
+class PutMaintenanceStartTimeInput(TypedDict, closed=True):
     gateway_arn: "aws_sdk_backup_gateway.types.gateway_arn.GatewayArn"
     """<p>The Amazon Resource Name (ARN) for the gateway, used to specify its maintenance start time.</p>"""
     hour_of_day: "aws_sdk_backup_gateway.types.hour_of_day.HourOfDay"

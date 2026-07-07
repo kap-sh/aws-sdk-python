@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#GetProtectionStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.aws_account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.security_service_type
 
 
-class GetProtectionStatusResponse(TypedDict):
+class GetProtectionStatusResponse(TypedDict, closed=True):
     admin_account_id: NotRequired["aws_sdk_fms.types.aws_account_id.AWSAccountId"]
     """<p>The ID of the Firewall Manager administrator account for this policy.</p>"""
     service_type: NotRequired[

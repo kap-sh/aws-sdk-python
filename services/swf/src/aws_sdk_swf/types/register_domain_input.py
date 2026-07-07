@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#RegisterDomainInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.resource_tag_list
 
 
-class RegisterDomainInput(TypedDict):
+class RegisterDomainInput(TypedDict, closed=True):
     name: "aws_sdk_swf.types.domain_name.DomainName"
     r"""<p>Name of the domain to register. The name must be unique in the region that the domain is registered in.</p> <p>The specified string must not start or end with whitespace. It must not contain a <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</p>"""
     description: NotRequired["aws_sdk_swf.types.description.Description"]

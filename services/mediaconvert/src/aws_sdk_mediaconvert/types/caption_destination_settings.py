@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#CaptionDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.burnin_destination_settings
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.webvtt_destination_settings
 
 
-class CaptionDestinationSettings(TypedDict):
+class CaptionDestinationSettings(TypedDict, closed=True):
     burnin_destination_settings: NotRequired[
         "aws_sdk_mediaconvert.types.burnin_destination_settings.BurninDestinationSettings"
     ]

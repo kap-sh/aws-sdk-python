@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#ListSecurityConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.next_token
 
 
-class ListSecurityConfigurationsRequest(TypedDict):
+class ListSecurityConfigurationsRequest(TypedDict, closed=True):
     created_after: NotRequired["aws_sdk_emr_containers.types.date.Date"]
     """<p>The date and time after which the security configuration was created.</p>"""
     created_before: NotRequired["aws_sdk_emr_containers.types.date.Date"]

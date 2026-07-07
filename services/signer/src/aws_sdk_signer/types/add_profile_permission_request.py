@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#AddProfilePermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_signer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.string
 
 
-class AddProfilePermissionRequest(TypedDict):
+class AddProfilePermissionRequest(TypedDict, closed=True):
     profile_name: "aws_sdk_signer.types.profile_name.ProfileName"
     """<p>The human-readable name of the signing profile.</p>"""
     profile_version: NotRequired["aws_sdk_signer.types.profile_version.ProfileVersion"]

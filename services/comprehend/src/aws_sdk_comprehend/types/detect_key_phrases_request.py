@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DetectKeyPhrasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.language_code
 
 
-class DetectKeyPhrasesRequest(TypedDict):
+class DetectKeyPhrasesRequest(TypedDict, closed=True):
     text: "aws_sdk_comprehend.types.customer_input_string.CustomerInputString"
     """<p>A UTF-8 text string. The string must contain less than 100 KB of UTF-8 encoded characters.</p>"""
     language_code: "aws_sdk_comprehend.types.language_code.LanguageCode"

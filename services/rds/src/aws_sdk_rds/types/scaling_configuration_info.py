@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ScalingConfigurationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class ScalingConfigurationInfo(TypedDict):
+class ScalingConfigurationInfo(TypedDict, closed=True):
     min_capacity: NotRequired["aws_sdk_rds.types.integer_optional.IntegerOptional"]
     """<p>The minimum capacity for an Aurora DB cluster in <code>serverless</code> DB engine mode.</p>"""
     max_capacity: NotRequired["aws_sdk_rds.types.integer_optional.IntegerOptional"]

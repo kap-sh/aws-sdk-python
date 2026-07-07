@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetListingInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class GetListingInput(TypedDict):
+class GetListingInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain.</p>"""
     identifier: "aws_sdk_datazone.types.listing_id.ListingId"

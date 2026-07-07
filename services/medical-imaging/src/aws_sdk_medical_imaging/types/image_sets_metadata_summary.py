@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#ImageSetsMetadataSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.storage_tier
 
 
-class ImageSetsMetadataSummary(TypedDict):
+class ImageSetsMetadataSummary(TypedDict, closed=True):
     image_set_id: "aws_sdk_medical_imaging.types.image_set_id.ImageSetId"
     """<p>The image set identifier.</p>"""
     version: NotRequired["int"]

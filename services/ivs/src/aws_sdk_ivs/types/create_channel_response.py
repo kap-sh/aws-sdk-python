@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#CreateChannelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.channel
     import aws_sdk_ivs.types.stream_key
 
 
-class CreateChannelResponse(TypedDict):
+class CreateChannelResponse(TypedDict, closed=True):
     channel: NotRequired["aws_sdk_ivs.types.channel.Channel"]
     """<p/>"""
     stream_key: NotRequired["aws_sdk_ivs.types.stream_key.StreamKey"]

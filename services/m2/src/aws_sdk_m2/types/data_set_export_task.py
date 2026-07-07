@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#DataSetExportTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.identifier
 
 
-class DataSetExportTask(TypedDict):
+class DataSetExportTask(TypedDict, closed=True):
     task_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The identifier of the data set export task.</p>"""
     status: "aws_sdk_m2.types.data_set_task_lifecycle.DataSetTaskLifecycle"

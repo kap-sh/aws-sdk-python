@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#TriggerProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.scheduled_trigger_properties
 
 
-class TriggerProperties(TypedDict):
+class TriggerProperties(TypedDict, closed=True):
     scheduled: NotRequired[
         "aws_sdk_customer_profiles.types.scheduled_trigger_properties.ScheduledTriggerProperties"
     ]

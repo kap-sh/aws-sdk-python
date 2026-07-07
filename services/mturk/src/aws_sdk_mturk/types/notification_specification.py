@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#NotificationSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class NotificationSpecification(TypedDict):
+class NotificationSpecification(TypedDict, closed=True):
     destination: "aws_sdk_mturk.types.string.String"
     """<p> The target for notification messages. The Destination’s format is determined by the specified Transport: </p> <ul> <li> <p>When Transport is Email, the Destination is your email address.</p> </li> <li> <p>When Transport is SQS, the Destination is your queue URL.</p> </li> <li> <p>When Transport is SNS, the Destination is the ARN of your topic.</p> </li> </ul>"""
     transport: "aws_sdk_mturk.types.notification_transport.NotificationTransport"

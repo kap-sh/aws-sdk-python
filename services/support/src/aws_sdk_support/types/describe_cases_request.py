@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeCasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.after_time
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.next_token
 
 
-class DescribeCasesRequest(TypedDict):
+class DescribeCasesRequest(TypedDict, closed=True):
     case_id_list: NotRequired["aws_sdk_support.types.case_id_list.CaseIdList"]
     """<p>A list of ID numbers of the support cases you want returned. The maximum number of cases is 100.</p>"""
     display_id: NotRequired["aws_sdk_support.types.display_id.DisplayId"]

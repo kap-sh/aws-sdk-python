@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eksauth#AssumeRoleForPodIdentityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eks_auth.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks_auth.types.jwt_token
 
 
-class AssumeRoleForPodIdentityRequest(TypedDict):
+class AssumeRoleForPodIdentityRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks_auth.types.cluster_name.ClusterName"
     """<p>The name of the cluster for the request.</p>"""
     token: "aws_sdk_eks_auth.types.jwt_token.JwtToken"

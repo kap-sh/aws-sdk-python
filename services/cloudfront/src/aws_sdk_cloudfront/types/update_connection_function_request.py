@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#UpdateConnectionFunctionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class UpdateConnectionFunctionRequest(TypedDict):
+class UpdateConnectionFunctionRequest(TypedDict, closed=True):
     id: "aws_sdk_cloudfront.types.resource_id.ResourceId"
     """<p>The connection function ID.</p>"""
     if_match: "aws_sdk_cloudfront.types.string.string"

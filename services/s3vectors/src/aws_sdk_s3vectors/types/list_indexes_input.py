@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#ListIndexesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.list_indexes_max_results
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.vector_bucket_name
 
 
-class ListIndexesInput(TypedDict):
+class ListIndexesInput(TypedDict, closed=True):
     vector_bucket_name: NotRequired[
         "aws_sdk_s3vectors.types.vector_bucket_name.VectorBucketName"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.waf#CreateByteMatchSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.byte_match_set
     import aws_sdk_waf.types.change_token
 
 
-class CreateByteMatchSetResponse(TypedDict):
+class CreateByteMatchSetResponse(TypedDict, closed=True):
     byte_match_set: NotRequired["aws_sdk_waf.types.byte_match_set.ByteMatchSet"]
     """<p>A <a>ByteMatchSet</a> that contains no <code>ByteMatchTuple</code> objects.</p>"""
     change_token: NotRequired["aws_sdk_waf.types.change_token.ChangeToken"]

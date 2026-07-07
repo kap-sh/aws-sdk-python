@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#MedicalScribeTranscriptEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connecthealth._protocol.eventstream import HeaderValue, Message
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.medical_scribe_transcript_segment
 
 
-class MedicalScribeTranscriptEvent(TypedDict):
+class MedicalScribeTranscriptEvent(TypedDict, closed=True):
     transcript_segment: NotRequired[
         "aws_sdk_connecthealth.types.medical_scribe_transcript_segment.MedicalScribeTranscriptSegment"
     ]

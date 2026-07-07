@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DescribeMultiRegionClustersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.boolean_optional
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class DescribeMultiRegionClustersRequest(TypedDict):
+class DescribeMultiRegionClustersRequest(TypedDict, closed=True):
     multi_region_cluster_name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The name of a specific multi-Region cluster to describe.</p>"""
     max_results: NotRequired["aws_sdk_memorydb.types.integer_optional.IntegerOptional"]

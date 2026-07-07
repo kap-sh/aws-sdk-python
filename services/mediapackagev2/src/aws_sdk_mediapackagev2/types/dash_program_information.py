@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#DashProgramInformation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DashProgramInformation(TypedDict):
+class DashProgramInformation(TypedDict, closed=True):
     title: NotRequired["str"]
     """<p>The title for the manifest.</p>"""
     source: NotRequired["str"]

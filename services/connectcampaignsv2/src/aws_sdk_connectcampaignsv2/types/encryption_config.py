@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#EncryptionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.enabled
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.encryption_type
 
 
-class EncryptionConfig(TypedDict):
+class EncryptionConfig(TypedDict, closed=True):
     enabled: "aws_sdk_connectcampaignsv2.types.enabled.Enabled"
     encryption_type: NotRequired[
         "aws_sdk_connectcampaignsv2.types.encryption_type.EncryptionType"

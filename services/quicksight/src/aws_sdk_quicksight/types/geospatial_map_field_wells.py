@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialMapFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_map_aggregated_field_wells
 
 
-class GeospatialMapFieldWells(TypedDict):
+class GeospatialMapFieldWells(TypedDict, closed=True):
     geospatial_map_aggregated_field_wells: NotRequired[
         "aws_sdk_quicksight.types.geospatial_map_aggregated_field_wells.GeospatialMapAggregatedFieldWells"
     ]

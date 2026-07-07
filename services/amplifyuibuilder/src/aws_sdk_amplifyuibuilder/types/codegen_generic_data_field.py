@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#CodegenGenericDataField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.codegen_generic_data_relationship_type
 
 
-class CodegenGenericDataField(TypedDict):
+class CodegenGenericDataField(TypedDict, closed=True):
     data_type: "aws_sdk_amplifyuibuilder.types.codegen_generic_data_field_data_type.CodegenGenericDataFieldDataType"
     """<p>The data type for the generic data field.</p>"""
     data_type_value: "str"

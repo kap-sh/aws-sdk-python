@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#KubernetesNetworkConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.elastic_load_balancing
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class KubernetesNetworkConfigResponse(TypedDict):
+class KubernetesNetworkConfigResponse(TypedDict, closed=True):
     service_ipv4_cidr: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The CIDR block that Kubernetes <code>Pod</code> and <code>Service</code> object IP addresses are assigned from. Kubernetes assigns addresses from an <code>IPv4</code> CIDR block assigned to a subnet that the node is in. If you didn't specify a CIDR block when you created the cluster, then Kubernetes assigns addresses from either the <code>10.100.0.0/16</code> or <code>172.20.0.0/16</code> CIDR blocks. If this was specified, then it was specified when the cluster was created and it can't be changed.</p>"""
     service_ipv6_cidr: NotRequired["aws_sdk_eks.types.string.String"]

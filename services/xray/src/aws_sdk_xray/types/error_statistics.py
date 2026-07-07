@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#ErrorStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.nullable_long
 
 
-class ErrorStatistics(TypedDict):
+class ErrorStatistics(TypedDict, closed=True):
     throttle_count: NotRequired["aws_sdk_xray.types.nullable_long.NullableLong"]
     """<p>The number of requests that failed with a 429 throttling status code.</p>"""
     other_count: NotRequired["aws_sdk_xray.types.nullable_long.NullableLong"]

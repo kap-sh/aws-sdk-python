@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#DescribeArchiveResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.archive_arn
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.timestamp
 
 
-class DescribeArchiveResponse(TypedDict):
+class DescribeArchiveResponse(TypedDict, closed=True):
     archive_arn: NotRequired["aws_sdk_eventbridge.types.archive_arn.ArchiveArn"]
     """<p>The ARN of the archive.</p>"""
     archive_name: NotRequired["aws_sdk_eventbridge.types.archive_name.ArchiveName"]

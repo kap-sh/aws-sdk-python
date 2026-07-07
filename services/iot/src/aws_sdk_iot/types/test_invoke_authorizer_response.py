@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TestInvokeAuthorizerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.is_authenticated
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.seconds
 
 
-class TestInvokeAuthorizerResponse(TypedDict):
+class TestInvokeAuthorizerResponse(TypedDict, closed=True):
     is_authenticated: NotRequired["aws_sdk_iot.types.is_authenticated.IsAuthenticated"]
     """<p>True if the token is authenticated, otherwise false.</p>"""
     principal_id: NotRequired["aws_sdk_iot.types.principal_id.PrincipalId"]

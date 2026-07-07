@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BucketCountByEncryptionType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
 
 
-class BucketCountByEncryptionType(TypedDict):
+class BucketCountByEncryptionType(TypedDict, closed=True):
     kms_managed: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The total number of buckets whose default encryption settings are configured to encrypt new objects with an KMS key, either an Amazon Web Services managed key or a customer managed key. By default, these buckets encrypt new objects automatically using DSSE-KMS or SSE-KMS encryption.</p>"""
     s3_managed: NotRequired["aws_sdk_macie2.types.__long.__long"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#SecurityConfigStats``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SecurityConfigStats(TypedDict):
+class SecurityConfigStats(TypedDict, closed=True):
     saml_config_count: NotRequired["int"]
     """<p>The number of security configurations in the current account.</p>"""
 

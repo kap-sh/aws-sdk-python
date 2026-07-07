@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#AutonomousDatabaseVersionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.db_workload
 
 
-class AutonomousDatabaseVersionSummary(TypedDict):
+class AutonomousDatabaseVersionSummary(TypedDict, closed=True):
     db_workload: NotRequired["aws_sdk_odb.types.db_workload.DbWorkload"]
     """<p>The intended use of the Autonomous Database that the version supports, such as transaction processing, data warehouse, JSON database, or APEX.</p>"""
     details: NotRequired["str"]

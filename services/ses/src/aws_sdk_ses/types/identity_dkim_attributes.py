@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#IdentityDkimAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.verification_token_list
 
 
-class IdentityDkimAttributes(TypedDict):
+class IdentityDkimAttributes(TypedDict, closed=True):
     dkim_enabled: "aws_sdk_ses.types.enabled.Enabled"
     """<p>Is true if DKIM signing is enabled for email sent from the identity. It's false otherwise. The default value is true.</p>"""
     dkim_verification_status: "aws_sdk_ses.types.verification_status.VerificationStatus"

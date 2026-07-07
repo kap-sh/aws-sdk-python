@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AiAgentInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.ai_agent_version_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
 
 
-class AiAgentInfo(TypedDict):
+class AiAgentInfo(TypedDict, closed=True):
     ai_use_case: NotRequired["aws_sdk_connect.types.ai_use_case.AiUseCase"]
     """<p> The use case or scenario for which the AI agent is involved in the contact </p>"""
     ai_agent_version_id: NotRequired[

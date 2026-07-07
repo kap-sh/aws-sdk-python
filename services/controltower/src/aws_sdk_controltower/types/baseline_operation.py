@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#BaselineOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.baseline_operation_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.timestamp
 
 
-class BaselineOperation(TypedDict):
+class BaselineOperation(TypedDict, closed=True):
     operation_identifier: NotRequired[
         "aws_sdk_controltower.types.operation_identifier.OperationIdentifier"
     ]

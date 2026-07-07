@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TrialComponentParameterValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string_parameter_value
 
 
-class _TrialComponentParameterValue_StringValue(TypedDict):
+class _TrialComponentParameterValue_StringValue(TypedDict, closed=True):
     StringValue: "aws_sdk_sagemaker.types.string_parameter_value.StringParameterValue"
 
 
-class _TrialComponentParameterValue_NumberValue(TypedDict):
+class _TrialComponentParameterValue_NumberValue(TypedDict, closed=True):
     NumberValue: "aws_sdk_sagemaker.types.double_parameter_value.DoubleParameterValue"
 
 

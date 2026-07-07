@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#EvaluateMappingTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.template
 
 
-class EvaluateMappingTemplateRequest(TypedDict):
+class EvaluateMappingTemplateRequest(TypedDict, closed=True):
     template: "aws_sdk_appsync.types.template.Template"
     """<p>The mapping template; this can be a request or response template. A <code>template</code> is required for this action.</p>"""
     context: "aws_sdk_appsync.types.context.Context"

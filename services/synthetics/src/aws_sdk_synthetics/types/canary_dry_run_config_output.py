@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#CanaryDryRunConfigOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.uuid
 
 
-class CanaryDryRunConfigOutput(TypedDict):
+class CanaryDryRunConfigOutput(TypedDict, closed=True):
     dry_run_id: NotRequired["aws_sdk_synthetics.types.uuid.UUID"]
     """<p>The DryRunId associated with an existing canary’s dry run. You can use this DryRunId to retrieve information about the dry run.</p>"""
 

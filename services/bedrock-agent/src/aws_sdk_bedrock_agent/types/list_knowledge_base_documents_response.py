@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ListKnowledgeBaseDocumentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.knowledge_base_document_details
 
 
-class ListKnowledgeBaseDocumentsResponse(TypedDict):
+class ListKnowledgeBaseDocumentsResponse(TypedDict, closed=True):
     document_details: "aws_sdk_bedrock_agent.types.knowledge_base_document_details.KnowledgeBaseDocumentDetails"
     """<p>A list of objects, each of which contains information about the documents that were retrieved.</p>"""
     next_token: NotRequired["str"]

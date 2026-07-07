@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#RouteMatrixEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.route_matrix_entry_error
     import aws_sdk_location.types.sensitive_double
 
 
-class RouteMatrixEntry(TypedDict):
+class RouteMatrixEntry(TypedDict, closed=True):
     distance: NotRequired["aws_sdk_location.types.sensitive_double.SensitiveDouble"]
     """<p>The total distance of travel for the route.</p>"""
     duration_seconds: NotRequired[

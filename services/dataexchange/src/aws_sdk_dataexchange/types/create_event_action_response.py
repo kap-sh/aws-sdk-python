@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#CreateEventActionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.action
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.timestamp
 
 
-class CreateEventActionResponse(TypedDict):
+class CreateEventActionResponse(TypedDict, closed=True):
     action: NotRequired["aws_sdk_dataexchange.types.action.Action"]
     """<p>What occurs after a certain event.</p>"""
     arn: NotRequired["aws_sdk_dataexchange.types.arn.Arn"]

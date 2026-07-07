@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#DeleteEventActionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__string
 
 
-class DeleteEventActionRequest(TypedDict):
+class DeleteEventActionRequest(TypedDict, closed=True):
     event_action_id: "aws_sdk_dataexchange.types.__string.__string"
     """<p>The unique identifier for the event action.</p>"""
 

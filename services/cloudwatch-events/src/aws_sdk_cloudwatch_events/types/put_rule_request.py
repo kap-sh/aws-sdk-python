@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#PutRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.tag_list
 
 
-class PutRuleRequest(TypedDict):
+class PutRuleRequest(TypedDict, closed=True):
     name: "aws_sdk_cloudwatch_events.types.rule_name.RuleName"
     """<p>The name of the rule that you are creating or updating.</p>"""
     schedule_expression: NotRequired[

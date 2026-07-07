@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#MentionSentiment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.sentiment_score
     import aws_sdk_comprehend.types.sentiment_type
 
 
-class MentionSentiment(TypedDict):
+class MentionSentiment(TypedDict, closed=True):
     sentiment: NotRequired["aws_sdk_comprehend.types.sentiment_type.SentimentType"]
     """<p>The sentiment of the mention. </p>"""
     sentiment_score: NotRequired[

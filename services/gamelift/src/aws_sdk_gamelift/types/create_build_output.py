@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#CreateBuildOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.aws_credentials
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.s3_location
 
 
-class CreateBuildOutput(TypedDict):
+class CreateBuildOutput(TypedDict, closed=True):
     build: NotRequired["aws_sdk_gamelift.types.build.Build"]
     """<p>The newly created build resource, including a unique build IDs and status. </p>"""
     upload_credentials: NotRequired[

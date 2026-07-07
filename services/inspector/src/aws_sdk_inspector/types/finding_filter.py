@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#FindingFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.agent_id_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.timestamp_range
 
 
-class FindingFilter(TypedDict):
+class FindingFilter(TypedDict, closed=True):
     agent_ids: NotRequired["aws_sdk_inspector.types.agent_id_list.AgentIdList"]
     """<p>For a record to match a filter, one of the values that is specified for this data type property must be the exact match of the value of the <b>agentId</b> property of the <a>Finding</a> data type.</p>"""
     auto_scaling_groups: NotRequired[

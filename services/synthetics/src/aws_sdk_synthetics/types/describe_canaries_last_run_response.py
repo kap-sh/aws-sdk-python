@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#DescribeCanariesLastRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.canaries_last_run
     import aws_sdk_synthetics.types.token
 
 
-class DescribeCanariesLastRunResponse(TypedDict):
+class DescribeCanariesLastRunResponse(TypedDict, closed=True):
     canaries_last_run: NotRequired[
         "aws_sdk_synthetics.types.canaries_last_run.CanariesLastRun"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedJobWorkerComputeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.worker_compute_configuration_properties
 
 
-class ProtectedJobWorkerComputeConfiguration(TypedDict):
+class ProtectedJobWorkerComputeConfiguration(TypedDict, closed=True):
     type: "aws_sdk_cleanrooms.types.protected_job_worker_compute_type.ProtectedJobWorkerComputeType"
     """<p>The worker compute configuration type.</p>"""
     number: "int"

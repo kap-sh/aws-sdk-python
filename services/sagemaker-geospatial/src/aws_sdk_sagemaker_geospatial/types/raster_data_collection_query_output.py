@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#RasterDataCollectionQueryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.time_range_filter_output
 
 
-class RasterDataCollectionQueryOutput(TypedDict):
+class RasterDataCollectionQueryOutput(TypedDict, closed=True):
     raster_data_collection_arn: (
         "aws_sdk_sagemaker_geospatial.types.data_collection_arn.DataCollectionArn"
     )

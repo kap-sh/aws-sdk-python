@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ReservationAggregates``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.amortized_recurring_fee
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.utilization_percentage_in_units
 
 
-class ReservationAggregates(TypedDict):
+class ReservationAggregates(TypedDict, closed=True):
     utilization_percentage: NotRequired[
         "aws_sdk_cost_explorer.types.utilization_percentage.UtilizationPercentage"
     ]

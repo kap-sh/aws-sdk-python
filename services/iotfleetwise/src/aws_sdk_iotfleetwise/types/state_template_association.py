@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#StateTemplateAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.state_template_update_strategy
 
 
-class StateTemplateAssociation(TypedDict):
+class StateTemplateAssociation(TypedDict, closed=True):
     identifier: "aws_sdk_iotfleetwise.types.resource_identifier.ResourceIdentifier"
     """<p>The unique ID of the state template.</p>"""
     state_template_update_strategy: "aws_sdk_iotfleetwise.types.state_template_update_strategy.StateTemplateUpdateStrategy"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#SecurityProfileIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.security_profile_name
 
 
-class SecurityProfileIdentifier(TypedDict):
+class SecurityProfileIdentifier(TypedDict, closed=True):
     name: "aws_sdk_iot.types.security_profile_name.SecurityProfileName"
     """<p>The name you've given to the security profile.</p>"""
     arn: "aws_sdk_iot.types.security_profile_arn.SecurityProfileArn"

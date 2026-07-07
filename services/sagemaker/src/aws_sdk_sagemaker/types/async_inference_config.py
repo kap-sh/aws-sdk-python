@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AsyncInferenceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.async_inference_client_config
     import aws_sdk_sagemaker.types.async_inference_output_config
 
 
-class AsyncInferenceConfig(TypedDict):
+class AsyncInferenceConfig(TypedDict, closed=True):
     client_config: NotRequired[
         "aws_sdk_sagemaker.types.async_inference_client_config.AsyncInferenceClientConfig"
     ]

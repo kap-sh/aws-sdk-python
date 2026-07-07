@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#RetryConfigCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.min_number_of_retries
     import aws_sdk_iot_managed_integrations.types.retry_criteria_failure_type
 
 
-class RetryConfigCriteria(TypedDict):
+class RetryConfigCriteria(TypedDict, closed=True):
     failure_type: NotRequired[
         "aws_sdk_iot_managed_integrations.types.retry_criteria_failure_type.RetryCriteriaFailureType"
     ]

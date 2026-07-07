@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#GitTagFilterCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.git_tag_pattern_list
 
 
-class GitTagFilterCriteria(TypedDict):
+class GitTagFilterCriteria(TypedDict, closed=True):
     includes: NotRequired[
         "aws_sdk_codepipeline.types.git_tag_pattern_list.GitTagPatternList"
     ]

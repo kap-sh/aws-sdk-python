@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#Container``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.non_empty_string
     import aws_sdk_imagebuilder.types.string_list
 
 
-class Container(TypedDict):
+class Container(TypedDict, closed=True):
     region: NotRequired["aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"]
     """<p>Containers and container images are Region-specific. This is the Region context for the container.</p>"""
     image_uris: NotRequired["aws_sdk_imagebuilder.types.string_list.StringList"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#DeletePlatformApplicationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class DeletePlatformApplicationInput(TypedDict):
+class DeletePlatformApplicationInput(TypedDict, closed=True):
     platform_application_arn: "aws_sdk_sns.types.string.String"
     """<p> <code>PlatformApplicationArn</code> of platform application object to delete.</p>"""
 

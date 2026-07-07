@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#BatchImportEvidenceToAssessmentControlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.batch_import_evidence_to_assessment_control_errors
 
 
-class BatchImportEvidenceToAssessmentControlResponse(TypedDict):
+class BatchImportEvidenceToAssessmentControlResponse(TypedDict, closed=True):
     errors: NotRequired[
         "aws_sdk_auditmanager.types.batch_import_evidence_to_assessment_control_errors.BatchImportEvidenceToAssessmentControlErrors"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#AutocompleteAddressHighlights``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.country_highlights
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sub_region_highlights
 
 
-class AutocompleteAddressHighlights(TypedDict):
+class AutocompleteAddressHighlights(TypedDict, closed=True):
     label: NotRequired["aws_sdk_geo_places.types.highlight_list.HighlightList"]
     """<p>Indicates the starting and ending indexes for result items where they are identified to match the input query. This should be used to provide emphasis to output display to make selecting the correct result from a list easier for end users.</p>"""
     country: NotRequired[

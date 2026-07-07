@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#Scope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.scope_name
     import aws_sdk_compute_optimizer.types.scope_value
 
 
-class Scope(TypedDict):
+class Scope(TypedDict, closed=True):
     name: NotRequired["aws_sdk_compute_optimizer.types.scope_name.ScopeName"]
     """<p>The name of the scope.</p> <p>The following scopes are possible:</p> <ul> <li> <p> <code>Organization</code> - Specifies that the recommendation preference applies at the organization level, for all member accounts of an organization.</p> </li> <li> <p> <code>AccountId</code> - Specifies that the recommendation preference applies at the account level, for all resources of a given resource type in an account.</p> </li> <li> <p> <code>ResourceArn</code> - Specifies that the recommendation preference applies at the individual resource level.</p> </li> </ul>"""
     value: NotRequired["aws_sdk_compute_optimizer.types.scope_value.ScopeValue"]

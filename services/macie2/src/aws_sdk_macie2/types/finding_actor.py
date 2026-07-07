@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#FindingActor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.domain_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.user_identity
 
 
-class FindingActor(TypedDict):
+class FindingActor(TypedDict, closed=True):
     domain_details: NotRequired["aws_sdk_macie2.types.domain_details.DomainDetails"]
     """<p>The domain name of the device that the entity used to perform the action on the affected resource.</p>"""
     ip_address_details: NotRequired[

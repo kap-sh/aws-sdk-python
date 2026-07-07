@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#DisassociateUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.arn
     import aws_sdk_license_manager_user_subscriptions.types.identity_provider
 
 
-class DisassociateUserRequest(TypedDict):
+class DisassociateUserRequest(TypedDict, closed=True):
     username: NotRequired["str"]
     """<p>The user name from the Active Directory identity provider for the user.</p>"""
     instance_id: NotRequired["str"]

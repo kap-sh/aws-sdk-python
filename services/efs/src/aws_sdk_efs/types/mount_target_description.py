@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#MountTargetDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.vpc_id
 
 
-class MountTargetDescription(TypedDict):
+class MountTargetDescription(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_efs.types.aws_account_id.AwsAccountId"]
     """<p>Amazon Web Services account ID that owns the resource.</p>"""
     mount_target_id: "aws_sdk_efs.types.mount_target_id.MountTargetId"

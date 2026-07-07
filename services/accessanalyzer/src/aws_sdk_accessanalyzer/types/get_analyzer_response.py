@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#GetAnalyzerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.analyzer_summary
 
 
-class GetAnalyzerResponse(TypedDict):
+class GetAnalyzerResponse(TypedDict, closed=True):
     analyzer: "aws_sdk_accessanalyzer.types.analyzer_summary.AnalyzerSummary"
     """<p>An <code>AnalyzerSummary</code> object that contains information about the analyzer.</p>"""
 

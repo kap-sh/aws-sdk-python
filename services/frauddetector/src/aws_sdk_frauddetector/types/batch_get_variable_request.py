@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#BatchGetVariableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.name_list
 
 
-class BatchGetVariableRequest(TypedDict):
+class BatchGetVariableRequest(TypedDict, closed=True):
     names: "aws_sdk_frauddetector.types.name_list.NameList"
     """<p>The list of variable names to get.</p>"""
 

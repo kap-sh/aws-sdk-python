@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafWebAclRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.waf_override_action
 
 
-class AwsWafWebAclRule(TypedDict):
+class AwsWafWebAclRule(TypedDict, closed=True):
     action: NotRequired["aws_sdk_securityhub.types.waf_action.WafAction"]
     """<p>Specifies the action that CloudFront or WAF takes when a web request matches the conditions in the rule. </p>"""
     excluded_rules: NotRequired[

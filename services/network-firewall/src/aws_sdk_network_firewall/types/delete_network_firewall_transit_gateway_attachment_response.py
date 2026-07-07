@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#DeleteNetworkFirewallTransitGatewayAttachmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.transit_gateway_attachment_status
 
 
-class DeleteNetworkFirewallTransitGatewayAttachmentResponse(TypedDict):
+class DeleteNetworkFirewallTransitGatewayAttachmentResponse(TypedDict, closed=True):
     transit_gateway_attachment_id: "aws_sdk_network_firewall.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
     """<p>The ID of the transit gateway attachment that was deleted.</p>"""
     transit_gateway_attachment_status: "aws_sdk_network_firewall.types.transit_gateway_attachment_status.TransitGatewayAttachmentStatus"

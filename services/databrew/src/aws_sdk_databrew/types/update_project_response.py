@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#UpdateProjectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.project_name
 
 
-class UpdateProjectResponse(TypedDict):
+class UpdateProjectResponse(TypedDict, closed=True):
     last_modified_date: NotRequired["aws_sdk_databrew.types.date.Date"]
     """<p>The date and time that the project was last modified.</p>"""
     name: "aws_sdk_databrew.types.project_name.ProjectName"

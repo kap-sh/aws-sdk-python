@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AmiAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.ami_sort_by
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.string_filter_list
 
 
-class AmiAggregation(TypedDict):
+class AmiAggregation(TypedDict, closed=True):
     amis: NotRequired["aws_sdk_inspector2.types.string_filter_list.StringFilterList"]
     """<p>The IDs of AMIs to aggregate findings for.</p>"""
     sort_order: NotRequired["aws_sdk_inspector2.types.sort_order.SortOrder"]

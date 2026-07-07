@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribeTrafficDistributionGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.traffic_distribution_group
 
 
-class DescribeTrafficDistributionGroupResponse(TypedDict):
+class DescribeTrafficDistributionGroupResponse(TypedDict, closed=True):
     traffic_distribution_group: NotRequired[
         "aws_sdk_connect.types.traffic_distribution_group.TrafficDistributionGroup"
     ]

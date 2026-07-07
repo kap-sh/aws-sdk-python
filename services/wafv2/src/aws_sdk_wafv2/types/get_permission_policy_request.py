@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GetPermissionPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.resource_arn
 
 
-class GetPermissionPolicyRequest(TypedDict):
+class GetPermissionPolicyRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_wafv2.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the rule group for which you want to get the policy.</p>"""
 

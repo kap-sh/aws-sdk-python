@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#GetBotsCountResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
 
-class GetBotsCountResponse(TypedDict):
+class GetBotsCountResponse(TypedDict, closed=True):
     pending: "int"
     """<p>The number of bots with pending status (invited but not yet activated).</p>"""
     active: "int"

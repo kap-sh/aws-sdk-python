@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#S3Bucket``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.public_access_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.timestamp
 
 
-class S3Bucket(TypedDict):
+class S3Bucket(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The owner ID of the associated S3Amazon S3bucket.</p>"""
     created_at: NotRequired["aws_sdk_guardduty.types.timestamp.Timestamp"]

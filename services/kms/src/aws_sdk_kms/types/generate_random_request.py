@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#GenerateRandomRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.custom_key_store_id_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.recipient_info
 
 
-class GenerateRandomRequest(TypedDict):
+class GenerateRandomRequest(TypedDict, closed=True):
     number_of_bytes: NotRequired[
         "aws_sdk_kms.types.number_of_bytes_type.NumberOfBytesType"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteColumnStatisticsForTableResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteColumnStatisticsForTableResponse(TypedDict):
+class DeleteColumnStatisticsForTableResponse(TypedDict, closed=True):
     pass
 
 

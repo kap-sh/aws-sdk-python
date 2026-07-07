@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#SearchSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.search_id
     import aws_sdk_mailmanager.types.search_status
 
 
-class SearchSummary(TypedDict):
+class SearchSummary(TypedDict, closed=True):
     search_id: NotRequired["aws_sdk_mailmanager.types.search_id.SearchId"]
     """<p>The unique identifier of the search job.</p>"""
     status: NotRequired["aws_sdk_mailmanager.types.search_status.SearchStatus"]

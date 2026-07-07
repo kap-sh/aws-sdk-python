@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#ModelSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.model_name
 
 
-class ModelSettings(TypedDict):
+class ModelSettings(TypedDict, closed=True):
     language_model_name: NotRequired["aws_sdk_transcribe.types.model_name.ModelName"]
     """<p>The name of the custom language model you want to use when processing your transcription job. Note that custom language model names are case sensitive.</p> <p>The language of the specified custom language model must match the language code that you specify in your transcription request. If the languages do not match, the custom language model isn't applied. There are no errors or warnings associated with a language mismatch.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#Workgroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.workgroup_status
 
 
-class Workgroup(TypedDict):
+class Workgroup(TypedDict, closed=True):
     workgroup_id: NotRequired["str"]
     """<p>The unique identifier of the workgroup.</p>"""
     workgroup_arn: NotRequired["str"]

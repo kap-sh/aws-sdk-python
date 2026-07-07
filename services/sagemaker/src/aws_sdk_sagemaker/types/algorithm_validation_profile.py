@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AlgorithmValidationProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.entity_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.transform_job_definition
 
 
-class AlgorithmValidationProfile(TypedDict):
+class AlgorithmValidationProfile(TypedDict, closed=True):
     profile_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>The name of the profile for the algorithm. The name must have 1 to 63 characters. Valid characters are a-z, A-Z, 0-9, and - (hyphen).</p>"""
     training_job_definition: NotRequired[

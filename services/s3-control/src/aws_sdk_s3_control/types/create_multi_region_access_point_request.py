@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#CreateMultiRegionAccessPointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.multi_region_access_point_client_token
 
 
-class CreateMultiRegionAccessPointRequest(TypedDict):
+class CreateMultiRegionAccessPointRequest(TypedDict, closed=True):
     account_id: "aws_sdk_s3_control.types.account_id.AccountId"
     """<p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point. The owner of the Multi-Region Access Point also must own the underlying buckets.</p>"""
     client_token: "aws_sdk_s3_control.types.multi_region_access_point_client_token.MultiRegionAccessPointClientToken"

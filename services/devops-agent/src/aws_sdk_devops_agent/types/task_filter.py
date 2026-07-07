@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#TaskFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.back_log_timestamp
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.task_type_list
 
 
-class TaskFilter(TypedDict):
+class TaskFilter(TypedDict, closed=True):
     created_after: NotRequired[
         "aws_sdk_devops_agent.types.back_log_timestamp.BackLogTimestamp"
     ]

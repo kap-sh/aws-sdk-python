@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#VpcConnectivitySasl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.vpc_connectivity_iam
     import aws_sdk_kafka.types.vpc_connectivity_scram
 
 
-class VpcConnectivitySasl(TypedDict):
+class VpcConnectivitySasl(TypedDict, closed=True):
     scram: NotRequired[
         "aws_sdk_kafka.types.vpc_connectivity_scram.VpcConnectivityScram"
     ]

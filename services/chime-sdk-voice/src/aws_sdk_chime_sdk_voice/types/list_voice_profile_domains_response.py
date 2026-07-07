@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ListVoiceProfileDomainsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.string
     import aws_sdk_chime_sdk_voice.types.voice_profile_domain_summary_list
 
 
-class ListVoiceProfileDomainsResponse(TypedDict):
+class ListVoiceProfileDomainsResponse(TypedDict, closed=True):
     voice_profile_domains: NotRequired[
         "aws_sdk_chime_sdk_voice.types.voice_profile_domain_summary_list.VoiceProfileDomainSummaryList"
     ]

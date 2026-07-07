@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#UpdateSyncBlockerOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.sync_blocker
 
 
-class UpdateSyncBlockerOutput(TypedDict):
+class UpdateSyncBlockerOutput(TypedDict, closed=True):
     resource_name: "aws_sdk_codestar_connections.types.resource_name.ResourceName"
     """<p>The resource name for the sync blocker.</p>"""
     parent_resource_name: NotRequired[

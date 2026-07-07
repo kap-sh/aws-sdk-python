@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#DeleteAnomalyMonitorResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAnomalyMonitorResponse(TypedDict):
+class DeleteAnomalyMonitorResponse(TypedDict, closed=True):
     pass
 
 

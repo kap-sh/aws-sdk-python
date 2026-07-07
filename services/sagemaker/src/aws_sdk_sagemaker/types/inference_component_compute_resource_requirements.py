@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceComponentComputeResourceRequirements``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.memory_in_mb
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.number_of_cpu_cores
 
 
-class InferenceComponentComputeResourceRequirements(TypedDict):
+class InferenceComponentComputeResourceRequirements(TypedDict, closed=True):
     number_of_cpu_cores_required: NotRequired[
         "aws_sdk_sagemaker.types.number_of_cpu_cores.NumberOfCpuCores"
     ]

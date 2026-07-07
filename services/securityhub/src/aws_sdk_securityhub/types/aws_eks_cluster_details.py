@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEksClusterDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_eks_cluster_logging_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEksClusterDetails(TypedDict):
+class AwsEksClusterDetails(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The ARN of the cluster.</p>"""
     certificate_authority_data: NotRequired[

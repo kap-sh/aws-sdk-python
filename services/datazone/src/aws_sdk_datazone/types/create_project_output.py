@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateProjectOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.resource_tags
 
 
-class CreateProjectOutput(TypedDict):
+class CreateProjectOutput(TypedDict, closed=True):
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon DataZone domain in which the project was created.</p>"""
     id: "aws_sdk_datazone.types.project_id.ProjectId"

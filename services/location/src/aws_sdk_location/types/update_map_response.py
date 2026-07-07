@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#UpdateMapResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.timestamp
 
 
-class UpdateMapResponse(TypedDict):
+class UpdateMapResponse(TypedDict, closed=True):
     map_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the updated map resource.</p>"""
     map_arn: "aws_sdk_location.types.geo_arn.GeoArn"

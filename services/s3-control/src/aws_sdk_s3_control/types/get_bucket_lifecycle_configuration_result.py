@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#GetBucketLifecycleConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.lifecycle_rules
 
 
-class GetBucketLifecycleConfigurationResult(TypedDict):
+class GetBucketLifecycleConfigurationResult(TypedDict, closed=True):
     rules: NotRequired["aws_sdk_s3_control.types.lifecycle_rules.LifecycleRules"]
     """<p>Container for the lifecycle rule of the Outposts bucket.</p>"""
 

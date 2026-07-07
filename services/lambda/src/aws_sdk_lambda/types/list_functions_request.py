@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListFunctionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.function_version
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class ListFunctionsRequest(TypedDict):
+class ListFunctionsRequest(TypedDict, closed=True):
     master_region: NotRequired["aws_sdk_lambda.types.master_region.MasterRegion"]
     """<p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to include only Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>"""
     function_version: NotRequired[

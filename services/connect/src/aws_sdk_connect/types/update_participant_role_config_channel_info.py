@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateParticipantRoleConfigChannelInfo``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.chat_participant_role_config
 
 
-class _UpdateParticipantRoleConfigChannelInfo_Chat(TypedDict):
+class _UpdateParticipantRoleConfigChannelInfo_Chat(TypedDict, closed=True):
     Chat: "aws_sdk_connect.types.chat_participant_role_config.ChatParticipantRoleConfig"
 
 

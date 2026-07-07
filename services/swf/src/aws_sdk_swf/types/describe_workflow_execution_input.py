@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#DescribeWorkflowExecutionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_execution
 
 
-class DescribeWorkflowExecutionInput(TypedDict):
+class DescribeWorkflowExecutionInput(TypedDict, closed=True):
     domain: "aws_sdk_swf.types.domain_name.DomainName"
     """<p>The name of the domain containing the workflow execution.</p>"""
     execution: "aws_sdk_swf.types.workflow_execution.WorkflowExecution"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ReleaseLabelFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.string
 
 
-class ReleaseLabelFilter(TypedDict):
+class ReleaseLabelFilter(TypedDict, closed=True):
     prefix: NotRequired["aws_sdk_emr.types.string.String"]
     """<p>Optional release label version prefix filter. For example, <code>emr-5</code>.</p>"""
     application: NotRequired["aws_sdk_emr.types.string.String"]

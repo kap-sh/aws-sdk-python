@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CreateSessionLoggerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
 
 
-class CreateSessionLoggerResponse(TypedDict):
+class CreateSessionLoggerResponse(TypedDict, closed=True):
     session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the session logger.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimeservice#GetSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.active_contexts_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.string_map
 
 
-class GetSessionResponse(TypedDict):
+class GetSessionResponse(TypedDict, closed=True):
     recent_intent_summary_view: NotRequired[
         "aws_sdk_lex_runtime_service.types.intent_summary_list.IntentSummaryList"
     ]

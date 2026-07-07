@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#CreateTopicInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.topic_name
 
 
-class CreateTopicInput(TypedDict):
+class CreateTopicInput(TypedDict, closed=True):
     name: "aws_sdk_sns.types.topic_name.topicName"
     """<p>The name of the topic you want to create.</p> <p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.</p> <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code> suffix. </p>"""
     attributes: NotRequired["aws_sdk_sns.types.topic_attributes_map.TopicAttributesMap"]

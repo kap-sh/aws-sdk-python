@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#KinesisVideoStreamStartSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.kinesis_video_stream_fragment_number
     import aws_sdk_rekognition.types.u_long
 
 
-class KinesisVideoStreamStartSelector(TypedDict):
+class KinesisVideoStreamStartSelector(TypedDict, closed=True):
     producer_timestamp: NotRequired["aws_sdk_rekognition.types.u_long.ULong"]
     """<p> The timestamp from the producer corresponding to the fragment, in milliseconds, expressed in unix time format. </p>"""
     fragment_number: NotRequired[

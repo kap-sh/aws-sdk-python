@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessToolConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -15,23 +17,23 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.harness_remote_mcp_config
 
 
-class _HarnessToolConfiguration_remoteMcp(TypedDict):
+class _HarnessToolConfiguration_remoteMcp(TypedDict, closed=True):
     remoteMcp: "aws_sdk_bedrock_agentcore_control.types.harness_remote_mcp_config.HarnessRemoteMcpConfig"
 
 
-class _HarnessToolConfiguration_agentCoreBrowser(TypedDict):
+class _HarnessToolConfiguration_agentCoreBrowser(TypedDict, closed=True):
     agentCoreBrowser: "aws_sdk_bedrock_agentcore_control.types.harness_agent_core_browser_config.HarnessAgentCoreBrowserConfig"
 
 
-class _HarnessToolConfiguration_agentCoreGateway(TypedDict):
+class _HarnessToolConfiguration_agentCoreGateway(TypedDict, closed=True):
     agentCoreGateway: "aws_sdk_bedrock_agentcore_control.types.harness_agent_core_gateway_config.HarnessAgentCoreGatewayConfig"
 
 
-class _HarnessToolConfiguration_inlineFunction(TypedDict):
+class _HarnessToolConfiguration_inlineFunction(TypedDict, closed=True):
     inlineFunction: "aws_sdk_bedrock_agentcore_control.types.harness_inline_function_config.HarnessInlineFunctionConfig"
 
 
-class _HarnessToolConfiguration_agentCoreCodeInterpreter(TypedDict):
+class _HarnessToolConfiguration_agentCoreCodeInterpreter(TypedDict, closed=True):
     agentCoreCodeInterpreter: "aws_sdk_bedrock_agentcore_control.types.harness_agent_core_code_interpreter_config.HarnessAgentCoreCodeInterpreterConfig"
 
 

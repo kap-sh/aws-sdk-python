@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#EmailAddress``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EmailAddress(TypedDict):
+class EmailAddress(TypedDict, closed=True):
     email: NotRequired["str"]
     """<p>The email address.</p>"""
     verified: NotRequired["bool"]

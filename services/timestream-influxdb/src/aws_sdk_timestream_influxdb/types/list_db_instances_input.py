@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#ListDbInstancesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.max_results
     import aws_sdk_timestream_influxdb.types.next_token
 
 
-class ListDbInstancesInput(TypedDict):
+class ListDbInstancesInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_timestream_influxdb.types.next_token.NextToken"]
     """<p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>"""
     max_results: NotRequired["aws_sdk_timestream_influxdb.types.max_results.MaxResults"]

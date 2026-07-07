@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#DescribeJobFlowsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.job_flow_detail_list
 
 
-class DescribeJobFlowsOutput(TypedDict):
+class DescribeJobFlowsOutput(TypedDict, closed=True):
     job_flows: NotRequired["aws_sdk_emr.types.job_flow_detail_list.JobFlowDetailList"]
     """<p>A list of job flows matching the parameters supplied.</p>"""
 

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#HistogramEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.double
     import aws_sdk_xray.types.integer
 
 
-class HistogramEntry(TypedDict):
+class HistogramEntry(TypedDict, closed=True):
     value: "aws_sdk_xray.types.double.Double"
     """<p>The value of the entry.</p>"""
     count: "aws_sdk_xray.types.integer.Integer"

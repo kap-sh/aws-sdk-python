@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#WafAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class WafAction(TypedDict):
+class WafAction(TypedDict, closed=True):
     type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>Specifies how you want WAF to respond to requests that match the settings in a rule.</p> <p>Valid settings include the following:</p> <ul> <li> <p> <code>ALLOW</code> - WAF allows requests</p> </li> <li> <p> <code>BLOCK</code> - WAF blocks requests</p> </li> <li> <p> <code>COUNT</code> - WAF increments a counter of the requests that match all of the conditions in the rule. WAF then continues to inspect the web request based on the remaining rules in the web ACL. You can't specify <code>COUNT</code> for the default action for a web ACL.</p> </li> </ul>"""
 

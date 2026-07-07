@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ListVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.grafana_version_list
     import aws_sdk_grafana.types.pagination_token
 
 
-class ListVersionsResponse(TypedDict):
+class ListVersionsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_grafana.types.pagination_token.PaginationToken"]
     """<p>The token to use in a subsequent <code>ListVersions</code> operation to return the next set of results.</p>"""
     grafana_versions: NotRequired[

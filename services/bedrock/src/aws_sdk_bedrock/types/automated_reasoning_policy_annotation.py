@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyAnnotation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -20,55 +22,61 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_update_variable_annotation
 
 
-class _AutomatedReasoningPolicyAnnotation_addType(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_addType(TypedDict, closed=True):
     addType: "aws_sdk_bedrock.types.automated_reasoning_policy_add_type_annotation.AutomatedReasoningPolicyAddTypeAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_updateType(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_updateType(TypedDict, closed=True):
     updateType: "aws_sdk_bedrock.types.automated_reasoning_policy_update_type_annotation.AutomatedReasoningPolicyUpdateTypeAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_deleteType(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_deleteType(TypedDict, closed=True):
     deleteType: "aws_sdk_bedrock.types.automated_reasoning_policy_delete_type_annotation.AutomatedReasoningPolicyDeleteTypeAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_addVariable(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_addVariable(TypedDict, closed=True):
     addVariable: "aws_sdk_bedrock.types.automated_reasoning_policy_add_variable_annotation.AutomatedReasoningPolicyAddVariableAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_updateVariable(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_updateVariable(TypedDict, closed=True):
     updateVariable: "aws_sdk_bedrock.types.automated_reasoning_policy_update_variable_annotation.AutomatedReasoningPolicyUpdateVariableAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_deleteVariable(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_deleteVariable(TypedDict, closed=True):
     deleteVariable: "aws_sdk_bedrock.types.automated_reasoning_policy_delete_variable_annotation.AutomatedReasoningPolicyDeleteVariableAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_addRule(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_addRule(TypedDict, closed=True):
     addRule: "aws_sdk_bedrock.types.automated_reasoning_policy_add_rule_annotation.AutomatedReasoningPolicyAddRuleAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_updateRule(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_updateRule(TypedDict, closed=True):
     updateRule: "aws_sdk_bedrock.types.automated_reasoning_policy_update_rule_annotation.AutomatedReasoningPolicyUpdateRuleAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_deleteRule(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_deleteRule(TypedDict, closed=True):
     deleteRule: "aws_sdk_bedrock.types.automated_reasoning_policy_delete_rule_annotation.AutomatedReasoningPolicyDeleteRuleAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_addRuleFromNaturalLanguage(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_addRuleFromNaturalLanguage(
+    TypedDict, closed=True
+):
     addRuleFromNaturalLanguage: "aws_sdk_bedrock.types.automated_reasoning_policy_add_rule_from_natural_language_annotation.AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_updateFromRulesFeedback(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_updateFromRulesFeedback(
+    TypedDict, closed=True
+):
     updateFromRulesFeedback: "aws_sdk_bedrock.types.automated_reasoning_policy_update_from_rule_feedback_annotation.AutomatedReasoningPolicyUpdateFromRuleFeedbackAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_updateFromScenarioFeedback(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_updateFromScenarioFeedback(
+    TypedDict, closed=True
+):
     updateFromScenarioFeedback: "aws_sdk_bedrock.types.automated_reasoning_policy_update_from_scenario_feedback_annotation.AutomatedReasoningPolicyUpdateFromScenarioFeedbackAnnotation"
 
 
-class _AutomatedReasoningPolicyAnnotation_ingestContent(TypedDict):
+class _AutomatedReasoningPolicyAnnotation_ingestContent(TypedDict, closed=True):
     ingestContent: "aws_sdk_bedrock.types.automated_reasoning_policy_ingest_content_annotation.AutomatedReasoningPolicyIngestContentAnnotation"
 
 

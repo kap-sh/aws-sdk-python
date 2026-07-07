@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_repostspace.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>Message describing why the field failed validation.</p>"""
     message: "str"

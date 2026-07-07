@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mq#BrokerInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__list_of__string
     import aws_sdk_mq.types.__string
 
 
-class BrokerInstance(TypedDict):
+class BrokerInstance(TypedDict, closed=True):
     console_url: NotRequired["aws_sdk_mq.types.__string.__string"]
     """<p>The brokers web console URL.</p>"""
     endpoints: NotRequired["aws_sdk_mq.types.__list_of__string.__listOf__string"]

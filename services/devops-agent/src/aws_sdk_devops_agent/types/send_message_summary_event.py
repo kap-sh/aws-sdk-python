@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SendMessageSummaryEvent``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent._protocol.eventstream import HeaderValue, Message
 
 
-class SendMessageSummaryEvent(TypedDict):
+class SendMessageSummaryEvent(TypedDict, closed=True):
     content: NotRequired["str"]
     """<p>Summary content</p>"""
     sequence_number: NotRequired["int"]

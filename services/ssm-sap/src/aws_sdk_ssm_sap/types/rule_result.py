@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#RuleResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.rule_result_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.rule_result_status
 
 
-class RuleResult(TypedDict):
+class RuleResult(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ssm_sap.types.rule_result_id.RuleResultId"]
     """<p>The unique identifier of the rule result.</p>"""
     description: NotRequired["str"]

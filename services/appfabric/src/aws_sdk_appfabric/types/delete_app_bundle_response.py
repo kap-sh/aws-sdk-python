@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#DeleteAppBundleResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAppBundleResponse(TypedDict):
+class DeleteAppBundleResponse(TypedDict, closed=True):
     pass
 
 

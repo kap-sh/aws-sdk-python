@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#UpdateSnapshotScheduleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.volume_arn
 
 
-class UpdateSnapshotScheduleOutput(TypedDict):
+class UpdateSnapshotScheduleOutput(TypedDict, closed=True):
     volume_arn: NotRequired["aws_sdk_storage_gateway.types.volume_arn.VolumeARN"]
     """<p>The Amazon Resource Name (ARN) of the volume. Use the <a>ListVolumes</a> operation to return a list of gateway volumes.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SectionBasedLayoutPaperCanvasSizeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.paper_orientation
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.spacing
 
 
-class SectionBasedLayoutPaperCanvasSizeOptions(TypedDict):
+class SectionBasedLayoutPaperCanvasSizeOptions(TypedDict, closed=True):
     paper_size: NotRequired["aws_sdk_quicksight.types.paper_size.PaperSize"]
     """<p>The paper size that is used to define canvas dimensions.</p>"""
     paper_orientation: NotRequired[

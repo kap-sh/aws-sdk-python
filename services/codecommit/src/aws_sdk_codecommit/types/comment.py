@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#Comment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.reaction_counts_map
 
 
-class Comment(TypedDict):
+class Comment(TypedDict, closed=True):
     comment_id: NotRequired["aws_sdk_codecommit.types.comment_id.CommentId"]
     """<p>The system-generated comment ID.</p>"""
     content: NotRequired["aws_sdk_codecommit.types.content.Content"]

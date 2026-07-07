@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#ListAutomationEventSummariesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.automation_event_filter_list
     import aws_sdk_compute_optimizer_automation.types.next_token
 
 
-class ListAutomationEventSummariesRequest(TypedDict):
+class ListAutomationEventSummariesRequest(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_compute_optimizer_automation.types.automation_event_filter_list.AutomationEventFilterList"
     ]

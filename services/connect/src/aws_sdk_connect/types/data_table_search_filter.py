@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DataTableSearchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.control_plane_attribute_filter
 
 
-class DataTableSearchFilter(TypedDict):
+class DataTableSearchFilter(TypedDict, closed=True):
     attribute_filter: NotRequired[
         "aws_sdk_connect.types.control_plane_attribute_filter.ControlPlaneAttributeFilter"
     ]

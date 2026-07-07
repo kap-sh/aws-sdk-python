@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#StateEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.state_capabilities
 
 
-class StateEndpoint(TypedDict):
+class StateEndpoint(TypedDict, closed=True):
     endpoint_id: "aws_sdk_iot_managed_integrations.types.endpoint_id.EndpointId"
     """<p>Numeric identifier of the endpoint</p>"""
     capabilities: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#AppsListDataSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.apps_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_name
 
 
-class AppsListDataSummary(TypedDict):
+class AppsListDataSummary(TypedDict, closed=True):
     list_arn: NotRequired["aws_sdk_fms.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the applications list.</p>"""
     list_id: NotRequired["aws_sdk_fms.types.list_id.ListId"]

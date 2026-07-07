@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetECSServiceRecommendationProjectedMetricsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_compute_optimizer.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.timestamp
 
 
-class GetECSServiceRecommendationProjectedMetricsRequest(TypedDict):
+class GetECSServiceRecommendationProjectedMetricsRequest(TypedDict, closed=True):
     service_arn: "aws_sdk_compute_optimizer.types.service_arn.ServiceArn"
     """<p> The ARN that identifies the Amazon ECS service. </p> <p> The following is the format of the ARN: </p> <p> <code>arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name</code> </p>"""
     stat: "aws_sdk_compute_optimizer.types.metric_statistic.MetricStatistic"

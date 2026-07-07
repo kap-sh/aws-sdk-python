@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pi#GetResourceMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.feature_metadata_map
     import aws_sdk_pi.types.string
 
 
-class GetResourceMetadataResponse(TypedDict):
+class GetResourceMetadataResponse(TypedDict, closed=True):
     identifier: NotRequired["aws_sdk_pi.types.string.String"]
     """<p>An immutable identifier for a data source that is unique for an Amazon Web Services Region. Performance Insights gathers metrics from this data source. To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>. </p>"""
     features: NotRequired["aws_sdk_pi.types.feature_metadata_map.FeatureMetadataMap"]

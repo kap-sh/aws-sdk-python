@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#AddFlowVpcInterfacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_vpc_interface
 
 
-class AddFlowVpcInterfacesResponse(TypedDict):
+class AddFlowVpcInterfacesResponse(TypedDict, closed=True):
     flow_arn: NotRequired["str"]
     """<p> The ARN of the flow that these VPC interfaces were added to.</p>"""
     vpc_interfaces: NotRequired[

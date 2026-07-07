@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CreateStreamingDistributionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.streaming_distribution_config
 
 
-class CreateStreamingDistributionRequest(TypedDict):
+class CreateStreamingDistributionRequest(TypedDict, closed=True):
     streaming_distribution_config: "aws_sdk_cloudfront.types.streaming_distribution_config.StreamingDistributionConfig"
     """<p>The streaming distribution's configuration information.</p>"""
 

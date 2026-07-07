@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RequestInspectionACFP``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.username_field
 
 
-class RequestInspectionACFP(TypedDict):
+class RequestInspectionACFP(TypedDict, closed=True):
     payload_type: "aws_sdk_wafv2.types.payload_type.PayloadType"
     """<p>The payload type for your account creation endpoint, either JSON or form encoded.</p>"""
     username_field: NotRequired["aws_sdk_wafv2.types.username_field.UsernameField"]

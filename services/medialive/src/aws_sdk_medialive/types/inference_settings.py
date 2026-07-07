@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InferenceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_audio_feed_input
     import aws_sdk_medialive.types.__string
 
 
-class InferenceSettings(TypedDict):
+class InferenceSettings(TypedDict, closed=True):
     feed_arn: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The ARN of the feed resource that is associated with this channel. The feed is a resource in the Elemental Inference service."""
     audio_feed_inputs: NotRequired[

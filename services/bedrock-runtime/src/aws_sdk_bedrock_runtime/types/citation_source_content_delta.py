@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#CitationSourceContentDelta``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CitationSourceContentDelta(TypedDict):
+class CitationSourceContentDelta(TypedDict, closed=True):
     text: NotRequired["str"]
     """<p>An incremental update to the text content from the source document that is being cited.</p>"""
 

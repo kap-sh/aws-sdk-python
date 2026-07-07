@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#ImportApiResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__boolean
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.tags
 
 
-class ImportApiResponse(TypedDict):
+class ImportApiResponse(TypedDict, closed=True):
     api_endpoint: NotRequired["aws_sdk_apigatewayv2.types.__string.__string"]
     """<p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>"""
     api_gateway_managed: NotRequired["aws_sdk_apigatewayv2.types.__boolean.__boolean"]

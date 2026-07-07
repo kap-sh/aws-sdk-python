@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodbstreams#GetShardIteratorInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb_streams.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.stream_arn
 
 
-class GetShardIteratorInput(TypedDict):
+class GetShardIteratorInput(TypedDict, closed=True):
     stream_arn: "aws_sdk_dynamodb_streams.types.stream_arn.StreamArn"
     """<p>The Amazon Resource Name (ARN) for the stream.</p>"""
     shard_id: "aws_sdk_dynamodb_streams.types.shard_id.ShardId"

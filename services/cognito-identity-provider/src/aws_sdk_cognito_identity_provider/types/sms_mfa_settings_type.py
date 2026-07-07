@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#SMSMfaSettingsType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.boolean_type
 
 
-class SMSMfaSettingsType(TypedDict):
+class SMSMfaSettingsType(TypedDict, closed=True):
     enabled: "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
     """<p>Specifies whether SMS message MFA is activated. If an MFA type is activated for a user, the user will be prompted for MFA during all sign-in attempts, unless device tracking is turned on and the device has been trusted.</p>"""
     preferred_mfa: "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DeregisterGatewayInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.gateway_instance_arn
 
 
-class DeregisterGatewayInstanceRequest(TypedDict):
+class DeregisterGatewayInstanceRequest(TypedDict, closed=True):
     force: NotRequired["bool"]
     """<p> Force the deregistration of an instance. Force will deregister an instance, even if there are bridges running on it.</p>"""
     gateway_instance_arn: (

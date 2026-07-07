@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#EncryptionDecryptionAttributes``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -14,19 +16,19 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.symmetric_encryption_attributes
 
 
-class _EncryptionDecryptionAttributes_Symmetric(TypedDict):
+class _EncryptionDecryptionAttributes_Symmetric(TypedDict, closed=True):
     Symmetric: "aws_sdk_payment_cryptography_data.types.symmetric_encryption_attributes.SymmetricEncryptionAttributes"
 
 
-class _EncryptionDecryptionAttributes_Asymmetric(TypedDict):
+class _EncryptionDecryptionAttributes_Asymmetric(TypedDict, closed=True):
     Asymmetric: "aws_sdk_payment_cryptography_data.types.asymmetric_encryption_attributes.AsymmetricEncryptionAttributes"
 
 
-class _EncryptionDecryptionAttributes_Dukpt(TypedDict):
+class _EncryptionDecryptionAttributes_Dukpt(TypedDict, closed=True):
     Dukpt: "aws_sdk_payment_cryptography_data.types.dukpt_encryption_attributes.DukptEncryptionAttributes"
 
 
-class _EncryptionDecryptionAttributes_Emv(TypedDict):
+class _EncryptionDecryptionAttributes_Emv(TypedDict, closed=True):
     Emv: "aws_sdk_payment_cryptography_data.types.emv_encryption_attributes.EmvEncryptionAttributes"
 
 

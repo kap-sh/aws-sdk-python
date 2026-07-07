@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AllowedRenditionSize``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min32_max8192
     import aws_sdk_mediaconvert.types.required_flag
 
 
-class AllowedRenditionSize(TypedDict):
+class AllowedRenditionSize(TypedDict, closed=True):
     height: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min32_max8192.__integerMin32Max8192"
     ]

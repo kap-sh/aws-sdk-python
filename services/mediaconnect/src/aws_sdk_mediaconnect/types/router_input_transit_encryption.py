@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterInputTransitEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_input_transit_encryption_key_type
 
 
-class RouterInputTransitEncryption(TypedDict):
+class RouterInputTransitEncryption(TypedDict, closed=True):
     encryption_key_type: NotRequired[
         "aws_sdk_mediaconnect.types.router_input_transit_encryption_key_type.RouterInputTransitEncryptionKeyType"
     ]

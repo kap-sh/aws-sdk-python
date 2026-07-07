@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ListSupportedResourceTypesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.resource_type_list
 
 
-class ListSupportedResourceTypesOutput(TypedDict):
+class ListSupportedResourceTypesOutput(TypedDict, closed=True):
     resource_types: NotRequired[
         "aws_sdk_resource_explorer_2.types.resource_type_list.ResourceTypeList"
     ]

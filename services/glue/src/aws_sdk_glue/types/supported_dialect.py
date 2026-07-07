@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SupportedDialect``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.view_dialect
     import aws_sdk_glue.types.view_dialect_version_string
 
 
-class SupportedDialect(TypedDict):
+class SupportedDialect(TypedDict, closed=True):
     dialect: NotRequired["aws_sdk_glue.types.view_dialect.ViewDialect"]
     """<p>The dialect of the query engine.</p>"""
     dialect_version: NotRequired[

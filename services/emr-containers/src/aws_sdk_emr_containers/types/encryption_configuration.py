@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#EncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.in_transit_encryption_configuration
 
 
-class EncryptionConfiguration(TypedDict):
+class EncryptionConfiguration(TypedDict, closed=True):
     in_transit_encryption_configuration: NotRequired[
         "aws_sdk_emr_containers.types.in_transit_encryption_configuration.InTransitEncryptionConfiguration"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterKubernetesTaint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_kubernetes_taint_value
 
 
-class ClusterKubernetesTaint(TypedDict):
+class ClusterKubernetesTaint(TypedDict, closed=True):
     key: (
         "aws_sdk_sagemaker.types.cluster_kubernetes_taint_key.ClusterKubernetesTaintKey"
     )

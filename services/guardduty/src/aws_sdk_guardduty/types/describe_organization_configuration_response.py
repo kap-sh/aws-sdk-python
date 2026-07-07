@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DescribeOrganizationConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.auto_enable_members
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class DescribeOrganizationConfigurationResponse(TypedDict):
+class DescribeOrganizationConfigurationResponse(TypedDict, closed=True):
     auto_enable: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>Indicates whether GuardDuty is automatically enabled for accounts added to the organization.</p> <p>Even though this is still supported, we recommend using <code>AutoEnableOrganizationMembers</code> to achieve the similar results.</p>"""
     member_account_limit_reached: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]

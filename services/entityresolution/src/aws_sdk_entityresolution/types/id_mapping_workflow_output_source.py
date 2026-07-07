@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#IdMappingWorkflowOutputSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.s3_path
 
 
-class IdMappingWorkflowOutputSource(TypedDict):
+class IdMappingWorkflowOutputSource(TypedDict, closed=True):
     kms_arn: NotRequired["aws_sdk_entityresolution.types.kms_arn.KMSArn"]
     """<p>Customer KMS ARN for encryption at rest. If not provided, system will use an Entity Resolution managed KMS key.</p>"""
     output_s3_path: "aws_sdk_entityresolution.types.s3_path.S3Path"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ResourceSnapshotSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.aws_account
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.resource_type
 
 
-class ResourceSnapshotSummary(TypedDict):
+class ResourceSnapshotSummary(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_partnercentral_selling.types.resource_snapshot_arn.ResourceSnapshotArn"
     ]

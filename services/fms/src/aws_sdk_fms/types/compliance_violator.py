@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ComplianceViolator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.compliance_violator_metadata
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.violation_reason
 
 
-class ComplianceViolator(TypedDict):
+class ComplianceViolator(TypedDict, closed=True):
     resource_id: NotRequired["aws_sdk_fms.types.resource_id.ResourceId"]
     """<p>The resource ID.</p>"""
     violation_reason: NotRequired["aws_sdk_fms.types.violation_reason.ViolationReason"]

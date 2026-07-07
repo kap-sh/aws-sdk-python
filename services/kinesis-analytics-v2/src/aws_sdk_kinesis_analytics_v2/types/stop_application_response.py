@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#StopApplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.operation_id
 
 
-class StopApplicationResponse(TypedDict):
+class StopApplicationResponse(TypedDict, closed=True):
     operation_id: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.operation_id.OperationId"
     ]

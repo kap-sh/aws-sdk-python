@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#ManagedLogs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.allow_aws_to_retain_logs
     import aws_sdk_emr_containers.types.kms_key_arn
 
 
-class ManagedLogs(TypedDict):
+class ManagedLogs(TypedDict, closed=True):
     allow_aws_to_retain_logs: NotRequired[
         "aws_sdk_emr_containers.types.allow_aws_to_retain_logs.AllowAWSToRetainLogs"
     ]

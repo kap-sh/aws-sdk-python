@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListEvaluatorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.evaluator_summary_list
 
 
-class ListEvaluatorsResponse(TypedDict):
+class ListEvaluatorsResponse(TypedDict, closed=True):
     evaluators: "aws_sdk_bedrock_agentcore_control.types.evaluator_summary_list.EvaluatorSummaryList"
     """<p> The list of evaluator summaries containing basic information about each evaluator. </p>"""
     next_token: NotRequired["str"]

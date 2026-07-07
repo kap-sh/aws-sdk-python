@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#UpdatePurchaseOrdersOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdatePurchaseOrdersOutput(TypedDict):
+class UpdatePurchaseOrdersOutput(TypedDict, closed=True):
     pass
 
 

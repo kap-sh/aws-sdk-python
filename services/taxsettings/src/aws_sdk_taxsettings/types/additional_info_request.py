@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#AdditionalInfoRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.belgium_additional_info
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.vietnam_additional_info
 
 
-class AdditionalInfoRequest(TypedDict):
+class AdditionalInfoRequest(TypedDict, closed=True):
     malaysia_additional_info: NotRequired[
         "aws_sdk_taxsettings.types.malaysia_additional_info.MalaysiaAdditionalInfo"
     ]

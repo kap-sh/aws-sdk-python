@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ListLicenseAssetGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.license_asset_group_list
     import aws_sdk_license_manager.types.string
 
 
-class ListLicenseAssetGroupsResponse(TypedDict):
+class ListLicenseAssetGroupsResponse(TypedDict, closed=True):
     license_asset_groups: NotRequired[
         "aws_sdk_license_manager.types.license_asset_group_list.LicenseAssetGroupList"
     ]

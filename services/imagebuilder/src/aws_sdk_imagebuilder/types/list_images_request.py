@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListImagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.restricted_integer
 
 
-class ListImagesRequest(TypedDict):
+class ListImagesRequest(TypedDict, closed=True):
     owner: NotRequired["aws_sdk_imagebuilder.types.ownership.Ownership"]
     """<p>The owner defines which images you want to list. By default, this request will only show images owned by your account. You can use this field to specify if you want to view images owned by yourself, by Amazon, or those images that have been shared with you by other customers.</p>"""
     filters: NotRequired["aws_sdk_imagebuilder.types.filter_list.FilterList"]

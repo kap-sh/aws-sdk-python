@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#StagingArea``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.large_bounded_string
 
 
-class StagingArea(TypedDict):
+class StagingArea(TypedDict, closed=True):
     status: NotRequired["aws_sdk_drs.types.extension_status.ExtensionStatus"]
     """<p>Status of Source server extension. Possible values: (a) NOT_EXTENDED - This is a source server that is replicating in the current account. (b) EXTENDED - Source server is extended from a staging source server. In this case, the value of stagingSourceServerArn is pointing to the Arn of the source server in the staging account. (c) EXTENSION_ERROR - Some issue occurred when accessing staging source server. In this case, errorMessage field will contain an error message that explains what happened.</p>"""
     staging_account_id: NotRequired["aws_sdk_drs.types.account_id.AccountID"]

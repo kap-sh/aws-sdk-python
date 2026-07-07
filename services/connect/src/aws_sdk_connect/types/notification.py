@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Notification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class Notification(TypedDict):
+class Notification(TypedDict, closed=True):
     content: NotRequired[
         "aws_sdk_connect.types.notification_content.NotificationContent"
     ]

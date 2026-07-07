@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#UpdateBillingViewRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billing.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.expression
 
 
-class UpdateBillingViewRequest(TypedDict):
+class UpdateBillingViewRequest(TypedDict, closed=True):
     arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn"
     """<p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>"""
     name: NotRequired["aws_sdk_billing.types.billing_view_name.BillingViewName"]

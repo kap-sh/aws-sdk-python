@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#PriceWithCurrency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53_domains.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.price
 
 
-class PriceWithCurrency(TypedDict):
+class PriceWithCurrency(TypedDict, closed=True):
     price: "aws_sdk_route_53_domains.types.price.Price"
     """<p>The price of a domain, in a specific currency.</p>"""
     currency: "aws_sdk_route_53_domains.types.currency.Currency"

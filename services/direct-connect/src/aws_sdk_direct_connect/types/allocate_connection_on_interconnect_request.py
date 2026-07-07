@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#AllocateConnectionOnInterconnectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_direct_connect.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.vlan
 
 
-class AllocateConnectionOnInterconnectRequest(TypedDict):
+class AllocateConnectionOnInterconnectRequest(TypedDict, closed=True):
     bandwidth: "aws_sdk_direct_connect.types.bandwidth.Bandwidth"
     """<p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those Direct Connect Partners who have met specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection.</p>"""
     connection_name: "aws_sdk_direct_connect.types.connection_name.ConnectionName"

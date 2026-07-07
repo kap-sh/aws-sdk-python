@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#MaintenanceWindowTaskParameterValueExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_task_parameter_value_list
 
 
-class MaintenanceWindowTaskParameterValueExpression(TypedDict):
+class MaintenanceWindowTaskParameterValueExpression(TypedDict, closed=True):
     values: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_task_parameter_value_list.MaintenanceWindowTaskParameterValueList"
     ]

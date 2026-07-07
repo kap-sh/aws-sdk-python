@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#RenewDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53_domains.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.duration_in_years
 
 
-class RenewDomainRequest(TypedDict):
+class RenewDomainRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_route_53_domains.types.domain_name.DomainName"
     """<p>The name of the domain that you want to renew.</p>"""
     duration_in_years: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#AssociateAppBlockBuilderAppBlockResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.app_block_builder_app_block_association
 
 
-class AssociateAppBlockBuilderAppBlockResult(TypedDict):
+class AssociateAppBlockBuilderAppBlockResult(TypedDict, closed=True):
     app_block_builder_app_block_association: NotRequired[
         "aws_sdk_appstream.types.app_block_builder_app_block_association.AppBlockBuilderAppBlockAssociation"
     ]

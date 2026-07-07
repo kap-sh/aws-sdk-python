@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DeleteDirectoryConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.directory_name
 
 
-class DeleteDirectoryConfigRequest(TypedDict):
+class DeleteDirectoryConfigRequest(TypedDict, closed=True):
     directory_name: NotRequired["aws_sdk_appstream.types.directory_name.DirectoryName"]
     """<p>The name of the directory configuration.</p>"""
 

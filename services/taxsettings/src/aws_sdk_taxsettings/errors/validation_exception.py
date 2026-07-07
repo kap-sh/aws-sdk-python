@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError, ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.validation_exception_field_list
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: "aws_sdk_taxsettings.types.error_message.ErrorMessage"
     error_code: "aws_sdk_taxsettings.types.validation_exception_error_code.ValidationExceptionErrorCode"
     """<p>400</p>"""

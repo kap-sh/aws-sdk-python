@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DeleteServiceProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.service_profile_id
 
 
-class DeleteServiceProfileRequest(TypedDict):
+class DeleteServiceProfileRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.service_profile_id.ServiceProfileId"
     """<p>The ID of the resource to delete.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRdsDbClusterSnapshotDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_rds_db_cluster_snapshot_db_cluster_snapshot_attributes
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_list
 
 
-class AwsRdsDbClusterSnapshotDetails(TypedDict):
+class AwsRdsDbClusterSnapshotDetails(TypedDict, closed=True):
     availability_zones: NotRequired["aws_sdk_securityhub.types.string_list.StringList"]
     """<p>A list of Availability Zones where instances in the DB cluster can be created.</p>"""
     snapshot_create_time: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ListOpportunitiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.opportunity_summaries
 
 
-class ListOpportunitiesResponse(TypedDict):
+class ListOpportunitiesResponse(TypedDict, closed=True):
     opportunity_summaries: "aws_sdk_partnercentral_selling.types.opportunity_summaries.OpportunitySummaries"
     """<p>An array that contains minimal details for opportunities that match the request criteria. This summary view provides a quick overview of relevant opportunities.</p>"""
     next_token: NotRequired["str"]

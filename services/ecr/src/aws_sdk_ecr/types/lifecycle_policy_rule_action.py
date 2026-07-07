@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#LifecyclePolicyRuleAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_action_type
     import aws_sdk_ecr.types.lifecycle_policy_target_storage_class
 
 
-class LifecyclePolicyRuleAction(TypedDict):
+class LifecyclePolicyRuleAction(TypedDict, closed=True):
     type: NotRequired["aws_sdk_ecr.types.image_action_type.ImageActionType"]
     """<p>The type of action to be taken.</p>"""
     target_storage_class: NotRequired[

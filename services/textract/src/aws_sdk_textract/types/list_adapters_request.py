@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#ListAdaptersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.date_time
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.pagination_token
 
 
-class ListAdaptersRequest(TypedDict):
+class ListAdaptersRequest(TypedDict, closed=True):
     after_creation_time: NotRequired["aws_sdk_textract.types.date_time.DateTime"]
     """<p>Specifies the lower bound for the ListAdapters operation. Ensures ListAdapters returns only adapters created after the specified creation time.</p>"""
     before_creation_time: NotRequired["aws_sdk_textract.types.date_time.DateTime"]

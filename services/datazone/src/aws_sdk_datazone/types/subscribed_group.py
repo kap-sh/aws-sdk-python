@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SubscribedGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.group_profile_id
     import aws_sdk_datazone.types.group_profile_name
 
 
-class SubscribedGroup(TypedDict):
+class SubscribedGroup(TypedDict, closed=True):
     id: NotRequired["aws_sdk_datazone.types.group_profile_id.GroupProfileId"]
     """<p>The ID of the subscribed group.</p>"""
     name: NotRequired["aws_sdk_datazone.types.group_profile_name.GroupProfileName"]

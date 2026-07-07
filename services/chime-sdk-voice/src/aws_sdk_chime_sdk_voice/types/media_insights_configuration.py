@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#MediaInsightsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.arn
     import aws_sdk_chime_sdk_voice.types.boolean
 
 
-class MediaInsightsConfiguration(TypedDict):
+class MediaInsightsConfiguration(TypedDict, closed=True):
     disabled: NotRequired["aws_sdk_chime_sdk_voice.types.boolean.Boolean"]
     """<p>Denotes the configuration as enabled or disabled.</p>"""
     configuration_arn: NotRequired["aws_sdk_chime_sdk_voice.types.arn.Arn"]

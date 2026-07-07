@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputLossBehavior``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0_max1000000
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.input_loss_image_type
 
 
-class InputLossBehavior(TypedDict):
+class InputLossBehavior(TypedDict, closed=True):
     black_frame_msec: NotRequired[
         "aws_sdk_medialive.types.__integer_min0_max1000000.__integerMin0Max1000000"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CategoricalParameterRangeSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.parameter_values
 
 
-class CategoricalParameterRangeSpecification(TypedDict):
+class CategoricalParameterRangeSpecification(TypedDict, closed=True):
     values: NotRequired["aws_sdk_sagemaker.types.parameter_values.ParameterValues"]
     """<p>The allowed categories for the hyperparameter.</p>"""
 

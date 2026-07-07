@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#PutFindingsPublicationConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
     import aws_sdk_macie2.types.security_hub_configuration
 
 
-class PutFindingsPublicationConfigurationRequest(TypedDict):
+class PutFindingsPublicationConfigurationRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>"""
     security_hub_configuration: NotRequired[

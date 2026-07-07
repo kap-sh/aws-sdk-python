@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#GetGeneratedTemplateInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.template_format
 
 
-class GetGeneratedTemplateInput(TypedDict):
+class GetGeneratedTemplateInput(TypedDict, closed=True):
     format: NotRequired["aws_sdk_cloudformation.types.template_format.TemplateFormat"]
     """<p>The language to use to retrieve for the generated template. Supported values are:</p> <ul> <li> <p> <code>JSON</code> </p> </li> <li> <p> <code>YAML</code> </p> </li> </ul>"""
     generated_template_name: NotRequired[

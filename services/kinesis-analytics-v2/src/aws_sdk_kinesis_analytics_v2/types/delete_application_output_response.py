@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#DeleteApplicationOutputResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.application_version_id
     import aws_sdk_kinesis_analytics_v2.types.resource_arn
 
 
-class DeleteApplicationOutputResponse(TypedDict):
+class DeleteApplicationOutputResponse(TypedDict, closed=True):
     application_arn: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.resource_arn.ResourceARN"
     ]

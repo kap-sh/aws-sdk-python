@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#DescribeRuleGroupsNamespaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.rule_groups_namespace_description
 
 
-class DescribeRuleGroupsNamespaceResponse(TypedDict):
+class DescribeRuleGroupsNamespaceResponse(TypedDict, closed=True):
     rule_groups_namespace: "aws_sdk_amp.types.rule_groups_namespace_description.RuleGroupsNamespaceDescription"
     """<p>The information about the rule groups namespace.</p>"""
 

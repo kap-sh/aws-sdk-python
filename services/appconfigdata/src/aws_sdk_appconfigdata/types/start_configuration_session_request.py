@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfigdata#StartConfigurationSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appconfigdata.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfigdata.types.optional_poll_seconds
 
 
-class StartConfigurationSessionRequest(TypedDict):
+class StartConfigurationSessionRequest(TypedDict, closed=True):
     application_identifier: "aws_sdk_appconfigdata.types.identifier.Identifier"
     """<p>The application ID or the application name.</p>"""
     environment_identifier: "aws_sdk_appconfigdata.types.identifier.Identifier"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#FuotaTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.fuota_task_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.fuota_task_name
 
 
-class FuotaTask(TypedDict):
+class FuotaTask(TypedDict, closed=True):
     id: NotRequired["aws_sdk_iot_wireless.types.fuota_task_id.FuotaTaskId"]
     arn: NotRequired["aws_sdk_iot_wireless.types.fuota_task_arn.FuotaTaskArn"]
     name: NotRequired["aws_sdk_iot_wireless.types.fuota_task_name.FuotaTaskName"]

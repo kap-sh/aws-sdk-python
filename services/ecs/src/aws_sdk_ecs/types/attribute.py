@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#Attribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.target_type
 
 
-class Attribute(TypedDict):
+class Attribute(TypedDict, closed=True):
     name: "aws_sdk_ecs.types.string.String"
     r"""<p>The name of the attribute. The <code>name</code> must contain between 1 and 128 characters. The name may contain letters (uppercase and lowercase), numbers, hyphens (-), underscores (_), forward slashes (/), back slashes (\), or periods (.).</p>"""
     value: NotRequired["aws_sdk_ecs.types.string.String"]

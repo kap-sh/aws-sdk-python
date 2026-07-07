@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateOpenZFSVolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.create_open_zfs_origin_snapshot_configuration
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume_id
 
 
-class CreateOpenZFSVolumeConfiguration(TypedDict):
+class CreateOpenZFSVolumeConfiguration(TypedDict, closed=True):
     parent_volume_id: NotRequired["aws_sdk_fsx.types.volume_id.VolumeId"]
     """<p>The ID of the volume to use as the parent volume of the volume that you are creating.</p>"""
     storage_capacity_reservation_gi_b: NotRequired[

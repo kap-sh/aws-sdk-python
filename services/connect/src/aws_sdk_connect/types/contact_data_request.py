@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ContactDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.attributes
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.request_identifier
 
 
-class ContactDataRequest(TypedDict):
+class ContactDataRequest(TypedDict, closed=True):
     system_endpoint: NotRequired["aws_sdk_connect.types.endpoint.Endpoint"]
     """<p>Endpoint associated with the Connect Customer instance from which outbound contact will be initiated for the campaign.</p>"""
     customer_endpoint: NotRequired["aws_sdk_connect.types.endpoint.Endpoint"]

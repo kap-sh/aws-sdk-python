@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetRelationalDatabaseMetricDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class GetRelationalDatabaseMetricDataRequest(TypedDict):
+class GetRelationalDatabaseMetricDataRequest(TypedDict, closed=True):
     relational_database_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of your database from which to get metric data.</p>"""
     metric_name: "aws_sdk_lightsail.types.relational_database_metric_name.RelationalDatabaseMetricName"

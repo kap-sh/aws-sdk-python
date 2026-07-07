@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetOciOnboardingStatusInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetOciOnboardingStatusInput(TypedDict):
+class GetOciOnboardingStatusInput(TypedDict, closed=True):
     pass
 
 

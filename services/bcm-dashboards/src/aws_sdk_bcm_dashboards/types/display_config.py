@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#DisplayConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.table_display_config_struct
 
 
-class _DisplayConfig_graph(TypedDict):
+class _DisplayConfig_graph(TypedDict, closed=True):
     graph: "aws_sdk_bcm_dashboards.types.graph_display_config_map.GraphDisplayConfigMap"
 
 
-class _DisplayConfig_table(TypedDict):
+class _DisplayConfig_table(TypedDict, closed=True):
     table: "aws_sdk_bcm_dashboards.types.table_display_config_struct.TableDisplayConfigStruct"
 
 

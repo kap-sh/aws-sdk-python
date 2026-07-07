@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BatchGetCommandExecutionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.command_execution_ids
     import aws_sdk_codebuild.types.command_executions
 
 
-class BatchGetCommandExecutionsOutput(TypedDict):
+class BatchGetCommandExecutionsOutput(TypedDict, closed=True):
     command_executions: NotRequired[
         "aws_sdk_codebuild.types.command_executions.CommandExecutions"
     ]

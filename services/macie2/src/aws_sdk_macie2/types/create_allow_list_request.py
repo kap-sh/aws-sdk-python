@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#CreateAllowListRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.tag_map
 
 
-class CreateAllowListRequest(TypedDict):
+class CreateAllowListRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>"""
     criteria: NotRequired["aws_sdk_macie2.types.allow_list_criteria.AllowListCriteria"]

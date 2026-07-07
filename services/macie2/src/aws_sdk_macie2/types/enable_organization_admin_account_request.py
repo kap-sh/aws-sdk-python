@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#EnableOrganizationAdminAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class EnableOrganizationAdminAccountRequest(TypedDict):
+class EnableOrganizationAdminAccountRequest(TypedDict, closed=True):
     admin_account_id: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The Amazon Web Services account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.</p>"""
     client_token: NotRequired["aws_sdk_macie2.types.__string.__string"]

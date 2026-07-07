@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#Attachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.raw_attachment_data
 
 
-class Attachment(TypedDict):
+class Attachment(TypedDict, closed=True):
     raw_content: "aws_sdk_sesv2.types.raw_attachment_data.RawAttachmentData"
     """<p> The raw data of the attachment. It needs to be base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an Amazon Web Services SDK, the SDK takes care of the base 64-encoding for you.</p>"""
     content_disposition: NotRequired[

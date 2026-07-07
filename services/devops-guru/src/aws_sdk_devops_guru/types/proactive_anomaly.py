@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ProactiveAnomaly``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.anomaly_description
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.timestamp
 
 
-class ProactiveAnomaly(TypedDict):
+class ProactiveAnomaly(TypedDict, closed=True):
     id: NotRequired["aws_sdk_devops_guru.types.anomaly_id.AnomalyId"]
     """<p> The ID of a proactive anomaly. </p>"""
     severity: NotRequired["aws_sdk_devops_guru.types.anomaly_severity.AnomalySeverity"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#RegisterOrganizationDelegatedAdminResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RegisterOrganizationDelegatedAdminResponse(TypedDict):
+class RegisterOrganizationDelegatedAdminResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.signin#ListResourcePermissionStatementsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signin.types.console_permission_max_results
     import aws_sdk_signin.types.next_token
 
 
-class ListResourcePermissionStatementsInput(TypedDict):
+class ListResourcePermissionStatementsInput(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_signin.types.console_permission_max_results.ConsolePermissionMaxResults"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#VoiceToneAnalysisTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.call_details
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.string
 
 
-class VoiceToneAnalysisTask(TypedDict):
+class VoiceToneAnalysisTask(TypedDict, closed=True):
     voice_tone_analysis_task_id: NotRequired[
         "aws_sdk_chime_sdk_voice.types.non_empty_string256.NonEmptyString256"
     ]

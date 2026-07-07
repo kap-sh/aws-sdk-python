@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetDataExportConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.configuration_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.updated_at
 
 
-class GetDataExportConfigurationOutput(TypedDict):
+class GetDataExportConfigurationOutput(TypedDict, closed=True):
     is_export_enabled: NotRequired["bool"]
     """<p>Specifies whether the export is enabled.</p>"""
     status: NotRequired[

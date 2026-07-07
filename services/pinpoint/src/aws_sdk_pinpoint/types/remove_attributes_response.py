@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#RemoveAttributesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.attributes_resource
 
 
-class RemoveAttributesResponse(TypedDict):
+class RemoveAttributesResponse(TypedDict, closed=True):
     attributes_resource: NotRequired[
         "aws_sdk_pinpoint.types.attributes_resource.AttributesResource"
     ]

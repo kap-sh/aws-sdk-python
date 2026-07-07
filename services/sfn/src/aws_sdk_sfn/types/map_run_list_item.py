@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#MapRunListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.timestamp
 
 
-class MapRunListItem(TypedDict):
+class MapRunListItem(TypedDict, closed=True):
     execution_arn: "aws_sdk_sfn.types.arn.Arn"
     """<p>The <code>executionArn</code> of the execution from which the Map Run was started.</p>"""
     map_run_arn: "aws_sdk_sfn.types.long_arn.LongArn"

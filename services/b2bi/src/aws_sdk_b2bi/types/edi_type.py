@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#EdiType``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.x12_details
 
 
-class _EdiType_x12Details(TypedDict):
+class _EdiType_x12Details(TypedDict, closed=True):
     x12Details: "aws_sdk_b2bi.types.x12_details.X12Details"
 
 

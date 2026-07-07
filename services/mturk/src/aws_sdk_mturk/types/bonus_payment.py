@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#BonusPayment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.currency_amount
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.timestamp
 
 
-class BonusPayment(TypedDict):
+class BonusPayment(TypedDict, closed=True):
     worker_id: NotRequired["aws_sdk_mturk.types.customer_id.CustomerId"]
     """<p>The ID of the Worker to whom the bonus was paid.</p>"""
     bonus_amount: NotRequired["aws_sdk_mturk.types.currency_amount.CurrencyAmount"]

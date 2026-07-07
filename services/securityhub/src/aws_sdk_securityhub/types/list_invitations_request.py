@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ListInvitationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.cross_account_max_results
     import aws_sdk_securityhub.types.next_token
 
 
-class ListInvitationsRequest(TypedDict):
+class ListInvitationsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_securityhub.types.cross_account_max_results.CrossAccountMaxResults"
     ]

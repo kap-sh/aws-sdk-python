@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#PartnerDomain``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.domain_name
 
 
-class PartnerDomain(TypedDict):
+class PartnerDomain(TypedDict, closed=True):
     domain_name: "aws_sdk_partnercentral_account.types.domain_name.DomainName"
     """<p>The domain name that has been verified for the partner account.</p>"""
     registered_at: "aws_sdk_partnercentral_account.types.date_time.DateTime"

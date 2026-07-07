@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ContainerFindingResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.container_image_uid
     import aws_sdk_guardduty.types.string
 
 
-class ContainerFindingResource(TypedDict):
+class ContainerFindingResource(TypedDict, closed=True):
     image: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The container image information, including the image name and tag used to run the container that was involved in the finding.</p>"""
     image_uid: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ImportAs2805KeyCryptogram``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.wrapped_key_cryptogram
 
 
-class ImportAs2805KeyCryptogram(TypedDict):
+class ImportAs2805KeyCryptogram(TypedDict, closed=True):
     as2805_key_variant: (
         "aws_sdk_payment_cryptography.types.as2805_key_variant.As2805KeyVariant"
     )

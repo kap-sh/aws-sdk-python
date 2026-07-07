@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ContextKeySelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.type
 
 
-class ContextKeySelector(TypedDict):
+class ContextKeySelector(TypedDict, closed=True):
     type: "aws_sdk_cloudtrail.types.type.Type"
     """<p>Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.</p>"""
     equals: "aws_sdk_cloudtrail.types.operator_target_list.OperatorTargetList"

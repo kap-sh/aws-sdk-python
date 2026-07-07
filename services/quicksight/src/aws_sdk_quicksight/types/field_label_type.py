@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FieldLabelType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.field_id
     import aws_sdk_quicksight.types.visibility
 
 
-class FieldLabelType(TypedDict):
+class FieldLabelType(TypedDict, closed=True):
     field_id: NotRequired["aws_sdk_quicksight.types.field_id.FieldId"]
     """<p>Indicates the field that is targeted by the field label.</p>"""
     visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]

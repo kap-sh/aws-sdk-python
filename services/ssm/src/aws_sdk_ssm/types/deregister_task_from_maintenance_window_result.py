@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeregisterTaskFromMaintenanceWindowResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_id
     import aws_sdk_ssm.types.maintenance_window_task_id
 
 
-class DeregisterTaskFromMaintenanceWindowResult(TypedDict):
+class DeregisterTaskFromMaintenanceWindowResult(TypedDict, closed=True):
     window_id: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_id.MaintenanceWindowId"
     ]

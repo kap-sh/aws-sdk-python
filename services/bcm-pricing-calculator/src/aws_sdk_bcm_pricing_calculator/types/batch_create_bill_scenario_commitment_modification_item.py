@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchCreateBillScenarioCommitmentModificationItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.usage_group
 
 
-class BatchCreateBillScenarioCommitmentModificationItem(TypedDict):
+class BatchCreateBillScenarioCommitmentModificationItem(TypedDict, closed=True):
     key: NotRequired["aws_sdk_bcm_pricing_calculator.types.key.Key"]
     """<p> The key of the successfully created entry. This can be any valid string. This key is useful to identify errors associated with any commitment entry as any error is returned with this key. </p>"""
     id: NotRequired["aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"]

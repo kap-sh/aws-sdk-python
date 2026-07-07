@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#UrlRedirectionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.boolean_object
     import aws_sdk_appstream.types.url_pattern_list
 
 
-class UrlRedirectionConfig(TypedDict):
+class UrlRedirectionConfig(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_appstream.types.boolean_object.BooleanObject"]
     """<p>Whether URL redirection is enabled for this direction.</p>"""
     allowed_urls: NotRequired["aws_sdk_appstream.types.url_pattern_list.UrlPatternList"]

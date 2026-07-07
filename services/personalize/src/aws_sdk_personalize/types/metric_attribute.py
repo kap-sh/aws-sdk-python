@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#MetricAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.metric_name
 
 
-class MetricAttribute(TypedDict):
+class MetricAttribute(TypedDict, closed=True):
     event_type: "aws_sdk_personalize.types.event_type.EventType"
     """<p>The metric's event type.</p>"""
     metric_name: "aws_sdk_personalize.types.metric_name.MetricName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#SegmentDetection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.segment_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.u_long
 
 
-class SegmentDetection(TypedDict):
+class SegmentDetection(TypedDict, closed=True):
     type: NotRequired["aws_sdk_rekognition.types.segment_type.SegmentType"]
     """<p>The type of the segment. Valid values are <code>TECHNICAL_CUE</code> and <code>SHOT</code>.</p>"""
     start_timestamp_millis: "aws_sdk_rekognition.types.timestamp.Timestamp"

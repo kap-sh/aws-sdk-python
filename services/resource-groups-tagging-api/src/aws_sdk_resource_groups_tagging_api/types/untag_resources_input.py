@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#UntagResourcesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_groups_tagging_api.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.tag_key_list_for_untag
 
 
-class UntagResourcesInput(TypedDict):
+class UntagResourcesInput(TypedDict, closed=True):
     resource_arn_list: "aws_sdk_resource_groups_tagging_api.types.resource_arn_list_for_tag_untag.ResourceARNListForTagUntag"
     r"""<p>Specifies a list of ARNs of the resources that you want to remove tags from.</p> <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     tag_keys: "aws_sdk_resource_groups_tagging_api.types.tag_key_list_for_untag.TagKeyListForUntag"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#DeleteAccessTokenOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.token_status
 
 
-class DeleteAccessTokenOutput(TypedDict):
+class DeleteAccessTokenOutput(TypedDict, closed=True):
     id: "aws_sdk_route53globalresolver.types.resource_id.ResourceId"
     """<p>The unique identifier of the deleted access token.</p>"""
     status: "aws_sdk_route53globalresolver.types.token_status.TokenStatus"

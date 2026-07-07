@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#OriginationRoute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.origination_route_priority
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.string
 
 
-class OriginationRoute(TypedDict):
+class OriginationRoute(TypedDict, closed=True):
     host: NotRequired["aws_sdk_chime_sdk_voice.types.string.String"]
     """<p>The FQDN or IP address to contact for origination traffic.</p>"""
     port: NotRequired["aws_sdk_chime_sdk_voice.types.port.Port"]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#DeregisterTransitGatewayRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.global_network_id
     import aws_sdk_networkmanager.types.transit_gateway_arn
 
 
-class DeregisterTransitGatewayRequest(TypedDict):
+class DeregisterTransitGatewayRequest(TypedDict, closed=True):
     global_network_id: "aws_sdk_networkmanager.types.global_network_id.GlobalNetworkId"
     """<p>The ID of the global network.</p>"""
     transit_gateway_arn: (

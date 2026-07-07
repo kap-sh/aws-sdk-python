@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#CreateBatchSegmentJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class CreateBatchSegmentJobResponse(TypedDict):
+class CreateBatchSegmentJobResponse(TypedDict, closed=True):
     batch_segment_job_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The ARN of the batch segment job.</p>"""
 

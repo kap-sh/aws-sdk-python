@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#QuerySuggestionsBlockListSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.timestamp
 
 
-class QuerySuggestionsBlockListSummary(TypedDict):
+class QuerySuggestionsBlockListSummary(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_kendra.types.query_suggestions_block_list_id.QuerySuggestionsBlockListId"
     ]

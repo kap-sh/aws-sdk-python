@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.aiops#GetInvestigationGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_aiops.types.chatbot_notification_channel
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_aiops.types.tag_key_boundaries
 
 
-class GetInvestigationGroupResponse(TypedDict):
+class GetInvestigationGroupResponse(TypedDict, closed=True):
     created_by: NotRequired[
         "aws_sdk_aiops.types.identifier_string_with_pattern_and_length_limits.IdentifierStringWithPatternAndLengthLimits"
     ]

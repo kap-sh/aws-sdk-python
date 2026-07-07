@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DescribeReservationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.reservation_arn
 
 
-class DescribeReservationRequest(TypedDict):
+class DescribeReservationRequest(TypedDict, closed=True):
     reservation_arn: "aws_sdk_mediaconnect.types.reservation_arn.ReservationArn"
     """<p>The Amazon Resource Name (ARN) of the offering. </p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#DeleteExternalModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.sage_maker_endpoint_identifier
 
 
-class DeleteExternalModelRequest(TypedDict):
+class DeleteExternalModelRequest(TypedDict, closed=True):
     model_endpoint: "aws_sdk_frauddetector.types.sage_maker_endpoint_identifier.sageMakerEndpointIdentifier"
     """<p>The endpoint of the Amazon Sagemaker model to delete.</p>"""
 

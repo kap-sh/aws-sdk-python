@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#AvailSuppression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.mode
 
 
-class AvailSuppression(TypedDict):
+class AvailSuppression(TypedDict, closed=True):
     mode: NotRequired["aws_sdk_mediatailor.types.mode.Mode"]
     """<p>Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to <code>BEHIND_LIVE_EDGE</code>, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to <code>AFTER_LIVE_EDGE</code>, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.</p>"""
     value: NotRequired["aws_sdk_mediatailor.types.__string.__string"]

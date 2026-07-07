@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DescribeReservedNodesOfferingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.integer_optional
     import aws_sdk_memorydb.types.string
 
 
-class DescribeReservedNodesOfferingsRequest(TypedDict):
+class DescribeReservedNodesOfferingsRequest(TypedDict, closed=True):
     reserved_nodes_offering_id: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The offering identifier filter value. Use this parameter to show only the available offering that matches the specified reservation identifier.</p>"""
     node_type: NotRequired["aws_sdk_memorydb.types.string.String"]

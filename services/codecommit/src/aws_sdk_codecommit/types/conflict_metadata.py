@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ConflictMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.file_modes
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.path
 
 
-class ConflictMetadata(TypedDict):
+class ConflictMetadata(TypedDict, closed=True):
     file_path: NotRequired["aws_sdk_codecommit.types.path.Path"]
     """<p>The path of the file that contains conflicts.</p>"""
     file_sizes: NotRequired["aws_sdk_codecommit.types.file_sizes.FileSizes"]

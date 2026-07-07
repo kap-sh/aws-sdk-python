@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#TemplateSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.template_status_reason
 
 
-class TemplateSummary(TypedDict):
+class TemplateSummary(TypedDict, closed=True):
     generated_template_id: NotRequired[
         "aws_sdk_cloudformation.types.generated_template_id.GeneratedTemplateId"
     ]

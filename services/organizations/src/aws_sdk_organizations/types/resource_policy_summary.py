@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ResourcePolicySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.resource_policy_arn
     import aws_sdk_organizations.types.resource_policy_id
 
 
-class ResourcePolicySummary(TypedDict):
+class ResourcePolicySummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_organizations.types.resource_policy_id.ResourcePolicyId"]
     """<p>The unique identifier (ID) of the resource policy.</p>"""
     arn: NotRequired[

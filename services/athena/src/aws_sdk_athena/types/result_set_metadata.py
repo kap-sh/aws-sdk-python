@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ResultSetMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.column_info_list
 
 
-class ResultSetMetadata(TypedDict):
+class ResultSetMetadata(TypedDict, closed=True):
     column_info: NotRequired["aws_sdk_athena.types.column_info_list.ColumnInfoList"]
     """<p>Information about the columns returned in a query result metadata.</p>"""
 

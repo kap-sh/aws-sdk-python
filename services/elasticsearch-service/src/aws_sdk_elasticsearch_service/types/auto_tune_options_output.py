@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#AutoTuneOptionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.auto_tune_state
     import aws_sdk_elasticsearch_service.types.string
 
 
-class AutoTuneOptionsOutput(TypedDict):
+class AutoTuneOptionsOutput(TypedDict, closed=True):
     state: NotRequired[
         "aws_sdk_elasticsearch_service.types.auto_tune_state.AutoTuneState"
     ]

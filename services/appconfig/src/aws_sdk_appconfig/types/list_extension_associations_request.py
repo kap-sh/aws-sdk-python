@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#ListExtensionAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.next_token
 
 
-class ListExtensionAssociationsRequest(TypedDict):
+class ListExtensionAssociationsRequest(TypedDict, closed=True):
     resource_identifier: NotRequired["aws_sdk_appconfig.types.arn.Arn"]
     """<p>The ARN of an application, configuration profile, or environment.</p>"""
     extension_identifier: NotRequired["aws_sdk_appconfig.types.identifier.Identifier"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#BatchCreateVariableError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.integer2
     import aws_sdk_frauddetector.types.string
 
 
-class BatchCreateVariableError(TypedDict):
+class BatchCreateVariableError(TypedDict, closed=True):
     name: NotRequired["aws_sdk_frauddetector.types.string.string"]
     """<p>The name.</p>"""
     code: "aws_sdk_frauddetector.types.integer2.Integer2"

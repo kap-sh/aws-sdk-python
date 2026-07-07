@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#KeyTypeArguments``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class KeyTypeArguments(TypedDict):
+class KeyTypeArguments(TypedDict, closed=True):
     text: "str"
     """<p>The text string to type. Maximum length: 10,000 characters.</p>"""
 

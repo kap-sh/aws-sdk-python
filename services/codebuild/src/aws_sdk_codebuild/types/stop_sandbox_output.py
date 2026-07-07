@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#StopSandboxOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.sandbox
 
 
-class StopSandboxOutput(TypedDict):
+class StopSandboxOutput(TypedDict, closed=True):
     sandbox: NotRequired["aws_sdk_codebuild.types.sandbox.Sandbox"]
     """<p>Information about the requested sandbox.</p>"""
 

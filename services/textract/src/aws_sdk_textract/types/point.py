@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.textract#Point``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.float
 
 
-class Point(TypedDict):
+class Point(TypedDict, closed=True):
     x: "aws_sdk_textract.types.float.Float"
     """<p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>"""
     y: "aws_sdk_textract.types.float.Float"

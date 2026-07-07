@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#Input``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.source_schema
 
 
-class Input(TypedDict):
+class Input(TypedDict, closed=True):
     name_prefix: "aws_sdk_kinesis_analytics_v2.types.in_app_stream_name.InAppStreamName"
     r"""<p>The name prefix to use when creating an in-application stream. Suppose that you specify a prefix \"<code>MyInApplicationStream</code>.\" Kinesis Data Analytics then creates one or more (as per the <code>InputParallelism</code> count you specified) in-application streams with the names \"<code>MyInApplicationStream_001</code>,\" \"<code>MyInApplicationStream_002</code>,\" and so on. </p>"""
     input_processing_configuration: NotRequired[

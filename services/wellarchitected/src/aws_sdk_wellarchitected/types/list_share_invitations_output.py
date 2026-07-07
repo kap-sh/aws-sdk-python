@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListShareInvitationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.next_token
     import aws_sdk_wellarchitected.types.share_invitation_summaries
 
 
-class ListShareInvitationsOutput(TypedDict):
+class ListShareInvitationsOutput(TypedDict, closed=True):
     share_invitation_summaries: NotRequired[
         "aws_sdk_wellarchitected.types.share_invitation_summaries.ShareInvitationSummaries"
     ]

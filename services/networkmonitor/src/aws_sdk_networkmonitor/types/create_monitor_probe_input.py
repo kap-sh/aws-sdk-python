@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmonitor#CreateMonitorProbeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkmonitor.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmonitor.types.tag_map
 
 
-class CreateMonitorProbeInput(TypedDict):
+class CreateMonitorProbeInput(TypedDict, closed=True):
     source_arn: "aws_sdk_networkmonitor.types.arn.Arn"
     """<p>The ARN of the subnet.</p>"""
     destination: "aws_sdk_networkmonitor.types.destination.Destination"

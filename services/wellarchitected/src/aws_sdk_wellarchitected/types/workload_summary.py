@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#WorkloadSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.aws_account_id
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_profiles
 
 
-class WorkloadSummary(TypedDict):
+class WorkloadSummary(TypedDict, closed=True):
     workload_id: NotRequired["aws_sdk_wellarchitected.types.workload_id.WorkloadId"]
     workload_arn: NotRequired["aws_sdk_wellarchitected.types.workload_arn.WorkloadArn"]
     workload_name: NotRequired[

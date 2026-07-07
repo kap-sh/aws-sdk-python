@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeLogConfigurationParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.s3_log_destination_parameters
 
 
-class PipeLogConfigurationParameters(TypedDict):
+class PipeLogConfigurationParameters(TypedDict, closed=True):
     s3_log_destination: NotRequired[
         "aws_sdk_pipes.types.s3_log_destination_parameters.S3LogDestinationParameters"
     ]

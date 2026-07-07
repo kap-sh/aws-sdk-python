@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelInfrastructureConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_infrastructure_type
     import aws_sdk_sagemaker.types.real_time_inference_config
 
 
-class ModelInfrastructureConfig(TypedDict):
+class ModelInfrastructureConfig(TypedDict, closed=True):
     infrastructure_type: NotRequired[
         "aws_sdk_sagemaker.types.model_infrastructure_type.ModelInfrastructureType"
     ]

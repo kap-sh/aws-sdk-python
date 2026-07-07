@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DeleteSuppressedDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_address
     import aws_sdk_sesv2.types.tenant_name
 
 
-class DeleteSuppressedDestinationRequest(TypedDict):
+class DeleteSuppressedDestinationRequest(TypedDict, closed=True):
     email_address: "aws_sdk_sesv2.types.email_address.EmailAddress"
     """<p>The suppressed email destination to remove from the suppression list for your account or for the specified tenant.</p>"""
     tenant_name: NotRequired["aws_sdk_sesv2.types.tenant_name.TenantName"]

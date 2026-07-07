@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#DeleteProgramManagementAccountResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteProgramManagementAccountResponse(TypedDict):
+class DeleteProgramManagementAccountResponse(TypedDict, closed=True):
     pass
 
 

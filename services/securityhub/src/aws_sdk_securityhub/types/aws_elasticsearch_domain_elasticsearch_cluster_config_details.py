@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElasticsearchDomainElasticsearchClusterConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_elasticsearch_domain_elasticsearch_cluster_config_zone_awareness_config_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsElasticsearchDomainElasticsearchClusterConfigDetails(TypedDict):
+class AwsElasticsearchDomainElasticsearchClusterConfigDetails(TypedDict, closed=True):
     dedicated_master_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of instances to use for the master node. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>"""
     dedicated_master_enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

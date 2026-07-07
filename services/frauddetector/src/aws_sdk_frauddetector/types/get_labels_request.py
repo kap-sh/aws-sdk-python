@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetLabelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.identifier
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.string
 
 
-class GetLabelsRequest(TypedDict):
+class GetLabelsRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_frauddetector.types.identifier.identifier"]
     """<p>The name of the label or labels to get.</p>"""
     next_token: NotRequired["aws_sdk_frauddetector.types.string.string"]

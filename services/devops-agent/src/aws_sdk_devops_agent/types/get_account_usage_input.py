@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#GetAccountUsageInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAccountUsageInput(TypedDict):
+class GetAccountUsageInput(TypedDict, closed=True):
     pass
 
 

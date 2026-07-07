@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#VpcConnectionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.user_identity
 
 
-class VpcConnectionInfo(TypedDict):
+class VpcConnectionInfo(TypedDict, closed=True):
     vpc_connection_arn: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of the VPC connection.</p>"""
     owner: NotRequired["aws_sdk_kafka.types.__string.__string"]

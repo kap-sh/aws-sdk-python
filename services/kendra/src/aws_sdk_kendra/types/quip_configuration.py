@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#QuipConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.secret_arn
 
 
-class QuipConfiguration(TypedDict):
+class QuipConfiguration(TypedDict, closed=True):
     domain: "aws_sdk_kendra.types.domain.Domain"
     r"""<p>The Quip site domain. For example, <i>https://quip-company.quipdomain.com/browse</i>. The domain in this example is \"quipdomain\".</p>"""
     secret_arn: "aws_sdk_kendra.types.secret_arn.SecretArn"

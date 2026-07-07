@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#EnableIpamOrganizationAdminAccountResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
 
 
-class EnableIpamOrganizationAdminAccountResult(TypedDict):
+class EnableIpamOrganizationAdminAccountResult(TypedDict, closed=True):
     success: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>The result of enabling the IPAM account.</p>"""
 

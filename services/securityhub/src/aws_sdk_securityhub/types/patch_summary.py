@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#PatchSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class PatchSummary(TypedDict):
+class PatchSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The identifier of the compliance standard that was used to determine the patch compliance status.</p> <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>"""
     installed_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

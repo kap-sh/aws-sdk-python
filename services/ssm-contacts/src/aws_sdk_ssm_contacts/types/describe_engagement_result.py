@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#DescribeEngagementResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.subject
 
 
-class DescribeEngagementResult(TypedDict):
+class DescribeEngagementResult(TypedDict, closed=True):
     contact_arn: "aws_sdk_ssm_contacts.types.ssm_contacts_arn.SsmContactsArn"
     """<p>The ARN of the escalation plan or contacts involved in the engagement.</p>"""
     engagement_arn: "aws_sdk_ssm_contacts.types.ssm_contacts_arn.SsmContactsArn"

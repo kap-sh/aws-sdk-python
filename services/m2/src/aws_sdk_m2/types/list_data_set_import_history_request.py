@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ListDataSetImportHistoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.identifier
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.next_token
 
 
-class ListDataSetImportHistoryRequest(TypedDict):
+class ListDataSetImportHistoryRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_m2.types.next_token.NextToken"]
     """<p>A pagination token returned from a previous call to this operation. This specifies the next item to return. To return to the beginning of the list, exclude this parameter.</p>"""
     max_results: NotRequired["aws_sdk_m2.types.max_results.MaxResults"]

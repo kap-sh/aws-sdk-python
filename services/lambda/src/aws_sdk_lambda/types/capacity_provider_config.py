@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#CapacityProviderConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.lambda_managed_instances_capacity_provider_config
 
 
-class CapacityProviderConfig(TypedDict):
+class CapacityProviderConfig(TypedDict, closed=True):
     lambda_managed_instances_capacity_provider_config: "aws_sdk_lambda.types.lambda_managed_instances_capacity_provider_config.LambdaManagedInstancesCapacityProviderConfig"
     """<p>Configuration for Lambda-managed instances used by the capacity provider.</p>"""
 

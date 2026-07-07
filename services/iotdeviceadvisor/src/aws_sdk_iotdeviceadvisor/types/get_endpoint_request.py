@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#GetEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.amazon_resource_name
     import aws_sdk_iotdeviceadvisor.types.authentication_method
 
 
-class GetEndpointRequest(TypedDict):
+class GetEndpointRequest(TypedDict, closed=True):
     thing_arn: NotRequired[
         "aws_sdk_iotdeviceadvisor.types.amazon_resource_name.AmazonResourceName"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#IotSiteWiseAssetModelPropertyIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.asset_property_id
 
 
-class IotSiteWiseAssetModelPropertyIdentifier(TypedDict):
+class IotSiteWiseAssetModelPropertyIdentifier(TypedDict, closed=True):
     asset_model_id: "aws_sdk_iot_events.types.asset_model_id.AssetModelId"
     """<p> The ID of the AWS IoT SiteWise asset model. </p>"""
     property_id: "aws_sdk_iot_events.types.asset_property_id.AssetPropertyId"

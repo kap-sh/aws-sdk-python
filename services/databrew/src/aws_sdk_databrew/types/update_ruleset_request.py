@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#UpdateRulesetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.ruleset_name
 
 
-class UpdateRulesetRequest(TypedDict):
+class UpdateRulesetRequest(TypedDict, closed=True):
     name: "aws_sdk_databrew.types.ruleset_name.RulesetName"
     """<p>The name of the ruleset to be updated.</p>"""
     description: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListMlflowTrackingServersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
     import aws_sdk_sagemaker.types.tracking_server_summary_list
 
 
-class ListMlflowTrackingServersResponse(TypedDict):
+class ListMlflowTrackingServersResponse(TypedDict, closed=True):
     tracking_server_summaries: NotRequired[
         "aws_sdk_sagemaker.types.tracking_server_summary_list.TrackingServerSummaryList"
     ]

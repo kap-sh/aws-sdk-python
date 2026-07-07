@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#SnowflakeDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.snowflake_vpc_configuration
 
 
-class SnowflakeDestinationConfiguration(TypedDict):
+class SnowflakeDestinationConfiguration(TypedDict, closed=True):
     account_url: "aws_sdk_firehose.types.snowflake_account_url.SnowflakeAccountUrl"
     r"""<p>URL for accessing your Snowflake account. This URL must include your <a href=\"https://docs.snowflake.com/en/user-guide/admin-account-identifier\">account identifier</a>. Note that the protocol (https://) and port number are optional.</p>"""
     private_key: NotRequired[

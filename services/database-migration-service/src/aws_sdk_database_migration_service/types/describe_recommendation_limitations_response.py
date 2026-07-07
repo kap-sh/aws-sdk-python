@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeRecommendationLimitationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.limitation_list
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeRecommendationLimitationsResponse(TypedDict):
+class DescribeRecommendationLimitationsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The unique pagination token returned for you to pass to a subsequent request. Fleet Advisor returns this token when the number of records in the response is greater than the <code>MaxRecords</code> value. To retrieve the next page, make the call again using the returned token and keeping all other arguments unchanged.</p>"""
     limitations: NotRequired[

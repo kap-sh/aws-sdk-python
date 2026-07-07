@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#RegisterApplicationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.application
     import aws_sdk_ssm_sap.types.operation_id
 
 
-class RegisterApplicationOutput(TypedDict):
+class RegisterApplicationOutput(TypedDict, closed=True):
     application: NotRequired["aws_sdk_ssm_sap.types.application.Application"]
     """<p>The application registered with AWS Systems Manager for SAP.</p>"""
     operation_id: NotRequired["aws_sdk_ssm_sap.types.operation_id.OperationId"]

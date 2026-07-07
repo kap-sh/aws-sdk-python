@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#WebSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.url_configuration
 
 
-class WebSourceConfiguration(TypedDict):
+class WebSourceConfiguration(TypedDict, closed=True):
     url_configuration: "aws_sdk_bedrock_agent.types.url_configuration.UrlConfiguration"
     """<p>The configuration of the URL/URLs.</p>"""
 

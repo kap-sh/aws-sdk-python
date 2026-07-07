@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ConnectionAlias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.aws_account
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.connection_string
 
 
-class ConnectionAlias(TypedDict):
+class ConnectionAlias(TypedDict, closed=True):
     connection_string: NotRequired[
         "aws_sdk_workspaces.types.connection_string.ConnectionString"
     ]

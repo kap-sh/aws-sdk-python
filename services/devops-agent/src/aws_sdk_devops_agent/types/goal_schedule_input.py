@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#GoalScheduleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.scheduler_state
 
 
-class GoalScheduleInput(TypedDict):
+class GoalScheduleInput(TypedDict, closed=True):
     state: "aws_sdk_devops_agent.types.scheduler_state.SchedulerState"
     """<p>Whether the schedule is enabled or disabled</p>"""
 

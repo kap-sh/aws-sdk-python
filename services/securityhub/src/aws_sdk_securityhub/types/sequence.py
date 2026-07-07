@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Sequence``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.actors_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.signals_list
 
 
-class Sequence(TypedDict):
+class Sequence(TypedDict, closed=True):
     uid: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> Unique identifier of the attack sequence. </p>"""
     actors: NotRequired["aws_sdk_securityhub.types.actors_list.ActorsList"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#DisplayOrder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__list_of__string_min20_max2048
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string_min20_max2048
 
 
-class DisplayOrder(TypedDict):
+class DisplayOrder(TypedDict, closed=True):
     contents: NotRequired[
         "aws_sdk_apigatewayv2.types.__list_of_section.__listOfSection"
     ]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#EnaSrdUdpSpecificationRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EnaSrdUdpSpecificationRequest(TypedDict):
+class EnaSrdUdpSpecificationRequest(TypedDict, closed=True):
     ena_srd_udp_enabled: NotRequired["bool"]
     """<p>Enables or disables ENA SRD for UDP traffic.</p>"""
 

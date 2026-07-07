@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#GatewayRouteHostnameMatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.exact_host_name
     import aws_sdk_app_mesh.types.suffix_hostname
 
 
-class GatewayRouteHostnameMatch(TypedDict):
+class GatewayRouteHostnameMatch(TypedDict, closed=True):
     exact: NotRequired["aws_sdk_app_mesh.types.exact_host_name.ExactHostName"]
     """<p>The exact host name to match on.</p>"""
     suffix: NotRequired["aws_sdk_app_mesh.types.suffix_hostname.SuffixHostname"]

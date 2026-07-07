@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#QueueSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.queue_status
 
 
-class QueueSummary(TypedDict):
+class QueueSummary(TypedDict, closed=True):
     name: "aws_sdk_pcs.types.queue_name.QueueName"
     """<p>The name that identifies the queue.</p>"""
     id: "str"

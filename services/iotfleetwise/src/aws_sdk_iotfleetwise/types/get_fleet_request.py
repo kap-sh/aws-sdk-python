@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#GetFleetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.fleet_id
 
 
-class GetFleetRequest(TypedDict):
+class GetFleetRequest(TypedDict, closed=True):
     fleet_id: "aws_sdk_iotfleetwise.types.fleet_id.fleetId"
     """<p> The ID of the fleet to retrieve information about. </p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#TenancyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.tenant_isolation_mode
 
 
-class TenancyConfig(TypedDict):
+class TenancyConfig(TypedDict, closed=True):
     tenant_isolation_mode: (
         "aws_sdk_lambda.types.tenant_isolation_mode.TenantIsolationMode"
     )

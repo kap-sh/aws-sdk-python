@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#SyncConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.conflict_detection_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.lambda_conflict_handler_config
 
 
-class SyncConfig(TypedDict):
+class SyncConfig(TypedDict, closed=True):
     conflict_handler: NotRequired[
         "aws_sdk_appsync.types.conflict_handler_type.ConflictHandlerType"
     ]

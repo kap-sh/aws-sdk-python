@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.tag_key
     import aws_sdk_glue.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: NotRequired["aws_sdk_glue.types.tag_key.TagKey"]
     """<p>The tag key. The key is required when you create a tag on an object. The key is case-sensitive, and must not contain the prefix aws.</p>"""
     value: NotRequired["aws_sdk_glue.types.tag_value.TagValue"]

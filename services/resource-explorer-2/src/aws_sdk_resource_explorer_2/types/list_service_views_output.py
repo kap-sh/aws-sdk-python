@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ListServiceViewsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.service_view_arn_list
 
 
-class ListServiceViewsOutput(TypedDict):
+class ListServiceViewsOutput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The pagination token to use in a subsequent <code>ListServiceViews</code> request to retrieve the next set of results.</p>"""
     service_views: NotRequired[

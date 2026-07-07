@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.email_address
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.work_mail_identifier
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     id: NotRequired["aws_sdk_workmail.types.work_mail_identifier.WorkMailIdentifier"]
     """<p>The identifier of the resource.</p>"""
     email: NotRequired["aws_sdk_workmail.types.email_address.EmailAddress"]

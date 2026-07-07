@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateAutoMLJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_ml_job_arn
 
 
-class CreateAutoMLJobResponse(TypedDict):
+class CreateAutoMLJobResponse(TypedDict, closed=True):
     auto_ml_job_arn: NotRequired["aws_sdk_sagemaker.types.auto_ml_job_arn.AutoMLJobArn"]
     """<p>The unique ARN assigned to the AutoML job when it is created.</p>"""
 

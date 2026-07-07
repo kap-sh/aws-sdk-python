@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoice#DeleteConfigurationSetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteConfigurationSetResponse(TypedDict):
+class DeleteConfigurationSetResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#StackSetOperationResultSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.stack_set_operation_result_status
 
 
-class StackSetOperationResultSummary(TypedDict):
+class StackSetOperationResultSummary(TypedDict, closed=True):
     account: NotRequired["aws_sdk_cloudformation.types.account.Account"]
     """<p>[Self-managed permissions] The name of the Amazon Web Services account for this operation result.</p>"""
     region: NotRequired["aws_sdk_cloudformation.types.region.Region"]

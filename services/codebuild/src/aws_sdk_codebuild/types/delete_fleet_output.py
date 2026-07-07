@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#DeleteFleetOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteFleetOutput(TypedDict):
+class DeleteFleetOutput(TypedDict, closed=True):
     pass
 
 

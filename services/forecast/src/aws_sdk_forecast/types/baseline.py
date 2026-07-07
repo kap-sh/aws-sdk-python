@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#Baseline``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.predictor_baseline
 
 
-class Baseline(TypedDict):
+class Baseline(TypedDict, closed=True):
     predictor_baseline: NotRequired[
         "aws_sdk_forecast.types.predictor_baseline.PredictorBaseline"
     ]

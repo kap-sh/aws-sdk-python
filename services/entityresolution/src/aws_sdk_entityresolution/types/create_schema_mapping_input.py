@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#CreateSchemaMappingInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.tag_map
 
 
-class CreateSchemaMappingInput(TypedDict):
+class CreateSchemaMappingInput(TypedDict, closed=True):
     schema_name: "aws_sdk_entityresolution.types.entity_name.EntityName"
     """<p>The name of the schema. There can't be multiple <code>SchemaMappings</code> with the same name.</p>"""
     description: NotRequired["aws_sdk_entityresolution.types.description.Description"]

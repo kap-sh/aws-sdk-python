@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IcebergOrphanFileDeletionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.message_string
     import aws_sdk_glue.types.nullable_integer
 
 
-class IcebergOrphanFileDeletionConfiguration(TypedDict):
+class IcebergOrphanFileDeletionConfiguration(TypedDict, closed=True):
     orphan_file_retention_period_in_days: NotRequired[
         "aws_sdk_glue.types.nullable_integer.NullableInteger"
     ]

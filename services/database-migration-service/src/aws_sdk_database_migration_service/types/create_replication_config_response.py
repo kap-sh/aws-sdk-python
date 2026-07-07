@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#CreateReplicationConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.replication_config
 
 
-class CreateReplicationConfigResponse(TypedDict):
+class CreateReplicationConfigResponse(TypedDict, closed=True):
     replication_config: NotRequired[
         "aws_sdk_database_migration_service.types.replication_config.ReplicationConfig"
     ]

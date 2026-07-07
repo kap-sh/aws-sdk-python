@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#IdentitySourceParametersForGet``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.iam_identity_center_for_get
 
 
-class _IdentitySourceParametersForGet_IamIdentityCenter(TypedDict):
+class _IdentitySourceParametersForGet_IamIdentityCenter(TypedDict, closed=True):
     IamIdentityCenter: (
         "aws_sdk_mpa.types.iam_identity_center_for_get.IamIdentityCenterForGet"
     )

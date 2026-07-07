@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dax#DescribeDefaultParametersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.integer_optional
     import aws_sdk_dax.types.string
 
 
-class DescribeDefaultParametersRequest(TypedDict):
+class DescribeDefaultParametersRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_dax.types.integer_optional.IntegerOptional"]
     """<p>The maximum number of results to include in the response. If more results exist than the specified <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p> <p>The value for <code>MaxResults</code> must be between 20 and 100.</p>"""
     next_token: NotRequired["aws_sdk_dax.types.string.String"]

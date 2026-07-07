@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DvbSubSourceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max2147483647
 
 
-class DvbSubSourceSettings(TypedDict):
+class DvbSubSourceSettings(TypedDict, closed=True):
     pid: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min1_max2147483647.__integerMin1Max2147483647"
     ]

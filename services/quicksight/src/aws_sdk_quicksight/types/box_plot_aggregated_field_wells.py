@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BoxPlotAggregatedFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.box_plot_dimension_field_list
     import aws_sdk_quicksight.types.box_plot_measure_field_list
 
 
-class BoxPlotAggregatedFieldWells(TypedDict):
+class BoxPlotAggregatedFieldWells(TypedDict, closed=True):
     group_by: NotRequired[
         "aws_sdk_quicksight.types.box_plot_dimension_field_list.BoxPlotDimensionFieldList"
     ]

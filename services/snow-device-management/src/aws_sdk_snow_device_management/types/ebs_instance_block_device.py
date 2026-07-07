@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#EbsInstanceBlockDevice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.attachment_status
 
 
-class EbsInstanceBlockDevice(TypedDict):
+class EbsInstanceBlockDevice(TypedDict, closed=True):
     attach_time: NotRequired["datetime.datetime"]
     """<p>When the attachment was initiated.</p>"""
     delete_on_termination: NotRequired["bool"]

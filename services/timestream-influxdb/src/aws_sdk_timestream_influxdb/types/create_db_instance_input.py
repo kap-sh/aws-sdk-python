@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#CreateDbInstanceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError
 
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.vpc_subnet_id_list
 
 
-class CreateDbInstanceInput(TypedDict):
+class CreateDbInstanceInput(TypedDict, closed=True):
     name: "aws_sdk_timestream_influxdb.types.db_instance_name.DbInstanceName"
     """<p>The name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region.</p>"""
     username: NotRequired["aws_sdk_timestream_influxdb.types.username.Username"]

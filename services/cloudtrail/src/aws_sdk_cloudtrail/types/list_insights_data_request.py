@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListInsightsDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.resource_arn
 
 
-class ListInsightsDataRequest(TypedDict):
+class ListInsightsDataRequest(TypedDict, closed=True):
     insight_source: "aws_sdk_cloudtrail.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name(ARN) of the trail for which you want to retrieve Insights events.</p>"""
     data_type: "aws_sdk_cloudtrail.types.list_insights_data_type.ListInsightsDataType"

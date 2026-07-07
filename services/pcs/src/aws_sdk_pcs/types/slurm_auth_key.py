@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#SlurmAuthKey``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
 
-class SlurmAuthKey(TypedDict):
+class SlurmAuthKey(TypedDict, closed=True):
     secret_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the shared Slurm key.</p>"""
     secret_version: "str"

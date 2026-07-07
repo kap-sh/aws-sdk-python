@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#PutPrincipalMappingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.role_arn
 
 
-class PutPrincipalMappingRequest(TypedDict):
+class PutPrincipalMappingRequest(TypedDict, closed=True):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     """<p>The identifier of the index you want to map users to their groups.</p>"""
     data_source_id: NotRequired["aws_sdk_kendra.types.data_source_id.DataSourceId"]

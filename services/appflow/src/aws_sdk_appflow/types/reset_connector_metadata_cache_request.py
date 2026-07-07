@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ResetConnectorMetadataCacheRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.api_version
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.entity_name
 
 
-class ResetConnectorMetadataCacheRequest(TypedDict):
+class ResetConnectorMetadataCacheRequest(TypedDict, closed=True):
     connector_profile_name: NotRequired[
         "aws_sdk_appflow.types.connector_profile_name.ConnectorProfileName"
     ]

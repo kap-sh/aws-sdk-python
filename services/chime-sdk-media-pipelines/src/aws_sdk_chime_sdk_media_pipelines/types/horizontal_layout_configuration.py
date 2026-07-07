@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#HorizontalLayoutConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.horizontal_tile_position
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.tile_order
 
 
-class HorizontalLayoutConfiguration(TypedDict):
+class HorizontalLayoutConfiguration(TypedDict, closed=True):
     tile_order: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.tile_order.TileOrder"
     ]

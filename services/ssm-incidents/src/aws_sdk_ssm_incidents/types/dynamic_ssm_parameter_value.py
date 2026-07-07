@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#DynamicSsmParameterValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.variable_type
 
 
-class _DynamicSsmParameterValue_variable(TypedDict):
+class _DynamicSsmParameterValue_variable(TypedDict, closed=True):
     variable: "aws_sdk_ssm_incidents.types.variable_type.VariableType"
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#DescribeJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string_list
 
 
-class DescribeJobsRequest(TypedDict):
+class DescribeJobsRequest(TypedDict, closed=True):
     jobs: NotRequired["aws_sdk_batch.types.string_list.StringList"]
     """<p>A list of up to 100 job IDs.</p>"""
 

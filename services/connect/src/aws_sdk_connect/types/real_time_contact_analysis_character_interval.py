@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RealTimeContactAnalysisCharacterInterval``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.real_time_contact_analysis_offset
 
 
-class RealTimeContactAnalysisCharacterInterval(TypedDict):
+class RealTimeContactAnalysisCharacterInterval(TypedDict, closed=True):
     begin_offset_char: "aws_sdk_connect.types.real_time_contact_analysis_offset.RealTimeContactAnalysisOffset"
     """<p>The beginning of the character interval.</p>"""
     end_offset_char: "aws_sdk_connect.types.real_time_contact_analysis_offset.RealTimeContactAnalysisOffset"

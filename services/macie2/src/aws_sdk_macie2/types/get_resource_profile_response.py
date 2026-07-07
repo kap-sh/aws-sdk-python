@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetResourceProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.resource_statistics
 
 
-class GetResourceProfileResponse(TypedDict):
+class GetResourceProfileResponse(TypedDict, closed=True):
     profile_updated_at: NotRequired[
         "aws_sdk_macie2.types.__timestamp_iso8601.__timestampIso8601"
     ]

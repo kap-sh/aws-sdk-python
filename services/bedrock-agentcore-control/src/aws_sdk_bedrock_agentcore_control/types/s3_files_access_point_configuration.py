@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#S3FilesAccessPointConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.s3_files_access_point_arn
 
 
-class S3FilesAccessPointConfiguration(TypedDict):
+class S3FilesAccessPointConfiguration(TypedDict, closed=True):
     access_point_arn: "aws_sdk_bedrock_agentcore_control.types.s3_files_access_point_arn.S3FilesAccessPointArn"
     """<p>The ARN of the S3 Files access point to mount into the AgentCore Runtime.</p>"""
     mount_path: "aws_sdk_bedrock_agentcore_control.types.mount_path.MountPath"

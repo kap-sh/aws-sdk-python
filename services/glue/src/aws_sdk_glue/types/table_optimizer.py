@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TableOptimizer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.configuration_source
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.table_optimizer_type
 
 
-class TableOptimizer(TypedDict):
+class TableOptimizer(TypedDict, closed=True):
     type: NotRequired["aws_sdk_glue.types.table_optimizer_type.TableOptimizerType"]
     """<p>The type of table optimizer. The valid values are:</p> <ul> <li> <p> <code>compaction</code>: for managing compaction with a table optimizer.</p> </li> <li> <p> <code>retention</code>: for managing the retention of snapshot with a table optimizer.</p> </li> <li> <p> <code>orphan_file_deletion</code>: for managing the deletion of orphan files with a table optimizer.</p> </li> </ul>"""
     configuration: NotRequired[

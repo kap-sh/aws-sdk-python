@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#MessageBasedTrigger``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class MessageBasedTrigger(TypedDict):
+class MessageBasedTrigger(TypedDict, closed=True):
     message_count: NotRequired["int"]
     """<p>The number of messages that trigger memory processing.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#Bandwidth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.integer
 
 
-class Bandwidth(TypedDict):
+class Bandwidth(TypedDict, closed=True):
     upload_speed: NotRequired["aws_sdk_networkmanager.types.integer.Integer"]
     """<p>Upload speed in Mbps.</p>"""
     download_speed: NotRequired["aws_sdk_networkmanager.types.integer.Integer"]

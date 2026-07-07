@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#UpdateResourceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateResourceResponse(TypedDict):
+class UpdateResourceResponse(TypedDict, closed=True):
     pass
 
 

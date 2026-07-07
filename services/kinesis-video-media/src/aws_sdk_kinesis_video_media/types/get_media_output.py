@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideomedia#GetMediaOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_media.types.content_type
     import aws_sdk_kinesis_video_media.types.payload
 
 
-class GetMediaOutput(TypedDict):
+class GetMediaOutput(TypedDict, closed=True):
     content_type: NotRequired[
         "aws_sdk_kinesis_video_media.types.content_type.ContentType"
     ]

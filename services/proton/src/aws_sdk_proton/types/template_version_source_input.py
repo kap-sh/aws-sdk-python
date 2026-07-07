@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#TemplateVersionSourceInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.s3_object_source
 
 
-class _TemplateVersionSourceInput_s3(TypedDict):
+class _TemplateVersionSourceInput_s3(TypedDict, closed=True):
     s3: "aws_sdk_proton.types.s3_object_source.S3ObjectSource"
 
 

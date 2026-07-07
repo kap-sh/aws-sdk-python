@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#HeadObjectOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -52,7 +52,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.website_redirect_location
 
 
-class HeadObjectOutput(TypedDict):
+class HeadObjectOutput(TypedDict, closed=True):
     delete_marker: NotRequired["aws_sdk_s3.types.delete_marker.DeleteMarker"]
     """<p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
     accept_ranges: NotRequired["aws_sdk_s3.types.accept_ranges.AcceptRanges"]

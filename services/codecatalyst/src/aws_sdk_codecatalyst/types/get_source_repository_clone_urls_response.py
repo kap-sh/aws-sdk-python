@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#GetSourceRepositoryCloneUrlsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
 
-class GetSourceRepositoryCloneUrlsResponse(TypedDict):
+class GetSourceRepositoryCloneUrlsResponse(TypedDict, closed=True):
     https: "str"
     """<p>The HTTPS URL to use when cloning the source repository.</p>"""
 

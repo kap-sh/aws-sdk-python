@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#StatusException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string_min1_max256
     import aws_sdk_apigatewayv2.types.__string_min1_max2048
 
 
-class StatusException(TypedDict):
+class StatusException(TypedDict, closed=True):
     exception: NotRequired[
         "aws_sdk_apigatewayv2.types.__string_min1_max256.__stringMin1Max256"
     ]

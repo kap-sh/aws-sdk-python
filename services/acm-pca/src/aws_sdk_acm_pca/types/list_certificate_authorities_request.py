@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#ListCertificateAuthoritiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.resource_owner
 
 
-class ListCertificateAuthoritiesRequest(TypedDict):
+class ListCertificateAuthoritiesRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_acm_pca.types.max_results.MaxResults"]
     """<p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p> <p>Although the maximum value is 1000, the action only returns a maximum of 100 items.</p>"""
     next_token: NotRequired["aws_sdk_acm_pca.types.next_token.NextToken"]

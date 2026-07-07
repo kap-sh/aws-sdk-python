@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetExportSnapshotRecordsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.export_snapshot_record_list
     import aws_sdk_lightsail.types.string
 
 
-class GetExportSnapshotRecordsResult(TypedDict):
+class GetExportSnapshotRecordsResult(TypedDict, closed=True):
     export_snapshot_records: NotRequired[
         "aws_sdk_lightsail.types.export_snapshot_record_list.ExportSnapshotRecordList"
     ]

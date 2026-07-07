@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#InstanceNetworkInterfaceAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class InstanceNetworkInterfaceAssociation(TypedDict):
+class InstanceNetworkInterfaceAssociation(TypedDict, closed=True):
     carrier_ip: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The carrier IP address associated with the network interface.</p>"""
     customer_owned_ip: NotRequired["aws_sdk_ec2.types.string.String"]

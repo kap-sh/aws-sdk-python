@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssooidc#AccessDeniedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_oidc.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_oidc.types.error_description
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     error: NotRequired["aws_sdk_sso_oidc.types.error.Error"]
     """<p>Single error code. For this exception the value will be <code>access_denied</code>.</p>"""
     reason: NotRequired[

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#DeleteModelManifestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.resource_name
 
 
-class DeleteModelManifestRequest(TypedDict):
+class DeleteModelManifestRequest(TypedDict, closed=True):
     name: "aws_sdk_iotfleetwise.types.resource_name.resourceName"
     """<p> The name of the model manifest to delete. </p>"""
 

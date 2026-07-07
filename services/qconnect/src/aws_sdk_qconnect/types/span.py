@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#Span``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class Span(TypedDict):
+class Span(TypedDict, closed=True):
     span_id: "aws_sdk_qconnect.types.uuid.Uuid"
     """<p>Unique span identifier</p>"""
     assistant_id: "aws_sdk_qconnect.types.uuid.Uuid"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#CreateReplicationSetInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.tag_map
 
 
-class CreateReplicationSetInput(TypedDict):
+class CreateReplicationSetInput(TypedDict, closed=True):
     regions: "aws_sdk_ssm_incidents.types.region_map_input.RegionMapInput"
     """<p>The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.</p>"""
     client_token: NotRequired["aws_sdk_ssm_incidents.types.client_token.ClientToken"]

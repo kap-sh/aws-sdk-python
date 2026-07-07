@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ExplainerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.clarify_explainer_config
 
 
-class ExplainerConfig(TypedDict):
+class ExplainerConfig(TypedDict, closed=True):
     clarify_explainer_config: NotRequired[
         "aws_sdk_sagemaker.types.clarify_explainer_config.ClarifyExplainerConfig"
     ]

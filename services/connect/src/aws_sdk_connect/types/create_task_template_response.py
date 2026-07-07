@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateTaskTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.task_template_id
 
 
-class CreateTaskTemplateResponse(TypedDict):
+class CreateTaskTemplateResponse(TypedDict, closed=True):
     id: "aws_sdk_connect.types.task_template_id.TaskTemplateId"
     """<p>The identifier of the task template resource.</p>"""
     arn: "aws_sdk_connect.types.task_template_arn.TaskTemplateArn"

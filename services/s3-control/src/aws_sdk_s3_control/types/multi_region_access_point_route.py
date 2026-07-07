@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#MultiRegionAccessPointRoute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.traffic_dial_percentage
 
 
-class MultiRegionAccessPointRoute(TypedDict):
+class MultiRegionAccessPointRoute(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_s3_control.types.bucket_name.BucketName"]
     """<p>The name of the Amazon S3 bucket for which you'll submit a routing configuration change. Either the <code>Bucket</code> or the <code>Region</code> value must be provided. If both are provided, the bucket must be in the specified Region.</p>"""
     region: NotRequired["aws_sdk_s3_control.types.region_name.RegionName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#PutApplicationAccessScopeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.scope_targets
 
 
-class PutApplicationAccessScopeRequest(TypedDict):
+class PutApplicationAccessScopeRequest(TypedDict, closed=True):
     scope: "aws_sdk_sso_admin.types.scope.Scope"
     """<p>Specifies the name of the access scope to be associated with the specified targets.</p>"""
     authorized_targets: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#SparqlRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.string_valued_map
 
 
-class SparqlRecord(TypedDict):
+class SparqlRecord(TypedDict, closed=True):
     commit_timestamp_in_millis: "int"
     """<p>The time at which the commit for the transaction was requested, in milliseconds from the Unix epoch.</p>"""
     event_id: "aws_sdk_neptunedata.types.string_valued_map.StringValuedMap"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#PutDefaultApplicationSettingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
 
 
-class PutDefaultApplicationSettingRequest(TypedDict):
+class PutDefaultApplicationSettingRequest(TypedDict, closed=True):
     application_arn: "aws_sdk_opensearch.types.arn.ARN"
     set_as_default: "aws_sdk_opensearch.types.boolean.Boolean"
     """<p>Set to true to set the specified ARN as the default application. Set to false to clear the default application.</p>"""

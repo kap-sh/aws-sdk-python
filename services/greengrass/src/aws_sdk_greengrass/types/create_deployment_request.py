@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#CreateDeploymentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.deployment_type
 
 
-class CreateDeploymentRequest(TypedDict):
+class CreateDeploymentRequest(TypedDict, closed=True):
     amzn_client_token: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """A client token used to correlate requests and responses."""
     deployment_id: NotRequired["aws_sdk_greengrass.types.__string.__string"]

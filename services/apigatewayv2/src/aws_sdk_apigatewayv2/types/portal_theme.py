@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#PortalTheme``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__timestamp_iso8601
     import aws_sdk_apigatewayv2.types.custom_colors
 
 
-class PortalTheme(TypedDict):
+class PortalTheme(TypedDict, closed=True):
     custom_colors: NotRequired["aws_sdk_apigatewayv2.types.custom_colors.CustomColors"]
     """<p>Defines custom color values.</p>"""
     logo_last_uploaded: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2ClientVpnEndpointAuthenticationOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_client_vpn_endpoint_authentication_options_active_directory_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2ClientVpnEndpointAuthenticationOptionsDetails(TypedDict):
+class AwsEc2ClientVpnEndpointAuthenticationOptionsDetails(TypedDict, closed=True):
     type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The authentication type used. </p>"""
     active_directory: NotRequired[

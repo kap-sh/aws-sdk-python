@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#DeleteDeviceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteDeviceResponse(TypedDict):
+class DeleteDeviceResponse(TypedDict, closed=True):
     pass
 
 

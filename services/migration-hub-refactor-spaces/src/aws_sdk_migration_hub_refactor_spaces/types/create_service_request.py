@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#CreateServiceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migration_hub_refactor_spaces.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.vpc_id
 
 
-class CreateServiceRequest(TypedDict):
+class CreateServiceRequest(TypedDict, closed=True):
     name: "aws_sdk_migration_hub_refactor_spaces.types.service_name.ServiceName"
     """<p>The name of the service.</p>"""
     description: NotRequired[

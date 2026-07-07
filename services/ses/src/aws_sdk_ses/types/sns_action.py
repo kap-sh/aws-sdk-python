@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#SNSAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.sns_action_encoding
 
 
-class SNSAction(TypedDict):
+class SNSAction(TypedDict, closed=True):
     topic_arn: "aws_sdk_ses.types.amazon_resource_name.AmazonResourceName"
     r"""<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. You can find the ARN of a topic by using the <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html\">ListTopics</a> operation in Amazon SNS.</p> <p>For more information about Amazon SNS topics, see the <a href=\"https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html\">Amazon SNS Developer Guide</a>.</p>"""
     encoding: NotRequired["aws_sdk_ses.types.sns_action_encoding.SNSActionEncoding"]

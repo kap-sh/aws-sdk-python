@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#SendBounceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.message_id
 
 
-class SendBounceRequest(TypedDict):
+class SendBounceRequest(TypedDict, closed=True):
     original_message_id: "aws_sdk_ses.types.message_id.MessageId"
     """<p>The message ID of the message to be bounced.</p>"""
     bounce_sender: "aws_sdk_ses.types.address.Address"

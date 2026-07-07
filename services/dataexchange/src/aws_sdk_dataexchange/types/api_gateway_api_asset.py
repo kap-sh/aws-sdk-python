@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ApiGatewayApiAsset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.timestamp
 
 
-class ApiGatewayApiAsset(TypedDict):
+class ApiGatewayApiAsset(TypedDict, closed=True):
     api_description: NotRequired[
         "aws_sdk_dataexchange.types.api_description.ApiDescription"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ListManagedSchemaArnsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.arns
     import aws_sdk_clouddirectory.types.next_token
 
 
-class ListManagedSchemaArnsResponse(TypedDict):
+class ListManagedSchemaArnsResponse(TypedDict, closed=True):
     schema_arns: NotRequired["aws_sdk_clouddirectory.types.arns.Arns"]
     """<p>The ARNs for all AWS managed schemas.</p>"""
     next_token: NotRequired["aws_sdk_clouddirectory.types.next_token.NextToken"]

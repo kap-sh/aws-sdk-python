@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ContinuousIntegrationScanConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.continuous_integration_scan_supported_events
 
 
-class ContinuousIntegrationScanConfiguration(TypedDict):
+class ContinuousIntegrationScanConfiguration(TypedDict, closed=True):
     supported_events: "aws_sdk_inspector2.types.continuous_integration_scan_supported_events.ContinuousIntegrationScanSupportedEvents"
     """<p>The repository events that trigger continuous integration scans, such as pull requests or commits.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeDirectoryDataAccessResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.data_access_status
 
 
-class DescribeDirectoryDataAccessResult(TypedDict):
+class DescribeDirectoryDataAccessResult(TypedDict, closed=True):
     data_access_status: NotRequired[
         "aws_sdk_directory_service.types.data_access_status.DataAccessStatus"
     ]

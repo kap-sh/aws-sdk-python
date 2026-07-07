@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.document_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.timestamp
 
 
-class DocumentDetails(TypedDict):
+class DocumentDetails(TypedDict, closed=True):
     document_id: NotRequired["aws_sdk_qbusiness.types.document_id.DocumentId"]
     """<p>The identifier of the document.</p>"""
     status: NotRequired["aws_sdk_qbusiness.types.document_status.DocumentStatus"]

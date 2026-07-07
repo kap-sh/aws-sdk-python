@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#CreateCustomPluginResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.custom_plugin_state
 
 
-class CreateCustomPluginResponse(TypedDict):
+class CreateCustomPluginResponse(TypedDict, closed=True):
     custom_plugin_arn: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) that Amazon assigned to the custom plugin.</p>"""
     custom_plugin_state: NotRequired[

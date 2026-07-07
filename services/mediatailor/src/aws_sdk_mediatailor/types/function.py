@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#Function``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.sequential_executor_configuration
 
 
-class Function(TypedDict):
+class Function(TypedDict, closed=True):
     function_id: "aws_sdk_mediatailor.types.__string.__string"
     """<p>The identifier of the function.</p>"""
     function_type: "aws_sdk_mediatailor.types.function_type.FunctionType"

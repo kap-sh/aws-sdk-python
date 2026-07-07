@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#ListPipesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.limit_max100
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.resource_arn
 
 
-class ListPipesRequest(TypedDict):
+class ListPipesRequest(TypedDict, closed=True):
     name_prefix: NotRequired["aws_sdk_pipes.types.pipe_name.PipeName"]
     r"""<p>A value that will return a subset of the pipes associated with this account. For example, <code>\"NamePrefix\": \"ABC\"</code> will return all endpoints with \"ABC\" in the name.</p>"""
     desired_state: NotRequired[

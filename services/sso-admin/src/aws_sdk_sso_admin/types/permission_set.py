@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#PermissionSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.date
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.relay_state
 
 
-class PermissionSet(TypedDict):
+class PermissionSet(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sso_admin.types.permission_set_name.PermissionSetName"]
     """<p>The name of the permission set.</p>"""
     permission_set_arn: NotRequired[

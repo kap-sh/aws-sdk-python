@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DeleteMailboxPermissionsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteMailboxPermissionsResponse(TypedDict):
+class DeleteMailboxPermissionsResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateCertificateFromCsrResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_pem
 
 
-class CreateCertificateFromCsrResponse(TypedDict):
+class CreateCertificateFromCsrResponse(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_iot.types.certificate_arn.CertificateArn"]
     """<p>The Amazon Resource Name (ARN) of the certificate. You can use the ARN as a principal for policy operations.</p>"""
     certificate_id: NotRequired["aws_sdk_iot.types.certificate_id.CertificateId"]

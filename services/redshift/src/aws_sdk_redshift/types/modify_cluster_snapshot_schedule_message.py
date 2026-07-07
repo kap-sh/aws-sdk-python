@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#ModifyClusterSnapshotScheduleMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class ModifyClusterSnapshotScheduleMessage(TypedDict):
+class ModifyClusterSnapshotScheduleMessage(TypedDict, closed=True):
     cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>A unique identifier for the cluster whose snapshot schedule you want to modify. </p>"""
     schedule_identifier: NotRequired["aws_sdk_redshift.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#BadRequestException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifybackend.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
 
 
-class BadRequestException_(TypedDict):
+class BadRequestException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>An error message to inform that the request failed.</p>"""
 

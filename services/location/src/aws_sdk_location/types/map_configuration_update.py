@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#MapConfigurationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.country_code3_or_empty
     import aws_sdk_location.types.custom_layer_list
 
 
-class MapConfigurationUpdate(TypedDict):
+class MapConfigurationUpdate(TypedDict, closed=True):
     political_view: NotRequired[
         "aws_sdk_location.types.country_code3_or_empty.CountryCode3OrEmpty"
     ]

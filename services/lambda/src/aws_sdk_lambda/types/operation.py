@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#Operation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.wait_details
 
 
-class Operation(TypedDict):
+class Operation(TypedDict, closed=True):
     id: "aws_sdk_lambda.types.operation_id.OperationId"
     """<p>The unique identifier for this operation.</p>"""
     parent_id: NotRequired["aws_sdk_lambda.types.operation_id.OperationId"]

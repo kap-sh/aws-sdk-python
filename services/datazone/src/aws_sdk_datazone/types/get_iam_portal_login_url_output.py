@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetIamPortalLoginUrlOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class GetIamPortalLoginUrlOutput(TypedDict):
+class GetIamPortalLoginUrlOutput(TypedDict, closed=True):
     auth_code_url: NotRequired["str"]
     """<p>The data portal URL of the specified Amazon DataZone domain.</p>"""
     user_profile_id: "str"

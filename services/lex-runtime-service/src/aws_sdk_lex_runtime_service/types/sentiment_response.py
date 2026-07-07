@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimeservice#SentimentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.sentiment_label
     import aws_sdk_lex_runtime_service.types.sentiment_score
 
 
-class SentimentResponse(TypedDict):
+class SentimentResponse(TypedDict, closed=True):
     sentiment_label: NotRequired[
         "aws_sdk_lex_runtime_service.types.sentiment_label.SentimentLabel"
     ]

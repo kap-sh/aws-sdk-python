@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ChannelNamespace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.auth_modes
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.timestamp
 
 
-class ChannelNamespace(TypedDict):
+class ChannelNamespace(TypedDict, closed=True):
     api_id: NotRequired["aws_sdk_appsync.types.string.String"]
     """<p>The <code>Api</code> ID.</p>"""
     name: NotRequired["aws_sdk_appsync.types.namespace.Namespace"]

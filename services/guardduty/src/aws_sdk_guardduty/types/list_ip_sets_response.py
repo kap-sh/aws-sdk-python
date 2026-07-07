@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ListIPSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.ip_set_ids
     import aws_sdk_guardduty.types.string
 
 
-class ListIPSetsResponse(TypedDict):
+class ListIPSetsResponse(TypedDict, closed=True):
     ip_set_ids: NotRequired["aws_sdk_guardduty.types.ip_set_ids.IpSetIds"]
     """<p>The IDs of the IPSet resources.</p>"""
     next_token: NotRequired["aws_sdk_guardduty.types.string.String"]

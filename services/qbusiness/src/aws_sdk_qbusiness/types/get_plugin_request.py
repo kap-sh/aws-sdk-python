@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#GetPluginRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
     import aws_sdk_qbusiness.types.plugin_id
 
 
-class GetPluginRequest(TypedDict):
+class GetPluginRequest(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The identifier of the application which contains the plugin.</p>"""
     plugin_id: "aws_sdk_qbusiness.types.plugin_id.PluginId"

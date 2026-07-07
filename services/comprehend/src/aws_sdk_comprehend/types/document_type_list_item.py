@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DocumentTypeListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.document_type
     import aws_sdk_comprehend.types.integer
 
 
-class DocumentTypeListItem(TypedDict):
+class DocumentTypeListItem(TypedDict, closed=True):
     page: NotRequired["aws_sdk_comprehend.types.integer.Integer"]
     """<p>Page number.</p>"""
     type: NotRequired["aws_sdk_comprehend.types.document_type.DocumentType"]

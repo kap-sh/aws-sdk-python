@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ReactiveAnomalySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.anomaly_description
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.resource_collection
 
 
-class ReactiveAnomalySummary(TypedDict):
+class ReactiveAnomalySummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_devops_guru.types.anomaly_id.AnomalyId"]
     """<p> The ID of the reactive anomaly. </p>"""
     severity: NotRequired["aws_sdk_devops_guru.types.anomaly_severity.AnomalySeverity"]

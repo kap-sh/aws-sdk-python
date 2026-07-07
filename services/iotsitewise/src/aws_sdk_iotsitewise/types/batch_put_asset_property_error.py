@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#BatchPutAssetPropertyError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.timestamps
 
 
-class BatchPutAssetPropertyError(TypedDict):
+class BatchPutAssetPropertyError(TypedDict, closed=True):
     error_code: "aws_sdk_iotsitewise.types.batch_put_asset_property_value_error_code.BatchPutAssetPropertyValueErrorCode"
     """<p>The error code.</p>"""
     error_message: "aws_sdk_iotsitewise.types.error_message.ErrorMessage"

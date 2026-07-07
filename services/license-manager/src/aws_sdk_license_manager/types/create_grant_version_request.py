@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#CreateGrantVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class CreateGrantVersionRequest(TypedDict):
+class CreateGrantVersionRequest(TypedDict, closed=True):
     client_token: "aws_sdk_license_manager.types.client_token.ClientToken"
     """<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>"""
     grant_arn: "aws_sdk_license_manager.types.arn.Arn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#WAFLoggingParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.logging_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.waf_log_type
 
 
-class WAFLoggingParameters(TypedDict):
+class WAFLoggingParameters(TypedDict, closed=True):
     redacted_fields: NotRequired[
         "aws_sdk_observabilityadmin.types.redacted_fields.RedactedFields"
     ]

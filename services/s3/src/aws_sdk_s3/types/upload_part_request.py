@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#UploadPartRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3.types.account_id
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.streaming_blob
 
 
-class UploadPartRequest(TypedDict):
+class UploadPartRequest(TypedDict, closed=True):
     body: "aws_sdk_s3.types.streaming_blob.StreamingBlob"
     """<p>Object data.</p>"""
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"

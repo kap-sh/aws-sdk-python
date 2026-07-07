@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationcostprofiler#S3Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_applicationcostprofiler.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_applicationcostprofiler.types.s3_prefix
 
 
-class S3Location(TypedDict):
+class S3Location(TypedDict, closed=True):
     bucket: "aws_sdk_applicationcostprofiler.types.s3_bucket.S3Bucket"
     """<p>Name of the S3 bucket.</p>"""
     prefix: "aws_sdk_applicationcostprofiler.types.s3_prefix.S3Prefix"

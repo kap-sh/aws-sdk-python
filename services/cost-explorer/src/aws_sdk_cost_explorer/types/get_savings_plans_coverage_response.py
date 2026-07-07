@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetSavingsPlansCoverageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.savings_plans_coverages
 
 
-class GetSavingsPlansCoverageResponse(TypedDict):
+class GetSavingsPlansCoverageResponse(TypedDict, closed=True):
     savings_plans_coverages: (
         "aws_sdk_cost_explorer.types.savings_plans_coverages.SavingsPlansCoverages"
     )

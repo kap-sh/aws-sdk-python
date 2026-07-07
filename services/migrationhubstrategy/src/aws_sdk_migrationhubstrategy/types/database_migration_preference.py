@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#DatabaseMigrationPreference``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhubstrategy.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.no_database_migration_preference
 
 
-class _DatabaseMigrationPreference_heterogeneous(TypedDict):
+class _DatabaseMigrationPreference_heterogeneous(TypedDict, closed=True):
     heterogeneous: "aws_sdk_migrationhubstrategy.types.heterogeneous.Heterogeneous"
 
 
-class _DatabaseMigrationPreference_homogeneous(TypedDict):
+class _DatabaseMigrationPreference_homogeneous(TypedDict, closed=True):
     homogeneous: "aws_sdk_migrationhubstrategy.types.homogeneous.Homogeneous"
 
 
-class _DatabaseMigrationPreference_noPreference(TypedDict):
+class _DatabaseMigrationPreference_noPreference(TypedDict, closed=True):
     noPreference: "aws_sdk_migrationhubstrategy.types.no_database_migration_preference.NoDatabaseMigrationPreference"
 
 

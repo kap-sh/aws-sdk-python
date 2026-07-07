@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RowFilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.row_filter
 
 
-class RowFilterConfiguration(TypedDict):
+class RowFilterConfiguration(TypedDict, closed=True):
     row_filter: "aws_sdk_datazone.types.row_filter.RowFilter"
     """<p>The row filter.</p>"""
     sensitive: "bool"

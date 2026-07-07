@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#DocumentServiceException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudsearch_domain.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.string
 
 
-class DocumentServiceException_(TypedDict):
+class DocumentServiceException_(TypedDict, closed=True):
     status: NotRequired["aws_sdk_cloudsearch_domain.types.string.String"]
     """<p>The return status of a document upload request, <code>error</code> or <code>success</code>.</p>"""
     message: NotRequired["aws_sdk_cloudsearch_domain.types.string.String"]

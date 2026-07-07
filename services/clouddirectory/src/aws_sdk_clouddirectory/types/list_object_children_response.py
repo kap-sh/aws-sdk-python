@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ListObjectChildrenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.link_name_to_object_identifier_map
     import aws_sdk_clouddirectory.types.next_token
 
 
-class ListObjectChildrenResponse(TypedDict):
+class ListObjectChildrenResponse(TypedDict, closed=True):
     children: NotRequired[
         "aws_sdk_clouddirectory.types.link_name_to_object_identifier_map.LinkNameToObjectIdentifierMap"
     ]

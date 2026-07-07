@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceComponentDataCacheConfigSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.enable_caching
 
 
-class InferenceComponentDataCacheConfigSummary(TypedDict):
+class InferenceComponentDataCacheConfigSummary(TypedDict, closed=True):
     enable_caching: NotRequired["aws_sdk_sagemaker.types.enable_caching.EnableCaching"]
     """<p>Indicates whether the inference component caches model artifacts as part of the auto scaling process.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.osis#PutResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_osis.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_osis.types.resource_policy
 
 
-class PutResourcePolicyRequest(TypedDict):
+class PutResourcePolicyRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_osis.types.pipeline_arn.PipelineArn"
     """<p>The Amazon Resource Name (ARN) of the resource to attach the policy to.</p>"""
     policy: "aws_sdk_osis.types.resource_policy.ResourcePolicy"

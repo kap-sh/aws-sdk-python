@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeDomainChangeProgressRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_name
     import aws_sdk_opensearch.types.guid
 
 
-class DescribeDomainChangeProgressRequest(TypedDict):
+class DescribeDomainChangeProgressRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"
     """<p>The name of the domain to get progress information for.</p>"""
     change_id: NotRequired["aws_sdk_opensearch.types.guid.GUID"]

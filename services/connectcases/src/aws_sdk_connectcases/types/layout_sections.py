@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#LayoutSections``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.sections_list
 
 
-class LayoutSections(TypedDict):
+class LayoutSections(TypedDict, closed=True):
     sections: NotRequired["aws_sdk_connectcases.types.sections_list.SectionsList"]
 
 

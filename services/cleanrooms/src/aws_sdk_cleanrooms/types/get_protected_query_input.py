@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetProtectedQueryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.membership_identifier
     import aws_sdk_cleanrooms.types.protected_query_identifier
 
 
-class GetProtectedQueryInput(TypedDict):
+class GetProtectedQueryInput(TypedDict, closed=True):
     membership_identifier: (
         "aws_sdk_cleanrooms.types.membership_identifier.MembershipIdentifier"
     )

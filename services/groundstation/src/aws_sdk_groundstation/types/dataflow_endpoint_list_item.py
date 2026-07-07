@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#DataflowEndpointListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.dataflow_endpoint_group_arn
     import aws_sdk_groundstation.types.uuid
 
 
-class DataflowEndpointListItem(TypedDict):
+class DataflowEndpointListItem(TypedDict, closed=True):
     dataflow_endpoint_group_id: NotRequired["aws_sdk_groundstation.types.uuid.Uuid"]
     """<p>UUID of a dataflow endpoint group.</p>"""
     dataflow_endpoint_group_arn: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError, ServiceError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.resource_id_type
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "aws_sdk_devops_guru.types.error_message_string.ErrorMessageString"
     resource_id: "aws_sdk_devops_guru.types.resource_id_string.ResourceIdString"
     """<p> The ID of the Amazon Web Services resource in which a conflict occurred. </p>"""

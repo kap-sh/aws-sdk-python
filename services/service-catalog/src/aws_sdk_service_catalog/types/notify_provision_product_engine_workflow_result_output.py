@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#NotifyProvisionProductEngineWorkflowResultOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class NotifyProvisionProductEngineWorkflowResultOutput(TypedDict):
+class NotifyProvisionProductEngineWorkflowResultOutput(TypedDict, closed=True):
     pass
 
 

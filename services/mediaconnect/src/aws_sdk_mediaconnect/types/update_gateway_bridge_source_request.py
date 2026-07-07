@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#UpdateGatewayBridgeSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.vpc_interface_attachment
 
 
-class UpdateGatewayBridgeSourceRequest(TypedDict):
+class UpdateGatewayBridgeSourceRequest(TypedDict, closed=True):
     bridge_arn: NotRequired["str"]
     """<p> The ARN of the bridge feeding this flow.</p>"""
     vpc_interface_attachment: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BuildNotDeleted``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
     import aws_sdk_codebuild.types.string
 
 
-class BuildNotDeleted(TypedDict):
+class BuildNotDeleted(TypedDict, closed=True):
     id: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p>The ID of the build that could not be successfully deleted.</p>"""
     status_code: NotRequired["aws_sdk_codebuild.types.string.String"]

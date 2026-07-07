@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#EndpointAccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.vpc_security_group_membership_list
 
 
-class EndpointAccess(TypedDict):
+class EndpointAccess(TypedDict, closed=True):
     cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The cluster identifier of the cluster associated with the endpoint.</p>"""
     resource_owner: NotRequired["aws_sdk_redshift.types.string.String"]

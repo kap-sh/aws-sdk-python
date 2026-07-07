@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ListLicenseAssetGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.box_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class ListLicenseAssetGroupsRequest(TypedDict):
+class ListLicenseAssetGroupsRequest(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_license_manager.types.filters.Filters"]
     """<p>Filters to scope the results. Following filters are supported</p> <ul> <li> <p> <code>LicenseAssetRulesetArn</code> </p> </li> </ul>"""
     max_results: NotRequired["aws_sdk_license_manager.types.box_integer.BoxInteger"]

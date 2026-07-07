@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#CellSignals``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.lte_cell_details_list
 
 
-class CellSignals(TypedDict):
+class CellSignals(TypedDict, closed=True):
     lte_cell_details: "aws_sdk_location.types.lte_cell_details_list.LteCellDetailsList"
     """<p>Information about the Long-Term Evolution (LTE) network the device is connected to.</p>"""
 

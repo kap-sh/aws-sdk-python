@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeleteResourceDataSyncResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteResourceDataSyncResult(TypedDict):
+class DeleteResourceDataSyncResult(TypedDict, closed=True):
     pass
 
 

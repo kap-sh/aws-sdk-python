@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#GetResourcePoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.policy_list
     import aws_sdk_ram.types.string
 
 
-class GetResourcePoliciesResponse(TypedDict):
+class GetResourcePoliciesResponse(TypedDict, closed=True):
     policies: NotRequired["aws_sdk_ram.types.policy_list.PolicyList"]
     """<p>An array of resource policy documents in JSON format.</p>"""
     next_token: NotRequired["aws_sdk_ram.types.string.String"]

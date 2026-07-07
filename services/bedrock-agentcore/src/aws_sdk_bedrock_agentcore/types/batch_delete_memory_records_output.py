@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#BatchDeleteMemoryRecordsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.memory_records_output_list
 
 
-class BatchDeleteMemoryRecordsOutput(TypedDict):
+class BatchDeleteMemoryRecordsOutput(TypedDict, closed=True):
     successful_records: "aws_sdk_bedrock_agentcore.types.memory_records_output_list.MemoryRecordsOutputList"
     """<p>A list of memory records that were successfully deleted during the batch operation.</p>"""
     failed_records: "aws_sdk_bedrock_agentcore.types.memory_records_output_list.MemoryRecordsOutputList"

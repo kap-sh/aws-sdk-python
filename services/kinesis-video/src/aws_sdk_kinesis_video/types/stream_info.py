@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#StreamInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.data_retention_in_hours
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.version
 
 
-class StreamInfo(TypedDict):
+class StreamInfo(TypedDict, closed=True):
     device_name: NotRequired["aws_sdk_kinesis_video.types.device_name.DeviceName"]
     """<p>The name of the device that is associated with the stream.</p>"""
     stream_name: NotRequired["aws_sdk_kinesis_video.types.stream_name.StreamName"]

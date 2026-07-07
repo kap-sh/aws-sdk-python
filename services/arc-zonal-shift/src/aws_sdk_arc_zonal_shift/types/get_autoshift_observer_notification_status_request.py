@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#GetAutoshiftObserverNotificationStatusRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAutoshiftObserverNotificationStatusRequest(TypedDict):
+class GetAutoshiftObserverNotificationStatusRequest(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#ReplicaSpecificationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.capacity_specification_summary
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.warm_throughput_specification_summary
 
 
-class ReplicaSpecificationSummary(TypedDict):
+class ReplicaSpecificationSummary(TypedDict, closed=True):
     region: NotRequired["aws_sdk_keyspaces.types.region.region"]
     """<p>The Amazon Web Services Region.</p>"""
     status: NotRequired["aws_sdk_keyspaces.types.table_status.TableStatus"]

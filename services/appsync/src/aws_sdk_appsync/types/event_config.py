@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#EventConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.event_log_config
 
 
-class EventConfig(TypedDict):
+class EventConfig(TypedDict, closed=True):
     auth_providers: "aws_sdk_appsync.types.auth_providers.AuthProviders"
     """<p>A list of authorization providers.</p>"""
     connection_auth_modes: "aws_sdk_appsync.types.auth_modes.AuthModes"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ProvisionedPollerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.maximum_number_of_pollers
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.provisioned_poller_group_name
 
 
-class ProvisionedPollerConfig(TypedDict):
+class ProvisionedPollerConfig(TypedDict, closed=True):
     minimum_pollers: NotRequired[
         "aws_sdk_lambda.types.minimum_number_of_pollers.MinimumNumberOfPollers"
     ]

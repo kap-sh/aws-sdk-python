@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#DeleteFirewallManagerRuleGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.resource_arn
 
 
-class DeleteFirewallManagerRuleGroupsRequest(TypedDict):
+class DeleteFirewallManagerRuleGroupsRequest(TypedDict, closed=True):
     web_acl_arn: "aws_sdk_wafv2.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the web ACL.</p>"""
     web_acl_lock_token: "aws_sdk_wafv2.types.lock_token.LockToken"

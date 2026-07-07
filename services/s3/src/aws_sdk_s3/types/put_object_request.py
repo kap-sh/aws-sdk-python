@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#PutObjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3.types.account_id
@@ -53,7 +53,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.write_offset_bytes
 
 
-class PutObjectRequest(TypedDict):
+class PutObjectRequest(TypedDict, closed=True):
     acl: NotRequired["aws_sdk_s3.types.object_canned_acl.ObjectCannedACL"]
     r"""<p>The canned ACL to apply to the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL\">Canned ACL</a> in the <i>Amazon S3 User Guide</i>.</p> <p>When adding a new object, you can use headers to grant ACL-based permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are then added to the ACL on the object. By default, all objects are private. Only the owner has full access control. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html\">Access Control List (ACL) Overview</a> and <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html\">Managing ACLs Using the REST API</a> in the <i>Amazon S3 User Guide</i>.</p> <p>If the bucket that you're uploading objects to uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that use this setting only accept PUT requests that don't specify an ACL or PUT requests that specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code> canned ACL or an equivalent form of this ACL expressed in the XML format. PUT requests that contain other ACLs (for example, custom grants to certain Amazon Web Services accounts) fail and return a <code>400</code> error with the error code <code>AccessControlListNotSupported</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html\"> Controlling ownership of objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p> <note> <ul> <li> <p>This functionality is not supported for directory buckets.</p> </li> <li> <p>This functionality is not supported for Amazon S3 on Outposts.</p> </li> </ul> </note>"""
     body: "aws_sdk_s3.types.streaming_blob.StreamingBlob"

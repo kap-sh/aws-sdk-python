@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#DescribeClusterV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.cluster
 
 
-class DescribeClusterV2Response(TypedDict):
+class DescribeClusterV2Response(TypedDict, closed=True):
     cluster_info: NotRequired["aws_sdk_kafka.types.cluster.Cluster"]
     """<p>The cluster information.</p>"""
 

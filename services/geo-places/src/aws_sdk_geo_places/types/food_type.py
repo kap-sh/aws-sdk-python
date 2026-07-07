@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#FoodType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_places.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class FoodType(TypedDict):
+class FoodType(TypedDict, closed=True):
     localized_name: "aws_sdk_geo_places.types.sensitive_string.SensitiveString"
     """<p>Localized name of the food type.</p>"""
     id: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]

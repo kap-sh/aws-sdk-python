@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#CreateTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.template
 
 
-class CreateTemplateRequest(TypedDict):
+class CreateTemplateRequest(TypedDict, closed=True):
     template: "aws_sdk_ses.types.template.Template"
     """<p>The content of the email, composed of a subject line and either an HTML part or a text-only part.</p>"""
 

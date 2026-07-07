@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ContributorInsightsSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.contributor_insights_mode
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_name
 
 
-class ContributorInsightsSummary(TypedDict):
+class ContributorInsightsSummary(TypedDict, closed=True):
     table_name: NotRequired["aws_sdk_dynamodb.types.table_name.TableName"]
     """<p>Name of the table associated with the summary.</p>"""
     index_name: NotRequired["aws_sdk_dynamodb.types.index_name.IndexName"]

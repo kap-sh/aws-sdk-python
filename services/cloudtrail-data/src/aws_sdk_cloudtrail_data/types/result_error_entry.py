@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtraildata#ResultErrorEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail_data.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail_data.types.uuid
 
 
-class ResultErrorEntry(TypedDict):
+class ResultErrorEntry(TypedDict, closed=True):
     id: "aws_sdk_cloudtrail_data.types.uuid.Uuid"
     """<p>The original event ID from the source event that could not be ingested by CloudTrail.</p>"""
     error_code: "aws_sdk_cloudtrail_data.types.error_code.ErrorCode"

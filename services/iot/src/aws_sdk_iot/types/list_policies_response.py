@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListPoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.marker
     import aws_sdk_iot.types.policies
 
 
-class ListPoliciesResponse(TypedDict):
+class ListPoliciesResponse(TypedDict, closed=True):
     policies: NotRequired["aws_sdk_iot.types.policies.Policies"]
     """<p>The descriptions of the policies.</p>"""
     next_marker: NotRequired["aws_sdk_iot.types.marker.Marker"]

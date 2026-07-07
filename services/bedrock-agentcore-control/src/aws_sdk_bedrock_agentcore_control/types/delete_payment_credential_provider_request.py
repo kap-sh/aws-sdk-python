@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeletePaymentCredentialProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.credential_provider_name
 
 
-class DeletePaymentCredentialProviderRequest(TypedDict):
+class DeletePaymentCredentialProviderRequest(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName"
     """<p>The name of the payment credential provider to delete.</p>"""
 

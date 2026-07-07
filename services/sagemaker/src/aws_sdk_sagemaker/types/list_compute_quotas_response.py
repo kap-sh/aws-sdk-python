@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListComputeQuotasResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.compute_quota_summary_list
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListComputeQuotasResponse(TypedDict):
+class ListComputeQuotasResponse(TypedDict, closed=True):
     compute_quota_summaries: NotRequired[
         "aws_sdk_sagemaker.types.compute_quota_summary_list.ComputeQuotaSummaryList"
     ]

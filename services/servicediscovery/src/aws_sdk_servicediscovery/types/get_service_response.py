@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#GetServiceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.service
 
 
-class GetServiceResponse(TypedDict):
+class GetServiceResponse(TypedDict, closed=True):
     service: NotRequired["aws_sdk_servicediscovery.types.service.Service"]
     """<p>A complex type that contains information about the service.</p>"""
 

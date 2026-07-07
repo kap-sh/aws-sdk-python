@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#DescribeReceiptRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.receipt_rule
 
 
-class DescribeReceiptRuleResponse(TypedDict):
+class DescribeReceiptRuleResponse(TypedDict, closed=True):
     rule: NotRequired["aws_sdk_ses.types.receipt_rule.ReceiptRule"]
     """<p>A data structure that contains the specified receipt rule's name, actions, recipients, domains, enabled status, scan status, and Transport Layer Security (TLS) policy.</p>"""
 

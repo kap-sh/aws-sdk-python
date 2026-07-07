@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelSpeculativeDecodingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_speculative_decoding_technique
     import aws_sdk_sagemaker.types.model_speculative_decoding_training_data_source
 
 
-class ModelSpeculativeDecodingConfig(TypedDict):
+class ModelSpeculativeDecodingConfig(TypedDict, closed=True):
     technique: NotRequired[
         "aws_sdk_sagemaker.types.model_speculative_decoding_technique.ModelSpeculativeDecodingTechnique"
     ]

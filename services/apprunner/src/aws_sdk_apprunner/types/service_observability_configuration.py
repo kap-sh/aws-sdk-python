@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ServiceObservabilityConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.app_runner_resource_arn
     import aws_sdk_apprunner.types.boolean
 
 
-class ServiceObservabilityConfiguration(TypedDict):
+class ServiceObservabilityConfiguration(TypedDict, closed=True):
     observability_enabled: "aws_sdk_apprunner.types.boolean.Boolean"
     """<p>When <code>true</code>, an observability configuration resource is associated with the service, and an <code>ObservabilityConfigurationArn</code> is specified.</p>"""
     observability_configuration_arn: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#DecisionTaskTimedOutEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.event_id
 
 
-class DecisionTaskTimedOutEventAttributes(TypedDict):
+class DecisionTaskTimedOutEventAttributes(TypedDict, closed=True):
     timeout_type: "aws_sdk_swf.types.decision_task_timeout_type.DecisionTaskTimeoutType"
     """<p>The type of timeout that expired before the decision task could be completed.</p>"""
     scheduled_event_id: "aws_sdk_swf.types.event_id.EventId"

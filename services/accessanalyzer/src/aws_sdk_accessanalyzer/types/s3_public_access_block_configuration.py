@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#S3PublicAccessBlockConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
 
-class S3PublicAccessBlockConfiguration(TypedDict):
+class S3PublicAccessBlockConfiguration(TypedDict, closed=True):
     ignore_public_acls: "bool"
     """<p> Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. </p>"""
     restrict_public_buckets: "bool"

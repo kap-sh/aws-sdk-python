@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#DeleteWorkflowRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_nova_act.types.uuid_string
     import aws_sdk_nova_act.types.workflow_definition_name
 
 
-class DeleteWorkflowRunRequest(TypedDict):
+class DeleteWorkflowRunRequest(TypedDict, closed=True):
     workflow_definition_name: (
         "aws_sdk_nova_act.types.workflow_definition_name.WorkflowDefinitionName"
     )

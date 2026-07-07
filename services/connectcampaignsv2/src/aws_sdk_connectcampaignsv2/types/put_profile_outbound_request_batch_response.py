@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#PutProfileOutboundRequestBatchResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.failed_profile_outbound_request_list
     import aws_sdk_connectcampaignsv2.types.successful_profile_outbound_request_list
 
 
-class PutProfileOutboundRequestBatchResponse(TypedDict):
+class PutProfileOutboundRequestBatchResponse(TypedDict, closed=True):
     successful_requests: NotRequired[
         "aws_sdk_connectcampaignsv2.types.successful_profile_outbound_request_list.SuccessfulProfileOutboundRequestList"
     ]

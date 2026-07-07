@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#ConversationMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.sender
 
 
-class ConversationMessage(TypedDict):
+class ConversationMessage(TypedDict, closed=True):
     body: "str"
     """<p>The text content of the conversation message.</p>"""
     type: "aws_sdk_qapps.types.sender.Sender"

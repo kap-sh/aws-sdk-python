@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#SSEKMS``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.ssekms_key_id
 
 
-class SSEKMS(TypedDict):
+class SSEKMS(TypedDict, closed=True):
     key_id: "aws_sdk_s3_control.types.ssekms_key_id.SSEKMSKeyId"
     """<p>A container for the ARN of the SSE-KMS encryption. This property is read-only and follows the following format: <code> arn:aws:kms:<i>us-east-1</i>:<i>example-account-id</i>:key/<i>example-9a73-4afc-8d29-8f5900cef44e</i> </code> </p>"""
 

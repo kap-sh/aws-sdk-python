@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#NFSFileShareInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.audit_destination_arn
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tags
 
 
-class NFSFileShareInfo(TypedDict):
+class NFSFileShareInfo(TypedDict, closed=True):
     nfs_file_share_defaults: NotRequired[
         "aws_sdk_storage_gateway.types.nfs_file_share_defaults.NFSFileShareDefaults"
     ]

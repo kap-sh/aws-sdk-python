@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#VpcConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boxed_boolean
     import aws_sdk_eks.types.string_list
 
 
-class VpcConfigRequest(TypedDict):
+class VpcConfigRequest(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_eks.types.string_list.StringList"]
     """<p>Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.</p>"""
     security_group_ids: NotRequired["aws_sdk_eks.types.string_list.StringList"]

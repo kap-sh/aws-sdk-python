@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeClusterEventRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_name_or_arn
     import aws_sdk_sagemaker.types.event_id
 
 
-class DescribeClusterEventRequest(TypedDict):
+class DescribeClusterEventRequest(TypedDict, closed=True):
     event_id: NotRequired["aws_sdk_sagemaker.types.event_id.EventId"]
     """<p>The unique identifier (UUID) of the event to describe. This ID can be obtained from the <code>ListClusterEvents</code> operation.</p>"""
     cluster_name: NotRequired[

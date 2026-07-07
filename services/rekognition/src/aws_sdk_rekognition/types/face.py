@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Face``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.bounding_box
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.user_id
 
 
-class Face(TypedDict):
+class Face(TypedDict, closed=True):
     face_id: NotRequired["aws_sdk_rekognition.types.face_id.FaceId"]
     """<p>Unique identifier that Amazon Rekognition assigns to the face.</p>"""
     bounding_box: NotRequired["aws_sdk_rekognition.types.bounding_box.BoundingBox"]

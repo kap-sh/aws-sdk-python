@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DisableAwsNetworkPerformanceMetricSubscriptionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DisableAwsNetworkPerformanceMetricSubscriptionRequest(TypedDict):
+class DisableAwsNetworkPerformanceMetricSubscriptionRequest(TypedDict, closed=True):
     source: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The source Region or Availability Zone that the metric subscription is disabled for. For example, <code>us-east-1</code>.</p>"""
     destination: NotRequired["aws_sdk_ec2.types.string.String"]

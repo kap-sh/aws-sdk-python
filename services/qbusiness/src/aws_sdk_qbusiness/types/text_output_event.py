@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#TextOutputEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness._protocol.eventstream import HeaderValue, Message
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.system_message_type
 
 
-class TextOutputEvent(TypedDict):
+class TextOutputEvent(TypedDict, closed=True):
     system_message_type: NotRequired[
         "aws_sdk_qbusiness.types.system_message_type.SystemMessageType"
     ]

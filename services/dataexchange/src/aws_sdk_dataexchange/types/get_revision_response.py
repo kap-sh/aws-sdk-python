@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#GetRevisionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__boolean
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.timestamp
 
 
-class GetRevisionResponse(TypedDict):
+class GetRevisionResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_dataexchange.types.arn.Arn"]
     """<p>The ARN for the revision.</p>"""
     comment: NotRequired[

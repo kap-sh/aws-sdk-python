@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#KinesisResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.content_configuration_list
 
 
-class KinesisResource(TypedDict):
+class KinesisResource(TypedDict, closed=True):
     data_stream_arn: "aws_sdk_bedrock_agentcore_control.types.arn.Arn"
     """<p>ARN of the Kinesis Data Stream.</p>"""
     content_configurations: "aws_sdk_bedrock_agentcore_control.types.content_configuration_list.ContentConfigurationList"

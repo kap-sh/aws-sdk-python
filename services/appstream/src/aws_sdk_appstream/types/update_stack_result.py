@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#UpdateStackResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.stack
 
 
-class UpdateStackResult(TypedDict):
+class UpdateStackResult(TypedDict, closed=True):
     stack: NotRequired["aws_sdk_appstream.types.stack.Stack"]
     """<p>Information about the stack.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ListMeteredProductsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.license_endpoint_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.next_token
 
 
-class ListMeteredProductsRequest(TypedDict):
+class ListMeteredProductsRequest(TypedDict, closed=True):
     license_endpoint_id: "aws_sdk_deadline.types.license_endpoint_id.LicenseEndpointId"
     """<p>The license endpoint ID to include on the list of metered products.</p>"""
     next_token: NotRequired["aws_sdk_deadline.types.next_token.NextToken"]

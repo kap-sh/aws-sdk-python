@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#MultiConditionalSplitActivity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.wait_time
 
 
-class MultiConditionalSplitActivity(TypedDict):
+class MultiConditionalSplitActivity(TypedDict, closed=True):
     branches: NotRequired[
         "aws_sdk_pinpoint.types.list_of_multi_conditional_branch.ListOfMultiConditionalBranch"
     ]

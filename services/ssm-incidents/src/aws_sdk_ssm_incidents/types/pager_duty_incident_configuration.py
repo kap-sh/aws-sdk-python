@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#PagerDutyIncidentConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
 
-class PagerDutyIncidentConfiguration(TypedDict):
+class PagerDutyIncidentConfiguration(TypedDict, closed=True):
     service_id: "str"
     """<p>The ID of the PagerDuty service that the response plan associates with an incident when it launches.</p>"""
 

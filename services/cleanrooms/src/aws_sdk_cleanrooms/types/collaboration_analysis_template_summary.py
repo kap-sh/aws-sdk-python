@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#CollaborationAnalysisTemplateSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.uuid
 
 
-class CollaborationAnalysisTemplateSummary(TypedDict):
+class CollaborationAnalysisTemplateSummary(TypedDict, closed=True):
     arn: "aws_sdk_cleanrooms.types.analysis_template_arn.AnalysisTemplateArn"
     """<p>The Amazon Resource Name (ARN) of the analysis template.</p>"""
     create_time: "datetime.datetime"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#MemoryMetadataFilterExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.memory_record_right_expression
 
 
-class MemoryMetadataFilterExpression(TypedDict):
+class MemoryMetadataFilterExpression(TypedDict, closed=True):
     left: "aws_sdk_bedrock_agentcore.types.memory_record_left_expression.MemoryRecordLeftExpression"
     """<p>The metadata key to evaluate.</p>"""
     operator: "aws_sdk_bedrock_agentcore.types.memory_record_operator_type.MemoryRecordOperatorType"

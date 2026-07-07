@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ProxyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.proxy_bypass
 
 
-class ProxyConfiguration(TypedDict):
+class ProxyConfiguration(TypedDict, closed=True):
     proxies: "aws_sdk_bedrock_agentcore.types.proxies.Proxies"
     """<p>An array of 1-5 proxy server configurations for domain-based routing. Each proxy can specify which domains it handles via <code>domainPatterns</code>, enabling flexible routing of different traffic through different proxies based on destination domain.</p>"""
     bypass: NotRequired["aws_sdk_bedrock_agentcore.types.proxy_bypass.ProxyBypass"]

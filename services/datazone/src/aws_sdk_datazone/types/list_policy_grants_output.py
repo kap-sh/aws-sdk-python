@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListPolicyGrantsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.policy_grant_list
 
 
-class ListPolicyGrantsOutput(TypedDict):
+class ListPolicyGrantsOutput(TypedDict, closed=True):
     grant_list: "aws_sdk_datazone.types.policy_grant_list.PolicyGrantList"
     """<p>The results of this action - the listed grants.</p>"""
     next_token: NotRequired["aws_sdk_datazone.types.pagination_token.PaginationToken"]

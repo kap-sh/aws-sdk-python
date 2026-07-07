@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ThrottlingException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_drs.errors import DeserializationError, ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.large_bounded_string
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "aws_sdk_drs.types.large_bounded_string.LargeBoundedString"
     service_code: NotRequired[
         "aws_sdk_drs.types.large_bounded_string.LargeBoundedString"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationFlowS3Options``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_flow_file_type
 
 
-class DataIntegrationFlowS3Options(TypedDict):
+class DataIntegrationFlowS3Options(TypedDict, closed=True):
     file_type: NotRequired[
         "aws_sdk_supplychain.types.data_integration_flow_file_type.DataIntegrationFlowFileType"
     ]

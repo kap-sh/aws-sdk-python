@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#DetachTypedLinkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.typed_link_specifier
 
 
-class DetachTypedLinkRequest(TypedDict):
+class DetachTypedLinkRequest(TypedDict, closed=True):
     directory_arn: "aws_sdk_clouddirectory.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the directory where you want to detach the typed link.</p>"""
     typed_link_specifier: (

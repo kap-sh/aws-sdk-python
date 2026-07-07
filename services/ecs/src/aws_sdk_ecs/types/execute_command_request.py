@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ExecuteCommandRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class ExecuteCommandRequest(TypedDict):
+class ExecuteCommandRequest(TypedDict, closed=True):
     cluster: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) or short name of the cluster the task is running in. If you do not specify a cluster, the default cluster is assumed.</p>"""
     container: NotRequired["aws_sdk_ecs.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#TransportStream``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.frame_resolution
 
 
-class TransportStream(TypedDict):
+class TransportStream(TypedDict, closed=True):
     channels: NotRequired["int"]
     """<p> The number of channels in the audio stream.</p>"""
     codec: NotRequired["str"]

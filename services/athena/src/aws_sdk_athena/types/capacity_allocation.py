@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CapacityAllocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.timestamp
 
 
-class CapacityAllocation(TypedDict):
+class CapacityAllocation(TypedDict, closed=True):
     status: "aws_sdk_athena.types.capacity_allocation_status.CapacityAllocationStatus"
     """<p>The status of the capacity allocation.</p>"""
     status_message: NotRequired["aws_sdk_athena.types.string.String"]

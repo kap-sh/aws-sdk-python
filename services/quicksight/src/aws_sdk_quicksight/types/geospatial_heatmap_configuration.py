@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialHeatmapConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_heatmap_color_scale
 
 
-class GeospatialHeatmapConfiguration(TypedDict):
+class GeospatialHeatmapConfiguration(TypedDict, closed=True):
     heatmap_color: NotRequired[
         "aws_sdk_quicksight.types.geospatial_heatmap_color_scale.GeospatialHeatmapColorScale"
     ]

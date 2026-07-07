@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#SearchRasterDataCollectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.raster_data_collection_query_with_band_filter_input
 
 
-class SearchRasterDataCollectionInput(TypedDict):
+class SearchRasterDataCollectionInput(TypedDict, closed=True):
     arn: "aws_sdk_sagemaker_geospatial.types.data_collection_arn.DataCollectionArn"
     """<p>The Amazon Resource Name (ARN) of the raster data collection.</p>"""
     raster_data_collection_query: "aws_sdk_sagemaker_geospatial.types.raster_data_collection_query_with_band_filter_input.RasterDataCollectionQueryWithBandFilterInput"

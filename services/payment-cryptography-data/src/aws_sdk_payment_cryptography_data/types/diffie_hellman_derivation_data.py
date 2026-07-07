@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#DiffieHellmanDerivationData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.shared_information
 
 
-class _DiffieHellmanDerivationData_SharedInformation(TypedDict):
+class _DiffieHellmanDerivationData_SharedInformation(TypedDict, closed=True):
     SharedInformation: (
         "aws_sdk_payment_cryptography_data.types.shared_information.SharedInformation"
     )

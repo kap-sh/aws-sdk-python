@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DataReplicationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.data_replication_error_string
     import aws_sdk_mgn.types.large_bounded_string
 
 
-class DataReplicationError(TypedDict):
+class DataReplicationError(TypedDict, closed=True):
     error: NotRequired[
         "aws_sdk_mgn.types.data_replication_error_string.DataReplicationErrorString"
     ]

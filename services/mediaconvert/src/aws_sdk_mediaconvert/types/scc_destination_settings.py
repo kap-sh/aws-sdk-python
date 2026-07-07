@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#SccDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.scc_destination_framerate
 
 
-class SccDestinationSettings(TypedDict):
+class SccDestinationSettings(TypedDict, closed=True):
     framerate: NotRequired[
         "aws_sdk_mediaconvert.types.scc_destination_framerate.SccDestinationFramerate"
     ]

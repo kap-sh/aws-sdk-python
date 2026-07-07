@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ExecutionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.most_recent_execution_message
 
 
-class ExecutionDetails(TypedDict):
+class ExecutionDetails(TypedDict, closed=True):
     most_recent_execution_message: NotRequired[
         "aws_sdk_appflow.types.most_recent_execution_message.MostRecentExecutionMessage"
     ]

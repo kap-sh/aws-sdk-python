@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#UpdateConnectionAliasPermissionResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateConnectionAliasPermissionResult(TypedDict):
+class UpdateConnectionAliasPermissionResult(TypedDict, closed=True):
     pass
 
 

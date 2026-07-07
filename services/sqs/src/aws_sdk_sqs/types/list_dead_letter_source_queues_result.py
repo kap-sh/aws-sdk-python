@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#ListDeadLetterSourceQueuesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.token
 
 
-class ListDeadLetterSourceQueuesResult(TypedDict):
+class ListDeadLetterSourceQueuesResult(TypedDict, closed=True):
     queue_urls: "aws_sdk_sqs.types.queue_url_list.QueueUrlList"
     """<p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>"""
     next_token: NotRequired["aws_sdk_sqs.types.token.Token"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListReadSetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.sequence_store_id
 
 
-class ListReadSetsRequest(TypedDict):
+class ListReadSetsRequest(TypedDict, closed=True):
     sequence_store_id: "aws_sdk_omics.types.sequence_store_id.SequenceStoreId"
     """<p>The jobs' sequence store ID.</p>"""
     max_results: NotRequired["int"]

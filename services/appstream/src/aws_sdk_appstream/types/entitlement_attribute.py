@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#EntitlementAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
 
 
-class EntitlementAttribute(TypedDict):
+class EntitlementAttribute(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>A supported AWS IAM SAML <code>PrincipalTag</code> attribute that is matched to the associated value when a user identity federates into a WorkSpaces Applications SAML application.</p> <p>The following are valid values:</p> <ul> <li> <p>roles</p> </li> <li> <p>department </p> </li> <li> <p>organization </p> </li> <li> <p>groups </p> </li> <li> <p>title </p> </li> <li> <p>costCenter </p> </li> <li> <p>userType</p> </li> </ul> <p> </p>"""
     value: NotRequired["aws_sdk_appstream.types.string.String"]

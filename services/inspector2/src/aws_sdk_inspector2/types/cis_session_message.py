@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CisSessionMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.rule_id
 
 
-class CisSessionMessage(TypedDict):
+class CisSessionMessage(TypedDict, closed=True):
     rule_id: "aws_sdk_inspector2.types.rule_id.RuleId"
     """<p>The rule ID for the CIS session message.</p>"""
     status: "aws_sdk_inspector2.types.cis_rule_status.CisRuleStatus"

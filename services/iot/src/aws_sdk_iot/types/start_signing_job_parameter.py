@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#StartSigningJobParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.destination
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.signing_profile_parameter
 
 
-class StartSigningJobParameter(TypedDict):
+class StartSigningJobParameter(TypedDict, closed=True):
     signing_profile_parameter: NotRequired[
         "aws_sdk_iot.types.signing_profile_parameter.SigningProfileParameter"
     ]

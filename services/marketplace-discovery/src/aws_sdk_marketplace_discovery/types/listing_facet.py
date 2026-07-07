@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#ListingFacet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.nullable_string
 
 
-class ListingFacet(TypedDict):
+class ListingFacet(TypedDict, closed=True):
     value: "aws_sdk_marketplace_discovery.types.non_empty_string.NonEmptyString"
     """<p>The internal value used for filtering when passed back in a search filter.</p>"""
     display_name: "aws_sdk_marketplace_discovery.types.non_empty_string.NonEmptyString"

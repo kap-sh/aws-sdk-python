@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#CreateLensVersionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens_arn
     import aws_sdk_wellarchitected.types.lens_version
 
 
-class CreateLensVersionOutput(TypedDict):
+class CreateLensVersionOutput(TypedDict, closed=True):
     lens_arn: NotRequired["aws_sdk_wellarchitected.types.lens_arn.LensArn"]
     """<p>The ARN for the lens.</p>"""
     lens_version: NotRequired["aws_sdk_wellarchitected.types.lens_version.LensVersion"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DeleteScheduledQueryResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteScheduledQueryResponse(TypedDict):
+class DeleteScheduledQueryResponse(TypedDict, closed=True):
     pass
 
 

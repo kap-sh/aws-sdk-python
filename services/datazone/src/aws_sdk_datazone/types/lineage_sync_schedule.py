@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#LineageSyncSchedule``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class LineageSyncSchedule(TypedDict):
+class LineageSyncSchedule(TypedDict, closed=True):
     schedule: NotRequired["str"]
     """<p>The lineage sync schedule.</p>"""
 

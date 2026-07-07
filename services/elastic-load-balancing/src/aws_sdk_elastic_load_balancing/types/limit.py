@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancing#Limit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing.types.name
 
 
-class Limit(TypedDict):
+class Limit(TypedDict, closed=True):
     name: NotRequired["aws_sdk_elastic_load_balancing.types.name.Name"]
     """<p>The name of the limit. The possible values are:</p> <ul> <li> <p>classic-listeners</p> </li> <li> <p>classic-load-balancers</p> </li> <li> <p>classic-registered-instances</p> </li> </ul>"""
     max: NotRequired["aws_sdk_elastic_load_balancing.types.max.Max"]

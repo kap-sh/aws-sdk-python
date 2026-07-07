@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ThingGroupIndexingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_group_indexing_mode
 
 
-class ThingGroupIndexingConfiguration(TypedDict):
+class ThingGroupIndexingConfiguration(TypedDict, closed=True):
     thing_group_indexing_mode: (
         "aws_sdk_iot.types.thing_group_indexing_mode.ThingGroupIndexingMode"
     )

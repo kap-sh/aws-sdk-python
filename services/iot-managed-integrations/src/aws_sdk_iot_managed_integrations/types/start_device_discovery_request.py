@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#StartDeviceDiscoveryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.tags_map
 
 
-class StartDeviceDiscoveryRequest(TypedDict):
+class StartDeviceDiscoveryRequest(TypedDict, closed=True):
     discovery_type: (
         "aws_sdk_iot_managed_integrations.types.discovery_type.DiscoveryType"
     )

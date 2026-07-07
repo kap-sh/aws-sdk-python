@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DeleteStreamProcessorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.stream_processor_name
 
 
-class DeleteStreamProcessorRequest(TypedDict):
+class DeleteStreamProcessorRequest(TypedDict, closed=True):
     name: "aws_sdk_rekognition.types.stream_processor_name.StreamProcessorName"
     """<p>The name of the stream processor you want to delete.</p>"""
 

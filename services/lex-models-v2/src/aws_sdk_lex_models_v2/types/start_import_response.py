@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#StartImportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class StartImportResponse(TypedDict):
+class StartImportResponse(TypedDict, closed=True):
     import_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>A unique identifier for the import.</p>"""
     resource_specification: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetParameterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ps_parameter_name
 
 
-class GetParameterRequest(TypedDict):
+class GetParameterRequest(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.ps_parameter_name.PSParameterName"
     r"""<p>The name or Amazon Resource Name (ARN) of the parameter that you want to query. For parameters shared with you from another account, you must use the full ARN.</p> <p>To query by parameter label, use <code>\"Name\": \"name:label\"</code>. To query by parameter version, use <code>\"Name\": \"name:version\"</code>.</p> <p>For more information about shared parameters, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html\">Working with shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>"""
     with_decryption: NotRequired["aws_sdk_ssm.types.boolean.Boolean"]

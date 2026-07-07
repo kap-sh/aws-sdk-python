@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#GetWorkloadOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.workload_data
 
 
-class GetWorkloadOutput(TypedDict):
+class GetWorkloadOutput(TypedDict, closed=True):
     workload: NotRequired["aws_sdk_launch_wizard.types.workload_data.WorkloadData"]
     """<p>Information about the workload.</p>"""
 

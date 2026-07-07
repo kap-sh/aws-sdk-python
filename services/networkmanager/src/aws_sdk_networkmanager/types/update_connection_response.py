@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#UpdateConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.connection
 
 
-class UpdateConnectionResponse(TypedDict):
+class UpdateConnectionResponse(TypedDict, closed=True):
     connection: NotRequired["aws_sdk_networkmanager.types.connection.Connection"]
     """<p>Information about the connection.</p>"""
 

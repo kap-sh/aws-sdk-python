@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#GetUserJourneyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.arn
     import aws_sdk_resiliencehubv2.types.user_journey_id
 
 
-class GetUserJourneyRequest(TypedDict):
+class GetUserJourneyRequest(TypedDict, closed=True):
     system_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
     user_journey_id: "aws_sdk_resiliencehubv2.types.user_journey_id.UserJourneyId"
     """<p>The identifier of the user journey to retrieve.</p>"""

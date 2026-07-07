@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AttachmentsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.attachments_control_mode
 
 
-class AttachmentsConfiguration(TypedDict):
+class AttachmentsConfiguration(TypedDict, closed=True):
     attachments_control_mode: (
         "aws_sdk_qbusiness.types.attachments_control_mode.AttachmentsControlMode"
     )

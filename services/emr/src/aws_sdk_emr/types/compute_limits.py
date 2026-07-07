@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ComputeLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.compute_limits_unit_type
     import aws_sdk_emr.types.integer
 
 
-class ComputeLimits(TypedDict):
+class ComputeLimits(TypedDict, closed=True):
     unit_type: NotRequired[
         "aws_sdk_emr.types.compute_limits_unit_type.ComputeLimitsUnitType"
     ]

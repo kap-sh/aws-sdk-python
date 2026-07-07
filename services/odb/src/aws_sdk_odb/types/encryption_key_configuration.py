@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#EncryptionKeyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_odb.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.okv_encryption_key_configuration
 
 
-class _EncryptionKeyConfiguration_awsEncryptionKey(TypedDict):
+class _EncryptionKeyConfiguration_awsEncryptionKey(TypedDict, closed=True):
     awsEncryptionKey: "aws_sdk_odb.types.aws_encryption_key_configuration.AwsEncryptionKeyConfiguration"
 
 
-class _EncryptionKeyConfiguration_ociEncryptionKey(TypedDict):
+class _EncryptionKeyConfiguration_ociEncryptionKey(TypedDict, closed=True):
     ociEncryptionKey: "aws_sdk_odb.types.oci_encryption_key_configuration.OciEncryptionKeyConfiguration"
 
 
-class _EncryptionKeyConfiguration_okvEncryptionKey(TypedDict):
+class _EncryptionKeyConfiguration_okvEncryptionKey(TypedDict, closed=True):
     okvEncryptionKey: "aws_sdk_odb.types.okv_encryption_key_configuration.OkvEncryptionKeyConfiguration"
 
 

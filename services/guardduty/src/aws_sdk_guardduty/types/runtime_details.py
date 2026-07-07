@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#RuntimeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.process_details
     import aws_sdk_guardduty.types.runtime_context
 
 
-class RuntimeDetails(TypedDict):
+class RuntimeDetails(TypedDict, closed=True):
     process: NotRequired["aws_sdk_guardduty.types.process_details.ProcessDetails"]
     """<p>Information about the observed process.</p>"""
     context: NotRequired["aws_sdk_guardduty.types.runtime_context.RuntimeContext"]

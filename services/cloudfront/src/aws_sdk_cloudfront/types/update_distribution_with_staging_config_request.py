@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#UpdateDistributionWithStagingConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class UpdateDistributionWithStagingConfigRequest(TypedDict):
+class UpdateDistributionWithStagingConfigRequest(TypedDict, closed=True):
     id: "aws_sdk_cloudfront.types.string.string"
     """<p>The identifier of the primary distribution to which you are copying a staging distribution's configuration.</p>"""
     staging_distribution_id: NotRequired["aws_sdk_cloudfront.types.string.string"]

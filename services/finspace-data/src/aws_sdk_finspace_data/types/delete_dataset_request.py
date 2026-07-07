@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#DeleteDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.client_token
     import aws_sdk_finspace_data.types.dataset_id
 
 
-class DeleteDatasetRequest(TypedDict):
+class DeleteDatasetRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_finspace_data.types.client_token.ClientToken"]
     """<p>A token that ensures idempotency. This token expires in 10 minutes.</p>"""
     dataset_id: "aws_sdk_finspace_data.types.dataset_id.DatasetId"

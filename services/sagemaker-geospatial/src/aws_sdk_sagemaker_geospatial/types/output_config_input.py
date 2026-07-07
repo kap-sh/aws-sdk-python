@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#OutputConfigInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.export_s3_data_input
 
 
-class OutputConfigInput(TypedDict):
+class OutputConfigInput(TypedDict, closed=True):
     s3_data: "aws_sdk_sagemaker_geospatial.types.export_s3_data_input.ExportS3DataInput"
     """<p>Path to Amazon S3 storage location for the output configuration file.</p>"""
 

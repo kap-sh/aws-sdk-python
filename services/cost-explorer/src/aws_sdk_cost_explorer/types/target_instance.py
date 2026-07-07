@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#TargetInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.resource_utilization
 
 
-class TargetInstance(TypedDict):
+class TargetInstance(TypedDict, closed=True):
     estimated_monthly_cost: NotRequired[
         "aws_sdk_cost_explorer.types.generic_string.GenericString"
     ]

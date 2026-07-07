@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LaunchActionsRequestFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_action_ids
 
 
-class LaunchActionsRequestFilters(TypedDict):
+class LaunchActionsRequestFilters(TypedDict, closed=True):
     action_ids: NotRequired["aws_sdk_drs.types.launch_action_ids.LaunchActionIds"]
     """<p>Launch actions Ids.</p>"""
 

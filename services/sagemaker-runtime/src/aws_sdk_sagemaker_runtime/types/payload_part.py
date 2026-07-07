@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntime#PayloadPart``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_runtime._protocol.eventstream import HeaderValue, Message
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.part_blob
 
 
-class PayloadPart(TypedDict):
+class PayloadPart(TypedDict, closed=True):
     bytes: NotRequired["aws_sdk_sagemaker_runtime.types.part_blob.PartBlob"]
     """<p>A blob that contains part of the response for your streaming inference request.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ConnectorSsmCommandConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.s3_bucket_name
 
 
-class ConnectorSsmCommandConfig(TypedDict):
+class ConnectorSsmCommandConfig(TypedDict, closed=True):
     s3_output_enabled: "bool"
     """<p>Connector SSM command config S3 output enabled.</p>"""
     output_s3_bucket_name: NotRequired["aws_sdk_mgn.types.s3_bucket_name.S3BucketName"]

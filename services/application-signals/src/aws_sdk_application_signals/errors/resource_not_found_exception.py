@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#ResourceNotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError, ServiceError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.resource_type
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     resource_type: "aws_sdk_application_signals.types.resource_type.ResourceType"
     """<p>The resource type is not valid.</p>"""
     resource_id: "aws_sdk_application_signals.types.resource_id.ResourceId"

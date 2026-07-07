@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#TextToSqlConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.text_to_sql_knowledge_base_configuration
 
 
-class TextToSqlConfiguration(TypedDict):
+class TextToSqlConfiguration(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent_runtime.types.text_to_sql_configuration_type.TextToSqlConfigurationType"
     """<p>The type of resource to use in transformation.</p>"""
     knowledge_base_configuration: NotRequired[

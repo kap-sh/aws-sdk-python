@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#VirtualGateways``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.virtual_gateway_list
 
 
-class VirtualGateways(TypedDict):
+class VirtualGateways(TypedDict, closed=True):
     virtual_gateways: NotRequired[
         "aws_sdk_direct_connect.types.virtual_gateway_list.VirtualGatewayList"
     ]

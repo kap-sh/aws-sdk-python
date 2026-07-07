@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#AuthenticationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_voice_id.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.score
 
 
-class AuthenticationConfiguration(TypedDict):
+class AuthenticationConfiguration(TypedDict, closed=True):
     acceptance_threshold: "aws_sdk_voice_id.types.score.Score"
     """<p>The minimum threshold needed to successfully authenticate a speaker.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DescribeLookupTablesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.describe_lookup_tables_max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.next_token
 
 
-class DescribeLookupTablesRequest(TypedDict):
+class DescribeLookupTablesRequest(TypedDict, closed=True):
     lookup_table_name_prefix: NotRequired[
         "aws_sdk_cloudwatch_logs.types.lookup_table_name.LookupTableName"
     ]

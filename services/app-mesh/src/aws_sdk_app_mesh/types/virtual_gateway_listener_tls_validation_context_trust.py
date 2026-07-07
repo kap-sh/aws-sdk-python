@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualGatewayListenerTlsValidationContextTrust``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_gateway_tls_validation_context_sds_trust
 
 
-class _VirtualGatewayListenerTlsValidationContextTrust_file(TypedDict):
+class _VirtualGatewayListenerTlsValidationContextTrust_file(TypedDict, closed=True):
     file: "aws_sdk_app_mesh.types.virtual_gateway_tls_validation_context_file_trust.VirtualGatewayTlsValidationContextFileTrust"
 
 
-class _VirtualGatewayListenerTlsValidationContextTrust_sds(TypedDict):
+class _VirtualGatewayListenerTlsValidationContextTrust_sds(TypedDict, closed=True):
     sds: "aws_sdk_app_mesh.types.virtual_gateway_tls_validation_context_sds_trust.VirtualGatewayTlsValidationContextSdsTrust"
 
 

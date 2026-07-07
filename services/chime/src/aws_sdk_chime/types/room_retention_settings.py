@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#RoomRetentionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.retention_days
 
 
-class RoomRetentionSettings(TypedDict):
+class RoomRetentionSettings(TypedDict, closed=True):
     retention_days: NotRequired["aws_sdk_chime.types.retention_days.RetentionDays"]
     """<p>The number of days for which to retain chat-room messages.</p>"""
 

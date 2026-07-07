@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#CommentUpdateContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.comment_body_text_type
 
 
-class CommentUpdateContent(TypedDict):
+class CommentUpdateContent(TypedDict, closed=True):
     body: "aws_sdk_connectcases.types.comment_body.CommentBody"
     """<p>Updated text in the body of a <code>Comment</code> on a case.</p>"""
     content_type: (

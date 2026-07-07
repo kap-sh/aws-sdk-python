@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#KubernetesDataSourceFreeTrial``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.data_source_free_trial
 
 
-class KubernetesDataSourceFreeTrial(TypedDict):
+class KubernetesDataSourceFreeTrial(TypedDict, closed=True):
     audit_logs: NotRequired[
         "aws_sdk_guardduty.types.data_source_free_trial.DataSourceFreeTrial"
     ]

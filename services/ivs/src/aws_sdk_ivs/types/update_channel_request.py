@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#UpdateChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.transcode_preset
 
 
-class UpdateChannelRequest(TypedDict):
+class UpdateChannelRequest(TypedDict, closed=True):
     arn: "aws_sdk_ivs.types.channel_arn.ChannelArn"
     """<p>ARN of the channel to be updated.</p>"""
     name: NotRequired["aws_sdk_ivs.types.channel_name.ChannelName"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ApprovalResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.approval_summary
 
 
-class ApprovalResult(TypedDict):
+class ApprovalResult(TypedDict, closed=True):
     summary: "aws_sdk_codepipeline.types.approval_summary.ApprovalSummary"
     """<p>The summary of the current status of the approval request.</p>"""
     status: "aws_sdk_codepipeline.types.approval_status.ApprovalStatus"

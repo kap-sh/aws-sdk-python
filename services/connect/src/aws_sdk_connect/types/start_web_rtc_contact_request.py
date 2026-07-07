@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StartWebRTCContactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.participant_details
 
 
-class StartWebRTCContactRequest(TypedDict):
+class StartWebRTCContactRequest(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_connect.types.attributes.Attributes"]
     """<p>A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and can be accessed in flows just like any other contact attributes.</p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, -, and _ characters.</p>"""
     client_token: NotRequired["aws_sdk_connect.types.client_token.ClientToken"]

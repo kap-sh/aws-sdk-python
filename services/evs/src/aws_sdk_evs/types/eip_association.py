@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#EipAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_evs.types.allocation_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.ip_address
 
 
-class EipAssociation(TypedDict):
+class EipAssociation(TypedDict, closed=True):
     association_id: NotRequired["aws_sdk_evs.types.association_id.AssociationId"]
     """<p>A unique ID for the elastic IP address association with the VLAN subnet.</p>"""
     allocation_id: NotRequired["aws_sdk_evs.types.allocation_id.AllocationId"]

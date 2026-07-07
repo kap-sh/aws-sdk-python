@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#AuthRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.sensitive_string2048
 
 
-class AuthRequest(TypedDict):
+class AuthRequest(TypedDict, closed=True):
     redirect_uri: "aws_sdk_appfabric.types.redirect_uri.RedirectUri"
     """<p>The redirect URL that is specified in the AuthURL and the application client.</p>"""
     code: "aws_sdk_appfabric.types.sensitive_string2048.SensitiveString2048"

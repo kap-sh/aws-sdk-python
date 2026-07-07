@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SendMessageJsonDelta``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SendMessageJsonDelta(TypedDict):
+class SendMessageJsonDelta(TypedDict, closed=True):
     partial_json: NotRequired["str"]
     """<p>Partial JSON string</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateUserRoutingProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.user_id
 
 
-class UpdateUserRoutingProfileRequest(TypedDict):
+class UpdateUserRoutingProfileRequest(TypedDict, closed=True):
     routing_profile_id: "aws_sdk_connect.types.routing_profile_id.RoutingProfileId"
     """<p>The identifier of the routing profile for the user.</p>"""
     user_id: "aws_sdk_connect.types.user_id.UserId"

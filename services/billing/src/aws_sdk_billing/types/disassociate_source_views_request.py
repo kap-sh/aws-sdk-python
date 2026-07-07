@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#DisassociateSourceViewsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billing.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.billing_view_source_views_list
 
 
-class DisassociateSourceViewsRequest(TypedDict):
+class DisassociateSourceViewsRequest(TypedDict, closed=True):
     arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn"
     """<p> The Amazon Resource Name (ARN) of the billing view to disassociate source views from. </p>"""
     source_views: "aws_sdk_billing.types.billing_view_source_views_list.BillingViewSourceViewsList"

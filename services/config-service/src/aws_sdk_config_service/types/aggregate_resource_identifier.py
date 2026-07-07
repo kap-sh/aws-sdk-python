@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#AggregateResourceIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.resource_type
 
 
-class AggregateResourceIdentifier(TypedDict):
+class AggregateResourceIdentifier(TypedDict, closed=True):
     source_account_id: "aws_sdk_config_service.types.account_id.AccountId"
     """<p>The 12-digit account ID of the source account.</p>"""
     source_region: "aws_sdk_config_service.types.aws_region.AwsRegion"

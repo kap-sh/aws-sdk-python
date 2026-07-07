@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#HomeDirectoryMapEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.map_type
 
 
-class HomeDirectoryMapEntry(TypedDict):
+class HomeDirectoryMapEntry(TypedDict, closed=True):
     entry: "aws_sdk_transfer.types.map_entry.MapEntry"
     """<p>Represents an entry for <code>HomeDirectoryMappings</code>.</p>"""
     target: "aws_sdk_transfer.types.map_target.MapTarget"

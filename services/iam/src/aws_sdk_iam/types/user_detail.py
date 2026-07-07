@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#UserDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class UserDetail(TypedDict):
+class UserDetail(TypedDict, closed=True):
     path: NotRequired["aws_sdk_iam.types.path_type.pathType"]
     r"""<p>The path to the user. For more information about paths, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>"""
     user_name: NotRequired["aws_sdk_iam.types.user_name_type.userNameType"]

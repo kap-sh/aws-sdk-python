@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ClientPropertiesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.client_properties
     import aws_sdk_workspaces.types.non_empty_string
 
 
-class ClientPropertiesResult(TypedDict):
+class ClientPropertiesResult(TypedDict, closed=True):
     resource_id: NotRequired["aws_sdk_workspaces.types.non_empty_string.NonEmptyString"]
     """<p>The resource identifier, in the form of a directory ID.</p>"""
     client_properties: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#PutResourcePermissionStatementInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signin.types.client_token
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.vpc_source_ip
 
 
-class PutResourcePermissionStatementInput(TypedDict):
+class PutResourcePermissionStatementInput(TypedDict, closed=True):
     source_vpc: NotRequired["aws_sdk_signin.types.source_vpc.SourceVpc"]
     """VPC identifier to restrict console access"""
     signin_source_vpce: NotRequired["aws_sdk_signin.types.source_vpce.SourceVpce"]

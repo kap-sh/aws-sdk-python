@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#S3PropertiesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.s3_uri
 
 
-class S3PropertiesOutput(TypedDict):
+class S3PropertiesOutput(TypedDict, closed=True):
     s3_uri: "aws_sdk_datazone.types.s3_uri.S3Uri"
     """<p>The Amazon S3 URI that's part of the Amazon S3 properties of a connection.</p>"""
     s3_access_grant_location_id: NotRequired[

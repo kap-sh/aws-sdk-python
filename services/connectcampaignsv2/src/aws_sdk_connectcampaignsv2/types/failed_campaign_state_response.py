@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#FailedCampaignStateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.campaign_id
     import aws_sdk_connectcampaignsv2.types.get_campaign_state_batch_failure_code
 
 
-class FailedCampaignStateResponse(TypedDict):
+class FailedCampaignStateResponse(TypedDict, closed=True):
     campaign_id: NotRequired["aws_sdk_connectcampaignsv2.types.campaign_id.CampaignId"]
     failure_code: NotRequired[
         "aws_sdk_connectcampaignsv2.types.get_campaign_state_batch_failure_code.GetCampaignStateBatchFailureCode"

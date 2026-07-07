@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DescribeEntityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.fields_list
     import aws_sdk_glue.types.next_token
 
 
-class DescribeEntityResponse(TypedDict):
+class DescribeEntityResponse(TypedDict, closed=True):
     fields: NotRequired["aws_sdk_glue.types.fields_list.FieldsList"]
     """<p>Describes the fields for that connector entity. This is the list of <code>Field</code> objects. <code>Field</code> is very similar to column in a database. The <code>Field</code> object has information about different properties associated with fields in the connector.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.next_token.NextToken"]

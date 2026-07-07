@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#GetBudgetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.budget_id
     import aws_sdk_deadline.types.farm_id
 
 
-class GetBudgetRequest(TypedDict):
+class GetBudgetRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID of the farm connected to the budget.</p>"""
     budget_id: "aws_sdk_deadline.types.budget_id.BudgetId"

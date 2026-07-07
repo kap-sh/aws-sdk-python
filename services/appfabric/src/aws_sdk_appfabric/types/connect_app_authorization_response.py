@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#ConnectAppAuthorizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.app_authorization_summary
 
 
-class ConnectAppAuthorizationResponse(TypedDict):
+class ConnectAppAuthorizationResponse(TypedDict, closed=True):
     app_authorization_summary: (
         "aws_sdk_appfabric.types.app_authorization_summary.AppAuthorizationSummary"
     )

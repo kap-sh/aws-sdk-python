@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DateRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class DateRange(TypedDict):
+class DateRange(TypedDict, closed=True):
     from_date: "aws_sdk_backup.types.timestamp.timestamp"
     """<p>This value is the beginning date, inclusive.</p> <p>The date and time are in Unix format and Coordinated Universal Time (UTC), and it is accurate to milliseconds (milliseconds are optional).</p>"""
     to_date: "aws_sdk_backup.types.timestamp.timestamp"

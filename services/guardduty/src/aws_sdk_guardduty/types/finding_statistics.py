@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#FindingStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.count_by_severity
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.grouped_by_severity
 
 
-class FindingStatistics(TypedDict):
+class FindingStatistics(TypedDict, closed=True):
     count_by_severity: NotRequired[
         "aws_sdk_guardduty.types.count_by_severity.CountBySeverity"
     ]

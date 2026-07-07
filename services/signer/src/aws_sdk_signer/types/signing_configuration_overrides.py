@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.signer#SigningConfigurationOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.encryption_algorithm
     import aws_sdk_signer.types.hash_algorithm
 
 
-class SigningConfigurationOverrides(TypedDict):
+class SigningConfigurationOverrides(TypedDict, closed=True):
     encryption_algorithm: NotRequired[
         "aws_sdk_signer.types.encryption_algorithm.EncryptionAlgorithm"
     ]

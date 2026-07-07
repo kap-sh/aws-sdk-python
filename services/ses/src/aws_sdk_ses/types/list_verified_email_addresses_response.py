@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#ListVerifiedEmailAddressesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.address_list
 
 
-class ListVerifiedEmailAddressesResponse(TypedDict):
+class ListVerifiedEmailAddressesResponse(TypedDict, closed=True):
     verified_email_addresses: NotRequired["aws_sdk_ses.types.address_list.AddressList"]
     """<p>A list of email addresses that have been verified.</p>"""
 

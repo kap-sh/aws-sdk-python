@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#FilePath``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.code_snippet
 
 
-class FilePath(TypedDict):
+class FilePath(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the file.</p>"""
     path: NotRequired["str"]

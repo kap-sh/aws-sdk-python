@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#UpdatePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.policy
 
 
-class UpdatePolicyResponse(TypedDict):
+class UpdatePolicyResponse(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_organizations.types.policy.Policy"]
     """<p>A structure that contains details about the updated policy, showing the requested changes.</p>"""
 

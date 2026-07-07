@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#ApprovePlanExecutionStepResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ApprovePlanExecutionStepResponse(TypedDict):
+class ApprovePlanExecutionStepResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ListGameServerGroupsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_zero_and_max_string
     import aws_sdk_gamelift.types.positive_integer
 
 
-class ListGameServerGroupsInput(TypedDict):
+class ListGameServerGroupsInput(TypedDict, closed=True):
     limit: NotRequired["aws_sdk_gamelift.types.positive_integer.PositiveInteger"]
     """<p>The game server groups' limit.</p>"""
     next_token: NotRequired[

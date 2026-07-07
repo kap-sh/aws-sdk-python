@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Scte35SpliceInsertScheduleActionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__long_min0_max4294967295
     import aws_sdk_medialive.types.__long_min0_max8589934591
 
 
-class Scte35SpliceInsertScheduleActionSettings(TypedDict):
+class Scte35SpliceInsertScheduleActionSettings(TypedDict, closed=True):
     duration: NotRequired[
         "aws_sdk_medialive.types.__long_min0_max8589934591.__longMin0Max8589934591"
     ]

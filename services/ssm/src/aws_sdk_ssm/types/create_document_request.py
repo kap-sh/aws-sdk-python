@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CreateDocumentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.target_type
 
 
-class CreateDocumentRequest(TypedDict):
+class CreateDocumentRequest(TypedDict, closed=True):
     content: "aws_sdk_ssm.types.document_content.DocumentContent"
     r"""<p>The content for the new SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.</p> <p>For examples, see the following topics in the <i>Amazon Web Services Systems Manager User Guide</i>.</p> <ul> <li> <p> <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-using.html#create-ssm-console\">Create an SSM document (console)</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-using.html#create-ssm-document-cli\">Create an SSM document (command line)</a> </p> </li> <li> <p> <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-using.html#create-ssm-document-api\">Create an SSM document (API)</a> </p> </li> </ul>"""
     requires: NotRequired[

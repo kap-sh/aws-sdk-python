@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#WriteJourneyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.state
 
 
-class WriteJourneyRequest(TypedDict):
+class WriteJourneyRequest(TypedDict, closed=True):
     activities: NotRequired["aws_sdk_pinpoint.types.map_of_activity.MapOfActivity"]
     """<p>A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity. An activity identifier can contain a maximum of 100 characters. The characters must be alphanumeric characters.</p>"""
     creation_date: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

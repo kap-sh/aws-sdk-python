@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Range``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.nullable_proficiency_level
 
 
-class Range(TypedDict):
+class Range(TypedDict, closed=True):
     min_proficiency_level: NotRequired[
         "aws_sdk_connect.types.nullable_proficiency_level.NullableProficiencyLevel"
     ]

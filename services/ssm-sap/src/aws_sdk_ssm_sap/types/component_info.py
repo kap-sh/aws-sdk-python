@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#ComponentInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_sap.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.sid
 
 
-class ComponentInfo(TypedDict):
+class ComponentInfo(TypedDict, closed=True):
     component_type: "aws_sdk_ssm_sap.types.component_type.ComponentType"
     """<p>This string is the type of the component.</p> <p>Accepted value is <code>WD</code>.</p>"""
     sid: "aws_sdk_ssm_sap.types.sid.SID"

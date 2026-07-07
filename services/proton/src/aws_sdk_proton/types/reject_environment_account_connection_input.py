@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#RejectEnvironmentAccountConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.environment_account_connection_id
 
 
-class RejectEnvironmentAccountConnectionInput(TypedDict):
+class RejectEnvironmentAccountConnectionInput(TypedDict, closed=True):
     id: "aws_sdk_proton.types.environment_account_connection_id.EnvironmentAccountConnectionId"
     """<p>The ID of the environment account connection to reject.</p>"""
 

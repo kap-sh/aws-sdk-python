@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ActionTypeUrls``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.url
     import aws_sdk_codepipeline.types.url_template
 
 
-class ActionTypeUrls(TypedDict):
+class ActionTypeUrls(TypedDict, closed=True):
     configuration_url: NotRequired["aws_sdk_codepipeline.types.url.Url"]
     """<p>The URL returned to the CodePipeline console that contains a link to the page where customers can configure the external action.</p>"""
     entity_url_template: NotRequired[

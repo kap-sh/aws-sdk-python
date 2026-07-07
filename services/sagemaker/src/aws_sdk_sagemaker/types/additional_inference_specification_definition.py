@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AdditionalInferenceSpecificationDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.content_types
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.transform_instance_types
 
 
-class AdditionalInferenceSpecificationDefinition(TypedDict):
+class AdditionalInferenceSpecificationDefinition(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>A unique name to identify the additional inference specification. The name must be unique within the list of your additional inference specifications for a particular model package.</p>"""
     description: NotRequired[

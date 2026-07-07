@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#ListPlansRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.max_results
     import aws_sdk_arc_region_switch.types.next_token
 
 
-class ListPlansRequest(TypedDict):
+class ListPlansRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_arc_region_switch.types.max_results.MaxResults"]
     """<p>The number of objects that you want to return with this call.</p>"""
     next_token: NotRequired["aws_sdk_arc_region_switch.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#LicenseRecommendationOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.license_edition
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.savings_opportunity
 
 
-class LicenseRecommendationOption(TypedDict):
+class LicenseRecommendationOption(TypedDict, closed=True):
     rank: "aws_sdk_compute_optimizer.types.rank.Rank"
     """<p> The rank of the license recommendation option. </p> <p> The top recommendation option is ranked as <code>1</code>. </p>"""
     operating_system: NotRequired[

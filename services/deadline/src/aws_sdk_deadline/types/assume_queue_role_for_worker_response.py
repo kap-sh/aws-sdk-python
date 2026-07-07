@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#AssumeQueueRoleForWorkerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.aws_credentials
 
 
-class AssumeQueueRoleForWorkerResponse(TypedDict):
+class AssumeQueueRoleForWorkerResponse(TypedDict, closed=True):
     credentials: NotRequired["aws_sdk_deadline.types.aws_credentials.AwsCredentials"]
     """<p>The Amazon Web Services credentials for the role that the worker is assuming.</p>"""
 

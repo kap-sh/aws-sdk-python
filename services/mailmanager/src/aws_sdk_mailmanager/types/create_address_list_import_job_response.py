@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#CreateAddressListImportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.pre_signed_url
 
 
-class CreateAddressListImportJobResponse(TypedDict):
+class CreateAddressListImportJobResponse(TypedDict, closed=True):
     job_id: "aws_sdk_mailmanager.types.job_id.JobId"
     """<p>The identifier of the created import job.</p>"""
     pre_signed_url: "aws_sdk_mailmanager.types.pre_signed_url.PreSignedUrl"

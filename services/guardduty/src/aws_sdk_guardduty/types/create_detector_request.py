@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#CreateDetectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.tag_map
 
 
-class CreateDetectorRequest(TypedDict):
+class CreateDetectorRequest(TypedDict, closed=True):
     enable: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>A Boolean value that specifies whether the detector is to be enabled.</p>"""
     client_token: NotRequired["aws_sdk_guardduty.types.client_token.ClientToken"]

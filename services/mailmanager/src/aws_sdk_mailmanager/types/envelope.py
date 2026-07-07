@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#Envelope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.string_list
@@ -14,6 +14,7 @@ Envelope = TypedDict(
         "from": NotRequired["str"],
         "to": NotRequired["aws_sdk_mailmanager.types.string_list.StringList"],
     },
+    closed=True,
 )
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#DeleteApplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.application_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.timestamp
 
 
-class DeleteApplicationResponse(TypedDict):
+class DeleteApplicationResponse(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_migration_hub_refactor_spaces.types.application_name.ApplicationName"
     ]

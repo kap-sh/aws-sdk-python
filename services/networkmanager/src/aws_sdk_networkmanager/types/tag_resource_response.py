@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#TagResourceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class TagResourceResponse(TypedDict):
+class TagResourceResponse(TypedDict, closed=True):
     pass
 
 

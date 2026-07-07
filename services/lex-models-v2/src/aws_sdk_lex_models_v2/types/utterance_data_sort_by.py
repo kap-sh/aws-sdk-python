@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UtteranceDataSortBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_utterance_sort_by_name
 
 
-class UtteranceDataSortBy(TypedDict):
+class UtteranceDataSortBy(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.analytics_utterance_sort_by_name.AnalyticsUtteranceSortByName"
     """<p>The measure by which to sort the utterance analytics data.</p> <ul> <li> <p> <code>Count</code> – The number of utterances.</p> </li> <li> <p> <code>UtteranceTimestamp</code> – The date and time of the utterance.</p> </li> </ul>"""
     order: "aws_sdk_lex_models_v2.types.analytics_sort_order.AnalyticsSortOrder"

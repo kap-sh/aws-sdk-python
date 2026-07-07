@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.athena#StopQueryExecutionOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopQueryExecutionOutput(TypedDict):
+class StopQueryExecutionOutput(TypedDict, closed=True):
     pass
 
 

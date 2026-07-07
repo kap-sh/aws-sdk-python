@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#SelectColumn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.nullable_boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.type
 
 
-class SelectColumn(TypedDict):
+class SelectColumn(TypedDict, closed=True):
     name: NotRequired["aws_sdk_timestream_query.types.string.String"]
     """<p>Name of the column.</p>"""
     type: NotRequired["aws_sdk_timestream_query.types.type.Type"]

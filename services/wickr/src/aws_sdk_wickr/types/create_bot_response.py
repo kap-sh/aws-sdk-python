@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#CreateBotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.network_id
 
 
-class CreateBotResponse(TypedDict):
+class CreateBotResponse(TypedDict, closed=True):
     message: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>A message indicating the result of the bot creation operation.</p>"""
     bot_id: "aws_sdk_wickr.types.bot_id.BotId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DescribeRegistrationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.registration_information_list
 
 
-class DescribeRegistrationsResult(TypedDict):
+class DescribeRegistrationsResult(TypedDict, closed=True):
     registrations: "aws_sdk_pinpoint_sms_voice_v2.types.registration_information_list.RegistrationInformationList"
     """<p>An array of RegistrationInformation objects.</p>"""
     next_token: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.next_token.NextToken"]

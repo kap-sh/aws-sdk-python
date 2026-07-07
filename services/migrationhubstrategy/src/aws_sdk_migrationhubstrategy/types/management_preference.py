@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ManagementPreference``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhubstrategy.errors import DeserializationError, SerializationError
 
@@ -10,19 +12,19 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.self_manage_resources
 
 
-class _ManagementPreference_awsManagedResources(TypedDict):
+class _ManagementPreference_awsManagedResources(TypedDict, closed=True):
     awsManagedResources: (
         "aws_sdk_migrationhubstrategy.types.aws_managed_resources.AwsManagedResources"
     )
 
 
-class _ManagementPreference_selfManageResources(TypedDict):
+class _ManagementPreference_selfManageResources(TypedDict, closed=True):
     selfManageResources: (
         "aws_sdk_migrationhubstrategy.types.self_manage_resources.SelfManageResources"
     )
 
 
-class _ManagementPreference_noPreference(TypedDict):
+class _ManagementPreference_noPreference(TypedDict, closed=True):
     noPreference: "aws_sdk_migrationhubstrategy.types.no_management_preference.NoManagementPreference"
 
 

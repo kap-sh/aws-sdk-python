@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#ReportConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.report_s3_configuration
 
 
-class ReportConfiguration(TypedDict):
+class ReportConfiguration(TypedDict, closed=True):
     report_s3_configuration: NotRequired[
         "aws_sdk_timestream_write.types.report_s3_configuration.ReportS3Configuration"
     ]

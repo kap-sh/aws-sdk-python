@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#DeleteInputSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.input_source_id
 
 
-class DeleteInputSourceResponse(TypedDict):
+class DeleteInputSourceResponse(TypedDict, closed=True):
     service_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
     input_source_id: "aws_sdk_resiliencehubv2.types.input_source_id.InputSourceId"
     """<p>The identifier of the deleted input source.</p>"""

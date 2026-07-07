@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Dimensions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_status_identifier
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.validation_test_type
 
 
-class Dimensions(TypedDict):
+class Dimensions(TypedDict, closed=True):
     queue: NotRequired["aws_sdk_connect.types.queue_reference.QueueReference"]
     """<p>Information about the queue for which metrics are returned.</p>"""
     channel: NotRequired["aws_sdk_connect.types.channel.Channel"]

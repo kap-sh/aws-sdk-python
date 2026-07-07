@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#RequestedServiceQuotaChange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.applied_level_enum
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.service_name
 
 
-class RequestedServiceQuotaChange(TypedDict):
+class RequestedServiceQuotaChange(TypedDict, closed=True):
     id: NotRequired["aws_sdk_service_quotas.types.request_id.RequestId"]
     """<p>The unique identifier.</p>"""
     request_type: NotRequired["aws_sdk_service_quotas.types.request_type.RequestType"]

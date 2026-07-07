@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VerifiedAccessInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.verified_access_trust_provider_condensed_list
 
 
-class VerifiedAccessInstance(TypedDict):
+class VerifiedAccessInstance(TypedDict, closed=True):
     verified_access_instance_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the Amazon Web Services Verified Access instance.</p>"""
     description: NotRequired["aws_sdk_ec2.types.string.String"]

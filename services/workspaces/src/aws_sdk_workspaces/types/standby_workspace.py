@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#StandbyWorkspace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_id
 
 
-class StandbyWorkspace(TypedDict):
+class StandbyWorkspace(TypedDict, closed=True):
     primary_workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId"
     """<p>The identifier of the standby WorkSpace.</p>"""
     volume_encryption_key: NotRequired[

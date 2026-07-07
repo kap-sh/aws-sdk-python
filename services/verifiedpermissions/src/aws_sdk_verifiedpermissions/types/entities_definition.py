@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#EntitiesDefinition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.entity_list
 
 
-class _EntitiesDefinition_entityList(TypedDict):
+class _EntitiesDefinition_entityList(TypedDict, closed=True):
     entityList: "aws_sdk_verifiedpermissions.types.entity_list.EntityList"
 
 
-class _EntitiesDefinition_cedarJson(TypedDict):
+class _EntitiesDefinition_cedarJson(TypedDict, closed=True):
     cedarJson: "aws_sdk_verifiedpermissions.types.cedar_json.CedarJson"
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#PutAccountSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_artifact.types.notification_subscription_status
 
 
-class PutAccountSettingsRequest(TypedDict):
+class PutAccountSettingsRequest(TypedDict, closed=True):
     notification_subscription_status: NotRequired[
         "aws_sdk_artifact.types.notification_subscription_status.NotificationSubscriptionStatus"
     ]

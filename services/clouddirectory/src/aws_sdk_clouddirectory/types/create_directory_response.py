@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#CreateDirectoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.object_identifier
 
 
-class CreateDirectoryResponse(TypedDict):
+class CreateDirectoryResponse(TypedDict, closed=True):
     directory_arn: "aws_sdk_clouddirectory.types.directory_arn.DirectoryArn"
     """<p>The ARN that is associated with the <a>Directory</a>. For more information, see <a>arns</a>.</p>"""
     name: "aws_sdk_clouddirectory.types.directory_name.DirectoryName"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateTrialResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.trial_arn
 
 
-class UpdateTrialResponse(TypedDict):
+class UpdateTrialResponse(TypedDict, closed=True):
     trial_arn: NotRequired["aws_sdk_sagemaker.types.trial_arn.TrialArn"]
     """<p>The Amazon Resource Name (ARN) of the trial.</p>"""
 

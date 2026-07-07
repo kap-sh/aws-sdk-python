@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#CustomerConnectorInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.integer
 
 
-class CustomerConnectorInfo(TypedDict):
+class CustomerConnectorInfo(TypedDict, closed=True):
     active_connectors: "aws_sdk_application_discovery_service.types.integer.Integer"
     """<p>Number of active discovery connectors.</p>"""
     healthy_connectors: "aws_sdk_application_discovery_service.types.integer.Integer"

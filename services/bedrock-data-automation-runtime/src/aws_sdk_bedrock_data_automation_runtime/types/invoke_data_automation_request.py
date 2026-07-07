@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomationruntime#InvokeDataAutomationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_data_automation_runtime.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation_runtime.types.sync_input_configuration
 
 
-class InvokeDataAutomationRequest(TypedDict):
+class InvokeDataAutomationRequest(TypedDict, closed=True):
     input_configuration: "aws_sdk_bedrock_data_automation_runtime.types.sync_input_configuration.SyncInputConfiguration"
     """Input configuration."""
     data_automation_configuration: NotRequired[

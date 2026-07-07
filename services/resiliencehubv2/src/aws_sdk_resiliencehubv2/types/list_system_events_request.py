@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListSystemEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.system_event_type_list
 
 
-class ListSystemEventsRequest(TypedDict):
+class ListSystemEventsRequest(TypedDict, closed=True):
     system_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
     event_types: NotRequired[
         "aws_sdk_resiliencehubv2.types.system_event_type_list.SystemEventTypeList"

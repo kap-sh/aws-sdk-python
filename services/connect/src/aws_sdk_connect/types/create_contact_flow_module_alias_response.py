@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateContactFlowModuleAliasResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.resource_id
 
 
-class CreateContactFlowModuleAliasResponse(TypedDict):
+class CreateContactFlowModuleAliasResponse(TypedDict, closed=True):
     contact_flow_module_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) of the flow module.</p>"""
     id: NotRequired["aws_sdk_connect.types.resource_id.ResourceId"]

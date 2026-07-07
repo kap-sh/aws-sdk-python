@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#PolicyGrantPrincipal``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -11,21 +13,21 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.user_policy_grant_principal
 
 
-class _PolicyGrantPrincipal_user(TypedDict):
+class _PolicyGrantPrincipal_user(TypedDict, closed=True):
     user: "aws_sdk_datazone.types.user_policy_grant_principal.UserPolicyGrantPrincipal"
 
 
-class _PolicyGrantPrincipal_group(TypedDict):
+class _PolicyGrantPrincipal_group(TypedDict, closed=True):
     group: (
         "aws_sdk_datazone.types.group_policy_grant_principal.GroupPolicyGrantPrincipal"
     )
 
 
-class _PolicyGrantPrincipal_project(TypedDict):
+class _PolicyGrantPrincipal_project(TypedDict, closed=True):
     project: "aws_sdk_datazone.types.project_policy_grant_principal.ProjectPolicyGrantPrincipal"
 
 
-class _PolicyGrantPrincipal_domainUnit(TypedDict):
+class _PolicyGrantPrincipal_domainUnit(TypedDict, closed=True):
     domainUnit: "aws_sdk_datazone.types.domain_unit_policy_grant_principal.DomainUnitPolicyGrantPrincipal"
 
 

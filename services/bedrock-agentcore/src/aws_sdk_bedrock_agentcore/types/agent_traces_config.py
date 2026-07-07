@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#AgentTracesConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.spans
 
 
-class _AgentTracesConfig_sessionSpans(TypedDict):
+class _AgentTracesConfig_sessionSpans(TypedDict, closed=True):
     sessionSpans: "aws_sdk_bedrock_agentcore.types.spans.Spans"
 
 
-class _AgentTracesConfig_cloudwatchLogs(TypedDict):
+class _AgentTracesConfig_cloudwatchLogs(TypedDict, closed=True):
     cloudwatchLogs: "aws_sdk_bedrock_agentcore.types.cloud_watch_logs_trace_config.CloudWatchLogsTraceConfig"
 
 

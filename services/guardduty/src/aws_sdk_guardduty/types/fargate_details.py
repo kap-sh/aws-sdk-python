@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#FargateDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.issues
     import aws_sdk_guardduty.types.management_type
 
 
-class FargateDetails(TypedDict):
+class FargateDetails(TypedDict, closed=True):
     issues: NotRequired["aws_sdk_guardduty.types.issues.Issues"]
     """<p>Runtime coverage issues identified for the resource running on Amazon Web Services Fargate.</p>"""
     management_type: NotRequired[

@@ -1,14 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails(TypedDict):
+class AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails(
+    TypedDict, closed=True
+):
     type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The type of resource to assign to a container. Valid values are <code>GPU</code> or <code>InferenceAccelerator</code>.</p>"""
     value: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

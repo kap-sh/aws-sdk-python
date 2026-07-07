@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#MetricsConfigurationPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.noise_level_type
 
 
-class MetricsConfigurationPolicy(TypedDict):
+class MetricsConfigurationPolicy(TypedDict, closed=True):
     noise_level: "aws_sdk_cleanroomsml.types.noise_level_type.NoiseLevelType"
     """<p>The noise level for the generated metrics.</p>"""
 

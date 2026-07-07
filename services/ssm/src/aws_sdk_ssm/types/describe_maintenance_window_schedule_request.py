@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeMaintenanceWindowScheduleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class DescribeMaintenanceWindowScheduleRequest(TypedDict):
+class DescribeMaintenanceWindowScheduleRequest(TypedDict, closed=True):
     window_id: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_id.MaintenanceWindowId"
     ]

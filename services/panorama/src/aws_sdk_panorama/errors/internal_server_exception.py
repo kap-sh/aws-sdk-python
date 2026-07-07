@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#InternalServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError, ServiceError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.string
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "aws_sdk_panorama.types.string.String"
     retry_after_seconds: "aws_sdk_panorama.types.retry_after_seconds.RetryAfterSeconds"
     """<p>The number of seconds a client should wait before retrying the call.</p>"""

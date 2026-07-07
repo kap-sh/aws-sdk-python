@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#AssociateResourceError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.associate_resource_error_reason
     import aws_sdk_billingconductor.types.string
 
 
-class AssociateResourceError(TypedDict):
+class AssociateResourceError(TypedDict, closed=True):
     message: NotRequired["aws_sdk_billingconductor.types.string.String"]
     """<p>The reason why the resource association failed.</p>"""
     reason: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElbLoadBalancerConnectionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
 
 
-class AwsElbLoadBalancerConnectionSettings(TypedDict):
+class AwsElbLoadBalancerConnectionSettings(TypedDict, closed=True):
     idle_timeout: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The time, in seconds, that the connection can be idle (no data is sent over the connection) before it is closed by the load balancer.</p>"""
 

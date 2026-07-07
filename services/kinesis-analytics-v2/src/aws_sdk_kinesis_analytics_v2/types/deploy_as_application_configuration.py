@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#DeployAsApplicationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.s3_content_base_location
 
 
-class DeployAsApplicationConfiguration(TypedDict):
+class DeployAsApplicationConfiguration(TypedDict, closed=True):
     s3_content_location: "aws_sdk_kinesis_analytics_v2.types.s3_content_base_location.S3ContentBaseLocation"
     """<p>The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data. </p>"""
 

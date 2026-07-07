@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#Taint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.taint_effect
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.taint_value
 
 
-class Taint(TypedDict):
+class Taint(TypedDict, closed=True):
     key: NotRequired["aws_sdk_eks.types.taint_key.taintKey"]
     """<p>The key of the taint.</p>"""
     value: NotRequired["aws_sdk_eks.types.taint_value.taintValue"]

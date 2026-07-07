@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Partition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.catalog_id_string
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.value_string_list
 
 
-class Partition(TypedDict):
+class Partition(TypedDict, closed=True):
     values: NotRequired["aws_sdk_glue.types.value_string_list.ValueStringList"]
     """<p>The values of the partition.</p>"""
     database_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

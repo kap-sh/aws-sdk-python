@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsCodeBuildProjectDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_code_build_project_artifacts_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsCodeBuildProjectDetails(TypedDict):
+class AwsCodeBuildProjectDetails(TypedDict, closed=True):
     encryption_key: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

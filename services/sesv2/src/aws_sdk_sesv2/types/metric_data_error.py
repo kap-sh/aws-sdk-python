@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#MetricDataError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.query_error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.query_identifier
 
 
-class MetricDataError(TypedDict):
+class MetricDataError(TypedDict, closed=True):
     id: NotRequired["aws_sdk_sesv2.types.query_identifier.QueryIdentifier"]
     """<p>The query identifier.</p>"""
     code: NotRequired["aws_sdk_sesv2.types.query_error_code.QueryErrorCode"]

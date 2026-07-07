@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ClassificationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.origin_type
 
 
-class ClassificationDetails(TypedDict):
+class ClassificationDetails(TypedDict, closed=True):
     detailed_results_location: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The path to the folder or file in Amazon S3 that contains the corresponding sensitive data discovery result for the finding. If a finding applies to a large archive or compressed file, this value is the path to a folder. Otherwise, this value is the path to a file.</p>"""
     job_arn: NotRequired["aws_sdk_macie2.types.__string.__string"]

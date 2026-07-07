@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#StatusDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class StatusDetails(TypedDict):
+class StatusDetails(TypedDict, closed=True):
     status_code: NotRequired["str"]
     """<p>The status code that was returned. The status code is intended for programmatic error handling. Clean Rooms ML will not change the status code for existing error conditions.</p>"""
     message: NotRequired["str"]

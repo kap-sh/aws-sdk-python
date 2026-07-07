@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#IdempotentParameterMismatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class IdempotentParameterMismatch_(TypedDict):
+class IdempotentParameterMismatch_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_config_service.types.string.String"]
 
 

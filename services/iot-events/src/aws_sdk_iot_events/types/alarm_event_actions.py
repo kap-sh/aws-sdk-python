@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#AlarmEventActions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.alarm_actions
 
 
-class AlarmEventActions(TypedDict):
+class AlarmEventActions(TypedDict, closed=True):
     alarm_actions: NotRequired["aws_sdk_iot_events.types.alarm_actions.AlarmActions"]
     """<p>Specifies one or more supported actions to receive notifications when the alarm state changes.</p>"""
 

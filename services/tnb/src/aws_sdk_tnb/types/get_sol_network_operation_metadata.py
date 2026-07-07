@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#GetSolNetworkOperationMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_tnb.types.update_ns_metadata
 
 
-class GetSolNetworkOperationMetadata(TypedDict):
+class GetSolNetworkOperationMetadata(TypedDict, closed=True):
     update_ns_metadata: NotRequired[
         "aws_sdk_tnb.types.update_ns_metadata.UpdateNsMetadata"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#FirewallRuleType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.dns_threat_protection_rule_type_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.firewall_advanced_threat_category_config
 
 
-class FirewallRuleType(TypedDict):
+class FirewallRuleType(TypedDict, closed=True):
     firewall_advanced_content_category: NotRequired[
         "aws_sdk_route53resolver.types.firewall_advanced_content_category_config.FirewallAdvancedContentCategoryConfig"
     ]

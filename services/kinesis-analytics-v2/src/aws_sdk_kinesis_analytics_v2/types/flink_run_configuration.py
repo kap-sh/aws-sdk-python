@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#FlinkRunConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.boolean_object
 
 
-class FlinkRunConfiguration(TypedDict):
+class FlinkRunConfiguration(TypedDict, closed=True):
     allow_non_restored_state: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.boolean_object.BooleanObject"
     ]

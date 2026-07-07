@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_launch_template_data_capacity_reservation_specification_capacity_reservation_target_details
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails(TypedDict):
+class AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails(
+    TypedDict, closed=True
+):
     capacity_reservation_preference: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

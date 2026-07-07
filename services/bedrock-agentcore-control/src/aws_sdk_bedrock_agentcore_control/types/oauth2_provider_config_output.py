@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#Oauth2ProviderConfigOutput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -19,39 +21,41 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.slack_oauth2_provider_config_output
 
 
-class _Oauth2ProviderConfigOutput_customOauth2ProviderConfig(TypedDict):
+class _Oauth2ProviderConfigOutput_customOauth2ProviderConfig(TypedDict, closed=True):
     customOauth2ProviderConfig: "aws_sdk_bedrock_agentcore_control.types.custom_oauth2_provider_config_output.CustomOauth2ProviderConfigOutput"
 
 
-class _Oauth2ProviderConfigOutput_googleOauth2ProviderConfig(TypedDict):
+class _Oauth2ProviderConfigOutput_googleOauth2ProviderConfig(TypedDict, closed=True):
     googleOauth2ProviderConfig: "aws_sdk_bedrock_agentcore_control.types.google_oauth2_provider_config_output.GoogleOauth2ProviderConfigOutput"
 
 
-class _Oauth2ProviderConfigOutput_githubOauth2ProviderConfig(TypedDict):
+class _Oauth2ProviderConfigOutput_githubOauth2ProviderConfig(TypedDict, closed=True):
     githubOauth2ProviderConfig: "aws_sdk_bedrock_agentcore_control.types.github_oauth2_provider_config_output.GithubOauth2ProviderConfigOutput"
 
 
-class _Oauth2ProviderConfigOutput_slackOauth2ProviderConfig(TypedDict):
+class _Oauth2ProviderConfigOutput_slackOauth2ProviderConfig(TypedDict, closed=True):
     slackOauth2ProviderConfig: "aws_sdk_bedrock_agentcore_control.types.slack_oauth2_provider_config_output.SlackOauth2ProviderConfigOutput"
 
 
-class _Oauth2ProviderConfigOutput_salesforceOauth2ProviderConfig(TypedDict):
+class _Oauth2ProviderConfigOutput_salesforceOauth2ProviderConfig(
+    TypedDict, closed=True
+):
     salesforceOauth2ProviderConfig: "aws_sdk_bedrock_agentcore_control.types.salesforce_oauth2_provider_config_output.SalesforceOauth2ProviderConfigOutput"
 
 
-class _Oauth2ProviderConfigOutput_microsoftOauth2ProviderConfig(TypedDict):
+class _Oauth2ProviderConfigOutput_microsoftOauth2ProviderConfig(TypedDict, closed=True):
     microsoftOauth2ProviderConfig: "aws_sdk_bedrock_agentcore_control.types.microsoft_oauth2_provider_config_output.MicrosoftOauth2ProviderConfigOutput"
 
 
-class _Oauth2ProviderConfigOutput_atlassianOauth2ProviderConfig(TypedDict):
+class _Oauth2ProviderConfigOutput_atlassianOauth2ProviderConfig(TypedDict, closed=True):
     atlassianOauth2ProviderConfig: "aws_sdk_bedrock_agentcore_control.types.atlassian_oauth2_provider_config_output.AtlassianOauth2ProviderConfigOutput"
 
 
-class _Oauth2ProviderConfigOutput_linkedinOauth2ProviderConfig(TypedDict):
+class _Oauth2ProviderConfigOutput_linkedinOauth2ProviderConfig(TypedDict, closed=True):
     linkedinOauth2ProviderConfig: "aws_sdk_bedrock_agentcore_control.types.linkedin_oauth2_provider_config_output.LinkedinOauth2ProviderConfigOutput"
 
 
-class _Oauth2ProviderConfigOutput_includedOauth2ProviderConfig(TypedDict):
+class _Oauth2ProviderConfigOutput_includedOauth2ProviderConfig(TypedDict, closed=True):
     includedOauth2ProviderConfig: "aws_sdk_bedrock_agentcore_control.types.included_oauth2_provider_config_output.IncludedOauth2ProviderConfigOutput"
 
 

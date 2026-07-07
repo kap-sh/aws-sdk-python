@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#RegisterOpentdfConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.sensitive_string
 
 
-class RegisterOpentdfConfigResponse(TypedDict):
+class RegisterOpentdfConfigResponse(TypedDict, closed=True):
     client_id: "aws_sdk_wickr.types.generic_string.GenericString"
     """<p>The OIDC client ID used for authenticating with the OpenTDF provider.</p>"""
     domain: "aws_sdk_wickr.types.generic_string.GenericString"

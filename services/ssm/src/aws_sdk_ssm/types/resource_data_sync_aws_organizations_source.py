@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ResourceDataSyncAwsOrganizationsSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_data_sync_organizational_unit_list
 
 
-class ResourceDataSyncAwsOrganizationsSource(TypedDict):
+class ResourceDataSyncAwsOrganizationsSource(TypedDict, closed=True):
     organization_source_type: "aws_sdk_ssm.types.resource_data_sync_organization_source_type.ResourceDataSyncOrganizationSourceType"
     """<p>If an Amazon Web Services organization is present, this is either <code>OrganizationalUnits</code> or <code>EntireOrganization</code>. For <code>OrganizationalUnits</code>, the data is aggregated from a set of organization units. For <code>EntireOrganization</code>, the data is aggregated from the entire Amazon Web Services organization.</p>"""
     organizational_units: NotRequired[

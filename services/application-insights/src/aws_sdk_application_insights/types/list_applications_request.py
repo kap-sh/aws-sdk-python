@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#ListApplicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_insights.types.pagination_token
 
 
-class ListApplicationsRequest(TypedDict):
+class ListApplicationsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_application_insights.types.max_entities.MaxEntities"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#BatchImport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.async_job_status
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.time
 
 
-class BatchImport(TypedDict):
+class BatchImport(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_frauddetector.types.identifier.identifier"]
     """<p>The ID of the batch import job. </p>"""
     status: NotRequired["aws_sdk_frauddetector.types.async_job_status.AsyncJobStatus"]

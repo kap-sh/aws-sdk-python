@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#BudgetSchedule``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.fixed_budget_schedule
 
 
-class _BudgetSchedule_fixed(TypedDict):
+class _BudgetSchedule_fixed(TypedDict, closed=True):
     fixed: "aws_sdk_deadline.types.fixed_budget_schedule.FixedBudgetSchedule"
 
 

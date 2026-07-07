@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#View``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.view_name
 
 
-class View(TypedDict):
+class View(TypedDict, closed=True):
     view_arn: NotRequired["str"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view.</p>"""
     view_name: NotRequired["aws_sdk_resource_explorer_2.types.view_name.ViewName"]

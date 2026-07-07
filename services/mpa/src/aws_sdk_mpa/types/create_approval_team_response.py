@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#CreateApprovalTeamResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.approval_team_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class CreateApprovalTeamResponse(TypedDict):
+class CreateApprovalTeamResponse(TypedDict, closed=True):
     creation_time: NotRequired["aws_sdk_mpa.types.iso_timestamp.IsoTimestamp"]
     """<p>Timestamp when the team was created.</p>"""
     arn: NotRequired["aws_sdk_mpa.types.approval_team_arn.ApprovalTeamArn"]

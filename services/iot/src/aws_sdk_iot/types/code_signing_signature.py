@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CodeSigningSignature``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.signature
 
 
-class CodeSigningSignature(TypedDict):
+class CodeSigningSignature(TypedDict, closed=True):
     inline_document: NotRequired["aws_sdk_iot.types.signature.Signature"]
     """<p>A base64 encoded binary representation of the code signing signature.</p>"""
 

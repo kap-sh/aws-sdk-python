@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#DeleteWarmPoolAnswer``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
 
-class DeleteWarmPoolAnswer(TypedDict):
+class DeleteWarmPoolAnswer(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#UpdateManagedRuleSetVersionExpiryDateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.lock_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.version_key_string
 
 
-class UpdateManagedRuleSetVersionExpiryDateResponse(TypedDict):
+class UpdateManagedRuleSetVersionExpiryDateResponse(TypedDict, closed=True):
     expiring_version: NotRequired[
         "aws_sdk_wafv2.types.version_key_string.VersionKeyString"
     ]

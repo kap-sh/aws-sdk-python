@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#AttachStaticIpRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class AttachStaticIpRequest(TypedDict):
+class AttachStaticIpRequest(TypedDict, closed=True):
     static_ip_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of the static IP.</p>"""
     instance_name: "aws_sdk_lightsail.types.resource_name.ResourceName"

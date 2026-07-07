@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ReplicationInfoDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.topic_replication
 
 
-class ReplicationInfoDescription(TypedDict):
+class ReplicationInfoDescription(TypedDict, closed=True):
     consumer_group_replication: NotRequired[
         "aws_sdk_kafka.types.consumer_group_replication.ConsumerGroupReplication"
     ]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#GetArchiveRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.analyzer_name
     import aws_sdk_accessanalyzer.types.name
 
 
-class GetArchiveRuleRequest(TypedDict):
+class GetArchiveRuleRequest(TypedDict, closed=True):
     analyzer_name: "aws_sdk_accessanalyzer.types.analyzer_name.AnalyzerName"
     """<p>The name of the analyzer to retrieve rules from.</p>"""
     rule_name: "aws_sdk_accessanalyzer.types.name.Name"

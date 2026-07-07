@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#ListDomainDeliverabilityCampaignsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.next_token
 
 
-class ListDomainDeliverabilityCampaignsResponse(TypedDict):
+class ListDomainDeliverabilityCampaignsResponse(TypedDict, closed=True):
     domain_deliverability_campaigns: "aws_sdk_pinpoint_email.types.domain_deliverability_campaign_list.DomainDeliverabilityCampaignList"
     """<p>An array of responses, one for each campaign that used the domain to send email during the specified time range.</p>"""
     next_token: NotRequired["aws_sdk_pinpoint_email.types.next_token.NextToken"]

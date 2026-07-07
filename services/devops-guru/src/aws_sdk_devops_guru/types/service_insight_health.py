@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ServiceInsightHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.num_open_proactive_insights
     import aws_sdk_devops_guru.types.num_open_reactive_insights
 
 
-class ServiceInsightHealth(TypedDict):
+class ServiceInsightHealth(TypedDict, closed=True):
     open_proactive_insights: (
         "aws_sdk_devops_guru.types.num_open_proactive_insights.NumOpenProactiveInsights"
     )

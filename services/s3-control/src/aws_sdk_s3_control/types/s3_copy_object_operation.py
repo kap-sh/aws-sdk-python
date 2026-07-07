@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#S3CopyObjectOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.time_stamp
 
 
-class S3CopyObjectOperation(TypedDict):
+class S3CopyObjectOperation(TypedDict, closed=True):
     target_resource: NotRequired[
         "aws_sdk_s3_control.types.s3_regional_or_s3_express_bucket_arn_string.S3RegionalOrS3ExpressBucketArnString"
     ]

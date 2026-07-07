@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ContactSearchSummaryQueueInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.queue_id
     import aws_sdk_connect.types.timestamp
 
 
-class ContactSearchSummaryQueueInfo(TypedDict):
+class ContactSearchSummaryQueueInfo(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.queue_id.QueueId"]
     """<p>The unique identifier for the queue.</p>"""
     enqueue_timestamp: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]

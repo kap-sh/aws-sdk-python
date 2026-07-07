@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#MeshSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.egress_filter
     import aws_sdk_app_mesh.types.mesh_service_discovery
 
 
-class MeshSpec(TypedDict):
+class MeshSpec(TypedDict, closed=True):
     egress_filter: NotRequired["aws_sdk_app_mesh.types.egress_filter.EgressFilter"]
     """<p>The egress filter rules for the service mesh.</p>"""
     service_discovery: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#ExportInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_discovery_service.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.time_stamp
 
 
-class ExportInfo(TypedDict):
+class ExportInfo(TypedDict, closed=True):
     export_id: "aws_sdk_application_discovery_service.types.configurations_export_id.ConfigurationsExportId"
     """<p>A unique identifier used to query an export.</p>"""
     export_status: (

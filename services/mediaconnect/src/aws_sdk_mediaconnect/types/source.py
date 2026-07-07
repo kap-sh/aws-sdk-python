@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#Source``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_media_stream_source_configuration
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.transport
 
 
-class Source(TypedDict):
+class Source(TypedDict, closed=True):
     data_transfer_subscriber_fee_percent: NotRequired["int"]
     """<p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>"""
     decryption: NotRequired["aws_sdk_mediaconnect.types.encryption.Encryption"]

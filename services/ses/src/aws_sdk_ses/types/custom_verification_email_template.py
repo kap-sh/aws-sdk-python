@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#CustomVerificationEmailTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.template_name
 
 
-class CustomVerificationEmailTemplate(TypedDict):
+class CustomVerificationEmailTemplate(TypedDict, closed=True):
     template_name: NotRequired["aws_sdk_ses.types.template_name.TemplateName"]
     """<p>The name of the custom verification email template.</p>"""
     from_email_address: NotRequired["aws_sdk_ses.types.from_address.FromAddress"]

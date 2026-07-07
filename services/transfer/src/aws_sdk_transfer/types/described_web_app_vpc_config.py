@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribedWebAppVpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.subnet_ids
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.vpc_id
 
 
-class DescribedWebAppVpcConfig(TypedDict):
+class DescribedWebAppVpcConfig(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_transfer.types.subnet_ids.SubnetIds"]
     """<p>The list of subnet IDs within the VPC where the web app endpoint is deployed. These subnets must be in the same VPC and provide network connectivity for the endpoint.</p>"""
     vpc_id: NotRequired["aws_sdk_transfer.types.vpc_id.VpcId"]

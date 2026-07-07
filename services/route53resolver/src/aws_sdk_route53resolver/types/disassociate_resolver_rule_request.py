@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#DisassociateResolverRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class DisassociateResolverRuleRequest(TypedDict):
+class DisassociateResolverRuleRequest(TypedDict, closed=True):
     vpc_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p>The ID of the VPC that you want to disassociate the Resolver rule from.</p>"""
     resolver_rule_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"

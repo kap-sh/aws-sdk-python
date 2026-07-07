@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ModelEnforcement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.included_models_list
 
 
-class ModelEnforcement(TypedDict):
+class ModelEnforcement(TypedDict, closed=True):
     included_models: "aws_sdk_bedrock.types.included_models_list.IncludedModelsList"
     """<p>Models to enforce the guardrail on.</p>"""
     excluded_models: "aws_sdk_bedrock.types.excluded_models_list.ExcludedModelsList"

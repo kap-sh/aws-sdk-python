@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.trustedadvisor#GetOrganizationRecommendationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_trustedadvisor.types.organization_recommendation
 
 
-class GetOrganizationRecommendationResponse(TypedDict):
+class GetOrganizationRecommendationResponse(TypedDict, closed=True):
     organization_recommendation: NotRequired[
         "aws_sdk_trustedadvisor.types.organization_recommendation.OrganizationRecommendation"
     ]

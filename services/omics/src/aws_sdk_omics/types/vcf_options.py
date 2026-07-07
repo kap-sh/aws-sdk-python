@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#VcfOptions``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class VcfOptions(TypedDict):
+class VcfOptions(TypedDict, closed=True):
     ignore_qual_field: NotRequired["bool"]
     """<p>The file's ignore qual field setting.</p>"""
     ignore_filter_field: NotRequired["bool"]

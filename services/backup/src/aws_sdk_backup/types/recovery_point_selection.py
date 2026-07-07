@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#RecoveryPointSelection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.date_range
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.vault_names
 
 
-class RecoveryPointSelection(TypedDict):
+class RecoveryPointSelection(TypedDict, closed=True):
     vault_names: NotRequired["aws_sdk_backup.types.vault_names.VaultNames"]
     """<p>These are the names of the vaults in which the selected recovery points are contained.</p>"""
     resource_identifiers: NotRequired[

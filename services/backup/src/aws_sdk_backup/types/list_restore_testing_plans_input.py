@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListRestoreTestingPlansInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.list_restore_testing_plans_input_max_results_integer
 
 
-class ListRestoreTestingPlansInput(TypedDict):
+class ListRestoreTestingPlansInput(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_backup.types.list_restore_testing_plans_input_max_results_integer.ListRestoreTestingPlansInputMaxResultsInteger"
     ]

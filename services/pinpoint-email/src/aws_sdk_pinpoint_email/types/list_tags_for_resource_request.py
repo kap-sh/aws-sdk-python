@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.amazon_resource_name
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_pinpoint_email.types.amazon_resource_name.AmazonResourceName"
     """<p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tag information for.</p>"""
 

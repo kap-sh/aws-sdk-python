@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#JobsQueryFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of__string_max100
     import aws_sdk_mediaconvert.types.jobs_query_filter_key
 
 
-class JobsQueryFilter(TypedDict):
+class JobsQueryFilter(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_mediaconvert.types.jobs_query_filter_key.JobsQueryFilterKey"
     ]

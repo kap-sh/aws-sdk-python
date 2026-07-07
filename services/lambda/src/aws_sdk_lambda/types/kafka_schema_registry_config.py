@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#KafkaSchemaRegistryConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.kafka_schema_registry_access_config_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.schema_registry_uri
 
 
-class KafkaSchemaRegistryConfig(TypedDict):
+class KafkaSchemaRegistryConfig(TypedDict, closed=True):
     schema_registry_uri: NotRequired[
         "aws_sdk_lambda.types.schema_registry_uri.SchemaRegistryUri"
     ]

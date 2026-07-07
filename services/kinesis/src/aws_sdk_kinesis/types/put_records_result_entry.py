@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#PutRecordsResultEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.types.error_code
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.shard_id
 
 
-class PutRecordsResultEntry(TypedDict):
+class PutRecordsResultEntry(TypedDict, closed=True):
     sequence_number: NotRequired["aws_sdk_kinesis.types.sequence_number.SequenceNumber"]
     """<p>The sequence number for an individual record result.</p>"""
     shard_id: NotRequired["aws_sdk_kinesis.types.shard_id.ShardId"]

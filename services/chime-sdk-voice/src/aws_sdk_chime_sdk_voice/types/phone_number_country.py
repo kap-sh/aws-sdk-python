@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#PhoneNumberCountry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.alpha2_country_code
     import aws_sdk_chime_sdk_voice.types.phone_number_type_list
 
 
-class PhoneNumberCountry(TypedDict):
+class PhoneNumberCountry(TypedDict, closed=True):
     country_code: NotRequired[
         "aws_sdk_chime_sdk_voice.types.alpha2_country_code.Alpha2CountryCode"
     ]

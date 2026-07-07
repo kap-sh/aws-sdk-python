@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#SynthesizeSpeechInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_polly.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.voice_id
 
 
-class SynthesizeSpeechInput(TypedDict):
+class SynthesizeSpeechInput(TypedDict, closed=True):
     engine: NotRequired["aws_sdk_polly.types.engine.Engine"]
     r"""<p>Specifies the engine (<code>standard</code>, <code>neural</code>, <code>long-form</code>, or <code>generative</code>) for Amazon Polly to use when processing input text for speech synthesis. Provide an engine that is supported by the voice you select. If you don't provide an engine, the standard engine is selected by default. If a chosen voice isn't supported by the standard engine, this will result in an error. For information on Amazon Polly voices and which voices are available for each engine, see <a href=\"https://docs.aws.amazon.com/polly/latest/dg/voicelist.html\">Available Voices</a>.</p>"""
     language_code: NotRequired["aws_sdk_polly.types.language_code.LanguageCode"]

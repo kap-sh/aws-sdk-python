@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ClassificationExportConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.s3_destination
 
 
-class ClassificationExportConfiguration(TypedDict):
+class ClassificationExportConfiguration(TypedDict, closed=True):
     s3_destination: NotRequired["aws_sdk_macie2.types.s3_destination.S3Destination"]
     """<p>The S3 bucket to store data classification results in, and the encryption settings to use when storing results in that bucket.</p>"""
 

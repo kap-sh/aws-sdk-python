@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#QueryVectorsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3vectors.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.query_vectors_output_list
 
 
-class QueryVectorsOutput(TypedDict):
+class QueryVectorsOutput(TypedDict, closed=True):
     vectors: "aws_sdk_s3vectors.types.query_vectors_output_list.QueryVectorsOutputList"
     """<p>The vectors in the approximate nearest neighbor search.</p>"""
     distance_metric: NotRequired[

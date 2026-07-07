@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#RestartChannelPipelinesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.vpc_output_settings_description
 
 
-class RestartChannelPipelinesResponse(TypedDict):
+class RestartChannelPipelinesResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The unique arn of the channel."""
     cdi_input_specification: NotRequired[

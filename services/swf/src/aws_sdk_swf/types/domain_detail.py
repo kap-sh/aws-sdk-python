@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#DomainDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.domain_info
 
 
-class DomainDetail(TypedDict):
+class DomainDetail(TypedDict, closed=True):
     domain_info: "aws_sdk_swf.types.domain_info.DomainInfo"
     """<p>The basic information about a domain, such as its name, status, and description.</p>"""
     configuration: "aws_sdk_swf.types.domain_configuration.DomainConfiguration"

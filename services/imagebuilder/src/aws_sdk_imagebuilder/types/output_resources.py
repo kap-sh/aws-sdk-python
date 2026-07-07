@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#OutputResources``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.ami_list
     import aws_sdk_imagebuilder.types.container_list
 
 
-class OutputResources(TypedDict):
+class OutputResources(TypedDict, closed=True):
     amis: NotRequired["aws_sdk_imagebuilder.types.ami_list.AmiList"]
     """<p>The Amazon EC2 AMIs created by this image.</p>"""
     containers: NotRequired["aws_sdk_imagebuilder.types.container_list.ContainerList"]

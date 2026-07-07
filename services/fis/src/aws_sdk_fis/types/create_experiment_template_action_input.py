@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#CreateExperimentTemplateActionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fis.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.experiment_template_action_target_map
 
 
-class CreateExperimentTemplateActionInput(TypedDict):
+class CreateExperimentTemplateActionInput(TypedDict, closed=True):
     action_id: "aws_sdk_fis.types.action_id.ActionId"
     """<p>The ID of the action. The format of the action ID is: aws:<i>service-name</i>:<i>action-type</i>.</p>"""
     description: NotRequired[

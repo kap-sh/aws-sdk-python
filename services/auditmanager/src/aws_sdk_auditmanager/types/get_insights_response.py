@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetInsightsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.insights
 
 
-class GetInsightsResponse(TypedDict):
+class GetInsightsResponse(TypedDict, closed=True):
     insights: NotRequired["aws_sdk_auditmanager.types.insights.Insights"]
     """<p>The analytics data that the <code>GetInsights</code> API returned. </p>"""
 

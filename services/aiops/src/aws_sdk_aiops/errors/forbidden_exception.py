@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.aiops#ForbiddenException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_aiops.errors import ServiceError
 
 
-class ForbiddenException_(TypedDict):
+class ForbiddenException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

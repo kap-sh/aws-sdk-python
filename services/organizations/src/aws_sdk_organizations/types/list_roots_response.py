@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ListRootsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.next_token
     import aws_sdk_organizations.types.roots
 
 
-class ListRootsResponse(TypedDict):
+class ListRootsResponse(TypedDict, closed=True):
     roots: NotRequired["aws_sdk_organizations.types.roots.Roots"]
     """<p>A list of roots that are defined in an organization.</p>"""
     next_token: NotRequired["aws_sdk_organizations.types.next_token.NextToken"]

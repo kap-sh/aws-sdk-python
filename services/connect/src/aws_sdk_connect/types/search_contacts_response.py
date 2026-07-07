@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchContactsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.total_count
 
 
-class SearchContactsResponse(TypedDict):
+class SearchContactsResponse(TypedDict, closed=True):
     contacts: "aws_sdk_connect.types.contacts.Contacts"
     """<p>Information about the contacts.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.large_next_token.LargeNextToken"]

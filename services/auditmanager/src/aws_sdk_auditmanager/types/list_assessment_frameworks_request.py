@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ListAssessmentFrameworksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.framework_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.token
 
 
-class ListAssessmentFrameworksRequest(TypedDict):
+class ListAssessmentFrameworksRequest(TypedDict, closed=True):
     framework_type: "aws_sdk_auditmanager.types.framework_type.FrameworkType"
     """<p> The type of framework, such as a standard framework or a custom framework. </p>"""
     next_token: NotRequired["aws_sdk_auditmanager.types.token.Token"]

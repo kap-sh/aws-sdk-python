@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#CategoricalValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.statistical_issue_status
 
 
-class CategoricalValues(TypedDict):
+class CategoricalValues(TypedDict, closed=True):
     status: (
         "aws_sdk_lookoutequipment.types.statistical_issue_status.StatisticalIssueStatus"
     )

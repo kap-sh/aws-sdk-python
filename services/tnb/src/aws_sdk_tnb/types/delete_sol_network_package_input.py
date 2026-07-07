@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#DeleteSolNetworkPackageInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.nsd_info_id
 
 
-class DeleteSolNetworkPackageInput(TypedDict):
+class DeleteSolNetworkPackageInput(TypedDict, closed=True):
     nsd_info_id: "aws_sdk_tnb.types.nsd_info_id.NsdInfoId"
     """<p>ID of the network service descriptor in the network package.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ClusterNetworkSettingsUpdateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_interface_mapping_update_request
     import aws_sdk_medialive.types.__string
 
 
-class ClusterNetworkSettingsUpdateRequest(TypedDict):
+class ClusterNetworkSettingsUpdateRequest(TypedDict, closed=True):
     default_route: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Include this parameter only if you want to change the default route for the Cluster. Specify one network interface as the default route for traffic to and from the node. MediaLive Anywhere uses this default when the destination for the traffic isn't covered by the route table for any of the networks. Specify the value of the appropriate logicalInterfaceName parameter that you create in the interfaceMappings."""
     interface_mappings: NotRequired[

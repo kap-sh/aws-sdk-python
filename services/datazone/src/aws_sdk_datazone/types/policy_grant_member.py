@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#PolicyGrantMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.created_at
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.policy_grant_principal
 
 
-class PolicyGrantMember(TypedDict):
+class PolicyGrantMember(TypedDict, closed=True):
     principal: NotRequired[
         "aws_sdk_datazone.types.policy_grant_principal.PolicyGrantPrincipal"
     ]

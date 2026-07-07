@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#IdentityPoolShortDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.identity_pool_id
     import aws_sdk_cognito_identity.types.identity_pool_name
 
 
-class IdentityPoolShortDescription(TypedDict):
+class IdentityPoolShortDescription(TypedDict, closed=True):
     identity_pool_id: NotRequired[
         "aws_sdk_cognito_identity.types.identity_pool_id.IdentityPoolId"
     ]

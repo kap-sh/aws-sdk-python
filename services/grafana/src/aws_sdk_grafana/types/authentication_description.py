@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#AuthenticationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.saml_authentication
 
 
-class AuthenticationDescription(TypedDict):
+class AuthenticationDescription(TypedDict, closed=True):
     providers: "aws_sdk_grafana.types.authentication_providers.AuthenticationProviders"
     """<p>Specifies whether this workspace uses IAM Identity Center, SAML, or both methods to authenticate users to use the Grafana console in the Amazon Managed Grafana workspace.</p>"""
     saml: NotRequired["aws_sdk_grafana.types.saml_authentication.SamlAuthentication"]

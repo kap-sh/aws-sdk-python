@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#InstanceIdentity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.string
 
 
-class InstanceIdentity(TypedDict):
+class InstanceIdentity(TypedDict, closed=True):
     document: NotRequired["aws_sdk_data_pipeline.types.string.string"]
     """<p>A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.</p>"""
     signature: NotRequired["aws_sdk_data_pipeline.types.string.string"]

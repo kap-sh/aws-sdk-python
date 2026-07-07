@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#CopyCommand``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.data_table_name
 
 
-class CopyCommand(TypedDict):
+class CopyCommand(TypedDict, closed=True):
     data_table_name: "aws_sdk_firehose.types.data_table_name.DataTableName"
     """<p>The name of the target table. The table must already exist in the database.</p>"""
     data_table_columns: NotRequired[

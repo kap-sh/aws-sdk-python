@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ConfiguredTableAnalysisRulePolicyV1``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.analysis_rule_list
 
 
-class _ConfiguredTableAnalysisRulePolicyV1_list(TypedDict):
+class _ConfiguredTableAnalysisRulePolicyV1_list(TypedDict, closed=True):
     list: "aws_sdk_cleanrooms.types.analysis_rule_list.AnalysisRuleList"
 
 
-class _ConfiguredTableAnalysisRulePolicyV1_aggregation(TypedDict):
+class _ConfiguredTableAnalysisRulePolicyV1_aggregation(TypedDict, closed=True):
     aggregation: (
         "aws_sdk_cleanrooms.types.analysis_rule_aggregation.AnalysisRuleAggregation"
     )
 
 
-class _ConfiguredTableAnalysisRulePolicyV1_custom(TypedDict):
+class _ConfiguredTableAnalysisRulePolicyV1_custom(TypedDict, closed=True):
     custom: "aws_sdk_cleanrooms.types.analysis_rule_custom.AnalysisRuleCustom"
 
 

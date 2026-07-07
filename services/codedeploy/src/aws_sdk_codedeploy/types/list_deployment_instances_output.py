@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#ListDeploymentInstancesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.instances_list
     import aws_sdk_codedeploy.types.next_token
 
 
-class ListDeploymentInstancesOutput(TypedDict):
+class ListDeploymentInstancesOutput(TypedDict, closed=True):
     instances_list: NotRequired["aws_sdk_codedeploy.types.instances_list.InstancesList"]
     """<p>A list of instance IDs.</p>"""
     next_token: NotRequired["aws_sdk_codedeploy.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DescribeDBClusterAutomatedBackupsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DescribeDBClusterAutomatedBackupsMessage(TypedDict):
+class DescribeDBClusterAutomatedBackupsMessage(TypedDict, closed=True):
     db_cluster_resource_id: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The resource ID of the DB cluster that is the source of the automated backup. This parameter isn't case-sensitive.</p>"""
     db_cluster_identifier: NotRequired["aws_sdk_rds.types.string.String"]

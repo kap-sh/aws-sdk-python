@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#GetFindingsStatisticsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.findings_statistics_list
     import aws_sdk_accessanalyzer.types.timestamp
 
 
-class GetFindingsStatisticsResponse(TypedDict):
+class GetFindingsStatisticsResponse(TypedDict, closed=True):
     findings_statistics: NotRequired[
         "aws_sdk_accessanalyzer.types.findings_statistics_list.FindingsStatisticsList"
     ]

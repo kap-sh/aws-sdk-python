@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#MemberAccountEc2DeepInspectionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.account_id
 
 
-class MemberAccountEc2DeepInspectionStatus(TypedDict):
+class MemberAccountEc2DeepInspectionStatus(TypedDict, closed=True):
     account_id: "aws_sdk_inspector2.types.account_id.AccountId"
     """<p>The unique identifier for the Amazon Web Services account of the organization member.</p>"""
     activate_deep_inspection: "bool"

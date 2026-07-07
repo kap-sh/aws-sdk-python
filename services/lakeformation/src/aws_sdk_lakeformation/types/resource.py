@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.catalog_resource
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.table_with_columns_resource
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     catalog: NotRequired["aws_sdk_lakeformation.types.catalog_resource.CatalogResource"]
     """<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>"""
     database: NotRequired[

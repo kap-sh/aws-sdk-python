@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#BrowserExtension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.resource_location
 
 
-class BrowserExtension(TypedDict):
+class BrowserExtension(TypedDict, closed=True):
     location: "aws_sdk_bedrock_agentcore.types.resource_location.ResourceLocation"
     """<p>The location where the browser extension files are stored. This specifies the source from which the extension will be loaded and installed.</p>"""
 

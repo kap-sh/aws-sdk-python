@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateTagsResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateTagsResult(TypedDict):
+class CreateTagsResult(TypedDict, closed=True):
     pass
 
 

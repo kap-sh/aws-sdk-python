@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DescribeActionTargetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.arn_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.next_token
 
 
-class DescribeActionTargetsRequest(TypedDict):
+class DescribeActionTargetsRequest(TypedDict, closed=True):
     action_target_arns: NotRequired["aws_sdk_securityhub.types.arn_list.ArnList"]
     """<p>A list of custom action target ARNs for the custom action targets to retrieve.</p>"""
     next_token: NotRequired["aws_sdk_securityhub.types.next_token.NextToken"]

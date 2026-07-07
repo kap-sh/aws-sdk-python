@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#BatchGetCommitsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.batch_get_commits_errors_list
     import aws_sdk_codecommit.types.commit_objects_list
 
 
-class BatchGetCommitsOutput(TypedDict):
+class BatchGetCommitsOutput(TypedDict, closed=True):
     commits: NotRequired[
         "aws_sdk_codecommit.types.commit_objects_list.CommitObjectsList"
     ]

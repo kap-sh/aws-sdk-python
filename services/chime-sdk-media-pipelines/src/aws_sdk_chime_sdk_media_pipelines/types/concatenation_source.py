@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#ConcatenationSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.media_capture_pipeline_source_configuration
 
 
-class ConcatenationSource(TypedDict):
+class ConcatenationSource(TypedDict, closed=True):
     type: "aws_sdk_chime_sdk_media_pipelines.types.concatenation_source_type.ConcatenationSourceType"
     """<p>The type of concatenation source in a configuration object.</p>"""
     media_capture_pipeline_source_configuration: "aws_sdk_chime_sdk_media_pipelines.types.media_capture_pipeline_source_configuration.MediaCapturePipelineSourceConfiguration"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#IssuerCertificateIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.issuer_certificate_serial_number
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.issuer_id
 
 
-class IssuerCertificateIdentifier(TypedDict):
+class IssuerCertificateIdentifier(TypedDict, closed=True):
     issuer_certificate_subject: NotRequired[
         "aws_sdk_iot.types.issuer_certificate_subject.IssuerCertificateSubject"
     ]

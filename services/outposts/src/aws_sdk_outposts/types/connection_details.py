@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ConnectionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.cidr
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.wire_guard_public_key
 
 
-class ConnectionDetails(TypedDict):
+class ConnectionDetails(TypedDict, closed=True):
     client_public_key: NotRequired[
         "aws_sdk_outposts.types.wire_guard_public_key.WireGuardPublicKey"
     ]

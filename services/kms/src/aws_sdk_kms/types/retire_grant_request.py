@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#RetireGrantRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.grant_id_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.nullable_boolean_type
 
 
-class RetireGrantRequest(TypedDict):
+class RetireGrantRequest(TypedDict, closed=True):
     grant_token: NotRequired["aws_sdk_kms.types.grant_token_type.GrantTokenType"]
     r"""<p>Identifies the grant to be retired. You can use a grant token to identify a new grant even before it has achieved eventual consistency.</p> <p>Only the <a>CreateGrant</a> operation returns a grant token. For details, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token\">Grant token</a> and <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency\">Eventual consistency</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]

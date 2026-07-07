@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#GetTrustedEntitySetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.detector_id
     import aws_sdk_guardduty.types.string
 
 
-class GetTrustedEntitySetRequest(TypedDict):
+class GetTrustedEntitySetRequest(TypedDict, closed=True):
     detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
     """<p>The unique ID of the GuardDuty detector associated with this trusted entity set.</p>"""
     trusted_entity_set_id: "aws_sdk_guardduty.types.string.String"

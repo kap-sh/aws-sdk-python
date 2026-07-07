@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#UpdateConfiguredTableOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.configured_table
 
 
-class UpdateConfiguredTableOutput(TypedDict):
+class UpdateConfiguredTableOutput(TypedDict, closed=True):
     configured_table: "aws_sdk_cleanrooms.types.configured_table.ConfiguredTable"
     """<p>The updated configured table.</p>"""
 

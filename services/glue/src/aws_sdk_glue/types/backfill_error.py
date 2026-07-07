@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BackfillError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.backfill_error_code
     import aws_sdk_glue.types.backfill_errored_partitions_list
 
 
-class BackfillError(TypedDict):
+class BackfillError(TypedDict, closed=True):
     code: NotRequired["aws_sdk_glue.types.backfill_error_code.BackfillErrorCode"]
     """<p>The error code for an error that occurred when registering partition indexes for an existing table.</p>"""
     partitions: NotRequired[

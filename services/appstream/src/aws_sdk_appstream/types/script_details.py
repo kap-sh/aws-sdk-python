@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ScriptDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
 
 
-class ScriptDetails(TypedDict):
+class ScriptDetails(TypedDict, closed=True):
     script_s3_location: NotRequired["aws_sdk_appstream.types.s3_location.S3Location"]
     """<p>The S3 object location for the script.</p>"""
     executable_path: NotRequired["aws_sdk_appstream.types.string.String"]

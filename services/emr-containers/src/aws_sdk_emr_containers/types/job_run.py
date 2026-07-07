@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#JobRun``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.client_token
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.tag_map
 
 
-class JobRun(TypedDict):
+class JobRun(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr_containers.types.resource_id_string.ResourceIdString"]
     """<p>The ID of the job run.</p>"""
     name: NotRequired[

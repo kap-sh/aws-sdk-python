@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#CreateDataSourceFromRedshiftInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.role_arn
 
 
-class CreateDataSourceFromRedshiftInput(TypedDict):
+class CreateDataSourceFromRedshiftInput(TypedDict, closed=True):
     data_source_id: "aws_sdk_machine_learning.types.entity_id.EntityId"
     """<p>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</p>"""
     data_source_name: NotRequired[

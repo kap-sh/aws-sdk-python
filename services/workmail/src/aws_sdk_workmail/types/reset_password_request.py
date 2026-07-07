@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ResetPasswordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.work_mail_identifier
 
 
-class ResetPasswordRequest(TypedDict):
+class ResetPasswordRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The identifier of the organization that contains the user for which the password is reset.</p>"""
     user_id: "aws_sdk_workmail.types.work_mail_identifier.WorkMailIdentifier"

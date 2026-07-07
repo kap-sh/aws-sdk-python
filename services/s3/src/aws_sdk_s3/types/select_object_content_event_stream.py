@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#SelectObjectContentEventStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._iter import AnyIterator
 from aws_sdk_s3._protocol.eventstream import Message
@@ -13,23 +15,23 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.stats_event
 
 
-class _SelectObjectContentEventStream_Records(TypedDict):
+class _SelectObjectContentEventStream_Records(TypedDict, closed=True):
     Records: "aws_sdk_s3.types.records_event.RecordsEvent"
 
 
-class _SelectObjectContentEventStream_Stats(TypedDict):
+class _SelectObjectContentEventStream_Stats(TypedDict, closed=True):
     Stats: "aws_sdk_s3.types.stats_event.StatsEvent"
 
 
-class _SelectObjectContentEventStream_Progress(TypedDict):
+class _SelectObjectContentEventStream_Progress(TypedDict, closed=True):
     Progress: "aws_sdk_s3.types.progress_event.ProgressEvent"
 
 
-class _SelectObjectContentEventStream_Cont(TypedDict):
+class _SelectObjectContentEventStream_Cont(TypedDict, closed=True):
     Cont: "aws_sdk_s3.types.continuation_event.ContinuationEvent"
 
 
-class _SelectObjectContentEventStream_End(TypedDict):
+class _SelectObjectContentEventStream_End(TypedDict, closed=True):
     End: "aws_sdk_s3.types.end_event.EndEvent"
 
 

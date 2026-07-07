@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#GetAccessTokenInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_id
 
 
-class GetAccessTokenInput(TypedDict):
+class GetAccessTokenInput(TypedDict, closed=True):
     access_token_id: "aws_sdk_route53globalresolver.types.resource_id.ResourceId"
     """<p>ID of the token.</p>"""
 

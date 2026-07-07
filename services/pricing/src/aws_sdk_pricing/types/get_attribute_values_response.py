@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pricing#GetAttributeValuesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pricing.types.attribute_value_list
     import aws_sdk_pricing.types.string
 
 
-class GetAttributeValuesResponse(TypedDict):
+class GetAttributeValuesResponse(TypedDict, closed=True):
     attribute_values: NotRequired[
         "aws_sdk_pricing.types.attribute_value_list.AttributeValueList"
     ]

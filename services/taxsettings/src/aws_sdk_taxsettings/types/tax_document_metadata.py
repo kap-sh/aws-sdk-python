@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#TaxDocumentMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.tax_document_name
 
 
-class TaxDocumentMetadata(TypedDict):
+class TaxDocumentMetadata(TypedDict, closed=True):
     tax_document_access_token: (
         "aws_sdk_taxsettings.types.tax_document_access_token.TaxDocumentAccessToken"
     )

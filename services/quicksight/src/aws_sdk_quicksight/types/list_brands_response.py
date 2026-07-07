@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListBrandsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.brand_summary_list
     import aws_sdk_quicksight.types.string
 
 
-class ListBrandsResponse(TypedDict):
+class ListBrandsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The token for the next set of results, or null if there are no more results.</p>"""
     brands: NotRequired["aws_sdk_quicksight.types.brand_summary_list.BrandSummaryList"]

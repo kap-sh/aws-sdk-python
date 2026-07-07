@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#AzElSegmentsData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.s3_object
 
 
-class _AzElSegmentsData_s3Object(TypedDict):
+class _AzElSegmentsData_s3Object(TypedDict, closed=True):
     s3Object: "aws_sdk_groundstation.types.s3_object.S3Object"
 
 
-class _AzElSegmentsData_azElData(TypedDict):
+class _AzElSegmentsData_azElData(TypedDict, closed=True):
     azElData: "aws_sdk_groundstation.types.az_el_segments.AzElSegments"
 
 

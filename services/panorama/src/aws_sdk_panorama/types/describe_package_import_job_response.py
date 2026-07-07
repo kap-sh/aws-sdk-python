@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#DescribePackageImportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.package_import_job_type
 
 
-class DescribePackageImportJobResponse(TypedDict):
+class DescribePackageImportJobResponse(TypedDict, closed=True):
     job_id: "aws_sdk_panorama.types.job_id.JobId"
     """<p>The job's ID.</p>"""
     client_token: NotRequired["aws_sdk_panorama.types.client_token.ClientToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#UpdateCustomLineItemInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.update_custom_line_item_charge_details
 
 
-class UpdateCustomLineItemInput(TypedDict):
+class UpdateCustomLineItemInput(TypedDict, closed=True):
     arn: "aws_sdk_billingconductor.types.custom_line_item_arn.CustomLineItemArn"
     """<p> The ARN of the custom line item to be updated. </p>"""
     name: NotRequired[

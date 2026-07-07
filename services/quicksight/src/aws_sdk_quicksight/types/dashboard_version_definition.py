@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DashboardVersionDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.tooltip_sheet_definition_list
 
 
-class DashboardVersionDefinition(TypedDict):
+class DashboardVersionDefinition(TypedDict, closed=True):
     data_set_identifier_declarations: "aws_sdk_quicksight.types.data_set_identifier_declaration_list.DataSetIdentifierDeclarationList"
     """<p>An array of dataset identifier declarations. With this mapping,you can use dataset identifiers instead of dataset Amazon Resource Names (ARNs) throughout the dashboard's sub-structures.</p>"""
     sheets: NotRequired[

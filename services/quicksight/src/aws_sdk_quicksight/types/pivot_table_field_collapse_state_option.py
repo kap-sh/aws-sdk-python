@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotTableFieldCollapseStateOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pivot_table_field_collapse_state_target
 
 
-class PivotTableFieldCollapseStateOption(TypedDict):
+class PivotTableFieldCollapseStateOption(TypedDict, closed=True):
     target: "aws_sdk_quicksight.types.pivot_table_field_collapse_state_target.PivotTableFieldCollapseStateTarget"
     """<p>A tagged-union object that sets the collapse state.</p>"""
     state: NotRequired[

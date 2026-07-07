@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#DynatraceServiceAuthorizationConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.dynatrace_o_auth_client_credentials_config
 
 
-class _DynatraceServiceAuthorizationConfig_oAuthClientCredentials(TypedDict):
+class _DynatraceServiceAuthorizationConfig_oAuthClientCredentials(
+    TypedDict, closed=True
+):
     oAuthClientCredentials: "aws_sdk_devops_agent.types.dynatrace_o_auth_client_credentials_config.DynatraceOAuthClientCredentialsConfig"
 
 

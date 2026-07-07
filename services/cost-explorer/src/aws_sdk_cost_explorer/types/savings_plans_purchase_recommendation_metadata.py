@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#SavingsPlansPurchaseRecommendationMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
 
 
-class SavingsPlansPurchaseRecommendationMetadata(TypedDict):
+class SavingsPlansPurchaseRecommendationMetadata(TypedDict, closed=True):
     recommendation_id: NotRequired[
         "aws_sdk_cost_explorer.types.generic_string.GenericString"
     ]

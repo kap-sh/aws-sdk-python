@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#ListQAppsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qapps.types.instance_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.pagination_token
 
 
-class ListQAppsInput(TypedDict):
+class ListQAppsInput(TypedDict, closed=True):
     instance_id: "aws_sdk_qapps.types.instance_id.InstanceId"
     """<p>The unique identifier of the Amazon Q Business application environment instance.</p>"""
     limit: NotRequired["aws_sdk_qapps.types.page_limit.PageLimit"]

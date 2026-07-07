@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SnapshotTaskDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.user_bucket_details
 
 
-class SnapshotTaskDetail(TypedDict):
+class SnapshotTaskDetail(TypedDict, closed=True):
     description: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The description of the disk image being imported.</p>"""
     disk_image_size: NotRequired["aws_sdk_ec2.types.double.Double"]

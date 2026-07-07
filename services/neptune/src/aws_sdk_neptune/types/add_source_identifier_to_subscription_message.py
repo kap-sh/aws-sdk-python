@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#AddSourceIdentifierToSubscriptionMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.string
 
 
-class AddSourceIdentifierToSubscriptionMessage(TypedDict):
+class AddSourceIdentifierToSubscriptionMessage(TypedDict, closed=True):
     subscription_name: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>The name of the event notification subscription you want to add a source identifier to.</p>"""
     source_identifier: NotRequired["aws_sdk_neptune.types.string.String"]

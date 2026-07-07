@@ -1,9 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#NotifyTerminateProvisionedProductEngineWorkflowResultOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class NotifyTerminateProvisionedProductEngineWorkflowResultOutput(TypedDict):
+class NotifyTerminateProvisionedProductEngineWorkflowResultOutput(
+    TypedDict, closed=True
+):
     pass
 
 

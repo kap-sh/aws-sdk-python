@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CertificateProviderSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_provider_arn
     import aws_sdk_iot.types.certificate_provider_name
 
 
-class CertificateProviderSummary(TypedDict):
+class CertificateProviderSummary(TypedDict, closed=True):
     certificate_provider_name: NotRequired[
         "aws_sdk_iot.types.certificate_provider_name.CertificateProviderName"
     ]

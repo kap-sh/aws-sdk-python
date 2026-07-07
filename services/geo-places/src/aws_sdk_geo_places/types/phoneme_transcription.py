@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#PhonemeTranscription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.language_tag
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class PhonemeTranscription(TypedDict):
+class PhonemeTranscription(TypedDict, closed=True):
     value: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     """<p>Value which indicates how to pronounce the value.</p>"""
     language: NotRequired["aws_sdk_geo_places.types.language_tag.LanguageTag"]

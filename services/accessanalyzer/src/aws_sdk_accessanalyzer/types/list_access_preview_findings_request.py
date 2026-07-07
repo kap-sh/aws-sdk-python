@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ListAccessPreviewFindingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.token
 
 
-class ListAccessPreviewFindingsRequest(TypedDict):
+class ListAccessPreviewFindingsRequest(TypedDict, closed=True):
     access_preview_id: "aws_sdk_accessanalyzer.types.access_preview_id.AccessPreviewId"
     """<p>The unique ID for the access preview.</p>"""
     analyzer_arn: "aws_sdk_accessanalyzer.types.analyzer_arn.AnalyzerArn"

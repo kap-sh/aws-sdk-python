@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#DisablePolicyTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.root_id
 
 
-class DisablePolicyTypeRequest(TypedDict):
+class DisablePolicyTypeRequest(TypedDict, closed=True):
     root_id: "aws_sdk_organizations.types.root_id.RootId"
     r"""<p>ID for the root in which you want to disable a policy type. You can get the ID from the <a>ListRoots</a> operation.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a root ID string requires \"r-\" followed by from 4 to 32 lowercase letters or digits.</p>"""
     policy_type: "aws_sdk_organizations.types.policy_type.PolicyType"

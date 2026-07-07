@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ListConflictingAliasesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.conflicting_aliases_list
 
 
-class ListConflictingAliasesResult(TypedDict):
+class ListConflictingAliasesResult(TypedDict, closed=True):
     conflicting_aliases_list: NotRequired[
         "aws_sdk_cloudfront.types.conflicting_aliases_list.ConflictingAliasesList"
     ]

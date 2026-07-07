@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#Event``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.event_error_code
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.time
 
 
-class Event(TypedDict):
+class Event(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ivs_realtime.types.event_name.EventName"]
     """<p>The name of the event.</p>"""
     participant_id: NotRequired[

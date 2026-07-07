@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#BrandingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.markdown
 
 
-class BrandingConfiguration(TypedDict):
+class BrandingConfiguration(TypedDict, closed=True):
     logo: "aws_sdk_workspaces_web.types.image_metadata.ImageMetadata"
     """<p>Metadata for the logo image file, including the MIME type, file extension, and upload timestamp.</p>"""
     wallpaper: NotRequired["aws_sdk_workspaces_web.types.image_metadata.ImageMetadata"]

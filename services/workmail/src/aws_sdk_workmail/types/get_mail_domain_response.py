@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#GetMailDomainResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.dns_records
 
 
-class GetMailDomainResponse(TypedDict):
+class GetMailDomainResponse(TypedDict, closed=True):
     records: NotRequired["aws_sdk_workmail.types.dns_records.DnsRecords"]
     """<p>A list of the DNS records that WorkMail recommends adding in your DNS provider for the best user experience. The records configure your domain with DMARC, SPF, DKIM, and direct incoming email traffic to SES. See admin guide for more details.</p>"""
     is_test_domain: "aws_sdk_workmail.types.boolean.Boolean"

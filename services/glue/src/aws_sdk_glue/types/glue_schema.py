@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GlueSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.glue_studio_schema_column_list
 
 
-class GlueSchema(TypedDict):
+class GlueSchema(TypedDict, closed=True):
     columns: NotRequired[
         "aws_sdk_glue.types.glue_studio_schema_column_list.GlueStudioSchemaColumnList"
     ]

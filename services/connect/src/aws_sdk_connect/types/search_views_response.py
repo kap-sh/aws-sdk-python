@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchViewsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.approximate_total_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.view_search_summary_list
 
 
-class SearchViewsResponse(TypedDict):
+class SearchViewsResponse(TypedDict, closed=True):
     views: NotRequired[
         "aws_sdk_connect.types.view_search_summary_list.ViewSearchSummaryList"
     ]

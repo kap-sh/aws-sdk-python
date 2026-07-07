@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#PredictorExecutionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.predictor_executions
 
 
-class PredictorExecutionDetails(TypedDict):
+class PredictorExecutionDetails(TypedDict, closed=True):
     predictor_executions: NotRequired[
         "aws_sdk_forecast.types.predictor_executions.PredictorExecutions"
     ]

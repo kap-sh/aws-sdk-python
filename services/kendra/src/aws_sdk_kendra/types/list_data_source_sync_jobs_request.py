@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListDataSourceSyncJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.time_range
 
 
-class ListDataSourceSyncJobsRequest(TypedDict):
+class ListDataSourceSyncJobsRequest(TypedDict, closed=True):
     id: "aws_sdk_kendra.types.data_source_id.DataSourceId"
     """<p>The identifier of the data source connector.</p>"""
     index_id: "aws_sdk_kendra.types.index_id.IndexId"

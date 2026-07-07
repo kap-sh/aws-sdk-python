@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetRegistrationCodeRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetRegistrationCodeRequest(TypedDict):
+class GetRegistrationCodeRequest(TypedDict, closed=True):
     pass
 
 

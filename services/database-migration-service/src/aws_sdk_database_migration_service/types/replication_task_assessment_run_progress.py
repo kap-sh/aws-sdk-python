@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ReplicationTaskAssessmentRunProgress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.integer
 
 
-class ReplicationTaskAssessmentRunProgress(TypedDict):
+class ReplicationTaskAssessmentRunProgress(TypedDict, closed=True):
     individual_assessment_count: (
         "aws_sdk_database_migration_service.types.integer.Integer"
     )

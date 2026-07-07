@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#Run``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.amazon_resource_name
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.vpc_config
 
 
-class Run(TypedDict):
+class Run(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_device_farm.types.amazon_resource_name.AmazonResourceName"
     ]

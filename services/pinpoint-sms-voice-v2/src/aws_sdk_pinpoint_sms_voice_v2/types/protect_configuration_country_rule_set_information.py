@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#ProtectConfigurationCountryRuleSetInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.protect_status
 
 
-class ProtectConfigurationCountryRuleSetInformation(TypedDict):
+class ProtectConfigurationCountryRuleSetInformation(TypedDict, closed=True):
     protect_status: "aws_sdk_pinpoint_sms_voice_v2.types.protect_status.ProtectStatus"
     """<p>The types of protection that can be used.</p>"""
 

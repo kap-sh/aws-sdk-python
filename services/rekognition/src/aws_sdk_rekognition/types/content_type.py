@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ContentType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.percent
     import aws_sdk_rekognition.types.string
 
 
-class ContentType(TypedDict):
+class ContentType(TypedDict, closed=True):
     confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]
     """<p>The confidence level of the label given</p>"""
     name: NotRequired["aws_sdk_rekognition.types.string.String"]

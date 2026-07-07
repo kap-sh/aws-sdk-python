@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListImageRecipesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.filter_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.restricted_integer
 
 
-class ListImageRecipesRequest(TypedDict):
+class ListImageRecipesRequest(TypedDict, closed=True):
     owner: NotRequired["aws_sdk_imagebuilder.types.ownership.Ownership"]
     """<p>You can specify the recipe owner to filter results by that owner. By default, this request will only show image recipes owned by your account. To filter by a different owner, specify one of the <code>Valid Values</code> that are listed for this parameter.</p>"""
     filters: NotRequired["aws_sdk_imagebuilder.types.filter_list.FilterList"]

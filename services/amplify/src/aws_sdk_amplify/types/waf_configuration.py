@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#WafConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplify.types.status_reason
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.web_acl_arn
 
 
-class WafConfiguration(TypedDict):
+class WafConfiguration(TypedDict, closed=True):
     web_acl_arn: NotRequired["aws_sdk_amplify.types.web_acl_arn.WebAclArn"]
     """<p>The Amazon Resource Name (ARN) for the web ACL associated with an Amplify app.</p>"""
     waf_status: NotRequired["aws_sdk_amplify.types.waf_status.WafStatus"]

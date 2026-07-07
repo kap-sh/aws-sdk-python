@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#Domain``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.watchlist_details
 
 
-class Domain(TypedDict):
+class Domain(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_voice_id.types.domain_id.DomainId"]
     """<p>The identifier of the domain.</p>"""
     arn: NotRequired["aws_sdk_voice_id.types.arn.Arn"]

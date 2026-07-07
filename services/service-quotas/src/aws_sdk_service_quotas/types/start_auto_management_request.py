@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#StartAutoManagementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_quotas.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.opt_in_type
 
 
-class StartAutoManagementRequest(TypedDict):
+class StartAutoManagementRequest(TypedDict, closed=True):
     opt_in_level: "aws_sdk_service_quotas.types.opt_in_level.OptInLevel"
     """<p>Sets the opt-in level for Automatic Management. Only Amazon Web Services account level is supported.</p>"""
     opt_in_type: "aws_sdk_service_quotas.types.opt_in_type.OptInType"

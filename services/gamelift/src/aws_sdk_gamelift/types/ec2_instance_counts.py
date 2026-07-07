@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#EC2InstanceCounts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.whole_number
 
 
-class EC2InstanceCounts(TypedDict):
+class EC2InstanceCounts(TypedDict, closed=True):
     desired: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]
     """<p>Requested number of active instances. Amazon GameLift Servers takes action as needed to maintain the desired number of instances. Capacity is scaled up or down by changing the desired instances. A change in the desired instances value can take up to 1 minute to be reflected when viewing a fleet's capacity settings. </p>"""
     minimum: NotRequired["aws_sdk_gamelift.types.whole_number.WholeNumber"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#FilterCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.comparison_operator
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.string_value_list
 
 
-class FilterCondition(TypedDict):
+class FilterCondition(TypedDict, closed=True):
     field: NotRequired["aws_sdk_lakeformation.types.field_name_string.FieldNameString"]
     """<p>The field to filter in the filter condition.</p>"""
     comparison_operator: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#ParametricMonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.parametric_cloud_watch_monitoring_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.template_parameter
 
 
-class ParametricMonitoringConfiguration(TypedDict):
+class ParametricMonitoringConfiguration(TypedDict, closed=True):
     persistent_app_ui: NotRequired[
         "aws_sdk_emr_containers.types.template_parameter.TemplateParameter"
     ]

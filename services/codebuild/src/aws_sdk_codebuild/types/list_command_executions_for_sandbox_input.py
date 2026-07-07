@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListCommandExecutionsForSandboxInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.sort_order_type
 
 
-class ListCommandExecutionsForSandboxInput(TypedDict):
+class ListCommandExecutionsForSandboxInput(TypedDict, closed=True):
     sandbox_id: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     """<p>A <code>sandboxId</code> or <code>sandboxArn</code>.</p>"""
     max_results: NotRequired["aws_sdk_codebuild.types.page_size.PageSize"]

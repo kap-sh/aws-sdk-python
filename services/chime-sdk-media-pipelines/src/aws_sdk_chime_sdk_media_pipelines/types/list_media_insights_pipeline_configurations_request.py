@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#ListMediaInsightsPipelineConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.result_max
     import aws_sdk_chime_sdk_media_pipelines.types.string
 
 
-class ListMediaInsightsPipelineConfigurationsRequest(TypedDict):
+class ListMediaInsightsPipelineConfigurationsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_chime_sdk_media_pipelines.types.string.String"]
     """<p>The token used to return the next page of results.</p>"""
     max_results: NotRequired[

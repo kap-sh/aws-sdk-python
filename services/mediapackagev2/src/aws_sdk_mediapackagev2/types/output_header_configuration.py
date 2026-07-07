@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#OutputHeaderConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class OutputHeaderConfiguration(TypedDict):
+class OutputHeaderConfiguration(TypedDict, closed=True):
     publish_mqcs: NotRequired["bool"]
     """<p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#CreateRepositoryCreationTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.tag_list
 
 
-class CreateRepositoryCreationTemplateRequest(TypedDict):
+class CreateRepositoryCreationTemplateRequest(TypedDict, closed=True):
     prefix: "aws_sdk_ecr.types.prefix.Prefix"
     """<p>The repository namespace prefix to associate with the template. All repositories created using this namespace prefix will have the settings defined in this template applied. For example, a prefix of <code>prod</code> would apply to all repositories beginning with <code>prod/</code>. Similarly, a prefix of <code>prod/team</code> would apply to all repositories beginning with <code>prod/team/</code>.</p> <p>To apply a template to all repositories in your registry that don't have an associated creation template, you can use <code>ROOT</code> as the prefix.</p> <important> <p>There is always an assumed <code>/</code> applied to the end of the prefix. If you specify <code>ecr-public</code> as the prefix, Amazon ECR treats that as <code>ecr-public/</code>. When using a pull through cache rule, the repository prefix you specify during rule creation is what you should specify as your repository creation template prefix as well.</p> </important>"""
     description: NotRequired[

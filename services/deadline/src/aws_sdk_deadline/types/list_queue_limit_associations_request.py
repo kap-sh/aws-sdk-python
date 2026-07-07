@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ListQueueLimitAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.farm_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.queue_id
 
 
-class ListQueueLimitAssociationsRequest(TypedDict):
+class ListQueueLimitAssociationsRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The unique identifier of the farm that contains the limits and associations.</p>"""
     next_token: NotRequired["aws_sdk_deadline.types.next_token.NextToken"]

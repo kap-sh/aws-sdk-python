@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListCustomModelDeploymentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.custom_model_deployment_summary_list
     import aws_sdk_bedrock.types.pagination_token
 
 
-class ListCustomModelDeploymentsResponse(TypedDict):
+class ListCustomModelDeploymentsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_bedrock.types.pagination_token.PaginationToken"]
     """<p>The token for the next set of results. This value is null when there are no more results to return.</p>"""
     model_deployment_summaries: NotRequired[

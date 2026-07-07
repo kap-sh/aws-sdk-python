@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PatchOrchestratorFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_orchestrator_filter_key
     import aws_sdk_ssm.types.patch_orchestrator_filter_values
 
 
-class PatchOrchestratorFilter(TypedDict):
+class PatchOrchestratorFilter(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_ssm.types.patch_orchestrator_filter_key.PatchOrchestratorFilterKey"
     ]

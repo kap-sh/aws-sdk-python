@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteAIWorkloadConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_entity_name
 
 
-class DeleteAIWorkloadConfigRequest(TypedDict):
+class DeleteAIWorkloadConfigRequest(TypedDict, closed=True):
     ai_workload_config_name: NotRequired[
         "aws_sdk_sagemaker.types.ai_entity_name.AIEntityName"
     ]

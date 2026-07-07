@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateCapabilityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.capability_delete_propagation_policy
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.update_capability_configuration
 
 
-class UpdateCapabilityRequest(TypedDict):
+class UpdateCapabilityRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.string.String"
     """<p>The name of the Amazon EKS cluster that contains the capability you want to update configuration for.</p>"""
     capability_name: "aws_sdk_eks.types.string.String"

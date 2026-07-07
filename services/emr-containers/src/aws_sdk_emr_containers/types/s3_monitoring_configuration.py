@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#S3MonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_emr_containers.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.uri_string
 
 
-class S3MonitoringConfiguration(TypedDict):
+class S3MonitoringConfiguration(TypedDict, closed=True):
     log_uri: "aws_sdk_emr_containers.types.uri_string.UriString"
     """<p>Amazon S3 destination URI for log publishing.</p>"""
 

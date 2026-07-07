@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#AssociateToConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chatbot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chatbot.types.resource_identifier
 
 
-class AssociateToConfigurationRequest(TypedDict):
+class AssociateToConfigurationRequest(TypedDict, closed=True):
     resource: "aws_sdk_chatbot.types.resource_identifier.ResourceIdentifier"
     """<p>The resource Amazon Resource Name (ARN) to link.</p>"""
     chat_configuration: (

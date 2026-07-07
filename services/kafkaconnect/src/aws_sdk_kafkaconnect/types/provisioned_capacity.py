@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#ProvisionedCapacity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__integer
     import aws_sdk_kafkaconnect.types.__integer_min1_max8
 
 
-class ProvisionedCapacity(TypedDict):
+class ProvisionedCapacity(TypedDict, closed=True):
     mcu_count: "aws_sdk_kafkaconnect.types.__integer_min1_max8.__integerMin1Max8"
     """<p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid values are 1,2,4,8.</p>"""
     worker_count: "aws_sdk_kafkaconnect.types.__integer.__integer"

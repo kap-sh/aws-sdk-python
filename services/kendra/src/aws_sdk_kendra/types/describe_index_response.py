@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DescribeIndexResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.capacity_units_configuration
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.user_token_configuration_list
 
 
-class DescribeIndexResponse(TypedDict):
+class DescribeIndexResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_kendra.types.index_name.IndexName"]
     """<p>The name of the index.</p>"""
     id: NotRequired["aws_sdk_kendra.types.index_id.IndexId"]

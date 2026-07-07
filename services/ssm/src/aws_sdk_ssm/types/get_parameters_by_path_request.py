@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetParametersByPathRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ps_parameter_name
 
 
-class GetParametersByPathRequest(TypedDict):
+class GetParametersByPathRequest(TypedDict, closed=True):
     path: "aws_sdk_ssm.types.ps_parameter_name.PSParameterName"
     """<p>The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. For the API call to succeed, the last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. Here is an example of a hierarchy: <code>/Finance/Prod/IAD/WinServ2016/license33 </code> </p>"""
     recursive: NotRequired["aws_sdk_ssm.types.boolean.Boolean"]

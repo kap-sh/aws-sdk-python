@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UpdateOrganizationConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.auto_enable_standards
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.organization_configuration
 
 
-class UpdateOrganizationConfigurationRequest(TypedDict):
+class UpdateOrganizationConfigurationRequest(TypedDict, closed=True):
     auto_enable: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether to automatically enable Security Hub CSPM in new member accounts when they join the organization.</p> <p>If set to <code>true</code>, then Security Hub CSPM is automatically enabled in new accounts. If set to <code>false</code>, then Security Hub CSPM isn't enabled in new accounts automatically. The default value is <code>false</code>.</p> <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set to <code>false</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration policy in which Security Hub CSPM is enabled and associate the policy with new organization accounts.</p>"""
     auto_enable_standards: NotRequired[

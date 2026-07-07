@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#AssociateManagedNotificationAdditionalChannelResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateManagedNotificationAdditionalChannelResponse(TypedDict):
+class AssociateManagedNotificationAdditionalChannelResponse(TypedDict, closed=True):
     pass
 
 

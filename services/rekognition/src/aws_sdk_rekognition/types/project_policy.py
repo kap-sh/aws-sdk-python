@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ProjectPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.date_time
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.project_policy_revision_id
 
 
-class ProjectPolicy(TypedDict):
+class ProjectPolicy(TypedDict, closed=True):
     project_arn: NotRequired["aws_sdk_rekognition.types.project_arn.ProjectArn"]
     """<p>The Amazon Resource Name (ARN) of the project to which the project policy is attached.</p>"""
     policy_name: NotRequired[

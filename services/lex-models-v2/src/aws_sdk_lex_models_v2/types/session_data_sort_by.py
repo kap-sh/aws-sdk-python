@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SessionDataSortBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_sort_order
 
 
-class SessionDataSortBy(TypedDict):
+class SessionDataSortBy(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.analytics_session_sort_by_name.AnalyticsSessionSortByName"
     """<p>The measure by which to sort the session analytics data.</p> <ul> <li> <p> <code>conversationStartTime</code> – The date and time when the conversation began. A conversation is defined as a unique combination of a <code>sessionId</code> and an <code>originatingRequestId</code>.</p> </li> <li> <p> <code>numberOfTurns</code> – The number of turns that the session took.</p> </li> <li> <p> <code>conversationDurationSeconds</code> – The duration of the conversation in seconds.</p> </li> </ul>"""
     order: "aws_sdk_lex_models_v2.types.analytics_sort_order.AnalyticsSortOrder"

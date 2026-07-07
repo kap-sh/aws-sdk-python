@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#PolicyARNType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.resource_name
 
 
-class PolicyARNType(TypedDict):
+class PolicyARNType(TypedDict, closed=True):
     policy_arn: NotRequired["aws_sdk_auto_scaling.types.resource_name.ResourceName"]
     """<p>The Amazon Resource Name (ARN) of the policy.</p>"""
     alarms: NotRequired["aws_sdk_auto_scaling.types.alarms.Alarms"]

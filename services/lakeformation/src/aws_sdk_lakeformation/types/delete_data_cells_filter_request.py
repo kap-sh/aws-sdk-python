@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#DeleteDataCellsFilterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.catalog_id_string
     import aws_sdk_lakeformation.types.name_string
 
 
-class DeleteDataCellsFilterRequest(TypedDict):
+class DeleteDataCellsFilterRequest(TypedDict, closed=True):
     table_catalog_id: NotRequired[
         "aws_sdk_lakeformation.types.catalog_id_string.CatalogIdString"
     ]

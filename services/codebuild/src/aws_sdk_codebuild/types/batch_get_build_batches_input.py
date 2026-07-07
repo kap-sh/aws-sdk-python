@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BatchGetBuildBatchesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.build_batch_ids
 
 
-class BatchGetBuildBatchesInput(TypedDict):
+class BatchGetBuildBatchesInput(TypedDict, closed=True):
     ids: "aws_sdk_codebuild.types.build_batch_ids.BuildBatchIds"
     """<p>An array that contains the batch build identifiers to retrieve.</p>"""
 

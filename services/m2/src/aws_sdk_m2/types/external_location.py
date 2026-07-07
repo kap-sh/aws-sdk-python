@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ExternalLocation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.string2000
 
 
-class _ExternalLocation_s3Location(TypedDict):
+class _ExternalLocation_s3Location(TypedDict, closed=True):
     s3Location: "aws_sdk_m2.types.string2000.String2000"
 
 

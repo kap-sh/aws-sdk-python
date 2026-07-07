@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DataSourcesFreeTrial``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.data_source_free_trial
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.malware_protection_data_source_free_trial
 
 
-class DataSourcesFreeTrial(TypedDict):
+class DataSourcesFreeTrial(TypedDict, closed=True):
     cloud_trail: NotRequired[
         "aws_sdk_guardduty.types.data_source_free_trial.DataSourceFreeTrial"
     ]

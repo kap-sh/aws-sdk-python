@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CreatePreparedStatementInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.work_group_name
 
 
-class CreatePreparedStatementInput(TypedDict):
+class CreatePreparedStatementInput(TypedDict, closed=True):
     statement_name: "aws_sdk_athena.types.statement_name.StatementName"
     """<p>The name of the prepared statement.</p>"""
     work_group: "aws_sdk_athena.types.work_group_name.WorkGroupName"

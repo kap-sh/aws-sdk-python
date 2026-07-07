@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DeleteUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_memorydb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.user_name
 
 
-class DeleteUserRequest(TypedDict):
+class DeleteUserRequest(TypedDict, closed=True):
     user_name: "aws_sdk_memorydb.types.user_name.UserName"
     """<p>The name of the user to delete</p>"""
 

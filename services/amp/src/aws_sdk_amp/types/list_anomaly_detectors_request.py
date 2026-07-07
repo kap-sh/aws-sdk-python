@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#ListAnomalyDetectorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amp.types.anomaly_detector_alias
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_id
 
 
-class ListAnomalyDetectorsRequest(TypedDict):
+class ListAnomalyDetectorsRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_amp.types.workspace_id.WorkspaceId"
     """<p>The identifier of the workspace containing the anomaly detectors to list.</p>"""
     alias: NotRequired["aws_sdk_amp.types.anomaly_detector_alias.AnomalyDetectorAlias"]

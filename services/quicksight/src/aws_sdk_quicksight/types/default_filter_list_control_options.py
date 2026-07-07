@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultFilterListControlOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.control_sort_configuration_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_control_list_type
 
 
-class DefaultFilterListControlOptions(TypedDict):
+class DefaultFilterListControlOptions(TypedDict, closed=True):
     display_options: NotRequired[
         "aws_sdk_quicksight.types.list_control_display_options.ListControlDisplayOptions"
     ]

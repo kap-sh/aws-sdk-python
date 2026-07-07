@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ListComponentTypesFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.string
 
 
-class _ListComponentTypesFilter_extendsFrom(TypedDict):
+class _ListComponentTypesFilter_extendsFrom(TypedDict, closed=True):
     extendsFrom: "aws_sdk_iottwinmaker.types.component_type_id.ComponentTypeId"
 
 
-class _ListComponentTypesFilter_namespace(TypedDict):
+class _ListComponentTypesFilter_namespace(TypedDict, closed=True):
     namespace: "aws_sdk_iottwinmaker.types.string.String"
 
 
-class _ListComponentTypesFilter_isAbstract(TypedDict):
+class _ListComponentTypesFilter_isAbstract(TypedDict, closed=True):
     isAbstract: "aws_sdk_iottwinmaker.types.boolean.Boolean"
 
 

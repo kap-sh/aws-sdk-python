@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListSessionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cluster_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.string
 
 
-class ListSessionsInput(TypedDict):
+class ListSessionsInput(TypedDict, closed=True):
     cluster_id: NotRequired["aws_sdk_emr.types.cluster_id.ClusterId"]
     """<p>The ID of the cluster to list sessions for.</p>"""
     session_states: NotRequired["aws_sdk_emr.types.session_state_list.SessionStateList"]

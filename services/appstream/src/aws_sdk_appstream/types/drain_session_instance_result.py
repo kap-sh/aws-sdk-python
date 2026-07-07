@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DrainSessionInstanceResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DrainSessionInstanceResult(TypedDict):
+class DrainSessionInstanceResult(TypedDict, closed=True):
     pass
 
 

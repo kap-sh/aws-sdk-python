@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.m2#AlternateKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.boolean
     import aws_sdk_m2.types.integer
 
 
-class AlternateKey(TypedDict):
+class AlternateKey(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the alternate key.</p>"""
     offset: "aws_sdk_m2.types.integer.Integer"

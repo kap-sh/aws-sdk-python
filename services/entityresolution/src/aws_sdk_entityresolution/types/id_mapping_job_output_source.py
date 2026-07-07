@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#IdMappingJobOutputSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.s3_path
 
 
-class IdMappingJobOutputSource(TypedDict):
+class IdMappingJobOutputSource(TypedDict, closed=True):
     role_arn: "aws_sdk_entityresolution.types.role_arn.RoleArn"
     """<p>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role to access Amazon Web Services resources on your behalf as part of workflow execution.</p>"""
     output_s3_path: "aws_sdk_entityresolution.types.s3_path.S3Path"

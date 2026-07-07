@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#BaseScreenshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_synthetics.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.string
 
 
-class BaseScreenshot(TypedDict):
+class BaseScreenshot(TypedDict, closed=True):
     screenshot_name: "aws_sdk_synthetics.types.string.String"
     """<p>The name of the screenshot. This is generated the first time the canary is run after the <code>UpdateCanary</code> operation that specified for this canary to perform visual monitoring.</p>"""
     ignore_coordinates: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#DeleteHsmRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudhsm_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.ip_address
 
 
-class DeleteHsmRequest(TypedDict):
+class DeleteHsmRequest(TypedDict, closed=True):
     cluster_id: "aws_sdk_cloudhsm_v2.types.cluster_id.ClusterId"
     """<p>The identifier (ID) of the cluster that contains the HSM that you are deleting.</p>"""
     hsm_id: NotRequired["aws_sdk_cloudhsm_v2.types.hsm_id.HsmId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#BatchCreateUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.batch_user_error_response_items
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.users
 
 
-class BatchCreateUserResponse(TypedDict):
+class BatchCreateUserResponse(TypedDict, closed=True):
     message: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>A message indicating the overall result of the batch operation.</p>"""
     successful: NotRequired["aws_sdk_wickr.types.users.Users"]

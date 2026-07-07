@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#PutAccountDataRetentionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.data_retention_mode
 
 
-class PutAccountDataRetentionRequest(TypedDict):
+class PutAccountDataRetentionRequest(TypedDict, closed=True):
     mode: "aws_sdk_bedrock.types.data_retention_mode.DataRetentionMode"
     """<p>The data retention mode to set for the account.</p>"""
 

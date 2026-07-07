@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ExportTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.export_destination_bucket
@@ -41,6 +41,7 @@ ExportTask = TypedDict(
             "aws_sdk_cloudwatch_logs.types.export_task_execution_info.ExportTaskExecutionInfo"
         ],
     },
+    closed=True,
 )
 
 

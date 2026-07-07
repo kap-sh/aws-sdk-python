@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#DeleteVirtualServiceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.service_name
 
 
-class DeleteVirtualServiceInput(TypedDict):
+class DeleteVirtualServiceInput(TypedDict, closed=True):
     virtual_service_name: "aws_sdk_app_mesh.types.service_name.ServiceName"
     """<p>The name of the virtual service to delete.</p>"""
     mesh_name: "aws_sdk_app_mesh.types.resource_name.ResourceName"

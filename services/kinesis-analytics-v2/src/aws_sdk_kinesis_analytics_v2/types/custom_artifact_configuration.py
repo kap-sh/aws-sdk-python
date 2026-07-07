@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#CustomArtifactConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.s3_content_location
 
 
-class CustomArtifactConfiguration(TypedDict):
+class CustomArtifactConfiguration(TypedDict, closed=True):
     artifact_type: "aws_sdk_kinesis_analytics_v2.types.artifact_type.ArtifactType"
     """<p> <code>UDF</code> stands for user-defined functions. This type of artifact must be in an S3 bucket. A <code>DEPENDENCY_JAR</code> can be in either Maven or an S3 bucket.</p>"""
     s3_content_location: NotRequired[

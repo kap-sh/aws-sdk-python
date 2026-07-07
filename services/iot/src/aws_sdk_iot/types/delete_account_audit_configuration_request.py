@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteAccountAuditConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.delete_scheduled_audits
 
 
-class DeleteAccountAuditConfigurationRequest(TypedDict):
+class DeleteAccountAuditConfigurationRequest(TypedDict, closed=True):
     delete_scheduled_audits: (
         "aws_sdk_iot.types.delete_scheduled_audits.DeleteScheduledAudits"
     )

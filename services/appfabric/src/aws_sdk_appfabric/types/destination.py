@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#Destination``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.s3_bucket
 
 
-class _Destination_s3Bucket(TypedDict):
+class _Destination_s3Bucket(TypedDict, closed=True):
     s3Bucket: "aws_sdk_appfabric.types.s3_bucket.S3Bucket"
 
 
-class _Destination_firehoseStream(TypedDict):
+class _Destination_firehoseStream(TypedDict, closed=True):
     firehoseStream: "aws_sdk_appfabric.types.firehose_stream.FirehoseStream"
 
 

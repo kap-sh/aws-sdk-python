@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ColumnType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.scalar_type
 
 
-class ColumnType(TypedDict):
+class ColumnType(TypedDict, closed=True):
     scalar_type: NotRequired["aws_sdk_iotsitewise.types.scalar_type.ScalarType"]
     """<p>The allowed data types that the column has as it's value.</p>"""
 

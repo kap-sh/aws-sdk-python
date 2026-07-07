@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#PutSipMediaApplicationLoggingConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.non_empty_string
     import aws_sdk_chime_sdk_voice.types.sip_media_application_logging_configuration
 
 
-class PutSipMediaApplicationLoggingConfigurationRequest(TypedDict):
+class PutSipMediaApplicationLoggingConfigurationRequest(TypedDict, closed=True):
     sip_media_application_id: (
         "aws_sdk_chime_sdk_voice.types.non_empty_string.NonEmptyString"
     )

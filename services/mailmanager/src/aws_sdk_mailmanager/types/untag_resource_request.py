@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.taggable_resource_arn
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_mailmanager.types.taggable_resource_arn.TaggableResourceArn"
     """<p> The Amazon Resource Name (ARN) of the resource that you want to untag. </p>"""
     tag_keys: "aws_sdk_mailmanager.types.tag_key_list.TagKeyList"

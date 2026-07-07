@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetWirelessGatewayStatisticsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_gateway_id
 
 
-class GetWirelessGatewayStatisticsRequest(TypedDict):
+class GetWirelessGatewayStatisticsRequest(TypedDict, closed=True):
     wireless_gateway_id: (
         "aws_sdk_iot_wireless.types.wireless_gateway_id.WirelessGatewayId"
     )

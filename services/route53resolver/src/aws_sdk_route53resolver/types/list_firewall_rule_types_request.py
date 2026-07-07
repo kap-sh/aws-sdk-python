@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListFirewallRuleTypesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.rule_type_name
 
 
-class ListFirewallRuleTypesRequest(TypedDict):
+class ListFirewallRuleTypesRequest(TypedDict, closed=True):
     rule_type: NotRequired["aws_sdk_route53resolver.types.rule_type_name.RuleTypeName"]
     """<p>The rule type to filter by. If specified, only rule types matching this value are returned.</p>"""
     max_results: NotRequired["aws_sdk_route53resolver.types.max_results.MaxResults"]

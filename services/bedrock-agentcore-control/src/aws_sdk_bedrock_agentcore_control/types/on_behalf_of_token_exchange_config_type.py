@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#OnBehalfOfTokenExchangeConfigType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.token_exchange_grant_type_config_type
 
 
-class OnBehalfOfTokenExchangeConfigType(TypedDict):
+class OnBehalfOfTokenExchangeConfigType(TypedDict, closed=True):
     grant_type: "aws_sdk_bedrock_agentcore_control.types.on_behalf_of_token_exchange_grant_type_type.OnBehalfOfTokenExchangeGrantTypeType"
     """<p>The grant type for the on-behalf-of token exchange.</p>"""
     token_exchange_grant_type_config: NotRequired[

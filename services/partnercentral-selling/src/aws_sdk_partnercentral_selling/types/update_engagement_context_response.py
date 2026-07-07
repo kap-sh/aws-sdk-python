@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#UpdateEngagementContextResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.engagement_identifier
 
 
-class UpdateEngagementContextResponse(TypedDict):
+class UpdateEngagementContextResponse(TypedDict, closed=True):
     engagement_id: "aws_sdk_partnercentral_selling.types.engagement_identifier.EngagementIdentifier"
     """<p>The unique identifier of the engagement that was updated.</p>"""
     engagement_arn: "aws_sdk_partnercentral_selling.types.engagement_arn.EngagementArn"

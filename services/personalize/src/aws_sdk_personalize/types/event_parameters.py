@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#EventParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.event_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.event_type_weight
 
 
-class EventParameters(TypedDict):
+class EventParameters(TypedDict, closed=True):
     event_type: NotRequired["aws_sdk_personalize.types.event_type.EventType"]
     """<p>The name of the event type to be considered for solution creation.</p>"""
     event_value_threshold: NotRequired[

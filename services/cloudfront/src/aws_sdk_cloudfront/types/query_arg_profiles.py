@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#QueryArgProfiles``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.query_arg_profile_list
 
 
-class QueryArgProfiles(TypedDict):
+class QueryArgProfiles(TypedDict, closed=True):
     quantity: "aws_sdk_cloudfront.types.integer.integer"
     """<p>Number of profiles for query argument-profile mapping for field-level encryption.</p>"""
     items: NotRequired[

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetConfiguredTableAssociationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.configured_table_association_identifier
     import aws_sdk_cleanrooms.types.membership_identifier
 
 
-class GetConfiguredTableAssociationInput(TypedDict):
+class GetConfiguredTableAssociationInput(TypedDict, closed=True):
     configured_table_association_identifier: "aws_sdk_cleanrooms.types.configured_table_association_identifier.ConfiguredTableAssociationIdentifier"
     """<p>The unique ID for the configured table association to retrieve. Currently accepts the configured table ID.</p>"""
     membership_identifier: (

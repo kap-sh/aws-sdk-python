@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CoverageDateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.date_time_timestamp
 
 
-class CoverageDateFilter(TypedDict):
+class CoverageDateFilter(TypedDict, closed=True):
     start_inclusive: NotRequired[
         "aws_sdk_inspector2.types.date_time_timestamp.DateTimeTimestamp"
     ]

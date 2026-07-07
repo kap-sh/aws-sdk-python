@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GeoMatchStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.country_codes
     import aws_sdk_wafv2.types.forwarded_ip_config
 
 
-class GeoMatchStatement(TypedDict):
+class GeoMatchStatement(TypedDict, closed=True):
     country_codes: NotRequired["aws_sdk_wafv2.types.country_codes.CountryCodes"]
     r"""<p>An array of two-character country codes that you want to match against, for example, <code>[ \"US\", \"CN\" ]</code>, from the alpha-2 country ISO codes of the ISO 3166 international standard. </p> <p>When you use a geo match statement just for the region and country labels that it adds to requests, you still have to supply a country code for the rule to evaluate. In this case, you configure the rule to only count matching requests, but it will still generate logging and count metrics for any matches. You can reduce the logging and metrics that the rule produces by specifying a country that's unlikely to be a source of traffic to your site.</p>"""
     forwarded_ip_config: NotRequired[

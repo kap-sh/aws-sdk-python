@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#ListChannelsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_repostspace.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_repostspace.types.channels_list
 
 
-class ListChannelsOutput(TypedDict):
+class ListChannelsOutput(TypedDict, closed=True):
     channels: "aws_sdk_repostspace.types.channels_list.ChannelsList"
     """<p>An array of structures that contain some information about the channels in the private re:Post.</p>"""
     next_token: NotRequired["str"]

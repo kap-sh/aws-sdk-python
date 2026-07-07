@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfigdata#BadRequestDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appconfigdata.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfigdata.types.invalid_parameter_map
 
 
-class _BadRequestDetails_InvalidParameters(TypedDict):
+class _BadRequestDetails_InvalidParameters(TypedDict, closed=True):
     InvalidParameters: (
         "aws_sdk_appconfigdata.types.invalid_parameter_map.InvalidParameterMap"
     )

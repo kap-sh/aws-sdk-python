@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#StreamingConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class StreamingConfiguration(TypedDict):
+class StreamingConfiguration(TypedDict, closed=True):
     enable_response_streaming: NotRequired["bool"]
     """<p>Indicates whether response streaming is enabled for the gateway. When set to <code>true</code>, the gateway streams responses from targets back to the client.</p>"""
 

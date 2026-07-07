@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#DailySchedule``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DailySchedule(TypedDict):
+class DailySchedule(TypedDict, closed=True):
     pass
 
 

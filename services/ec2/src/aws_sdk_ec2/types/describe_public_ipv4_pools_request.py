@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribePublicIpv4PoolsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.public_ipv4_pool_id_string_list
 
 
-class DescribePublicIpv4PoolsRequest(TypedDict):
+class DescribePublicIpv4PoolsRequest(TypedDict, closed=True):
     pool_ids: NotRequired[
         "aws_sdk_ec2.types.public_ipv4_pool_id_string_list.PublicIpv4PoolIdStringList"
     ]

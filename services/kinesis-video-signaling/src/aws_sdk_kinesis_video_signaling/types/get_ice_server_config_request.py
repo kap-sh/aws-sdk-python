@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideosignaling#GetIceServerConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_signaling.types.client_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video_signaling.types.username
 
 
-class GetIceServerConfigRequest(TypedDict):
+class GetIceServerConfigRequest(TypedDict, closed=True):
     channel_arn: NotRequired[
         "aws_sdk_kinesis_video_signaling.types.resource_arn.ResourceARN"
     ]

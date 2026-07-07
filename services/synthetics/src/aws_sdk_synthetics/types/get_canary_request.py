@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#GetCanaryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.canary_name
     import aws_sdk_synthetics.types.uuid
 
 
-class GetCanaryRequest(TypedDict):
+class GetCanaryRequest(TypedDict, closed=True):
     name: "aws_sdk_synthetics.types.canary_name.CanaryName"
     """<p>The name of the canary that you want details for.</p>"""
     dry_run_id: NotRequired["aws_sdk_synthetics.types.uuid.UUID"]

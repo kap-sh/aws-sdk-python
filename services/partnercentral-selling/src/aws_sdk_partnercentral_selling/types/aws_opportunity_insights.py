@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#AwsOpportunityInsights``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.aws_products_spend_insights_by_source
     import aws_sdk_partnercentral_selling.types.engagement_score
 
 
-class AwsOpportunityInsights(TypedDict):
+class AwsOpportunityInsights(TypedDict, closed=True):
     next_best_actions: NotRequired["str"]
     """<p>Provides recommendations from AWS on the next best actions to take in order to move the opportunity forward and increase the likelihood of success.</p>"""
     engagement_score: NotRequired[

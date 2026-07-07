@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#CreateAssessmentFrameworkResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.framework
 
 
-class CreateAssessmentFrameworkResponse(TypedDict):
+class CreateAssessmentFrameworkResponse(TypedDict, closed=True):
     framework: NotRequired["aws_sdk_auditmanager.types.framework.Framework"]
     """<p> The new framework object that the <code>CreateAssessmentFramework</code> API returned. </p>"""
 

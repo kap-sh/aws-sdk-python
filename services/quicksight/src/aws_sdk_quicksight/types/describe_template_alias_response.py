@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeTemplateAliasResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.template_alias
 
 
-class DescribeTemplateAliasResponse(TypedDict):
+class DescribeTemplateAliasResponse(TypedDict, closed=True):
     template_alias: NotRequired["aws_sdk_quicksight.types.template_alias.TemplateAlias"]
     """<p>Information about the template alias.</p>"""
     status: "aws_sdk_quicksight.types.status_code.StatusCode"

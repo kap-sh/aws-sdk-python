@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ListIdentityProvidersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.providers_list_type
 
 
-class ListIdentityProvidersResponse(TypedDict):
+class ListIdentityProvidersResponse(TypedDict, closed=True):
     providers: (
         "aws_sdk_cognito_identity_provider.types.providers_list_type.ProvidersListType"
     )

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#RestoreTableFromSnapshotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.table_restore_status
 
 
-class RestoreTableFromSnapshotResponse(TypedDict):
+class RestoreTableFromSnapshotResponse(TypedDict, closed=True):
     table_restore_status: NotRequired[
         "aws_sdk_redshift_serverless.types.table_restore_status.TableRestoreStatus"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ReservedNode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.double
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.t_stamp
 
 
-class ReservedNode(TypedDict):
+class ReservedNode(TypedDict, closed=True):
     reservation_id: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>A customer-specified identifier to track this reservation.</p>"""
     reserved_nodes_offering_id: NotRequired["aws_sdk_memorydb.types.string.String"]

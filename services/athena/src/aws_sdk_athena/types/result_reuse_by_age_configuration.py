@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ResultReuseByAgeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.age
     import aws_sdk_athena.types.boolean
 
 
-class ResultReuseByAgeConfiguration(TypedDict):
+class ResultReuseByAgeConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_athena.types.boolean.Boolean"
     """<p>True if previous query results can be reused when the query is run; otherwise, false. The default is false.</p>"""
     max_age_in_minutes: NotRequired["aws_sdk_athena.types.age.Age"]

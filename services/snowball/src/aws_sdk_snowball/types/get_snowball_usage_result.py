@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#GetSnowballUsageResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.integer
 
 
-class GetSnowballUsageResult(TypedDict):
+class GetSnowballUsageResult(TypedDict, closed=True):
     snowball_limit: NotRequired["aws_sdk_snowball.types.integer.Integer"]
     """<p>The service limit for number of Snow devices this account can have at once. The default service limit is 1 (one).</p>"""
     snowballs_in_use: NotRequired["aws_sdk_snowball.types.integer.Integer"]

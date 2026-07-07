@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#AnalyzableServerSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class AnalyzableServerSummary(TypedDict):
+class AnalyzableServerSummary(TypedDict, closed=True):
     hostname: NotRequired["aws_sdk_migrationhubstrategy.types.string.String"]
     """The host name of the analyzable server."""
     ip_address: NotRequired["aws_sdk_migrationhubstrategy.types.string.String"]

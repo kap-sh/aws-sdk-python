@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#StopRecommenderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class StopRecommenderResponse(TypedDict):
+class StopRecommenderResponse(TypedDict, closed=True):
     recommender_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the recommender you stopped.</p>"""
 

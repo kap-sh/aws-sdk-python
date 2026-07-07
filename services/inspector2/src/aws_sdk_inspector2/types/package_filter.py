@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#PackageFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.number_filter
     import aws_sdk_inspector2.types.string_filter
 
 
-class PackageFilter(TypedDict):
+class PackageFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_inspector2.types.string_filter.StringFilter"]
     """<p>An object that contains details on the name of the package to filter on.</p>"""
     version: NotRequired["aws_sdk_inspector2.types.string_filter.StringFilter"]

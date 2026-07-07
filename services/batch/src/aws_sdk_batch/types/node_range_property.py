@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#NodeRangeProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.consumable_resource_properties
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string_list
 
 
-class NodeRangeProperty(TypedDict):
+class NodeRangeProperty(TypedDict, closed=True):
     target_nodes: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The range of nodes, using node index values. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes (<code>0:n</code>). You can nest node ranges (for example, <code>0:10</code> and <code>4:5</code>). In this case, the <code>4:5</code> range properties override the <code>0:10</code> properties.</p>"""
     container: NotRequired[

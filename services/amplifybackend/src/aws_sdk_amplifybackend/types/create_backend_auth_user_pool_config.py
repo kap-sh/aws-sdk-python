@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#CreateBackendAuthUserPoolConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.sign_in_method
 
 
-class CreateBackendAuthUserPoolConfig(TypedDict):
+class CreateBackendAuthUserPoolConfig(TypedDict, closed=True):
     forgot_password: NotRequired[
         "aws_sdk_amplifybackend.types.create_backend_auth_forgot_password_config.CreateBackendAuthForgotPasswordConfig"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SectionLayoutConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.free_form_section_layout_configuration
 
 
-class SectionLayoutConfiguration(TypedDict):
+class SectionLayoutConfiguration(TypedDict, closed=True):
     free_form_layout: "aws_sdk_quicksight.types.free_form_section_layout_configuration.FreeFormSectionLayoutConfiguration"
     """<p>The free-form layout configuration of a section.</p>"""
 

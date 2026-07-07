@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycluster#UpdateRoutingControlStatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53_recovery_cluster.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_cluster.types.update_routing_control_state_entries
 
 
-class UpdateRoutingControlStatesRequest(TypedDict):
+class UpdateRoutingControlStatesRequest(TypedDict, closed=True):
     update_routing_control_state_entries: "aws_sdk_route53_recovery_cluster.types.update_routing_control_state_entries.UpdateRoutingControlStateEntries"
     """<p>A set of routing control entries that you want to update.</p>"""
     safety_rules_to_override: NotRequired[

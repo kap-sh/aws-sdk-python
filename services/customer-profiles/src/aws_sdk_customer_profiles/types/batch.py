@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#Batch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.timestamp
 
 
-class Batch(TypedDict):
+class Batch(TypedDict, closed=True):
     start_time: "aws_sdk_customer_profiles.types.timestamp.timestamp"
     """<p>Start time of batch to split ingestion.</p>"""
     end_time: "aws_sdk_customer_profiles.types.timestamp.timestamp"

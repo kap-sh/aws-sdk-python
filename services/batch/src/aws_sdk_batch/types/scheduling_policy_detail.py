@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#SchedulingPolicyDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.fairshare_policy
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.tagris_tags_map
 
 
-class SchedulingPolicyDetail(TypedDict):
+class SchedulingPolicyDetail(TypedDict, closed=True):
     name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name of the fair-share scheduling policy.</p>"""
     arn: NotRequired["aws_sdk_batch.types.string.String"]

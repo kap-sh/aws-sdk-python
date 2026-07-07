@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#UpdateLocationFsxWindowsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateLocationFsxWindowsResponse(TypedDict):
+class UpdateLocationFsxWindowsResponse(TypedDict, closed=True):
     pass
 
 

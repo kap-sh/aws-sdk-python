@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#ListHypervisorsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.hypervisors
     import aws_sdk_backup_gateway.types.next_token
 
 
-class ListHypervisorsOutput(TypedDict):
+class ListHypervisorsOutput(TypedDict, closed=True):
     hypervisors: NotRequired["aws_sdk_backup_gateway.types.hypervisors.Hypervisors"]
     """<p>A list of your <code>Hypervisor</code> objects, ordered by their Amazon Resource Names (ARNs).</p>"""
     next_token: NotRequired["aws_sdk_backup_gateway.types.next_token.NextToken"]

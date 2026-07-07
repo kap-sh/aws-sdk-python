@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputAttachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.input_settings
 
 
-class InputAttachment(TypedDict):
+class InputAttachment(TypedDict, closed=True):
     automatic_input_failover_settings: NotRequired[
         "aws_sdk_medialive.types.automatic_input_failover_settings.AutomaticInputFailoverSettings"
     ]

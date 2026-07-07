@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#ListTrackerConsumersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.token
 
 
-class ListTrackerConsumersResponse(TypedDict):
+class ListTrackerConsumersResponse(TypedDict, closed=True):
     consumer_arns: "aws_sdk_location.types.arn_list.ArnList"
     """<p>Contains the list of geofence collection ARNs associated to the tracker resource.</p>"""
     next_token: NotRequired["aws_sdk_location.types.token.Token"]

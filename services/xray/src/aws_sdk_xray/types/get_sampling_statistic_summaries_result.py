@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetSamplingStatisticSummariesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.sampling_statistic_summary_list
     import aws_sdk_xray.types.string
 
 
-class GetSamplingStatisticSummariesResult(TypedDict):
+class GetSamplingStatisticSummariesResult(TypedDict, closed=True):
     sampling_statistic_summaries: NotRequired[
         "aws_sdk_xray.types.sampling_statistic_summary_list.SamplingStatisticSummaryList"
     ]

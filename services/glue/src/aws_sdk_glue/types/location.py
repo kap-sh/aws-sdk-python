@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.code_gen_node_args
 
 
-class Location(TypedDict):
+class Location(TypedDict, closed=True):
     jdbc: NotRequired["aws_sdk_glue.types.code_gen_node_args.CodeGenNodeArgs"]
     """<p>A JDBC location.</p>"""
     s3: NotRequired["aws_sdk_glue.types.code_gen_node_args.CodeGenNodeArgs"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#OcsfFindingFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.allowed_operators
     import aws_sdk_securityhub.types.composite_filter_list
 
 
-class OcsfFindingFilters(TypedDict):
+class OcsfFindingFilters(TypedDict, closed=True):
     composite_filters: NotRequired[
         "aws_sdk_securityhub.types.composite_filter_list.CompositeFilterList"
     ]

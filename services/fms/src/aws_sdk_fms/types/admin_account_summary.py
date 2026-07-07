@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#AdminAccountSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.aws_account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.organization_status
 
 
-class AdminAccountSummary(TypedDict):
+class AdminAccountSummary(TypedDict, closed=True):
     admin_account: NotRequired["aws_sdk_fms.types.aws_account_id.AWSAccountId"]
     """<p>The Amazon Web Services account ID of the Firewall Manager administrator's account.</p>"""
     default_admin: "aws_sdk_fms.types.boolean.Boolean"

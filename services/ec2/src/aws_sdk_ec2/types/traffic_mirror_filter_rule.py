@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#TrafficMirrorFilterRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.traffic_mirror_rule_action
 
 
-class TrafficMirrorFilterRule(TypedDict):
+class TrafficMirrorFilterRule(TypedDict, closed=True):
     traffic_mirror_filter_rule_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the Traffic Mirror rule.</p>"""
     traffic_mirror_filter_id: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#CancelBatchPredictionJobResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelBatchPredictionJobResult(TypedDict):
+class CancelBatchPredictionJobResult(TypedDict, closed=True):
     pass
 
 

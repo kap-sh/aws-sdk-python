@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CustomerGatewayAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.customer_gateway_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.link_id
 
 
-class CustomerGatewayAssociation(TypedDict):
+class CustomerGatewayAssociation(TypedDict, closed=True):
     customer_gateway_arn: NotRequired[
         "aws_sdk_networkmanager.types.customer_gateway_arn.CustomerGatewayArn"
     ]

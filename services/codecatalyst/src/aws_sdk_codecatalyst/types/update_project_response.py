@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#UpdateProjectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.name_string
 
 
-class UpdateProjectResponse(TypedDict):
+class UpdateProjectResponse(TypedDict, closed=True):
     space_name: NotRequired["aws_sdk_codecatalyst.types.name_string.NameString"]
     """<p>The name of the space.</p>"""
     name: NotRequired["aws_sdk_codecatalyst.types.name_string.NameString"]

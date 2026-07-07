@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#CreateAdditionalAssignmentsForHITResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateAdditionalAssignmentsForHITResponse(TypedDict):
+class CreateAdditionalAssignmentsForHITResponse(TypedDict, closed=True):
     pass
 
 

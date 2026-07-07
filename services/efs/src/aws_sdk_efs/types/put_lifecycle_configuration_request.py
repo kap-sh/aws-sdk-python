@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#PutLifecycleConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.lifecycle_policies
 
 
-class PutLifecycleConfigurationRequest(TypedDict):
+class PutLifecycleConfigurationRequest(TypedDict, closed=True):
     file_system_id: "aws_sdk_efs.types.file_system_id.FileSystemId"
     """<p>The ID of the file system for which you are creating the <code>LifecycleConfiguration</code> object (String).</p>"""
     lifecycle_policies: "aws_sdk_efs.types.lifecycle_policies.LifecyclePolicies"

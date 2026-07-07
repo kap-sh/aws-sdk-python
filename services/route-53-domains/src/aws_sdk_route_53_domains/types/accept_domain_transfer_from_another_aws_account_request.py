@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#AcceptDomainTransferFromAnotherAwsAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53_domains.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.password
 
 
-class AcceptDomainTransferFromAnotherAwsAccountRequest(TypedDict):
+class AcceptDomainTransferFromAnotherAwsAccountRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_route_53_domains.types.domain_name.DomainName"
     r"""<p>The name of the domain that was specified when another Amazon Web Services account submitted a <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html\">TransferDomainToAnotherAwsAccount</a> request. </p>"""
     password: "aws_sdk_route_53_domains.types.password.Password"

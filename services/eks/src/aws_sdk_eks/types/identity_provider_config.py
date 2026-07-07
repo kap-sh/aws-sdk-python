@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#IdentityProviderConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class IdentityProviderConfig(TypedDict):
+class IdentityProviderConfig(TypedDict, closed=True):
     type: "aws_sdk_eks.types.string.String"
     """<p>The type of the identity provider configuration. The only type available is <code>oidc</code>.</p>"""
     name: "aws_sdk_eks.types.string.String"

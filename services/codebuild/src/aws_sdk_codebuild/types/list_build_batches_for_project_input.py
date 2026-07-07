@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListBuildBatchesForProjectInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.build_batch_filter
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class ListBuildBatchesForProjectInput(TypedDict):
+class ListBuildBatchesForProjectInput(TypedDict, closed=True):
     project_name: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p>The name of the project.</p>"""
     filter: NotRequired["aws_sdk_codebuild.types.build_batch_filter.BuildBatchFilter"]

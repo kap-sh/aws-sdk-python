@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#InputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehendmedical.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.s3_key
 
 
-class InputDataConfig(TypedDict):
+class InputDataConfig(TypedDict, closed=True):
     s3_bucket: "aws_sdk_comprehendmedical.types.s3_bucket.S3Bucket"
     """<p>The URI of the S3 bucket that contains the input data. The bucket must be in the same region as the API endpoint that you are calling.</p>"""
     s3_key: NotRequired["aws_sdk_comprehendmedical.types.s3_key.S3Key"]

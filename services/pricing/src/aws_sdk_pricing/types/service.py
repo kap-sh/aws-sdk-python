@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pricing#Service``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pricing.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pricing.types.string
 
 
-class Service(TypedDict):
+class Service(TypedDict, closed=True):
     service_code: "aws_sdk_pricing.types.string.String"
     """<p>The code for the Amazon Web Services service.</p>"""
     attribute_names: NotRequired[

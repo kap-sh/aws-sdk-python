@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#CreateRoomResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivschat.types.logging_configuration_identifier_list
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.time
 
 
-class CreateRoomResponse(TypedDict):
+class CreateRoomResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_ivschat.types.room_arn.RoomArn"]
     """<p>Room ARN, assigned by the system.</p>"""
     id: NotRequired["aws_sdk_ivschat.types.room_id.RoomID"]

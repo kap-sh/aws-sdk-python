@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#Entitlement``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Entitlement(TypedDict):
+class Entitlement(TypedDict, closed=True):
     license_arn: NotRequired["str"]
     """<p>The Amazon Resource Name (ARN) of the AWS License Manager license associated with the entitlement.</p>"""
 

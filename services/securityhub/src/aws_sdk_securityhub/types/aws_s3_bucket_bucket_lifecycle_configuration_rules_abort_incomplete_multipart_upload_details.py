@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
 
 
 class AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails(
-    TypedDict
+    TypedDict, closed=True
 ):
     days_after_initiation: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of days after which Amazon S3 cancels an incomplete multipart upload.</p>"""

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ListOpportunityFromEngagementTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.task_statuses
 
 
-class ListOpportunityFromEngagementTasksRequest(TypedDict):
+class ListOpportunityFromEngagementTasksRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>Specifies the maximum number of results to return in a single page of the response. Use this parameter to control the number of items returned in each request, which can be useful for performance tuning and managing large result sets.</p>"""
     next_token: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#TitleAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.aggregation_finding_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.title_sort_by
 
 
-class TitleAggregation(TypedDict):
+class TitleAggregation(TypedDict, closed=True):
     titles: NotRequired["aws_sdk_inspector2.types.string_filter_list.StringFilterList"]
     """<p>The finding titles to aggregate on.</p>"""
     vulnerability_ids: NotRequired[

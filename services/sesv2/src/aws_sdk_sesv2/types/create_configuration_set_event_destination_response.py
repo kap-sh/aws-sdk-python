@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#CreateConfigurationSetEventDestinationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateConfigurationSetEventDestinationResponse(TypedDict):
+class CreateConfigurationSetEventDestinationResponse(TypedDict, closed=True):
     pass
 
 

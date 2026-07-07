@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DeleteWorkflowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.workflow_id
 
 
-class DeleteWorkflowRequest(TypedDict):
+class DeleteWorkflowRequest(TypedDict, closed=True):
     id: "aws_sdk_omics.types.workflow_id.WorkflowId"
     """<p>The workflow's ID.</p>"""
 

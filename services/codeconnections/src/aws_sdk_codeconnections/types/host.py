@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#Host``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.host_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.vpc_configuration
 
 
-class Host(TypedDict):
+class Host(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codeconnections.types.host_name.HostName"]
     """<p>The name of the host.</p>"""
     host_arn: NotRequired["aws_sdk_codeconnections.types.host_arn.HostArn"]

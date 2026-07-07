@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#RebuildWorkspacesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.rebuild_workspace_requests
 
 
-class RebuildWorkspacesRequest(TypedDict):
+class RebuildWorkspacesRequest(TypedDict, closed=True):
     rebuild_workspace_requests: (
         "aws_sdk_workspaces.types.rebuild_workspace_requests.RebuildWorkspaceRequests"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#CreateFlowTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotthingsgraph.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.version
 
 
-class CreateFlowTemplateRequest(TypedDict):
+class CreateFlowTemplateRequest(TypedDict, closed=True):
     definition: "aws_sdk_iotthingsgraph.types.definition_document.DefinitionDocument"
     """<p>The workflow <code>DefinitionDocument</code>.</p>"""
     compatible_namespace_version: NotRequired[

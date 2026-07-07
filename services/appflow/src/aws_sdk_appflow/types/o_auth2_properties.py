@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#OAuth2Properties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.token_url_custom_properties
 
 
-class OAuth2Properties(TypedDict):
+class OAuth2Properties(TypedDict, closed=True):
     token_url: "aws_sdk_appflow.types.token_url.TokenUrl"
     """<p>The token URL required for OAuth 2.0 authentication.</p>"""
     o_auth2_grant_type: "aws_sdk_appflow.types.o_auth2_grant_type.OAuth2GrantType"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#PutCaseEventConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.event_bridge_configuration
 
 
-class PutCaseEventConfigurationRequest(TypedDict):
+class PutCaseEventConfigurationRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_connectcases.types.domain_id.DomainId"
     """<p>The unique identifier of the Cases domain. </p>"""
     event_bridge: (

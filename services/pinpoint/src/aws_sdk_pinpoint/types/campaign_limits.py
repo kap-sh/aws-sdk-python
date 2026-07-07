@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#CampaignLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__integer
 
 
-class CampaignLimits(TypedDict):
+class CampaignLimits(TypedDict, closed=True):
     daily: NotRequired["aws_sdk_pinpoint.types.__integer.__integer"]
     """<p>The maximum number of messages that a campaign can send to a single endpoint during a 24-hour period. For an application, this value specifies the default limit for the number of messages that campaigns and journeys can send to a single endpoint during a 24-hour period. The maximum value is 100.</p>"""
     maximum_duration: NotRequired["aws_sdk_pinpoint.types.__integer.__integer"]

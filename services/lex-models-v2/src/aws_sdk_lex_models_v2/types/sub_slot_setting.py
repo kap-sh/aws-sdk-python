@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SubSlotSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.sub_slot_expression
     import aws_sdk_lex_models_v2.types.sub_slot_specification_map
 
 
-class SubSlotSetting(TypedDict):
+class SubSlotSetting(TypedDict, closed=True):
     expression: NotRequired[
         "aws_sdk_lex_models_v2.types.sub_slot_expression.SubSlotExpression"
     ]

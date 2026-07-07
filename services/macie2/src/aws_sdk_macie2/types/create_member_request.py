@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#CreateMemberRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.account_detail
     import aws_sdk_macie2.types.tag_map
 
 
-class CreateMemberRequest(TypedDict):
+class CreateMemberRequest(TypedDict, closed=True):
     account: NotRequired["aws_sdk_macie2.types.account_detail.AccountDetail"]
     """<p>The details of the account to associate with the administrator account.</p>"""
     tags: NotRequired["aws_sdk_macie2.types.tag_map.TagMap"]

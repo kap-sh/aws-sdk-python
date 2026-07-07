@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#PutLexiconInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_polly.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.lexicon_name
 
 
-class PutLexiconInput(TypedDict):
+class PutLexiconInput(TypedDict, closed=True):
     name: "aws_sdk_polly.types.lexicon_name.LexiconName"
     """<p>Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long. </p>"""
     content: "aws_sdk_polly.types.lexicon_content.LexiconContent"

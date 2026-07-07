@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ApiAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.association_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class ApiAssociation(TypedDict):
+class ApiAssociation(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_appsync.types.domain_name.DomainName"]
     """<p>The domain name.</p>"""
     api_id: NotRequired["aws_sdk_appsync.types.string.String"]

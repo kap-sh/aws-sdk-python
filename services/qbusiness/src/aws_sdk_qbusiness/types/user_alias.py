@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#UserAlias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.string
 
 
-class UserAlias(TypedDict):
+class UserAlias(TypedDict, closed=True):
     index_id: NotRequired["aws_sdk_qbusiness.types.index_id.IndexId"]
     """<p>The identifier of the index that the user aliases are associated with.</p>"""
     data_source_id: NotRequired["aws_sdk_qbusiness.types.data_source_id.DataSourceId"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3files.types.tag_list
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_s3files.types.tag_list.TagList"]
     """<p>An array of tags associated with the resource.</p>"""
     next_token: NotRequired["str"]

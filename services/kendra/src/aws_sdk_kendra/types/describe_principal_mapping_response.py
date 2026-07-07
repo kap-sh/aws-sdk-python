@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DescribePrincipalMappingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.data_source_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.index_id
 
 
-class DescribePrincipalMappingResponse(TypedDict):
+class DescribePrincipalMappingResponse(TypedDict, closed=True):
     index_id: NotRequired["aws_sdk_kendra.types.index_id.IndexId"]
     """<p>Shows the identifier of the index to see information on the processing of <code>PUT</code> and <code>DELETE</code> actions for mapping users to their groups.</p>"""
     data_source_id: NotRequired["aws_sdk_kendra.types.data_source_id.DataSourceId"]

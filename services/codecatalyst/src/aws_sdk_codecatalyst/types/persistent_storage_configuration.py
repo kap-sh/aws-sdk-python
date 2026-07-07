@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#PersistentStorageConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
 
-class PersistentStorageConfiguration(TypedDict):
+class PersistentStorageConfiguration(TypedDict, closed=True):
     size_in_gi_b: "int"
     """<p>The size of the persistent storage in gigabytes (specifically GiB).</p> <note> <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.</p> </note>"""
 

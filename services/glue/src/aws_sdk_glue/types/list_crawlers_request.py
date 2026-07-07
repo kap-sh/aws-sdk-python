@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListCrawlersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.page_size
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.token
 
 
-class ListCrawlersRequest(TypedDict):
+class ListCrawlersRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_glue.types.page_size.PageSize"]
     """<p>The maximum size of a list to return.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.token.Token"]

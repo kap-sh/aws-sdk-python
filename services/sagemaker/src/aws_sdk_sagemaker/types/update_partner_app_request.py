@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdatePartnerAppRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.boolean
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class UpdatePartnerAppRequest(TypedDict):
+class UpdatePartnerAppRequest(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.partner_app_arn.PartnerAppArn"]
     """<p>The ARN of the SageMaker Partner AI App to update.</p>"""
     maintenance_config: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#RecordingStrategy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.recording_strategy_type
 
 
-class RecordingStrategy(TypedDict):
+class RecordingStrategy(TypedDict, closed=True):
     use_only: NotRequired[
         "aws_sdk_config_service.types.recording_strategy_type.RecordingStrategyType"
     ]

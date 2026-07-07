@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p>The identifier for the Timestream for InfluxDB resource associated with the request.</p>"""

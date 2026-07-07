@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodbstreams#Record``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.identity
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.string
 
 
-class Record(TypedDict):
+class Record(TypedDict, closed=True):
     event_id: NotRequired["aws_sdk_dynamodb_streams.types.string.String"]
     """<p>A globally unique identifier for the event that was recorded in this stream record.</p>"""
     event_name: NotRequired[

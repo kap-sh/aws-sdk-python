@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#ListLocationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.location_list
     import aws_sdk_datasync.types.next_token
 
 
-class ListLocationsResponse(TypedDict):
+class ListLocationsResponse(TypedDict, closed=True):
     locations: NotRequired["aws_sdk_datasync.types.location_list.LocationList"]
     """<p>An array that contains a list of locations.</p>"""
     next_token: NotRequired["aws_sdk_datasync.types.next_token.NextToken"]

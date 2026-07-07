@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAthenaWorkGroupConfigurationResultConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_athena_work_group_configuration_result_configuration_encryption_configuration_details
 
 
-class AwsAthenaWorkGroupConfigurationResultConfigurationDetails(TypedDict):
+class AwsAthenaWorkGroupConfigurationResultConfigurationDetails(TypedDict, closed=True):
     encryption_configuration: NotRequired[
         "aws_sdk_securityhub.types.aws_athena_work_group_configuration_result_configuration_encryption_configuration_details.AwsAthenaWorkGroupConfigurationResultConfigurationEncryptionConfigurationDetails"
     ]

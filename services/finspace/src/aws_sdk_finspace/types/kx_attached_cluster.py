@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#KxAttachedCluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_cluster_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_cluster_type
 
 
-class KxAttachedCluster(TypedDict):
+class KxAttachedCluster(TypedDict, closed=True):
     cluster_name: NotRequired["aws_sdk_finspace.types.kx_cluster_name.KxClusterName"]
     """<p>A unique name for the attached cluster.</p>"""
     cluster_type: NotRequired["aws_sdk_finspace.types.kx_cluster_type.KxClusterType"]

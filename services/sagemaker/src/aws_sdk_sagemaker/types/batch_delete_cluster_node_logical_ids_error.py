@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#BatchDeleteClusterNodeLogicalIdsError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.batch_delete_cluster_nodes_error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class BatchDeleteClusterNodeLogicalIdsError(TypedDict):
+class BatchDeleteClusterNodeLogicalIdsError(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_sagemaker.types.batch_delete_cluster_nodes_error_code.BatchDeleteClusterNodesErrorCode"
     ]

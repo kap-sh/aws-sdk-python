@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListComplianceSummariesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.compliance_summary_item_list
     import aws_sdk_ssm.types.next_token
 
 
-class ListComplianceSummariesResult(TypedDict):
+class ListComplianceSummariesResult(TypedDict, closed=True):
     compliance_summary_items: NotRequired[
         "aws_sdk_ssm.types.compliance_summary_item_list.ComplianceSummaryItemList"
     ]

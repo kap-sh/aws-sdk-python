@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#GetObjectTypeAttributeStatisticsStats``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.get_object_type_attribute_statistics_percentiles
 
 
-class GetObjectTypeAttributeStatisticsStats(TypedDict):
+class GetObjectTypeAttributeStatisticsStats(TypedDict, closed=True):
     maximum: "aws_sdk_customer_profiles.types.double.Double"
     """<p>The maximum value found in the attribute dataset.</p>"""
     minimum: "aws_sdk_customer_profiles.types.double.Double"

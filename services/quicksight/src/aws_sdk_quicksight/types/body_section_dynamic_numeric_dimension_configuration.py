@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BodySectionDynamicNumericDimensionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_identifier
 
 
-class BodySectionDynamicNumericDimensionConfiguration(TypedDict):
+class BodySectionDynamicNumericDimensionConfiguration(TypedDict, closed=True):
     column: "aws_sdk_quicksight.types.column_identifier.ColumnIdentifier"
     limit: NotRequired[
         "aws_sdk_quicksight.types.body_section_dynamic_dimension_limit.BodySectionDynamicDimensionLimit"

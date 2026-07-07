@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ValidationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.job_status_details
     import aws_sdk_bedrock.types.timestamp
 
 
-class ValidationDetails(TypedDict):
+class ValidationDetails(TypedDict, closed=True):
     status: NotRequired["aws_sdk_bedrock.types.job_status_details.JobStatusDetails"]
     """<p>The status of the validation sub-task of the job.</p>"""
     creation_time: NotRequired["aws_sdk_bedrock.types.timestamp.Timestamp"]

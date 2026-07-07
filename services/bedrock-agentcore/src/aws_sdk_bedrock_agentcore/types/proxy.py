@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#Proxy``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.external_proxy
 
 
-class _Proxy_externalProxy(TypedDict):
+class _Proxy_externalProxy(TypedDict, closed=True):
     externalProxy: "aws_sdk_bedrock_agentcore.types.external_proxy.ExternalProxy"
 
 

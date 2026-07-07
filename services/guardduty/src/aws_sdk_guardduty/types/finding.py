@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Finding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.double
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class Finding(TypedDict):
+class Finding(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The ID of the account in which the finding was generated.</p>"""
     arn: NotRequired["aws_sdk_guardduty.types.string.String"]

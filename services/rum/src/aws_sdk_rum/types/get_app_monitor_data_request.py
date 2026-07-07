@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#GetAppMonitorDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rum.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.token
 
 
-class GetAppMonitorDataRequest(TypedDict):
+class GetAppMonitorDataRequest(TypedDict, closed=True):
     name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName"
     """<p>The name of the app monitor that collected the data that you want to retrieve.</p>"""
     time_range: "aws_sdk_rum.types.time_range.TimeRange"

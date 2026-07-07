@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#DeleteSnapshotRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
 
-class DeleteSnapshotRequest(TypedDict):
+class DeleteSnapshotRequest(TypedDict, closed=True):
     snapshot_name: "str"
     """<p>The name of the snapshot to be deleted.</p>"""
 

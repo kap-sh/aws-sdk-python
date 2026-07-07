@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SuggestionHighlight``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.integer
 
 
-class SuggestionHighlight(TypedDict):
+class SuggestionHighlight(TypedDict, closed=True):
     begin_offset: NotRequired["aws_sdk_kendra.types.integer.Integer"]
     """<p>The zero-based location in the response string where the highlight starts.</p>"""
     end_offset: NotRequired["aws_sdk_kendra.types.integer.Integer"]

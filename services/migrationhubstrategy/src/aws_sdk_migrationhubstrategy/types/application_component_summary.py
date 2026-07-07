@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ApplicationComponentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.app_type
     import aws_sdk_migrationhubstrategy.types.integer
 
 
-class ApplicationComponentSummary(TypedDict):
+class ApplicationComponentSummary(TypedDict, closed=True):
     app_type: NotRequired["aws_sdk_migrationhubstrategy.types.app_type.AppType"]
     """<p> Contains the name of application types. </p>"""
     count: NotRequired["aws_sdk_migrationhubstrategy.types.integer.Integer"]

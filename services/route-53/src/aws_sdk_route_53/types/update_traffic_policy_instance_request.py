@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#UpdateTrafficPolicyInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.ttl
 
 
-class UpdateTrafficPolicyInstanceRequest(TypedDict):
+class UpdateTrafficPolicyInstanceRequest(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.traffic_policy_instance_id.TrafficPolicyInstanceId"
     """<p>The ID of the traffic policy instance that you want to update.</p>"""
     ttl: "aws_sdk_route_53.types.ttl.TTL"

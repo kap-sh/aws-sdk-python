@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoMLCandidate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_ml_container_definitions
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class AutoMLCandidate(TypedDict):
+class AutoMLCandidate(TypedDict, closed=True):
     candidate_name: NotRequired["aws_sdk_sagemaker.types.candidate_name.CandidateName"]
     """<p>The name of the candidate.</p>"""
     final_auto_ml_job_objective_metric: NotRequired[

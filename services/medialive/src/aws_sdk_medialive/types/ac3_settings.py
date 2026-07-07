@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Ac3Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.ac3_metadata_control
 
 
-class Ac3Settings(TypedDict):
+class Ac3Settings(TypedDict, closed=True):
     bitrate: NotRequired["aws_sdk_medialive.types.__double.__double"]
     """Average bitrate in bits/second. Valid bitrates depend on the coding mode."""
     bitstream_mode: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#SetVisibleToAllUsersInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean
     import aws_sdk_emr.types.xml_string_list
 
 
-class SetVisibleToAllUsersInput(TypedDict):
+class SetVisibleToAllUsersInput(TypedDict, closed=True):
     job_flow_ids: NotRequired["aws_sdk_emr.types.xml_string_list.XmlStringList"]
     """<p>The unique identifier of the job flow (cluster).</p>"""
     visible_to_all_users: NotRequired["aws_sdk_emr.types.boolean.Boolean"]

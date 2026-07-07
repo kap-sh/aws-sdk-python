@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ScriptBootstrapActionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string
     import aws_sdk_emr.types.xml_string_list
 
 
-class ScriptBootstrapActionConfig(TypedDict):
+class ScriptBootstrapActionConfig(TypedDict, closed=True):
     path: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]
     """<p>Location in Amazon S3 of the script to run during a bootstrap action.</p>"""
     args: NotRequired["aws_sdk_emr.types.xml_string_list.XmlStringList"]

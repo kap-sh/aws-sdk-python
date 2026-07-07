@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeDomainNodesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_name
 
 
-class DescribeDomainNodesRequest(TypedDict):
+class DescribeDomainNodesRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"
     """<p>The name of the domain.</p>"""
 

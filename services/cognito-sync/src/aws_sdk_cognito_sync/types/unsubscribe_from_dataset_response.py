@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#UnsubscribeFromDatasetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UnsubscribeFromDatasetResponse(TypedDict):
+class UnsubscribeFromDatasetResponse(TypedDict, closed=True):
     pass
 
 

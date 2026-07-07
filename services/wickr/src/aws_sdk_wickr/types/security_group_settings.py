@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#SecurityGroupSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.calling_settings
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.wickr_aws_networks_list
 
 
-class SecurityGroupSettings(TypedDict):
+class SecurityGroupSettings(TypedDict, closed=True):
     always_reauthenticate: NotRequired["bool"]
     """<p>Requires users to reauthenticate every time they return to the application, providing an additional layer of security.</p>"""
     atak_package_values: NotRequired[

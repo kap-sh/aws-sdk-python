@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DecimalPlacesConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.decimal_places
 
 
-class DecimalPlacesConfiguration(TypedDict):
+class DecimalPlacesConfiguration(TypedDict, closed=True):
     decimal_places: "aws_sdk_quicksight.types.decimal_places.DecimalPlaces"
     """<p>The values of the decimal places.</p>"""
 

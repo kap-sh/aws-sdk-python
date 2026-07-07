@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchReadOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.batch_get_link_attributes
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.batch_lookup_policy
 
 
-class BatchReadOperation(TypedDict):
+class BatchReadOperation(TypedDict, closed=True):
     list_object_attributes: NotRequired[
         "aws_sdk_clouddirectory.types.batch_list_object_attributes.BatchListObjectAttributes"
     ]

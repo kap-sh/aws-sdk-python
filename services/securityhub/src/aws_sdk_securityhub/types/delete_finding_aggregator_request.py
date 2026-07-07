@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DeleteFindingAggregatorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class DeleteFindingAggregatorRequest(TypedDict):
+class DeleteFindingAggregatorRequest(TypedDict, closed=True):
     finding_aggregator_arn: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     """<p>The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>"""
 

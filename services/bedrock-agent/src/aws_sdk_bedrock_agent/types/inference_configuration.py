@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#InferenceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.maximum_length
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.top_p
 
 
-class InferenceConfiguration(TypedDict):
+class InferenceConfiguration(TypedDict, closed=True):
     temperature: NotRequired["aws_sdk_bedrock_agent.types.temperature.Temperature"]
     """<p>The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.</p>"""
     top_p: NotRequired["aws_sdk_bedrock_agent.types.top_p.TopP"]

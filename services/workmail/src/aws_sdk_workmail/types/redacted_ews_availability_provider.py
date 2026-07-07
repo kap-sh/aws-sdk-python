@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#RedactedEwsAvailabilityProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.external_user_name
     import aws_sdk_workmail.types.url
 
 
-class RedactedEwsAvailabilityProvider(TypedDict):
+class RedactedEwsAvailabilityProvider(TypedDict, closed=True):
     ews_endpoint: NotRequired["aws_sdk_workmail.types.url.Url"]
     """<p>The endpoint of the remote EWS server.</p>"""
     ews_username: NotRequired[

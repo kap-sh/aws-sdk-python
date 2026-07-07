@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#CreatePredictorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.training_parameters
 
 
-class CreatePredictorRequest(TypedDict):
+class CreatePredictorRequest(TypedDict, closed=True):
     predictor_name: "aws_sdk_forecast.types.name.Name"
     """<p>A name for the predictor.</p>"""
     algorithm_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]

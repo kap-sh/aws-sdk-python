@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateOTAUpdateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.targets
 
 
-class CreateOTAUpdateRequest(TypedDict):
+class CreateOTAUpdateRequest(TypedDict, closed=True):
     ota_update_id: "aws_sdk_iot.types.ota_update_id.OTAUpdateId"
     """<p>The ID of the OTA update to be created.</p>"""
     description: NotRequired[

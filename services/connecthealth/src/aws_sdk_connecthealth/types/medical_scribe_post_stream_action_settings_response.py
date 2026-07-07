@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#MedicalScribePostStreamActionSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connecthealth.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.s3_uri
 
 
-class MedicalScribePostStreamActionSettingsResponse(TypedDict):
+class MedicalScribePostStreamActionSettingsResponse(TypedDict, closed=True):
     output_s3_uri: "aws_sdk_connecthealth.types.s3_uri.S3Uri"
     """<p/>"""
     clinical_note_generation_settings: "aws_sdk_connecthealth.types.clinical_note_generation_settings_response.ClinicalNoteGenerationSettingsResponse"

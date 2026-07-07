@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#InstanceDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.game_server_group_instance_type
     import aws_sdk_gamelift.types.weighted_capacity
 
 
-class InstanceDefinition(TypedDict):
+class InstanceDefinition(TypedDict, closed=True):
     instance_type: NotRequired[
         "aws_sdk_gamelift.types.game_server_group_instance_type.GameServerGroupInstanceType"
     ]

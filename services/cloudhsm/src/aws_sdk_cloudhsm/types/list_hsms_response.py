@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#ListHsmsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.hsm_list
     import aws_sdk_cloudhsm.types.pagination_token
 
 
-class ListHsmsResponse(TypedDict):
+class ListHsmsResponse(TypedDict, closed=True):
     hsm_list: NotRequired["aws_sdk_cloudhsm.types.hsm_list.HsmList"]
     """<p>The list of ARNs that identify the HSMs.</p>"""
     next_token: NotRequired["aws_sdk_cloudhsm.types.pagination_token.PaginationToken"]

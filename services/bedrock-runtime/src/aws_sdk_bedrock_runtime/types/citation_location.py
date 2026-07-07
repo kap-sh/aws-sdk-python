@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#CitationLocation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -12,29 +14,29 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.web_location
 
 
-class _CitationLocation_web(TypedDict):
+class _CitationLocation_web(TypedDict, closed=True):
     web: "aws_sdk_bedrock_runtime.types.web_location.WebLocation"
 
 
-class _CitationLocation_documentChar(TypedDict):
+class _CitationLocation_documentChar(TypedDict, closed=True):
     documentChar: (
         "aws_sdk_bedrock_runtime.types.document_char_location.DocumentCharLocation"
     )
 
 
-class _CitationLocation_documentPage(TypedDict):
+class _CitationLocation_documentPage(TypedDict, closed=True):
     documentPage: (
         "aws_sdk_bedrock_runtime.types.document_page_location.DocumentPageLocation"
     )
 
 
-class _CitationLocation_documentChunk(TypedDict):
+class _CitationLocation_documentChunk(TypedDict, closed=True):
     documentChunk: (
         "aws_sdk_bedrock_runtime.types.document_chunk_location.DocumentChunkLocation"
     )
 
 
-class _CitationLocation_searchResultLocation(TypedDict):
+class _CitationLocation_searchResultLocation(TypedDict, closed=True):
     searchResultLocation: (
         "aws_sdk_bedrock_runtime.types.search_result_location.SearchResultLocation"
     )

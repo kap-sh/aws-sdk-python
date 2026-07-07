@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#RouterDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class RouterDestination(TypedDict):
+class RouterDestination(TypedDict, closed=True):
     availability_zone_name: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The Availability Zone (AZ) names of the AZs this destination is created in."""
     router_output_arn: NotRequired["aws_sdk_medialive.types.__string.__string"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListEmailTemplatesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_template_metadata_list
     import aws_sdk_sesv2.types.next_token
 
 
-class ListEmailTemplatesResponse(TypedDict):
+class ListEmailTemplatesResponse(TypedDict, closed=True):
     templates_metadata: NotRequired[
         "aws_sdk_sesv2.types.email_template_metadata_list.EmailTemplateMetadataList"
     ]

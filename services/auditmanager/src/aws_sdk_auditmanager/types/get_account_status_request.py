@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetAccountStatusRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAccountStatusRequest(TypedDict):
+class GetAccountStatusRequest(TypedDict, closed=True):
     pass
 
 

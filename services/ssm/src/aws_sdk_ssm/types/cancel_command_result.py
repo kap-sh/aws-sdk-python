@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CancelCommandResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelCommandResult(TypedDict):
+class CancelCommandResult(TypedDict, closed=True):
     pass
 
 

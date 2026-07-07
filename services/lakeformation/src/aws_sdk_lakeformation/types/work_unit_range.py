@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#WorkUnitRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.work_unit_token_string
 
 
-class WorkUnitRange(TypedDict):
+class WorkUnitRange(TypedDict, closed=True):
     work_unit_id_max: "aws_sdk_lakeformation.types.work_unit_id_long.WorkUnitIdLong"
     """<p>Defines the maximum work unit ID in the range. The maximum value is inclusive.</p>"""
     work_unit_id_min: "aws_sdk_lakeformation.types.work_unit_id_long.WorkUnitIdLong"

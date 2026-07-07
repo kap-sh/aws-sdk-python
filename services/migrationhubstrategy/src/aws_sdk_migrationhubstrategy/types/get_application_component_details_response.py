@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#GetApplicationComponentDetailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.application_component_detail
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.boolean
 
 
-class GetApplicationComponentDetailsResponse(TypedDict):
+class GetApplicationComponentDetailsResponse(TypedDict, closed=True):
     application_component_detail: NotRequired[
         "aws_sdk_migrationhubstrategy.types.application_component_detail.ApplicationComponentDetail"
     ]

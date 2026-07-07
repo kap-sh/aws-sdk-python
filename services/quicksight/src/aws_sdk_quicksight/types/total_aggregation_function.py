@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TotalAggregationFunction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.simple_total_aggregation_function
 
 
-class TotalAggregationFunction(TypedDict):
+class TotalAggregationFunction(TypedDict, closed=True):
     simple_total_aggregation_function: NotRequired[
         "aws_sdk_quicksight.types.simple_total_aggregation_function.SimpleTotalAggregationFunction"
     ]

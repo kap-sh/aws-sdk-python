@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#RunInstancesMonitoringEnabled``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RunInstancesMonitoringEnabled(TypedDict):
+class RunInstancesMonitoringEnabled(TypedDict, closed=True):
     enabled: NotRequired["bool"]
     """<p>Enables or disables detailed instance monitoring.</p>"""
 

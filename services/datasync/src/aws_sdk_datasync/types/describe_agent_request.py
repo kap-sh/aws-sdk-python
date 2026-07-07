@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#DescribeAgentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.agent_arn
 
 
-class DescribeAgentRequest(TypedDict):
+class DescribeAgentRequest(TypedDict, closed=True):
     agent_arn: "aws_sdk_datasync.types.agent_arn.AgentArn"
     """<p>Specifies the Amazon Resource Name (ARN) of the DataSync agent that you want information about.</p>"""
 

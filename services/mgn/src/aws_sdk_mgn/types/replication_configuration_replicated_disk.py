@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ReplicationConfigurationReplicatedDisk``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.bounded_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.replication_configuration_replicated_disk_staging_disk_type
 
 
-class ReplicationConfigurationReplicatedDisk(TypedDict):
+class ReplicationConfigurationReplicatedDisk(TypedDict, closed=True):
     device_name: NotRequired["aws_sdk_mgn.types.bounded_string.BoundedString"]
     """<p>Replication Configuration replicated disk device name.</p>"""
     is_boot_disk: NotRequired["bool"]

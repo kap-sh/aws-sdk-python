@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#Rule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.values_map
 
 
-class Rule(TypedDict):
+class Rule(TypedDict, closed=True):
     name: "aws_sdk_databrew.types.rule_name.RuleName"
     """<p>The name of the rule.</p>"""
     disabled: "aws_sdk_databrew.types.disabled.Disabled"

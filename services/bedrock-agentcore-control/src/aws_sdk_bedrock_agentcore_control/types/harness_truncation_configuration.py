@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessTruncationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.harness_truncation_strategy_configuration
 
 
-class HarnessTruncationConfiguration(TypedDict):
+class HarnessTruncationConfiguration(TypedDict, closed=True):
     strategy: "aws_sdk_bedrock_agentcore_control.types.harness_truncation_strategy.HarnessTruncationStrategy"
     """<p>The truncation strategy to use.</p>"""
     config: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ListTokensRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.filter_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string_list
 
 
-class ListTokensRequest(TypedDict):
+class ListTokensRequest(TypedDict, closed=True):
     token_ids: NotRequired["aws_sdk_license_manager.types.string_list.StringList"]
     """<p>Token IDs.</p>"""
     filters: NotRequired["aws_sdk_license_manager.types.filter_list.FilterList"]

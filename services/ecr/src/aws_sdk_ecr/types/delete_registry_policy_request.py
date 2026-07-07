@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#DeleteRegistryPolicyRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRegistryPolicyRequest(TypedDict):
+class DeleteRegistryPolicyRequest(TypedDict, closed=True):
     pass
 
 

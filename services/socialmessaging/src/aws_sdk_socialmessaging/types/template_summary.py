@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#TemplateSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.meta_template_category
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.meta_template_status
 
 
-class TemplateSummary(TypedDict):
+class TemplateSummary(TypedDict, closed=True):
     template_name: NotRequired[
         "aws_sdk_socialmessaging.types.meta_template_name.MetaTemplateName"
     ]

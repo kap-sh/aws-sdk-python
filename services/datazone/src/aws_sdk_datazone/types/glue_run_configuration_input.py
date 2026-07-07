@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GlueRunConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.relational_filter_configurations
 
 
-class GlueRunConfigurationInput(TypedDict):
+class GlueRunConfigurationInput(TypedDict, closed=True):
     data_access_role: NotRequired["str"]
     """<p>The data access role included in the configuration details of the Amazon Web Services Glue data source.</p>"""
     relational_filter_configurations: "aws_sdk_datazone.types.relational_filter_configurations.RelationalFilterConfigurations"

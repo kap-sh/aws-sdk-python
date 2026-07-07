@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetMFADeviceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class GetMFADeviceResponse(TypedDict):
+class GetMFADeviceResponse(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_iam.types.user_name_type.userNameType"]
     """<p>The friendly name identifying the user.</p>"""
     serial_number: "aws_sdk_iam.types.serial_number_type.serialNumberType"

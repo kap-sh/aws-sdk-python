@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#BatchUpdateRecommendationStatusSuccessfulEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.update_recommendation_status_item
 
 
-class BatchUpdateRecommendationStatusSuccessfulEntry(TypedDict):
+class BatchUpdateRecommendationStatusSuccessfulEntry(TypedDict, closed=True):
     entry_id: "aws_sdk_resiliencehub.types.string255.String255"
     """<p>An identifier for an entry in this batch that is used to communicate the result.</p> <note> <p>The <code>entryId</code>s of a batch request need to be unique within a request.</p> </note>"""
     reference_id: "aws_sdk_resiliencehub.types.spec_reference_id.SpecReferenceId"

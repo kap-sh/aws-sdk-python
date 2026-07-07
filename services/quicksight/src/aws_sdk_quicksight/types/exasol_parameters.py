@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ExasolParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.port
 
 
-class ExasolParameters(TypedDict):
+class ExasolParameters(TypedDict, closed=True):
     host: "aws_sdk_quicksight.types.host.Host"
     """<p>The hostname or IP address of the Exasol data source.</p>"""
     port: "aws_sdk_quicksight.types.port.Port"

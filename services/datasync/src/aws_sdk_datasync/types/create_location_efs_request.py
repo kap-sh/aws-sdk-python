@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateLocationEfsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.input_tag_list
 
 
-class CreateLocationEfsRequest(TypedDict):
+class CreateLocationEfsRequest(TypedDict, closed=True):
     subdirectory: NotRequired["aws_sdk_datasync.types.efs_subdirectory.EfsSubdirectory"]
     r"""<p>Specifies a mount path for your Amazon EFS file system. This is where DataSync reads or writes data on your file system (depending on if this is a source or destination location).</p> <p>By default, DataSync uses the root directory (or <a href=\"https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html\">access point</a> if you provide one by using <code>AccessPointArn</code>). You can also include subdirectories using forward slashes (for example, <code>/path/to/folder</code>).</p>"""
     efs_filesystem_arn: "aws_sdk_datasync.types.efs_filesystem_arn.EfsFilesystemArn"

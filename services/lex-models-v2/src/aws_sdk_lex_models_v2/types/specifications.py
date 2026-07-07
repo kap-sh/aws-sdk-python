@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#Specifications``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.sub_slot_value_elicitation_setting
 
 
-class Specifications(TypedDict):
+class Specifications(TypedDict, closed=True):
     slot_type_id: "aws_sdk_lex_models_v2.types.built_in_or_custom_slot_type_id.BuiltInOrCustomSlotTypeId"
     """<p>The unique identifier assigned to the slot type.</p>"""
     value_elicitation_setting: "aws_sdk_lex_models_v2.types.sub_slot_value_elicitation_setting.SubSlotValueElicitationSetting"

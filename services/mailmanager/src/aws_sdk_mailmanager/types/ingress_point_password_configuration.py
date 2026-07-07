@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#IngressPointPasswordConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class IngressPointPasswordConfiguration(TypedDict):
+class IngressPointPasswordConfiguration(TypedDict, closed=True):
     smtp_password_version: NotRequired["str"]
     """<p>The current password expiry timestamp of the ingress endpoint resource.</p>"""
     previous_smtp_password_version: NotRequired["str"]

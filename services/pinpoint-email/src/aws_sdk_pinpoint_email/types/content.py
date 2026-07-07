@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#Content``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.message_data
 
 
-class Content(TypedDict):
+class Content(TypedDict, closed=True):
     data: "aws_sdk_pinpoint_email.types.message_data.MessageData"
     """<p>The content of the message itself.</p>"""
     charset: NotRequired["aws_sdk_pinpoint_email.types.charset.Charset"]

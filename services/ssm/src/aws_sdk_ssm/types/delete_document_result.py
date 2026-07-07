@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeleteDocumentResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteDocumentResult(TypedDict):
+class DeleteDocumentResult(TypedDict, closed=True):
     pass
 
 

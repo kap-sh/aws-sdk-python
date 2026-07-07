@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#FSxWindowsFileServerVolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class FSxWindowsFileServerVolumeConfiguration(TypedDict):
+class FSxWindowsFileServerVolumeConfiguration(TypedDict, closed=True):
     file_system_id: "aws_sdk_ecs.types.string.String"
     """<p>The Amazon FSx for Windows File Server file system ID to use.</p>"""
     root_directory: "aws_sdk_ecs.types.string.String"

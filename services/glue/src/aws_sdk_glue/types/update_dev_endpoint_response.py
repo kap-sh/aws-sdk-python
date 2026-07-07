@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpdateDevEndpointResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateDevEndpointResponse(TypedDict):
+class UpdateDevEndpointResponse(TypedDict, closed=True):
     pass
 
 

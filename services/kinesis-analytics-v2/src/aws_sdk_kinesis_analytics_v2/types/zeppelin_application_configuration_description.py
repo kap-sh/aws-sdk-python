@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ZeppelinApplicationConfigurationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.zeppelin_monitoring_configuration_description
 
 
-class ZeppelinApplicationConfigurationDescription(TypedDict):
+class ZeppelinApplicationConfigurationDescription(TypedDict, closed=True):
     monitoring_configuration_description: "aws_sdk_kinesis_analytics_v2.types.zeppelin_monitoring_configuration_description.ZeppelinMonitoringConfigurationDescription"
     """<p>The monitoring configuration of a Managed Service for Apache Flink Studio notebook.</p>"""
     catalog_configuration_description: NotRequired[

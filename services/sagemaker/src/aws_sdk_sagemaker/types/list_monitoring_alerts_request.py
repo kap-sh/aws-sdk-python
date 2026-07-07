@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListMonitoringAlertsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListMonitoringAlertsRequest(TypedDict):
+class ListMonitoringAlertsRequest(TypedDict, closed=True):
     monitoring_schedule_name: NotRequired[
         "aws_sdk_sagemaker.types.monitoring_schedule_name.MonitoringScheduleName"
     ]

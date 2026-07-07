@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#CancelImportTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.import_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class CancelImportTaskResponse(TypedDict):
+class CancelImportTaskResponse(TypedDict, closed=True):
     import_id: NotRequired["aws_sdk_cloudwatch_logs.types.import_id.ImportId"]
     """<p>The ID of the cancelled import task.</p>"""
     import_statistics: NotRequired[

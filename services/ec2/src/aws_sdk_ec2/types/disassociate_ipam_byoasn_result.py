@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DisassociateIpamByoasnResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.asn_association
 
 
-class DisassociateIpamByoasnResult(TypedDict):
+class DisassociateIpamByoasnResult(TypedDict, closed=True):
     asn_association: NotRequired["aws_sdk_ec2.types.asn_association.AsnAssociation"]
     """<p>An ASN and BYOIP CIDR association.</p>"""
 

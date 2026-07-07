@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetLicenseRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.account_ids
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.resource_arns
 
 
-class GetLicenseRecommendationsRequest(TypedDict):
+class GetLicenseRecommendationsRequest(TypedDict, closed=True):
     resource_arns: NotRequired[
         "aws_sdk_compute_optimizer.types.resource_arns.ResourceArns"
     ]

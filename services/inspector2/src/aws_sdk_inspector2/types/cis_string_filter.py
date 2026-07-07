@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CisStringFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cis_string_comparison
 
 
-class CisStringFilter(TypedDict):
+class CisStringFilter(TypedDict, closed=True):
     comparison: "aws_sdk_inspector2.types.cis_string_comparison.CisStringComparison"
     """<p>The comparison value of the CIS string filter.</p>"""
     value: "str"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ParticipatingResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_status
     import aws_sdk_drs.types.participating_resource_id
 
 
-class ParticipatingResource(TypedDict):
+class ParticipatingResource(TypedDict, closed=True):
     participating_resource_id: NotRequired[
         "aws_sdk_drs.types.participating_resource_id.ParticipatingResourceID"
     ]

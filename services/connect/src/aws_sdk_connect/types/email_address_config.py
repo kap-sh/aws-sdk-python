@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EmailAddressConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.email_address_id
 
 
-class EmailAddressConfig(TypedDict):
+class EmailAddressConfig(TypedDict, closed=True):
     email_address_id: "aws_sdk_connect.types.email_address_id.EmailAddressId"
     """<p>The identifier of the email address that should be associated with the queue. This email address must already exist in the Connect Customer instance and will be used to route incoming email contacts to the specified queue.</p>"""
 

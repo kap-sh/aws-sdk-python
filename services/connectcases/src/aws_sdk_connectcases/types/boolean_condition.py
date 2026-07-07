@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#BooleanCondition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -9,19 +11,19 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.compound_condition
 
 
-class _BooleanCondition_equalTo(TypedDict):
+class _BooleanCondition_equalTo(TypedDict, closed=True):
     equalTo: "aws_sdk_connectcases.types.boolean_operands.BooleanOperands"
 
 
-class _BooleanCondition_notEqualTo(TypedDict):
+class _BooleanCondition_notEqualTo(TypedDict, closed=True):
     notEqualTo: "aws_sdk_connectcases.types.boolean_operands.BooleanOperands"
 
 
-class _BooleanCondition_andAll(TypedDict):
+class _BooleanCondition_andAll(TypedDict, closed=True):
     andAll: "aws_sdk_connectcases.types.compound_condition.CompoundCondition"
 
 
-class _BooleanCondition_orAll(TypedDict):
+class _BooleanCondition_orAll(TypedDict, closed=True):
     orAll: "aws_sdk_connectcases.types.compound_condition.CompoundCondition"
 
 

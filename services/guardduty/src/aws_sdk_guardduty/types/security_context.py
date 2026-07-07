@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#SecurityContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
 
 
-class SecurityContext(TypedDict):
+class SecurityContext(TypedDict, closed=True):
     privileged: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>Whether the container is privileged.</p>"""
     allow_privilege_escalation: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]

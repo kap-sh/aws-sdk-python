@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#RecurrenceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.weekly_settings
 
 
-class RecurrenceSettings(TypedDict):
+class RecurrenceSettings(TypedDict, closed=True):
     monthly_settings: NotRequired[
         "aws_sdk_ssm_contacts.types.monthly_settings.MonthlySettings"
     ]

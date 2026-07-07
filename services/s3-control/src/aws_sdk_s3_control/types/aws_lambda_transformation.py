@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#AwsLambdaTransformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.function_arn_string
 
 
-class AwsLambdaTransformation(TypedDict):
+class AwsLambdaTransformation(TypedDict, closed=True):
     function_arn: "aws_sdk_s3_control.types.function_arn_string.FunctionArnString"
     """<p>The Amazon Resource Name (ARN) of the Lambda function.</p>"""
     function_payload: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#AutoScalingPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.scaling_constraints
     import aws_sdk_emr.types.scaling_rule_list
 
 
-class AutoScalingPolicy(TypedDict):
+class AutoScalingPolicy(TypedDict, closed=True):
     constraints: NotRequired["aws_sdk_emr.types.scaling_constraints.ScalingConstraints"]
     """<p>The upper and lower Amazon EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.</p>"""
     rules: NotRequired["aws_sdk_emr.types.scaling_rule_list.ScalingRuleList"]

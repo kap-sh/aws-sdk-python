@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#HttpGatewayRouteRewrite``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.gateway_route_hostname_rewrite
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.http_gateway_route_prefix_rewrite
 
 
-class HttpGatewayRouteRewrite(TypedDict):
+class HttpGatewayRouteRewrite(TypedDict, closed=True):
     prefix: NotRequired[
         "aws_sdk_app_mesh.types.http_gateway_route_prefix_rewrite.HttpGatewayRoutePrefixRewrite"
     ]

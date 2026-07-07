@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ListJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_job_entry
     import aws_sdk_dataexchange.types.next_token
 
 
-class ListJobsResponse(TypedDict):
+class ListJobsResponse(TypedDict, closed=True):
     jobs: NotRequired["aws_sdk_dataexchange.types.list_of_job_entry.ListOfJobEntry"]
     """<p>The jobs listed by the request.</p>"""
     next_token: NotRequired["aws_sdk_dataexchange.types.next_token.NextToken"]

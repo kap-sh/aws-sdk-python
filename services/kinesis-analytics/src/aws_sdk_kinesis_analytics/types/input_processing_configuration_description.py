@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#InputProcessingConfigurationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.input_lambda_processor_description
 
 
-class InputProcessingConfigurationDescription(TypedDict):
+class InputProcessingConfigurationDescription(TypedDict, closed=True):
     input_lambda_processor_description: NotRequired[
         "aws_sdk_kinesis_analytics.types.input_lambda_processor_description.InputLambdaProcessorDescription"
     ]

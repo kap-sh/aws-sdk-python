@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RuleAction``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -19,55 +21,55 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.sns_action
 
 
-class _RuleAction_Drop(TypedDict):
+class _RuleAction_Drop(TypedDict, closed=True):
     Drop: "aws_sdk_mailmanager.types.drop_action.DropAction"
 
 
-class _RuleAction_Relay(TypedDict):
+class _RuleAction_Relay(TypedDict, closed=True):
     Relay: "aws_sdk_mailmanager.types.relay_action.RelayAction"
 
 
-class _RuleAction_Archive(TypedDict):
+class _RuleAction_Archive(TypedDict, closed=True):
     Archive: "aws_sdk_mailmanager.types.archive_action.ArchiveAction"
 
 
-class _RuleAction_WriteToS3(TypedDict):
+class _RuleAction_WriteToS3(TypedDict, closed=True):
     WriteToS3: "aws_sdk_mailmanager.types.s3_action.S3Action"
 
 
-class _RuleAction_Send(TypedDict):
+class _RuleAction_Send(TypedDict, closed=True):
     Send: "aws_sdk_mailmanager.types.send_action.SendAction"
 
 
-class _RuleAction_AddHeader(TypedDict):
+class _RuleAction_AddHeader(TypedDict, closed=True):
     AddHeader: "aws_sdk_mailmanager.types.add_header_action.AddHeaderAction"
 
 
-class _RuleAction_ReplaceRecipient(TypedDict):
+class _RuleAction_ReplaceRecipient(TypedDict, closed=True):
     ReplaceRecipient: (
         "aws_sdk_mailmanager.types.replace_recipient_action.ReplaceRecipientAction"
     )
 
 
-class _RuleAction_DeliverToMailbox(TypedDict):
+class _RuleAction_DeliverToMailbox(TypedDict, closed=True):
     DeliverToMailbox: (
         "aws_sdk_mailmanager.types.deliver_to_mailbox_action.DeliverToMailboxAction"
     )
 
 
-class _RuleAction_DeliverToQBusiness(TypedDict):
+class _RuleAction_DeliverToQBusiness(TypedDict, closed=True):
     DeliverToQBusiness: "aws_sdk_mailmanager.types.deliver_to_q_business_action.DeliverToQBusinessAction"
 
 
-class _RuleAction_PublishToSns(TypedDict):
+class _RuleAction_PublishToSns(TypedDict, closed=True):
     PublishToSns: "aws_sdk_mailmanager.types.sns_action.SnsAction"
 
 
-class _RuleAction_Bounce(TypedDict):
+class _RuleAction_Bounce(TypedDict, closed=True):
     Bounce: "aws_sdk_mailmanager.types.bounce_action.BounceAction"
 
 
-class _RuleAction_InvokeLambda(TypedDict):
+class _RuleAction_InvokeLambda(TypedDict, closed=True):
     InvokeLambda: "aws_sdk_mailmanager.types.invoke_lambda_action.InvokeLambdaAction"
 
 

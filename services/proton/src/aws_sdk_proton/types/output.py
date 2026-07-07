@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.proton#Output``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.output_key
     import aws_sdk_proton.types.output_value_string
 
 
-class Output(TypedDict):
+class Output(TypedDict, closed=True):
     key: NotRequired["aws_sdk_proton.types.output_key.OutputKey"]
     """<p>The output key.</p>"""
     value_string: NotRequired[

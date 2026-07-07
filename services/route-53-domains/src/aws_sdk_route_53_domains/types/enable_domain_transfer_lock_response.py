@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#EnableDomainTransferLockResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.operation_id
 
 
-class EnableDomainTransferLockResponse(TypedDict):
+class EnableDomainTransferLockResponse(TypedDict, closed=True):
     operation_id: NotRequired["aws_sdk_route_53_domains.types.operation_id.OperationId"]
     """<p>Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.</p>"""
 

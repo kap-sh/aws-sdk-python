@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualServiceProvider``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_router_service_provider
 
 
-class _VirtualServiceProvider_virtualNode(TypedDict):
+class _VirtualServiceProvider_virtualNode(TypedDict, closed=True):
     virtualNode: "aws_sdk_app_mesh.types.virtual_node_service_provider.VirtualNodeServiceProvider"
 
 
-class _VirtualServiceProvider_virtualRouter(TypedDict):
+class _VirtualServiceProvider_virtualRouter(TypedDict, closed=True):
     virtualRouter: "aws_sdk_app_mesh.types.virtual_router_service_provider.VirtualRouterServiceProvider"
 
 

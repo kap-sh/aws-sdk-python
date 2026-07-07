@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspectorscan#InternalServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector_scan.errors import DeserializationError, ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector_scan.types.internal_server_exception_reason
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
     reason: "aws_sdk_inspector_scan.types.internal_server_exception_reason.InternalServerExceptionReason"
     """<p>The reason for the validation failure.</p>"""

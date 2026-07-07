@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pi#AnalysisReportSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.analysis_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pi.types.tag_list
 
 
-class AnalysisReportSummary(TypedDict):
+class AnalysisReportSummary(TypedDict, closed=True):
     analysis_report_id: NotRequired["aws_sdk_pi.types.string.String"]
     """<p>The name of the analysis report.</p>"""
     create_time: NotRequired["aws_sdk_pi.types.iso_timestamp.ISOTimestamp"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AssetPropertyTimestamp``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.asset_property_time_in_seconds
 
 
-class AssetPropertyTimestamp(TypedDict):
+class AssetPropertyTimestamp(TypedDict, closed=True):
     time_in_seconds: (
         "aws_sdk_iot.types.asset_property_time_in_seconds.AssetPropertyTimeInSeconds"
     )

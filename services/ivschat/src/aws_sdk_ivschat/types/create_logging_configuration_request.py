@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#CreateLoggingConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivschat.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.tags
 
 
-class CreateLoggingConfigurationRequest(TypedDict):
+class CreateLoggingConfigurationRequest(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_ivschat.types.logging_configuration_name.LoggingConfigurationName"
     ]

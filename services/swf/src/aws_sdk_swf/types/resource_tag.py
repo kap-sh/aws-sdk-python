@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ResourceTag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.resource_tag_value
 
 
-class ResourceTag(TypedDict):
+class ResourceTag(TypedDict, closed=True):
     key: "aws_sdk_swf.types.resource_tag_key.ResourceTagKey"
     """<p>The key of a tag.</p>"""
     value: NotRequired["aws_sdk_swf.types.resource_tag_value.ResourceTagValue"]

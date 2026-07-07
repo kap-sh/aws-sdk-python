@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#DeleteResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.policy_revision_id
 
 
-class DeleteResourcePolicyRequest(TypedDict):
+class DeleteResourcePolicyRequest(TypedDict, closed=True):
     policy_name: "aws_sdk_xray.types.policy_name.PolicyName"
     """<p>The name of the resource policy to delete.</p>"""
     policy_revision_id: NotRequired[

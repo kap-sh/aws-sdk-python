@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeAccessPointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.access_point_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.token
 
 
-class DescribeAccessPointsRequest(TypedDict):
+class DescribeAccessPointsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_efs.types.max_results.MaxResults"]
     """<p>(Optional) When retrieving all access points for a file system, you can optionally specify the <code>MaxItems</code> parameter to limit the number of objects returned in a response. The default value is 100. </p>"""
     next_token: NotRequired["aws_sdk_efs.types.token.Token"]

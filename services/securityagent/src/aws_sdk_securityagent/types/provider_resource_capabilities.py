@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#ProviderResourceCapabilities``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.git_hub_resource_capabilities
 
 
-class _ProviderResourceCapabilities_github(TypedDict):
+class _ProviderResourceCapabilities_github(TypedDict, closed=True):
     github: "aws_sdk_securityagent.types.git_hub_resource_capabilities.GitHubResourceCapabilities"
 
 

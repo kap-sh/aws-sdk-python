@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ClassifierEvaluationMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.double
 
 
-class ClassifierEvaluationMetrics(TypedDict):
+class ClassifierEvaluationMetrics(TypedDict, closed=True):
     accuracy: NotRequired["aws_sdk_comprehend.types.double.Double"]
     """<p>The fraction of the labels that were correct recognized. It is computed by dividing the number of labels in the test documents that were correctly recognized by the total number of labels in the test documents.</p>"""
     precision: NotRequired["aws_sdk_comprehend.types.double.Double"]

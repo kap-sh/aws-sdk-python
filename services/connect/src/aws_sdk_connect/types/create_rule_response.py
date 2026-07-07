@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.rule_id
 
 
-class CreateRuleResponse(TypedDict):
+class CreateRuleResponse(TypedDict, closed=True):
     rule_arn: "aws_sdk_connect.types.arn.ARN"
     """<p>The Amazon Resource Name (ARN) of the rule.</p>"""
     rule_id: "aws_sdk_connect.types.rule_id.RuleId"

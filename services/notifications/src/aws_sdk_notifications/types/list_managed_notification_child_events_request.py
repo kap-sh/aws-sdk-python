@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListManagedNotificationChildEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.organizational_unit_id
 
 
-class ListManagedNotificationChildEventsRequest(TypedDict):
+class ListManagedNotificationChildEventsRequest(TypedDict, closed=True):
     aggregate_managed_notification_event_arn: "aws_sdk_notifications.types.managed_notification_event_arn.ManagedNotificationEventArn"
     """<p>The Amazon Resource Name (ARN) of the <code>ManagedNotificationEvent</code>.</p>"""
     start_time: NotRequired["datetime.datetime"]

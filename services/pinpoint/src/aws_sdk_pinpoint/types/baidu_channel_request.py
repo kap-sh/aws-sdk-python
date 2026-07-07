@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#BaiduChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
     import aws_sdk_pinpoint.types.__string
 
 
-class BaiduChannelRequest(TypedDict):
+class BaiduChannelRequest(TypedDict, closed=True):
     api_key: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The API key that you received from the Baidu Cloud Push service to communicate with the service.</p>"""
     enabled: NotRequired["aws_sdk_pinpoint.types.__boolean.__boolean"]

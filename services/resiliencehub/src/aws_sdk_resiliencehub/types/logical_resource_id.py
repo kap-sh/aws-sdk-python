@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#LogicalResourceId``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string255
 
 
-class LogicalResourceId(TypedDict):
+class LogicalResourceId(TypedDict, closed=True):
     identifier: "aws_sdk_resiliencehub.types.string255.String255"
     """<p>Identifier of the resource.</p>"""
     logical_stack_name: NotRequired["aws_sdk_resiliencehub.types.string255.String255"]

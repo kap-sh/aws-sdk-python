@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#OrganizationEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.event_metadata
 
 
-class OrganizationEventDetails(TypedDict):
+class OrganizationEventDetails(TypedDict, closed=True):
     aws_account_id: NotRequired["aws_sdk_health.types.account_id.accountId"]
     """<p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>"""
     event: NotRequired["aws_sdk_health.types.event.Event"]

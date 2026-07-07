@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#InboxPlacementTrackingOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.enabled
@@ -14,6 +14,7 @@ InboxPlacementTrackingOption = TypedDict(
         "global": "aws_sdk_sesv2.types.enabled.Enabled",
         "tracked_isps": NotRequired["aws_sdk_sesv2.types.isp_name_list.IspNameList"],
     },
+    closed=True,
 )
 
 

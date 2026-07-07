@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#AddArtifactOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.artifact_id
 
 
-class AddArtifactOutput(TypedDict):
+class AddArtifactOutput(TypedDict, closed=True):
     artifact_id: "aws_sdk_securityagent.types.artifact_id.ArtifactId"
     """<p>The unique identifier assigned to the uploaded artifact.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#UsageMetricBasis``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.usage_metric_basis_name
     import aws_sdk_application_discovery_service.types.usage_metric_percentage_adjust
 
 
-class UsageMetricBasis(TypedDict):
+class UsageMetricBasis(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_application_discovery_service.types.usage_metric_basis_name.UsageMetricBasisName"
     ]

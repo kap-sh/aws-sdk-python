@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#UpdatePracticeRunConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.allowed_windows
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.resource_identifier
 
 
-class UpdatePracticeRunConfigurationRequest(TypedDict):
+class UpdatePracticeRunConfigurationRequest(TypedDict, closed=True):
     resource_identifier: (
         "aws_sdk_arc_zonal_shift.types.resource_identifier.ResourceIdentifier"
     )

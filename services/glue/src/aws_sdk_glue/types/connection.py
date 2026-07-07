@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Connection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.authentication_configuration
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class Connection(TypedDict):
+class Connection(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the connection definition.</p>"""
     description: NotRequired["aws_sdk_glue.types.description_string.DescriptionString"]

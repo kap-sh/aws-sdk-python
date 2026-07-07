@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#LastUpdateStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.failure_reason
     import aws_sdk_sagemaker.types.last_update_status_value
 
 
-class LastUpdateStatus(TypedDict):
+class LastUpdateStatus(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_sagemaker.types.last_update_status_value.LastUpdateStatusValue"
     ]

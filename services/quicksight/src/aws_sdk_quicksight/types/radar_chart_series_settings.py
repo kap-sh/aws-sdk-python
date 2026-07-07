@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RadarChartSeriesSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.radar_chart_area_style_settings
 
 
-class RadarChartSeriesSettings(TypedDict):
+class RadarChartSeriesSettings(TypedDict, closed=True):
     area_style_settings: NotRequired[
         "aws_sdk_quicksight.types.radar_chart_area_style_settings.RadarChartAreaStyleSettings"
     ]

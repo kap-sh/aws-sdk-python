@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.uxc#GetAccountCustomizationsInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAccountCustomizationsInput(TypedDict):
+class GetAccountCustomizationsInput(TypedDict, closed=True):
     pass
 
 

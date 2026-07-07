@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ReferenceLine``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.widget_status
 
 
-class ReferenceLine(TypedDict):
+class ReferenceLine(TypedDict, closed=True):
     status: NotRequired["aws_sdk_quicksight.types.widget_status.WidgetStatus"]
     """<p>The status of the reference line. Choose one of the following options:</p> <ul> <li> <p> <code>ENABLE</code> </p> </li> <li> <p> <code>DISABLE</code> </p> </li> </ul>"""
     data_configuration: "aws_sdk_quicksight.types.reference_line_data_configuration.ReferenceLineDataConfiguration"

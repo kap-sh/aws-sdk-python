@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#CreatePersistentAppUIInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.arn_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.tag_list
 
 
-class CreatePersistentAppUIInput(TypedDict):
+class CreatePersistentAppUIInput(TypedDict, closed=True):
     target_resource_arn: NotRequired["aws_sdk_emr.types.arn_type.ArnType"]
     """<p>The unique Amazon Resource Name (ARN) of the target resource.</p>"""
     emr_containers_config: NotRequired[

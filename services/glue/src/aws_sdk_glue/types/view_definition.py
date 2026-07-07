@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ViewDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.arn_string
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.view_sub_objects_list
 
 
-class ViewDefinition(TypedDict):
+class ViewDefinition(TypedDict, closed=True):
     is_protected: NotRequired["aws_sdk_glue.types.nullable_boolean.NullableBoolean"]
     """<p>You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.</p>"""
     definer: NotRequired["aws_sdk_glue.types.arn_string.ArnString"]

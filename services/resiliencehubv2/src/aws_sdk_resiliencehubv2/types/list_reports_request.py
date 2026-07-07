@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListReportsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.report_type
 
 
-class ListReportsRequest(TypedDict):
+class ListReportsRequest(TypedDict, closed=True):
     service_arn: NotRequired["aws_sdk_resiliencehubv2.types.arn.Arn"]
     """<p>Optional. If not provided, lists all reports owned by the account.</p>"""
     report_type: NotRequired["aws_sdk_resiliencehubv2.types.report_type.ReportType"]

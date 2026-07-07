@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#Intersection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_places.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class Intersection(TypedDict):
+class Intersection(TypedDict, closed=True):
     place_id: "aws_sdk_geo_places.types.sensitive_string.SensitiveString"
     """<p>The <code>PlaceId</code> of the place result.</p>"""
     title: "aws_sdk_geo_places.types.sensitive_string.SensitiveString"

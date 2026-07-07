@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#AlarmRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.simple_rule
 
 
-class AlarmRule(TypedDict):
+class AlarmRule(TypedDict, closed=True):
     simple_rule: NotRequired["aws_sdk_iot_events.types.simple_rule.SimpleRule"]
     """<p>A rule that compares an input property value to a threshold value with a comparison operator.</p>"""
 

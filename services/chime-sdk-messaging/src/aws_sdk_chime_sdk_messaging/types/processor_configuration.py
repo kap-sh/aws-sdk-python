@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ProcessorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_messaging.errors import DeserializationError
 
@@ -12,6 +14,7 @@ ProcessorConfiguration = TypedDict(
     {
         "lambda": "aws_sdk_chime_sdk_messaging.types.lambda_configuration.LambdaConfiguration",
     },
+    closed=True,
 )
 
 

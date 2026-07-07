@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ProductionVariantSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.deployed_images
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.variant_weight
 
 
-class ProductionVariantSummary(TypedDict):
+class ProductionVariantSummary(TypedDict, closed=True):
     variant_name: NotRequired["aws_sdk_sagemaker.types.variant_name.VariantName"]
     """<p>The name of the variant.</p>"""
     deployed_images: NotRequired[

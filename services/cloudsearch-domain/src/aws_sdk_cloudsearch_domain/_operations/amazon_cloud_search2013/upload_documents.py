@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import Any
+from typing import Any, cast
 
 import zapros
 from typing_extensions import Never
@@ -98,7 +98,7 @@ def build_request(
         headers["Content-Type"] = str(input_["content_type"])
     body = input_["documents"]
     if isinstance(body, aws_sdk_cloudsearch_domain._iter.StaticAnyIterator):
-        body = body.content
+        body = cast(bytes, body.content)
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

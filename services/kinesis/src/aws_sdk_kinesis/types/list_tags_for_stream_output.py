@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#ListTagsForStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.tag_list
 
 
-class ListTagsForStreamOutput(TypedDict):
+class ListTagsForStreamOutput(TypedDict, closed=True):
     tags: "aws_sdk_kinesis.types.tag_list.TagList"
     """<p>A list of tags associated with <code>StreamName</code>, starting with the first tag after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>. </p>"""
     has_more_tags: "aws_sdk_kinesis.types.boolean_object.BooleanObject"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#RecommendationTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.time_stamp
 
 
-class RecommendationTemplate(TypedDict):
+class RecommendationTemplate(TypedDict, closed=True):
     templates_location: NotRequired[
         "aws_sdk_resiliencehub.types.s3_location.S3Location"
     ]

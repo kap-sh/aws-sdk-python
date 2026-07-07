@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#IncompatibleParameterError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fsx.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.parameter
 
 
-class IncompatibleParameterError_(TypedDict):
+class IncompatibleParameterError_(TypedDict, closed=True):
     parameter: NotRequired["aws_sdk_fsx.types.parameter.Parameter"]
     """<p>A parameter that is incompatible with the earlier request.</p>"""
     message: NotRequired["aws_sdk_fsx.types.error_message.ErrorMessage"]

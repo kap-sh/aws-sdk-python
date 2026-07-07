@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#TextPromptTemplateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.text_prompt
 
 
-class TextPromptTemplateConfiguration(TypedDict):
+class TextPromptTemplateConfiguration(TypedDict, closed=True):
     text: "aws_sdk_bedrock_agent.types.text_prompt.TextPrompt"
     """<p>The message for the prompt.</p>"""
     cache_point: NotRequired[

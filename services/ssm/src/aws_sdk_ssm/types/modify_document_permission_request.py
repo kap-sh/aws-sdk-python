@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ModifyDocumentPermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.shared_document_version
 
 
-class ModifyDocumentPermissionRequest(TypedDict):
+class ModifyDocumentPermissionRequest(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.document_name.DocumentName"
     """<p>The name of the document that you want to share.</p>"""
     permission_type: "aws_sdk_ssm.types.document_permission_type.DocumentPermissionType"

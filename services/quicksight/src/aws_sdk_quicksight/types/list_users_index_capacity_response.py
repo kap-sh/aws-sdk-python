@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListUsersIndexCapacityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.user_index_capacity_list
 
 
-class ListUsersIndexCapacityResponse(TypedDict):
+class ListUsersIndexCapacityResponse(TypedDict, closed=True):
     users: NotRequired[
         "aws_sdk_quicksight.types.user_index_capacity_list.UserIndexCapacityList"
     ]

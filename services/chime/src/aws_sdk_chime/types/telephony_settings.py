@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#TelephonySettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.boolean
 
 
-class TelephonySettings(TypedDict):
+class TelephonySettings(TypedDict, closed=True):
     inbound_calling: "aws_sdk_chime.types.boolean.Boolean"
     """<p>Allows or denies inbound calling.</p>"""
     outbound_calling: "aws_sdk_chime.types.boolean.Boolean"

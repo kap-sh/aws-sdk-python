@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#BatchDeleteRecipeVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.recipe_version_list
 
 
-class BatchDeleteRecipeVersionRequest(TypedDict):
+class BatchDeleteRecipeVersionRequest(TypedDict, closed=True):
     name: "aws_sdk_databrew.types.recipe_name.RecipeName"
     """<p>The name of the recipe whose versions are to be deleted.</p>"""
     recipe_versions: "aws_sdk_databrew.types.recipe_version_list.RecipeVersionList"

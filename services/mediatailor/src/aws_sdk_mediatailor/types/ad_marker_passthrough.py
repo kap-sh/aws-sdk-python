@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#AdMarkerPassthrough``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__boolean
 
 
-class AdMarkerPassthrough(TypedDict):
+class AdMarkerPassthrough(TypedDict, closed=True):
     enabled: "aws_sdk_mediatailor.types.__boolean.__boolean"
     """<p>Enables ad marker passthrough for your configuration.</p>"""
 

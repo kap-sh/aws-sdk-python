@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#LaunchConfigurationsType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.xml_string
 
 
-class LaunchConfigurationsType(TypedDict):
+class LaunchConfigurationsType(TypedDict, closed=True):
     launch_configurations: NotRequired[
         "aws_sdk_auto_scaling.types.launch_configurations.LaunchConfigurations"
     ]

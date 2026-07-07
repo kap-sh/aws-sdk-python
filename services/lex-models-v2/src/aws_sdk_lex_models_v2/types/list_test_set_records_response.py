@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListTestSetRecordsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.next_token
     import aws_sdk_lex_models_v2.types.test_set_turn_record_list
 
 
-class ListTestSetRecordsResponse(TypedDict):
+class ListTestSetRecordsResponse(TypedDict, closed=True):
     test_set_records: NotRequired[
         "aws_sdk_lex_models_v2.types.test_set_turn_record_list.TestSetTurnRecordList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Occurrences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.cells
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.records
 
 
-class Occurrences(TypedDict):
+class Occurrences(TypedDict, closed=True):
     line_ranges: NotRequired["aws_sdk_securityhub.types.ranges.Ranges"]
     """<p>Occurrences of sensitive data detected in a non-binary text file or a Microsoft Word file. Non-binary text files include files such as HTML, XML, JSON, and TXT files.</p>"""
     offset_ranges: NotRequired["aws_sdk_securityhub.types.ranges.Ranges"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#JobResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.ec2_ami_resource_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.s3_resource_list
 
 
-class JobResource(TypedDict):
+class JobResource(TypedDict, closed=True):
     s3_resources: NotRequired["aws_sdk_snowball.types.s3_resource_list.S3ResourceList"]
     """<p>An array of <code>S3Resource</code> objects.</p>"""
     lambda_resources: NotRequired[

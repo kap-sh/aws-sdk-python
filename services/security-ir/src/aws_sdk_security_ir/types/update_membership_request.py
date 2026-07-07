@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#UpdateMembershipRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.incident_response_team
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.opt_in_features
 
 
-class UpdateMembershipRequest(TypedDict):
+class UpdateMembershipRequest(TypedDict, closed=True):
     membership_id: "aws_sdk_security_ir.types.membership_id.MembershipId"
     """<p>Required element for UpdateMembership to identify the membership to update.</p>"""
     membership_name: NotRequired[

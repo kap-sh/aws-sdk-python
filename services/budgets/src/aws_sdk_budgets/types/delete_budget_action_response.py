@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#DeleteBudgetActionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.budget_name
 
 
-class DeleteBudgetActionResponse(TypedDict):
+class DeleteBudgetActionResponse(TypedDict, closed=True):
     account_id: "aws_sdk_budgets.types.account_id.AccountId"
     budget_name: "aws_sdk_budgets.types.budget_name.BudgetName"
     action: "aws_sdk_budgets.types.action.Action"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#AssociatePackageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.domain_package_details
 
 
-class AssociatePackageResponse(TypedDict):
+class AssociatePackageResponse(TypedDict, closed=True):
     domain_package_details: NotRequired[
         "aws_sdk_elasticsearch_service.types.domain_package_details.DomainPackageDetails"
     ]

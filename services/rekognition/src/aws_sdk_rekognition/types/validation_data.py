@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ValidationData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.assets
 
 
-class ValidationData(TypedDict):
+class ValidationData(TypedDict, closed=True):
     assets: NotRequired["aws_sdk_rekognition.types.assets.Assets"]
     """<p>The assets that comprise the validation data. </p>"""
 

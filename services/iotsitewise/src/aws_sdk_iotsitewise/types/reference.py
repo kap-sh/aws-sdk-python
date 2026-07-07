@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#Reference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.data_set_reference
 
 
-class Reference(TypedDict):
+class Reference(TypedDict, closed=True):
     dataset: NotRequired[
         "aws_sdk_iotsitewise.types.data_set_reference.DataSetReference"
     ]

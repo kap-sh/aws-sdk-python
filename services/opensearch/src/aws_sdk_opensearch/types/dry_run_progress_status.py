@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DryRunProgressStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.validation_failures
 
 
-class DryRunProgressStatus(TypedDict):
+class DryRunProgressStatus(TypedDict, closed=True):
     dry_run_id: "aws_sdk_opensearch.types.guid.GUID"
     """<p>The unique identifier of the dry run.</p>"""
     dry_run_status: "aws_sdk_opensearch.types.string.String"

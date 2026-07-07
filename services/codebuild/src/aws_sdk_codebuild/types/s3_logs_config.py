@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#S3LogsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_boolean
 
 
-class S3LogsConfig(TypedDict):
+class S3LogsConfig(TypedDict, closed=True):
     status: "aws_sdk_codebuild.types.logs_config_status_type.LogsConfigStatusType"
     """<p>The current status of the S3 build logs. Valid values are:</p> <ul> <li> <p> <code>ENABLED</code>: S3 build logs are enabled for this build project.</p> </li> <li> <p> <code>DISABLED</code>: S3 build logs are not enabled for this build project.</p> </li> </ul>"""
     location: NotRequired["aws_sdk_codebuild.types.string.String"]

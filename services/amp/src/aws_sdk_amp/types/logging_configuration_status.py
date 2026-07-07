@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#LoggingConfigurationStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.logging_configuration_status_code
 
 
-class LoggingConfigurationStatus(TypedDict):
+class LoggingConfigurationStatus(TypedDict, closed=True):
     status_code: "aws_sdk_amp.types.logging_configuration_status_code.LoggingConfigurationStatusCode"
     """<p>The current status of the current rules and alerting logging configuration.</p> <note> <p>These logging configurations are only for rules and alerting logs.</p> </note>"""
     status_reason: NotRequired["str"]

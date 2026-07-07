@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#S3ObjectDoc``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.s3_uri
 
 
-class S3ObjectDoc(TypedDict):
+class S3ObjectDoc(TypedDict, closed=True):
     uri: "aws_sdk_bedrock_agent_runtime.types.s3_uri.S3Uri"
     """<p>The file location of the S3 wrapper object.</p>"""
 

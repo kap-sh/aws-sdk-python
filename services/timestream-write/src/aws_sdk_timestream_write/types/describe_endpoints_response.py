@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#DescribeEndpointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.endpoints
 
 
-class DescribeEndpointsResponse(TypedDict):
+class DescribeEndpointsResponse(TypedDict, closed=True):
     endpoints: "aws_sdk_timestream_write.types.endpoints.Endpoints"
     """<p>An <code>Endpoints</code> object is returned when a <code>DescribeEndpoints</code> request is made.</p>"""
 

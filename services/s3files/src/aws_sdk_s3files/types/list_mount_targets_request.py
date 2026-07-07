@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#ListMountTargetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3files.types.access_point_id
     import aws_sdk_s3files.types.file_system_id
 
 
-class ListMountTargetsRequest(TypedDict):
+class ListMountTargetsRequest(TypedDict, closed=True):
     file_system_id: NotRequired["aws_sdk_s3files.types.file_system_id.FileSystemId"]
     """<p>Optional filter to list only mount targets associated with the specified S3 File System ID or Amazon Resource Name (ARN). If provided, only mount targets for this file system will be returned in the response.</p>"""
     access_point_id: NotRequired["aws_sdk_s3files.types.access_point_id.AccessPointId"]

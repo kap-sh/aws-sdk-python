@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ScalingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.maximum_concurrency
 
 
-class ScalingConfig(TypedDict):
+class ScalingConfig(TypedDict, closed=True):
     maximum_concurrency: NotRequired[
         "aws_sdk_lambda.types.maximum_concurrency.MaximumConcurrency"
     ]

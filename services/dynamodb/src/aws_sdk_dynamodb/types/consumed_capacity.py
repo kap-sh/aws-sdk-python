@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ConsumedCapacity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.capacity
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_arn
 
 
-class ConsumedCapacity(TypedDict):
+class ConsumedCapacity(TypedDict, closed=True):
     table_name: NotRequired["aws_sdk_dynamodb.types.table_arn.TableArn"]
     """<p>The name of the table that was affected by the operation. If you had specified the Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>"""
     capacity_units: NotRequired[

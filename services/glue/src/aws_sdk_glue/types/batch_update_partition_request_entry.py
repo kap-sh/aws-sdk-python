@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchUpdatePartitionRequestEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.partition_input
 
 
-class BatchUpdatePartitionRequestEntry(TypedDict):
+class BatchUpdatePartitionRequestEntry(TypedDict, closed=True):
     partition_value_list: (
         "aws_sdk_glue.types.bounded_partition_value_list.BoundedPartitionValueList"
     )

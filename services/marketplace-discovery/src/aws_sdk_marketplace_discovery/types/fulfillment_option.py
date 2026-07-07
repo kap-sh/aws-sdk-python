@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#FulfillmentOption``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import (
     DeserializationError,
@@ -22,51 +24,53 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.sage_maker_model_fulfillment_option
 
 
-class _FulfillmentOption_amazonMachineImageFulfillmentOption(TypedDict):
+class _FulfillmentOption_amazonMachineImageFulfillmentOption(TypedDict, closed=True):
     amazonMachineImageFulfillmentOption: "aws_sdk_marketplace_discovery.types.amazon_machine_image_fulfillment_option.AmazonMachineImageFulfillmentOption"
 
 
-class _FulfillmentOption_apiFulfillmentOption(TypedDict):
+class _FulfillmentOption_apiFulfillmentOption(TypedDict, closed=True):
     apiFulfillmentOption: "aws_sdk_marketplace_discovery.types.api_fulfillment_option.ApiFulfillmentOption"
 
 
-class _FulfillmentOption_cloudFormationFulfillmentOption(TypedDict):
+class _FulfillmentOption_cloudFormationFulfillmentOption(TypedDict, closed=True):
     cloudFormationFulfillmentOption: "aws_sdk_marketplace_discovery.types.cloud_formation_fulfillment_option.CloudFormationFulfillmentOption"
 
 
-class _FulfillmentOption_containerFulfillmentOption(TypedDict):
+class _FulfillmentOption_containerFulfillmentOption(TypedDict, closed=True):
     containerFulfillmentOption: "aws_sdk_marketplace_discovery.types.container_fulfillment_option.ContainerFulfillmentOption"
 
 
-class _FulfillmentOption_helmFulfillmentOption(TypedDict):
+class _FulfillmentOption_helmFulfillmentOption(TypedDict, closed=True):
     helmFulfillmentOption: "aws_sdk_marketplace_discovery.types.helm_fulfillment_option.HelmFulfillmentOption"
 
 
-class _FulfillmentOption_eksAddOnFulfillmentOption(TypedDict):
+class _FulfillmentOption_eksAddOnFulfillmentOption(TypedDict, closed=True):
     eksAddOnFulfillmentOption: "aws_sdk_marketplace_discovery.types.eks_add_on_fulfillment_option.EksAddOnFulfillmentOption"
 
 
-class _FulfillmentOption_ec2ImageBuilderComponentFulfillmentOption(TypedDict):
+class _FulfillmentOption_ec2ImageBuilderComponentFulfillmentOption(
+    TypedDict, closed=True
+):
     ec2ImageBuilderComponentFulfillmentOption: "aws_sdk_marketplace_discovery.types.ec2_image_builder_component_fulfillment_option.Ec2ImageBuilderComponentFulfillmentOption"
 
 
-class _FulfillmentOption_dataExchangeFulfillmentOption(TypedDict):
+class _FulfillmentOption_dataExchangeFulfillmentOption(TypedDict, closed=True):
     dataExchangeFulfillmentOption: "aws_sdk_marketplace_discovery.types.data_exchange_fulfillment_option.DataExchangeFulfillmentOption"
 
 
-class _FulfillmentOption_professionalServicesFulfillmentOption(TypedDict):
+class _FulfillmentOption_professionalServicesFulfillmentOption(TypedDict, closed=True):
     professionalServicesFulfillmentOption: "aws_sdk_marketplace_discovery.types.professional_services_fulfillment_option.ProfessionalServicesFulfillmentOption"
 
 
-class _FulfillmentOption_saasFulfillmentOption(TypedDict):
+class _FulfillmentOption_saasFulfillmentOption(TypedDict, closed=True):
     saasFulfillmentOption: "aws_sdk_marketplace_discovery.types.saas_fulfillment_option.SaasFulfillmentOption"
 
 
-class _FulfillmentOption_sageMakerAlgorithmFulfillmentOption(TypedDict):
+class _FulfillmentOption_sageMakerAlgorithmFulfillmentOption(TypedDict, closed=True):
     sageMakerAlgorithmFulfillmentOption: "aws_sdk_marketplace_discovery.types.sage_maker_algorithm_fulfillment_option.SageMakerAlgorithmFulfillmentOption"
 
 
-class _FulfillmentOption_sageMakerModelFulfillmentOption(TypedDict):
+class _FulfillmentOption_sageMakerModelFulfillmentOption(TypedDict, closed=True):
     sageMakerModelFulfillmentOption: "aws_sdk_marketplace_discovery.types.sage_maker_model_fulfillment_option.SageMakerModelFulfillmentOption"
 
 

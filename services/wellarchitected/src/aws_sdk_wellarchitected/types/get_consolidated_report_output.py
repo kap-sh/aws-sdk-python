@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#GetConsolidatedReportOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.base64_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.next_token
 
 
-class GetConsolidatedReportOutput(TypedDict):
+class GetConsolidatedReportOutput(TypedDict, closed=True):
     metrics: NotRequired[
         "aws_sdk_wellarchitected.types.consolidated_report_metrics.ConsolidatedReportMetrics"
     ]

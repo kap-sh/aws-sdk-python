@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#ListFileSystemsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3files.types.bucket_arn
 
 
-class ListFileSystemsRequest(TypedDict):
+class ListFileSystemsRequest(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_s3files.types.bucket_arn.BucketArn"]
     """<p>Optional filter to list only file systems associated with the specified S3 bucket Amazon Resource Name (ARN). If provided, only file systems that provide access to this bucket will be returned in the response.</p>"""
     max_results: "int"

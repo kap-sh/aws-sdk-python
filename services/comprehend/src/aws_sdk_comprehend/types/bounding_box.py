@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#BoundingBox``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.float
 
 
-class BoundingBox(TypedDict):
+class BoundingBox(TypedDict, closed=True):
     height: NotRequired["aws_sdk_comprehend.types.float.Float"]
     """<p>The height of the bounding box as a ratio of the overall document page height.</p>"""
     left: NotRequired["aws_sdk_comprehend.types.float.Float"]

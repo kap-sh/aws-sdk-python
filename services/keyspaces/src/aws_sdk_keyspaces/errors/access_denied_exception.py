@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#AccessDeniedException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import ServiceError
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>You don't have the required permissions to perform this operation. Verify your IAM permissions and try again.</p>"""
 

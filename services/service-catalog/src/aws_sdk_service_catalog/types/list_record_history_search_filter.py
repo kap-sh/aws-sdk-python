@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ListRecordHistorySearchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.search_filter_key
     import aws_sdk_service_catalog.types.search_filter_value
 
 
-class ListRecordHistorySearchFilter(TypedDict):
+class ListRecordHistorySearchFilter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_service_catalog.types.search_filter_key.SearchFilterKey"]
     """<p>The filter key.</p> <ul> <li> <p> <code>product</code> - Filter results based on the specified product identifier.</p> </li> <li> <p> <code>provisionedproduct</code> - Filter results based on the provisioned product identifier.</p> </li> </ul>"""
     value: NotRequired[

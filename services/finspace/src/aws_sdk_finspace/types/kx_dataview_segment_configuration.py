@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#KxDataviewSegmentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_finspace.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.segment_configuration_db_path_list
 
 
-class KxDataviewSegmentConfiguration(TypedDict):
+class KxDataviewSegmentConfiguration(TypedDict, closed=True):
     db_paths: "aws_sdk_finspace.types.segment_configuration_db_path_list.SegmentConfigurationDbPathList"
     """<p> The database path of the data that you want to place on each selected volume for the segment. Each segment must have a unique database path for each volume.</p>"""
     volume_name: "aws_sdk_finspace.types.kx_volume_name.KxVolumeName"

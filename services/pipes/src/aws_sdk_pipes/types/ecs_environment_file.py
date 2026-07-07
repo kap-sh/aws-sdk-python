@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#EcsEnvironmentFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.string
 
 
-class EcsEnvironmentFile(TypedDict):
+class EcsEnvironmentFile(TypedDict, closed=True):
     type: "aws_sdk_pipes.types.ecs_environment_file_type.EcsEnvironmentFileType"
     """<p>The file type to use. The only supported value is <code>s3</code>.</p>"""
     value: "aws_sdk_pipes.types.string.String"

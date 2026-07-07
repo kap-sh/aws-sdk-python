@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#GetSolNetworkOperationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_tnb.types.update_sol_network_type
 
 
-class GetSolNetworkOperationOutput(TypedDict):
+class GetSolNetworkOperationOutput(TypedDict, closed=True):
     id: NotRequired["aws_sdk_tnb.types.ns_lcm_op_occ_id.NsLcmOpOccId"]
     """<p>ID of this network operation occurrence.</p>"""
     arn: "aws_sdk_tnb.types.ns_lcm_op_occ_arn.NsLcmOpOccArn"

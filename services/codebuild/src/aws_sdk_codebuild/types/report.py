@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#Report``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.code_coverage_report_summary
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_boolean
 
 
-class Report(TypedDict):
+class Report(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p> The ARN of the report run. </p>"""
     type: NotRequired["aws_sdk_codebuild.types.report_type.ReportType"]

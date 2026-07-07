@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#WAFInvalidParameterException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf_regional.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.parameter_exception_reason
 
 
-class WAFInvalidParameterException_(TypedDict):
+class WAFInvalidParameterException_(TypedDict, closed=True):
     field: NotRequired[
         "aws_sdk_waf_regional.types.parameter_exception_field.ParameterExceptionField"
     ]

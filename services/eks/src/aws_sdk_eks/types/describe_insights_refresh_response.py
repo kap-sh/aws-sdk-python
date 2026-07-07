@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DescribeInsightsRefreshResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.insights_refresh_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.timestamp
 
 
-class DescribeInsightsRefreshResponse(TypedDict):
+class DescribeInsightsRefreshResponse(TypedDict, closed=True):
     message: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The message associated with the insights refresh operation.</p>"""
     status: NotRequired[

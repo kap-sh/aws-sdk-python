@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateContactFlowModuleVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.resource_version
 
 
-class CreateContactFlowModuleVersionResponse(TypedDict):
+class CreateContactFlowModuleVersionResponse(TypedDict, closed=True):
     contact_flow_module_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) of the flow module.</p>"""
     version: NotRequired["aws_sdk_connect.types.resource_version.ResourceVersion"]

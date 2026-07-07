@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dax#CreateClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.cluster
 
 
-class CreateClusterResponse(TypedDict):
+class CreateClusterResponse(TypedDict, closed=True):
     cluster: NotRequired["aws_sdk_dax.types.cluster.Cluster"]
     """<p>A description of the DAX cluster that you have created.</p>"""
 

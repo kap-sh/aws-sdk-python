@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ResponseHeadersPolicyContentSecurityPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class ResponseHeadersPolicyContentSecurityPolicy(TypedDict):
+class ResponseHeadersPolicyContentSecurityPolicy(TypedDict, closed=True):
     override: "aws_sdk_cloudfront.types.boolean.boolean"
     """<p>A Boolean that determines whether CloudFront overrides the <code>Content-Security-Policy</code> HTTP response header received from the origin with the one specified in this response headers policy.</p>"""
     content_security_policy: "aws_sdk_cloudfront.types.string.string"

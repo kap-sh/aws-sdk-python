@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#FileValidationMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.string
 
 
-class FileValidationMessage(TypedDict):
+class FileValidationMessage(TypedDict, closed=True):
     title: NotRequired["aws_sdk_frauddetector.types.string.string"]
     """<p>The message title.</p>"""
     content: NotRequired["aws_sdk_frauddetector.types.string.string"]

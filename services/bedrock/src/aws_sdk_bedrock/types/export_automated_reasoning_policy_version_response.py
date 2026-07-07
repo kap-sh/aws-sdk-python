@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ExportAutomatedReasoningPolicyVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_definition
 
 
-class ExportAutomatedReasoningPolicyVersionResponse(TypedDict):
+class ExportAutomatedReasoningPolicyVersionResponse(TypedDict, closed=True):
     policy_definition: "aws_sdk_bedrock.types.automated_reasoning_policy_definition.AutomatedReasoningPolicyDefinition"
     """<p>The exported policy definition containing the formal logic rules, variables, and custom variable types.</p>"""
 

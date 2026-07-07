@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#DeleteProfilingGroupResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteProfilingGroupResponse(TypedDict):
+class DeleteProfilingGroupResponse(TypedDict, closed=True):
     pass
 
 

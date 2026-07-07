@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#BatchInferenceJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.theme_generation_config
 
 
-class BatchInferenceJob(TypedDict):
+class BatchInferenceJob(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_personalize.types.name.Name"]
     """<p>The name of the batch inference job.</p>"""
     batch_inference_job_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]

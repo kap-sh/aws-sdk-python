@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#GroupConfigurationParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_groups.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group_configuration_parameter_value_list
 
 
-class GroupConfigurationParameter(TypedDict):
+class GroupConfigurationParameter(TypedDict, closed=True):
     name: "aws_sdk_resource_groups.types.group_configuration_parameter_name.GroupConfigurationParameterName"
     r"""<p>The name of the group configuration parameter. For the list of parameters that you can use with each configuration item type, see <a href=\"https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types\">Supported resource types and parameters</a>.</p>"""
     values: NotRequired[

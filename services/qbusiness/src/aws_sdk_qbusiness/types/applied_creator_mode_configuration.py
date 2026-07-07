@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AppliedCreatorModeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.creator_mode_control
 
 
-class AppliedCreatorModeConfiguration(TypedDict):
+class AppliedCreatorModeConfiguration(TypedDict, closed=True):
     creator_mode_control: (
         "aws_sdk_qbusiness.types.creator_mode_control.CreatorModeControl"
     )

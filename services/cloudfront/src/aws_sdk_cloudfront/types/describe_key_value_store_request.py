@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#DescribeKeyValueStoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.key_value_store_name
 
 
-class DescribeKeyValueStoreRequest(TypedDict):
+class DescribeKeyValueStoreRequest(TypedDict, closed=True):
     name: "aws_sdk_cloudfront.types.key_value_store_name.KeyValueStoreName"
     """<p>The name of the key value store.</p>"""
 

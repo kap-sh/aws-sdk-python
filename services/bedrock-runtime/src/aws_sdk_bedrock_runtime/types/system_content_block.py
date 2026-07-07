@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#SystemContentBlock``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.non_empty_string
 
 
-class _SystemContentBlock_text(TypedDict):
+class _SystemContentBlock_text(TypedDict, closed=True):
     text: "aws_sdk_bedrock_runtime.types.non_empty_string.NonEmptyString"
 
 
-class _SystemContentBlock_guardContent(TypedDict):
+class _SystemContentBlock_guardContent(TypedDict, closed=True):
     guardContent: "aws_sdk_bedrock_runtime.types.guardrail_converse_content_block.GuardrailConverseContentBlock"
 
 
-class _SystemContentBlock_cachePoint(TypedDict):
+class _SystemContentBlock_cachePoint(TypedDict, closed=True):
     cachePoint: "aws_sdk_bedrock_runtime.types.cache_point_block.CachePointBlock"
 
 

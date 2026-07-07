@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Counts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.agg_counts
     import aws_sdk_inspector2.types.group_key
 
 
-class Counts(TypedDict):
+class Counts(TypedDict, closed=True):
     count: "aws_sdk_inspector2.types.agg_counts.AggCounts"
     """<p>The number of resources.</p>"""
     group_key: NotRequired["aws_sdk_inspector2.types.group_key.GroupKey"]

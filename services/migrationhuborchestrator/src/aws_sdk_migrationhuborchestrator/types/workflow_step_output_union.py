@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#WorkflowStepOutputUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhuborchestrator.errors import (
     DeserializationError,
@@ -12,17 +14,17 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.max_string_value
 
 
-class _WorkflowStepOutputUnion_integerValue(TypedDict):
+class _WorkflowStepOutputUnion_integerValue(TypedDict, closed=True):
     integerValue: "int"
 
 
-class _WorkflowStepOutputUnion_stringValue(TypedDict):
+class _WorkflowStepOutputUnion_stringValue(TypedDict, closed=True):
     stringValue: (
         "aws_sdk_migrationhuborchestrator.types.max_string_value.MaxStringValue"
     )
 
 
-class _WorkflowStepOutputUnion_listOfStringValue(TypedDict):
+class _WorkflowStepOutputUnion_listOfStringValue(TypedDict, closed=True):
     listOfStringValue: (
         "aws_sdk_migrationhuborchestrator.types.max_string_list.MaxStringList"
     )

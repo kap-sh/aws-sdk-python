@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#IssuanceDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.monetary_value
     import aws_sdk_partnercentral_benefits.types.timestamp
 
 
-class IssuanceDetail(TypedDict):
+class IssuanceDetail(TypedDict, closed=True):
     issuance_id: NotRequired["str"]
     """<p>The unique identifier for this specific issuance.</p>"""
     issuance_amount: NotRequired[

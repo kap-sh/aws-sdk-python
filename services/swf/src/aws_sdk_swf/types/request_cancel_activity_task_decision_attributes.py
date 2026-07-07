@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#RequestCancelActivityTaskDecisionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.activity_id
 
 
-class RequestCancelActivityTaskDecisionAttributes(TypedDict):
+class RequestCancelActivityTaskDecisionAttributes(TypedDict, closed=True):
     activity_id: "aws_sdk_swf.types.activity_id.ActivityId"
     """<p>The <code>activityId</code> of the activity task to be canceled.</p>"""
 

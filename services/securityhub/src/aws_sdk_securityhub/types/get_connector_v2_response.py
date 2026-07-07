@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetConnectorV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.health_check
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.timestamp
 
 
-class GetConnectorV2Response(TypedDict):
+class GetConnectorV2Response(TypedDict, closed=True):
     connector_arn: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

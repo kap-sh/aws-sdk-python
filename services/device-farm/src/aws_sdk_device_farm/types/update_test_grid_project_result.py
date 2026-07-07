@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#UpdateTestGridProjectResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.test_grid_project
 
 
-class UpdateTestGridProjectResult(TypedDict):
+class UpdateTestGridProjectResult(TypedDict, closed=True):
     test_grid_project: NotRequired[
         "aws_sdk_device_farm.types.test_grid_project.TestGridProject"
     ]

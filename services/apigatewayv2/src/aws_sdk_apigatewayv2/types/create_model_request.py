@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#CreateModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.string_with_length_between1_and256
 
 
-class CreateModelRequest(TypedDict):
+class CreateModelRequest(TypedDict, closed=True):
     api_id: "aws_sdk_apigatewayv2.types.__string.__string"
     """<p>The API identifier.</p>"""
     content_type: NotRequired[

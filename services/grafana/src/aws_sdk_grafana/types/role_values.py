@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#RoleValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.role_value_list
 
 
-class RoleValues(TypedDict):
+class RoleValues(TypedDict, closed=True):
     editor: NotRequired["aws_sdk_grafana.types.role_value_list.RoleValueList"]
     """<p>A list of groups from the SAML assertion attribute to grant the Grafana <code>Editor</code> role to.</p>"""
     admin: NotRequired["aws_sdk_grafana.types.role_value_list.RoleValueList"]

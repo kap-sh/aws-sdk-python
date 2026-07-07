@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#RegexMatchSetUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.regex_match_tuple
 
 
-class RegexMatchSetUpdate(TypedDict):
+class RegexMatchSetUpdate(TypedDict, closed=True):
     action: "aws_sdk_waf_regional.types.change_action.ChangeAction"
     """<p>Specifies whether to insert or delete a <a>RegexMatchTuple</a>.</p>"""
     regex_match_tuple: "aws_sdk_waf_regional.types.regex_match_tuple.RegexMatchTuple"

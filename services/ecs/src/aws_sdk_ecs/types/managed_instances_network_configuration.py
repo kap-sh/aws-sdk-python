@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ManagedInstancesNetworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string_list
 
 
-class ManagedInstancesNetworkConfiguration(TypedDict):
+class ManagedInstancesNetworkConfiguration(TypedDict, closed=True):
     subnets: NotRequired["aws_sdk_ecs.types.string_list.StringList"]
     """<p>The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.</p>"""
     security_groups: NotRequired["aws_sdk_ecs.types.string_list.StringList"]

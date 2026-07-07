@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#SubscriptionError``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SubscriptionError(TypedDict):
+class SubscriptionError(TypedDict, closed=True):
     error_message: NotRequired["str"]
     """<p>A human-readable message that describes the subscription error.</p>"""
 

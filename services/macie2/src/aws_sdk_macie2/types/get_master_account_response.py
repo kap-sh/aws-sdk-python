@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetMasterAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.invitation
 
 
-class GetMasterAccountResponse(TypedDict):
+class GetMasterAccountResponse(TypedDict, closed=True):
     master: NotRequired["aws_sdk_macie2.types.invitation.Invitation"]
     """<p>(Deprecated) The Amazon Web Services account ID for the administrator account. If the accounts are associated by a Macie membership invitation, this object also provides details about the invitation that was sent to establish the relationship between the accounts.</p>"""
 

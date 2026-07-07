@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#TracingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.enabled
 
 
-class TracingConfiguration(TypedDict):
+class TracingConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_sfn.types.enabled.Enabled"
     """<p>When set to <code>true</code>, X-Ray tracing is enabled.</p>"""
 

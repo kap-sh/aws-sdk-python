@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#CSV``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.columns
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.source
 
 
-class CSV(TypedDict):
+class CSV(TypedDict, closed=True):
     quote_character: NotRequired[
         "aws_sdk_cloudwatch_logs.types.quote_character.QuoteCharacter"
     ]

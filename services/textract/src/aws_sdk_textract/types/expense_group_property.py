@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#ExpenseGroupProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.string
     import aws_sdk_textract.types.string_list
 
 
-class ExpenseGroupProperty(TypedDict):
+class ExpenseGroupProperty(TypedDict, closed=True):
     types: NotRequired["aws_sdk_textract.types.string_list.StringList"]
     """<p>Informs you on whether the expense group is a name or an address.</p>"""
     id: NotRequired["aws_sdk_textract.types.string.String"]

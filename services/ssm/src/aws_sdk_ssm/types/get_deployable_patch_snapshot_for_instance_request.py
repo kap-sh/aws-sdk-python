@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetDeployablePatchSnapshotForInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.snapshot_id
 
 
-class GetDeployablePatchSnapshotForInstanceRequest(TypedDict):
+class GetDeployablePatchSnapshotForInstanceRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_ssm.types.instance_id.InstanceId"
     """<p>The ID of the managed node for which the appropriate patch snapshot should be retrieved.</p>"""
     snapshot_id: "aws_sdk_ssm.types.snapshot_id.SnapshotId"

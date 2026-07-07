@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ListAccountLinksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.limit
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.pagination_token
 
 
-class ListAccountLinksRequest(TypedDict):
+class ListAccountLinksRequest(TypedDict, closed=True):
     link_status_filter: NotRequired[
         "aws_sdk_workspaces.types.link_status_filter_list.LinkStatusFilterList"
     ]

@@ -1,9 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#DetachCustomerManagedPolicyReferenceFromPermissionSetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DetachCustomerManagedPolicyReferenceFromPermissionSetResponse(TypedDict):
+class DetachCustomerManagedPolicyReferenceFromPermissionSetResponse(
+    TypedDict, closed=True
+):
     pass
 
 

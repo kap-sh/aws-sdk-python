@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#LicenseConfigurationUsage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.box_long
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class LicenseConfigurationUsage(TypedDict):
+class LicenseConfigurationUsage(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_license_manager.types.string.String"]
     """<p>Amazon Resource Name (ARN) of the resource.</p>"""
     resource_type: NotRequired[

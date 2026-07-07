@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SectionBasedLayoutCanvasSizeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.section_based_layout_paper_canvas_size_options
 
 
-class SectionBasedLayoutCanvasSizeOptions(TypedDict):
+class SectionBasedLayoutCanvasSizeOptions(TypedDict, closed=True):
     paper_canvas_size_options: NotRequired[
         "aws_sdk_quicksight.types.section_based_layout_paper_canvas_size_options.SectionBasedLayoutPaperCanvasSizeOptions"
     ]

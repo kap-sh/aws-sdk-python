@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#GetRecoveryPointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.recovery_point
 
 
-class GetRecoveryPointResponse(TypedDict):
+class GetRecoveryPointResponse(TypedDict, closed=True):
     recovery_point: NotRequired[
         "aws_sdk_redshift_serverless.types.recovery_point.RecoveryPoint"
     ]

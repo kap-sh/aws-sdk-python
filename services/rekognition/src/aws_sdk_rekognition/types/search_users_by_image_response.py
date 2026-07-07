@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#SearchUsersByImageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.searched_face_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.user_match_list
 
 
-class SearchUsersByImageResponse(TypedDict):
+class SearchUsersByImageResponse(TypedDict, closed=True):
     user_matches: NotRequired["aws_sdk_rekognition.types.user_match_list.UserMatchList"]
     """<p>An array of UserID objects that matched the input face, along with the confidence in the match. The returned structure will be empty if there are no matches. Returned if the SearchUsersByImageResponse action is successful.</p>"""
     face_model_version: NotRequired["aws_sdk_rekognition.types.string.String"]

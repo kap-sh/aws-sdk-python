@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#DeregistrationPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.delete_resources
 
 
-class DeregistrationPolicy(TypedDict):
+class DeregistrationPolicy(TypedDict, closed=True):
     delete_resources: NotRequired[
         "aws_sdk_auditmanager.types.delete_resources.DeleteResources"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetDirectConnectGatewayAttachmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.attachment_id
 
 
-class GetDirectConnectGatewayAttachmentRequest(TypedDict):
+class GetDirectConnectGatewayAttachmentRequest(TypedDict, closed=True):
     attachment_id: "aws_sdk_networkmanager.types.attachment_id.AttachmentId"
     """<p>The ID of the Direct Connect gateway attachment that you want to see details about.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TransformFilterCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.glue_version_string
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.transform_type
 
 
-class TransformFilterCriteria(TypedDict):
+class TransformFilterCriteria(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>A unique transform name that is used to filter the machine learning transforms.</p>"""
     transform_type: NotRequired["aws_sdk_glue.types.transform_type.TransformType"]

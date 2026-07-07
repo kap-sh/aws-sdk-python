@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#StartWebAuthnRegistrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.document
 
 
-class StartWebAuthnRegistrationResponse(TypedDict):
+class StartWebAuthnRegistrationResponse(TypedDict, closed=True):
     credential_creation_options: (
         "aws_sdk_cognito_identity_provider.types.document.Document"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#S3ObjectMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.time_stamp
 
 
-class S3ObjectMetadata(TypedDict):
+class S3ObjectMetadata(TypedDict, closed=True):
     cache_control: NotRequired[
         "aws_sdk_s3_control.types.non_empty_max_length1024_string.NonEmptyMaxLength1024String"
     ]

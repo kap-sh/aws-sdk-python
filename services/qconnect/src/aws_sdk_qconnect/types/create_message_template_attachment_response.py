@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#CreateMessageTemplateAttachmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.message_template_attachment
 
 
-class CreateMessageTemplateAttachmentResponse(TypedDict):
+class CreateMessageTemplateAttachmentResponse(TypedDict, closed=True):
     attachment: NotRequired[
         "aws_sdk_qconnect.types.message_template_attachment.MessageTemplateAttachment"
     ]

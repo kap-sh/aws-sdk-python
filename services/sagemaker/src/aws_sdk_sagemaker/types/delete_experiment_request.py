@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteExperimentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.experiment_entity_name
 
 
-class DeleteExperimentRequest(TypedDict):
+class DeleteExperimentRequest(TypedDict, closed=True):
     experiment_name: NotRequired[
         "aws_sdk_sagemaker.types.experiment_entity_name.ExperimentEntityName"
     ]

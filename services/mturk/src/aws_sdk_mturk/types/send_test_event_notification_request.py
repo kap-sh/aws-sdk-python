@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#SendTestEventNotificationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.notification_specification
 
 
-class SendTestEventNotificationRequest(TypedDict):
+class SendTestEventNotificationRequest(TypedDict, closed=True):
     notification: (
         "aws_sdk_mturk.types.notification_specification.NotificationSpecification"
     )

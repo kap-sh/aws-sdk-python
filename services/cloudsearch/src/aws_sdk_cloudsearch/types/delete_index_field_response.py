@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#DeleteIndexFieldResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 from aws_sdk_cloudsearch.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.index_field_status
 
 
-class DeleteIndexFieldResponse(TypedDict):
+class DeleteIndexFieldResponse(TypedDict, closed=True):
     index_field: "aws_sdk_cloudsearch.types.index_field_status.IndexFieldStatus"
     """<p>The status of the index field being deleted.</p>"""
 

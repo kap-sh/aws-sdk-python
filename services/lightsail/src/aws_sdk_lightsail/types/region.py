@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#Region``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.availability_zone_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class Region(TypedDict):
+class Region(TypedDict, closed=True):
     continent_code: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The continent code (<code>NA</code>, meaning North America).</p>"""
     description: NotRequired["aws_sdk_lightsail.types.string.string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RelationPattern``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.relation_type
 
 
-class RelationPattern(TypedDict):
+class RelationPattern(TypedDict, closed=True):
     relation_type: "aws_sdk_datazone.types.relation_type.RelationType"
     """<p>The type of relation to query.</p>"""
     relation_direction: "aws_sdk_datazone.types.relation_direction.RelationDirection"

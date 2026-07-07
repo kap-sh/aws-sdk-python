@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#UpdateConfigurationDefinitionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.configuration_parameters_map
     import aws_sdk_ssm_quicksetup.types.iam_role_arn
 
 
-class UpdateConfigurationDefinitionInput(TypedDict):
+class UpdateConfigurationDefinitionInput(TypedDict, closed=True):
     manager_arn: "str"
     """<p>The ARN of the configuration manager associated with the definition to update.</p>"""
     id: "str"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TableOptimizerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.arn_string
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.table_optimizer_vpc_configuration
 
 
-class TableOptimizerConfiguration(TypedDict):
+class TableOptimizerConfiguration(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_glue.types.arn_string.ArnString"]
     """<p>A role passed by the caller which gives the service permission to update the resources associated with the optimizer on the caller's behalf.</p>"""
     enabled: NotRequired["aws_sdk_glue.types.nullable_boolean.NullableBoolean"]

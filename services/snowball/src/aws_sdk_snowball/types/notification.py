@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#Notification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.sns_topic_arn
 
 
-class Notification(TypedDict):
+class Notification(TypedDict, closed=True):
     sns_topic_arn: NotRequired["aws_sdk_snowball.types.sns_topic_arn.SnsTopicARN"]
     r"""<p>The new SNS <code>TopicArn</code> that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html\">CreateTopic</a> Amazon SNS API action.</p> <p>You can subscribe email addresses to an Amazon SNS topic through the Amazon Web Services Management Console, or by using the <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html\">Subscribe</a> Amazon Simple Notification Service (Amazon SNS) API action.</p>"""
     job_states_to_notify: NotRequired[

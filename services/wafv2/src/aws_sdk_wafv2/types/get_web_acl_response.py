@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GetWebACLResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.lock_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.web_acl
 
 
-class GetWebACLResponse(TypedDict):
+class GetWebACLResponse(TypedDict, closed=True):
     web_acl: NotRequired["aws_sdk_wafv2.types.web_acl.WebACL"]
     """<p>The web ACL specification. You can modify the settings in this web ACL and use it to update this web ACL or create a new one.</p>"""
     lock_token: NotRequired["aws_sdk_wafv2.types.lock_token.LockToken"]

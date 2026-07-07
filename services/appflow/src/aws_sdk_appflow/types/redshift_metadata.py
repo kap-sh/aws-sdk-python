@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#RedshiftMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RedshiftMetadata(TypedDict):
+class RedshiftMetadata(TypedDict, closed=True):
     pass
 
 

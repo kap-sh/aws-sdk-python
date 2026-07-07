@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#ListDatasourcePackagesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.datasource_package_ingest_details
     import aws_sdk_detective.types.pagination_token
 
 
-class ListDatasourcePackagesResponse(TypedDict):
+class ListDatasourcePackagesResponse(TypedDict, closed=True):
     datasource_packages: NotRequired[
         "aws_sdk_detective.types.datasource_package_ingest_details.DatasourcePackageIngestDetails"
     ]

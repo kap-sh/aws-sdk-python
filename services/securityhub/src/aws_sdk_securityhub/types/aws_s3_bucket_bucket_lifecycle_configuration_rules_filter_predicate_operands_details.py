@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_tag_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 
 
 class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails(
-    TypedDict
+    TypedDict, closed=True
 ):
     prefix: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>Prefix text for matching objects.</p>"""

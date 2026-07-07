@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#NumericSeparatorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.numeric_separator_symbol
     import aws_sdk_quicksight.types.thousand_separator_options
 
 
-class NumericSeparatorConfiguration(TypedDict):
+class NumericSeparatorConfiguration(TypedDict, closed=True):
     decimal_separator: NotRequired[
         "aws_sdk_quicksight.types.numeric_separator_symbol.NumericSeparatorSymbol"
     ]

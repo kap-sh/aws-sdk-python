@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#PutSolNetworkPackageContentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_tnb.types.vnf_pkg_id_list
 
 
-class PutSolNetworkPackageContentOutput(TypedDict):
+class PutSolNetworkPackageContentOutput(TypedDict, closed=True):
     id: "aws_sdk_tnb.types.nsd_info_id.NsdInfoId"
     """<p>Network package ID.</p>"""
     arn: "aws_sdk_tnb.types.nsd_info_arn.NsdInfoArn"

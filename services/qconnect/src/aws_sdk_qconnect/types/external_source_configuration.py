@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ExternalSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.external_source
 
 
-class ExternalSourceConfiguration(TypedDict):
+class ExternalSourceConfiguration(TypedDict, closed=True):
     source: "aws_sdk_qconnect.types.external_source.ExternalSource"
     """<p>The type of the external data source.</p>"""
     configuration: "aws_sdk_qconnect.types.configuration.Configuration"

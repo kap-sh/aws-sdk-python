@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#Anomaly``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.state
 
 
-class Anomaly(TypedDict):
+class Anomaly(TypedDict, closed=True):
     anomaly_id: "aws_sdk_cloudwatch_logs.types.anomaly_id.AnomalyId"
     """<p>The unique ID that CloudWatch Logs assigned to this anomaly.</p>"""
     pattern_id: "aws_sdk_cloudwatch_logs.types.pattern_id.PatternId"

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AcceptCertificateTransferRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_id
     import aws_sdk_iot.types.set_as_active
 
 
-class AcceptCertificateTransferRequest(TypedDict):
+class AcceptCertificateTransferRequest(TypedDict, closed=True):
     certificate_id: "aws_sdk_iot.types.certificate_id.CertificateId"
     """<p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>"""
     set_as_active: "aws_sdk_iot.types.set_as_active.SetAsActive"

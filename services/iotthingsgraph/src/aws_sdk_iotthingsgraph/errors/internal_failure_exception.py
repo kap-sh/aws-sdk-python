@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#InternalFailureException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotthingsgraph.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.error_message
 
 
-class InternalFailureException_(TypedDict):
+class InternalFailureException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_iotthingsgraph.types.error_message.ErrorMessage"]
 
 

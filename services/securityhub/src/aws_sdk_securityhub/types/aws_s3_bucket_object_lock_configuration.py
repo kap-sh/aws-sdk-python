@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3BucketObjectLockConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_s3_bucket_object_lock_configuration_rule_details
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsS3BucketObjectLockConfiguration(TypedDict):
+class AwsS3BucketObjectLockConfiguration(TypedDict, closed=True):
     object_lock_enabled: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

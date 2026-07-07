@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ListVehiclesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.next_token
 
 
-class ListVehiclesRequest(TypedDict):
+class ListVehiclesRequest(TypedDict, closed=True):
     model_manifest_arn: NotRequired["aws_sdk_iotfleetwise.types.arn.arn"]
     """<p> The Amazon Resource Name (ARN) of a vehicle model (model manifest). You can use this optional parameter to list only the vehicles created from a certain vehicle model. </p>"""
     attribute_names: NotRequired[

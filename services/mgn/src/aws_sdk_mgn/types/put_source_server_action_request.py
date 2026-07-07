@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#PutSourceServerActionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.strictly_positive_integer
 
 
-class PutSourceServerActionRequest(TypedDict):
+class PutSourceServerActionRequest(TypedDict, closed=True):
     source_server_id: "aws_sdk_mgn.types.source_server_id.SourceServerID"
     """<p>Source server ID.</p>"""
     action_name: "aws_sdk_mgn.types.action_name.ActionName"

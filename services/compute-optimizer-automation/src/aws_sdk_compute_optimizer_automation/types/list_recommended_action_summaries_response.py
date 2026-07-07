@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#ListRecommendedActionSummariesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.next_token
     import aws_sdk_compute_optimizer_automation.types.recommended_action_summaries
 
 
-class ListRecommendedActionSummariesResponse(TypedDict):
+class ListRecommendedActionSummariesResponse(TypedDict, closed=True):
     recommended_action_summaries: NotRequired[
         "aws_sdk_compute_optimizer_automation.types.recommended_action_summaries.RecommendedActionSummaries"
     ]

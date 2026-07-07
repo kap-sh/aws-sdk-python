@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#Repository``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.code_commit_repository
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.third_party_source_repository
 
 
-class Repository(TypedDict):
+class Repository(TypedDict, closed=True):
     code_commit: NotRequired[
         "aws_sdk_codeguru_reviewer.types.code_commit_repository.CodeCommitRepository"
     ]

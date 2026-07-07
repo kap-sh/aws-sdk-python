@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#UpdateQuotaShareRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.quota_share_capacity_limits
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class UpdateQuotaShareRequest(TypedDict):
+class UpdateQuotaShareRequest(TypedDict, closed=True):
     quota_share_arn: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the quota share to update.</p>"""
     capacity_limits: NotRequired[

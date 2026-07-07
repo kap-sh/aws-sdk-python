@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DeleteNetworkAnalyzerConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteNetworkAnalyzerConfigurationResponse(TypedDict):
+class DeleteNetworkAnalyzerConfigurationResponse(TypedDict, closed=True):
     pass
 
 

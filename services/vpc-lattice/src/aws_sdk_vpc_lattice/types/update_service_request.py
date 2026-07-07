@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#UpdateServiceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.auth_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_identifier
 
 
-class UpdateServiceRequest(TypedDict):
+class UpdateServiceRequest(TypedDict, closed=True):
     service_identifier: "aws_sdk_vpc_lattice.types.service_identifier.ServiceIdentifier"
     """<p>The ID or ARN of the service.</p>"""
     certificate_arn: NotRequired[

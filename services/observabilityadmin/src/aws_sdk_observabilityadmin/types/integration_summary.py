@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#IntegrationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.integration_status
     import aws_sdk_observabilityadmin.types.resource_arn
 
 
-class IntegrationSummary(TypedDict):
+class IntegrationSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_observabilityadmin.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the S3 Table integration.</p>"""
     status: NotRequired[

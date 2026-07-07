@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#DeleteEnvironmentOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteEnvironmentOutput(TypedDict):
+class DeleteEnvironmentOutput(TypedDict, closed=True):
     pass
 
 

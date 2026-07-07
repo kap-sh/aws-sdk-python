@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#GenerateDataKeyPairWithoutPlaintextRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kms.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.nullable_boolean_type
 
 
-class GenerateDataKeyPairWithoutPlaintextRequest(TypedDict):
+class GenerateDataKeyPairWithoutPlaintextRequest(TypedDict, closed=True):
     encryption_context: NotRequired[
         "aws_sdk_kms.types.encryption_context_type.EncryptionContextType"
     ]

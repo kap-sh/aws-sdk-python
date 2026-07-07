@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#OcsfIpFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.ip_filter
     import aws_sdk_securityhub.types.ocsf_ip_field
 
 
-class OcsfIpFilter(TypedDict):
+class OcsfIpFilter(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_securityhub.types.ocsf_ip_field.OcsfIpField"]
     """<p>The name of the IP address field to filter on.</p>"""
     filter: NotRequired["aws_sdk_securityhub.types.ip_filter.IpFilter"]

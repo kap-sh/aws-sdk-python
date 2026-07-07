@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#ImportCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.tag_list
 
 
-class ImportCertificateRequest(TypedDict):
+class ImportCertificateRequest(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_acm.types.arn.Arn"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of an imported certificate to replace. To import a new certificate, omit this field. </p>"""
     certificate: "aws_sdk_acm.types.certificate_body_blob.CertificateBodyBlob"

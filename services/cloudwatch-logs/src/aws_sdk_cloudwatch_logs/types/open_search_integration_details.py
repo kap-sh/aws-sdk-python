@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#OpenSearchIntegrationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.open_search_application
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.open_search_workspace
 
 
-class OpenSearchIntegrationDetails(TypedDict):
+class OpenSearchIntegrationDetails(TypedDict, closed=True):
     data_source: NotRequired[
         "aws_sdk_cloudwatch_logs.types.open_search_data_source.OpenSearchDataSource"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#DeleteAutoScalingConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.auto_scaling_configuration
 
 
-class DeleteAutoScalingConfigurationResponse(TypedDict):
+class DeleteAutoScalingConfigurationResponse(TypedDict, closed=True):
     auto_scaling_configuration: (
         "aws_sdk_apprunner.types.auto_scaling_configuration.AutoScalingConfiguration"
     )

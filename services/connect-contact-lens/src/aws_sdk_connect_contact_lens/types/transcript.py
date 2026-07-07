@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcontactlens#Transcript``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect_contact_lens.types.issues_detected
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect_contact_lens.types.transcript_id
 
 
-class Transcript(TypedDict):
+class Transcript(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect_contact_lens.types.transcript_id.TranscriptId"]
     """<p>The identifier of the transcript.</p>"""
     participant_id: NotRequired[

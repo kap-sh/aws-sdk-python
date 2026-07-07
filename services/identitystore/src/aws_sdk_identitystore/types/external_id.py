@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#ExternalId``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_identitystore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_identitystore.types.external_id_issuer
 
 
-class ExternalId(TypedDict):
+class ExternalId(TypedDict, closed=True):
     issuer: "aws_sdk_identitystore.types.external_id_issuer.ExternalIdIssuer"
     """<p>The issuer for an external identifier.</p>"""
     id: "aws_sdk_identitystore.types.external_id_identifier.ExternalIdIdentifier"

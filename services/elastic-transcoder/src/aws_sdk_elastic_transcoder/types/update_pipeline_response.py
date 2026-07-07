@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#UpdatePipelineResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.pipeline
     import aws_sdk_elastic_transcoder.types.warnings
 
 
-class UpdatePipelineResponse(TypedDict):
+class UpdatePipelineResponse(TypedDict, closed=True):
     pipeline: NotRequired["aws_sdk_elastic_transcoder.types.pipeline.Pipeline"]
     """<p>The pipeline updated by this <code>UpdatePipelineResponse</code> call.</p>"""
     warnings: NotRequired["aws_sdk_elastic_transcoder.types.warnings.Warnings"]

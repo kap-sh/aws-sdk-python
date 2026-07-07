@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.odb#OciIamRole``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.oci_aws_integration
     import aws_sdk_odb.types.role_arn
 
 
-class OciIamRole(TypedDict):
+class OciIamRole(TypedDict, closed=True):
     iam_role_arn: NotRequired["aws_sdk_odb.types.role_arn.RoleArn"]
     """<p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) service role.</p>"""
     aws_integration: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#BandMathConfigInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.custom_indices_input
     import aws_sdk_sagemaker_geospatial.types.string_list_input
 
 
-class BandMathConfigInput(TypedDict):
+class BandMathConfigInput(TypedDict, closed=True):
     predefined_indices: NotRequired[
         "aws_sdk_sagemaker_geospatial.types.string_list_input.StringListInput"
     ]

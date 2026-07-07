@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ChallengeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.failure_reason
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.solve_timestamp
 
 
-class ChallengeResponse(TypedDict):
+class ChallengeResponse(TypedDict, closed=True):
     response_code: NotRequired["aws_sdk_wafv2.types.response_code.ResponseCode"]
     """<p>The HTTP response code indicating the status of the challenge token in the web request. If the token is missing, invalid, or expired, this code is <code>202 Request Accepted</code>.</p>"""
     solve_timestamp: NotRequired["aws_sdk_wafv2.types.solve_timestamp.SolveTimestamp"]

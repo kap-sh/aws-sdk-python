@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#QuickResponseSearchExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.quick_response_filter_field_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.quick_response_query_field_list
 
 
-class QuickResponseSearchExpression(TypedDict):
+class QuickResponseSearchExpression(TypedDict, closed=True):
     queries: NotRequired[
         "aws_sdk_qconnect.types.quick_response_query_field_list.QuickResponseQueryFieldList"
     ]

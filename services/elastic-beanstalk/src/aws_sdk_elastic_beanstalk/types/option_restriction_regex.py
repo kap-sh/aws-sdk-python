@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#OptionRestrictionRegex``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.regex_pattern
 
 
-class OptionRestrictionRegex(TypedDict):
+class OptionRestrictionRegex(TypedDict, closed=True):
     pattern: NotRequired["aws_sdk_elastic_beanstalk.types.regex_pattern.RegexPattern"]
     """<p>The regular expression pattern that a string configuration option value with this restriction must match.</p>"""
     label: NotRequired["aws_sdk_elastic_beanstalk.types.regex_label.RegexLabel"]

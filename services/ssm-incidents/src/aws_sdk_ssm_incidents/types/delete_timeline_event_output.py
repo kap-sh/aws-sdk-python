@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#DeleteTimelineEventOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteTimelineEventOutput(TypedDict):
+class DeleteTimelineEventOutput(TypedDict, closed=True):
     pass
 
 

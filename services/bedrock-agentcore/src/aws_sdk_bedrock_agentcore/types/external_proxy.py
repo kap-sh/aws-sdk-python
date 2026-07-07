@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ExternalProxy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.proxy_credentials
 
 
-class ExternalProxy(TypedDict):
+class ExternalProxy(TypedDict, closed=True):
     server: "aws_sdk_bedrock_agentcore.types.host_name.HostName"
     """<p>The hostname of the proxy server. Must be a valid DNS hostname (maximum 253 characters).</p>"""
     port: "int"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DescribeProtectConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.protect_configuration_id_list
 
 
-class DescribeProtectConfigurationsRequest(TypedDict):
+class DescribeProtectConfigurationsRequest(TypedDict, closed=True):
     protect_configuration_ids: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.protect_configuration_id_list.ProtectConfigurationIdList"
     ]

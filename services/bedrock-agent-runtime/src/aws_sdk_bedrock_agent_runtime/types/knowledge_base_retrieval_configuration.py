@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#KnowledgeBaseRetrievalConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.knowledge_base_vector_search_configuration
 
 
-class KnowledgeBaseRetrievalConfiguration(TypedDict):
+class KnowledgeBaseRetrievalConfiguration(TypedDict, closed=True):
     vector_search_configuration: "aws_sdk_bedrock_agent_runtime.types.knowledge_base_vector_search_configuration.KnowledgeBaseVectorSearchConfiguration"
     r"""<p>Contains details about how the results from the vector search should be returned. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html\">Query configurations</a>.</p>"""
 

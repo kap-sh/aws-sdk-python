@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.acm#HttpRedirect``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.string
 
 
-class HttpRedirect(TypedDict):
+class HttpRedirect(TypedDict, closed=True):
     redirect_from: NotRequired["aws_sdk_acm.types.string.String"]
     """<p>The URL including the domain to be validated. The certificate authority sends <code>GET</code> requests here during validation.</p>"""
     redirect_to: NotRequired["aws_sdk_acm.types.string.String"]

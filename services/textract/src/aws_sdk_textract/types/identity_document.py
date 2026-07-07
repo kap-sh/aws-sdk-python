@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#IdentityDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.block_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.u_integer
 
 
-class IdentityDocument(TypedDict):
+class IdentityDocument(TypedDict, closed=True):
     document_index: NotRequired["aws_sdk_textract.types.u_integer.UInteger"]
     """<p>Denotes the placement of a document in the IdentityDocument list. The first document is marked 1, the second 2 and so on.</p>"""
     identity_document_fields: NotRequired[

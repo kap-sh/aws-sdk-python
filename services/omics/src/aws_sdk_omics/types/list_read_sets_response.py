@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListReadSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.read_set_list
 
 
-class ListReadSetsResponse(TypedDict):
+class ListReadSetsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_omics.types.next_token.NextToken"]
     """<p>A pagination token that's included if more results are available.</p>"""
     read_sets: "aws_sdk_omics.types.read_set_list.ReadSetList"

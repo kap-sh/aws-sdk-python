@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#LambdaFunction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.lambda_arn
 
 
-class LambdaFunction(TypedDict):
+class LambdaFunction(TypedDict, closed=True):
     arn: "aws_sdk_iottwinmaker.types.lambda_arn.LambdaArn"
     """<p>The ARN of the Lambda function.</p>"""
 

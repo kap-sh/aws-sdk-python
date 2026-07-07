@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3#RenameObjectOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 
-class RenameObjectOutput(TypedDict):
+class RenameObjectOutput(TypedDict, closed=True):
     pass
 
 

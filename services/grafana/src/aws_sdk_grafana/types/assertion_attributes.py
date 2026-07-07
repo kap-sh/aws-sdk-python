@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#AssertionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.assertion_attribute
 
 
-class AssertionAttributes(TypedDict):
+class AssertionAttributes(TypedDict, closed=True):
     name: NotRequired["aws_sdk_grafana.types.assertion_attribute.AssertionAttribute"]
     r"""<p>The name of the attribute within the SAML assertion to use as the user full \"friendly\" names for SAML users.</p>"""
     login: NotRequired["aws_sdk_grafana.types.assertion_attribute.AssertionAttribute"]

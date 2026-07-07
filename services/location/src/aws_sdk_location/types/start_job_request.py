@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#StartJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.tag_map
 
 
-class StartJobRequest(TypedDict):
+class StartJobRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_location.types.client_token.ClientToken"]
     """<p>A unique identifier for this request to ensure idempotency.</p>"""
     action: "aws_sdk_location.types.job_action.JobAction"

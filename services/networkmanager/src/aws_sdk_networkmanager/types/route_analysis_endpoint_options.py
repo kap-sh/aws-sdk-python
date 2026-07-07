@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#RouteAnalysisEndpointOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.ip_address
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.transit_gateway_attachment_arn
 
 
-class RouteAnalysisEndpointOptions(TypedDict):
+class RouteAnalysisEndpointOptions(TypedDict, closed=True):
     transit_gateway_attachment_arn: NotRequired[
         "aws_sdk_networkmanager.types.transit_gateway_attachment_arn.TransitGatewayAttachmentArn"
     ]

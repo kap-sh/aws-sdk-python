@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ListQueuesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.queue_list
 
 
-class ListQueuesResponse(TypedDict):
+class ListQueuesResponse(TypedDict, closed=True):
     queues: "aws_sdk_pcs.types.queue_list.QueueList"
     """<p>The list of queues associated with the cluster.</p>"""
     next_token: NotRequired["str"]

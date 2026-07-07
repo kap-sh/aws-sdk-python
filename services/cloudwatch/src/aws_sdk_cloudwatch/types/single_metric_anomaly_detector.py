@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#SingleMetricAnomalyDetector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.namespace
 
 
-class SingleMetricAnomalyDetector(TypedDict):
+class SingleMetricAnomalyDetector(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_cloudwatch.types.account_id.AccountId"]
     """<p>If the CloudWatch metric that provides the time series that the anomaly detector uses as input is in another account, specify that account ID here. If you omit this parameter, the current account is used.</p>"""
     namespace: NotRequired["aws_sdk_cloudwatch.types.namespace.Namespace"]

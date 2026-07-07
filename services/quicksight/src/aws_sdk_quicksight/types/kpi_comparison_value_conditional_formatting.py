@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#KPIComparisonValueConditionalFormatting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.conditional_formatting_color
     import aws_sdk_quicksight.types.conditional_formatting_icon
 
 
-class KPIComparisonValueConditionalFormatting(TypedDict):
+class KPIComparisonValueConditionalFormatting(TypedDict, closed=True):
     text_color: NotRequired[
         "aws_sdk_quicksight.types.conditional_formatting_color.ConditionalFormattingColor"
     ]

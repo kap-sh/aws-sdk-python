@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#DataSetSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.timestamp
 
 
-class DataSetSummary(TypedDict):
+class DataSetSummary(TypedDict, closed=True):
     data_set_name: "aws_sdk_m2.types.string200.String200"
     """<p>The name of the data set.</p>"""
     data_set_org: NotRequired["aws_sdk_m2.types.string20.String20"]

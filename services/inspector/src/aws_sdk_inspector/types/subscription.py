@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#Subscription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.event_subscription_list
 
 
-class Subscription(TypedDict):
+class Subscription(TypedDict, closed=True):
     resource_arn: "aws_sdk_inspector.types.arn.Arn"
     """<p>The ARN of the assessment template that is used during the event for which the SNS notification is sent.</p>"""
     topic_arn: "aws_sdk_inspector.types.arn.Arn"

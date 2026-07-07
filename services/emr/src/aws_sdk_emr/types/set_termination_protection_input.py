@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#SetTerminationProtectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean
     import aws_sdk_emr.types.xml_string_list
 
 
-class SetTerminationProtectionInput(TypedDict):
+class SetTerminationProtectionInput(TypedDict, closed=True):
     job_flow_ids: NotRequired["aws_sdk_emr.types.xml_string_list.XmlStringList"]
     """<p> A list of strings that uniquely identify the clusters to protect. This identifier is returned by <a>RunJobFlow</a> and can also be obtained from <a>DescribeJobFlows</a> . </p>"""
     termination_protected: NotRequired["aws_sdk_emr.types.boolean.Boolean"]

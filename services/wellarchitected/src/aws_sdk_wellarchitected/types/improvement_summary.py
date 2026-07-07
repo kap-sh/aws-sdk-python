@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ImprovementSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.choice_improvement_plans
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.risk
 
 
-class ImprovementSummary(TypedDict):
+class ImprovementSummary(TypedDict, closed=True):
     question_id: NotRequired["aws_sdk_wellarchitected.types.question_id.QuestionId"]
     pillar_id: NotRequired["aws_sdk_wellarchitected.types.pillar_id.PillarId"]
     question_title: NotRequired[

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#TemplateSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class TemplateSummary(TypedDict):
+class TemplateSummary(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The ID of the template.</p>"""
     name: NotRequired["str"]

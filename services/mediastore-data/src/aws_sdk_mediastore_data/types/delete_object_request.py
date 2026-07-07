@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediastoredata#DeleteObjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediastore_data.types.path_naming
 
 
-class DeleteObjectRequest(TypedDict):
+class DeleteObjectRequest(TypedDict, closed=True):
     path: "aws_sdk_mediastore_data.types.path_naming.PathNaming"
     """<p>The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name></p>"""
 

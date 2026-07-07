@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeFleetLocationCapacityOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_capacity
 
 
-class DescribeFleetLocationCapacityOutput(TypedDict):
+class DescribeFleetLocationCapacityOutput(TypedDict, closed=True):
     fleet_capacity: NotRequired["aws_sdk_gamelift.types.fleet_capacity.FleetCapacity"]
     """<p>Resource capacity information for the requested fleet location. Capacity objects are returned only for fleets and locations that currently exist. Changes in desired instance value can take up to 1 minute to be reflected.</p>"""
 

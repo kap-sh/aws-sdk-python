@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ControlScope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.compliance_resource_id_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string_map
 
 
-class ControlScope(TypedDict):
+class ControlScope(TypedDict, closed=True):
     compliance_resource_ids: NotRequired[
         "aws_sdk_backup.types.compliance_resource_id_list.ComplianceResourceIdList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#CreateLaunchConfigurationTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.target_instance_type_right_sizing_method
 
 
-class CreateLaunchConfigurationTemplateRequest(TypedDict):
+class CreateLaunchConfigurationTemplateRequest(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_drs.types.tags_map.TagsMap"]
     """<p>Request to associate tags during creation of a Launch Configuration Template.</p>"""
     launch_disposition: NotRequired[

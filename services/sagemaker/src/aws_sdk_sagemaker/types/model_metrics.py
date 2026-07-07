@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.bias
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_quality
 
 
-class ModelMetrics(TypedDict):
+class ModelMetrics(TypedDict, closed=True):
     model_quality: NotRequired["aws_sdk_sagemaker.types.model_quality.ModelQuality"]
     """<p>Metrics that measure the quality of a model.</p>"""
     model_data_quality: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TargetPlatform``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.target_platform_accelerator
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.target_platform_os
 
 
-class TargetPlatform(TypedDict):
+class TargetPlatform(TypedDict, closed=True):
     os: NotRequired["aws_sdk_sagemaker.types.target_platform_os.TargetPlatformOs"]
     r"""<p>Specifies a target platform OS.</p> <ul> <li> <p> <code>LINUX</code>: Linux-based operating systems.</p> </li> <li> <p> <code>ANDROID</code>: Android operating systems. Android API level can be specified using the <code>ANDROID_PLATFORM</code> compiler option. For example, <code>\"CompilerOptions\": {'ANDROID_PLATFORM': 28}</code> </p> </li> </ul>"""
     arch: NotRequired["aws_sdk_sagemaker.types.target_platform_arch.TargetPlatformArch"]

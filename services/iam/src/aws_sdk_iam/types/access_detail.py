@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#AccessDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.string_type
 
 
-class AccessDetail(TypedDict):
+class AccessDetail(TypedDict, closed=True):
     service_name: "aws_sdk_iam.types.service_name_type.serviceNameType"
     """<p>The name of the service in which access was attempted.</p>"""
     service_namespace: "aws_sdk_iam.types.service_namespace_type.serviceNamespaceType"

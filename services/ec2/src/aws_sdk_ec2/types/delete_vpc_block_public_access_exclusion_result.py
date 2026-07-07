@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeleteVpcBlockPublicAccessExclusionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_block_public_access_exclusion
 
 
-class DeleteVpcBlockPublicAccessExclusionResult(TypedDict):
+class DeleteVpcBlockPublicAccessExclusionResult(TypedDict, closed=True):
     vpc_block_public_access_exclusion: NotRequired[
         "aws_sdk_ec2.types.vpc_block_public_access_exclusion.VpcBlockPublicAccessExclusion"
     ]

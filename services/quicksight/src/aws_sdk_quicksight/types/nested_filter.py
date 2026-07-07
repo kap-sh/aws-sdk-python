@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#NestedFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.short_restrictive_resource_id
 
 
-class NestedFilter(TypedDict):
+class NestedFilter(TypedDict, closed=True):
     filter_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
     """<p>An identifier that uniquely identifies a filter within a dashboard, analysis, or template.</p>"""
     column: "aws_sdk_quicksight.types.column_identifier.ColumnIdentifier"

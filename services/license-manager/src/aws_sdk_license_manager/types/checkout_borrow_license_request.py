@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#CheckoutBorrowLicenseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class CheckoutBorrowLicenseRequest(TypedDict):
+class CheckoutBorrowLicenseRequest(TypedDict, closed=True):
     license_arn: "aws_sdk_license_manager.types.arn.Arn"
     """<p>Amazon Resource Name (ARN) of the license. The license must use the borrow consumption configuration.</p>"""
     entitlements: (

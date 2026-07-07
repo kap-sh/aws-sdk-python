@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#JobDriver``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.spark_submit
 
 
-class _JobDriver_sparkSubmit(TypedDict):
+class _JobDriver_sparkSubmit(TypedDict, closed=True):
     sparkSubmit: "aws_sdk_emr_serverless.types.spark_submit.SparkSubmit"
 
 
-class _JobDriver_hive(TypedDict):
+class _JobDriver_hive(TypedDict, closed=True):
     hive: "aws_sdk_emr_serverless.types.hive.Hive"
 
 

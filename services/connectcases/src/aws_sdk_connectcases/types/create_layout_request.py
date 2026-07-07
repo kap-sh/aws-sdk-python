@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#CreateLayoutRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.layout_name
 
 
-class CreateLayoutRequest(TypedDict):
+class CreateLayoutRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_connectcases.types.domain_id.DomainId"
     """<p>The unique identifier of the Cases domain. </p>"""
     name: "aws_sdk_connectcases.types.layout_name.LayoutName"

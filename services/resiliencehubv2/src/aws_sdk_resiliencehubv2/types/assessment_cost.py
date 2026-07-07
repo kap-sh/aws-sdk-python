@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#AssessmentCost``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.cost_currency
 
 
-class AssessmentCost(TypedDict):
+class AssessmentCost(TypedDict, closed=True):
     amount: NotRequired["float"]
     """<p>The cost amount for the assessment.</p>"""
     currency: NotRequired["aws_sdk_resiliencehubv2.types.cost_currency.CostCurrency"]

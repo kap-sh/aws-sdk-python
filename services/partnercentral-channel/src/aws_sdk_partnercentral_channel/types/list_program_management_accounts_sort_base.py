@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ListProgramManagementAccountsSortBase``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_channel.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.sort_order
 
 
-class ListProgramManagementAccountsSortBase(TypedDict):
+class ListProgramManagementAccountsSortBase(TypedDict, closed=True):
     sort_order: "aws_sdk_partnercentral_channel.types.sort_order.SortOrder"
     """<p>The sort order (ascending or descending).</p>"""
     sort_by: "aws_sdk_partnercentral_channel.types.list_program_management_accounts_sort_name.ListProgramManagementAccountsSortName"

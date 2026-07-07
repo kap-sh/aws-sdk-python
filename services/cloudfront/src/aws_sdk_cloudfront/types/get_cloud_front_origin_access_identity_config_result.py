@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#GetCloudFrontOriginAccessIdentityConfigResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class GetCloudFrontOriginAccessIdentityConfigResult(TypedDict):
+class GetCloudFrontOriginAccessIdentityConfigResult(TypedDict, closed=True):
     cloud_front_origin_access_identity_config: NotRequired[
         "aws_sdk_cloudfront.types.cloud_front_origin_access_identity_config.CloudFrontOriginAccessIdentityConfig"
     ]

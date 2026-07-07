@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DeleteContactFlowModuleVersionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteContactFlowModuleVersionResponse(TypedDict):
+class DeleteContactFlowModuleVersionResponse(TypedDict, closed=True):
     pass
 
 

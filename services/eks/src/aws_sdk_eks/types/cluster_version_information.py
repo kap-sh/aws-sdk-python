@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ClusterVersionInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.version_status
 
 
-class ClusterVersionInformation(TypedDict):
+class ClusterVersionInformation(TypedDict, closed=True):
     cluster_version: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The Kubernetes version for the cluster.</p>"""
     cluster_type: NotRequired["aws_sdk_eks.types.string.String"]

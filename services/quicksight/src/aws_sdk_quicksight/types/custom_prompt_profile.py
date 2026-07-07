@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomPromptProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.subscription_id
 
 
-class CustomPromptProfile(TypedDict):
+class CustomPromptProfile(TypedDict, closed=True):
     model_profile_id: "aws_sdk_quicksight.types.model_profile_id.ModelProfileId"
     """<p>The identifier of the model profile.</p>"""
     subscription_id: "aws_sdk_quicksight.types.subscription_id.SubscriptionId"

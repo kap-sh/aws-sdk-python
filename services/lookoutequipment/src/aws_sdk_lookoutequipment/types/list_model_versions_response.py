@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ListModelVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.model_version_summaries
     import aws_sdk_lookoutequipment.types.next_token
 
 
-class ListModelVersionsResponse(TypedDict):
+class ListModelVersionsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_lookoutequipment.types.next_token.NextToken"]
     """<p>If the total number of results exceeds the limit that the response can display, the response returns an opaque pagination token indicating where to continue the listing of machine learning model versions. Use this token in the <code>NextToken</code> field in the request to list the next page of results.</p>"""
     model_version_summaries: NotRequired[

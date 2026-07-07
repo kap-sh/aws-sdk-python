@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#UserImportJobType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.arn_type
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_pool_id_type
 
 
-class UserImportJobType(TypedDict):
+class UserImportJobType(TypedDict, closed=True):
     job_name: NotRequired[
         "aws_sdk_cognito_identity_provider.types.user_import_job_name_type.UserImportJobNameType"
     ]

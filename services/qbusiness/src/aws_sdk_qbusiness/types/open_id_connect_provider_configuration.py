@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#OpenIDConnectProviderConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.secret_arn
 
 
-class OpenIDConnectProviderConfiguration(TypedDict):
+class OpenIDConnectProviderConfiguration(TypedDict, closed=True):
     secrets_arn: "aws_sdk_qbusiness.types.secret_arn.SecretArn"
     """<p>The Amazon Resource Name (ARN) of a Secrets Manager secret containing the OIDC client secret.</p>"""
     secrets_role: "aws_sdk_qbusiness.types.role_arn.RoleArn"

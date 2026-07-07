@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ImageReferrer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.media_type
 
 
-class ImageReferrer(TypedDict):
+class ImageReferrer(TypedDict, closed=True):
     digest: "aws_sdk_ecr.types.image_digest.ImageDigest"
     """<p>The digest of the artifact manifest.</p>"""
     media_type: "aws_sdk_ecr.types.media_type.MediaType"

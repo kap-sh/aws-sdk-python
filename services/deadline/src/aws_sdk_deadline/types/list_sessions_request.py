@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ListSessionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.farm_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.queue_id
 
 
-class ListSessionsRequest(TypedDict):
+class ListSessionsRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID for the list of sessions.</p>"""
     queue_id: "aws_sdk_deadline.types.queue_id.QueueId"

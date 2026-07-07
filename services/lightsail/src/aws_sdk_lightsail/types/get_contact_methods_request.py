@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetContactMethodsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.contact_protocols_list
 
 
-class GetContactMethodsRequest(TypedDict):
+class GetContactMethodsRequest(TypedDict, closed=True):
     protocols: NotRequired[
         "aws_sdk_lightsail.types.contact_protocols_list.ContactProtocolsList"
     ]

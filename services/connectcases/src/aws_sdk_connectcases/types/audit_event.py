@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#AuditEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.related_item_type
 
 
-class AuditEvent(TypedDict):
+class AuditEvent(TypedDict, closed=True):
     event_id: "aws_sdk_connectcases.types.audit_event_id.AuditEventId"
     """<p>Unique identifier of a case audit history event.</p>"""
     type: "aws_sdk_connectcases.types.audit_event_type.AuditEventType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#InstanceEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class InstanceEntry(TypedDict):
+class InstanceEntry(TypedDict, closed=True):
     source_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of the export snapshot record, which contains the exported Lightsail instance snapshot that will be used as the source of the new Amazon EC2 instance.</p> <p>Use the <code>get export snapshot records</code> operation to get a list of export snapshot records that you can use to create a CloudFormation stack.</p>"""
     instance_type: "aws_sdk_lightsail.types.non_empty_string.NonEmptyString"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#DeleteServiceLinkedAnalyzerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.analyzer_name
 
 
-class DeleteServiceLinkedAnalyzerRequest(TypedDict):
+class DeleteServiceLinkedAnalyzerRequest(TypedDict, closed=True):
     analyzer_name: "aws_sdk_accessanalyzer.types.analyzer_name.AnalyzerName"
     """<p>The name of the service-linked analyzer to delete. Service-linked analyzer names follow the format <code>_AccessAnalyzerFor{ServiceName}-{Id}</code>.</p>"""
     client_token: NotRequired["str"]

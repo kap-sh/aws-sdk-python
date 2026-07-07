@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#EventDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.version_label
 
 
-class EventDescription(TypedDict):
+class EventDescription(TypedDict, closed=True):
     event_date: NotRequired["aws_sdk_elastic_beanstalk.types.event_date.EventDate"]
     """<p>The date when the event occurred.</p>"""
     message: NotRequired["aws_sdk_elastic_beanstalk.types.event_message.EventMessage"]

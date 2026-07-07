@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#SourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wisdom.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.app_integrations_configuration
 
 
-class _SourceConfiguration_appIntegrations(TypedDict):
+class _SourceConfiguration_appIntegrations(TypedDict, closed=True):
     appIntegrations: "aws_sdk_wisdom.types.app_integrations_configuration.AppIntegrationsConfiguration"
 
 

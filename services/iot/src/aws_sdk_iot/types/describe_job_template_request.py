@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeJobTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.job_template_id
 
 
-class DescribeJobTemplateRequest(TypedDict):
+class DescribeJobTemplateRequest(TypedDict, closed=True):
     job_template_id: "aws_sdk_iot.types.job_template_id.JobTemplateId"
     """<p>The unique identifier of the job template.</p>"""
 

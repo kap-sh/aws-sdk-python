@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#UpdateAccessSourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.cidr
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_name_short
 
 
-class UpdateAccessSourceInput(TypedDict):
+class UpdateAccessSourceInput(TypedDict, closed=True):
     access_source_id: "aws_sdk_route53globalresolver.types.resource_id.ResourceId"
     """<p>The unique identifier of the access source to update.</p>"""
     cidr: NotRequired["aws_sdk_route53globalresolver.types.cidr.Cidr"]

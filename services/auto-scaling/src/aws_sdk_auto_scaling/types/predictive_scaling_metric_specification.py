@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#PredictiveScalingMetricSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.predictive_scaling_predefined_scaling_metric
 
 
-class PredictiveScalingMetricSpecification(TypedDict):
+class PredictiveScalingMetricSpecification(TypedDict, closed=True):
     target_value: NotRequired["aws_sdk_auto_scaling.types.metric_scale.MetricScale"]
     """<p>Specifies the target utilization.</p> <note> <p>Some metrics are based on a count instead of a percentage, such as the request count for an Application Load Balancer or the number of messages in an SQS queue. If the scaling policy specifies one of these metrics, specify the target utilization as the optimal average request or message count per instance during any one-minute interval. </p> </note>"""
     predefined_metric_pair_specification: NotRequired[

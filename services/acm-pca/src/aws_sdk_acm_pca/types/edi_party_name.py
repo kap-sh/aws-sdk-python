@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#EdiPartyName``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.string256
 
 
-class EdiPartyName(TypedDict):
+class EdiPartyName(TypedDict, closed=True):
     party_name: "aws_sdk_acm_pca.types.string256.String256"
     """<p>Specifies the party name.</p>"""
     name_assigner: NotRequired["aws_sdk_acm_pca.types.string256.String256"]

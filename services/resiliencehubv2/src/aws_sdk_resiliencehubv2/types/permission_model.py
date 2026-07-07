@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#PermissionModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.iam_role_name
 
 
-class PermissionModel(TypedDict):
+class PermissionModel(TypedDict, closed=True):
     invoker_role_name: "aws_sdk_resiliencehubv2.types.iam_role_name.IamRoleName"
     cross_account_roles: NotRequired[
         "aws_sdk_resiliencehubv2.types.cross_account_role_list.CrossAccountRoleList"

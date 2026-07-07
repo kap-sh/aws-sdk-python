@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#WatchlistSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.watchlist_name
 
 
-class WatchlistSummary(TypedDict):
+class WatchlistSummary(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_voice_id.types.domain_id.DomainId"]
     """<p>The identifier of the domain that contains the watchlist.</p>"""
     watchlist_id: NotRequired["aws_sdk_voice_id.types.watchlist_id.WatchlistId"]

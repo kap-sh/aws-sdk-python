@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationExclusionOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.country_code_list
 
 
-class WaypointOptimizationExclusionOptions(TypedDict):
+class WaypointOptimizationExclusionOptions(TypedDict, closed=True):
     countries: "aws_sdk_geo_routes.types.country_code_list.CountryCodeList"
     """<p>List of countries to be avoided defined by two-letter or three-letter country codes.</p>"""
 

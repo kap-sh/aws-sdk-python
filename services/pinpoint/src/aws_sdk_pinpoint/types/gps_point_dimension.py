@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#GPSPointDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__double
     import aws_sdk_pinpoint.types.gps_coordinates
 
 
-class GPSPointDimension(TypedDict):
+class GPSPointDimension(TypedDict, closed=True):
     coordinates: NotRequired["aws_sdk_pinpoint.types.gps_coordinates.GPSCoordinates"]
     """<p>The GPS coordinates to measure distance from.</p>"""
     range_in_kilometers: NotRequired["aws_sdk_pinpoint.types.__double.__double"]

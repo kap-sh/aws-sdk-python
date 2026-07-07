@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsKinesisStreamStreamEncryptionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsKinesisStreamStreamEncryptionDetails(TypedDict):
+class AwsKinesisStreamStreamEncryptionDetails(TypedDict, closed=True):
     encryption_type: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

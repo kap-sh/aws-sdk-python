@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#IsolineTrailerOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_integer
 
 
-class IsolineTrailerOptions(TypedDict):
+class IsolineTrailerOptions(TypedDict, closed=True):
     axle_count: NotRequired[
         "aws_sdk_geo_routes.types.sensitive_integer.SensitiveInteger"
     ]

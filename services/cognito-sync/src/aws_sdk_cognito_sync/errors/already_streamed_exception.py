@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#AlreadyStreamedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_sync.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.exception_message
 
 
-class AlreadyStreamedException_(TypedDict):
+class AlreadyStreamedException_(TypedDict, closed=True):
     message: "aws_sdk_cognito_sync.types.exception_message.ExceptionMessage"
     """The message associated with the AlreadyStreamedException exception."""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DescribeQueryDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.next_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.query_list_max_results
 
 
-class DescribeQueryDefinitionsRequest(TypedDict):
+class DescribeQueryDefinitionsRequest(TypedDict, closed=True):
     query_language: NotRequired[
         "aws_sdk_cloudwatch_logs.types.query_language.QueryLanguage"
     ]

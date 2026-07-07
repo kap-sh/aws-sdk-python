@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#RegisterAgentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.tags_map
 
 
-class RegisterAgentRequest(TypedDict):
+class RegisterAgentRequest(TypedDict, closed=True):
     discovery_data: "aws_sdk_groundstation.types.discovery_data.DiscoveryData"
     """<p>Data for associating an agent with the capabilities it is managing.</p>"""
     agent_details: "aws_sdk_groundstation.types.agent_details.AgentDetails"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteIntermodalRentalOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_intermodal_enabled_legs_list
     import aws_sdk_geo_routes.types.route_rental_mode_list
 
 
-class RouteIntermodalRentalOptions(TypedDict):
+class RouteIntermodalRentalOptions(TypedDict, closed=True):
     allowed_modes: NotRequired[
         "aws_sdk_geo_routes.types.route_rental_mode_list.RouteRentalModeList"
     ]

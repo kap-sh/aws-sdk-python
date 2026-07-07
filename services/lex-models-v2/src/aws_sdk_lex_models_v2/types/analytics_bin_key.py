@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AnalyticsBinKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_bin_by_name
     import aws_sdk_lex_models_v2.types.analytics_bin_value
 
 
-class AnalyticsBinKey(TypedDict):
+class AnalyticsBinKey(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_lex_models_v2.types.analytics_bin_by_name.AnalyticsBinByName"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#RecallBenefitApplicationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RecallBenefitApplicationOutput(TypedDict):
+class RecallBenefitApplicationOutput(TypedDict, closed=True):
     pass
 
 

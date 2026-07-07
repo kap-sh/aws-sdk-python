@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#Qualifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.string256
 
 
-class Qualifier(TypedDict):
+class Qualifier(TypedDict, closed=True):
     cps_uri: "aws_sdk_acm_pca.types.string256.String256"
     """<p>Contains a pointer to a certification practice statement (CPS) published by the CA.</p>"""
 

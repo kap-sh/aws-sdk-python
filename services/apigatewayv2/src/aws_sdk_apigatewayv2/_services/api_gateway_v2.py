@@ -2,9 +2,9 @@
 
 import warnings
 from collections.abc import Iterator
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_apigatewayv2._auth._signers
@@ -277,7 +277,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.uri_with_length_between1_and2048
 
 
-class ApiGatewayV2ClientConfig(TypedDict, total=False):
+class ApiGatewayV2ClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#GetOutpostSupportedInstanceTypesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.asset_id_input
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.token
 
 
-class GetOutpostSupportedInstanceTypesInput(TypedDict):
+class GetOutpostSupportedInstanceTypesInput(TypedDict, closed=True):
     outpost_identifier: "aws_sdk_outposts.types.outpost_identifier.OutpostIdentifier"
     """<p>The ID or ARN of the Outpost.</p>"""
     order_id: NotRequired["aws_sdk_outposts.types.order_id.OrderId"]

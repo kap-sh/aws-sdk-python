@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#GetProtectionStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.time_stamp
 
 
-class GetProtectionStatusRequest(TypedDict):
+class GetProtectionStatusRequest(TypedDict, closed=True):
     policy_id: "aws_sdk_fms.types.policy_id.PolicyId"
     """<p>The ID of the policy for which you want to get the attack information.</p>"""
     member_account_id: NotRequired["aws_sdk_fms.types.aws_account_id.AWSAccountId"]

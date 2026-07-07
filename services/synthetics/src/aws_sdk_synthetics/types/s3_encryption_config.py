@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#S3EncryptionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.encryption_mode
     import aws_sdk_synthetics.types.kms_key_arn
 
 
-class S3EncryptionConfig(TypedDict):
+class S3EncryptionConfig(TypedDict, closed=True):
     encryption_mode: NotRequired[
         "aws_sdk_synthetics.types.encryption_mode.EncryptionMode"
     ]

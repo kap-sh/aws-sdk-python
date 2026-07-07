@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateUserProficienciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.user_proficiency_list
 
 
-class UpdateUserProficienciesRequest(TypedDict):
+class UpdateUserProficienciesRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     """<p> The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>"""
     user_id: "aws_sdk_connect.types.user_id.UserId"

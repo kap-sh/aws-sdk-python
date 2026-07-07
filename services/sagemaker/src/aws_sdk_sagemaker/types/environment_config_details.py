@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EnvironmentConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.f_sx_lustre_config
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class EnvironmentConfigDetails(TypedDict):
+class EnvironmentConfigDetails(TypedDict, closed=True):
     f_sx_lustre_config: NotRequired[
         "aws_sdk_sagemaker.types.f_sx_lustre_config.FSxLustreConfig"
     ]

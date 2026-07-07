@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ResponseInspectionBodyContains``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.response_inspection_body_contains_success_strings
 
 
-class ResponseInspectionBodyContains(TypedDict):
+class ResponseInspectionBodyContains(TypedDict, closed=True):
     success_strings: "aws_sdk_wafv2.types.response_inspection_body_contains_success_strings.ResponseInspectionBodyContainsSuccessStrings"
     r"""<p>Strings in the body of the response that indicate a successful login or account creation attempt. To be counted as a success, the string can be anywhere in the body and must be an exact match, including case. Each string must be unique among the success and failure strings. </p> <p>JSON examples: <code>\"SuccessStrings\": [ \"Login successful\" ]</code> and <code>\"SuccessStrings\": [ \"Account creation successful\", \"Welcome to our site!\" ]</code> </p>"""
     failure_strings: "aws_sdk_wafv2.types.response_inspection_body_contains_failure_strings.ResponseInspectionBodyContainsFailureStrings"

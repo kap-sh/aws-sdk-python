@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DeleteSdiSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class DeleteSdiSourceRequest(TypedDict):
+class DeleteSdiSourceRequest(TypedDict, closed=True):
     sdi_source_id: "aws_sdk_medialive.types.__string.__string"
     """The ID of the SdiSource."""
 

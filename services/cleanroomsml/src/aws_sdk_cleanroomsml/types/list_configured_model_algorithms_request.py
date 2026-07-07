@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#ListConfiguredModelAlgorithmsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.max_results
     import aws_sdk_cleanroomsml.types.next_token
 
 
-class ListConfiguredModelAlgorithmsRequest(TypedDict):
+class ListConfiguredModelAlgorithmsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cleanroomsml.types.next_token.NextToken"]
     """<p>The token value retrieved from a previous call to access the next page of results.</p>"""
     max_results: NotRequired["aws_sdk_cleanroomsml.types.max_results.MaxResults"]

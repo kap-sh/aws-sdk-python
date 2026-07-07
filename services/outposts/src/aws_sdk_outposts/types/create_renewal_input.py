@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#CreateRenewalInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_outposts.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.payment_term
 
 
-class CreateRenewalInput(TypedDict):
+class CreateRenewalInput(TypedDict, closed=True):
     payment_option: "aws_sdk_outposts.types.payment_option.PaymentOption"
     """<p>The payment option.</p>"""
     payment_term: "aws_sdk_outposts.types.payment_term.PaymentTerm"

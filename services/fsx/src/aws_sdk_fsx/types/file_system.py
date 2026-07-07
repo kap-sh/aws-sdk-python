@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#FileSystem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.administrative_actions
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.windows_file_system_configuration
 
 
-class FileSystem(TypedDict):
+class FileSystem(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_fsx.types.aws_account_id.AWSAccountId"]
     """<p>The Amazon Web Services account that created the file system. If the file system was created by a user in IAM Identity Center, the Amazon Web Services account to which the IAM user belongs is the owner.</p>"""
     creation_time: NotRequired["aws_sdk_fsx.types.creation_time.CreationTime"]

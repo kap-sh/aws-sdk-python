@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#GetSMSAttributesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.list_string
 
 
-class GetSMSAttributesInput(TypedDict):
+class GetSMSAttributesInput(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_sns.types.list_string.ListString"]
     r"""<p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for which you want values.</p> <p>For all attribute names, see <a href=\"https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html\">SetSMSAttributes</a>.</p> <p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>"""
 

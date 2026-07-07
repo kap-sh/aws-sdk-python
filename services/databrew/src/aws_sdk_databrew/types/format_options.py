@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#FormatOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.csv_options
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.json_options
 
 
-class FormatOptions(TypedDict):
+class FormatOptions(TypedDict, closed=True):
     json: NotRequired["aws_sdk_databrew.types.json_options.JsonOptions"]
     """<p>Options that define how JSON input is to be interpreted by DataBrew.</p>"""
     excel: NotRequired["aws_sdk_databrew.types.excel_options.ExcelOptions"]

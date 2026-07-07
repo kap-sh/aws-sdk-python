@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#CreateAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.key_id_type
 
 
-class CreateAliasRequest(TypedDict):
+class CreateAliasRequest(TypedDict, closed=True):
     alias_name: "aws_sdk_kms.types.alias_name_type.AliasNameType"
     r"""<p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a name, such as <code>alias/ExampleAlias</code>. </p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important> <p>The <code>AliasName</code> value must be string of 1-256 characters. It can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name cannot begin with <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-key\">Amazon Web Services managed keys</a>.</p>"""
     target_key_id: "aws_sdk_kms.types.key_id_type.KeyIdType"

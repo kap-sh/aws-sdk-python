@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.supportapp#ListSlackWorkspaceConfigurationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support_app.types.pagination_token
     import aws_sdk_support_app.types.slack_workspace_configuration_list
 
 
-class ListSlackWorkspaceConfigurationsResult(TypedDict):
+class ListSlackWorkspaceConfigurationsResult(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_support_app.types.pagination_token.paginationToken"
     ]

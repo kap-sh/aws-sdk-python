@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#PutChannelPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutChannelPolicyResponse(TypedDict):
+class PutChannelPolicyResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#CampaignCustomMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class CampaignCustomMessage(TypedDict):
+class CampaignCustomMessage(TypedDict, closed=True):
     data: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The raw, JSON-formatted string to use as the payload for the message. The maximum size is 5 KB.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteDataRepositoryAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.client_request_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.delete_data_in_file_system
 
 
-class DeleteDataRepositoryAssociationRequest(TypedDict):
+class DeleteDataRepositoryAssociationRequest(TypedDict, closed=True):
     association_id: NotRequired[
         "aws_sdk_fsx.types.data_repository_association_id.DataRepositoryAssociationId"
     ]

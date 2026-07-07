@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CognitoMemberDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.client_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cognito_user_pool
 
 
-class CognitoMemberDefinition(TypedDict):
+class CognitoMemberDefinition(TypedDict, closed=True):
     user_pool: NotRequired["aws_sdk_sagemaker.types.cognito_user_pool.CognitoUserPool"]
     """<p>An identifier for a user pool. The user pool must be in the same region as the service that you are calling.</p>"""
     user_group: NotRequired[

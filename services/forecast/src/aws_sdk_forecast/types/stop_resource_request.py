@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#StopResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
 
 
-class StopResourceRequest(TypedDict):
+class StopResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_forecast.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) that identifies the resource to stop. The supported ARNs are <code>DatasetImportJobArn</code>, <code>PredictorArn</code>, <code>PredictorBacktestExportJobArn</code>, <code>ForecastArn</code>, <code>ForecastExportJobArn</code>, <code>ExplainabilityArn</code>, and <code>ExplainabilityExportArn</code>. </p>"""
 

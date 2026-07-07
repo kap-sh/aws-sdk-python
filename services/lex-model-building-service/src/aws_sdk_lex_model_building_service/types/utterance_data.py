@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#UtteranceData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.utterance_string
 
 
-class UtteranceData(TypedDict):
+class UtteranceData(TypedDict, closed=True):
     utterance_string: NotRequired[
         "aws_sdk_lex_model_building_service.types.utterance_string.UtteranceString"
     ]

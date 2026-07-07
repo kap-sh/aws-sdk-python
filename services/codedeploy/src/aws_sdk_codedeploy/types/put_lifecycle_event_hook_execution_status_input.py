@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#PutLifecycleEventHookExecutionStatusInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.deployment_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.lifecycle_event_status
 
 
-class PutLifecycleEventHookExecutionStatusInput(TypedDict):
+class PutLifecycleEventHookExecutionStatusInput(TypedDict, closed=True):
     deployment_id: NotRequired["aws_sdk_codedeploy.types.deployment_id.DeploymentId"]
     """<p> The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event. </p>"""
     lifecycle_event_hook_execution_id: NotRequired[

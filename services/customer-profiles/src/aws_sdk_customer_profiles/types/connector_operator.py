@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ConnectorOperator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.marketo_connector_operator
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.zendesk_connector_operator
 
 
-class ConnectorOperator(TypedDict):
+class ConnectorOperator(TypedDict, closed=True):
     marketo: NotRequired[
         "aws_sdk_customer_profiles.types.marketo_connector_operator.MarketoConnectorOperator"
     ]

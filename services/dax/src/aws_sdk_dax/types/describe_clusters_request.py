@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#DescribeClustersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.cluster_name_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.string
 
 
-class DescribeClustersRequest(TypedDict):
+class DescribeClustersRequest(TypedDict, closed=True):
     cluster_names: NotRequired["aws_sdk_dax.types.cluster_name_list.ClusterNameList"]
     """<p>The names of the DAX clusters being described.</p>"""
     max_results: NotRequired["aws_sdk_dax.types.integer_optional.IntegerOptional"]

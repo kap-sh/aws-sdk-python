@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#InstanceTypeInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.instance_type
     import aws_sdk_workspaces_instances.types.supported_instance_configurations
 
 
-class InstanceTypeInfo(TypedDict):
+class InstanceTypeInfo(TypedDict, closed=True):
     instance_type: NotRequired[
         "aws_sdk_workspaces_instances.types.instance_type.InstanceType"
     ]

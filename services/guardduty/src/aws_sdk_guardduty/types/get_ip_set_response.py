@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#GetIPSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.tag_map
 
 
-class GetIPSetResponse(TypedDict):
+class GetIPSetResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_guardduty.types.name.Name"]
     """<p>The user-friendly name for the IPSet.</p>"""
     format: NotRequired["aws_sdk_guardduty.types.ip_set_format.IpSetFormat"]

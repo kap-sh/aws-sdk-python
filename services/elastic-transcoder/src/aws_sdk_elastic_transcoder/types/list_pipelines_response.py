@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#ListPipelinesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.id
     import aws_sdk_elastic_transcoder.types.pipelines
 
 
-class ListPipelinesResponse(TypedDict):
+class ListPipelinesResponse(TypedDict, closed=True):
     pipelines: NotRequired["aws_sdk_elastic_transcoder.types.pipelines.Pipelines"]
     """<p>An array of <code>Pipeline</code> objects.</p>"""
     next_page_token: NotRequired["aws_sdk_elastic_transcoder.types.id.Id"]

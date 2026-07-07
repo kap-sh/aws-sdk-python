@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#JobBookmarksEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.job_bookmarks_encryption_mode
     import aws_sdk_glue.types.kms_key_arn
 
 
-class JobBookmarksEncryption(TypedDict):
+class JobBookmarksEncryption(TypedDict, closed=True):
     job_bookmarks_encryption_mode: NotRequired[
         "aws_sdk_glue.types.job_bookmarks_encryption_mode.JobBookmarksEncryptionMode"
     ]

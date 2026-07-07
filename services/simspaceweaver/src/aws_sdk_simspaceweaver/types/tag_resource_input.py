@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_simspaceweaver.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.tag_map
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_simspaceweaver.types.sim_space_weaver_arn.SimSpaceWeaverArn"
     r"""<p>The Amazon Resource Name (ARN) of the resource that you want to add tags to. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     tags: "aws_sdk_simspaceweaver.types.tag_map.TagMap"

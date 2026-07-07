@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AICloudWatchLogs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class AICloudWatchLogs(TypedDict):
+class AICloudWatchLogs(TypedDict, closed=True):
     log_group_arn: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the CloudWatch log group.</p>"""
     log_stream_name: NotRequired["aws_sdk_sagemaker.types.string.String"]

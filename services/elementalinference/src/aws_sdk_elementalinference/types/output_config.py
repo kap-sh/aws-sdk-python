@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#OutputConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.subtitling_config
 
 
-class _OutputConfig_cropping(TypedDict):
+class _OutputConfig_cropping(TypedDict, closed=True):
     cropping: "aws_sdk_elementalinference.types.cropping_config.CroppingConfig"
 
 
-class _OutputConfig_clipping(TypedDict):
+class _OutputConfig_clipping(TypedDict, closed=True):
     clipping: "aws_sdk_elementalinference.types.clipping_config.ClippingConfig"
 
 
-class _OutputConfig_subtitling(TypedDict):
+class _OutputConfig_subtitling(TypedDict, closed=True):
     subtitling: "aws_sdk_elementalinference.types.subtitling_config.SubtitlingConfig"
 
 

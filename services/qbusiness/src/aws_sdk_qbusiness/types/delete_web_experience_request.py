@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DeleteWebExperienceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
     import aws_sdk_qbusiness.types.web_experience_id
 
 
-class DeleteWebExperienceRequest(TypedDict):
+class DeleteWebExperienceRequest(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The identifier of the Amazon Q Business application linked to the Amazon Q Business web experience.</p>"""
     web_experience_id: "aws_sdk_qbusiness.types.web_experience_id.WebExperienceId"

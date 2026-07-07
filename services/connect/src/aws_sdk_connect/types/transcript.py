@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Transcript``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.transcript_criteria_list
 
 
-class Transcript(TypedDict):
+class Transcript(TypedDict, closed=True):
     criteria: "aws_sdk_connect.types.transcript_criteria_list.TranscriptCriteriaList"
     """<p>The list of search criteria based on Contact Lens conversational analytics transcript.</p>"""
     match_type: NotRequired[

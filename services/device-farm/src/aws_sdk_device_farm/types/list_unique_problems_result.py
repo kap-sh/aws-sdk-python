@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListUniqueProblemsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.pagination_token
     import aws_sdk_device_farm.types.unique_problems_by_execution_result_map
 
 
-class ListUniqueProblemsResult(TypedDict):
+class ListUniqueProblemsResult(TypedDict, closed=True):
     unique_problems: NotRequired[
         "aws_sdk_device_farm.types.unique_problems_by_execution_result_map.UniqueProblemsByExecutionResultMap"
     ]

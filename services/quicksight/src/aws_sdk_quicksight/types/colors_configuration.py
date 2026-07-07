@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ColorsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.custom_colors_list
 
 
-class ColorsConfiguration(TypedDict):
+class ColorsConfiguration(TypedDict, closed=True):
     custom_colors: NotRequired[
         "aws_sdk_quicksight.types.custom_colors_list.CustomColorsList"
     ]

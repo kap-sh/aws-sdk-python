@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#StartRecommendationReportGenerationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.recommendation_task_id
 
 
-class StartRecommendationReportGenerationResponse(TypedDict):
+class StartRecommendationReportGenerationResponse(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_migrationhubstrategy.types.recommendation_task_id.RecommendationTaskId"
     ]

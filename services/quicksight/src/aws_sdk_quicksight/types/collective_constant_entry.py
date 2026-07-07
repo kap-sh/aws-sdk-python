@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CollectiveConstantEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.constant_type
     import aws_sdk_quicksight.types.constant_value_string
 
 
-class CollectiveConstantEntry(TypedDict):
+class CollectiveConstantEntry(TypedDict, closed=True):
     constant_type: NotRequired["aws_sdk_quicksight.types.constant_type.ConstantType"]
     """<p>The <code>ConstantType</code> of a <code>CollectiveConstantEntry</code>.</p>"""
     value: NotRequired[

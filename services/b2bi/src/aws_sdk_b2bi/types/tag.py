@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_b2bi.types.tag_key.TagKey"
     """<p>Specifies the name assigned to the tag that you create.</p>"""
     value: "aws_sdk_b2bi.types.tag_value.TagValue"

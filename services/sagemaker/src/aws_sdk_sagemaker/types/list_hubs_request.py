@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListHubsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hub_sort_by
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListHubsRequest(TypedDict):
+class ListHubsRequest(TypedDict, closed=True):
     name_contains: NotRequired["aws_sdk_sagemaker.types.name_contains.NameContains"]
     """<p>Only list hubs with names that contain the specified string.</p>"""
     creation_time_before: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#CreateLabelGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.tag_list
 
 
-class CreateLabelGroupRequest(TypedDict):
+class CreateLabelGroupRequest(TypedDict, closed=True):
     label_group_name: "aws_sdk_lookoutequipment.types.label_group_name.LabelGroupName"
     """<p> Names a group of labels.</p> <p>Data in this field will be retained for service usage. Follow best practices for the security of your data. </p>"""
     fault_codes: NotRequired["aws_sdk_lookoutequipment.types.fault_codes.FaultCodes"]

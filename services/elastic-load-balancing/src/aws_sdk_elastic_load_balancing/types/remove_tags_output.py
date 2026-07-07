@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancing#RemoveTagsOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_load_balancing._protocol.xml import Element
 
 
-class RemoveTagsOutput(TypedDict):
+class RemoveTagsOutput(TypedDict, closed=True):
     pass
 
 

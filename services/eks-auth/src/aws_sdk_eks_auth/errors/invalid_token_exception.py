@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.eksauth#InvalidTokenException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks_auth.errors import ServiceError
 
 
-class InvalidTokenException_(TypedDict):
+class InvalidTokenException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

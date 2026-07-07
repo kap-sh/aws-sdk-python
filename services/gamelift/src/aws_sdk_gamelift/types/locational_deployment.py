@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#LocationalDeployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.deployment_status
 
 
-class LocationalDeployment(TypedDict):
+class LocationalDeployment(TypedDict, closed=True):
     deployment_status: NotRequired[
         "aws_sdk_gamelift.types.deployment_status.DeploymentStatus"
     ]

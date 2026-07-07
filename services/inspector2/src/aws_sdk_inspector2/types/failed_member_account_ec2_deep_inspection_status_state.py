@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#FailedMemberAccountEc2DeepInspectionStatusState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.status
 
 
-class FailedMemberAccountEc2DeepInspectionStatusState(TypedDict):
+class FailedMemberAccountEc2DeepInspectionStatusState(TypedDict, closed=True):
     account_id: "aws_sdk_inspector2.types.account_id.AccountId"
     """<p>The unique identifier for the Amazon Web Services account of the organization member that failed to activate Amazon Inspector deep inspection.</p>"""
     ec2_scan_status: NotRequired["aws_sdk_inspector2.types.status.Status"]

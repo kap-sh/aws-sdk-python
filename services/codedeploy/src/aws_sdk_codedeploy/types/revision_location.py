@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#RevisionLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.app_spec_content
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.s3_location
 
 
-class RevisionLocation(TypedDict):
+class RevisionLocation(TypedDict, closed=True):
     revision_type: NotRequired[
         "aws_sdk_codedeploy.types.revision_location_type.RevisionLocationType"
     ]

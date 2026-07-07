@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ServiceSystemDisassociatedMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.arn
 
 
-class ServiceSystemDisassociatedMetadata(TypedDict):
+class ServiceSystemDisassociatedMetadata(TypedDict, closed=True):
     system_id: NotRequired["str"]
     """<p>The identifier of the disassociated system.</p>"""
     system_name: NotRequired["str"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#SimpleScalingPolicyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.adjustment_type
     import aws_sdk_emr.types.integer
 
 
-class SimpleScalingPolicyConfiguration(TypedDict):
+class SimpleScalingPolicyConfiguration(TypedDict, closed=True):
     adjustment_type: NotRequired["aws_sdk_emr.types.adjustment_type.AdjustmentType"]
     """<p>The way in which Amazon EC2 instances are added (if <code>ScalingAdjustment</code> is a positive number) or terminated (if <code>ScalingAdjustment</code> is a negative number) each time the scaling activity is triggered. <code>CHANGE_IN_CAPACITY</code> is the default. <code>CHANGE_IN_CAPACITY</code> indicates that the Amazon EC2 instance count increments or decrements by <code>ScalingAdjustment</code>, which should be expressed as an integer. <code>PERCENT_CHANGE_IN_CAPACITY</code> indicates the instance count increments or decrements by the percentage specified by <code>ScalingAdjustment</code>, which should be expressed as an integer. For example, 20 indicates an increase in 20% increments of cluster capacity. <code>EXACT_CAPACITY</code> indicates the scaling activity results in an instance group with the number of Amazon EC2 instances specified by <code>ScalingAdjustment</code>, which should be expressed as a positive integer.</p>"""
     scaling_adjustment: NotRequired["aws_sdk_emr.types.integer.Integer"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MultiplexProgramServiceDescriptor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string_max256
 
 
-class MultiplexProgramServiceDescriptor(TypedDict):
+class MultiplexProgramServiceDescriptor(TypedDict, closed=True):
     provider_name: NotRequired["aws_sdk_medialive.types.__string_max256.__stringMax256"]
     """Name of the provider."""
     service_name: NotRequired["aws_sdk_medialive.types.__string_max256.__stringMax256"]

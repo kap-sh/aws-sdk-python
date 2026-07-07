@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#ConnectivityInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.route_server_peering_list
 
 
-class ConnectivityInfo(TypedDict):
+class ConnectivityInfo(TypedDict, closed=True):
     private_route_server_peerings: (
         "aws_sdk_evs.types.route_server_peering_list.RouteServerPeeringList"
     )

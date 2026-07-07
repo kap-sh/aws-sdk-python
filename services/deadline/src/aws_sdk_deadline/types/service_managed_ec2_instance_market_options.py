@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ServiceManagedEc2InstanceMarketOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.ec2_market_type
 
 
-class ServiceManagedEc2InstanceMarketOptions(TypedDict):
+class ServiceManagedEc2InstanceMarketOptions(TypedDict, closed=True):
     type: "aws_sdk_deadline.types.ec2_market_type.Ec2MarketType"
     """<p>The Amazon EC2 instance type.</p>"""
 

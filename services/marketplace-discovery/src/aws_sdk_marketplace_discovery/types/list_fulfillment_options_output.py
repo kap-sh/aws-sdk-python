@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#ListFulfillmentOptionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.next_token
 
 
-class ListFulfillmentOptionsOutput(TypedDict):
+class ListFulfillmentOptionsOutput(TypedDict, closed=True):
     fulfillment_options: "aws_sdk_marketplace_discovery.types.fulfillment_options_list.FulfillmentOptionsList"
     """<p>The fulfillment options available for the product. Each option describes how the buyer can deploy or access the product.</p>"""
     next_token: NotRequired["aws_sdk_marketplace_discovery.types.next_token.NextToken"]

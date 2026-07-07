@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#OutboundCallerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_flow_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.phone_number_id
 
 
-class OutboundCallerConfig(TypedDict):
+class OutboundCallerConfig(TypedDict, closed=True):
     outbound_caller_id_name: NotRequired[
         "aws_sdk_connect.types.outbound_caller_id_name.OutboundCallerIdName"
     ]

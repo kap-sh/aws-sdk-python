@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#DisassociateResolverRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resolver_rule_association
 
 
-class DisassociateResolverRuleResponse(TypedDict):
+class DisassociateResolverRuleResponse(TypedDict, closed=True):
     resolver_rule_association: NotRequired[
         "aws_sdk_route53resolver.types.resolver_rule_association.ResolverRuleAssociation"
     ]

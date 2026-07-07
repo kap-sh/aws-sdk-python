@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetCredentialReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.report_format_type
 
 
-class GetCredentialReportResponse(TypedDict):
+class GetCredentialReportResponse(TypedDict, closed=True):
     content: NotRequired["aws_sdk_iam.types.report_content_type.ReportContentType"]
     """<p>Contains the credential report. The report is Base64-encoded.</p>"""
     report_format: NotRequired["aws_sdk_iam.types.report_format_type.ReportFormatType"]

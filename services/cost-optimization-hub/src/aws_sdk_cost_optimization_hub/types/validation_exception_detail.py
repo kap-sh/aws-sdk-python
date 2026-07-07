@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ValidationExceptionDetail``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_optimization_hub.errors import DeserializationError
 
 
-class ValidationExceptionDetail(TypedDict):
+class ValidationExceptionDetail(TypedDict, closed=True):
     field_name: "str"
     """<p>The field name where the invalid entry was detected.</p>"""
     message: "str"

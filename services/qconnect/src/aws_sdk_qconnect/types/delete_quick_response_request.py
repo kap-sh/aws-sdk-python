@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#DeleteQuickResponseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid_or_arn
 
 
-class DeleteQuickResponseRequest(TypedDict):
+class DeleteQuickResponseRequest(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"
     """<p>The knowledge base from which the quick response is deleted. The identifier of the knowledge base.</p>"""
     quick_response_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"

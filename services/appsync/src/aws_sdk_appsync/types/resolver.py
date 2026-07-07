@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#Resolver``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.app_sync_runtime
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.sync_config
 
 
-class Resolver(TypedDict):
+class Resolver(TypedDict, closed=True):
     type_name: NotRequired["aws_sdk_appsync.types.resource_name.ResourceName"]
     """<p>The resolver type name.</p>"""
     field_name: NotRequired["aws_sdk_appsync.types.resource_name.ResourceName"]

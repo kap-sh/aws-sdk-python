@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#RegistryAlias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr_public.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.registry_alias_status
 
 
-class RegistryAlias(TypedDict):
+class RegistryAlias(TypedDict, closed=True):
     name: "aws_sdk_ecr_public.types.registry_alias_name.RegistryAliasName"
     """<p>The name of the registry alias.</p>"""
     status: "aws_sdk_ecr_public.types.registry_alias_status.RegistryAliasStatus"

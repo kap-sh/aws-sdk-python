@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DescribeTestSetDiscrepancyReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.failure_reasons
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class DescribeTestSetDiscrepancyReportResponse(TypedDict):
+class DescribeTestSetDiscrepancyReportResponse(TypedDict, closed=True):
     test_set_discrepancy_report_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The unique identifier of the test set discrepancy report to describe.</p>"""
     test_set_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]

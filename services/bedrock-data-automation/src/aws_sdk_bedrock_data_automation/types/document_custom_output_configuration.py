@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DocumentCustomOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.fallback_blueprint_items
 
 
-class DocumentCustomOutputConfiguration(TypedDict):
+class DocumentCustomOutputConfiguration(TypedDict, closed=True):
     fallback_blueprints: NotRequired[
         "aws_sdk_bedrock_data_automation.types.fallback_blueprint_items.FallbackBlueprintItems"
     ]

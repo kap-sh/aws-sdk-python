@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#GetMpaTeamAssociationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.mpa_operation
 
 
-class GetMpaTeamAssociationInput(TypedDict):
+class GetMpaTeamAssociationInput(TypedDict, closed=True):
     action: "aws_sdk_payment_cryptography.types.mpa_operation.MpaOperation"
     """<p>The protected operation whose MPA team association you want to retrieve. Currently, the only supported value is <code>IMPORT_ROOT_PUBLIC_KEY_CERTIFICATE</code>.</p>"""
 

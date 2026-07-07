@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#UpdateEnvironmentTemplateVersionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.template_version_status
 
 
-class UpdateEnvironmentTemplateVersionInput(TypedDict):
+class UpdateEnvironmentTemplateVersionInput(TypedDict, closed=True):
     template_name: "aws_sdk_proton.types.resource_name.ResourceName"
     """<p>The name of the environment template.</p>"""
     major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart"

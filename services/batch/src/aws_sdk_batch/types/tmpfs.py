@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#Tmpfs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string_list
 
 
-class Tmpfs(TypedDict):
+class Tmpfs(TypedDict, closed=True):
     container_path: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The absolute file path in the container where the <code>tmpfs</code> volume is mounted.</p>"""
     size: NotRequired["aws_sdk_batch.types.integer.Integer"]

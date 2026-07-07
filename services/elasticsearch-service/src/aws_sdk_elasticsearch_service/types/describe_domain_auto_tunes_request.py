@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DescribeDomainAutoTunesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.domain_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.next_token
 
 
-class DescribeDomainAutoTunesRequest(TypedDict):
+class DescribeDomainAutoTunesRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_elasticsearch_service.types.domain_name.DomainName"
     """<p>Specifies the domain name for which you want Auto-Tune action details.</p>"""
     max_results: "aws_sdk_elasticsearch_service.types.max_results.MaxResults"

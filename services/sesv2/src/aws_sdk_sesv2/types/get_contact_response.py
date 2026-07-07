@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetContactResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.attributes_data
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.unsubscribe_all
 
 
-class GetContactResponse(TypedDict):
+class GetContactResponse(TypedDict, closed=True):
     contact_list_name: NotRequired[
         "aws_sdk_sesv2.types.contact_list_name.ContactListName"
     ]

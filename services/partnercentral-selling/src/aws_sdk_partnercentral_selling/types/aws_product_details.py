@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#AwsProductDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.string_list
 
 
-class AwsProductDetails(TypedDict):
+class AwsProductDetails(TypedDict, closed=True):
     product_code: "str"
     """<p>AWS Partner Central product identifier used for opportunity association.</p>"""
     service_code: NotRequired["str"]

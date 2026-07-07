@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#UnsubscribeFromDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.dataset_name
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.identity_pool_id
 
 
-class UnsubscribeFromDatasetRequest(TypedDict):
+class UnsubscribeFromDatasetRequest(TypedDict, closed=True):
     identity_pool_id: "aws_sdk_cognito_sync.types.identity_pool_id.IdentityPoolId"
     """<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which this identity belongs.</p>"""
     identity_id: "aws_sdk_cognito_sync.types.identity_id.IdentityId"

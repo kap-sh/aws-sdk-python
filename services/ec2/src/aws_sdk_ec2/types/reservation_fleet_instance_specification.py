@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ReservationFleetInstanceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class ReservationFleetInstanceSpecification(TypedDict):
+class ReservationFleetInstanceSpecification(TypedDict, closed=True):
     instance_type: NotRequired["aws_sdk_ec2.types.instance_type.InstanceType"]
     """<p>The instance type for which the Capacity Reservation Fleet reserves capacity.</p>"""
     instance_platform: NotRequired[

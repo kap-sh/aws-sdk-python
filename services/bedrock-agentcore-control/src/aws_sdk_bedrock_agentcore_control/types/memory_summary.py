@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#MemorySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.memory_status
 
 
-class MemorySummary(TypedDict):
+class MemorySummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_bedrock_agentcore_control.types.memory_arn.MemoryArn"]
     """<p>The Amazon Resource Name (ARN) of the memory.</p>"""
     id: NotRequired["aws_sdk_bedrock_agentcore_control.types.memory_id.MemoryId"]

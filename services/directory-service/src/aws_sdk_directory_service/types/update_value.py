@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#UpdateValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.os_update_settings
 
 
-class UpdateValue(TypedDict):
+class UpdateValue(TypedDict, closed=True):
     os_update_settings: NotRequired[
         "aws_sdk_directory_service.types.os_update_settings.OSUpdateSettings"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowExecutionStartedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_type
 
 
-class WorkflowExecutionStartedEventAttributes(TypedDict):
+class WorkflowExecutionStartedEventAttributes(TypedDict, closed=True):
     input: NotRequired["aws_sdk_swf.types.data.Data"]
     """<p>The input provided to the workflow execution.</p>"""
     execution_start_to_close_timeout: NotRequired[

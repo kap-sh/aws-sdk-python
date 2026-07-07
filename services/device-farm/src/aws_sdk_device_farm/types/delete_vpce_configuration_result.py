@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#DeleteVPCEConfigurationResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteVPCEConfigurationResult(TypedDict):
+class DeleteVPCEConfigurationResult(TypedDict, closed=True):
     pass
 
 

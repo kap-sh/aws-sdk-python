@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#Geometry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.linear_rings
 
 
-class Geometry(TypedDict):
+class Geometry(TypedDict, closed=True):
     type: "str"
     """<p>GeoJson Geometry types like Polygon and MultiPolygon.</p>"""
     coordinates: "aws_sdk_sagemaker_geospatial.types.linear_rings.LinearRings"

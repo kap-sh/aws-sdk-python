@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#StopArchiveExportResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopArchiveExportResponse(TypedDict):
+class StopArchiveExportResponse(TypedDict, closed=True):
     pass
 
 

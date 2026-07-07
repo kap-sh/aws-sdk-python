@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#DeleteDirectoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.arn
 
 
-class DeleteDirectoryRequest(TypedDict):
+class DeleteDirectoryRequest(TypedDict, closed=True):
     directory_arn: "aws_sdk_clouddirectory.types.arn.Arn"
     """<p>The ARN of the directory to delete.</p>"""
 

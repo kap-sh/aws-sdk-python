@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#MediaCapturePipelineSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.chime_sdk_meeting_concatenation_configuration
 
 
-class MediaCapturePipelineSourceConfiguration(TypedDict):
+class MediaCapturePipelineSourceConfiguration(TypedDict, closed=True):
     media_pipeline_arn: "aws_sdk_chime_sdk_media_pipelines.types.arn.Arn"
     """<p>The media pipeline ARN in the configuration object of a media capture pipeline.</p>"""
     chime_sdk_meeting_configuration: "aws_sdk_chime_sdk_media_pipelines.types.chime_sdk_meeting_concatenation_configuration.ChimeSdkMeetingConcatenationConfiguration"

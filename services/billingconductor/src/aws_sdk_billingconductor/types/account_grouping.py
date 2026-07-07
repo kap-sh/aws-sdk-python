@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#AccountGrouping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.account_id_list
     import aws_sdk_billingconductor.types.responsibility_transfer_arn
 
 
-class AccountGrouping(TypedDict):
+class AccountGrouping(TypedDict, closed=True):
     linked_account_ids: "aws_sdk_billingconductor.types.account_id_list.AccountIdList"
     """<p>The account IDs that make up the billing group. Account IDs must be a part of the consolidated billing family, and not associated with another billing group.</p>"""
     auto_associate: NotRequired["bool"]

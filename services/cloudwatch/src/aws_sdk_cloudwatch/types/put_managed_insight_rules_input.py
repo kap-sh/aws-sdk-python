@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#PutManagedInsightRulesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.managed_rules
 
 
-class PutManagedInsightRulesInput(TypedDict):
+class PutManagedInsightRulesInput(TypedDict, closed=True):
     managed_rules: NotRequired["aws_sdk_cloudwatch.types.managed_rules.ManagedRules"]
     """<p> A list of <code>ManagedRules</code> to enable. </p>"""
 

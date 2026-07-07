@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.invoke_model_identifier
     import aws_sdk_bedrock_runtime.types.invoke_model_with_bidirectional_stream_input
 
 
-class InvokeModelWithBidirectionalStreamRequest(TypedDict):
+class InvokeModelWithBidirectionalStreamRequest(TypedDict, closed=True):
     model_id: (
         "aws_sdk_bedrock_runtime.types.invoke_model_identifier.InvokeModelIdentifier"
     )

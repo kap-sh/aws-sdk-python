@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#DescribePackagingConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__string
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.tags
 
 
-class DescribePackagingConfigurationResponse(TypedDict):
+class DescribePackagingConfigurationResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mediapackage_vod.types.__string.__string"]
     """The ARN of the PackagingConfiguration."""
     cmaf_package: NotRequired["aws_sdk_mediapackage_vod.types.cmaf_package.CmafPackage"]

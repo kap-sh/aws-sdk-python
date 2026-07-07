@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutDeliverabilityDashboardOptionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutDeliverabilityDashboardOptionResponse(TypedDict):
+class PutDeliverabilityDashboardOptionResponse(TypedDict, closed=True):
     pass
 
 

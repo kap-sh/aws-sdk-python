@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#EnabledBaselineParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.enabled_baseline_parameter_document
 
 
-class EnabledBaselineParameter(TypedDict):
+class EnabledBaselineParameter(TypedDict, closed=True):
     key: "str"
     """<p>A string denoting the parameter key.</p>"""
     value: "aws_sdk_controltower.types.enabled_baseline_parameter_document.EnabledBaselineParameterDocument"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#EncryptionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.provider
     import aws_sdk_eks.types.string_list
 
 
-class EncryptionConfig(TypedDict):
+class EncryptionConfig(TypedDict, closed=True):
     resources: NotRequired["aws_sdk_eks.types.string_list.StringList"]
     """<p>Specifies the resources to be encrypted. The only supported value is <code>secrets</code>.</p>"""
     provider: NotRequired["aws_sdk_eks.types.provider.Provider"]

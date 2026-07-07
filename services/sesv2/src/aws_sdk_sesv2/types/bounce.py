@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#Bounce``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.bounce_sub_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.diagnostic_code
 
 
-class Bounce(TypedDict):
+class Bounce(TypedDict, closed=True):
     bounce_type: NotRequired["aws_sdk_sesv2.types.bounce_type.BounceType"]
     """<p>The type of the bounce, as determined by SES. Can be one of <code>UNDETERMINED</code>, <code>TRANSIENT</code>, or <code>PERMANENT</code> </p>"""
     bounce_sub_type: NotRequired["aws_sdk_sesv2.types.bounce_sub_type.BounceSubType"]

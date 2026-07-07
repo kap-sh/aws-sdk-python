@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#S3BucketSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.s3_prefix
 
 
-class S3BucketSource(TypedDict):
+class S3BucketSource(TypedDict, closed=True):
     s3_bucket_owner: NotRequired["aws_sdk_dynamodb.types.s3_bucket_owner.S3BucketOwner"]
     """<p> The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional. </p>"""
     s3_bucket: "aws_sdk_dynamodb.types.s3_bucket.S3Bucket"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DescribeTaskDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.tags
     import aws_sdk_ecs.types.task_definition
 
 
-class DescribeTaskDefinitionResponse(TypedDict):
+class DescribeTaskDefinitionResponse(TypedDict, closed=True):
     task_definition: NotRequired["aws_sdk_ecs.types.task_definition.TaskDefinition"]
     """<p>The full task definition description.</p>"""
     tags: NotRequired["aws_sdk_ecs.types.tags.Tags"]

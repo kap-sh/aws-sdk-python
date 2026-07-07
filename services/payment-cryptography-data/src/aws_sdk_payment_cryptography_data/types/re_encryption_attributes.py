@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#ReEncryptionAttributes``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.symmetric_encryption_attributes
 
 
-class _ReEncryptionAttributes_Symmetric(TypedDict):
+class _ReEncryptionAttributes_Symmetric(TypedDict, closed=True):
     Symmetric: "aws_sdk_payment_cryptography_data.types.symmetric_encryption_attributes.SymmetricEncryptionAttributes"
 
 
-class _ReEncryptionAttributes_Dukpt(TypedDict):
+class _ReEncryptionAttributes_Dukpt(TypedDict, closed=True):
     Dukpt: "aws_sdk_payment_cryptography_data.types.dukpt_encryption_attributes.DukptEncryptionAttributes"
 
 

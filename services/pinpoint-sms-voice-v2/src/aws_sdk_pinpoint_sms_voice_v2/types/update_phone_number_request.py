@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#UpdatePhoneNumberRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.two_way_channel_arn
 
 
-class UpdatePhoneNumberRequest(TypedDict):
+class UpdatePhoneNumberRequest(TypedDict, closed=True):
     phone_number_id: (
         "aws_sdk_pinpoint_sms_voice_v2.types.phone_number_id_or_arn.PhoneNumberIdOrArn"
     )

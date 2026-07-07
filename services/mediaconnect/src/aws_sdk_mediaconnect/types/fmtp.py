@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#Fmtp``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.colorimetry
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.tcs
 
 
-class Fmtp(TypedDict):
+class Fmtp(TypedDict, closed=True):
     channel_order: NotRequired["str"]
     """<p> The format of the audio channel. </p>"""
     colorimetry: NotRequired["aws_sdk_mediaconnect.types.colorimetry.Colorimetry"]

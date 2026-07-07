@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#SouthKoreaAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.line_of_business
 
 
-class SouthKoreaAdditionalInfo(TypedDict):
+class SouthKoreaAdditionalInfo(TypedDict, closed=True):
     business_representative_name: "aws_sdk_taxsettings.types.business_representative_name.BusinessRepresentativeName"
     """<p>The business legal name based on the most recently uploaded tax registration certificate.</p>"""
     line_of_business: "aws_sdk_taxsettings.types.line_of_business.LineOfBusiness"

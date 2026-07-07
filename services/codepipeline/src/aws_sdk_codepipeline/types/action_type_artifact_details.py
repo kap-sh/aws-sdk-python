@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ActionTypeArtifactDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.maximum_action_type_artifact_count
     import aws_sdk_codepipeline.types.minimum_action_type_artifact_count
 
 
-class ActionTypeArtifactDetails(TypedDict):
+class ActionTypeArtifactDetails(TypedDict, closed=True):
     minimum_count: "aws_sdk_codepipeline.types.minimum_action_type_artifact_count.MinimumActionTypeArtifactCount"
     """<p>The minimum number of artifacts that can be used with the action type. For example, you should specify a minimum and maximum of zero input artifacts for an action type with a category of <code>source</code>.</p>"""
     maximum_count: "aws_sdk_codepipeline.types.maximum_action_type_artifact_count.MaximumActionTypeArtifactCount"

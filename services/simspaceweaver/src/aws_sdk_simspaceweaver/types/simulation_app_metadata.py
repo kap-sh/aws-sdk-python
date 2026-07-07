@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#SimulationAppMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.sim_space_weaver_long_resource_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.simulation_app_target_status
 
 
-class SimulationAppMetadata(TypedDict):
+class SimulationAppMetadata(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_simspaceweaver.types.sim_space_weaver_long_resource_name.SimSpaceWeaverLongResourceName"
     ]

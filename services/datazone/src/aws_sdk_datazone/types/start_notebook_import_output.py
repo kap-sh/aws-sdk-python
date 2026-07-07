@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#StartNotebookImportOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.created_at
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.source_location
 
 
-class StartNotebookImportOutput(TypedDict):
+class StartNotebookImportOutput(TypedDict, closed=True):
     notebook_id: NotRequired["aws_sdk_datazone.types.notebook_id.NotebookId"]
     """<p>The identifier of the imported notebook.</p>"""
     status: NotRequired["aws_sdk_datazone.types.notebook_status.NotebookStatus"]

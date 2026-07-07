@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#KnowledgeBaseAssociationConfigurationData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.knowledge_base_search_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.tag_filter
 
 
-class KnowledgeBaseAssociationConfigurationData(TypedDict):
+class KnowledgeBaseAssociationConfigurationData(TypedDict, closed=True):
     content_tag_filter: NotRequired["aws_sdk_qconnect.types.tag_filter.TagFilter"]
     max_results: NotRequired["aws_sdk_qconnect.types.max_results.MaxResults"]
     """<p>The maximum number of results to return per page.</p>"""

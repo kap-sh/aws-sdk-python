@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeReservedInstancesOfferingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tenancy
 
 
-class DescribeReservedInstancesOfferingsRequest(TypedDict):
+class DescribeReservedInstancesOfferingsRequest(TypedDict, closed=True):
     availability_zone: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Availability Zone in which the Reserved Instance can be used.</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> can be specified, but not both.</p>"""
     include_marketplace: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

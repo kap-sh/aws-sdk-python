@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ResourceLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hyper_parameter_tuning_max_runtime_in_seconds
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_parallel_training_jobs
 
 
-class ResourceLimits(TypedDict):
+class ResourceLimits(TypedDict, closed=True):
     max_number_of_training_jobs: NotRequired[
         "aws_sdk_sagemaker.types.max_number_of_training_jobs.MaxNumberOfTrainingJobs"
     ]

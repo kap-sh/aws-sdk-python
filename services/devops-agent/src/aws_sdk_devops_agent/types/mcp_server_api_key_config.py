@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#MCPServerAPIKeyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.api_key_value
 
 
-class MCPServerAPIKeyConfig(TypedDict):
+class MCPServerAPIKeyConfig(TypedDict, closed=True):
     api_key_name: "str"
     """<p>User friendly API key name specified by end user.</p>"""
     api_key_value: "aws_sdk_devops_agent.types.api_key_value.ApiKeyValue"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ListPublicKeysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.public_key_list
 
 
-class ListPublicKeysResponse(TypedDict):
+class ListPublicKeysResponse(TypedDict, closed=True):
     public_keys: "aws_sdk_ivs_realtime.types.public_key_list.PublicKeyList"
     """<p>List of the matching public keys (summary information only).</p>"""
     next_token: NotRequired[

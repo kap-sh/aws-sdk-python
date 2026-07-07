@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#CreateAssistantAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid_or_arn
 
 
-class CreateAssistantAssociationRequest(TypedDict):
+class CreateAssistantAssociationRequest(TypedDict, closed=True):
     assistant_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>"""
     association_type: "aws_sdk_qconnect.types.association_type.AssociationType"

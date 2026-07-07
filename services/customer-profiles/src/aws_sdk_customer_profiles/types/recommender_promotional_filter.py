@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#RecommenderPromotionalFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.recommender_filter_values
 
 
-class RecommenderPromotionalFilter(TypedDict):
+class RecommenderPromotionalFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_customer_profiles.types.name.name"]
     """<p>The name of the recommender filter to use for the promotion.</p>"""
     values: NotRequired[

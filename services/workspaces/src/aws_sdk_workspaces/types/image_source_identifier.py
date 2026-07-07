@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ImageSourceIdentifier``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.image_build_version_arn
 
 
-class _ImageSourceIdentifier_Ec2ImportTaskId(TypedDict):
+class _ImageSourceIdentifier_Ec2ImportTaskId(TypedDict, closed=True):
     Ec2ImportTaskId: "aws_sdk_workspaces.types.ec2_import_task_id.Ec2ImportTaskId"
 
 
-class _ImageSourceIdentifier_ImageBuildVersionArn(TypedDict):
+class _ImageSourceIdentifier_ImageBuildVersionArn(TypedDict, closed=True):
     ImageBuildVersionArn: (
         "aws_sdk_workspaces.types.image_build_version_arn.ImageBuildVersionArn"
     )
 
 
-class _ImageSourceIdentifier_Ec2ImageId(TypedDict):
+class _ImageSourceIdentifier_Ec2ImageId(TypedDict, closed=True):
     Ec2ImageId: "aws_sdk_workspaces.types.ec2_image_id.Ec2ImageId"
 
 

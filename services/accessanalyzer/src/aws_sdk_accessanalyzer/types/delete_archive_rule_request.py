@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#DeleteArchiveRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.analyzer_name
     import aws_sdk_accessanalyzer.types.name
 
 
-class DeleteArchiveRuleRequest(TypedDict):
+class DeleteArchiveRuleRequest(TypedDict, closed=True):
     analyzer_name: "aws_sdk_accessanalyzer.types.analyzer_name.AnalyzerName"
     """<p>The name of the analyzer that associated with the archive rule to delete.</p>"""
     rule_name: "aws_sdk_accessanalyzer.types.name.Name"

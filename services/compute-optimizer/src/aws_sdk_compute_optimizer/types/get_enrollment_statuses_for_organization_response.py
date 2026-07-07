@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetEnrollmentStatusesForOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.account_enrollment_statuses
     import aws_sdk_compute_optimizer.types.next_token
 
 
-class GetEnrollmentStatusesForOrganizationResponse(TypedDict):
+class GetEnrollmentStatusesForOrganizationResponse(TypedDict, closed=True):
     account_enrollment_statuses: NotRequired[
         "aws_sdk_compute_optimizer.types.account_enrollment_statuses.AccountEnrollmentStatuses"
     ]

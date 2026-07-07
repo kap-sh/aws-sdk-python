@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#BatchGetDeploymentsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codedeploy.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.deployments_list
 
 
-class BatchGetDeploymentsInput(TypedDict):
+class BatchGetDeploymentsInput(TypedDict, closed=True):
     deployment_ids: "aws_sdk_codedeploy.types.deployments_list.DeploymentsList"
     """<p> A list of deployment IDs, separated by spaces. The maximum number of deployment IDs you can specify is 25.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudcontrol#HookProgressEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.hook_failure_mode
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.type_version_id
 
 
-class HookProgressEvent(TypedDict):
+class HookProgressEvent(TypedDict, closed=True):
     hook_type_name: NotRequired["aws_sdk_cloudcontrol.types.type_name.TypeName"]
     """<p>The type name of the Hook being invoked.</p>"""
     hook_type_version_id: NotRequired[

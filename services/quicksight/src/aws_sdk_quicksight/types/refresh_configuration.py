@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RefreshConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.incremental_refresh
 
 
-class RefreshConfiguration(TypedDict):
+class RefreshConfiguration(TypedDict, closed=True):
     incremental_refresh: (
         "aws_sdk_quicksight.types.incremental_refresh.IncrementalRefresh"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UserDefinedFunction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.catalog_id_string
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class UserDefinedFunction(TypedDict):
+class UserDefinedFunction(TypedDict, closed=True):
     function_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the function.</p>"""
     database_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

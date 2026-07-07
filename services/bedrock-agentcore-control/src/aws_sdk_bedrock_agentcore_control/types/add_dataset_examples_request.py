@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AddDatasetExamplesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.dataset_id
 
 
-class AddDatasetExamplesRequest(TypedDict):
+class AddDatasetExamplesRequest(TypedDict, closed=True):
     dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId"
     """<p> The unique identifier of the dataset to add examples to. </p>"""
     client_token: NotRequired[

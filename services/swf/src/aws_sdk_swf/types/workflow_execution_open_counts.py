@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowExecutionOpenCounts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.count
     import aws_sdk_swf.types.open_decision_tasks_count
 
 
-class WorkflowExecutionOpenCounts(TypedDict):
+class WorkflowExecutionOpenCounts(TypedDict, closed=True):
     open_activity_tasks: "aws_sdk_swf.types.count.Count"
     """<p>The count of activity tasks whose status is <code>OPEN</code>.</p>"""
     open_decision_tasks: (

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#RegistrantVerificationDetails``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RegistrantVerificationDetails(TypedDict):
+class RegistrantVerificationDetails(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListTenantResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.tenant_name
 
 
-class ListTenantResourcesRequest(TypedDict):
+class ListTenantResourcesRequest(TypedDict, closed=True):
     tenant_name: "aws_sdk_sesv2.types.tenant_name.TenantName"
     """<p>The name of the tenant to list resources for.</p>"""
     filter: NotRequired[

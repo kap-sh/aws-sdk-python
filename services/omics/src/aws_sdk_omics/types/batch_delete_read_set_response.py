@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#BatchDeleteReadSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.read_set_batch_error_list
 
 
-class BatchDeleteReadSetResponse(TypedDict):
+class BatchDeleteReadSetResponse(TypedDict, closed=True):
     errors: NotRequired[
         "aws_sdk_omics.types.read_set_batch_error_list.ReadSetBatchErrorList"
     ]

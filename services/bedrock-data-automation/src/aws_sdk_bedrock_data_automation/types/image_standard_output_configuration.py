@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#ImageStandardOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.image_standard_extraction
     import aws_sdk_bedrock_data_automation.types.image_standard_generative_field
 
 
-class ImageStandardOutputConfiguration(TypedDict):
+class ImageStandardOutputConfiguration(TypedDict, closed=True):
     extraction: NotRequired[
         "aws_sdk_bedrock_data_automation.types.image_standard_extraction.ImageStandardExtraction"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#MaintenanceWindowStepFunctionsParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_step_functions_input
     import aws_sdk_ssm.types.maintenance_window_step_functions_name
 
 
-class MaintenanceWindowStepFunctionsParameters(TypedDict):
+class MaintenanceWindowStepFunctionsParameters(TypedDict, closed=True):
     input: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_step_functions_input.MaintenanceWindowStepFunctionsInput"
     ]

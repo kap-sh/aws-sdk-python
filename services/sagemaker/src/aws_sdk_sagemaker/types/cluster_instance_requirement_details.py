@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterInstanceRequirementDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_instance_types
 
 
-class ClusterInstanceRequirementDetails(TypedDict):
+class ClusterInstanceRequirementDetails(TypedDict, closed=True):
     current_instance_types: NotRequired[
         "aws_sdk_sagemaker.types.cluster_instance_types.ClusterInstanceTypes"
     ]

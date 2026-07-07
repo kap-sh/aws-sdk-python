@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#DataUpdateRequestDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.timestamp
 
 
-class DataUpdateRequestDetails(TypedDict):
+class DataUpdateRequestDetails(TypedDict, closed=True):
     data_updated_at: NotRequired["aws_sdk_dataexchange.types.timestamp.Timestamp"]
     """<p>A datetime in the past when the data was updated. This typically means that the underlying resource supporting the data set was updated.</p>"""
 

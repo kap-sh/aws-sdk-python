@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#BatchUpdateFindingsUnprocessedFinding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_security_finding_identifier
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class BatchUpdateFindingsUnprocessedFinding(TypedDict):
+class BatchUpdateFindingsUnprocessedFinding(TypedDict, closed=True):
     finding_identifier: NotRequired[
         "aws_sdk_securityhub.types.aws_security_finding_identifier.AwsSecurityFindingIdentifier"
     ]

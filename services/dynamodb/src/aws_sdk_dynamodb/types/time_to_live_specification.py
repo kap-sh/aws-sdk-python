@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#TimeToLiveSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.time_to_live_enabled
 
 
-class TimeToLiveSpecification(TypedDict):
+class TimeToLiveSpecification(TypedDict, closed=True):
     enabled: "aws_sdk_dynamodb.types.time_to_live_enabled.TimeToLiveEnabled"
     """<p>Indicates whether TTL is to be enabled (true) or disabled (false) on the table.</p>"""
     attribute_name: (

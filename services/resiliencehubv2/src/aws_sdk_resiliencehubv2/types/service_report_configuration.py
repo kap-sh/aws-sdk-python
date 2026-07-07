@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ServiceReportConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.report_output_configuration_list
 
 
-class ServiceReportConfiguration(TypedDict):
+class ServiceReportConfiguration(TypedDict, closed=True):
     report_outputs: "aws_sdk_resiliencehubv2.types.report_output_configuration_list.ReportOutputConfigurationList"
     """<p>Output destinations for generated reports.</p>"""
 

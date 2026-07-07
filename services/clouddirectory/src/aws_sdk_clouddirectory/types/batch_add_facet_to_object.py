@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchAddFacetToObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.schema_facet
 
 
-class BatchAddFacetToObject(TypedDict):
+class BatchAddFacetToObject(TypedDict, closed=True):
     schema_facet: "aws_sdk_clouddirectory.types.schema_facet.SchemaFacet"
     """<p>Represents the facet being added to the object.</p>"""
     object_attribute_list: "aws_sdk_clouddirectory.types.attribute_key_and_value_list.AttributeKeyAndValueList"

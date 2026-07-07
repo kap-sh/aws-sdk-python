@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#RejectInboundCrossClusterSearchConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.cross_cluster_search_connection_id
 
 
-class RejectInboundCrossClusterSearchConnectionRequest(TypedDict):
+class RejectInboundCrossClusterSearchConnectionRequest(TypedDict, closed=True):
     cross_cluster_search_connection_id: "aws_sdk_elasticsearch_service.types.cross_cluster_search_connection_id.CrossClusterSearchConnectionId"
     """<p>The id of the inbound connection that you want to reject.</p>"""
 

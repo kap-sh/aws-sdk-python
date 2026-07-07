@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#StatisticOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.statistic
 
 
-class StatisticOverride(TypedDict):
+class StatisticOverride(TypedDict, closed=True):
     statistic: "aws_sdk_databrew.types.statistic.Statistic"
     """<p>The name of an evaluation</p>"""
     parameters: "aws_sdk_databrew.types.parameter_map.ParameterMap"

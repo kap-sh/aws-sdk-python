@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerjobruntime#CompleteRolloutResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CompleteRolloutResponse(TypedDict):
+class CompleteRolloutResponse(TypedDict, closed=True):
     pass
 
 

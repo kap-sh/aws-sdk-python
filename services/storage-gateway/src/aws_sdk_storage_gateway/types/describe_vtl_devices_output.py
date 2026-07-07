@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeVTLDevicesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.gateway_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.vtl_devices
 
 
-class DescribeVTLDevicesOutput(TypedDict):
+class DescribeVTLDevicesOutput(TypedDict, closed=True):
     gateway_arn: NotRequired["aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"]
     vtl_devices: NotRequired["aws_sdk_storage_gateway.types.vtl_devices.VTLDevices"]
     """<p>An array of VTL device objects composed of the Amazon Resource Name (ARN) of the VTL devices.</p>"""

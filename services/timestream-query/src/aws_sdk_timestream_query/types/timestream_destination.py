@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#TimestreamDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.resource_name
 
 
-class TimestreamDestination(TypedDict):
+class TimestreamDestination(TypedDict, closed=True):
     database_name: NotRequired[
         "aws_sdk_timestream_query.types.resource_name.ResourceName"
     ]

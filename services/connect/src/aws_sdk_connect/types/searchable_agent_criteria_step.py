@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchableAgentCriteriaStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_resource_id_list
     import aws_sdk_connect.types.search_contacts_match_type
 
 
-class SearchableAgentCriteriaStep(TypedDict):
+class SearchableAgentCriteriaStep(TypedDict, closed=True):
     agent_ids: NotRequired[
         "aws_sdk_connect.types.agent_resource_id_list.AgentResourceIdList"
     ]

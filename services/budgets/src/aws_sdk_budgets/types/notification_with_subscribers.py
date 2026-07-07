@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#NotificationWithSubscribers``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.subscribers
 
 
-class NotificationWithSubscribers(TypedDict):
+class NotificationWithSubscribers(TypedDict, closed=True):
     notification: "aws_sdk_budgets.types.notification.Notification"
     """<p>The notification that's associated with a budget.</p>"""
     subscribers: "aws_sdk_budgets.types.subscribers.Subscribers"

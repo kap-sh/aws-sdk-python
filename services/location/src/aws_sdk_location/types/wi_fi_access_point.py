@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.location#WiFiAccessPoint``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
 
-class WiFiAccessPoint(TypedDict):
+class WiFiAccessPoint(TypedDict, closed=True):
     mac_address: "str"
     """<p>Medium access control address (Mac).</p>"""
     rss: "int"

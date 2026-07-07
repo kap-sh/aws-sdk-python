@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InstanceInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.agent_type
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_type
 
 
-class InstanceInfo(TypedDict):
+class InstanceInfo(TypedDict, closed=True):
     agent_type: NotRequired["aws_sdk_ssm.types.agent_type.AgentType"]
     """<p>The type of agent installed on the node.</p>"""
     agent_version: NotRequired["aws_sdk_ssm.types.agent_version.AgentVersion"]

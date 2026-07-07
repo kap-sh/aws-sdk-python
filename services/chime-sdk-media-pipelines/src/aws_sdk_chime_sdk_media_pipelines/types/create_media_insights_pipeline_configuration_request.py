@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#CreateMediaInsightsPipelineConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.tag_list
 
 
-class CreateMediaInsightsPipelineConfigurationRequest(TypedDict):
+class CreateMediaInsightsPipelineConfigurationRequest(TypedDict, closed=True):
     media_insights_pipeline_configuration_name: "aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline_configuration_name_string.MediaInsightsPipelineConfigurationNameString"
     """<p>The name of the media insights pipeline configuration.</p>"""
     resource_access_role_arn: "aws_sdk_chime_sdk_media_pipelines.types.arn.Arn"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetListsMetadataResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.allow_deny_lists
     import aws_sdk_frauddetector.types.next_token
 
 
-class GetListsMetadataResult(TypedDict):
+class GetListsMetadataResult(TypedDict, closed=True):
     lists: NotRequired["aws_sdk_frauddetector.types.allow_deny_lists.AllowDenyLists"]
     """<p> The metadata of the specified list or all lists under the account. </p>"""
     next_token: NotRequired["aws_sdk_frauddetector.types.next_token.nextToken"]

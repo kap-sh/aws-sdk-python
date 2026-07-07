@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#GetAccountLevelServiceConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.org_configuration
 
 
-class GetAccountLevelServiceConfigurationOutput(TypedDict):
+class GetAccountLevelServiceConfigurationOutput(TypedDict, closed=True):
     org_configuration: NotRequired[
         "aws_sdk_resource_explorer_2.types.org_configuration.OrgConfiguration"
     ]

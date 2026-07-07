@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.signer#GetRevocationStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.revoked_entities
 
 
-class GetRevocationStatusResponse(TypedDict):
+class GetRevocationStatusResponse(TypedDict, closed=True):
     revoked_entities: NotRequired[
         "aws_sdk_signer.types.revoked_entities.RevokedEntities"
     ]

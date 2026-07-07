@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#SnapToRoadsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.road_snap_travel_mode_options
 
 
-class SnapToRoadsRequest(TypedDict):
+class SnapToRoadsRequest(TypedDict, closed=True):
     key: NotRequired["aws_sdk_geo_routes.types.api_key.ApiKey"]
     """<p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request. </p>"""
     snapped_geometry_format: NotRequired[

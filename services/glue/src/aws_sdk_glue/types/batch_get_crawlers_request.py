@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetCrawlersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.crawler_name_list
 
 
-class BatchGetCrawlersRequest(TypedDict):
+class BatchGetCrawlersRequest(TypedDict, closed=True):
     crawler_names: "aws_sdk_glue.types.crawler_name_list.CrawlerNameList"
     """<p>A list of crawler names, which might be the names returned from the <code>ListCrawlers</code> operation.</p>"""
 

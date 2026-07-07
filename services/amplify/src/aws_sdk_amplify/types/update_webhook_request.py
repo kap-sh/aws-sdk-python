@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#UpdateWebhookRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplify.types.branch_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.webhook_id
 
 
-class UpdateWebhookRequest(TypedDict):
+class UpdateWebhookRequest(TypedDict, closed=True):
     webhook_id: "aws_sdk_amplify.types.webhook_id.WebhookId"
     """<p>The unique ID for a webhook. </p>"""
     branch_name: NotRequired["aws_sdk_amplify.types.branch_name.BranchName"]

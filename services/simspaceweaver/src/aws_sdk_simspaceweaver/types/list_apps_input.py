@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#ListAppsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.optional_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name
 
 
-class ListAppsInput(TypedDict):
+class ListAppsInput(TypedDict, closed=True):
     simulation: "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName"
     """<p>The name of the simulation that you want to list apps for.</p>"""
     domain: NotRequired[

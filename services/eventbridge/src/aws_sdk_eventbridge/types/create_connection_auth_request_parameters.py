@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#CreateConnectionAuthRequestParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.connection_http_parameters
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.create_connection_o_auth_request_parameters
 
 
-class CreateConnectionAuthRequestParameters(TypedDict):
+class CreateConnectionAuthRequestParameters(TypedDict, closed=True):
     basic_auth_parameters: NotRequired[
         "aws_sdk_eventbridge.types.create_connection_basic_auth_request_parameters.CreateConnectionBasicAuthRequestParameters"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.account_details
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.vdm_attributes
 
 
-class GetAccountResponse(TypedDict):
+class GetAccountResponse(TypedDict, closed=True):
     dedicated_ip_auto_warmup_enabled: "aws_sdk_sesv2.types.enabled.Enabled"
     """<p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP addresses that are associated with your account.</p>"""
     enforcement_status: NotRequired[

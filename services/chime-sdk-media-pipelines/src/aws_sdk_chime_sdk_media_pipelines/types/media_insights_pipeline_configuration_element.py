@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#MediaInsightsPipelineConfigurationElement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.voice_enhancement_sink_configuration
 
 
-class MediaInsightsPipelineConfigurationElement(TypedDict):
+class MediaInsightsPipelineConfigurationElement(TypedDict, closed=True):
     type: "aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline_configuration_element_type.MediaInsightsPipelineConfigurationElementType"
     """<p>The element type.</p>"""
     amazon_transcribe_call_analytics_processor_configuration: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#LogTargetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.log_level
     import aws_sdk_iot.types.log_target
 
 
-class LogTargetConfiguration(TypedDict):
+class LogTargetConfiguration(TypedDict, closed=True):
     log_target: NotRequired["aws_sdk_iot.types.log_target.LogTarget"]
     """<p>A log target</p>"""
     log_level: NotRequired["aws_sdk_iot.types.log_level.LogLevel"]

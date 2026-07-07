@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribeSecurityProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id
     import aws_sdk_connect.types.security_profile_id
 
 
-class DescribeSecurityProfileRequest(TypedDict):
+class DescribeSecurityProfileRequest(TypedDict, closed=True):
     security_profile_id: "aws_sdk_connect.types.security_profile_id.SecurityProfileId"
     """<p>The identifier for the security profle.</p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"

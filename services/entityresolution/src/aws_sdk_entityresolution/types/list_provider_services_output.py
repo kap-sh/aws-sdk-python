@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ListProviderServicesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.next_token
     import aws_sdk_entityresolution.types.provider_service_list
 
 
-class ListProviderServicesOutput(TypedDict):
+class ListProviderServicesOutput(TypedDict, closed=True):
     provider_service_summaries: NotRequired[
         "aws_sdk_entityresolution.types.provider_service_list.ProviderServiceList"
     ]

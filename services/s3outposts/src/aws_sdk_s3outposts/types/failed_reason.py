@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3outposts#FailedReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.error_code
     import aws_sdk_s3outposts.types.message
 
 
-class FailedReason(TypedDict):
+class FailedReason(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_s3outposts.types.error_code.ErrorCode"]
     """<p>The failure code, if any, for a create or delete endpoint operation.</p>"""
     message: NotRequired["aws_sdk_s3outposts.types.message.Message"]

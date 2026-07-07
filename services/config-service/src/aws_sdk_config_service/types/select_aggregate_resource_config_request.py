@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#SelectAggregateResourceConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.next_token
 
 
-class SelectAggregateResourceConfigRequest(TypedDict):
+class SelectAggregateResourceConfigRequest(TypedDict, closed=True):
     expression: "aws_sdk_config_service.types.expression.Expression"
     """<p>The SQL query SELECT command. </p>"""
     configuration_aggregator_name: "aws_sdk_config_service.types.configuration_aggregator_name.ConfigurationAggregatorName"

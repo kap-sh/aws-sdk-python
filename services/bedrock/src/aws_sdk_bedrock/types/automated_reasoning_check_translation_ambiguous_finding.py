@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningCheckTranslationAmbiguousFinding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_check_difference_scenario_list
     import aws_sdk_bedrock.types.automated_reasoning_check_translation_option_list
 
 
-class AutomatedReasoningCheckTranslationAmbiguousFinding(TypedDict):
+class AutomatedReasoningCheckTranslationAmbiguousFinding(TypedDict, closed=True):
     options: NotRequired[
         "aws_sdk_bedrock.types.automated_reasoning_check_translation_option_list.AutomatedReasoningCheckTranslationOptionList"
     ]

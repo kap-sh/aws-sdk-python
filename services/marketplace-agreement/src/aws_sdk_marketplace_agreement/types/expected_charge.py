@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ExpectedCharge``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.bounded_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.timing
 
 
-class ExpectedCharge(TypedDict):
+class ExpectedCharge(TypedDict, closed=True):
     id: NotRequired["aws_sdk_marketplace_agreement.types.resource_id.ResourceId"]
     """<p>Unique identifier of the charge for a given agreement.</p>"""
     time: NotRequired["aws_sdk_marketplace_agreement.types.timestamp.Timestamp"]

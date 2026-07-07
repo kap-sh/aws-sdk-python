@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#EngineDefaults``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class EngineDefaults(TypedDict):
+class EngineDefaults(TypedDict, closed=True):
     db_parameter_group_family: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The name of the cluster parameter group family to return the engine parameter information for.</p>"""
     marker: NotRequired["aws_sdk_docdb.types.string.String"]

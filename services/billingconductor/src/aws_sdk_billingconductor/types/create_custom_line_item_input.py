@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#CreateCustomLineItemInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.tag_map
 
 
-class CreateCustomLineItemInput(TypedDict):
+class CreateCustomLineItemInput(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_billingconductor.types.client_token.ClientToken"]
     """<p>A unique, case-sensitive identifier that you specify to ensure idempotency of the request. Idempotency ensures that an API request completes no more than one time. With an idempotent request, if the original request completes successfully, any subsequent retries complete successfully without performing any further actions.</p>"""
     name: "aws_sdk_billingconductor.types.custom_line_item_name.CustomLineItemName"

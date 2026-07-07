@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#GetHostedZoneLimitResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.usage_count
 
 
-class GetHostedZoneLimitResponse(TypedDict):
+class GetHostedZoneLimitResponse(TypedDict, closed=True):
     limit: "aws_sdk_route_53.types.hosted_zone_limit.HostedZoneLimit"
     """<p>The current setting for the specified limit. For example, if you specified <code>MAX_RRSETS_BY_ZONE</code> for the value of <code>Type</code> in the request, the value of <code>Limit</code> is the maximum number of records that you can create in the specified hosted zone.</p>"""
     count: "aws_sdk_route_53.types.usage_count.UsageCount"

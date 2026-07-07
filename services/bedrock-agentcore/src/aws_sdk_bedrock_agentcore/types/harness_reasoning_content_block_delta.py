@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessReasoningContentBlockDelta``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,15 +10,15 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.body
 
 
-class _HarnessReasoningContentBlockDelta_text(TypedDict):
+class _HarnessReasoningContentBlockDelta_text(TypedDict, closed=True):
     text: "str"
 
 
-class _HarnessReasoningContentBlockDelta_redactedContent(TypedDict):
+class _HarnessReasoningContentBlockDelta_redactedContent(TypedDict, closed=True):
     redactedContent: "aws_sdk_bedrock_agentcore.types.body.Body"
 
 
-class _HarnessReasoningContentBlockDelta_signature(TypedDict):
+class _HarnessReasoningContentBlockDelta_signature(TypedDict, closed=True):
     signature: "str"
 
 

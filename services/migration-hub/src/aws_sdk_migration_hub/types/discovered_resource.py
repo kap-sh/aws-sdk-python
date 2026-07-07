@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#DiscoveredResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migration_hub.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.discovered_resource_description
 
 
-class DiscoveredResource(TypedDict):
+class DiscoveredResource(TypedDict, closed=True):
     configuration_id: "aws_sdk_migration_hub.types.configuration_id.ConfigurationId"
     """<p>The configurationId in Application Discovery Service that uniquely identifies the on-premise resource.</p>"""
     description: NotRequired[

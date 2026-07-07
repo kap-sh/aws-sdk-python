@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#AssociateProfilesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.profile_arns
     import aws_sdk_wellarchitected.types.workload_id
 
 
-class AssociateProfilesInput(TypedDict):
+class AssociateProfilesInput(TypedDict, closed=True):
     workload_id: "aws_sdk_wellarchitected.types.workload_id.WorkloadId"
     profile_arns: NotRequired["aws_sdk_wellarchitected.types.profile_arns.ProfileArns"]
     """<p>The list of profile ARNs to associate with the workload.</p>"""

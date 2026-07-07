@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationcostprofiler#DeleteReportDefinitionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_applicationcostprofiler.types.report_id
 
 
-class DeleteReportDefinitionResult(TypedDict):
+class DeleteReportDefinitionResult(TypedDict, closed=True):
     report_id: NotRequired["aws_sdk_applicationcostprofiler.types.report_id.ReportId"]
     """<p>ID of the report that was deleted.</p>"""
 

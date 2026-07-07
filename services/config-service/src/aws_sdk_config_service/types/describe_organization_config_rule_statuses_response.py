@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DescribeOrganizationConfigRuleStatusesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.organization_config_rule_statuses
     import aws_sdk_config_service.types.string
 
 
-class DescribeOrganizationConfigRuleStatusesResponse(TypedDict):
+class DescribeOrganizationConfigRuleStatusesResponse(TypedDict, closed=True):
     organization_config_rule_statuses: NotRequired[
         "aws_sdk_config_service.types.organization_config_rule_statuses.OrganizationConfigRuleStatuses"
     ]

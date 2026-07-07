@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#WhatsAppChannelSubtypeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.whats_app_outbound_mode
 
 
-class WhatsAppChannelSubtypeConfig(TypedDict):
+class WhatsAppChannelSubtypeConfig(TypedDict, closed=True):
     capacity: NotRequired["aws_sdk_connectcampaignsv2.types.capacity.Capacity"]
     outbound_mode: (
         "aws_sdk_connectcampaignsv2.types.whats_app_outbound_mode.WhatsAppOutboundMode"

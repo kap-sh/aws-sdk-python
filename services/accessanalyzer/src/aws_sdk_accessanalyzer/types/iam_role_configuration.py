@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#IamRoleConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.iam_trust_policy
 
 
-class IamRoleConfiguration(TypedDict):
+class IamRoleConfiguration(TypedDict, closed=True):
     trust_policy: NotRequired[
         "aws_sdk_accessanalyzer.types.iam_trust_policy.IamTrustPolicy"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetAssessmentReportUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.url
 
 
-class GetAssessmentReportUrlResponse(TypedDict):
+class GetAssessmentReportUrlResponse(TypedDict, closed=True):
     pre_signed_url: NotRequired["aws_sdk_auditmanager.types.url.URL"]
 
 

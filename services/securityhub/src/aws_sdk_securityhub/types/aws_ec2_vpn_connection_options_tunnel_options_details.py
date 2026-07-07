@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2VpnConnectionOptionsTunnelOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsEc2VpnConnectionOptionsTunnelOptionsDetails(TypedDict):
+class AwsEc2VpnConnectionOptionsTunnelOptionsDetails(TypedDict, closed=True):
     dpd_timeout_seconds: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of seconds after which a Dead Peer Detection (DPD) timeout occurs.</p>"""
     ike_versions: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#BatchGetPreparedStatementOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.prepared_statement_details_list
     import aws_sdk_athena.types.unprocessed_prepared_statement_name_list
 
 
-class BatchGetPreparedStatementOutput(TypedDict):
+class BatchGetPreparedStatementOutput(TypedDict, closed=True):
     prepared_statements: NotRequired[
         "aws_sdk_athena.types.prepared_statement_details_list.PreparedStatementDetailsList"
     ]

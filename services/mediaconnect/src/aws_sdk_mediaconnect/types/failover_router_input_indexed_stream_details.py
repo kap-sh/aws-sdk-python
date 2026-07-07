@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#FailoverRouterInputIndexedStreamDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
 
-class FailoverRouterInputIndexedStreamDetails(TypedDict):
+class FailoverRouterInputIndexedStreamDetails(TypedDict, closed=True):
     source_index: "int"
     """<p>The index number (0 or 1) assigned to this source in the failover configuration.</p>"""
     source_ip_address: NotRequired["str"]

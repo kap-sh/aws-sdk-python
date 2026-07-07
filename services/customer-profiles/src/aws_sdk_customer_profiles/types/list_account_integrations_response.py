@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListAccountIntegrationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.integration_list
     import aws_sdk_customer_profiles.types.token
 
 
-class ListAccountIntegrationsResponse(TypedDict):
+class ListAccountIntegrationsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_customer_profiles.types.integration_list.IntegrationList"
     ]

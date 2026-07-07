@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#BatchGetApplicationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codedeploy.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.applications_list
 
 
-class BatchGetApplicationsInput(TypedDict):
+class BatchGetApplicationsInput(TypedDict, closed=True):
     application_names: "aws_sdk_codedeploy.types.applications_list.ApplicationsList"
     """<p>A list of application names separated by spaces. The maximum number of application names you can specify is 100.</p>"""
 

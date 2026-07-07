@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#GetFileSystemPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.file_system_id
 
 
-class GetFileSystemPolicyResponse(TypedDict):
+class GetFileSystemPolicyResponse(TypedDict, closed=True):
     file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId"
     """<p>The ID of the file system.</p>"""
     policy: "str"

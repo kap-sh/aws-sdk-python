@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#UpdateLoginProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class UpdateLoginProfileRequest(TypedDict):
+class UpdateLoginProfileRequest(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.user_name_type.userNameType"
     r"""<p>The name of the user whose password you want to update.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     password: NotRequired["aws_sdk_iam.types.password_type.passwordType"]

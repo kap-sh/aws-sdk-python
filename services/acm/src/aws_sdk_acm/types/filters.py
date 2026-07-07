@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#Filters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.certificate_export
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.key_usage_filter_list
 
 
-class Filters(TypedDict):
+class Filters(TypedDict, closed=True):
     extended_key_usage: NotRequired[
         "aws_sdk_acm.types.extended_key_usage_filter_list.ExtendedKeyUsageFilterList"
     ]

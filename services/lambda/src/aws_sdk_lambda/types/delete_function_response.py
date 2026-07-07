@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#DeleteFunctionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.integer
 
 
-class DeleteFunctionResponse(TypedDict):
+class DeleteFunctionResponse(TypedDict, closed=True):
     status_code: "aws_sdk_lambda.types.integer.Integer"
     """<p>The HTTP status code returned by the operation.</p>"""
 

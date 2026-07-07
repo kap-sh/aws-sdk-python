@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#ListAccountAssociationsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.association
 
 
-class ListAccountAssociationsFilter(TypedDict):
+class ListAccountAssociationsFilter(TypedDict, closed=True):
     association: NotRequired["aws_sdk_billingconductor.types.association.Association"]
     """<p> <code>MONITORED</code>: linked accounts that are associated to billing groups.</p> <p> <code>UNMONITORED</code>: linked accounts that are not associated to billing groups.</p> <p> <code>Billing Group Arn</code>: linked accounts that are associated to the provided Billing Group Arn.</p>"""
     account_id: NotRequired["aws_sdk_billingconductor.types.account_id.AccountId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowExecutionContinuedAsNewEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_type
 
 
-class WorkflowExecutionContinuedAsNewEventAttributes(TypedDict):
+class WorkflowExecutionContinuedAsNewEventAttributes(TypedDict, closed=True):
     input: NotRequired["aws_sdk_swf.types.data.Data"]
     """<p>The input provided to the new workflow execution.</p>"""
     decision_task_completed_event_id: "aws_sdk_swf.types.event_id.EventId"

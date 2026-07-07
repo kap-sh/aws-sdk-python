@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#Event``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.revision_published
 
 
-class Event(TypedDict):
+class Event(TypedDict, closed=True):
     revision_published: NotRequired[
         "aws_sdk_dataexchange.types.revision_published.RevisionPublished"
     ]

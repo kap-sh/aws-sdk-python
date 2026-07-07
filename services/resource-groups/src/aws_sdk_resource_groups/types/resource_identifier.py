@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#ResourceIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.resource_arn
     import aws_sdk_resource_groups.types.resource_type
 
 
-class ResourceIdentifier(TypedDict):
+class ResourceIdentifier(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_resource_groups.types.resource_arn.ResourceArn"]
     """<p>The Amazon resource name (ARN) of a resource.</p>"""
     resource_type: NotRequired[

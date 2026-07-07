@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#ProfessionalServicesFulfillmentOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.fulfillment_option_type
 
 
-class ProfessionalServicesFulfillmentOption(TypedDict):
+class ProfessionalServicesFulfillmentOption(TypedDict, closed=True):
     fulfillment_option_id: "str"
     """<p>The unique identifier of the fulfillment option.</p>"""
     fulfillment_option_type: "aws_sdk_marketplace_discovery.types.fulfillment_option_type.FulfillmentOptionType"

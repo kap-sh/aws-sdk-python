@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#InvalidParameterException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, ServiceError
 
 
-class InvalidParameterException_(TypedDict):
+class InvalidParameterException_(TypedDict, closed=True):
     message: "str"
 
 

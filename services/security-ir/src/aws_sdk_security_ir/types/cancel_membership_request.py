@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#CancelMembershipRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.membership_id
 
 
-class CancelMembershipRequest(TypedDict):
+class CancelMembershipRequest(TypedDict, closed=True):
     membership_id: "aws_sdk_security_ir.types.membership_id.MembershipId"
     """<p>Required element used in combination with CancelMembershipRequest to identify the membership ID to cancel. </p>"""
 

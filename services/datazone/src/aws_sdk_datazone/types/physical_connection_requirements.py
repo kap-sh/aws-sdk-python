@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#PhysicalConnectionRequirements``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.security_group_id_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.subnet_id_list
 
 
-class PhysicalConnectionRequirements(TypedDict):
+class PhysicalConnectionRequirements(TypedDict, closed=True):
     subnet_id: NotRequired["aws_sdk_datazone.types.subnet_id.SubnetId"]
     """<p>The subnet ID of the physical connection requirements of a connection. </p>"""
     subnet_id_list: NotRequired["aws_sdk_datazone.types.subnet_id_list.SubnetIdList"]

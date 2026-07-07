@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AssociationStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.status_message
 
 
-class AssociationStatus(TypedDict):
+class AssociationStatus(TypedDict, closed=True):
     date: "aws_sdk_ssm.types.date_time.DateTime"
     """<p>The date when the status changed.</p>"""
     name: "aws_sdk_ssm.types.association_status_name.AssociationStatusName"

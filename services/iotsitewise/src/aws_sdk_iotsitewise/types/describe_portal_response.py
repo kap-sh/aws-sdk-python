@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DescribePortalResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.url
 
 
-class DescribePortalResponse(TypedDict):
+class DescribePortalResponse(TypedDict, closed=True):
     portal_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the portal.</p>"""
     portal_arn: "aws_sdk_iotsitewise.types.arn.ARN"

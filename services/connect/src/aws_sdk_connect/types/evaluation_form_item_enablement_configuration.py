@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormItemEnablementConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_form_item_enablement_condition
 
 
-class EvaluationFormItemEnablementConfiguration(TypedDict):
+class EvaluationFormItemEnablementConfiguration(TypedDict, closed=True):
     condition: "aws_sdk_connect.types.evaluation_form_item_enablement_condition.EvaluationFormItemEnablementCondition"
     """<p>A condition for item enablement configuration.</p>"""
     action: "aws_sdk_connect.types.evaluation_form_item_enablement_action.EvaluationFormItemEnablementAction"

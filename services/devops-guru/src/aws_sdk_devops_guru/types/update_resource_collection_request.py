@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#UpdateResourceCollectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.update_resource_collection_filter
 
 
-class UpdateResourceCollectionRequest(TypedDict):
+class UpdateResourceCollectionRequest(TypedDict, closed=True):
     action: "aws_sdk_devops_guru.types.update_resource_collection_action.UpdateResourceCollectionAction"
     """<p> Specifies if the resource collection in the request is added or deleted to the resource collection. </p>"""
     resource_collection: "aws_sdk_devops_guru.types.update_resource_collection_filter.UpdateResourceCollectionFilter"

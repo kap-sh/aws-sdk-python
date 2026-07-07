@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ObjectTypeKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.field_name_list
     import aws_sdk_customer_profiles.types.standard_identifier_list
 
 
-class ObjectTypeKey(TypedDict):
+class ObjectTypeKey(TypedDict, closed=True):
     standard_identifiers: NotRequired[
         "aws_sdk_customer_profiles.types.standard_identifier_list.StandardIdentifierList"
     ]

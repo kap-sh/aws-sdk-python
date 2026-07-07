@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DataAccessorAuthenticationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
 
 
 class _DataAccessorAuthenticationConfiguration_idcTrustedTokenIssuerConfiguration(
-    TypedDict
+    TypedDict, closed=True
 ):
     idcTrustedTokenIssuerConfiguration: "aws_sdk_qbusiness.types.data_accessor_idc_trusted_token_issuer_configuration.DataAccessorIdcTrustedTokenIssuerConfiguration"
 

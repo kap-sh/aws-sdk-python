@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#PutAttributeMappingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rolesanywhere.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.uuid
 
 
-class PutAttributeMappingRequest(TypedDict):
+class PutAttributeMappingRequest(TypedDict, closed=True):
     profile_id: "aws_sdk_rolesanywhere.types.uuid.Uuid"
     """<p>The unique identifier of the profile.</p>"""
     certificate_field: "aws_sdk_rolesanywhere.types.certificate_field.CertificateField"

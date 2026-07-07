@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetSessionEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.timestamp
 
 
-class GetSessionEndpointResponse(TypedDict):
+class GetSessionEndpointResponse(TypedDict, closed=True):
     endpoint_url: "aws_sdk_athena.types.string.String"
     """<p>The endpoint for connecting to the session.</p>"""
     auth_token: "aws_sdk_athena.types.string.String"

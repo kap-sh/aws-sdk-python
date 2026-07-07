@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#LogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.log_destination
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_empty_string
 
 
-class LogConfiguration(TypedDict):
+class LogConfiguration(TypedDict, closed=True):
     log_destination: NotRequired[
         "aws_sdk_gamelift.types.log_destination.LogDestination"
     ]

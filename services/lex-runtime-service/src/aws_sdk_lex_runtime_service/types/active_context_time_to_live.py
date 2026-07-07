@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimeservice#ActiveContextTimeToLive``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.active_context_time_to_live_in_seconds
     import aws_sdk_lex_runtime_service.types.active_context_turns_to_live
 
 
-class ActiveContextTimeToLive(TypedDict):
+class ActiveContextTimeToLive(TypedDict, closed=True):
     time_to_live_in_seconds: NotRequired[
         "aws_sdk_lex_runtime_service.types.active_context_time_to_live_in_seconds.ActiveContextTimeToLiveInSeconds"
     ]

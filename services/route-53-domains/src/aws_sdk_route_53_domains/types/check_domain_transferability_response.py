@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#CheckDomainTransferabilityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.domain_transferability
     import aws_sdk_route_53_domains.types.message
 
 
-class CheckDomainTransferabilityResponse(TypedDict):
+class CheckDomainTransferabilityResponse(TypedDict, closed=True):
     transferability: NotRequired[
         "aws_sdk_route_53_domains.types.domain_transferability.DomainTransferability"
     ]

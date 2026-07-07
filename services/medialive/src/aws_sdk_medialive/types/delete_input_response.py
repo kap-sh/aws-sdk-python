@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DeleteInputResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteInputResponse(TypedDict):
+class DeleteInputResponse(TypedDict, closed=True):
     pass
 
 

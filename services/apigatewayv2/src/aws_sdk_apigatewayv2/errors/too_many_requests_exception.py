@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#TooManyRequestsException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apigatewayv2.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
 
 
-class TooManyRequestsException_(TypedDict):
+class TooManyRequestsException_(TypedDict, closed=True):
     limit_type: NotRequired["aws_sdk_apigatewayv2.types.__string.__string"]
     """<p>The limit type.</p>"""
     message: NotRequired["aws_sdk_apigatewayv2.types.__string.__string"]

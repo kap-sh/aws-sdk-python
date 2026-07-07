@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#ResetPersonalPINResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.user
 
 
-class ResetPersonalPINResponse(TypedDict):
+class ResetPersonalPINResponse(TypedDict, closed=True):
     user: NotRequired["aws_sdk_chime.types.user.User"]
     """<p>The user details and new personal meeting PIN.</p>"""
 

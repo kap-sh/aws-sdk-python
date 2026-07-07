@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#PutEncryptionConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.encryption_type
 
 
-class PutEncryptionConfigurationResponse(TypedDict):
+class PutEncryptionConfigurationResponse(TypedDict, closed=True):
     kms_key_id: NotRequired["str"]
     """<p>The ID of the KMS key that is used for encryption.</p>"""
     encryption_status: "aws_sdk_iotfleetwise.types.encryption_status.EncryptionStatus"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Snapshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.transfer_type
 
 
-class Snapshot(TypedDict):
+class Snapshot(TypedDict, closed=True):
     owner_alias: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Amazon Web Services owner alias, from an Amazon-maintained list (<code>amazon</code>). This is not the user-configured Amazon Web Services account alias set using the IAM console.</p>"""
     outpost_arn: NotRequired["aws_sdk_ec2.types.string.String"]

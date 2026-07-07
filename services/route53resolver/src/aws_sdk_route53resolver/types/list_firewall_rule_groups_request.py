@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListFirewallRuleGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.max_results
     import aws_sdk_route53resolver.types.next_token
 
 
-class ListFirewallRuleGroupsRequest(TypedDict):
+class ListFirewallRuleGroupsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_route53resolver.types.max_results.MaxResults"]
     """<p>The maximum number of objects that you want Resolver to return for this request. If more objects are available, in the response, Resolver provides a <code>NextToken</code> value that you can use in a subsequent call to get the next batch of objects.</p> <p>If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 objects. </p>"""
     next_token: NotRequired["aws_sdk_route53resolver.types.next_token.NextToken"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AmazonBedrockControlPlaneService``."""
 
 import warnings
-from typing import Any, Iterable, Optional, TypedDict
+from typing import Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 from aws_sdk_bedrock._auth._identity import Credentials
@@ -90,7 +90,7 @@ from aws_sdk_bedrock._services._pipeline import (
 )
 
 
-class AsyncBedrockClientConfig(TypedDict, total=False):
+class AsyncBedrockClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

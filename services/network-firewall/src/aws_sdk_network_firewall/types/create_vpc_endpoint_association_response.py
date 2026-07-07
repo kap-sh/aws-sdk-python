@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#CreateVpcEndpointAssociationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.vpc_endpoint_association
     import aws_sdk_network_firewall.types.vpc_endpoint_association_status
 
 
-class CreateVpcEndpointAssociationResponse(TypedDict):
+class CreateVpcEndpointAssociationResponse(TypedDict, closed=True):
     vpc_endpoint_association: NotRequired[
         "aws_sdk_network_firewall.types.vpc_endpoint_association.VpcEndpointAssociation"
     ]

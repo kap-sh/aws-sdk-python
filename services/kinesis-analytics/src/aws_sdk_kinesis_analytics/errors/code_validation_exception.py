@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#CodeValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.error_message
 
 
-class CodeValidationException_(TypedDict):
+class CodeValidationException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_kinesis_analytics.types.error_message.ErrorMessage"]
     """<p>Test</p>"""
 

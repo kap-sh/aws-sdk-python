@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#ListMicrosoftTeamsConfiguredTeamsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chatbot.types.configured_teams_list
     import aws_sdk_chatbot.types.pagination_token
 
 
-class ListMicrosoftTeamsConfiguredTeamsResult(TypedDict):
+class ListMicrosoftTeamsConfiguredTeamsResult(TypedDict, closed=True):
     configured_teams: NotRequired[
         "aws_sdk_chatbot.types.configured_teams_list.ConfiguredTeamsList"
     ]

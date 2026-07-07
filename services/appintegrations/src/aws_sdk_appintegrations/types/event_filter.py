@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#EventFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appintegrations.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.source
 
 
-class EventFilter(TypedDict):
+class EventFilter(TypedDict, closed=True):
     source: "aws_sdk_appintegrations.types.source.Source"
     """<p>The source of the events.</p>"""
 

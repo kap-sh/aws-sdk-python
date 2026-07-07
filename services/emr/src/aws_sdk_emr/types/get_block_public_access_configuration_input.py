@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emr#GetBlockPublicAccessConfigurationInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetBlockPublicAccessConfigurationInput(TypedDict):
+class GetBlockPublicAccessConfigurationInput(TypedDict, closed=True):
     pass
 
 

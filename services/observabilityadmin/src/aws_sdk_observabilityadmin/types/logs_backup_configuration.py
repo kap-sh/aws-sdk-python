@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#LogsBackupConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.resource_arn
 
 
-class LogsBackupConfiguration(TypedDict):
+class LogsBackupConfiguration(TypedDict, closed=True):
     region: "aws_sdk_observabilityadmin.types.region.Region"
     """<p>Logs specific backup destination region within the primary destination account to which log data should be centralized.</p>"""
     kms_key_arn: NotRequired[

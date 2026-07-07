@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateStorageVirtualMachineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.admin_password
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.tags
 
 
-class CreateStorageVirtualMachineRequest(TypedDict):
+class CreateStorageVirtualMachineRequest(TypedDict, closed=True):
     active_directory_configuration: NotRequired[
         "aws_sdk_fsx.types.create_svm_active_directory_configuration.CreateSvmActiveDirectoryConfiguration"
     ]

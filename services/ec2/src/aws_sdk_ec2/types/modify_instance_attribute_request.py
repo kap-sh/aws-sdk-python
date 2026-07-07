@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyInstanceAttributeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.modify_instance_attribute_value
 
 
-class ModifyInstanceAttributeRequest(TypedDict):
+class ModifyInstanceAttributeRequest(TypedDict, closed=True):
     source_dest_check: NotRequired[
         "aws_sdk_ec2.types.attribute_boolean_value.AttributeBooleanValue"
     ]

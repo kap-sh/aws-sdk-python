@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#UpdateClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class UpdateClusterRequest(TypedDict):
+class UpdateClusterRequest(TypedDict, closed=True):
     cluster_id: "aws_sdk_snowball.types.cluster_id.ClusterId"
     """<p>The cluster ID of the cluster that you want to update, for example <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>"""
     role_arn: NotRequired["aws_sdk_snowball.types.role_arn.RoleARN"]

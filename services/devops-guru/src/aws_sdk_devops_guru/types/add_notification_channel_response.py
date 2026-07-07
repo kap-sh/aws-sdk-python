@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#AddNotificationChannelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.notification_channel_id
 
 
-class AddNotificationChannelResponse(TypedDict):
+class AddNotificationChannelResponse(TypedDict, closed=True):
     id: "aws_sdk_devops_guru.types.notification_channel_id.NotificationChannelId"
     """<p> The ID of the added notification channel. </p>"""
 

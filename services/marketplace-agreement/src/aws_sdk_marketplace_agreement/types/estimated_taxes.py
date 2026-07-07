@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#EstimatedTaxes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.bounded_string
     import aws_sdk_marketplace_agreement.types.tax_breakdown
 
 
-class EstimatedTaxes(TypedDict):
+class EstimatedTaxes(TypedDict, closed=True):
     breakdown: NotRequired[
         "aws_sdk_marketplace_agreement.types.tax_breakdown.TaxBreakdown"
     ]

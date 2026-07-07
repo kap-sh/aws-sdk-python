@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#DescribeDetectorModelAnalysisResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.analysis_status
 
 
-class DescribeDetectorModelAnalysisResponse(TypedDict):
+class DescribeDetectorModelAnalysisResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_iot_events.types.analysis_status.AnalysisStatus"]
     """<p>The status of the analysis activity. The status can be one of the following values:</p> <ul> <li> <p> <code>RUNNING</code> - AWS IoT Events is analyzing your detector model. This process can take several minutes to complete.</p> </li> <li> <p> <code>COMPLETE</code> - AWS IoT Events finished analyzing your detector model.</p> </li> <li> <p> <code>FAILED</code> - AWS IoT Events couldn't analyze your detector model. Try again later.</p> </li> </ul>"""
 

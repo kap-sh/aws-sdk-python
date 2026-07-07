@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#RetentionArchiveTier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.retention_interval_unit_values
 
 
-class RetentionArchiveTier(TypedDict):
+class RetentionArchiveTier(TypedDict, closed=True):
     count: NotRequired["aws_sdk_dlm.types.count.Count"]
     """<p>The maximum number of snapshots to retain in the archive storage tier for each volume. The count must ensure that each snapshot remains in the archive tier for at least 90 days. For example, if the schedule creates snapshots every 30 days, you must specify a count of 3 or more to ensure that each snapshot is archived for at least 90 days.</p>"""
     interval: NotRequired["aws_sdk_dlm.types.interval.Interval"]

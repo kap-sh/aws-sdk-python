@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#CreateCostCategoryDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.arn
     import aws_sdk_cost_explorer.types.zoned_date_time
 
 
-class CreateCostCategoryDefinitionResponse(TypedDict):
+class CreateCostCategoryDefinitionResponse(TypedDict, closed=True):
     cost_category_arn: NotRequired["aws_sdk_cost_explorer.types.arn.Arn"]
     """<p>The unique identifier for your newly created cost category. </p>"""
     effective_start: NotRequired[

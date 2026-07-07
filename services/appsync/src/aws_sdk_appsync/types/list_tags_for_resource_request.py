@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.resource_arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_appsync.types.resource_arn.ResourceArn"
     """<p>The <code>GraphqlApi</code> Amazon Resource Name (ARN).</p>"""
 

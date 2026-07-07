@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowExecutionSignaledEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_execution
 
 
-class WorkflowExecutionSignaledEventAttributes(TypedDict):
+class WorkflowExecutionSignaledEventAttributes(TypedDict, closed=True):
     signal_name: "aws_sdk_swf.types.signal_name.SignalName"
     """<p>The name of the signal received. The decider can use the signal name and inputs to determine how to the process the signal.</p>"""
     input: NotRequired["aws_sdk_swf.types.data.Data"]

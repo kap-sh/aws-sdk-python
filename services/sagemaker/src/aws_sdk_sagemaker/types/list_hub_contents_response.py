@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListHubContentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hub_content_info_list
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListHubContentsResponse(TypedDict):
+class ListHubContentsResponse(TypedDict, closed=True):
     hub_content_summaries: NotRequired[
         "aws_sdk_sagemaker.types.hub_content_info_list.HubContentInfoList"
     ]

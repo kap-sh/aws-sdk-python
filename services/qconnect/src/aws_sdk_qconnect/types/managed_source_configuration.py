@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ManagedSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.web_crawler_configuration
 
 
-class _ManagedSourceConfiguration_webCrawlerConfiguration(TypedDict):
+class _ManagedSourceConfiguration_webCrawlerConfiguration(TypedDict, closed=True):
     webCrawlerConfiguration: (
         "aws_sdk_qconnect.types.web_crawler_configuration.WebCrawlerConfiguration"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#TLDInMaintenance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53_domains.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.tld_name
 
 
-class TLDInMaintenance_(TypedDict):
+class TLDInMaintenance_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_route_53_domains.types.error_message.ErrorMessage"]
     """<p>The top-level domain is currently undergoing maintenance and the request cannot be processed. Try again later.</p>"""
     tld: NotRequired["aws_sdk_route_53_domains.types.tld_name.TldName"]

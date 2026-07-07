@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#BatchCreateChannelMembershipError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.chime_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.string
 
 
-class BatchCreateChannelMembershipError(TypedDict):
+class BatchCreateChannelMembershipError(TypedDict, closed=True):
     member_arn: NotRequired["aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"]
     """<p>The <code>AppInstanceUserArn</code> of the member that the service couldn't add.</p>"""
     error_code: NotRequired["aws_sdk_chime_sdk_messaging.types.error_code.ErrorCode"]

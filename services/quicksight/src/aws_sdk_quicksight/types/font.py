@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Font``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.limited_string
 
 
-class Font(TypedDict):
+class Font(TypedDict, closed=True):
     font_family: NotRequired["aws_sdk_quicksight.types.limited_string.LimitedString"]
     """<p>Determines the font family settings.</p>"""
 

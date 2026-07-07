@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CalculationStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.calculation_execution_state
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.description_string
 
 
-class CalculationStatus(TypedDict):
+class CalculationStatus(TypedDict, closed=True):
     submission_date_time: NotRequired["aws_sdk_athena.types.date.Date"]
     """<p>The date and time the calculation was submitted for processing.</p>"""
     completion_date_time: NotRequired["aws_sdk_athena.types.date.Date"]

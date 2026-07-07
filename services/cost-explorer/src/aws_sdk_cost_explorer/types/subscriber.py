@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#Subscriber``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.subscriber_address
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.subscriber_type
 
 
-class Subscriber(TypedDict):
+class Subscriber(TypedDict, closed=True):
     address: NotRequired[
         "aws_sdk_cost_explorer.types.subscriber_address.SubscriberAddress"
     ]

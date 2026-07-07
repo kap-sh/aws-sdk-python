@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#PutManagedInsightRulesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.batch_failures
 
 
-class PutManagedInsightRulesOutput(TypedDict):
+class PutManagedInsightRulesOutput(TypedDict, closed=True):
     failures: NotRequired["aws_sdk_cloudwatch.types.batch_failures.BatchFailures"]
     """<p> An array that lists the rules that could not be enabled. </p>"""
 

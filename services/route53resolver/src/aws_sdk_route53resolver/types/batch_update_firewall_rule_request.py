@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#BatchUpdateFirewallRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.update_firewall_rule_entries
 
 
-class BatchUpdateFirewallRuleRequest(TypedDict):
+class BatchUpdateFirewallRuleRequest(TypedDict, closed=True):
     update_firewall_rule_entries: "aws_sdk_route53resolver.types.update_firewall_rule_entries.UpdateFirewallRuleEntries"
     """<p>The list of firewall rules to update.</p>"""
 

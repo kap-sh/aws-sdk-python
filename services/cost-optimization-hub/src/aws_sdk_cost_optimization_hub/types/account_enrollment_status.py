@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#AccountEnrollmentStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.enrollment_status
 
 
-class AccountEnrollmentStatus(TypedDict):
+class AccountEnrollmentStatus(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_cost_optimization_hub.types.account_id.AccountId"]
     """<p>The Amazon Web Services account ID.</p>"""
     status: NotRequired[

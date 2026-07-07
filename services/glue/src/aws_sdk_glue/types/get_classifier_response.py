@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetClassifierResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.classifier
 
 
-class GetClassifierResponse(TypedDict):
+class GetClassifierResponse(TypedDict, closed=True):
     classifier: NotRequired["aws_sdk_glue.types.classifier.Classifier"]
     """<p>The requested classifier.</p>"""
 

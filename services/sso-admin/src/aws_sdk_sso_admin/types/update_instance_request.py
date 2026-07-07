@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#UpdateInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.name_type
 
 
-class UpdateInstanceRequest(TypedDict):
+class UpdateInstanceRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sso_admin.types.name_type.NameType"]
     """<p>Updates the instance name.</p>"""
     instance_arn: "aws_sdk_sso_admin.types.instance_arn.InstanceArn"

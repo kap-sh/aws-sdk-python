@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#ListResourceSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__list_of_resource_set_output
     import aws_sdk_route53_recovery_readiness.types.__string
 
 
-class ListResourceSetsResponse(TypedDict):
+class ListResourceSetsResponse(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_route53_recovery_readiness.types.__string.__string"
     ]

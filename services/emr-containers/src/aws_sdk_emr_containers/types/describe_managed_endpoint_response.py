@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#DescribeManagedEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.endpoint
 
 
-class DescribeManagedEndpointResponse(TypedDict):
+class DescribeManagedEndpointResponse(TypedDict, closed=True):
     endpoint: NotRequired["aws_sdk_emr_containers.types.endpoint.Endpoint"]
     """<p>This output displays information about a managed endpoint.</p>"""
 

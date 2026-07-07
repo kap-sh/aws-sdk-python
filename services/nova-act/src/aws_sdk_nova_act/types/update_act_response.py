@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#UpdateActResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateActResponse(TypedDict):
+class UpdateActResponse(TypedDict, closed=True):
     pass
 
 

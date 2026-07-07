@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#QuotaShareCapacityUsage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.double
     import aws_sdk_batch.types.string
 
 
-class QuotaShareCapacityUsage(TypedDict):
+class QuotaShareCapacityUsage(TypedDict, closed=True):
     capacity_unit: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The unit of compute capacity for the capacity usage.</p>"""
     quantity: NotRequired["aws_sdk_batch.types.double.Double"]

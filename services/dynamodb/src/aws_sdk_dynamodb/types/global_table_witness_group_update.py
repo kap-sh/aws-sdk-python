@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#GlobalTableWitnessGroupUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.create_global_table_witness_group_member_action
     import aws_sdk_dynamodb.types.delete_global_table_witness_group_member_action
 
 
-class GlobalTableWitnessGroupUpdate(TypedDict):
+class GlobalTableWitnessGroupUpdate(TypedDict, closed=True):
     create: NotRequired[
         "aws_sdk_dynamodb.types.create_global_table_witness_group_member_action.CreateGlobalTableWitnessGroupMemberAction"
     ]

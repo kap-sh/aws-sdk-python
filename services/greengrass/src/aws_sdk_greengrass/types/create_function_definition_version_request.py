@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#CreateFunctionDefinitionVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__list_of_function
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrass.types.function_default_config
 
 
-class CreateFunctionDefinitionVersionRequest(TypedDict):
+class CreateFunctionDefinitionVersionRequest(TypedDict, closed=True):
     amzn_client_token: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """A client token used to correlate requests and responses."""
     default_config: NotRequired[

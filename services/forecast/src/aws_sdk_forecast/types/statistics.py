@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#Statistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.double
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.string
 
 
-class Statistics(TypedDict):
+class Statistics(TypedDict, closed=True):
     count: NotRequired["aws_sdk_forecast.types.integer.Integer"]
     """<p>The number of values in the field. If the response value is -1, refer to <code>CountLong</code>.</p>"""
     count_distinct: NotRequired["aws_sdk_forecast.types.integer.Integer"]

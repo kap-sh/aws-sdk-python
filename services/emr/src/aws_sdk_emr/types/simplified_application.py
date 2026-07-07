@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#SimplifiedApplication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.string
 
 
-class SimplifiedApplication(TypedDict):
+class SimplifiedApplication(TypedDict, closed=True):
     name: NotRequired["aws_sdk_emr.types.string.String"]
     """<p>The returned release label application name. For example, <code>hadoop</code>.</p>"""
     version: NotRequired["aws_sdk_emr.types.string.String"]

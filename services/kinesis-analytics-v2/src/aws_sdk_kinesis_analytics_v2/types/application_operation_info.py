@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ApplicationOperationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.operation
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.timestamp
 
 
-class ApplicationOperationInfo(TypedDict):
+class ApplicationOperationInfo(TypedDict, closed=True):
     operation: NotRequired["aws_sdk_kinesis_analytics_v2.types.operation.Operation"]
     operation_id: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.operation_id.OperationId"

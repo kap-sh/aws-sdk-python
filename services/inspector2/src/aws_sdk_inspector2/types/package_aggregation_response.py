@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#PackageAggregationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.severity_counts
 
 
-class PackageAggregationResponse(TypedDict):
+class PackageAggregationResponse(TypedDict, closed=True):
     package_name: "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"
     """<p>The name of the operating system package.</p>"""
     account_id: NotRequired["aws_sdk_inspector2.types.account_id.AccountId"]

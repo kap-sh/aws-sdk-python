@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DownloadDBLogFilePortionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DownloadDBLogFilePortionDetails(TypedDict):
+class DownloadDBLogFilePortionDetails(TypedDict, closed=True):
     log_file_data: NotRequired["aws_sdk_rds.types.sensitive_string.SensitiveString"]
     """<p>Entries from the specified log file.</p>"""
     marker: NotRequired["aws_sdk_rds.types.string.String"]

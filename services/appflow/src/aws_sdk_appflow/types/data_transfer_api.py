@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#DataTransferApi``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.data_transfer_api_type
     import aws_sdk_appflow.types.data_transfer_api_type_name
 
 
-class DataTransferApi(TypedDict):
+class DataTransferApi(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_appflow.types.data_transfer_api_type_name.DataTransferApiTypeName"
     ]

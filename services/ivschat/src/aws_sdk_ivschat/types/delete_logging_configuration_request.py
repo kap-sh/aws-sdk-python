@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#DeleteLoggingConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivschat.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.logging_configuration_identifier
 
 
-class DeleteLoggingConfigurationRequest(TypedDict):
+class DeleteLoggingConfigurationRequest(TypedDict, closed=True):
     identifier: "aws_sdk_ivschat.types.logging_configuration_identifier.LoggingConfigurationIdentifier"
     """<p>Identifier of the logging configuration to be deleted.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#Citation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class Citation(TypedDict):
+class Citation(TypedDict, closed=True):
     content_id: NotRequired["aws_sdk_qconnect.types.uuid.Uuid"]
     """<p>The identifier of the content being cited.</p>"""
     title: NotRequired["aws_sdk_qconnect.types.sensitive_string.SensitiveString"]

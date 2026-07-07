@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#PutDashboardOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.dashboard_validation_messages
 
 
-class PutDashboardOutput(TypedDict):
+class PutDashboardOutput(TypedDict, closed=True):
     dashboard_validation_messages: NotRequired[
         "aws_sdk_cloudwatch.types.dashboard_validation_messages.DashboardValidationMessages"
     ]

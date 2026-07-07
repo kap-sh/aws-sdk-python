@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DescribeFieldIndexesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.field_indexes
     import aws_sdk_cloudwatch_logs.types.next_token
 
 
-class DescribeFieldIndexesResponse(TypedDict):
+class DescribeFieldIndexesResponse(TypedDict, closed=True):
     field_indexes: NotRequired[
         "aws_sdk_cloudwatch_logs.types.field_indexes.FieldIndexes"
     ]

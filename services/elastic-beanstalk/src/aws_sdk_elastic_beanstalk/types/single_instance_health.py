@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#SingleInstanceHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.system_status
 
 
-class SingleInstanceHealth(TypedDict):
+class SingleInstanceHealth(TypedDict, closed=True):
     instance_id: NotRequired["aws_sdk_elastic_beanstalk.types.instance_id.InstanceId"]
     """<p>The ID of the Amazon EC2 instance.</p>"""
     health_status: NotRequired["aws_sdk_elastic_beanstalk.types.string.String"]

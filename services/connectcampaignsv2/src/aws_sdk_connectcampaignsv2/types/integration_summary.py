@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#IntegrationSummary``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError, SerializationError
 
@@ -10,11 +12,11 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.q_connect_integration_summary
 
 
-class _IntegrationSummary_customerProfiles(TypedDict):
+class _IntegrationSummary_customerProfiles(TypedDict, closed=True):
     customerProfiles: "aws_sdk_connectcampaignsv2.types.customer_profiles_integration_summary.CustomerProfilesIntegrationSummary"
 
 
-class _IntegrationSummary_qConnect(TypedDict):
+class _IntegrationSummary_qConnect(TypedDict, closed=True):
     qConnect: "aws_sdk_connectcampaignsv2.types.q_connect_integration_summary.QConnectIntegrationSummary"
 
 
@@ -23,6 +25,7 @@ _IntegrationSummary_lambda = TypedDict(
     {
         "lambda": "aws_sdk_connectcampaignsv2.types.lambda_integration_summary.LambdaIntegrationSummary",
     },
+    closed=True,
 )
 
 IntegrationSummary: TypeAlias = (

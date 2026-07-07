@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#AssessmentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.assessment_risk_recommendation_list
     import aws_sdk_resiliencehub.types.string500
 
 
-class AssessmentSummary(TypedDict):
+class AssessmentSummary(TypedDict, closed=True):
     summary: NotRequired["aws_sdk_resiliencehub.types.string500.String500"]
     """<p>Indicates a concise summary that provides an overview of the Resilience Hub assessment.</p> <note> <p>This property is available only in the US East (N. Virginia) Region.</p> </note>"""
     risk_recommendations: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#PutFeedbackRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid_or_arn
 
 
-class PutFeedbackRequest(TypedDict):
+class PutFeedbackRequest(TypedDict, closed=True):
     assistant_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the Amazon Q in Connect assistant.</p>"""
     target_id: "aws_sdk_qconnect.types.uuid.Uuid"

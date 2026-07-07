@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#DeleteScheduleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.schedule_name
 
 
-class DeleteScheduleRequest(TypedDict):
+class DeleteScheduleRequest(TypedDict, closed=True):
     name: "aws_sdk_databrew.types.schedule_name.ScheduleName"
     """<p>The name of the schedule to be deleted.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#Item``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.attachments
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.participant_role
 
 
-class Item(TypedDict):
+class Item(TypedDict, closed=True):
     absolute_time: NotRequired["aws_sdk_connectparticipant.types.instant.Instant"]
     """<p>The time when the message or event was sent.</p> <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>"""
     content: NotRequired["aws_sdk_connectparticipant.types.chat_content.ChatContent"]

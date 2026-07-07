@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Spacing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.length
 
 
-class Spacing(TypedDict):
+class Spacing(TypedDict, closed=True):
     top: NotRequired["aws_sdk_quicksight.types.length.Length"]
     """<p>Define the top spacing.</p>"""
     bottom: NotRequired["aws_sdk_quicksight.types.length.Length"]

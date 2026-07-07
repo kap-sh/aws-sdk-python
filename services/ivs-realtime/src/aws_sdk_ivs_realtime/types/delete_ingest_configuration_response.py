@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#DeleteIngestConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteIngestConfigurationResponse(TypedDict):
+class DeleteIngestConfigurationResponse(TypedDict, closed=True):
     pass
 
 

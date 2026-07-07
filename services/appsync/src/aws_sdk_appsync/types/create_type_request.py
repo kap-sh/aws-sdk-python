@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#CreateTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.type_definition_format
 
 
-class CreateTypeRequest(TypedDict):
+class CreateTypeRequest(TypedDict, closed=True):
     api_id: "aws_sdk_appsync.types.string.String"
     """<p>The API ID.</p>"""
     definition: "aws_sdk_appsync.types.string.String"

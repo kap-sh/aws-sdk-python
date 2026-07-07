@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Container``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.security_context
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.volume_mounts
 
 
-class Container(TypedDict):
+class Container(TypedDict, closed=True):
     container_runtime: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The container runtime (such as, Docker or containerd) used to run the container.</p>"""
     id: NotRequired["aws_sdk_guardduty.types.string.String"]

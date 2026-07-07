@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#ListResponderGatewaysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.gateway_id_list
 
 
-class ListResponderGatewaysResponse(TypedDict):
+class ListResponderGatewaysResponse(TypedDict, closed=True):
     gateway_ids: NotRequired["aws_sdk_rtbfabric.types.gateway_id_list.GatewayIdList"]
     """<p>The unique identifier of the gateways.</p>"""
     next_token: NotRequired["str"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#EventTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.timestamp
 
 
-class EventTimeRange(TypedDict):
+class EventTimeRange(TypedDict, closed=True):
     from_time: "aws_sdk_devops_guru.types.timestamp.Timestamp"
     """<p> The time when the event started. </p>"""
     to_time: "aws_sdk_devops_guru.types.timestamp.Timestamp"

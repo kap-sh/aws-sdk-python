@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#SessionS3LoggingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string
 
 
-class SessionS3LoggingConfiguration(TypedDict):
+class SessionS3LoggingConfiguration(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_emr.types.boolean.Boolean"]
     """<p>Whether Amazon S3 logging is enabled for the session.</p>"""
     log_uri: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]

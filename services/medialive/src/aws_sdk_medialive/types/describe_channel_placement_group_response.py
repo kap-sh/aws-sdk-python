@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeChannelPlacementGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.channel_placement_group_state
 
 
-class DescribeChannelPlacementGroupResponse(TypedDict):
+class DescribeChannelPlacementGroupResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The ARN of this ChannelPlacementGroup. It is automatically assigned when the ChannelPlacementGroup is created."""
     channels: NotRequired["aws_sdk_medialive.types.__list_of__string.__listOf__string"]

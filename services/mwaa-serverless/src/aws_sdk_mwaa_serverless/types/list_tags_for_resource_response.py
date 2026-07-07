@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.tags
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_mwaa_serverless.types.tags.Tags"]
     """<p>A map of tags that are associated with the resource, where each tag consists of a key-value pair.</p>"""
 

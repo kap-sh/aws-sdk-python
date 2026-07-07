@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#AccessControlAttributeValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.access_control_attribute_value_source_list
 
 
-class AccessControlAttributeValue(TypedDict):
+class AccessControlAttributeValue(TypedDict, closed=True):
     source: "aws_sdk_sso_admin.types.access_control_attribute_value_source_list.AccessControlAttributeValueSourceList"
     """<p>The identity source to use when mapping a specified attribute to IAM Identity Center.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#NodeInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.output_port_list
 
 
-class NodeInterface(TypedDict):
+class NodeInterface(TypedDict, closed=True):
     inputs: "aws_sdk_panorama.types.input_port_list.InputPortList"
     """<p>The node interface's inputs.</p>"""
     outputs: "aws_sdk_panorama.types.output_port_list.OutputPortList"

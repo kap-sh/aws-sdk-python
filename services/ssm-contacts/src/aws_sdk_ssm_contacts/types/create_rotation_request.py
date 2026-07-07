@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#CreateRotationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.time_zone_id
 
 
-class CreateRotationRequest(TypedDict):
+class CreateRotationRequest(TypedDict, closed=True):
     name: "aws_sdk_ssm_contacts.types.rotation_name.RotationName"
     """<p>The name of the rotation.</p>"""
     contact_ids: (

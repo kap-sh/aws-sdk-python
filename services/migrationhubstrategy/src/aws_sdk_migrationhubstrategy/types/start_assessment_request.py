@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#StartAssessmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.assessment_data_source_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class StartAssessmentRequest(TypedDict):
+class StartAssessmentRequest(TypedDict, closed=True):
     s3bucket_for_analysis_data: NotRequired[
         "aws_sdk_migrationhubstrategy.types.string.String"
     ]

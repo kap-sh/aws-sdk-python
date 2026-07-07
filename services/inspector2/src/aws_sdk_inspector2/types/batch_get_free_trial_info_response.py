@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#BatchGetFreeTrialInfoResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.free_trial_info_error_list
 
 
-class BatchGetFreeTrialInfoResponse(TypedDict):
+class BatchGetFreeTrialInfoResponse(TypedDict, closed=True):
     accounts: (
         "aws_sdk_inspector2.types.free_trial_account_info_list.FreeTrialAccountInfoList"
     )

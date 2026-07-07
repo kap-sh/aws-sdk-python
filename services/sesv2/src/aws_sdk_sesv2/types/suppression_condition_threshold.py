@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#SuppressionConditionThreshold``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.suppression_confidence_threshold
 
 
-class SuppressionConditionThreshold(TypedDict):
+class SuppressionConditionThreshold(TypedDict, closed=True):
     condition_threshold_enabled: "aws_sdk_sesv2.types.feature_status.FeatureStatus"
     """<p>Indicates whether Auto Validation is enabled for suppression. Set to <code>ENABLED</code> to enable the Auto Validation feature, or set to <code>DISABLED</code> to disable it.</p>"""
     overall_confidence_threshold: NotRequired[

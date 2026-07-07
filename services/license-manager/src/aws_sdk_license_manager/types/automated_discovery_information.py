@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#AutomatedDiscoveryInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.date_time
 
 
-class AutomatedDiscoveryInformation(TypedDict):
+class AutomatedDiscoveryInformation(TypedDict, closed=True):
     last_run_time: NotRequired["aws_sdk_license_manager.types.date_time.DateTime"]
     """<p>Time that automated discovery last ran.</p>"""
 

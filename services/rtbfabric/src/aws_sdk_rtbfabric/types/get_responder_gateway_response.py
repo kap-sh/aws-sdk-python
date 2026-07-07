@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#GetResponderGatewayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.vpc_id
 
 
-class GetResponderGatewayResponse(TypedDict):
+class GetResponderGatewayResponse(TypedDict, closed=True):
     vpc_id: "aws_sdk_rtbfabric.types.vpc_id.VpcId"
     """<p>The unique identifier of the Virtual Private Cloud (VPC).</p>"""
     subnet_ids: "aws_sdk_rtbfabric.types.subnet_id_list.SubnetIdList"

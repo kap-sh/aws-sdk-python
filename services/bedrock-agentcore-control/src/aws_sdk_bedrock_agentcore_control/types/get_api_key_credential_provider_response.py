@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetApiKeyCredentialProviderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.secret_source_type
 
 
-class GetApiKeyCredentialProviderResponse(TypedDict):
+class GetApiKeyCredentialProviderResponse(TypedDict, closed=True):
     api_key_secret_arn: "aws_sdk_bedrock_agentcore_control.types.secret.Secret"
     """<p>The Amazon Resource Name (ARN) of the API key secret in AWS Secrets Manager.</p>"""
     api_key_secret_json_key: NotRequired[

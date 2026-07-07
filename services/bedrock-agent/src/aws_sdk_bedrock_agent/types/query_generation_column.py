@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#QueryGenerationColumn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.description_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.query_generation_column_name
 
 
-class QueryGenerationColumn(TypedDict):
+class QueryGenerationColumn(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_bedrock_agent.types.query_generation_column_name.QueryGenerationColumnName"
     ]

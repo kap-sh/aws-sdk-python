@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#RollbackTransactionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rds_data.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds_data.types.id
 
 
-class RollbackTransactionRequest(TypedDict):
+class RollbackTransactionRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_rds_data.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</p>"""
     secret_arn: "aws_sdk_rds_data.types.arn.Arn"

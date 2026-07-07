@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CreateKeySigningKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.signing_key_string
 
 
-class CreateKeySigningKeyRequest(TypedDict):
+class CreateKeySigningKeyRequest(TypedDict, closed=True):
     caller_reference: "aws_sdk_route_53.types.nonce.Nonce"
     """<p>A unique string that identifies the request.</p>"""
     hosted_zone_id: "aws_sdk_route_53.types.resource_id.ResourceId"

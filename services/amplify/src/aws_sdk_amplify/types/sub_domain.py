@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#SubDomain``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.verified
 
 
-class SubDomain(TypedDict):
+class SubDomain(TypedDict, closed=True):
     sub_domain_setting: "aws_sdk_amplify.types.sub_domain_setting.SubDomainSetting"
     """<p> Describes the settings for the subdomain. </p>"""
     verified: "aws_sdk_amplify.types.verified.Verified"

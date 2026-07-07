@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#PhoneNumberAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.iso8601_timestamp
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.string
 
 
-class PhoneNumberAssociation(TypedDict):
+class PhoneNumberAssociation(TypedDict, closed=True):
     value: NotRequired["aws_sdk_chime.types.string.String"]
     """<p>Contains the ID for the entity specified in Name.</p>"""
     name: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#Thumbnails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.aspect_ratio
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.thumbnail_resolution
 
 
-class Thumbnails(TypedDict):
+class Thumbnails(TypedDict, closed=True):
     format: NotRequired["aws_sdk_elastic_transcoder.types.jpg_or_png.JpgOrPng"]
     """<p>The format of thumbnails, if any. Valid values are <code>jpg</code> and <code>png</code>. </p> <p>You specify whether you want Elastic Transcoder to create thumbnails when you create a job.</p>"""
     interval: NotRequired["aws_sdk_elastic_transcoder.types.digits.Digits"]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteGremlinProfileQueryInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
 
-class ExecuteGremlinProfileQueryInput(TypedDict):
+class ExecuteGremlinProfileQueryInput(TypedDict, closed=True):
     gremlin_query: "str"
     """<p>The Gremlin query string to profile.</p>"""
     results: NotRequired["bool"]

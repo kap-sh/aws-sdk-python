@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#RestoreDBInstanceFromS3Message``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.vpc_security_group_id_list
 
 
-class RestoreDBInstanceFromS3Message(TypedDict):
+class RestoreDBInstanceFromS3Message(TypedDict, closed=True):
     db_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name of the database to create when the DB instance is created. Follow the naming rules specified in <code>CreateDBInstance</code>.</p>"""
     db_instance_identifier: NotRequired["aws_sdk_rds.types.string.String"]

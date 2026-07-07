@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DataReplicationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.aws_availability_zone
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.outpost_arn
 
 
-class DataReplicationInfo(TypedDict):
+class DataReplicationInfo(TypedDict, closed=True):
     lag_duration: NotRequired[
         "aws_sdk_drs.types.iso8601_duration_string.ISO8601DurationString"
     ]

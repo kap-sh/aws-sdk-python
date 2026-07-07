@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#CreateTelemetryRuleForOrganizationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.resource_arn
 
 
-class CreateTelemetryRuleForOrganizationOutput(TypedDict):
+class CreateTelemetryRuleForOrganizationOutput(TypedDict, closed=True):
     rule_arn: NotRequired["aws_sdk_observabilityadmin.types.resource_arn.ResourceArn"]
     """<p> The Amazon Resource Name (ARN) of the created organization telemetry rule. </p>"""
 

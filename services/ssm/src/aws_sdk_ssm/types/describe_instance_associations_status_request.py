@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeInstanceAssociationsStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class DescribeInstanceAssociationsStatusRequest(TypedDict):
+class DescribeInstanceAssociationsStatusRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_ssm.types.instance_id.InstanceId"
     """<p>The managed node IDs for which you want association status information.</p>"""
     max_results: NotRequired["aws_sdk_ssm.types.max_results.MaxResults"]

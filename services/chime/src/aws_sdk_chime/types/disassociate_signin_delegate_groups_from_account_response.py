@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chime#DisassociateSigninDelegateGroupsFromAccountResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateSigninDelegateGroupsFromAccountResponse(TypedDict):
+class DisassociateSigninDelegateGroupsFromAccountResponse(TypedDict, closed=True):
     pass
 
 

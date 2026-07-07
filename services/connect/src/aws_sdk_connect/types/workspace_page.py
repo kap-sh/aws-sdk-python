@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#WorkspacePage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.slug
 
 
-class WorkspacePage(TypedDict):
+class WorkspacePage(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) of the view associated with this page.</p>"""
     page: NotRequired["aws_sdk_connect.types.page.Page"]

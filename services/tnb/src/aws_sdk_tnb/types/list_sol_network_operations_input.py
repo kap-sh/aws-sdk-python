@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#ListSolNetworkOperationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.ns_instance_id
     import aws_sdk_tnb.types.pagination_token
 
 
-class ListSolNetworkOperationsInput(TypedDict):
+class ListSolNetworkOperationsInput(TypedDict, closed=True):
     ns_instance_id: NotRequired["aws_sdk_tnb.types.ns_instance_id.NsInstanceId"]
     """<p>Network instance id filter, to retrieve network operations associated to a network instance.</p>"""
     max_results: NotRequired["int"]

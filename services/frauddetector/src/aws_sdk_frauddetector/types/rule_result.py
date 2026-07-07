@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#RuleResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.list_of_strings
     import aws_sdk_frauddetector.types.string
 
 
-class RuleResult(TypedDict):
+class RuleResult(TypedDict, closed=True):
     rule_id: NotRequired["aws_sdk_frauddetector.types.string.string"]
     """<p>The rule ID that was matched, based on the rule execution mode.</p>"""
     outcomes: NotRequired["aws_sdk_frauddetector.types.list_of_strings.ListOfStrings"]

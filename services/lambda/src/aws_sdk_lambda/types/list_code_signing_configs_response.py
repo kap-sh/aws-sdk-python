@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListCodeSigningConfigsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.code_signing_config_list
     import aws_sdk_lambda.types.string
 
 
-class ListCodeSigningConfigsResponse(TypedDict):
+class ListCodeSigningConfigsResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>The pagination token that's included if more results are available.</p>"""
     code_signing_configs: NotRequired[

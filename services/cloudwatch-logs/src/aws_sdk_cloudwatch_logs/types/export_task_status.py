@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ExportTaskStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.export_task_status_code
     import aws_sdk_cloudwatch_logs.types.export_task_status_message
 
 
-class ExportTaskStatus(TypedDict):
+class ExportTaskStatus(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_cloudwatch_logs.types.export_task_status_code.ExportTaskStatusCode"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#AssociateServiceActionWithProvisioningArtifactOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateServiceActionWithProvisioningArtifactOutput(TypedDict):
+class AssociateServiceActionWithProvisioningArtifactOutput(TypedDict, closed=True):
     pass
 
 

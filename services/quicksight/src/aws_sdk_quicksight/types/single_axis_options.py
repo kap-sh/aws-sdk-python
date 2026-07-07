@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SingleAxisOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.y_axis_options
 
 
-class SingleAxisOptions(TypedDict):
+class SingleAxisOptions(TypedDict, closed=True):
     y_axis_options: NotRequired["aws_sdk_quicksight.types.y_axis_options.YAxisOptions"]
     """<p>The Y axis options of a single axis configuration.</p>"""
 

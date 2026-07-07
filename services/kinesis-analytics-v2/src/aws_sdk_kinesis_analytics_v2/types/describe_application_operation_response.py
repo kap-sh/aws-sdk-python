@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#DescribeApplicationOperationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.application_operation_info_details
 
 
-class DescribeApplicationOperationResponse(TypedDict):
+class DescribeApplicationOperationResponse(TypedDict, closed=True):
     application_operation_info_details: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.application_operation_info_details.ApplicationOperationInfoDetails"
     ]

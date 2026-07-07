@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#DescribeTimeToLiveInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_arn
 
 
-class DescribeTimeToLiveInput(TypedDict):
+class DescribeTimeToLiveInput(TypedDict, closed=True):
     table_name: "aws_sdk_dynamodb.types.table_arn.TableArn"
     """<p>The name of the table to be described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>"""
 

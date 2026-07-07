@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#StartCanaryDryRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.dry_run_config_output
 
 
-class StartCanaryDryRunResponse(TypedDict):
+class StartCanaryDryRunResponse(TypedDict, closed=True):
     dry_run_config: NotRequired[
         "aws_sdk_synthetics.types.dry_run_config_output.DryRunConfigOutput"
     ]

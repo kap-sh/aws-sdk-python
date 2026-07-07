@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DescribeACLsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.integer_optional
     import aws_sdk_memorydb.types.string
 
 
-class DescribeACLsRequest(TypedDict):
+class DescribeACLsRequest(TypedDict, closed=True):
     acl_name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The name of the ACL.</p>"""
     max_results: NotRequired["aws_sdk_memorydb.types.integer_optional.IntegerOptional"]

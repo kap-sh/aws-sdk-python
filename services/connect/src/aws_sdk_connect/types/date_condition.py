@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DateCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.date_comparison_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.string
 
 
-class DateCondition(TypedDict):
+class DateCondition(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_connect.types.string.String"]
     """<p>An object to specify the hours of operation override date field.</p>"""
     value: NotRequired[

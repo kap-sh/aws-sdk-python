@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#UpdateSpaceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_repostspace.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_repostspace.types.tier_level
 
 
-class UpdateSpaceInput(TypedDict):
+class UpdateSpaceInput(TypedDict, closed=True):
     space_id: "aws_sdk_repostspace.types.space_id.SpaceId"
     """<p>The unique ID of this private re:Post.</p>"""
     description: NotRequired[

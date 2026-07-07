@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#SystemVersionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.string_list
 
 
-class SystemVersionSummary(TypedDict):
+class SystemVersionSummary(TypedDict, closed=True):
     gi_version: NotRequired["str"]
     """<p>The version of GI software.</p>"""
     shape: NotRequired["str"]

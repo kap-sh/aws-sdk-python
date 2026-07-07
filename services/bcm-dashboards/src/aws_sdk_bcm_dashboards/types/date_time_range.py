@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#DateTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.date_time_value
 
 
-class DateTimeRange(TypedDict):
+class DateTimeRange(TypedDict, closed=True):
     start_time: "aws_sdk_bcm_dashboards.types.date_time_value.DateTimeValue"
     """<p>The start time of the date range for querying data.</p>"""
     end_time: "aws_sdk_bcm_dashboards.types.date_time_value.DateTimeValue"

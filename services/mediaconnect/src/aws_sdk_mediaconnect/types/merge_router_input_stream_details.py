@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MergeRouterInputStreamDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.merge_router_input_indexed_stream_details
 
 
-class MergeRouterInputStreamDetails(TypedDict):
+class MergeRouterInputStreamDetails(TypedDict, closed=True):
     source_index_zero_stream_details: "aws_sdk_mediaconnect.types.merge_router_input_indexed_stream_details.MergeRouterInputIndexedStreamDetails"
     """<p>Configuration details for the first source (index 0) in the merge setup.</p>"""
     source_index_one_stream_details: "aws_sdk_mediaconnect.types.merge_router_input_indexed_stream_details.MergeRouterInputIndexedStreamDetails"

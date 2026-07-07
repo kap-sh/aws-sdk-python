@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetTableOptimizerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.batch_get_table_optimizer_entries
 
 
-class BatchGetTableOptimizerRequest(TypedDict):
+class BatchGetTableOptimizerRequest(TypedDict, closed=True):
     entries: "aws_sdk_glue.types.batch_get_table_optimizer_entries.BatchGetTableOptimizerEntries"
     """<p>A list of <code>BatchGetTableOptimizerEntry</code> objects specifying the table optimizers to retrieve.</p>"""
 

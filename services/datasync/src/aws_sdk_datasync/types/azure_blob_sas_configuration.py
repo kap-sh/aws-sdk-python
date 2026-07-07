@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#AzureBlobSasConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.azure_blob_sas_token
 
 
-class AzureBlobSasConfiguration(TypedDict):
+class AzureBlobSasConfiguration(TypedDict, closed=True):
     token: "aws_sdk_datasync.types.azure_blob_sas_token.AzureBlobSasToken"
     """<p>Specifies a SAS token that provides permissions to access your Azure Blob Storage.</p> <p>The token is part of the SAS URI string that comes after the storage resource URI and a question mark. A token looks something like this:</p> <p> <code>sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D</code> </p>"""
 

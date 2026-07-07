@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#BatchRetryStrategy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.integer
 
 
-class BatchRetryStrategy(TypedDict):
+class BatchRetryStrategy(TypedDict, closed=True):
     attempts: "aws_sdk_eventbridge.types.integer.Integer"
     """<p>The number of times to attempt to retry, if the job fails. Valid values are 1–10.</p>"""
 

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#AmazonMachineImageOperatingSystem``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
 
-class AmazonMachineImageOperatingSystem(TypedDict):
+class AmazonMachineImageOperatingSystem(TypedDict, closed=True):
     operating_system_family_name: "str"
     """<p>The operating system family, such as Linux or Windows.</p>"""
     operating_system_name: "str"

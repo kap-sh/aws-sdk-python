@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#HandlerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.integration
 
 
-class HandlerConfig(TypedDict):
+class HandlerConfig(TypedDict, closed=True):
     behavior: "aws_sdk_appsync.types.handler_behavior.HandlerBehavior"
     """<p>The behavior for the handler.</p>"""
     integration: "aws_sdk_appsync.types.integration.Integration"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ACLPendingChanges``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.user_name_list
 
 
-class ACLPendingChanges(TypedDict):
+class ACLPendingChanges(TypedDict, closed=True):
     user_names_to_remove: NotRequired[
         "aws_sdk_memorydb.types.user_name_list.UserNameList"
     ]

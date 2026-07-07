@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#EncryptionConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EncryptionConfiguration(TypedDict):
+class EncryptionConfiguration(TypedDict, closed=True):
     kms_key_arn: NotRequired["str"]
     """<p>The Amazon Resource Name (ARN) of the KMS key to use for encryption. This field is required only when <code>sseAlgorithm</code> is set to <code>aws:kms</code>.</p>"""
     sse_algorithm: NotRequired["str"]

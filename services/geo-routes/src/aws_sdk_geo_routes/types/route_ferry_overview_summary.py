@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteFerryOverviewSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.distance_meters
     import aws_sdk_geo_routes.types.duration_seconds
 
 
-class RouteFerryOverviewSummary(TypedDict):
+class RouteFerryOverviewSummary(TypedDict, closed=True):
     distance: "aws_sdk_geo_routes.types.distance_meters.DistanceMeters"
     """<p>Distance of the entire leg.</p> <p> <b>Unit</b>: <code>meters</code> </p>"""
     duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"

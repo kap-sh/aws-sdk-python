@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailConverseTextBlock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_converse_content_qualifier_list
 
 
-class GuardrailConverseTextBlock(TypedDict):
+class GuardrailConverseTextBlock(TypedDict, closed=True):
     text: "str"
     """<p>The text that you want to guard.</p>"""
     qualifiers: NotRequired[

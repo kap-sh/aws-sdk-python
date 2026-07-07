@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#AccountAttributesMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.account_quota_list
 
 
-class AccountAttributesMessage(TypedDict):
+class AccountAttributesMessage(TypedDict, closed=True):
     account_quotas: NotRequired["aws_sdk_rds.types.account_quota_list.AccountQuotaList"]
     """<p>A list of <code>AccountQuota</code> objects. Within this list, each quota has a name, a count of usage toward the quota maximum, and a maximum value for the quota.</p>"""
 

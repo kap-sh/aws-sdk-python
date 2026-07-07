@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ListDeviceDefinitionVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__list_of_version_information
     import aws_sdk_greengrass.types.__string
 
 
-class ListDeviceDefinitionVersionsResponse(TypedDict):
+class ListDeviceDefinitionVersionsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The token for the next set of results, or ''null'' if there are no additional results."""
     versions: NotRequired[

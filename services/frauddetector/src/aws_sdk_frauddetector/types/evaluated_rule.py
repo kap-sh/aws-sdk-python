@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#EvaluatedRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.whole_number_version_string
 
 
-class EvaluatedRule(TypedDict):
+class EvaluatedRule(TypedDict, closed=True):
     rule_id: NotRequired["aws_sdk_frauddetector.types.identifier.identifier"]
     """<p> The rule ID. </p>"""
     rule_version: NotRequired[

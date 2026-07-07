@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#PutTableReplicationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
 
-class PutTableReplicationResponse(TypedDict):
+class PutTableReplicationResponse(TypedDict, closed=True):
     version_token: "str"
     """<p>A new version token representing the updated replication configuration.</p>"""
     status: "str"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#ListByoipCidrsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.generic_string
     import aws_sdk_global_accelerator.types.max_results
 
 
-class ListByoipCidrsRequest(TypedDict):
+class ListByoipCidrsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_global_accelerator.types.max_results.MaxResults"]
     """<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"""
     next_token: NotRequired[

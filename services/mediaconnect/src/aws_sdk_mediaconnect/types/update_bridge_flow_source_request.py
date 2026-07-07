@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#UpdateBridgeFlowSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.vpc_interface_attachment
 
 
-class UpdateBridgeFlowSourceRequest(TypedDict):
+class UpdateBridgeFlowSourceRequest(TypedDict, closed=True):
     flow_arn: NotRequired["str"]
     """<p> The Amazon Resource Name (ARN) that identifies the MediaConnect resource from which to delete tags.</p>"""
     flow_vpc_interface_attachment: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#GetBackendResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
     import aws_sdk_amplifybackend.types.list_of__string
 
 
-class GetBackendResponse(TypedDict):
+class GetBackendResponse(TypedDict, closed=True):
     amplify_feature_flags: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>A stringified version of the cli.json file for your Amplify project.</p>"""
     amplify_meta_config: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]

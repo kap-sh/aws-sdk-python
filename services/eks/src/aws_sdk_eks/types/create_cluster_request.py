@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#CreateClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.zonal_shift_config_request
 
 
-class CreateClusterRequest(TypedDict):
+class CreateClusterRequest(TypedDict, closed=True):
     name: "aws_sdk_eks.types.cluster_name.ClusterName"
     """<p>The unique name to give to your cluster. The name can contain only alphanumeric characters (case-sensitive), hyphens, and underscores. It must start with an alphanumeric character and can't be longer than 100 characters. The name must be unique within the Amazon Web Services Region and Amazon Web Services account that you're creating the cluster in.</p>"""
     version: NotRequired["aws_sdk_eks.types.string.String"]

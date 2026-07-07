@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#ConcurrentModificationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_sync.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.string
 
 
-class ConcurrentModificationException_(TypedDict):
+class ConcurrentModificationException_(TypedDict, closed=True):
     message: "aws_sdk_cognito_sync.types.string.String"
     """<p>The message returned by a ConcurrentModicationException.</p>"""
 

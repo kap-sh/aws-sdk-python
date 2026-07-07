@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#CreateJobResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.job_id
 
 
-class CreateJobResult(TypedDict):
+class CreateJobResult(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_s3_control.types.job_id.JobId"]
     """<p>The ID for this job. Amazon S3 generates this ID automatically and returns it after a successful <code>Create Job</code> request.</p>"""
 

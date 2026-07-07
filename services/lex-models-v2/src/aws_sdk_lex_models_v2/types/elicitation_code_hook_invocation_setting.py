@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ElicitationCodeHookInvocationSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.name
 
 
-class ElicitationCodeHookInvocationSetting(TypedDict):
+class ElicitationCodeHookInvocationSetting(TypedDict, closed=True):
     enable_code_hook_invocation: (
         "aws_sdk_lex_models_v2.types.boxed_boolean.BoxedBoolean"
     )

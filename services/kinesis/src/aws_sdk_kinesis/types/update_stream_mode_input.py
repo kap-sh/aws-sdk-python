@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#UpdateStreamModeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_mode_details
 
 
-class UpdateStreamModeInput(TypedDict):
+class UpdateStreamModeInput(TypedDict, closed=True):
     stream_arn: "aws_sdk_kinesis.types.stream_arn.StreamARN"
     """<p> Specifies the ARN of the data stream whose capacity mode you want to update. </p>"""
     stream_id: NotRequired["aws_sdk_kinesis.types.stream_id.StreamId"]

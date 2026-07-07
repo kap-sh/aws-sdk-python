@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#KmsGrantConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.retiring_principal
 
 
-class KmsGrantConfiguration(TypedDict):
+class KmsGrantConfiguration(TypedDict, closed=True):
     operations: (
         "aws_sdk_accessanalyzer.types.kms_grant_operations_list.KmsGrantOperationsList"
     )

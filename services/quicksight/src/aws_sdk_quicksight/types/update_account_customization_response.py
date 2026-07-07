@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateAccountCustomizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.account_customization
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class UpdateAccountCustomizationResponse(TypedDict):
+class UpdateAccountCustomizationResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) for the updated customization for this Amazon Web Services account.</p>"""
     aws_account_id: NotRequired["aws_sdk_quicksight.types.aws_account_id.AwsAccountId"]

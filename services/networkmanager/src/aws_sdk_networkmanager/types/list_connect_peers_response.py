@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ListConnectPeersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.connect_peer_summary_list
     import aws_sdk_networkmanager.types.next_token
 
 
-class ListConnectPeersResponse(TypedDict):
+class ListConnectPeersResponse(TypedDict, closed=True):
     connect_peers: NotRequired[
         "aws_sdk_networkmanager.types.connect_peer_summary_list.ConnectPeerSummaryList"
     ]

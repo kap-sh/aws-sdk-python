@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#VerificationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
 
 
-class VerificationResponse(TypedDict):
+class VerificationResponse(TypedDict, closed=True):
     valid: NotRequired["aws_sdk_pinpoint.types.__boolean.__boolean"]
     """<p>Specifies whether the OTP is valid or not.</p>"""
 

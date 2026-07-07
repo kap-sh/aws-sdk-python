@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateProvisioningClaimRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.template_name
 
 
-class CreateProvisioningClaimRequest(TypedDict):
+class CreateProvisioningClaimRequest(TypedDict, closed=True):
     template_name: "aws_sdk_iot.types.template_name.TemplateName"
     """<p>The name of the provisioning template to use.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#S3LocationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__string
 
 
-class S3LocationDescription(TypedDict):
+class S3LocationDescription(TypedDict, closed=True):
     bucket_arn: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of an S3 bucket.</p>"""
     file_key: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]

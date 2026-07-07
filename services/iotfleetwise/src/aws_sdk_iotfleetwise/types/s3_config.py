@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#S3Config``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.storage_compression_format
 
 
-class S3Config(TypedDict):
+class S3Config(TypedDict, closed=True):
     bucket_arn: "aws_sdk_iotfleetwise.types.s3_bucket_arn.S3BucketArn"
     """<p>The Amazon Resource Name (ARN) of the Amazon S3 bucket.</p>"""
     data_format: NotRequired["aws_sdk_iotfleetwise.types.data_format.DataFormat"]

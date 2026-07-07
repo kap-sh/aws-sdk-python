@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#GetCodeSecurityScanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.code_security_uuid
 
 
-class GetCodeSecurityScanRequest(TypedDict):
+class GetCodeSecurityScanRequest(TypedDict, closed=True):
     resource: "aws_sdk_inspector2.types.code_security_resource.CodeSecurityResource"
     """<p>The resource identifier for the code repository that was scanned.</p>"""
     scan_id: "aws_sdk_inspector2.types.code_security_uuid.CodeSecurityUuid"

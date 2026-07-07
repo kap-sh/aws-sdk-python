@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#DeleteVpcConnectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.app_runner_resource_arn
 
 
-class DeleteVpcConnectorRequest(TypedDict):
+class DeleteVpcConnectorRequest(TypedDict, closed=True):
     vpc_connector_arn: (
         "aws_sdk_apprunner.types.app_runner_resource_arn.AppRunnerResourceArn"
     )

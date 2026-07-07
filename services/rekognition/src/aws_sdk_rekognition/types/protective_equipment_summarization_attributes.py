@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ProtectiveEquipmentSummarizationAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.protective_equipment_types
 
 
-class ProtectiveEquipmentSummarizationAttributes(TypedDict):
+class ProtectiveEquipmentSummarizationAttributes(TypedDict, closed=True):
     min_confidence: "aws_sdk_rekognition.types.percent.Percent"
     """<p>The minimum confidence level for which you want summary information. The confidence level applies to person detection, body part detection, equipment detection, and body part coverage. Amazon Rekognition doesn't return summary information with a confidence than this specified value. There isn't a default value.</p> <p>Specify a <code>MinConfidence</code> value that is between 50-100% as <code>DetectProtectiveEquipment</code> returns predictions only where the detection confidence is between 50% - 100%. If you specify a value that is less than 50%, the results are the same specifying a value of 50%.</p> <p> </p>"""
     required_equipment_types: (

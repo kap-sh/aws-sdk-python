@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRdsPendingCloudWatchLogsExports``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_list
 
 
-class AwsRdsPendingCloudWatchLogsExports(TypedDict):
+class AwsRdsPendingCloudWatchLogsExports(TypedDict, closed=True):
     log_types_to_enable: NotRequired["aws_sdk_securityhub.types.string_list.StringList"]
     """<p>A list of log types that are being enabled.</p>"""
     log_types_to_disable: NotRequired[

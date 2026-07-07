@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.shield#UpdateEmergencyContactSettingsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateEmergencyContactSettingsResponse(TypedDict):
+class UpdateEmergencyContactSettingsResponse(TypedDict, closed=True):
     pass
 
 

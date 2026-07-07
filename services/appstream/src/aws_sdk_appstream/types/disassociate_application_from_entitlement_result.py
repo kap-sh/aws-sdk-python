@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DisassociateApplicationFromEntitlementResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateApplicationFromEntitlementResult(TypedDict):
+class DisassociateApplicationFromEntitlementResult(TypedDict, closed=True):
     pass
 
 

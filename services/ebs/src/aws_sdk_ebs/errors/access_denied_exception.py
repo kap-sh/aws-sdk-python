@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#AccessDeniedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ebs.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ebs.types.error_message
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_ebs.types.error_message.ErrorMessage"]
     reason: (
         "aws_sdk_ebs.types.access_denied_exception_reason.AccessDeniedExceptionReason"

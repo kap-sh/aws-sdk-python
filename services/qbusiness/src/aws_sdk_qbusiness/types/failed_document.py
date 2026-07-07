@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#FailedDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.data_source_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.error_detail
 
 
-class FailedDocument(TypedDict):
+class FailedDocument(TypedDict, closed=True):
     id: NotRequired["aws_sdk_qbusiness.types.document_id.DocumentId"]
     """<p>The identifier of the document that couldn't be removed from the Amazon Q Business index.</p>"""
     error: NotRequired["aws_sdk_qbusiness.types.error_detail.ErrorDetail"]

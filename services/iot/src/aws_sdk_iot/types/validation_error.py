@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ValidationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.error_message
 
 
-class ValidationError(TypedDict):
+class ValidationError(TypedDict, closed=True):
     error_message: NotRequired["aws_sdk_iot.types.error_message.ErrorMessage"]
     """<p>The description of an error found in the behaviors.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#RemoveTagsFromResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudhsm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.tag_key_list
 
 
-class RemoveTagsFromResourceRequest(TypedDict):
+class RemoveTagsFromResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_cloudhsm.types.string.String"
     """<p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>"""
     tag_key_list: "aws_sdk_cloudhsm.types.tag_key_list.TagKeyList"

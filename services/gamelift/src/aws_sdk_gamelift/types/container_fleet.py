@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ContainerFleet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.connection_port_range
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.timestamp
 
 
-class ContainerFleet(TypedDict):
+class ContainerFleet(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id.FleetId"]
     """<p>A unique identifier for the container fleet to retrieve. </p>"""
     fleet_arn: NotRequired["aws_sdk_gamelift.types.fleet_arn.FleetArn"]

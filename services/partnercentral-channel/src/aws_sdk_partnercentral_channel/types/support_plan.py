@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#SupportPlan``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_channel.errors import (
     DeserializationError,
@@ -13,19 +15,19 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.resold_unified_operations
 
 
-class _SupportPlan_resoldEnterprise(TypedDict):
+class _SupportPlan_resoldEnterprise(TypedDict, closed=True):
     resoldEnterprise: (
         "aws_sdk_partnercentral_channel.types.resold_enterprise.ResoldEnterprise"
     )
 
 
-class _SupportPlan_partnerLedSupport(TypedDict):
+class _SupportPlan_partnerLedSupport(TypedDict, closed=True):
     partnerLedSupport: (
         "aws_sdk_partnercentral_channel.types.partner_led_support.PartnerLedSupport"
     )
 
 
-class _SupportPlan_resoldUnifiedOperations(TypedDict):
+class _SupportPlan_resoldUnifiedOperations(TypedDict, closed=True):
     resoldUnifiedOperations: "aws_sdk_partnercentral_channel.types.resold_unified_operations.ResoldUnifiedOperations"
 
 

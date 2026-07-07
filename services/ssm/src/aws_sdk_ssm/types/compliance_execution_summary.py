@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ComplianceExecutionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
 
 
-class ComplianceExecutionSummary(TypedDict):
+class ComplianceExecutionSummary(TypedDict, closed=True):
     execution_time: "aws_sdk_ssm.types.date_time.DateTime"
     """<p>The time the execution ran as a datetime object that is saved in the following format: <code>yyyy-MM-dd'T'HH:mm:ss'Z'</code> </p> <important> <p>For State Manager associations, this timestamp represents when the compliance status was captured and reported by the Systems Manager service, not when the underlying association was actually executed on the managed node. To track actual association execution times, use the <a>DescribeAssociationExecutionTargets</a> command or check the association execution history in the Systems Manager console.</p> </important>"""
     execution_id: NotRequired[

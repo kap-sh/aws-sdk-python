@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#QueryGraphOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.pagination_token
     import aws_sdk_datazone.types.result_item_list
 
 
-class QueryGraphOutput(TypedDict):
+class QueryGraphOutput(TypedDict, closed=True):
     items: NotRequired["aws_sdk_datazone.types.result_item_list.ResultItemList"]
     """<p>The results of the <code>QueryGraph</code> action.</p>"""
     next_token: NotRequired["aws_sdk_datazone.types.pagination_token.PaginationToken"]

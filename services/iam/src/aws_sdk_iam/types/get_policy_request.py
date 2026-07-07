@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.arn_type
 
 
-class GetPolicyRequest(TypedDict):
+class GetPolicyRequest(TypedDict, closed=True):
     policy_arn: "aws_sdk_iam.types.arn_type.arnType"
     r"""<p>The Amazon Resource Name (ARN) of the managed policy that you want information about.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
 

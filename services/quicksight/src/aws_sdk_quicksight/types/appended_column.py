@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AppendedColumn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_name
 
 
-class AppendedColumn(TypedDict):
+class AppendedColumn(TypedDict, closed=True):
     column_name: "aws_sdk_quicksight.types.column_name.ColumnName"
     """<p>The name of the column to include in the appended result.</p>"""
     new_column_id: "aws_sdk_quicksight.types.column_id.ColumnId"

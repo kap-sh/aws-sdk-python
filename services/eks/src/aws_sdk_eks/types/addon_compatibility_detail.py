@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#AddonCompatibilityDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
     import aws_sdk_eks.types.string_list
 
 
-class AddonCompatibilityDetail(TypedDict):
+class AddonCompatibilityDetail(TypedDict, closed=True):
     name: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The name of the Amazon EKS add-on.</p>"""
     compatible_versions: NotRequired["aws_sdk_eks.types.string_list.StringList"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ListSchedulingPoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.scheduling_policy_listing_detail_list
     import aws_sdk_batch.types.string
 
 
-class ListSchedulingPoliciesResponse(TypedDict):
+class ListSchedulingPoliciesResponse(TypedDict, closed=True):
     scheduling_policies: NotRequired[
         "aws_sdk_batch.types.scheduling_policy_listing_detail_list.SchedulingPolicyListingDetailList"
     ]

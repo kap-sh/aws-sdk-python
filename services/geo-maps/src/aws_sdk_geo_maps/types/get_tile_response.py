@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.geomaps#GetTileResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetTileResponse(TypedDict):
+class GetTileResponse(TypedDict, closed=True):
     blob: NotRequired["bytes"]
     """<p>The blob represents a vector tile in <code>mvt</code> or a raster tile in an image format.</p>"""
     content_type: NotRequired["str"]

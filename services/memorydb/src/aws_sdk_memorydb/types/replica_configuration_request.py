@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ReplicaConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.integer
 
 
-class ReplicaConfigurationRequest(TypedDict):
+class ReplicaConfigurationRequest(TypedDict, closed=True):
     replica_count: "aws_sdk_memorydb.types.integer.Integer"
     """<p>The number of replicas to scale up or down to</p>"""
 

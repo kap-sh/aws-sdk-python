@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#DeleteAppResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.application_response
 
 
-class DeleteAppResponse(TypedDict):
+class DeleteAppResponse(TypedDict, closed=True):
     application_response: NotRequired[
         "aws_sdk_pinpoint.types.application_response.ApplicationResponse"
     ]

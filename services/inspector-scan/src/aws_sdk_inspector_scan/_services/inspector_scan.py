@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspectorscan#InspectorScan``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_inspector_scan._auth._signers
@@ -33,7 +33,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector_scan.types.scan_sbom_response
 
 
-class InspectorScanClientConfig(TypedDict, total=False):
+class InspectorScanClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

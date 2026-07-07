@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#DateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class DateFilter(TypedDict):
+class DateFilter(TypedDict, closed=True):
     start_inclusive: NotRequired["datetime.datetime"]
     """<p>A timestamp representing the start of the time period filtered on.</p>"""
     end_inclusive: NotRequired["datetime.datetime"]

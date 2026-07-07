@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListAccountAliasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.max_items_type
 
 
-class ListAccountAliasesRequest(TypedDict):
+class ListAccountAliasesRequest(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_iam.types.marker_type.markerType"]
     """<p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>"""
     max_items: NotRequired["aws_sdk_iam.types.max_items_type.maxItemsType"]

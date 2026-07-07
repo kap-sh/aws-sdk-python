@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FieldSeriesItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.line_chart_series_settings
 
 
-class FieldSeriesItem(TypedDict):
+class FieldSeriesItem(TypedDict, closed=True):
     field_id: "aws_sdk_quicksight.types.field_id.FieldId"
     """<p>The field ID of the field for which you are setting the axis binding.</p>"""
     axis_binding: "aws_sdk_quicksight.types.axis_binding.AxisBinding"

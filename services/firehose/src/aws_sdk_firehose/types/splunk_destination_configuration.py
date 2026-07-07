@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#SplunkDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.splunk_s3_backup_mode
 
 
-class SplunkDestinationConfiguration(TypedDict):
+class SplunkDestinationConfiguration(TypedDict, closed=True):
     hec_endpoint: "aws_sdk_firehose.types.hec_endpoint.HECEndpoint"
     """<p>The HTTP Event Collector (HEC) endpoint to which Firehose sends your data.</p>"""
     hec_endpoint_type: "aws_sdk_firehose.types.hec_endpoint_type.HECEndpointType"

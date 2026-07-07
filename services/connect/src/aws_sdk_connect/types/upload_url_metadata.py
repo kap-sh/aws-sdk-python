@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UploadUrlMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.iso8601_datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.url_metadata_signed_headers
 
 
-class UploadUrlMetadata(TypedDict):
+class UploadUrlMetadata(TypedDict, closed=True):
     url: NotRequired["aws_sdk_connect.types.metadata_url.MetadataUrl"]
     """<p>A pre-signed S3 URL that should be used for uploading the attached file. </p>"""
     url_expiry: NotRequired["aws_sdk_connect.types.iso8601_datetime.ISO8601Datetime"]

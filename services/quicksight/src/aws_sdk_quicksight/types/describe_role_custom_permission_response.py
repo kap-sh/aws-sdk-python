@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeRoleCustomPermissionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.role_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DescribeRoleCustomPermissionResponse(TypedDict):
+class DescribeRoleCustomPermissionResponse(TypedDict, closed=True):
     custom_permissions_name: NotRequired["aws_sdk_quicksight.types.role_name.RoleName"]
     """<p>The name of the custom permission that is described.</p>"""
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]

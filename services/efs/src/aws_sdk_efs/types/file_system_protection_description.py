@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.efs#FileSystemProtectionDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.replication_overwrite_protection
 
 
-class FileSystemProtectionDescription(TypedDict):
+class FileSystemProtectionDescription(TypedDict, closed=True):
     replication_overwrite_protection: NotRequired[
         "aws_sdk_efs.types.replication_overwrite_protection.ReplicationOverwriteProtection"
     ]

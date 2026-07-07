@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#GetSMSSandboxAccountStatusResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.boolean
 
 
-class GetSMSSandboxAccountStatusResult(TypedDict):
+class GetSMSSandboxAccountStatusResult(TypedDict, closed=True):
     is_in_sandbox: "aws_sdk_sns.types.boolean.boolean"
     """<p>Indicates whether the calling Amazon Web Services account is in the SMS sandbox.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#ListProxyRuleGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.pagination_token
     import aws_sdk_network_firewall.types.proxy_rule_groups
 
 
-class ListProxyRuleGroupsResponse(TypedDict):
+class ListProxyRuleGroupsResponse(TypedDict, closed=True):
     proxy_rule_groups: NotRequired[
         "aws_sdk_network_firewall.types.proxy_rule_groups.ProxyRuleGroups"
     ]

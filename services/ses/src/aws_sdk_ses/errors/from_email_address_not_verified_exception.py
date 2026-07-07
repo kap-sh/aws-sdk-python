@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#FromEmailAddressNotVerifiedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import ServiceError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.from_address
 
 
-class FromEmailAddressNotVerifiedException_(TypedDict):
+class FromEmailAddressNotVerifiedException_(TypedDict, closed=True):
     from_email_address: NotRequired["aws_sdk_ses.types.from_address.FromAddress"]
     """<p>Indicates that the from email address associated with the custom verification email template is not verified.</p>"""
     message: NotRequired["aws_sdk_ses.types.error_message.ErrorMessage"]

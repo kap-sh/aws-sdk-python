@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#InstanceHealthSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.instance_health_reason
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class InstanceHealthSummary(TypedDict):
+class InstanceHealthSummary(TypedDict, closed=True):
     instance_name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
     """<p>The name of the Lightsail instance for which you are requesting health check data.</p>"""
     instance_health: NotRequired[

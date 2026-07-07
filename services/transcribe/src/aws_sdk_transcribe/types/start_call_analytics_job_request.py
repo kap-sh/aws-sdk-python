@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#StartCallAnalyticsJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.uri
 
 
-class StartCallAnalyticsJobRequest(TypedDict):
+class StartCallAnalyticsJobRequest(TypedDict, closed=True):
     call_analytics_job_name: (
         "aws_sdk_transcribe.types.call_analytics_job_name.CallAnalyticsJobName"
     )

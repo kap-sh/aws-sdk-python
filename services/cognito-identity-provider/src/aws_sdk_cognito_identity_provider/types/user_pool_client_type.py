@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#UserPoolClientType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.access_token_validity_type
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.wrapped_boolean_type
 
 
-class UserPoolClientType(TypedDict):
+class UserPoolClientType(TypedDict, closed=True):
     user_pool_id: NotRequired[
         "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#EventError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.error_object
     import aws_sdk_lambda.types.truncated
 
 
-class EventError(TypedDict):
+class EventError(TypedDict, closed=True):
     payload: NotRequired["aws_sdk_lambda.types.error_object.ErrorObject"]
     """<p>The error payload.</p>"""
     truncated: NotRequired["aws_sdk_lambda.types.truncated.Truncated"]

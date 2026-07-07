@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#Cluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.backup_id
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.vpc_id
 
 
-class Cluster(TypedDict):
+class Cluster(TypedDict, closed=True):
     backup_policy: NotRequired["aws_sdk_cloudhsm_v2.types.backup_policy.BackupPolicy"]
     """<p>The cluster's backup policy.</p>"""
     backup_retention_policy: NotRequired[

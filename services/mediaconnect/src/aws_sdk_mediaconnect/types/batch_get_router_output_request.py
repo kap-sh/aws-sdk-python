@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#BatchGetRouterOutputRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_output_arn_list
 
 
-class BatchGetRouterOutputRequest(TypedDict):
+class BatchGetRouterOutputRequest(TypedDict, closed=True):
     arns: "aws_sdk_mediaconnect.types.router_output_arn_list.RouterOutputArnList"
     """<p>The Amazon Resource Names (ARNs) of the router outputs you want to retrieve information about.</p>"""
 

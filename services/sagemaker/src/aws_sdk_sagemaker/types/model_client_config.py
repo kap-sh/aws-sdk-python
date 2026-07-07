@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelClientConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.invocations_max_retries
     import aws_sdk_sagemaker.types.invocations_timeout_in_seconds
 
 
-class ModelClientConfig(TypedDict):
+class ModelClientConfig(TypedDict, closed=True):
     invocations_timeout_in_seconds: NotRequired[
         "aws_sdk_sagemaker.types.invocations_timeout_in_seconds.InvocationsTimeoutInSeconds"
     ]

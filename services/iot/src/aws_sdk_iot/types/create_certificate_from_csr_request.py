@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateCertificateFromCsrRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.set_as_active
 
 
-class CreateCertificateFromCsrRequest(TypedDict):
+class CreateCertificateFromCsrRequest(TypedDict, closed=True):
     certificate_signing_request: (
         "aws_sdk_iot.types.certificate_signing_request.CertificateSigningRequest"
     )

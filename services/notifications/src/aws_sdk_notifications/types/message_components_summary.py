@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#MessageComponentsSummary``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
 
-class MessageComponentsSummary(TypedDict):
+class MessageComponentsSummary(TypedDict, closed=True):
     headline: "str"
     """<p>A sentence long summary. For example, titles or an email subject line.</p>"""
 

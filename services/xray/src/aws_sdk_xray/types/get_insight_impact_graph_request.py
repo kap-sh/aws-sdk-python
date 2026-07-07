@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetInsightImpactGraphRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.token
 
 
-class GetInsightImpactGraphRequest(TypedDict):
+class GetInsightImpactGraphRequest(TypedDict, closed=True):
     insight_id: "aws_sdk_xray.types.insight_id.InsightId"
     """<p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>"""
     start_time: "aws_sdk_xray.types.timestamp.Timestamp"

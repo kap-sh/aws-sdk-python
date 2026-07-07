@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SingleSelectQuestionRuleCategoryAutomation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.single_select_question_rule_category_automation_label
 
 
-class SingleSelectQuestionRuleCategoryAutomation(TypedDict):
+class SingleSelectQuestionRuleCategoryAutomation(TypedDict, closed=True):
     category: "aws_sdk_connect.types.single_select_question_rule_category_automation_label.SingleSelectQuestionRuleCategoryAutomationLabel"
     """<p> The category name, as defined in Rules.</p>"""
     condition: "aws_sdk_connect.types.single_select_question_rule_category_automation_condition.SingleSelectQuestionRuleCategoryAutomationCondition"

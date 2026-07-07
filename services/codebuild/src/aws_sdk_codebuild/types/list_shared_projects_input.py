@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListSharedProjectsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.sort_order_type
 
 
-class ListSharedProjectsInput(TypedDict):
+class ListSharedProjectsInput(TypedDict, closed=True):
     sort_by: NotRequired[
         "aws_sdk_codebuild.types.shared_resource_sort_by_type.SharedResourceSortByType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DeleteTemplateAliasResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.alias_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DeleteTemplateAliasResponse(TypedDict):
+class DeleteTemplateAliasResponse(TypedDict, closed=True):
     status: "aws_sdk_quicksight.types.status_code.StatusCode"
     """<p>The HTTP status of the request.</p>"""
     template_id: NotRequired[

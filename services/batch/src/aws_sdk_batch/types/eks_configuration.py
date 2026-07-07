@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EksConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class EksConfiguration(TypedDict):
+class EksConfiguration(TypedDict, closed=True):
     eks_cluster_arn: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is <code>arn:<i>aws</i>:eks:<i>us-east-1</i>:<i>123456789012</i>:cluster/<i>ClusterForBatch</i> </code>. </p>"""
     kubernetes_namespace: NotRequired["aws_sdk_batch.types.string.String"]

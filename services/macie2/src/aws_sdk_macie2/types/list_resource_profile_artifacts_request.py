@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ListResourceProfileArtifactsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class ListResourceProfileArtifactsRequest(TypedDict):
+class ListResourceProfileArtifactsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The nextToken string that specifies which page of results to return in a paginated response.</p>"""
     resource_arn: NotRequired["aws_sdk_macie2.types.__string.__string"]

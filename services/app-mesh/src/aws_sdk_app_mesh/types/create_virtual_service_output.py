@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#CreateVirtualServiceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_service_data
 
 
-class CreateVirtualServiceOutput(TypedDict):
+class CreateVirtualServiceOutput(TypedDict, closed=True):
     virtual_service: "aws_sdk_app_mesh.types.virtual_service_data.VirtualServiceData"
     """<p>The full description of your virtual service following the create call.</p>"""
 

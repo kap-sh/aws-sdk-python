@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ConfirmTopicRuleDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.confirmation_token
 
 
-class ConfirmTopicRuleDestinationRequest(TypedDict):
+class ConfirmTopicRuleDestinationRequest(TypedDict, closed=True):
     confirmation_token: "aws_sdk_iot.types.confirmation_token.ConfirmationToken"
     """<p>The token used to confirm ownership or access to the topic rule confirmation URL.</p>"""
 

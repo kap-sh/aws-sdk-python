@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#StartAssessmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.async_task_id
 
 
-class StartAssessmentResponse(TypedDict):
+class StartAssessmentResponse(TypedDict, closed=True):
     assessment_id: NotRequired[
         "aws_sdk_migrationhubstrategy.types.async_task_id.AsyncTaskId"
     ]

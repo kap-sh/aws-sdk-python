@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeInputDeviceThumbnailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__long
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.input_device_thumbnail
 
 
-class DescribeInputDeviceThumbnailResponse(TypedDict):
+class DescribeInputDeviceThumbnailResponse(TypedDict, closed=True):
     body: "aws_sdk_medialive.types.input_device_thumbnail.InputDeviceThumbnail"
     """The binary data for the thumbnail that the Link device has most recently sent to MediaLive."""
     content_type: NotRequired["aws_sdk_medialive.types.content_type.ContentType"]

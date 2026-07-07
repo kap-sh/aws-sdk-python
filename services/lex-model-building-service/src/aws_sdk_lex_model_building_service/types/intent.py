@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#Intent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.version
 
 
-class Intent(TypedDict):
+class Intent(TypedDict, closed=True):
     intent_name: "aws_sdk_lex_model_building_service.types.intent_name.IntentName"
     """<p>The name of the intent.</p>"""
     intent_version: "aws_sdk_lex_model_building_service.types.version.Version"

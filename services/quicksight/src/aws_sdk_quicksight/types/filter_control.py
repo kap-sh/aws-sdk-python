@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FilterControl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.filter_cross_sheet_control
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.filter_text_field_control
 
 
-class FilterControl(TypedDict):
+class FilterControl(TypedDict, closed=True):
     date_time_picker: NotRequired[
         "aws_sdk_quicksight.types.filter_date_time_picker_control.FilterDateTimePickerControl"
     ]

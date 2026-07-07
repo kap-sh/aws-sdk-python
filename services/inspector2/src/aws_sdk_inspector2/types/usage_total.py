@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#UsageTotal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.metering_account_id
     import aws_sdk_inspector2.types.usage_list
 
 
-class UsageTotal(TypedDict):
+class UsageTotal(TypedDict, closed=True):
     account_id: NotRequired[
         "aws_sdk_inspector2.types.metering_account_id.MeteringAccountId"
     ]

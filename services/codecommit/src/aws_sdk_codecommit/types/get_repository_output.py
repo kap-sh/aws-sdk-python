@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetRepositoryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_metadata
 
 
-class GetRepositoryOutput(TypedDict):
+class GetRepositoryOutput(TypedDict, closed=True):
     repository_metadata: NotRequired[
         "aws_sdk_codecommit.types.repository_metadata.RepositoryMetadata"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#GetServiceNetworkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_network_identifier
 
 
-class GetServiceNetworkRequest(TypedDict):
+class GetServiceNetworkRequest(TypedDict, closed=True):
     service_network_identifier: (
         "aws_sdk_vpc_lattice.types.service_network_identifier.ServiceNetworkIdentifier"
     )

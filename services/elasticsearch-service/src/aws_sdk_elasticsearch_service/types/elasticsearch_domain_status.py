@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ElasticsearchDomainStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -35,7 +35,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.vpc_derived_info
 
 
-class ElasticsearchDomainStatus(TypedDict):
+class ElasticsearchDomainStatus(TypedDict, closed=True):
     domain_id: "aws_sdk_elasticsearch_service.types.domain_id.DomainId"
     """<p>The unique identifier for the specified Elasticsearch domain.</p>"""
     domain_name: "aws_sdk_elasticsearch_service.types.domain_name.DomainName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ThingTypeMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.boolean2
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.deprecation_date
 
 
-class ThingTypeMetadata(TypedDict):
+class ThingTypeMetadata(TypedDict, closed=True):
     deprecated: "aws_sdk_iot.types.boolean2.Boolean2"
     """<p>Whether the thing type is deprecated. If <b>true</b>, no new things could be associated with this type.</p>"""
     deprecation_date: NotRequired["aws_sdk_iot.types.deprecation_date.DeprecationDate"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#SavingsPlansUtilizationQuery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.granularity
 
 
-class SavingsPlansUtilizationQuery(TypedDict):
+class SavingsPlansUtilizationQuery(TypedDict, closed=True):
     time_range: "aws_sdk_bcm_dashboards.types.date_time_range.DateTimeRange"
     granularity: NotRequired["aws_sdk_bcm_dashboards.types.granularity.Granularity"]
     """<p>The time granularity of the retrieved data: <code>HOURLY</code>, <code>DAILY</code>, or <code>MONTHLY</code>.</p>"""

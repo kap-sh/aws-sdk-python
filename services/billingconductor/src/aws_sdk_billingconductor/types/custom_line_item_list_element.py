@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#CustomLineItemListElement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.account_id
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.presentation_object
 
 
-class CustomLineItemListElement(TypedDict):
+class CustomLineItemListElement(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_billingconductor.types.custom_line_item_arn.CustomLineItemArn"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#GlobalSecondaryIndexUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.create_global_secondary_index_action
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.update_global_secondary_index_action
 
 
-class GlobalSecondaryIndexUpdate(TypedDict):
+class GlobalSecondaryIndexUpdate(TypedDict, closed=True):
     update: NotRequired[
         "aws_sdk_dynamodb.types.update_global_secondary_index_action.UpdateGlobalSecondaryIndexAction"
     ]

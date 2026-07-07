@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#JobEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.job_event_type
 
 
-class JobEventDetails(TypedDict):
+class JobEventDetails(TypedDict, closed=True):
     event_type: NotRequired["aws_sdk_braket.types.job_event_type.JobEventType"]
     """<p>The type of event that occurred related to the Amazon Braket hybrid job.</p>"""
     time_of_event: NotRequired["datetime.datetime"]

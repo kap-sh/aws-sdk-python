@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#FieldToMatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.single_header
 
 
-class FieldToMatch(TypedDict):
+class FieldToMatch(TypedDict, closed=True):
     single_header: NotRequired[
         "aws_sdk_observabilityadmin.types.single_header.SingleHeader"
     ]

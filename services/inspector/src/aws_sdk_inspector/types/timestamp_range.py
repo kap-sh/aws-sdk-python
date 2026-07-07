@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#TimestampRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.timestamp
 
 
-class TimestampRange(TypedDict):
+class TimestampRange(TypedDict, closed=True):
     begin_date: NotRequired["aws_sdk_inspector.types.timestamp.Timestamp"]
     """<p>The minimum value of the timestamp range.</p>"""
     end_date: NotRequired["aws_sdk_inspector.types.timestamp.Timestamp"]

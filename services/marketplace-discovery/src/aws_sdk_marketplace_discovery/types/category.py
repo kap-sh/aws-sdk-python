@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#Category``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.non_empty_string
 
 
-class Category(TypedDict):
+class Category(TypedDict, closed=True):
     category_id: "aws_sdk_marketplace_discovery.types.non_empty_string.NonEmptyString"
     """<p>The machine-readable identifier of the category.</p>"""
     display_name: "aws_sdk_marketplace_discovery.types.non_empty_string.NonEmptyString"

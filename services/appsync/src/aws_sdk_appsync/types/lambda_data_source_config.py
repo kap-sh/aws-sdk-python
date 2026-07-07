@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#LambdaDataSourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class LambdaDataSourceConfig(TypedDict):
+class LambdaDataSourceConfig(TypedDict, closed=True):
     lambda_function_arn: "aws_sdk_appsync.types.string.String"
     """<p>The Amazon Resource Name (ARN) for the Lambda function.</p>"""
 

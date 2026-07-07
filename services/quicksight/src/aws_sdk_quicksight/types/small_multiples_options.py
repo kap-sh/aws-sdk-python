@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SmallMultiplesOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.panel_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visible_panel_rows
 
 
-class SmallMultiplesOptions(TypedDict):
+class SmallMultiplesOptions(TypedDict, closed=True):
     max_visible_rows: NotRequired[
         "aws_sdk_quicksight.types.visible_panel_rows.VisiblePanelRows"
     ]

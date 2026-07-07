@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ImportDiffieHellmanTr31KeyBlock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -14,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.tr31_wrapped_key_block
 
 
-class ImportDiffieHellmanTr31KeyBlock(TypedDict):
+class ImportDiffieHellmanTr31KeyBlock(TypedDict, closed=True):
     private_key_identifier: "aws_sdk_payment_cryptography.types.key_arn_or_key_alias_type.KeyArnOrKeyAliasType"
     """<p>The <code>keyARN</code> of the asymmetric ECC key created within Amazon Web Services Payment Cryptography.</p>"""
     certificate_authority_public_key_identifier: "aws_sdk_payment_cryptography.types.key_arn_or_key_alias_type.KeyArnOrKeyAliasType"

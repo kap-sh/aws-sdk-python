@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ListVpcConnectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.vpc_connectors
 
 
-class ListVpcConnectorsResponse(TypedDict):
+class ListVpcConnectorsResponse(TypedDict, closed=True):
     vpc_connectors: "aws_sdk_apprunner.types.vpc_connectors.VpcConnectors"
     """<p>A list of information records for VPC connectors. In a paginated request, the request returns up to <code>MaxResults</code> records for each call.</p>"""
     next_token: NotRequired["aws_sdk_apprunner.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AssetItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class AssetItem(TypedDict):
+class AssetItem(TypedDict, closed=True):
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon DataZone domain in which the inventory asset exists.</p>"""
     identifier: "aws_sdk_datazone.types.asset_identifier.AssetIdentifier"

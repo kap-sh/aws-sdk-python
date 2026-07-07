@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#OrganizationEventDetailsErrorItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.string
 
 
-class OrganizationEventDetailsErrorItem(TypedDict):
+class OrganizationEventDetailsErrorItem(TypedDict, closed=True):
     aws_account_id: NotRequired["aws_sdk_health.types.account_id.accountId"]
     r"""<p>Error information returned when a <a href=\"https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html\">DescribeEventDetailsForOrganization</a> operation can't find a specified event.</p>"""
     event_arn: NotRequired["aws_sdk_health.types.event_arn.eventArn"]

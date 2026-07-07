@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#LaunchTemplatesMonitoringRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
 
 
-class LaunchTemplatesMonitoringRequest(TypedDict):
+class LaunchTemplatesMonitoringRequest(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Specify <code>true</code> to enable detailed monitoring. Otherwise, basic monitoring is enabled.</p>"""
 

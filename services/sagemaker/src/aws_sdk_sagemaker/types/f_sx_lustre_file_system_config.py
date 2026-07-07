@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#FSxLustreFileSystemConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.file_system_id
     import aws_sdk_sagemaker.types.file_system_path
 
 
-class FSxLustreFileSystemConfig(TypedDict):
+class FSxLustreFileSystemConfig(TypedDict, closed=True):
     file_system_id: NotRequired["aws_sdk_sagemaker.types.file_system_id.FileSystemId"]
     """<p>The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.</p>"""
     file_system_path: NotRequired[

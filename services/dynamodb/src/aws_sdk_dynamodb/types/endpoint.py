@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#Endpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.string
 
 
-class Endpoint(TypedDict):
+class Endpoint(TypedDict, closed=True):
     address: "aws_sdk_dynamodb.types.string.String"
     """<p>IP address of the endpoint.</p>"""
     cache_period_in_minutes: "aws_sdk_dynamodb.types.long.Long"

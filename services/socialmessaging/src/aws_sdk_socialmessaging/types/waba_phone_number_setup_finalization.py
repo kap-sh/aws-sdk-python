@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#WabaPhoneNumberSetupFinalization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.whats_app_phone_number
 
 
-class WabaPhoneNumberSetupFinalization(TypedDict):
+class WabaPhoneNumberSetupFinalization(TypedDict, closed=True):
     id: "aws_sdk_socialmessaging.types.whats_app_phone_number.WhatsAppPhoneNumber"
     r"""<p>The unique identifier of the originating phone number associated with the media. Phone number identifiers are formatted as <code>phone-number-id-01234567890123456789012345678901</code>. Use the <a href=\"https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccount.html\">GetLinkedWhatsAppBusinessAccount</a> API action to find a phone number's id.</p>"""
     two_factor_pin: "aws_sdk_socialmessaging.types.two_factor_pin.TwoFactorPin"

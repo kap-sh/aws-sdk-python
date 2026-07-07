@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.app_network_access_type
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.vpc_id
 
 
-class CreateDomainRequest(TypedDict):
+class CreateDomainRequest(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_sagemaker.types.domain_name.DomainName"]
     """<p>A name for the domain.</p>"""
     auth_mode: NotRequired["aws_sdk_sagemaker.types.auth_mode.AuthMode"]

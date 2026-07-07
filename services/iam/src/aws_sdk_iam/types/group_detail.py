@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GroupDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.policy_detail_list_type
 
 
-class GroupDetail(TypedDict):
+class GroupDetail(TypedDict, closed=True):
     path: NotRequired["aws_sdk_iam.types.path_type.pathType"]
     r"""<p>The path to the group. For more information about paths, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>"""
     group_name: NotRequired["aws_sdk_iam.types.group_name_type.groupNameType"]

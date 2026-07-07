@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeDocumentPermissionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.account_id_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class DescribeDocumentPermissionResponse(TypedDict):
+class DescribeDocumentPermissionResponse(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_ssm.types.account_id_list.AccountIdList"]
     """<p>The account IDs that have permission to use this document. The ID can be either an Amazon Web Services account number or <code>all</code>.</p>"""
     account_sharing_info_list: NotRequired[

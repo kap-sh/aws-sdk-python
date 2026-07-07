@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DeleteQueuedMessagesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteQueuedMessagesResponse(TypedDict):
+class DeleteQueuedMessagesResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#StartDashboardSnapshotJobScheduleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.non_empty_string
     import aws_sdk_quicksight.types.status_code
 
 
-class StartDashboardSnapshotJobScheduleResponse(TypedDict):
+class StartDashboardSnapshotJobScheduleResponse(TypedDict, closed=True):
     request_id: NotRequired["aws_sdk_quicksight.types.non_empty_string.NonEmptyString"]
     """<p> The Amazon Web Services request ID for this operation. </p>"""
     status: "aws_sdk_quicksight.types.status_code.StatusCode"

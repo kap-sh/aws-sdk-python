@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#TimeSpan``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.time
 
 
-class TimeSpan(TypedDict):
+class TimeSpan(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_elastic_transcoder.types.time.Time"]
     """<p>The place in the input file where you want a clip to start. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of the input file.</p>"""
     duration: NotRequired["aws_sdk_elastic_transcoder.types.time.Time"]

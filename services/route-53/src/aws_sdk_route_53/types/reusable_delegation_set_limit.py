@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ReusableDelegationSetLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.reusable_delegation_set_limit_type
 
 
-class ReusableDelegationSetLimit(TypedDict):
+class ReusableDelegationSetLimit(TypedDict, closed=True):
     type: "aws_sdk_route_53.types.reusable_delegation_set_limit_type.ReusableDelegationSetLimitType"
     """<p>The limit that you requested: <code>MAX_ZONES_BY_REUSABLE_DELEGATION_SET</code>, the maximum number of hosted zones that you can associate with the specified reusable delegation set.</p>"""
     value: "aws_sdk_route_53.types.limit_value.LimitValue"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#EncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.cloud_watch_encryption
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.s3_encryption_list
 
 
-class EncryptionConfiguration(TypedDict):
+class EncryptionConfiguration(TypedDict, closed=True):
     s3_encryption: NotRequired["aws_sdk_glue.types.s3_encryption_list.S3EncryptionList"]
     """<p>The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.</p>"""
     cloud_watch_encryption: NotRequired[

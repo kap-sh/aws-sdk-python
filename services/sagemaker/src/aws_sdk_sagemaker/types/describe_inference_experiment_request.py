@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeInferenceExperimentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.inference_experiment_name
 
 
-class DescribeInferenceExperimentRequest(TypedDict):
+class DescribeInferenceExperimentRequest(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_sagemaker.types.inference_experiment_name.InferenceExperimentName"
     ]

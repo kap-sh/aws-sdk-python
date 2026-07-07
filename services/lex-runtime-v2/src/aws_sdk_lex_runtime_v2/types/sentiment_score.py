@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#SentimentScore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.double
 
 
-class SentimentScore(TypedDict):
+class SentimentScore(TypedDict, closed=True):
     positive: "aws_sdk_lex_runtime_v2.types.double.Double"
     """<p>The level of confidence that Amazon Comprehend has in the accuracy of its detection of the <code>POSITIVE</code> sentiment.</p>"""
     negative: "aws_sdk_lex_runtime_v2.types.double.Double"

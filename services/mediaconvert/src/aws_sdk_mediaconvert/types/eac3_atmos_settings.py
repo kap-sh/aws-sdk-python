@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Eac3AtmosSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double_min_negative6_max3
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.eac3_atmos_surround_ex_mode
 
 
-class Eac3AtmosSettings(TypedDict):
+class Eac3AtmosSettings(TypedDict, closed=True):
     bitrate: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min384000_max1024000.__integerMin384000Max1024000"
     ]

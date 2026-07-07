@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#KinesisStreamsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.resource_arn
 
 
-class KinesisStreamsOutput(TypedDict):
+class KinesisStreamsOutput(TypedDict, closed=True):
     resource_arn: "aws_sdk_kinesis_analytics_v2.types.resource_arn.ResourceARN"
     """<p>The ARN of the destination Kinesis data stream to write to.</p>"""
 

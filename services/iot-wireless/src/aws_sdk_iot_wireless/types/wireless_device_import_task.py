@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#WirelessDeviceImportTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.creation_time
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.status_reason
 
 
-class WirelessDeviceImportTask(TypedDict):
+class WirelessDeviceImportTask(TypedDict, closed=True):
     id: NotRequired["aws_sdk_iot_wireless.types.import_task_id.ImportTaskId"]
     """<p>The ID of the wireless device import task.</p>"""
     arn: NotRequired["aws_sdk_iot_wireless.types.import_task_arn.ImportTaskArn"]

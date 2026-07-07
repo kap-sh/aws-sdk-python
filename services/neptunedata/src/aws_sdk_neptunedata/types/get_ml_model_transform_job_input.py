@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetMLModelTransformJobInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetMLModelTransformJobInput(TypedDict):
+class GetMLModelTransformJobInput(TypedDict, closed=True):
     id: "str"
     """<p>The unique identifier of the model-transform job to be reetrieved.</p>"""
     neptune_iam_role_arn: NotRequired["str"]

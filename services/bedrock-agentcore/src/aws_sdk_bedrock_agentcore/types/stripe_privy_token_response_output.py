@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#StripePrivyTokenResponseOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.stripe_privy_basic_auth_token_type
 
 
-class StripePrivyTokenResponseOutput(TypedDict):
+class StripePrivyTokenResponseOutput(TypedDict, closed=True):
     authorization_signature: NotRequired[
         "aws_sdk_bedrock_agentcore.types.stripe_privy_authorization_signature_type.StripePrivyAuthorizationSignatureType"
     ]

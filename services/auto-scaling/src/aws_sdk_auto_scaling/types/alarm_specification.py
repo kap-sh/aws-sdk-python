@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#AlarmSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.alarm_list
 
 
-class AlarmSpecification(TypedDict):
+class AlarmSpecification(TypedDict, closed=True):
     alarms: NotRequired["aws_sdk_auto_scaling.types.alarm_list.AlarmList"]
     """<p>The names of one or more CloudWatch alarms to monitor for the instance refresh. You can specify up to 10 alarms.</p>"""
 

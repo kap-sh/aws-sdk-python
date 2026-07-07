@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#TimePeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class TimePeriod(TypedDict):
+class TimePeriod(TypedDict, closed=True):
     start_time_inclusive: NotRequired["datetime.datetime"]
     """<p>The start time of the period, inclusive. Events at or after this time are included.</p>"""
     end_time_exclusive: NotRequired["datetime.datetime"]

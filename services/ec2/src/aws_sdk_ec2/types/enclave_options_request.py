@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#EnclaveOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
 
 
-class EnclaveOptionsRequest(TypedDict):
+class EnclaveOptionsRequest(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to <code>true</code>.</p>"""
 

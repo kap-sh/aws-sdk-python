@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#ListSMSSandboxPhoneNumbersResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class ListSMSSandboxPhoneNumbersResult(TypedDict):
+class ListSMSSandboxPhoneNumbersResult(TypedDict, closed=True):
     phone_numbers: (
         "aws_sdk_sns.types.sms_sandbox_phone_number_list.SMSSandboxPhoneNumberList"
     )

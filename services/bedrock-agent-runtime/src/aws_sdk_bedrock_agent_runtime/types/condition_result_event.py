@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ConditionResultEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.satisfied_conditions
 
 
-class ConditionResultEvent(TypedDict):
+class ConditionResultEvent(TypedDict, closed=True):
     node_name: "aws_sdk_bedrock_agent_runtime.types.node_name.NodeName"
     """<p>The name of the condition node that evaluated the conditions.</p>"""
     timestamp: "aws_sdk_bedrock_agent_runtime.types.date_timestamp.DateTimestamp"

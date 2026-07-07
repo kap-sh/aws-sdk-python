@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicVisual``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.limited_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_role
 
 
-class TopicVisual(TypedDict):
+class TopicVisual(TypedDict, closed=True):
     visual_id: NotRequired["aws_sdk_quicksight.types.limited_string.LimitedString"]
     """<p>The visual ID for the <code>TopicVisual</code>.</p>"""
     role: NotRequired["aws_sdk_quicksight.types.visual_role.VisualRole"]

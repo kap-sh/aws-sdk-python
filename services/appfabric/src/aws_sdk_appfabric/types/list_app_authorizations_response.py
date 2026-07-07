@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#ListAppAuthorizationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.string2048
 
 
-class ListAppAuthorizationsResponse(TypedDict):
+class ListAppAuthorizationsResponse(TypedDict, closed=True):
     app_authorization_summary_list: "aws_sdk_appfabric.types.app_authorization_summary_list.AppAuthorizationSummaryList"
     """<p>Contains a list of app authorization summaries.</p>"""
     next_token: NotRequired["aws_sdk_appfabric.types.string2048.String2048"]

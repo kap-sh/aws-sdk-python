@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EksContainerVolumeMount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.boolean
     import aws_sdk_batch.types.string
 
 
-class EksContainerVolumeMount(TypedDict):
+class EksContainerVolumeMount(TypedDict, closed=True):
     name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name the volume mount. This must match the name of one of the volumes in the pod.</p>"""
     mount_path: NotRequired["aws_sdk_batch.types.string.String"]

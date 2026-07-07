@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ListDevicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.device_aggregated_status
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.sort_order
 
 
-class ListDevicesRequest(TypedDict):
+class ListDevicesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_panorama.types.next_token.NextToken"]
     """<p>Specify the pagination token from a previous request to retrieve the next page of results.</p>"""
     max_results: "aws_sdk_panorama.types.max_size25.MaxSize25"

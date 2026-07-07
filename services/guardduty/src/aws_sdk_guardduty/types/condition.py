@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Condition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.eq
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.not_matches
 
 
-class Condition(TypedDict):
+class Condition(TypedDict, closed=True):
     eq: NotRequired["aws_sdk_guardduty.types.eq.Eq"]
     """<p>Represents the <i>equal</i> condition to be applied to a single field when querying for findings.</p> <p>Max values: 50</p>"""
     neq: NotRequired["aws_sdk_guardduty.types.neq.Neq"]

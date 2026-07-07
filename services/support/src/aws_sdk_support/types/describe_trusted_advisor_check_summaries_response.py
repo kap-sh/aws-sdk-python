@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeTrustedAdvisorCheckSummariesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_support.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.trusted_advisor_check_summary_list
 
 
-class DescribeTrustedAdvisorCheckSummariesResponse(TypedDict):
+class DescribeTrustedAdvisorCheckSummariesResponse(TypedDict, closed=True):
     summaries: "aws_sdk_support.types.trusted_advisor_check_summary_list.TrustedAdvisorCheckSummaryList"
     """<p>The summary information for the requested Trusted Advisor checks.</p>"""
 

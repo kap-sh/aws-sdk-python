@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#LookoutMetricsDestinationProperties``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class LookoutMetricsDestinationProperties(TypedDict):
+class LookoutMetricsDestinationProperties(TypedDict, closed=True):
     pass
 
 

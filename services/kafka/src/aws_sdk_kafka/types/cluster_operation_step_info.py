@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ClusterOperationStepInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
 
 
-class ClusterOperationStepInfo(TypedDict):
+class ClusterOperationStepInfo(TypedDict, closed=True):
     step_status: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The steps current status.</p>"""
 

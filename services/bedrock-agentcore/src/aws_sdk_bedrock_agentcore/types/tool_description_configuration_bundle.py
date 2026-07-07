@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ToolDescriptionConfigurationBundle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.configuration_bundle_version_id
 
 
-class ToolDescriptionConfigurationBundle(TypedDict):
+class ToolDescriptionConfigurationBundle(TypedDict, closed=True):
     bundle_arn: "aws_sdk_bedrock_agentcore.types.configuration_bundle_arn.ConfigurationBundleArn"
     """<p>The Amazon Resource Name (ARN) of the configuration bundle.</p>"""
     version_id: "aws_sdk_bedrock_agentcore.types.configuration_bundle_version_id.ConfigurationBundleVersionId"

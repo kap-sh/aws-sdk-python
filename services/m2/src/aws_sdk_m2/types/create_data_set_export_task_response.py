@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#CreateDataSetExportTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.identifier
 
 
-class CreateDataSetExportTaskResponse(TypedDict):
+class CreateDataSetExportTaskResponse(TypedDict, closed=True):
     task_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The task identifier. This operation is asynchronous. Use this identifier with the <a>GetDataSetExportTask</a> operation to obtain the status of this task.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#AssociateAccountsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.billing_group_arn
 
 
-class AssociateAccountsOutput(TypedDict):
+class AssociateAccountsOutput(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_billingconductor.types.billing_group_arn.BillingGroupArn"]
     """<p> The Amazon Resource Name (ARN) of the billing group that associates the array of account IDs. </p>"""
 

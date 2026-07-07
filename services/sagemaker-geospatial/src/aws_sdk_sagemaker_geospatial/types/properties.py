@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#Properties``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Properties(TypedDict):
+class Properties(TypedDict, closed=True):
     eo_cloud_cover: NotRequired["float"]
     """<p>Estimate of cloud cover.</p>"""
     view_off_nadir: NotRequired["float"]

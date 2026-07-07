@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#TrustedCertificatePublicKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.key_attributes
 
 
-class TrustedCertificatePublicKey(TypedDict):
+class TrustedCertificatePublicKey(TypedDict, closed=True):
     key_attributes: "aws_sdk_payment_cryptography.types.key_attributes.KeyAttributes"
     """<p>The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after a trusted public key is imported.</p>"""
     public_key_certificate: (

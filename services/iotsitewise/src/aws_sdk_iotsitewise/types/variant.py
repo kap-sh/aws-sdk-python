@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#Variant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.property_value_boolean_value
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.property_value_string_value
 
 
-class Variant(TypedDict):
+class Variant(TypedDict, closed=True):
     string_value: NotRequired[
         "aws_sdk_iotsitewise.types.property_value_string_value.PropertyValueStringValue"
     ]

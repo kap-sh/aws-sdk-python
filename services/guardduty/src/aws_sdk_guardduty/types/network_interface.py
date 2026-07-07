@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#NetworkInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.ipv6_addresses
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class NetworkInterface(TypedDict):
+class NetworkInterface(TypedDict, closed=True):
     ipv6_addresses: NotRequired["aws_sdk_guardduty.types.ipv6_addresses.Ipv6Addresses"]
     """<p>A list of IPv6 addresses for the EC2 instance.</p>"""
     network_interface_id: NotRequired["aws_sdk_guardduty.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ContinuousDeploymentSingleHeaderConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class ContinuousDeploymentSingleHeaderConfig(TypedDict):
+class ContinuousDeploymentSingleHeaderConfig(TypedDict, closed=True):
     header: "aws_sdk_cloudfront.types.string.string"
     """<p>The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix <code>aws-cf-cd-</code>.</p>"""
     value: "aws_sdk_cloudfront.types.string.string"

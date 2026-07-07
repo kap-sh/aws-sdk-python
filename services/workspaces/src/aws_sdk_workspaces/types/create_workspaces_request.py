@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateWorkspacesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_request_list
 
 
-class CreateWorkspacesRequest(TypedDict):
+class CreateWorkspacesRequest(TypedDict, closed=True):
     workspaces: "aws_sdk_workspaces.types.workspace_request_list.WorkspaceRequestList"
     """<p>The WorkSpaces to create. You can specify up to 25 WorkSpaces.</p>"""
 

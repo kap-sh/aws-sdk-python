@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#UpdateDataIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.name
 
 
-class UpdateDataIntegrationRequest(TypedDict):
+class UpdateDataIntegrationRequest(TypedDict, closed=True):
     identifier: "aws_sdk_appintegrations.types.identifier.Identifier"
     """<p>A unique identifier for the DataIntegration.</p>"""
     name: NotRequired["aws_sdk_appintegrations.types.name.Name"]

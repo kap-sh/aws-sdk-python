@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ActivityTaskTimedOutEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.limited_data
 
 
-class ActivityTaskTimedOutEventAttributes(TypedDict):
+class ActivityTaskTimedOutEventAttributes(TypedDict, closed=True):
     timeout_type: "aws_sdk_swf.types.activity_task_timeout_type.ActivityTaskTimeoutType"
     """<p>The type of the timeout that caused this event.</p>"""
     scheduled_event_id: "aws_sdk_swf.types.event_id.EventId"

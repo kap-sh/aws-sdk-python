@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#Dimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.dimension_name
     import aws_sdk_iot_wireless.types.dimension_value
 
 
-class Dimension(TypedDict):
+class Dimension(TypedDict, closed=True):
     name: NotRequired["aws_sdk_iot_wireless.types.dimension_name.DimensionName"]
     """<p>The name of the dimension.</p>"""
     value: NotRequired["aws_sdk_iot_wireless.types.dimension_value.DimensionValue"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListAutoMLJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_ml_job_status
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListAutoMLJobsRequest(TypedDict):
+class ListAutoMLJobsRequest(TypedDict, closed=True):
     creation_time_after: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     """<p>Request a list of jobs, using a filter for time.</p>"""
     creation_time_before: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]

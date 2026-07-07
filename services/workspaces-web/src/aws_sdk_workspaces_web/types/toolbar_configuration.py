@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#ToolbarConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.hidden_toolbar_item_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.visual_mode
 
 
-class ToolbarConfiguration(TypedDict):
+class ToolbarConfiguration(TypedDict, closed=True):
     toolbar_type: NotRequired["aws_sdk_workspaces_web.types.toolbar_type.ToolbarType"]
     """<p>The type of toolbar displayed during the session.</p>"""
     visual_mode: NotRequired["aws_sdk_workspaces_web.types.visual_mode.VisualMode"]

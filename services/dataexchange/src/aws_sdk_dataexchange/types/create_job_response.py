@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#CreateJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.type
 
 
-class CreateJobResponse(TypedDict):
+class CreateJobResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_dataexchange.types.arn.Arn"]
     """<p>The ARN for the job.</p>"""
     asset_configuration: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#NielsenCBET``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string_min1_max7
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.nielsen_watermarks_cbet_stepaside
 
 
-class NielsenCBET(TypedDict):
+class NielsenCBET(TypedDict, closed=True):
     cbet_check_digit_string: NotRequired[
         "aws_sdk_medialive.types.__string_min2_max2.__stringMin2Max2"
     ]

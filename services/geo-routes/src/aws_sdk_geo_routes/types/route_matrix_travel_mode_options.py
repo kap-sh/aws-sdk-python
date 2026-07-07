@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteMatrixTravelModeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_matrix_car_options
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_matrix_truck_options
 
 
-class RouteMatrixTravelModeOptions(TypedDict):
+class RouteMatrixTravelModeOptions(TypedDict, closed=True):
     car: NotRequired[
         "aws_sdk_geo_routes.types.route_matrix_car_options.RouteMatrixCarOptions"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeAccountHealthResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.resource_hours
 
 
-class DescribeAccountHealthResponse(TypedDict):
+class DescribeAccountHealthResponse(TypedDict, closed=True):
     open_reactive_insights: (
         "aws_sdk_devops_guru.types.num_open_reactive_insights.NumOpenReactiveInsights"
     )

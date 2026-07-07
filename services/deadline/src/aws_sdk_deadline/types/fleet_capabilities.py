@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#FleetCapabilities``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.fleet_amount_capabilities
     import aws_sdk_deadline.types.fleet_attribute_capabilities
 
 
-class FleetCapabilities(TypedDict):
+class FleetCapabilities(TypedDict, closed=True):
     amounts: NotRequired[
         "aws_sdk_deadline.types.fleet_amount_capabilities.FleetAmountCapabilities"
     ]

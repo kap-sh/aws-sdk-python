@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#DeviceJobConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.ota_job_config
 
 
-class DeviceJobConfig(TypedDict):
+class DeviceJobConfig(TypedDict, closed=True):
     ota_job_config: NotRequired["aws_sdk_panorama.types.ota_job_config.OTAJobConfig"]
     """<p>A configuration for an over-the-air (OTA) upgrade. Required for OTA jobs.</p>"""
 

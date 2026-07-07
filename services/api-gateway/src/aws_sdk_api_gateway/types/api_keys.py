@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#ApiKeys``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_api_key
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class ApiKeys(TypedDict):
+class ApiKeys(TypedDict, closed=True):
     warnings: NotRequired["aws_sdk_api_gateway.types.list_of_string.ListOfString"]
     """<p>A list of warning messages logged during the import of API keys when the <code>failOnWarnings</code> option is set to true.</p>"""
     items: NotRequired["aws_sdk_api_gateway.types.list_of_api_key.ListOfApiKey"]

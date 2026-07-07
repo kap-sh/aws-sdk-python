@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ListNamespacesRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListNamespacesRequest(TypedDict):
+class ListNamespacesRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>If your initial <code>ListNamespaces</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in following <code>ListNamespaces</code> operations, which returns results in the next page.</p>"""
     max_results: NotRequired["int"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#HlsContentProtection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.base64_encoded_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.zero_to512_string
 
 
-class HlsContentProtection(TypedDict):
+class HlsContentProtection(TypedDict, closed=True):
     method: NotRequired[
         "aws_sdk_elastic_transcoder.types.hls_content_protection_method.HlsContentProtectionMethod"
     ]

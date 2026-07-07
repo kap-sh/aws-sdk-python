@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EvaluateOnExit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.retry_action
     import aws_sdk_batch.types.string
 
 
-class EvaluateOnExit(TypedDict):
+class EvaluateOnExit(TypedDict, closed=True):
     on_status_reason: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>Contains a glob pattern to match against the <code>StatusReason</code> returned for a job. The pattern can contain up to 512 characters. It can contain letters, numbers, periods (.), colons (:), and white spaces (including spaces or tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.</p>"""
     on_reason: NotRequired["aws_sdk_batch.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ExpectedRoute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.cidr
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_id_list
 
 
-class ExpectedRoute(TypedDict):
+class ExpectedRoute(TypedDict, closed=True):
     ip_v4_cidr: NotRequired["aws_sdk_fms.types.cidr.CIDR"]
     """<p>Information about the IPv4 CIDR block.</p>"""
     prefix_list_id: NotRequired["aws_sdk_fms.types.cidr.CIDR"]

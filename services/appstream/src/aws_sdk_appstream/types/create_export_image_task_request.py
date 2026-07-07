@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateExportImageTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.ami_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.tags
 
 
-class CreateExportImageTaskRequest(TypedDict):
+class CreateExportImageTaskRequest(TypedDict, closed=True):
     image_name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>The name of the WorkSpaces Applications image to export. The image must be in an available state and owned by your account.</p>"""
     ami_name: NotRequired["aws_sdk_appstream.types.ami_name.AmiName"]

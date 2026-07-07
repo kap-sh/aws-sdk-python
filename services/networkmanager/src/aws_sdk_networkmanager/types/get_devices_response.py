@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetDevicesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.device_list
     import aws_sdk_networkmanager.types.next_token
 
 
-class GetDevicesResponse(TypedDict):
+class GetDevicesResponse(TypedDict, closed=True):
     devices: NotRequired["aws_sdk_networkmanager.types.device_list.DeviceList"]
     """<p>The devices.</p>"""
     next_token: NotRequired["aws_sdk_networkmanager.types.next_token.NextToken"]

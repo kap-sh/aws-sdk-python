@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#CreateLifecyclePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.policy_id
 
 
-class CreateLifecyclePolicyResponse(TypedDict):
+class CreateLifecyclePolicyResponse(TypedDict, closed=True):
     policy_id: NotRequired["aws_sdk_dlm.types.policy_id.PolicyId"]
     """<p>The identifier of the lifecycle policy.</p>"""
 

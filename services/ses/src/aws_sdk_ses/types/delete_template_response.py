@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ses#DeleteTemplateResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
 
-class DeleteTemplateResponse(TypedDict):
+class DeleteTemplateResponse(TypedDict, closed=True):
     pass
 
 

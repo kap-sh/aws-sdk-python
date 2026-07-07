@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#InlineCustomInstruction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.uploaded_document_metadata
 
 
-class InlineCustomInstruction(TypedDict):
+class InlineCustomInstruction(TypedDict, closed=True):
     instruction_text: "aws_sdk_quicksight.types.inline_custom_instruction_text.InlineCustomInstructionText"
     """<p>The instruction text content.</p>"""
     uploaded_document_metadata: NotRequired[

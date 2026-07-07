@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#HlsId3SegmentTaggingScheduleActionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class HlsId3SegmentTaggingScheduleActionSettings(TypedDict):
+class HlsId3SegmentTaggingScheduleActionSettings(TypedDict, closed=True):
     tag: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Complete this parameter if you want to specify only the metadata, not the entire frame. MediaLive will insert the metadata in a TXXX frame. Enter the value as plain text. You can include standard MediaLive variable data such as the current segment number."""
     id3: NotRequired["aws_sdk_medialive.types.__string.__string"]

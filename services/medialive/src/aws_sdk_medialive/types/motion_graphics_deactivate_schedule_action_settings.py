@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MotionGraphicsDeactivateScheduleActionSettings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class MotionGraphicsDeactivateScheduleActionSettings(TypedDict):
+class MotionGraphicsDeactivateScheduleActionSettings(TypedDict, closed=True):
     pass
 
 

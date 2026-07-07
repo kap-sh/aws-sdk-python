@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ProactiveRefreshTokenRenewal``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ProactiveRefreshTokenRenewal(TypedDict):
+class ProactiveRefreshTokenRenewal(TypedDict, closed=True):
     enabled: NotRequired["bool"]
     """<p>Indicates whether proactive refresh token renewal is enabled.</p>"""
     days_before_renewal: NotRequired["int"]

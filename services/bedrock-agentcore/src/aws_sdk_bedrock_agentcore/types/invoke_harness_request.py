@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#InvokeHarnessRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.session_id
 
 
-class InvokeHarnessRequest(TypedDict):
+class InvokeHarnessRequest(TypedDict, closed=True):
     harness_arn: "aws_sdk_bedrock_agentcore.types.harness_arn.HarnessArn"
     """<p>The ARN of the harness to invoke.</p>"""
     runtime_session_id: "aws_sdk_bedrock_agentcore.types.session_id.SessionId"

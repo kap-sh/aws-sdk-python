@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HubS3StorageConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_output_path
 
 
-class HubS3StorageConfig(TypedDict):
+class HubS3StorageConfig(TypedDict, closed=True):
     s3_output_path: NotRequired["aws_sdk_sagemaker.types.s3_output_path.S3OutputPath"]
     """<p>The Amazon S3 bucket prefix for hosting hub content.</p>"""
 

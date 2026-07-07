@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#BatchUpdateClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.cluster_list
     import aws_sdk_memorydb.types.unprocessed_cluster_list
 
 
-class BatchUpdateClusterResponse(TypedDict):
+class BatchUpdateClusterResponse(TypedDict, closed=True):
     processed_clusters: NotRequired["aws_sdk_memorydb.types.cluster_list.ClusterList"]
     """<p>The list of clusters that have been updated.</p>"""
     unprocessed_clusters: NotRequired[

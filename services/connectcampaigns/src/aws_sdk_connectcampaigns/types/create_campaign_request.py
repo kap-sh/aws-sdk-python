@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaigns#CreateCampaignRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaigns.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaigns.types.tag_map
 
 
-class CreateCampaignRequest(TypedDict):
+class CreateCampaignRequest(TypedDict, closed=True):
     name: "aws_sdk_connectcampaigns.types.campaign_name.CampaignName"
     connect_instance_id: "aws_sdk_connectcampaigns.types.instance_id.InstanceId"
     dialer_config: "aws_sdk_connectcampaigns.types.dialer_config.DialerConfig"

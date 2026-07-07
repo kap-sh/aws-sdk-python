@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#PerformanceStatsConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class PerformanceStatsConfiguration(TypedDict):
+class PerformanceStatsConfiguration(TypedDict, closed=True):
     shared_with_client: NotRequired["bool"]
     """<p>Performance stats for the session are streamed to the client when set to <code>true</code>. Defaults to <code>false</code>.</p>"""
 

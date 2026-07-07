@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#DescribeGeneratedTemplateInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.generated_template_name
 
 
-class DescribeGeneratedTemplateInput(TypedDict):
+class DescribeGeneratedTemplateInput(TypedDict, closed=True):
     generated_template_name: NotRequired[
         "aws_sdk_cloudformation.types.generated_template_name.GeneratedTemplateName"
     ]

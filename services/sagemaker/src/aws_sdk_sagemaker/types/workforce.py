@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#Workforce``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cognito_config
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workforce_vpc_config_response
 
 
-class Workforce(TypedDict):
+class Workforce(TypedDict, closed=True):
     workforce_name: NotRequired["aws_sdk_sagemaker.types.workforce_name.WorkforceName"]
     """<p>The name of the private workforce.</p>"""
     workforce_arn: NotRequired["aws_sdk_sagemaker.types.workforce_arn.WorkforceArn"]

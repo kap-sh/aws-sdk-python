@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#LogsLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.cloud_watch_logs_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class LogsLocation(TypedDict):
+class LogsLocation(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_codebuild.types.string.String"]
     """<p>The name of the CloudWatch Logs group for the build logs.</p>"""
     stream_name: NotRequired["aws_sdk_codebuild.types.string.String"]

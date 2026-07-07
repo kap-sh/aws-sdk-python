@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#AdvancedFieldSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.selector_field
 
 
-class AdvancedFieldSelector(TypedDict):
+class AdvancedFieldSelector(TypedDict, closed=True):
     field: "aws_sdk_cloudtrail.types.selector_field.SelectorField"
     r"""<p> A field in a CloudTrail event record on which to filter events to be logged. For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the field is used only for selecting events as filtering is not supported.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html\">AdvancedFieldSelector</a> in the <i>CloudTrail API Reference</i>.</p> <note> <p>Selectors don't support the use of wildcards like <code>*</code> . To match multiple values with a single condition, you may use <code>StartsWith</code>, <code>EndsWith</code>, <code>NotStartsWith</code>, or <code>NotEndsWith</code> to explicitly match the beginning or end of the event field.</p> </note>"""
     equals: NotRequired["aws_sdk_cloudtrail.types.operator.Operator"]

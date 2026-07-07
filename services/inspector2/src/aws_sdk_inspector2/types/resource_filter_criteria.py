@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ResourceFilterCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.resource_map_filter_list
     import aws_sdk_inspector2.types.resource_string_filter_list
 
 
-class ResourceFilterCriteria(TypedDict):
+class ResourceFilterCriteria(TypedDict, closed=True):
     account_id: NotRequired[
         "aws_sdk_inspector2.types.resource_string_filter_list.ResourceStringFilterList"
     ]

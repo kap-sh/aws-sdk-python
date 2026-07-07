@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#AuditLogDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.destination
 
 
-class AuditLogDestinationConfiguration(TypedDict):
+class AuditLogDestinationConfiguration(TypedDict, closed=True):
     destination: "aws_sdk_appfabric.types.destination.Destination"
     """<p>Contains information about an audit log destination.</p>"""
 

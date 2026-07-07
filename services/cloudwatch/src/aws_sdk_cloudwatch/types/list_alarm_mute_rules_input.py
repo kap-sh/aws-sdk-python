@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#ListAlarmMuteRulesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.next_token
 
 
-class ListAlarmMuteRulesInput(TypedDict):
+class ListAlarmMuteRulesInput(TypedDict, closed=True):
     alarm_name: NotRequired["aws_sdk_cloudwatch.types.name.Name"]
     """<p>Filter results to show only mute rules that target the specified alarm name.</p>"""
     statuses: NotRequired[

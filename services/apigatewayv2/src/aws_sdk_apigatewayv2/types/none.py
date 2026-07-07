@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#None``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class None_(TypedDict):
+class None_(TypedDict, closed=True):
     pass
 
 

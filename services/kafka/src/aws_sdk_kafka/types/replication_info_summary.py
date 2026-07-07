@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ReplicationInfoSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
 
 
-class ReplicationInfoSummary(TypedDict):
+class ReplicationInfoSummary(TypedDict, closed=True):
     source_kafka_cluster_alias: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The alias of the source Kafka cluster.</p>"""
     target_kafka_cluster_alias: NotRequired["aws_sdk_kafka.types.__string.__string"]

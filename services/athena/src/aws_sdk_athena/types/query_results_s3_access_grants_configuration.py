@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#QueryResultsS3AccessGrantsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.boxed_boolean
 
 
-class QueryResultsS3AccessGrantsConfiguration(TypedDict):
+class QueryResultsS3AccessGrantsConfiguration(TypedDict, closed=True):
     enable_s3_access_grants: "aws_sdk_athena.types.boxed_boolean.BoxedBoolean"
     """<p>Specifies whether Amazon S3 access grants are enabled for query results.</p>"""
     create_user_level_prefix: NotRequired[

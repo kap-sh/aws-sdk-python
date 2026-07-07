@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SlackConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.team_id
 
 
-class SlackConfiguration(TypedDict):
+class SlackConfiguration(TypedDict, closed=True):
     team_id: "aws_sdk_kendra.types.team_id.TeamId"
     """<p>The identifier of the team in the Slack workspace. For example, <i>T0123456789</i>.</p> <p>You can find your team ID in the URL of the main page of your Slack workspace. When you log in to Slack via a browser, you are directed to the URL of the main page. For example, <i>https://app.slack.com/client/<b>T0123456789</b>/...</i>.</p>"""
     secret_arn: "aws_sdk_kendra.types.secret_arn.SecretArn"

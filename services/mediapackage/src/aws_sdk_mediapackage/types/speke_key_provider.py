@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#SpekeKeyProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__list_of__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.encryption_contract_configuration
 
 
-class SpekeKeyProvider(TypedDict):
+class SpekeKeyProvider(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_mediapackage.types.__string.__string"]
     """An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service."""
     encryption_contract_configuration: NotRequired[

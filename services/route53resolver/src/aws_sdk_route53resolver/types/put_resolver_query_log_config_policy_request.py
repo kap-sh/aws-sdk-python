@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#PutResolverQueryLogConfigPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resolver_query_log_config_policy
 
 
-class PutResolverQueryLogConfigPolicyRequest(TypedDict):
+class PutResolverQueryLogConfigPolicyRequest(TypedDict, closed=True):
     arn: "aws_sdk_route53resolver.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the account that you want to share rules with.</p>"""
     resolver_query_log_config_policy: "aws_sdk_route53resolver.types.resolver_query_log_config_policy.ResolverQueryLogConfigPolicy"

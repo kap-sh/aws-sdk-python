@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#VpcEndpointAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.vpc_id
 
 
-class VpcEndpointAssociation(TypedDict):
+class VpcEndpointAssociation(TypedDict, closed=True):
     vpc_endpoint_association_id: NotRequired[
         "aws_sdk_network_firewall.types.resource_id.ResourceId"
     ]

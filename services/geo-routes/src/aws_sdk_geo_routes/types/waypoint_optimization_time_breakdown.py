@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationTimeBreakdown``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.duration_seconds
 
 
-class WaypointOptimizationTimeBreakdown(TypedDict):
+class WaypointOptimizationTimeBreakdown(TypedDict, closed=True):
     rest_duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"
     """<p>Resting phase of the cycle.</p> <p> <b>Unit</b>: <code>seconds</code> </p>"""
     service_duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"

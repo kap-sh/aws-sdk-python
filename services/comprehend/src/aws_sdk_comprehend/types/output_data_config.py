@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#OutputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.s3_uri
 
 
-class OutputDataConfig(TypedDict):
+class OutputDataConfig(TypedDict, closed=True):
     s3_uri: "aws_sdk_comprehend.types.s3_uri.S3Uri"
     """<p>When you use the <code>OutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.</p> <p>When the topic detection job is finished, the service creates an output file in a directory specific to the job. The <code>S3Uri</code> field contains the location of the output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the ouput of the operation.</p> <p> For a PII entity detection job, the output file is plain text, not a compressed archive. The output file name is the same as the input file, with <code>.out</code> appended at the end. </p>"""
     kms_key_id: NotRequired["aws_sdk_comprehend.types.kms_key_id.KmsKeyId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#PortProbeDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.action_local_ip_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.action_remote_ip_details
 
 
-class PortProbeDetail(TypedDict):
+class PortProbeDetail(TypedDict, closed=True):
     local_port_details: NotRequired[
         "aws_sdk_securityhub.types.action_local_port_details.ActionLocalPortDetails"
     ]

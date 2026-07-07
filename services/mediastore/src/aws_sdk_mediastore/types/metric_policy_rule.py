@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#MetricPolicyRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediastore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore.types.object_group_name
 
 
-class MetricPolicyRule(TypedDict):
+class MetricPolicyRule(TypedDict, closed=True):
     object_group: "aws_sdk_mediastore.types.object_group.ObjectGroup"
     """<p>A path or file name that defines which objects to include in the group. Wildcards (*) are acceptable.</p>"""
     object_group_name: "aws_sdk_mediastore.types.object_group_name.ObjectGroupName"

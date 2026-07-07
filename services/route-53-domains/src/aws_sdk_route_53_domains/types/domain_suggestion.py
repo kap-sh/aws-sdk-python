@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#DomainSuggestion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.domain_name
     import aws_sdk_route_53_domains.types.string
 
 
-class DomainSuggestion(TypedDict):
+class DomainSuggestion(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_route_53_domains.types.domain_name.DomainName"]
     """<p>A suggested domain name.</p>"""
     availability: NotRequired["aws_sdk_route_53_domains.types.string.String"]

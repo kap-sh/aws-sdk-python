@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#RandomSplitActivity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.list_of_random_split_entry
 
 
-class RandomSplitActivity(TypedDict):
+class RandomSplitActivity(TypedDict, closed=True):
     branches: NotRequired[
         "aws_sdk_pinpoint.types.list_of_random_split_entry.ListOfRandomSplitEntry"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#CanaryRunTimeline``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.timestamp
 
 
-class CanaryRunTimeline(TypedDict):
+class CanaryRunTimeline(TypedDict, closed=True):
     started: NotRequired["aws_sdk_synthetics.types.timestamp.Timestamp"]
     """<p>The start time of the run.</p>"""
     completed: NotRequired["aws_sdk_synthetics.types.timestamp.Timestamp"]

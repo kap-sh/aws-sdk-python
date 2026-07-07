@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#BatchGetCodeSnippetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.code_snippet_error_list
     import aws_sdk_inspector2.types.code_snippet_result_list
 
 
-class BatchGetCodeSnippetResponse(TypedDict):
+class BatchGetCodeSnippetResponse(TypedDict, closed=True):
     code_snippet_results: NotRequired[
         "aws_sdk_inspector2.types.code_snippet_result_list.CodeSnippetResultList"
     ]

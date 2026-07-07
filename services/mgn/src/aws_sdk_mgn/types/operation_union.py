@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#OperationUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.update_operation
 
 
-class _OperationUnion_merge(TypedDict):
+class _OperationUnion_merge(TypedDict, closed=True):
     merge: "aws_sdk_mgn.types.merge_operation.MergeOperation"
 
 
-class _OperationUnion_split(TypedDict):
+class _OperationUnion_split(TypedDict, closed=True):
     split: "aws_sdk_mgn.types.split_operation.SplitOperation"
 
 
-class _OperationUnion_delete(TypedDict):
+class _OperationUnion_delete(TypedDict, closed=True):
     delete: "aws_sdk_mgn.types.delete_operation.DeleteOperation"
 
 
-class _OperationUnion_update(TypedDict):
+class _OperationUnion_update(TypedDict, closed=True):
     update: "aws_sdk_mgn.types.update_operation.UpdateOperation"
 
 

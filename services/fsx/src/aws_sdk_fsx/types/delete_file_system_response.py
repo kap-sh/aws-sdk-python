@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteFileSystemResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.delete_file_system_lustre_response
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.file_system_lifecycle
 
 
-class DeleteFileSystemResponse(TypedDict):
+class DeleteFileSystemResponse(TypedDict, closed=True):
     file_system_id: NotRequired["aws_sdk_fsx.types.file_system_id.FileSystemId"]
     """<p>The ID of the file system that's being deleted.</p>"""
     lifecycle: NotRequired[

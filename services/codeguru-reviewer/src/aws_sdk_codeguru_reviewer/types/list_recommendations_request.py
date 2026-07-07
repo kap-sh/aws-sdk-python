@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#ListRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.next_token
 
 
-class ListRecommendationsRequest(TypedDict):
+class ListRecommendationsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_codeguru_reviewer.types.next_token.NextToken"]
     """<p>Pagination token.</p>"""
     max_results: NotRequired[

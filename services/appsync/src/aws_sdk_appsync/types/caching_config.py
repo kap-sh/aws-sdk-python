@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#CachingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.caching_keys
     import aws_sdk_appsync.types.long
 
 
-class CachingConfig(TypedDict):
+class CachingConfig(TypedDict, closed=True):
     ttl: "aws_sdk_appsync.types.long.Long"
     """<p>The TTL in seconds for a resolver that has caching activated.</p> <p>Valid values are 1–3,600 seconds.</p>"""
     caching_keys: NotRequired["aws_sdk_appsync.types.caching_keys.CachingKeys"]

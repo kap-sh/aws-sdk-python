@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#InstanceGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.auto_scaling_policy_description
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class InstanceGroup(TypedDict):
+class InstanceGroup(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr.types.instance_group_id.InstanceGroupId"]
     """<p>The identifier of the instance group.</p>"""
     name: NotRequired["aws_sdk_emr.types.string.String"]

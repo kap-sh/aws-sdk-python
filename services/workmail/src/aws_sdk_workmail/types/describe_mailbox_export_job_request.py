@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DescribeMailboxExportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class DescribeMailboxExportJobRequest(TypedDict):
+class DescribeMailboxExportJobRequest(TypedDict, closed=True):
     job_id: "aws_sdk_workmail.types.mailbox_export_job_id.MailboxExportJobId"
     """<p>The mailbox export job ID.</p>"""
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"

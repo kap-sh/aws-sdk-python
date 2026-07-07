@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#TestRenderEmailTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_template_name
 
 
-class TestRenderEmailTemplateRequest(TypedDict):
+class TestRenderEmailTemplateRequest(TypedDict, closed=True):
     template_name: "aws_sdk_sesv2.types.email_template_name.EmailTemplateName"
     """<p>The name of the template.</p>"""
     template_data: "aws_sdk_sesv2.types.email_template_data.EmailTemplateData"

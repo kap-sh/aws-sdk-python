@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListServersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.next_token
 
 
-class ListServersResponse(TypedDict):
+class ListServersResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_transfer.types.next_token.NextToken"]
     """<p>When you can get additional results from the <code>ListServers</code> operation, a <code>NextToken</code> parameter is returned in the output. In a following command, you can pass in the <code>NextToken</code> parameter to continue listing additional servers.</p>"""
     servers: "aws_sdk_transfer.types.listed_servers.ListedServers"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetSavingsPlansUtilizationDetailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.savings_plans_utilization_details
 
 
-class GetSavingsPlansUtilizationDetailsResponse(TypedDict):
+class GetSavingsPlansUtilizationDetailsResponse(TypedDict, closed=True):
     savings_plans_utilization_details: "aws_sdk_cost_explorer.types.savings_plans_utilization_details.SavingsPlansUtilizationDetails"
     """<p>Retrieves a single daily or monthly Savings Plans utilization rate and details for your account.</p>"""
     total: NotRequired[

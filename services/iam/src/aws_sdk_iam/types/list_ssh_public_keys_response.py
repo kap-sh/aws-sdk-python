@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListSSHPublicKeysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.ssh_public_key_list_type
 
 
-class ListSSHPublicKeysResponse(TypedDict):
+class ListSSHPublicKeysResponse(TypedDict, closed=True):
     ssh_public_keys: NotRequired[
         "aws_sdk_iam.types.ssh_public_key_list_type.SSHPublicKeyListType"
     ]

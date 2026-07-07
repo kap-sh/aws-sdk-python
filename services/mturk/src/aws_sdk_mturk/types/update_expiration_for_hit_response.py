@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#UpdateExpirationForHITResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateExpirationForHITResponse(TypedDict):
+class UpdateExpirationForHITResponse(TypedDict, closed=True):
     pass
 
 

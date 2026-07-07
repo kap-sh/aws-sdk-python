@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#UpdateApiKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_patch_operation
     import aws_sdk_api_gateway.types.string
 
 
-class UpdateApiKeyRequest(TypedDict):
+class UpdateApiKeyRequest(TypedDict, closed=True):
     api_key: "aws_sdk_api_gateway.types.string.String"
     """<p>The identifier of the ApiKey resource to be updated.</p>"""
     patch_operations: NotRequired[

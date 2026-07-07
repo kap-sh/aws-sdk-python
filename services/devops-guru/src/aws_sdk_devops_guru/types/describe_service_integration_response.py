@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeServiceIntegrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.service_integration_config
 
 
-class DescribeServiceIntegrationResponse(TypedDict):
+class DescribeServiceIntegrationResponse(TypedDict, closed=True):
     service_integration: NotRequired[
         "aws_sdk_devops_guru.types.service_integration_config.ServiceIntegrationConfig"
     ]

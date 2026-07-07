@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#ListVaultsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
     import aws_sdk_glacier.types.vault_list
 
 
-class ListVaultsOutput(TypedDict):
+class ListVaultsOutput(TypedDict, closed=True):
     vault_list: NotRequired["aws_sdk_glacier.types.vault_list.VaultList"]
     """<p>List of vaults.</p>"""
     marker: NotRequired["aws_sdk_glacier.types.string.string"]

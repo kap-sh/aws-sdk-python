@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VpcEncryptionControlExclusions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -37,6 +37,7 @@ VpcEncryptionControlExclusions = TypedDict(
             "aws_sdk_ec2.types.vpc_encryption_control_exclusion.VpcEncryptionControlExclusion"
         ],
     },
+    closed=True,
 )
 
 

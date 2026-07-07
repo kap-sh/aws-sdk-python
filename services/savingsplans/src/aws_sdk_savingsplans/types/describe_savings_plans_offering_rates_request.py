@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.savingsplans#DescribeSavingsPlansOfferingRatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_savingsplans.types.page_size
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_savingsplans.types.uui_ds
 
 
-class DescribeSavingsPlansOfferingRatesRequest(TypedDict):
+class DescribeSavingsPlansOfferingRatesRequest(TypedDict, closed=True):
     savings_plan_offering_ids: NotRequired["aws_sdk_savingsplans.types.uui_ds.UUIDs"]
     """<p>The IDs of the offerings.</p>"""
     savings_plan_payment_options: NotRequired[

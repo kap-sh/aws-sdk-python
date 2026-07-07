@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessContentBlockStartEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_content_block_start
 
 
-class HarnessContentBlockStartEvent(TypedDict):
+class HarnessContentBlockStartEvent(TypedDict, closed=True):
     content_block_index: "int"
     """<p>The index of the content block within the message.</p>"""
     start: "aws_sdk_bedrock_agentcore.types.harness_content_block_start.HarnessContentBlockStart"

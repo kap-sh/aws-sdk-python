@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#TermsDescriptionType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.terms_name_type
 
 
-class TermsDescriptionType(TypedDict):
+class TermsDescriptionType(TypedDict, closed=True):
     terms_id: "aws_sdk_cognito_identity_provider.types.terms_id_type.TermsIdType"
     """<p>The ID of the requested terms documents.</p>"""
     terms_name: "aws_sdk_cognito_identity_provider.types.terms_name_type.TermsNameType"

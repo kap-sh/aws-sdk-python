@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PatchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_filter_value_list
 
 
-class PatchFilter(TypedDict):
+class PatchFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.patch_filter_key.PatchFilterKey"
     """<p>The key for the filter.</p> <p>Run the <a>DescribePatchProperties</a> command to view lists of valid keys for each operating system type.</p>"""
     values: "aws_sdk_ssm.types.patch_filter_value_list.PatchFilterValueList"

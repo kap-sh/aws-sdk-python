@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ListAgreementInvoiceLineItemsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.agreement_invoice_line_item_group_summaries
     import aws_sdk_marketplace_agreement.types.next_token
 
 
-class ListAgreementInvoiceLineItemsOutput(TypedDict):
+class ListAgreementInvoiceLineItemsOutput(TypedDict, closed=True):
     agreement_invoice_line_item_group_summaries: NotRequired[
         "aws_sdk_marketplace_agreement.types.agreement_invoice_line_item_group_summaries.AgreementInvoiceLineItemGroupSummaries"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeprovisionPublicIpv4PoolCidrResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.ipv4_pool_ec2_id
 
 
-class DeprovisionPublicIpv4PoolCidrResult(TypedDict):
+class DeprovisionPublicIpv4PoolCidrResult(TypedDict, closed=True):
     pool_id: NotRequired["aws_sdk_ec2.types.ipv4_pool_ec2_id.Ipv4PoolEc2Id"]
     """<p>The ID of the pool that you deprovisioned the CIDR from.</p>"""
     deprovisioned_addresses: NotRequired[

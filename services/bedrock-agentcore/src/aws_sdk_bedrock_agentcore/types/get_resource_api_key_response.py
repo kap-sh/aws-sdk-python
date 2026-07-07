@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetResourceApiKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.api_key_type
 
 
-class GetResourceApiKeyResponse(TypedDict):
+class GetResourceApiKeyResponse(TypedDict, closed=True):
     api_key: "aws_sdk_bedrock_agentcore.types.api_key_type.ApiKeyType"
     """<p>The API key associated with the resource requested.</p>"""
 

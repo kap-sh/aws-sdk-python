@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#PutFunctionCodeSigningConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.function_name
 
 
-class PutFunctionCodeSigningConfigResponse(TypedDict):
+class PutFunctionCodeSigningConfigResponse(TypedDict, closed=True):
     code_signing_config_arn: (
         "aws_sdk_lambda.types.code_signing_config_arn.CodeSigningConfigArn"
     )

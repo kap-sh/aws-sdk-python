@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.simpledbv2#ListExportsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_simpledbv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_simpledbv2.types.next_token
 
 
-class ListExportsResponse(TypedDict):
+class ListExportsResponse(TypedDict, closed=True):
     export_summaries: "aws_sdk_simpledbv2.types.export_summaries.ExportSummaries"
     """List of export summaries containing export ARN, status, request timestamp, and associated domain name."""
     next_token: NotRequired["aws_sdk_simpledbv2.types.next_token.NextToken"]

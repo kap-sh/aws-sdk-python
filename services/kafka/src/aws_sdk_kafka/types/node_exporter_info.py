@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#NodeExporterInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__boolean
 
 
-class NodeExporterInfo(TypedDict):
+class NodeExporterInfo(TypedDict, closed=True):
     enabled_in_broker: NotRequired["aws_sdk_kafka.types.__boolean.__boolean"]
     """<p>Indicates whether you want to turn on or turn off the Node Exporter.</p>"""
 

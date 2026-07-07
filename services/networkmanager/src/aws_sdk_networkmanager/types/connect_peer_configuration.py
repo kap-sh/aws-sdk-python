@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ConnectPeerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.connect_peer_bgp_configuration_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.tunnel_protocol
 
 
-class ConnectPeerConfiguration(TypedDict):
+class ConnectPeerConfiguration(TypedDict, closed=True):
     core_network_address: NotRequired[
         "aws_sdk_networkmanager.types.ip_address.IPAddress"
     ]

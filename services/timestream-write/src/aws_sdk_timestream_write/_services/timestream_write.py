@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#Timestream_20181101``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_timestream_write._auth._signers
@@ -86,7 +86,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.write_records_response
 
 
-class TimestreamWriteClientConfig(TypedDict, total=False):
+class TimestreamWriteClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

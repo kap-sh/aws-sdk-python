@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetRuntimeManagementConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.name_spaced_function_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.update_runtime_on
 
 
-class GetRuntimeManagementConfigResponse(TypedDict):
+class GetRuntimeManagementConfigResponse(TypedDict, closed=True):
     update_runtime_on: NotRequired[
         "aws_sdk_lambda.types.update_runtime_on.UpdateRuntimeOn"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#InvokeWithResponseStreamCompleteEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda._protocol.eventstream import HeaderValue, Message
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class InvokeWithResponseStreamCompleteEvent(TypedDict):
+class InvokeWithResponseStreamCompleteEvent(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>An error code.</p>"""
     error_details: NotRequired["aws_sdk_lambda.types.string.String"]

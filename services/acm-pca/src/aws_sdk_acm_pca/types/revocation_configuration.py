@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#RevocationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.crl_configuration
     import aws_sdk_acm_pca.types.ocsp_configuration
 
 
-class RevocationConfiguration(TypedDict):
+class RevocationConfiguration(TypedDict, closed=True):
     crl_configuration: NotRequired[
         "aws_sdk_acm_pca.types.crl_configuration.CrlConfiguration"
     ]

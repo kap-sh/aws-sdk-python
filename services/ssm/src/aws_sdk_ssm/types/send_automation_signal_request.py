@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#SendAutomationSignalRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.signal_type
 
 
-class SendAutomationSignalRequest(TypedDict):
+class SendAutomationSignalRequest(TypedDict, closed=True):
     automation_execution_id: (
         "aws_sdk_ssm.types.automation_execution_id.AutomationExecutionId"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListDurableExecutionsByFunctionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.durable_executions
     import aws_sdk_lambda.types.string
 
 
-class ListDurableExecutionsByFunctionResponse(TypedDict):
+class ListDurableExecutionsByFunctionResponse(TypedDict, closed=True):
     durable_executions: NotRequired[
         "aws_sdk_lambda.types.durable_executions.DurableExecutions"
     ]

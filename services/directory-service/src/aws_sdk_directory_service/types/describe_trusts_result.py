@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeTrustsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.next_token
     import aws_sdk_directory_service.types.trusts
 
 
-class DescribeTrustsResult(TypedDict):
+class DescribeTrustsResult(TypedDict, closed=True):
     trusts: NotRequired["aws_sdk_directory_service.types.trusts.Trusts"]
     """<p>The list of Trust objects that were retrieved.</p> <p>It is possible that this list contains less than the number of items specified in the <i>Limit</i> member of the request. This occurs if there are less than the requested number of items left to retrieve, or if the limitations of the operation have been exceeded.</p>"""
     next_token: NotRequired["aws_sdk_directory_service.types.next_token.NextToken"]

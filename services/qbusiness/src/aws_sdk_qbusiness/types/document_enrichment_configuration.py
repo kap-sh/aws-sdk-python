@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentEnrichmentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.hook_configuration
     import aws_sdk_qbusiness.types.inline_document_enrichment_configurations
 
 
-class DocumentEnrichmentConfiguration(TypedDict):
+class DocumentEnrichmentConfiguration(TypedDict, closed=True):
     inline_configurations: NotRequired[
         "aws_sdk_qbusiness.types.inline_document_enrichment_configurations.InlineDocumentEnrichmentConfigurations"
     ]

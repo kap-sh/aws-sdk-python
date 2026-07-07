@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListFargateProfilesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
     import aws_sdk_eks.types.string_list
 
 
-class ListFargateProfilesResponse(TypedDict):
+class ListFargateProfilesResponse(TypedDict, closed=True):
     fargate_profile_names: NotRequired["aws_sdk_eks.types.string_list.StringList"]
     """<p>A list of all of the Fargate profiles associated with the specified cluster.</p>"""
     next_token: NotRequired["aws_sdk_eks.types.string.String"]

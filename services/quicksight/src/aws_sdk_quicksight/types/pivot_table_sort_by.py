@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotTableSortBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_sort
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.field_sort
 
 
-class PivotTableSortBy(TypedDict):
+class PivotTableSortBy(TypedDict, closed=True):
     field: NotRequired["aws_sdk_quicksight.types.field_sort.FieldSort"]
     """<p>The field sort (field id, direction) for the pivot table sort by options.</p>"""
     column: NotRequired["aws_sdk_quicksight.types.column_sort.ColumnSort"]

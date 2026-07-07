@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#UntagStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.tag_key_list
 
 
-class UntagStreamInput(TypedDict):
+class UntagStreamInput(TypedDict, closed=True):
     stream_arn: NotRequired["aws_sdk_kinesis_video.types.resource_arn.ResourceARN"]
     """<p>The Amazon Resource Name (ARN) of the stream that you want to remove tags from.</p>"""
     stream_name: NotRequired["aws_sdk_kinesis_video.types.stream_name.StreamName"]

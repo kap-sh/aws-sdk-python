@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SearchTablesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boolean_nullable
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.value_string
 
 
-class SearchTablesRequest(TypedDict):
+class SearchTablesRequest(TypedDict, closed=True):
     catalog_id: NotRequired["aws_sdk_glue.types.catalog_id_string.CatalogIdString"]
     """<p>A unique identifier, consisting of <code> <i>account_id</i> </code>.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.token.Token"]

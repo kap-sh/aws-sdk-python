@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#Exclude``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.regions
 
 
-class Exclude(TypedDict):
+class Exclude(TypedDict, closed=True):
     buckets: NotRequired["aws_sdk_s3_control.types.buckets.Buckets"]
     """<p>A container for the S3 Storage Lens bucket excludes.</p>"""
     regions: NotRequired["aws_sdk_s3_control.types.regions.Regions"]

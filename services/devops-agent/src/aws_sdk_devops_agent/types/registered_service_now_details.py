@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#RegisteredServiceNowDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.service_now_instance_url
 
 
-class RegisteredServiceNowDetails(TypedDict):
+class RegisteredServiceNowDetails(TypedDict, closed=True):
     instance_url: NotRequired[
         "aws_sdk_devops_agent.types.service_now_instance_url.ServiceNowInstanceUrl"
     ]

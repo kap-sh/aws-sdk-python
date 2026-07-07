@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#FreeTrialFeatureConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.free_trial_feature_result
     import aws_sdk_guardduty.types.integer
 
 
-class FreeTrialFeatureConfigurationResult(TypedDict):
+class FreeTrialFeatureConfigurationResult(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_guardduty.types.free_trial_feature_result.FreeTrialFeatureResult"
     ]

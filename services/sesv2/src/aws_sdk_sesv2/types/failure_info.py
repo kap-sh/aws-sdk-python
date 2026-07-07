@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#FailureInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.error_message
     import aws_sdk_sesv2.types.failed_records_s3_url
 
 
-class FailureInfo(TypedDict):
+class FailureInfo(TypedDict, closed=True):
     failed_records_s3_url: NotRequired[
         "aws_sdk_sesv2.types.failed_records_s3_url.FailedRecordsS3Url"
     ]

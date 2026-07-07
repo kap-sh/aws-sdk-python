@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#Extensions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.certificate_policy_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.key_usage
 
 
-class Extensions(TypedDict):
+class Extensions(TypedDict, closed=True):
     certificate_policies: NotRequired[
         "aws_sdk_acm_pca.types.certificate_policy_list.CertificatePolicyList"
     ]

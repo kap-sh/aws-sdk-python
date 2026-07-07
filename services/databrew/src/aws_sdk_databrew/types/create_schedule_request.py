@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#CreateScheduleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.tag_map
 
 
-class CreateScheduleRequest(TypedDict):
+class CreateScheduleRequest(TypedDict, closed=True):
     job_names: NotRequired["aws_sdk_databrew.types.job_name_list.JobNameList"]
     """<p>The name or names of one or more jobs to be run.</p>"""
     cron_expression: "aws_sdk_databrew.types.cron_expression.CronExpression"

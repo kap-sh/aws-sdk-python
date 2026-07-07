@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#CreateSnapshotCopyGrantMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.tag_list
 
 
-class CreateSnapshotCopyGrantMessage(TypedDict):
+class CreateSnapshotCopyGrantMessage(TypedDict, closed=True):
     snapshot_copy_grant_name: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The name of the snapshot copy grant. This name must be unique in the region for the Amazon Web Services account.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>Alphabetic characters must be lowercase.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> <li> <p>Must be unique for all clusters within an Amazon Web Services account.</p> </li> </ul>"""
     kms_key_id: NotRequired["aws_sdk_redshift.types.string.String"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#DeleteRegexPatternSetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRegexPatternSetResponse(TypedDict):
+class DeleteRegexPatternSetResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#MetadataAttributeSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.attribute_type
 
 
-class MetadataAttributeSchema(TypedDict):
+class MetadataAttributeSchema(TypedDict, closed=True):
     key: "str"
     """<p>The unique identifier for the metadata attribute. This key is used to reference the attribute in filter expressions and reranking configurations.</p>"""
     type: "aws_sdk_bedrock.types.attribute_type.AttributeType"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#RdsDbUserDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class RdsDbUserDetails(TypedDict):
+class RdsDbUserDetails(TypedDict, closed=True):
     user: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The user name used in the anomalous login attempt.</p>"""
     application: NotRequired["aws_sdk_guardduty.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#LookupEventsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.events_list
     import aws_sdk_cloudtrail.types.next_token
 
 
-class LookupEventsResponse(TypedDict):
+class LookupEventsResponse(TypedDict, closed=True):
     events: NotRequired["aws_sdk_cloudtrail.types.events_list.EventsList"]
     """<p>A list of events returned based on the lookup attributes specified and the CloudTrail event. The events list is sorted by time. The most recent event is listed first.</p>"""
     next_token: NotRequired["aws_sdk_cloudtrail.types.next_token.NextToken"]

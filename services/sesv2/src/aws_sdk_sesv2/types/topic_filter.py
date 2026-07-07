@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#TopicFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.topic_name
     import aws_sdk_sesv2.types.use_default_if_preference_unavailable
 
 
-class TopicFilter(TypedDict):
+class TopicFilter(TypedDict, closed=True):
     topic_name: NotRequired["aws_sdk_sesv2.types.topic_name.TopicName"]
     """<p>The name of a topic on which you wish to apply the filter.</p>"""
     use_default_if_preference_unavailable: "aws_sdk_sesv2.types.use_default_if_preference_unavailable.UseDefaultIfPreferenceUnavailable"

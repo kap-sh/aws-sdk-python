@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#WcdmaLocalId``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.uarfcndl
 
 
-class WcdmaLocalId(TypedDict):
+class WcdmaLocalId(TypedDict, closed=True):
     uarfcndl: "aws_sdk_iot_wireless.types.uarfcndl.UARFCNDL"
     """<p>WCDMA UTRA Absolute RF Channel Number downlink.</p>"""
     psc: "aws_sdk_iot_wireless.types.psc.PSC"

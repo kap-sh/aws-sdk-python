@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetCodeInterpreterSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.code_interpreter_session_id
 
 
-class GetCodeInterpreterSessionRequest(TypedDict):
+class GetCodeInterpreterSessionRequest(TypedDict, closed=True):
     code_interpreter_identifier: "str"
     """<p>The unique identifier of the code interpreter associated with the session.</p>"""
     session_id: "aws_sdk_bedrock_agentcore.types.code_interpreter_session_id.CodeInterpreterSessionId"

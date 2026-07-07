@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#KinesisVideoStreamConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.prefix
 
 
-class KinesisVideoStreamConfig(TypedDict):
+class KinesisVideoStreamConfig(TypedDict, closed=True):
     prefix: "aws_sdk_connect.types.prefix.Prefix"
     """<p>The prefix of the video stream.</p>"""
     retention_period_hours: "aws_sdk_connect.types.hours.Hours"

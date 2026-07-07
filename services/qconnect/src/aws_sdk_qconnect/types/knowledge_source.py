@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#KnowledgeSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.assistant_association_id_list
 
 
-class _KnowledgeSource_assistantAssociationIds(TypedDict):
+class _KnowledgeSource_assistantAssociationIds(TypedDict, closed=True):
     assistantAssociationIds: "aws_sdk_qconnect.types.assistant_association_id_list.AssistantAssociationIdList"
 
 

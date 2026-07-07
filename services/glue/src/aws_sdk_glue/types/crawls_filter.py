@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CrawlsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.field_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_string
 
 
-class CrawlsFilter(TypedDict):
+class CrawlsFilter(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_glue.types.field_name.FieldName"]
     """<p>A key used to filter the crawler runs for a specified crawler. Valid values for each of the field names are:</p> <ul> <li> <p> <code>CRAWL_ID</code>: A string representing the UUID identifier for a crawl.</p> </li> <li> <p> <code>STATE</code>: A string representing the state of the crawl.</p> </li> <li> <p> <code>START_TIME</code> and <code>END_TIME</code>: The epoch timestamp in milliseconds.</p> </li> <li> <p> <code>DPU_HOUR</code>: The number of data processing unit (DPU) hours used for the crawl.</p> </li> </ul>"""
     filter_operator: NotRequired["aws_sdk_glue.types.filter_operator.FilterOperator"]

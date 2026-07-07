@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#JobPostLaunchActionsLaunchStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.bounded_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.ssm_document_type
 
 
-class JobPostLaunchActionsLaunchStatus(TypedDict):
+class JobPostLaunchActionsLaunchStatus(TypedDict, closed=True):
     ssm_document: NotRequired["aws_sdk_mgn.types.ssm_document.SsmDocument"]
     """<p>AWS Systems Manager's Document of the of the Job Post Launch Actions.</p>"""
     ssm_document_type: NotRequired[

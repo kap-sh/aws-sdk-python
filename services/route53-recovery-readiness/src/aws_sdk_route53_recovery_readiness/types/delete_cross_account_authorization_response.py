@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#DeleteCrossAccountAuthorizationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCrossAccountAuthorizationResponse(TypedDict):
+class DeleteCrossAccountAuthorizationResponse(TypedDict, closed=True):
     pass
 
 

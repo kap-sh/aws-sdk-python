@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#SearchDevicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.search_devices_filter_list
 
 
-class SearchDevicesRequest(TypedDict):
+class SearchDevicesRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>A token used for pagination of results returned in the response. Use the token returned from the previous request to continue search where the previous request ended.</p>"""
     max_results: NotRequired["int"]

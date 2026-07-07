@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ChunkingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.semantic_chunking_configuration
 
 
-class ChunkingConfiguration(TypedDict):
+class ChunkingConfiguration(TypedDict, closed=True):
     chunking_strategy: "aws_sdk_qconnect.types.chunking_strategy.ChunkingStrategy"
     """<p>Knowledge base can split your source data into chunks. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for <code>NONE</code>, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.</p>"""
     fixed_size_chunking_configuration: NotRequired[

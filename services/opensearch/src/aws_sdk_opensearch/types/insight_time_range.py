@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#InsightTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -13,6 +15,7 @@ InsightTimeRange = TypedDict(
         "from": "aws_sdk_opensearch.types.long.Long",
         "to": "aws_sdk_opensearch.types.long.Long",
     },
+    closed=True,
 )
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListBucketsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.token
 
 
-class ListBucketsRequest(TypedDict):
+class ListBucketsRequest(TypedDict, closed=True):
     max_buckets: NotRequired["aws_sdk_s3.types.max_buckets.MaxBuckets"]
     """<p>Maximum number of buckets to be returned in response. When the number is more than the count of buckets that are owned by an Amazon Web Services account, return all the buckets in response.</p>"""
     continuation_token: NotRequired["aws_sdk_s3.types.token.Token"]

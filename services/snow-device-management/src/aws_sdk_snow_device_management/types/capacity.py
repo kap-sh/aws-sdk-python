@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#Capacity``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Capacity(TypedDict):
+class Capacity(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the type of capacity, such as memory.</p>"""
     unit: NotRequired["str"]

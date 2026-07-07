@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#GetJobTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.job_template
 
 
-class GetJobTemplateResponse(TypedDict):
+class GetJobTemplateResponse(TypedDict, closed=True):
     job_template: NotRequired["aws_sdk_mediaconvert.types.job_template.JobTemplate"]
     """A job template is a pre-made set of encoding instructions that you can use to quickly create a job."""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.osis#PipelineEndpointConnection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.aws_account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_osis.types.pipeline_endpoint_status
 
 
-class PipelineEndpointConnection(TypedDict):
+class PipelineEndpointConnection(TypedDict, closed=True):
     pipeline_arn: NotRequired["aws_sdk_osis.types.pipeline_arn.PipelineArn"]
     """<p>The Amazon Resource Name (ARN) of the pipeline in the endpoint connection.</p>"""
     endpoint_id: NotRequired[

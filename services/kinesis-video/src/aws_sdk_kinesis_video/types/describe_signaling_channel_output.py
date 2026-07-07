@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#DescribeSignalingChannelOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.channel_info
 
 
-class DescribeSignalingChannelOutput(TypedDict):
+class DescribeSignalingChannelOutput(TypedDict, closed=True):
     channel_info: NotRequired["aws_sdk_kinesis_video.types.channel_info.ChannelInfo"]
     """<p>A structure that encapsulates the specified signaling channel's metadata and properties.</p>"""
 

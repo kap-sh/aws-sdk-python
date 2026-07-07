@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#MessageBody``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class MessageBody(TypedDict):
+class MessageBody(TypedDict, closed=True):
     text: NotRequired["str"]
     """<p>The plain text body content of the message.</p>"""
     html: NotRequired["str"]

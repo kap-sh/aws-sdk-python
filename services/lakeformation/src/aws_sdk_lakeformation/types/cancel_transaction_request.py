@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#CancelTransactionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.transaction_id_string
 
 
-class CancelTransactionRequest(TypedDict):
+class CancelTransactionRequest(TypedDict, closed=True):
     transaction_id: (
         "aws_sdk_lakeformation.types.transaction_id_string.TransactionIdString"
     )

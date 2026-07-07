@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#IncreaseReplicationFactorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dax.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.string
 
 
-class IncreaseReplicationFactorRequest(TypedDict):
+class IncreaseReplicationFactorRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_dax.types.string.String"
     """<p>The name of the DAX cluster that will receive additional nodes.</p>"""
     new_replication_factor: "aws_sdk_dax.types.integer.Integer"

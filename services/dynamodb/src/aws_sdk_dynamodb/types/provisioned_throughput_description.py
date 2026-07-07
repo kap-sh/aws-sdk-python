@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ProvisionedThroughputDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.positive_long_object
 
 
-class ProvisionedThroughputDescription(TypedDict):
+class ProvisionedThroughputDescription(TypedDict, closed=True):
     last_increase_date_time: NotRequired["aws_sdk_dynamodb.types.date.Date"]
     """<p>The date and time of the last provisioned throughput increase for this table.</p>"""
     last_decrease_date_time: NotRequired["aws_sdk_dynamodb.types.date.Date"]

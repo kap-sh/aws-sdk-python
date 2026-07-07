@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchAgentStatusesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_status_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.next_token2500
 
 
-class SearchAgentStatusesResponse(TypedDict):
+class SearchAgentStatusesResponse(TypedDict, closed=True):
     agent_statuses: NotRequired[
         "aws_sdk_connect.types.agent_status_list.AgentStatusList"
     ]

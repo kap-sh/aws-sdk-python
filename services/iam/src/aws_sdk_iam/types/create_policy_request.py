@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#CreatePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.tag_list_type
 
 
-class CreatePolicyRequest(TypedDict):
+class CreatePolicyRequest(TypedDict, closed=True):
     policy_name: "aws_sdk_iam.types.policy_name_type.policyNameType"
     r"""<p>The friendly name of the policy.</p> <p>IAM user, group, role, and policy names must be unique within the account. Names are not distinguished by case. For example, you cannot create resources named both \"MyResource\" and \"myresource\".</p>"""
     path: NotRequired["aws_sdk_iam.types.policy_path_type.policyPathType"]

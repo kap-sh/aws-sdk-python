@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#ContinuousExportDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.configurations_export_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.time_stamp
 
 
-class ContinuousExportDescription(TypedDict):
+class ContinuousExportDescription(TypedDict, closed=True):
     export_id: NotRequired[
         "aws_sdk_application_discovery_service.types.configurations_export_id.ConfigurationsExportId"
     ]

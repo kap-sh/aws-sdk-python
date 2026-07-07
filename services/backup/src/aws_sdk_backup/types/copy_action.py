@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CopyAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.lifecycle
 
 
-class CopyAction(TypedDict):
+class CopyAction(TypedDict, closed=True):
     lifecycle: NotRequired["aws_sdk_backup.types.lifecycle.Lifecycle"]
     destination_backup_vault_arn: "aws_sdk_backup.types.arn.ARN"
     """<p>An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup. For example, <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>"""

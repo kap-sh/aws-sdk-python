@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#AudioStandardOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.audio_standard_extraction
     import aws_sdk_bedrock_data_automation.types.audio_standard_generative_field
 
 
-class AudioStandardOutputConfiguration(TypedDict):
+class AudioStandardOutputConfiguration(TypedDict, closed=True):
     extraction: NotRequired[
         "aws_sdk_bedrock_data_automation.types.audio_standard_extraction.AudioStandardExtraction"
     ]

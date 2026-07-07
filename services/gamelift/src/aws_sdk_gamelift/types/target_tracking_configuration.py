@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#TargetTrackingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_negative_double
 
 
-class TargetTrackingConfiguration(TypedDict):
+class TargetTrackingConfiguration(TypedDict, closed=True):
     target_value: NotRequired[
         "aws_sdk_gamelift.types.non_negative_double.NonNegativeDouble"
     ]

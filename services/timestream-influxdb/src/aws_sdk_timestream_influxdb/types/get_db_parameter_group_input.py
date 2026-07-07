@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#GetDbParameterGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.db_parameter_group_identifier
 
 
-class GetDbParameterGroupInput(TypedDict):
+class GetDbParameterGroupInput(TypedDict, closed=True):
     identifier: "aws_sdk_timestream_influxdb.types.db_parameter_group_identifier.DbParameterGroupIdentifier"
     """<p>The id of the DB parameter group.</p>"""
 

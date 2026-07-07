@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#FunctionScalingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.function_scaling_config_execution_environments
 
 
-class FunctionScalingConfig(TypedDict):
+class FunctionScalingConfig(TypedDict, closed=True):
     min_execution_environments: NotRequired[
         "aws_sdk_lambda.types.function_scaling_config_execution_environments.FunctionScalingConfigExecutionEnvironments"
     ]

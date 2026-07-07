@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#PasswordPolicyType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.boolean_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.temporary_password_validity_days_type
 
 
-class PasswordPolicyType(TypedDict):
+class PasswordPolicyType(TypedDict, closed=True):
     minimum_length: NotRequired[
         "aws_sdk_cognito_identity_provider.types.password_policy_min_length_type.PasswordPolicyMinLengthType"
     ]

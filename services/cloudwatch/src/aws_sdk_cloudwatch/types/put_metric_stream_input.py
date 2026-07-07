@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#PutMetricStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.tag_list
 
 
-class PutMetricStreamInput(TypedDict):
+class PutMetricStreamInput(TypedDict, closed=True):
     name: NotRequired["aws_sdk_cloudwatch.types.metric_stream_name.MetricStreamName"]
     r"""<p>If you are creating a new metric stream, this is the name for the new stream. The name must be different than the names of other metric streams in this account and Region.</p> <p>If you are updating a metric stream, specify the name of that stream here.</p> <p>Valid characters are A-Z, a-z, 0-9, \"-\" and \"_\".</p>"""
     include_filters: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#UpdateAIAgentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.ai_agent_data
 
 
-class UpdateAIAgentResponse(TypedDict):
+class UpdateAIAgentResponse(TypedDict, closed=True):
     ai_agent: NotRequired["aws_sdk_qconnect.types.ai_agent_data.AIAgentData"]
     """<p>The data of the updated Amazon Q in Connect AI Agent.</p>"""
 

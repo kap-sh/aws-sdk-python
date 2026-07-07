@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeprecateThingTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_type_name
     import aws_sdk_iot.types.undo_deprecate
 
 
-class DeprecateThingTypeRequest(TypedDict):
+class DeprecateThingTypeRequest(TypedDict, closed=True):
     thing_type_name: "aws_sdk_iot.types.thing_type_name.ThingTypeName"
     """<p>The name of the thing type to deprecate.</p>"""
     undo_deprecate: "aws_sdk_iot.types.undo_deprecate.UndoDeprecate"

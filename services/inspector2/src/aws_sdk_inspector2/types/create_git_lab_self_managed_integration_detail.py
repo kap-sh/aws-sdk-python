@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CreateGitLabSelfManagedIntegrationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.instance_url
 
 
-class CreateGitLabSelfManagedIntegrationDetail(TypedDict):
+class CreateGitLabSelfManagedIntegrationDetail(TypedDict, closed=True):
     instance_url: "aws_sdk_inspector2.types.instance_url.InstanceUrl"
     """<p>The URL of the self-managed GitLab instance.</p>"""
     access_token: "aws_sdk_inspector2.types.git_lab_access_token.GitLabAccessToken"

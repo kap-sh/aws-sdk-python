@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AssociatePackagesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_package_details_list
 
 
-class AssociatePackagesResponse(TypedDict):
+class AssociatePackagesResponse(TypedDict, closed=True):
     domain_package_details_list: NotRequired[
         "aws_sdk_opensearch.types.domain_package_details_list.DomainPackageDetailsList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListInsightsMetricDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.string
 
 
-class ListInsightsMetricDataRequest(TypedDict):
+class ListInsightsMetricDataRequest(TypedDict, closed=True):
     trail_name: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>The Amazon Resource Name(ARN) or name of the trail for which you want to retrieve Insights metrics data. This parameter should only be provided to fetch Insights metrics data generated on trails logging data events. This parameter is not required for Insights metric data generated on trails logging management events.</p>"""
     event_source: "aws_sdk_cloudtrail.types.event_source.EventSource"

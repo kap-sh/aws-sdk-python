@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.proton#CreateTemplateSyncConfigOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.template_sync_config
 
 
-class CreateTemplateSyncConfigOutput(TypedDict):
+class CreateTemplateSyncConfigOutput(TypedDict, closed=True):
     template_sync_config: NotRequired[
         "aws_sdk_proton.types.template_sync_config.TemplateSyncConfig"
     ]

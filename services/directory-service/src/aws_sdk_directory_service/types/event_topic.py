@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#EventTopic``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.created_date_time
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.topic_status
 
 
-class EventTopic(TypedDict):
+class EventTopic(TypedDict, closed=True):
     directory_id: NotRequired[
         "aws_sdk_directory_service.types.directory_id.DirectoryId"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfrontkeyvaluestore#UpdateKeysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudfront_keyvaluestore.types.delete_key_requests_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront_keyvaluestore.types.put_key_requests_list
 
 
-class UpdateKeysRequest(TypedDict):
+class UpdateKeysRequest(TypedDict, closed=True):
     kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN"
     """<p>The Amazon Resource Name (ARN) of the Key Value Store.</p>"""
     if_match: "aws_sdk_cloudfront_keyvaluestore.types.etag.Etag"

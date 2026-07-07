@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ExternalMetricsPreference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.external_metrics_source
 
 
-class ExternalMetricsPreference(TypedDict):
+class ExternalMetricsPreference(TypedDict, closed=True):
     source: NotRequired[
         "aws_sdk_compute_optimizer.types.external_metrics_source.ExternalMetricsSource"
     ]

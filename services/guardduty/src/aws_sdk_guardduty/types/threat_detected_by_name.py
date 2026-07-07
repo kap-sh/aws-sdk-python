@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ThreatDetectedByName``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.scan_threat_names
 
 
-class ThreatDetectedByName(TypedDict):
+class ThreatDetectedByName(TypedDict, closed=True):
     item_count: NotRequired["aws_sdk_guardduty.types.integer.Integer"]
     """<p>Total number of infected files identified.</p>"""
     unique_threat_name_count: NotRequired["aws_sdk_guardduty.types.integer.Integer"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#LineChartVisual``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_title_label_options
 
 
-class LineChartVisual(TypedDict):
+class LineChartVisual(TypedDict, closed=True):
     visual_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
     """<p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>"""
     title: NotRequired[

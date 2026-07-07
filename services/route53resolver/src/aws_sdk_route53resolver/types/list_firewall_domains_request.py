@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListFirewallDomainsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class ListFirewallDomainsRequest(TypedDict):
+class ListFirewallDomainsRequest(TypedDict, closed=True):
     firewall_domain_list_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p>The ID of the domain list whose domains you want to retrieve. </p>"""
     max_results: NotRequired[

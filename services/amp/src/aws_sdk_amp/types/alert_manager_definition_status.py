@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#AlertManagerDefinitionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.alert_manager_definition_status_code
 
 
-class AlertManagerDefinitionStatus(TypedDict):
+class AlertManagerDefinitionStatus(TypedDict, closed=True):
     status_code: "aws_sdk_amp.types.alert_manager_definition_status_code.AlertManagerDefinitionStatusCode"
     """<p>The current status of the alert manager. </p>"""
     status_reason: NotRequired["str"]

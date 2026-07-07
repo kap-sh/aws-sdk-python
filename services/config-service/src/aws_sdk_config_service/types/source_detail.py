@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#SourceDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.event_source
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.message_type
 
 
-class SourceDetail(TypedDict):
+class SourceDetail(TypedDict, closed=True):
     event_source: NotRequired["aws_sdk_config_service.types.event_source.EventSource"]
     """<p>The source of the event, such as an Amazon Web Services service, that triggers Config to evaluate your Amazon Web Services resources.</p>"""
     message_type: NotRequired["aws_sdk_config_service.types.message_type.MessageType"]

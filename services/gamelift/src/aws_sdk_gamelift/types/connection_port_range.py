@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ConnectionPortRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.port_number
 
 
-class ConnectionPortRange(TypedDict):
+class ConnectionPortRange(TypedDict, closed=True):
     from_port: NotRequired["aws_sdk_gamelift.types.port_number.PortNumber"]
     """<p>Starting value for the port range.</p>"""
     to_port: NotRequired["aws_sdk_gamelift.types.port_number.PortNumber"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreatePresignedNotebookInstanceUrlInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.notebook_instance_name
     import aws_sdk_sagemaker.types.session_expiration_duration_in_seconds
 
 
-class CreatePresignedNotebookInstanceUrlInput(TypedDict):
+class CreatePresignedNotebookInstanceUrlInput(TypedDict, closed=True):
     notebook_instance_name: NotRequired[
         "aws_sdk_sagemaker.types.notebook_instance_name.NotebookInstanceName"
     ]

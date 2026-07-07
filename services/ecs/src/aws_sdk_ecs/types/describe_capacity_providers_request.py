@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DescribeCapacityProvidersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string_list
 
 
-class DescribeCapacityProvidersRequest(TypedDict):
+class DescribeCapacityProvidersRequest(TypedDict, closed=True):
     capacity_providers: NotRequired["aws_sdk_ecs.types.string_list.StringList"]
     """<p>The short name or full Amazon Resource Name (ARN) of one or more capacity providers. Up to <code>100</code> capacity providers can be described in an action.</p>"""
     cluster: NotRequired["aws_sdk_ecs.types.string.String"]

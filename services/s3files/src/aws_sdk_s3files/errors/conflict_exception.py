@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError, ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.error_code
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     error_code: "aws_sdk_s3files.types.error_code.ErrorCode"
     """<p>The error code associated with the exception.</p>"""
     message: NotRequired["str"]

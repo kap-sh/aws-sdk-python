@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#SourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.source_type
 
 
-class SourceConfiguration(TypedDict):
+class SourceConfiguration(TypedDict, closed=True):
     type: "aws_sdk_iottwinmaker.types.source_type.SourceType"
     """<p>The source configuration type.</p>"""
     s3_configuration: NotRequired[

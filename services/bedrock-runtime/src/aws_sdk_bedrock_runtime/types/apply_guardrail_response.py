@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ApplyGuardrailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_usage
 
 
-class ApplyGuardrailResponse(TypedDict):
+class ApplyGuardrailResponse(TypedDict, closed=True):
     usage: "aws_sdk_bedrock_runtime.types.guardrail_usage.GuardrailUsage"
     """<p>The usage details in the response from the guardrail.</p>"""
     action: "aws_sdk_bedrock_runtime.types.guardrail_action.GuardrailAction"

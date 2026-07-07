@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#UpdateAccountAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.account_association_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.account_association_name
 
 
-class UpdateAccountAssociationRequest(TypedDict):
+class UpdateAccountAssociationRequest(TypedDict, closed=True):
     account_association_id: "aws_sdk_iot_managed_integrations.types.account_association_id.AccountAssociationId"
     """<p>The unique identifier of the account association to update.</p>"""
     name: NotRequired[

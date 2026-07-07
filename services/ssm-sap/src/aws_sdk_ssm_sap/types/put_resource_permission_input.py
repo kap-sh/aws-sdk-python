@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#PutResourcePermissionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_sap.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.permission_action_type
 
 
-class PutResourcePermissionInput(TypedDict):
+class PutResourcePermissionInput(TypedDict, closed=True):
     action_type: "aws_sdk_ssm_sap.types.permission_action_type.PermissionActionType"
     """<p/>"""
     source_resource_arn: "aws_sdk_ssm_sap.types.arn.Arn"

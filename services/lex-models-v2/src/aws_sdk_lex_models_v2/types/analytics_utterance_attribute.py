@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AnalyticsUtteranceAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_utterance_attribute_name
 
 
-class AnalyticsUtteranceAttribute(TypedDict):
+class AnalyticsUtteranceAttribute(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.analytics_utterance_attribute_name.AnalyticsUtteranceAttributeName"
     """<p>An attribute to return. The only available attribute is the intent that the bot mapped the utterance to.</p>"""
 

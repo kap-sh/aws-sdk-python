@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BasicAuthenticationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connector_property
 
 
-class BasicAuthenticationProperties(TypedDict):
+class BasicAuthenticationProperties(TypedDict, closed=True):
     username: NotRequired["aws_sdk_glue.types.connector_property.ConnectorProperty"]
     """<p>The username property name to use for Basic authentication credentials.</p>"""
     password: NotRequired["aws_sdk_glue.types.connector_property.ConnectorProperty"]

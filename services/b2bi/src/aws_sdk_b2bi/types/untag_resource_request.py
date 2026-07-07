@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_b2bi.types.amazon_resource_name
     import aws_sdk_b2bi.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_b2bi.types.amazon_resource_name.AmazonResourceName"
     """<p>Specifies an Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a capability, partnership, profile, or transformer.</p>"""
     tag_keys: "aws_sdk_b2bi.types.tag_key_list.TagKeyList"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicCalculatedField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_time_granularity
 
 
-class TopicCalculatedField(TypedDict):
+class TopicCalculatedField(TypedDict, closed=True):
     calculated_field_name: "aws_sdk_quicksight.types.limited_string.LimitedString"
     """<p>The calculated field name.</p>"""
     calculated_field_description: NotRequired[

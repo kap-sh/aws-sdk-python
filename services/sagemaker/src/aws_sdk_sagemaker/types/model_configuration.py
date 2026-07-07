@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.environment_parameters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.recommendation_job_compilation_job_name
 
 
-class ModelConfiguration(TypedDict):
+class ModelConfiguration(TypedDict, closed=True):
     inference_specification_name: NotRequired[
         "aws_sdk_sagemaker.types.inference_specification_name.InferenceSpecificationName"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#MemberSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.payment_configuration
 
 
-class MemberSpecification(TypedDict):
+class MemberSpecification(TypedDict, closed=True):
     account_id: "aws_sdk_cleanrooms.types.account_id.AccountId"
     """<p>The identifier used to reference members of the collaboration. Currently only supports Amazon Web Services account ID.</p>"""
     member_abilities: "aws_sdk_cleanrooms.types.member_abilities.MemberAbilities"

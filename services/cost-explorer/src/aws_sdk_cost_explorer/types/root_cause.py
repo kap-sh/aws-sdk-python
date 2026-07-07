@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#RootCause``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
     import aws_sdk_cost_explorer.types.root_cause_impact
 
 
-class RootCause(TypedDict):
+class RootCause(TypedDict, closed=True):
     service: NotRequired["aws_sdk_cost_explorer.types.generic_string.GenericString"]
     """<p>The Amazon Web Services service name that's associated with the cost anomaly. </p>"""
     region: NotRequired["aws_sdk_cost_explorer.types.generic_string.GenericString"]

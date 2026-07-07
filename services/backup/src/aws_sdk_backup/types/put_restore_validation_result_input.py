@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#PutRestoreValidationResultInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class PutRestoreValidationResultInput(TypedDict):
+class PutRestoreValidationResultInput(TypedDict, closed=True):
     restore_job_id: "aws_sdk_backup.types.restore_job_id.RestoreJobId"
     """<p>This is a unique identifier of a restore job within Backup.</p>"""
     validation_status: (

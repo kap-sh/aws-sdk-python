@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ShardConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.integer_optional
     import aws_sdk_memorydb.types.string
 
 
-class ShardConfiguration(TypedDict):
+class ShardConfiguration(TypedDict, closed=True):
     slots: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>A string that specifies the keyspace for a particular node group. Keyspaces range from 0 to 16,383. The string is in the format startkey-endkey.</p>"""
     replica_count: NotRequired[

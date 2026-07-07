@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AgentStatusSearchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.control_plane_attribute_filter
 
 
-class AgentStatusSearchFilter(TypedDict):
+class AgentStatusSearchFilter(TypedDict, closed=True):
     attribute_filter: NotRequired[
         "aws_sdk_connect.types.control_plane_attribute_filter.ControlPlaneAttributeFilter"
     ]

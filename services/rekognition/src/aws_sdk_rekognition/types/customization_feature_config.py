@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CustomizationFeatureConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.customization_feature_content_moderation_config
 
 
-class CustomizationFeatureConfig(TypedDict):
+class CustomizationFeatureConfig(TypedDict, closed=True):
     content_moderation: NotRequired[
         "aws_sdk_rekognition.types.customization_feature_content_moderation_config.CustomizationFeatureContentModerationConfig"
     ]

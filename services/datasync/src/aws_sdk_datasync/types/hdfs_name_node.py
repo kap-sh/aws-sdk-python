@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#HdfsNameNode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.hdfs_server_port
 
 
-class HdfsNameNode(TypedDict):
+class HdfsNameNode(TypedDict, closed=True):
     hostname: "aws_sdk_datasync.types.hdfs_server_hostname.HdfsServerHostname"
     """<p>The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.</p>"""
     port: "aws_sdk_datasync.types.hdfs_server_port.HdfsServerPort"

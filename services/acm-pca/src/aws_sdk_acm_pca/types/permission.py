@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#Permission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.t_stamp
 
 
-class Permission(TypedDict):
+class Permission(TypedDict, closed=True):
     certificate_authority_arn: NotRequired["aws_sdk_acm_pca.types.arn.Arn"]
     """<p>The Amazon Resource Number (ARN) of the private CA from which the permission was issued.</p>"""
     created_at: NotRequired["aws_sdk_acm_pca.types.t_stamp.TStamp"]

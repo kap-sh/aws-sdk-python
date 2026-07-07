@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#ListSessionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.application_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.session_state_set
 
 
-class ListSessionsRequest(TypedDict):
+class ListSessionsRequest(TypedDict, closed=True):
     application_id: "aws_sdk_emr_serverless.types.application_id.ApplicationId"
     """<p>The ID of the application to list sessions for.</p>"""
     next_token: NotRequired["aws_sdk_emr_serverless.types.next_token.NextToken"]

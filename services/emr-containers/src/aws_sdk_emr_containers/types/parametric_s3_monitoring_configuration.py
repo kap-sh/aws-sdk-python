@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#ParametricS3MonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.uri_string
 
 
-class ParametricS3MonitoringConfiguration(TypedDict):
+class ParametricS3MonitoringConfiguration(TypedDict, closed=True):
     log_uri: NotRequired["aws_sdk_emr_containers.types.uri_string.UriString"]
     """<p>Amazon S3 destination URI for log publishing.</p>"""
 

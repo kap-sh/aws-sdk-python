@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#SourceConnectionParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.code_star_parameters
 
 
-class SourceConnectionParameters(TypedDict):
+class SourceConnectionParameters(TypedDict, closed=True):
     code_star: NotRequired[
         "aws_sdk_service_catalog.types.code_star_parameters.CodeStarParameters"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#DeleteSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.bot_alias_identifier
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.session_id
 
 
-class DeleteSessionResponse(TypedDict):
+class DeleteSessionResponse(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_lex_runtime_v2.types.bot_identifier.BotIdentifier"]
     """<p>The identifier of the bot that contained the session data.</p>"""
     bot_alias_id: NotRequired[

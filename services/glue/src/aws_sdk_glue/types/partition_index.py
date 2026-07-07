@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PartitionIndex``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class PartitionIndex(TypedDict):
+class PartitionIndex(TypedDict, closed=True):
     keys: "aws_sdk_glue.types.key_list.KeyList"
     """<p>The keys for the partition index.</p>"""
     index_name: "aws_sdk_glue.types.name_string.NameString"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ActionParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.component_properties
@@ -38,6 +38,7 @@ ActionParameters = TypedDict(
             "aws_sdk_amplifyuibuilder.types.mutation_action_set_state_parameter.MutationActionSetStateParameter"
         ],
     },
+    closed=True,
 )
 
 

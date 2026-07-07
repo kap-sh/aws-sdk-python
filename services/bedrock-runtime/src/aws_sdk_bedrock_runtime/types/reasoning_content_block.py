@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ReasoningContentBlock``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -8,13 +10,13 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.reasoning_text_block
 
 
-class _ReasoningContentBlock_reasoningText(TypedDict):
+class _ReasoningContentBlock_reasoningText(TypedDict, closed=True):
     reasoningText: (
         "aws_sdk_bedrock_runtime.types.reasoning_text_block.ReasoningTextBlock"
     )
 
 
-class _ReasoningContentBlock_redactedContent(TypedDict):
+class _ReasoningContentBlock_redactedContent(TypedDict, closed=True):
     redactedContent: "bytes"
 
 

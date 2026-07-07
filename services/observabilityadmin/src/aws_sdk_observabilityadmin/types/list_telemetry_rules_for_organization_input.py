@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ListTelemetryRulesForOrganizationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.account_identifiers
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.organization_unit_identifiers
 
 
-class ListTelemetryRulesForOrganizationInput(TypedDict):
+class ListTelemetryRulesForOrganizationInput(TypedDict, closed=True):
     rule_name_prefix: NotRequired["str"]
     """<p> A string to filter organization telemetry rules whose names begin with the specified prefix. </p>"""
     source_account_ids: NotRequired[

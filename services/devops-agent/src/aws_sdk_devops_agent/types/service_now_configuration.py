@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ServiceNowConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.service_now_authentication_scope_list
 
 
-class ServiceNowConfiguration(TypedDict):
+class ServiceNowConfiguration(TypedDict, closed=True):
     instance_id: NotRequired["str"]
     """<p>ServiceNow instance ID</p>"""
     auth_scopes: NotRequired[

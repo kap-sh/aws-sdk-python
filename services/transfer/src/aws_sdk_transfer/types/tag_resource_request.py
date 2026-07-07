@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.tags
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     arn: "aws_sdk_transfer.types.arn.Arn"
     """<p>An Amazon Resource Name (ARN) for a specific Amazon Web Services resource, such as a server, user, or role.</p>"""
     tags: "aws_sdk_transfer.types.tags.Tags"

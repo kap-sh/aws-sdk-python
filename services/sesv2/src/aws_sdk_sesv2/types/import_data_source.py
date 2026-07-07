@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ImportDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.s3_url
 
 
-class ImportDataSource(TypedDict):
+class ImportDataSource(TypedDict, closed=True):
     s3_url: "aws_sdk_sesv2.types.s3_url.S3Url"
     """<p>An Amazon S3 URL in the format s3://<i><bucket_name></i>/<i><object></i>.</p>"""
     data_format: "aws_sdk_sesv2.types.data_format.DataFormat"

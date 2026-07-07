@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#EvaluationPrecomputedRetrieveSourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.evaluation_precomputed_rag_source_identifier
 
 
-class EvaluationPrecomputedRetrieveSourceConfig(TypedDict):
+class EvaluationPrecomputedRetrieveSourceConfig(TypedDict, closed=True):
     rag_source_identifier: "aws_sdk_bedrock.types.evaluation_precomputed_rag_source_identifier.EvaluationPrecomputedRagSourceIdentifier"
     """<p>A label that identifies the RAG source used for a retrieve-only Knowledge Base evaluation job where you provide your own inference response data.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#MedicalScribeContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.medical_scribe_patient_context
 
 
-class MedicalScribeContext(TypedDict):
+class MedicalScribeContext(TypedDict, closed=True):
     patient_context: NotRequired[
         "aws_sdk_transcribe.types.medical_scribe_patient_context.MedicalScribePatientContext"
     ]

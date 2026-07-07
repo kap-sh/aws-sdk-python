@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Deinterlacer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.deinterlace_algorithm
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.deinterlacer_mode
 
 
-class Deinterlacer(TypedDict):
+class Deinterlacer(TypedDict, closed=True):
     algorithm: NotRequired[
         "aws_sdk_mediaconvert.types.deinterlace_algorithm.DeinterlaceAlgorithm"
     ]

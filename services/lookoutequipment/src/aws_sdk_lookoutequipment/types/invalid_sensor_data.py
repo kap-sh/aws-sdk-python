@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#InvalidSensorData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.integer
 
 
-class InvalidSensorData(TypedDict):
+class InvalidSensorData(TypedDict, closed=True):
     affected_sensor_count: "aws_sdk_lookoutequipment.types.integer.Integer"
     """<p> Indicates the number of sensors that have at least some invalid values. </p>"""
     total_number_of_invalid_values: "aws_sdk_lookoutequipment.types.integer.Integer"

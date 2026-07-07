@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#SearchFilter``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
 
-class SearchFilter(TypedDict):
+class SearchFilter(TypedDict, closed=True):
     filter_string: "str"
     r"""<p>The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a <a>Search</a> operation. For more details, see <a href=\"https://docs.aws.amazon.com/resource-explorer/latest/APIReference/about-query-syntax.html\">Search query syntax</a>.</p>"""
 

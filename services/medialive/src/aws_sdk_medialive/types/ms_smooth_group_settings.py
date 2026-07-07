@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MsSmoothGroupSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.smooth_group_timestamp_offset_mode
 
 
-class MsSmoothGroupSettings(TypedDict):
+class MsSmoothGroupSettings(TypedDict, closed=True):
     acquisition_point_id: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The ID to include in each message in the sparse track. Ignored if sparseTrackType is NONE."""
     audio_only_timecode_control: NotRequired[

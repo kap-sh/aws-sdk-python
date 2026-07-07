@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ManagedCapacityConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.scale_in_after_inactivity_minutes
     import aws_sdk_gamelift.types.zero_capacity_strategy
 
 
-class ManagedCapacityConfiguration(TypedDict):
+class ManagedCapacityConfiguration(TypedDict, closed=True):
     zero_capacity_strategy: NotRequired[
         "aws_sdk_gamelift.types.zero_capacity_strategy.ZeroCapacityStrategy"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#AccessDeniedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_invoicing.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.invoice_unit_arn_string
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]
     resource_name: NotRequired[
         "aws_sdk_invoicing.types.invoice_unit_arn_string.InvoiceUnitArnString"

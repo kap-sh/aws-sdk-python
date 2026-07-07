@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CustomPosixUserConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.gid
     import aws_sdk_sagemaker.types.uid
 
 
-class CustomPosixUserConfig(TypedDict):
+class CustomPosixUserConfig(TypedDict, closed=True):
     uid: NotRequired["aws_sdk_sagemaker.types.uid.Uid"]
     """<p>The POSIX user ID.</p>"""
     gid: NotRequired["aws_sdk_sagemaker.types.gid.Gid"]

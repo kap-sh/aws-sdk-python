@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#UpdateCapacityProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.capacity_provider_name
     import aws_sdk_lambda.types.capacity_provider_scaling_config
 
 
-class UpdateCapacityProviderRequest(TypedDict):
+class UpdateCapacityProviderRequest(TypedDict, closed=True):
     capacity_provider_name: (
         "aws_sdk_lambda.types.capacity_provider_name.CapacityProviderName"
     )

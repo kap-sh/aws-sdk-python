@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormLanguageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_form_language_code
 
 
-class EvaluationFormLanguageConfiguration(TypedDict):
+class EvaluationFormLanguageConfiguration(TypedDict, closed=True):
     form_language: NotRequired[
         "aws_sdk_connect.types.evaluation_form_language_code.EvaluationFormLanguageCode"
     ]

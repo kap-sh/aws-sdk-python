@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#ListKxEnvironmentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.boxed_integer
     import aws_sdk_finspace.types.pagination_token
 
 
-class ListKxEnvironmentsRequest(TypedDict):
+class ListKxEnvironmentsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_finspace.types.pagination_token.PaginationToken"]
     """<p>A token that indicates where a results page should begin.</p>"""
     max_results: NotRequired["aws_sdk_finspace.types.boxed_integer.BoxedInteger"]

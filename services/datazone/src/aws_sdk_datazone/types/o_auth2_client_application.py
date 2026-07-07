@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#OAuth2ClientApplication``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class OAuth2ClientApplication(TypedDict):
+class OAuth2ClientApplication(TypedDict, closed=True):
     user_managed_client_application_client_id: NotRequired["str"]
     """<p>The user managed client application client ID in the OAuth2Client application.</p>"""
     a_ws_managed_client_application_reference: NotRequired["str"]

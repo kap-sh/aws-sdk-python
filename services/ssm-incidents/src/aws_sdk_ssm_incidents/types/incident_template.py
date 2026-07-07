@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#IncidentTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.tag_map
 
 
-class IncidentTemplate(TypedDict):
+class IncidentTemplate(TypedDict, closed=True):
     title: "aws_sdk_ssm_incidents.types.incident_title.IncidentTitle"
     """<p>The title of the incident. </p>"""
     impact: "aws_sdk_ssm_incidents.types.impact.Impact"

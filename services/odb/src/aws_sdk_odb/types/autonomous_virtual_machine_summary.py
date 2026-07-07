@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.odb#AutonomousVirtualMachineSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id
     import aws_sdk_odb.types.resource_status
 
 
-class AutonomousVirtualMachineSummary(TypedDict):
+class AutonomousVirtualMachineSummary(TypedDict, closed=True):
     autonomous_virtual_machine_id: NotRequired[
         "aws_sdk_odb.types.resource_id.ResourceId"
     ]

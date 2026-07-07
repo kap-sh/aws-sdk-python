@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#AccountStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.account_id
     import aws_sdk_networkmanager.types.slr_deployment_status
 
 
-class AccountStatus(TypedDict):
+class AccountStatus(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_networkmanager.types.account_id.AccountId"]
     """<p>The ID of an account within the Amazon Web Services Organization.</p>"""
     slr_deployment_status: NotRequired[

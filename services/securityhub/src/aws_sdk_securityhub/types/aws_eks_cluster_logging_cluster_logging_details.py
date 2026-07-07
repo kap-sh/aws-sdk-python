@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEksClusterLoggingClusterLoggingDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsEksClusterLoggingClusterLoggingDetails(TypedDict):
+class AwsEksClusterLoggingClusterLoggingDetails(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether the logging types that are listed in <code>Types</code> are enabled.</p>"""
     types: NotRequired[

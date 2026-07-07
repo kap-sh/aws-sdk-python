@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#PromotionalMedia``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.promotional_embedded_video
 
 
-class _PromotionalMedia_embeddedImage(TypedDict):
+class _PromotionalMedia_embeddedImage(TypedDict, closed=True):
     embeddedImage: "aws_sdk_marketplace_discovery.types.promotional_embedded_image.PromotionalEmbeddedImage"
 
 
-class _PromotionalMedia_embeddedVideo(TypedDict):
+class _PromotionalMedia_embeddedVideo(TypedDict, closed=True):
     embeddedVideo: "aws_sdk_marketplace_discovery.types.promotional_embedded_video.PromotionalEmbeddedVideo"
 
 

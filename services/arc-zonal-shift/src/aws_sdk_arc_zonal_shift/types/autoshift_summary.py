@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#AutoshiftSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_zonal_shift.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.start_time
 
 
-class AutoshiftSummary(TypedDict):
+class AutoshiftSummary(TypedDict, closed=True):
     away_from: "aws_sdk_arc_zonal_shift.types.availability_zone.AvailabilityZone"
     """<p>The Availability Zone (for example, <code>use1-az1</code>) that traffic is shifted away from for a resource when Amazon Web Services starts an autoshift. Until the autoshift ends, traffic for the resource is instead directed to other Availability Zones in the Amazon Web Services Region. An autoshift can end for a resource, for example, when Amazon Web Services ends the autoshift for the Availability Zone or when you disable zonal autoshift for the resource.</p>"""
     end_time: NotRequired["aws_sdk_arc_zonal_shift.types.expiry_time.ExpiryTime"]

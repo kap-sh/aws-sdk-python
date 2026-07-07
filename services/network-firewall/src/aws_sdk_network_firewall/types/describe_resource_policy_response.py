@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#DescribeResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.policy_string
 
 
-class DescribeResourcePolicyResponse(TypedDict):
+class DescribeResourcePolicyResponse(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_network_firewall.types.policy_string.PolicyString"]
     """<p>The IAM policy for the resource. </p>"""
 

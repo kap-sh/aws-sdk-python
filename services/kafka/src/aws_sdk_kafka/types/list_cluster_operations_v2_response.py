@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ListClusterOperationsV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of_cluster_operation_v2_summary
     import aws_sdk_kafka.types.__string
 
 
-class ListClusterOperationsV2Response(TypedDict):
+class ListClusterOperationsV2Response(TypedDict, closed=True):
     cluster_operation_info_list: NotRequired[
         "aws_sdk_kafka.types.__list_of_cluster_operation_v2_summary.__listOfClusterOperationV2Summary"
     ]

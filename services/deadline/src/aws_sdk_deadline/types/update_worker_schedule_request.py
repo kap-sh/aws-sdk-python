@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#UpdateWorkerScheduleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.farm_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.worker_id
 
 
-class UpdateWorkerScheduleRequest(TypedDict):
+class UpdateWorkerScheduleRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID to update.</p>"""
     fleet_id: "aws_sdk_deadline.types.fleet_id.FleetId"

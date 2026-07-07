@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateIpRestrictionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.vpc_id_restriction_rule_map
 
 
-class UpdateIpRestrictionRequest(TypedDict):
+class UpdateIpRestrictionRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account that contains the IP rules.</p>"""
     ip_restriction_rule_map: NotRequired[

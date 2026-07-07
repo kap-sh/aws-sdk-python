@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MonitoringGroundTruthS3Input``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.monitoring_s3_uri
 
 
-class MonitoringGroundTruthS3Input(TypedDict):
+class MonitoringGroundTruthS3Input(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_sagemaker.types.monitoring_s3_uri.MonitoringS3Uri"]
     """<p>The address of the Amazon S3 location of the ground truth labels.</p>"""
 

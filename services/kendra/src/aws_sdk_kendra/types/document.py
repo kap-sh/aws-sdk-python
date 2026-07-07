@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#Document``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.title
 
 
-class Document(TypedDict):
+class Document(TypedDict, closed=True):
     id: "aws_sdk_kendra.types.document_id.DocumentId"
     """<p>A identifier of the document in the index.</p> <p>Note, each document ID must be unique per index. You cannot create a data source to index your documents with their unique IDs and then use the <code>BatchPutDocument</code> API to index the same documents, or vice versa. You can delete a data source and then use the <code>BatchPutDocument</code> API to index the same documents, or vice versa.</p>"""
     title: NotRequired["aws_sdk_kendra.types.title.Title"]

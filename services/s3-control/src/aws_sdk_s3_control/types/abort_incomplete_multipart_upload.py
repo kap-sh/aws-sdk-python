@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#AbortIncompleteMultipartUpload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.days_after_initiation
 
 
-class AbortIncompleteMultipartUpload(TypedDict):
+class AbortIncompleteMultipartUpload(TypedDict, closed=True):
     days_after_initiation: (
         "aws_sdk_s3_control.types.days_after_initiation.DaysAfterInitiation"
     )

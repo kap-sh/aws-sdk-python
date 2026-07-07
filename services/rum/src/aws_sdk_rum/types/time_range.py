@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rum#TimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.query_timestamp
 
 
-class TimeRange(TypedDict):
+class TimeRange(TypedDict, closed=True):
     after: "aws_sdk_rum.types.query_timestamp.QueryTimestamp"
     """<p>The beginning of the time range to retrieve performance events from.</p>"""
     before: "aws_sdk_rum.types.query_timestamp.QueryTimestamp"

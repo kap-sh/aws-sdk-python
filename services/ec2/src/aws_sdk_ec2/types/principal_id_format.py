@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#PrincipalIdFormat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class PrincipalIdFormat(TypedDict):
+class PrincipalIdFormat(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>PrincipalIdFormatARN description</p>"""
     statuses: NotRequired["aws_sdk_ec2.types.id_format_list.IdFormatList"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListDependenciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.query_granularity
 
 
-class ListDependenciesRequest(TypedDict):
+class ListDependenciesRequest(TypedDict, closed=True):
     service_arn: NotRequired["aws_sdk_resiliencehubv2.types.arn.Arn"]
     query_range_start_time: NotRequired["datetime.datetime"]
     """<p>The start time for the dependency query range.</p>"""

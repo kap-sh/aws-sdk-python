@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#AccessRules``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.access_type
     import aws_sdk_lightsail.types.boolean
 
 
-class AccessRules(TypedDict):
+class AccessRules(TypedDict, closed=True):
     get_object: NotRequired["aws_sdk_lightsail.types.access_type.AccessType"]
     """<p>Specifies the anonymous access to all objects in a bucket.</p> <p>The following options can be specified:</p> <ul> <li> <p> <code>public</code> - Sets all objects in the bucket to public (read-only), making them readable by anyone in the world.</p> <p>If the <code>getObject</code> value is set to <code>public</code>, then all objects in the bucket default to public regardless of the <code>allowPublicOverrides</code> value.</p> </li> <li> <p> <code>private</code> - Sets all objects in the bucket to private, making them readable only by you or anyone you give access to.</p> <p>If the <code>getObject</code> value is set to <code>private</code>, and the <code>allowPublicOverrides</code> value is set to <code>true</code>, then all objects in the bucket default to private unless they are configured with a <code>public-read</code> ACL. Individual objects with a <code>public-read</code> ACL are readable by anyone in the world.</p> </li> </ul>"""
     allow_public_overrides: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]

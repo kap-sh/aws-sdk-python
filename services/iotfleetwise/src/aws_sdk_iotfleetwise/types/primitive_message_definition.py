@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#PrimitiveMessageDefinition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.ros2_primitive_message_definition
 
 
-class _PrimitiveMessageDefinition_ros2PrimitiveMessageDefinition(TypedDict):
+class _PrimitiveMessageDefinition_ros2PrimitiveMessageDefinition(
+    TypedDict, closed=True
+):
     ros2PrimitiveMessageDefinition: "aws_sdk_iotfleetwise.types.ros2_primitive_message_definition.ROS2PrimitiveMessageDefinition"
 
 

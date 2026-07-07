@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateBrowserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.tags_map
 
 
-class CreateBrowserRequest(TypedDict):
+class CreateBrowserRequest(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agentcore_control.types.sandbox_name.SandboxName"
     """<p>The name of the browser. The name must be unique within your account.</p>"""
     description: NotRequired[

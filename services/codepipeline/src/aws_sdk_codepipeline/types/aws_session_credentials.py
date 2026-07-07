@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#AWSSessionCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.session_token
 
 
-class AWSSessionCredentials(TypedDict):
+class AWSSessionCredentials(TypedDict, closed=True):
     access_key_id: "aws_sdk_codepipeline.types.access_key_id.AccessKeyId"
     """<p>The access key for the session.</p>"""
     secret_access_key: "aws_sdk_codepipeline.types.secret_access_key.SecretAccessKey"

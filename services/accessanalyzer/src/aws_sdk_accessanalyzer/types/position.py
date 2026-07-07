@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#Position``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
 
-class Position(TypedDict):
+class Position(TypedDict, closed=True):
     line: "int"
     """<p>The line of the position, starting from 1.</p>"""
     column: "int"

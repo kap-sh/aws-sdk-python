@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ScheduledPlanExecutionMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.rule_execution_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class ScheduledPlanExecutionMember(TypedDict):
+class ScheduledPlanExecutionMember(TypedDict, closed=True):
     execution_time: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]
     """<p>The timestamp when the backup is scheduled to run, in Unix format and Coordinated Universal Time (UTC). The value is accurate to milliseconds.</p>"""
     rule_id: NotRequired["aws_sdk_backup.types.string.string"]

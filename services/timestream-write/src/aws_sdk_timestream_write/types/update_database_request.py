@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#UpdateDatabaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.string_value2048
 
 
-class UpdateDatabaseRequest(TypedDict):
+class UpdateDatabaseRequest(TypedDict, closed=True):
     database_name: "aws_sdk_timestream_write.types.resource_name.ResourceName"
     """<p> The name of the database. </p>"""
     kms_key_id: "aws_sdk_timestream_write.types.string_value2048.StringValue2048"

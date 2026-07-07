@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerjobruntime#UpdateRewardResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateRewardResponse(TypedDict):
+class UpdateRewardResponse(TypedDict, closed=True):
     pass
 
 

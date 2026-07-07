@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#UpdateQuotaShareResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class UpdateQuotaShareResponse(TypedDict):
+class UpdateQuotaShareResponse(TypedDict, closed=True):
     quota_share_name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name of the quota share.</p>"""
     quota_share_arn: NotRequired["aws_sdk_batch.types.string.String"]

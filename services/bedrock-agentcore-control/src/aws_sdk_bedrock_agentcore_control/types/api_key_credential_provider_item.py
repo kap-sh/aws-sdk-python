@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ApiKeyCredentialProviderItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.credential_provider_name
 
 
-class ApiKeyCredentialProviderItem(TypedDict):
+class ApiKeyCredentialProviderItem(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agentcore_control.types.credential_provider_name.CredentialProviderName"
     """<p>The name of the API key credential provider.</p>"""
     credential_provider_arn: "aws_sdk_bedrock_agentcore_control.types.api_key_credential_provider_arn_type.ApiKeyCredentialProviderArnType"

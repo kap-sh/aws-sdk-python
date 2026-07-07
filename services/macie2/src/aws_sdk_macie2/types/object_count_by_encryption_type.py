@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ObjectCountByEncryptionType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
 
 
-class ObjectCountByEncryptionType(TypedDict):
+class ObjectCountByEncryptionType(TypedDict, closed=True):
     customer_managed: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The total number of objects that are encrypted with customer-provided keys. The objects use server-side encryption with customer-provided keys (SSE-C).</p>"""
     kms_managed: NotRequired["aws_sdk_macie2.types.__long.__long"]

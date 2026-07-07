@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#Certificate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.certificate_wallet
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.t_stamp
 
 
-class Certificate(TypedDict):
+class Certificate(TypedDict, closed=True):
     certificate_identifier: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

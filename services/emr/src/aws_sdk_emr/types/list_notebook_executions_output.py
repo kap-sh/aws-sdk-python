@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListNotebookExecutionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.marker
     import aws_sdk_emr.types.notebook_execution_summary_list
 
 
-class ListNotebookExecutionsOutput(TypedDict):
+class ListNotebookExecutionsOutput(TypedDict, closed=True):
     notebook_executions: NotRequired[
         "aws_sdk_emr.types.notebook_execution_summary_list.NotebookExecutionSummaryList"
     ]

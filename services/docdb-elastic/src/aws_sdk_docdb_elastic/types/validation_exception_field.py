@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The name of the field where the validation exception occurred.</p>"""
     message: "str"

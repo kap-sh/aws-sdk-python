@@ -2,9 +2,9 @@
 
 import warnings
 from collections.abc import AsyncIterator
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_securitylake._auth._signers
@@ -62,7 +62,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.update_data_lake_exception_subscription_response
 
 
-class AsyncSecurityLakeClientConfig(TypedDict, total=False):
+class AsyncSecurityLakeClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

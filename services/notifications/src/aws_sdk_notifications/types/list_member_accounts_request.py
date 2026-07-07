@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListMemberAccountsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.organizational_unit_id
 
 
-class ListMemberAccountsRequest(TypedDict):
+class ListMemberAccountsRequest(TypedDict, closed=True):
     notification_configuration_arn: "aws_sdk_notifications.types.notification_configuration_arn.NotificationConfigurationArn"
     """<p>The Amazon Resource Name (ARN) of the notification configuration used to filter the member accounts.</p>"""
     max_results: NotRequired["int"]

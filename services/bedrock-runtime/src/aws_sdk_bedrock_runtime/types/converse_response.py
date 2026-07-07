@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ConverseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.token_usage
 
 
-class ConverseResponse(TypedDict):
+class ConverseResponse(TypedDict, closed=True):
     output: "aws_sdk_bedrock_runtime.types.converse_output.ConverseOutput"
     """<p>The result from the call to <code>Converse</code>.</p>"""
     stop_reason: "aws_sdk_bedrock_runtime.types.stop_reason.StopReason"

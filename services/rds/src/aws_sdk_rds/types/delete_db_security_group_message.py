@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DeleteDBSecurityGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DeleteDBSecurityGroupMessage(TypedDict):
+class DeleteDBSecurityGroupMessage(TypedDict, closed=True):
     db_security_group_name: NotRequired["aws_sdk_rds.types.string.String"]
     r"""<p>The name of the DB security group to delete.</p> <note> <p>You can't delete the default DB security group.</p> </note> <p>Constraints:</p> <ul> <li> <p>Must be 1 to 255 letters, numbers, or hyphens.</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> <li> <p>Must not be \"Default\"</p> </li> </ul>"""
 

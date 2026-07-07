@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DiskIopsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.disk_iops_configuration_mode
     import aws_sdk_fsx.types.iops
 
 
-class DiskIopsConfiguration(TypedDict):
+class DiskIopsConfiguration(TypedDict, closed=True):
     mode: NotRequired[
         "aws_sdk_fsx.types.disk_iops_configuration_mode.DiskIopsConfigurationMode"
     ]

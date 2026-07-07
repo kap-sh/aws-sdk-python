@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#LowerCaseString``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.lower_case_string_with_keys
 
 
-class LowerCaseString(TypedDict):
+class LowerCaseString(TypedDict, closed=True):
     with_keys: "aws_sdk_cloudwatch_logs.types.lower_case_string_with_keys.LowerCaseStringWithKeys"
     """<p>The array caontaining the keys of the fields to convert to lowercase.</p>"""
 

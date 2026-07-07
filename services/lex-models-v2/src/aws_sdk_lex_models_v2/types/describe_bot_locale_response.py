@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DescribeBotLocaleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.audio_filler_settings
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.voice_settings
 
 
-class DescribeBotLocaleResponse(TypedDict):
+class DescribeBotLocaleResponse(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The identifier of the bot associated with the locale.</p>"""
     bot_version: NotRequired["aws_sdk_lex_models_v2.types.bot_version.BotVersion"]

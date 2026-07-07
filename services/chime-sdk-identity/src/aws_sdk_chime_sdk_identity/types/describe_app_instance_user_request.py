@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#DescribeAppInstanceUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.chime_arn
 
 
-class DescribeAppInstanceUserRequest(TypedDict):
+class DescribeAppInstanceUserRequest(TypedDict, closed=True):
     app_instance_user_arn: "aws_sdk_chime_sdk_identity.types.chime_arn.ChimeArn"
     """<p>The ARN of the <code>AppInstanceUser</code>.</p>"""
 

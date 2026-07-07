@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ChangeCidrCollectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.change_id
 
 
-class ChangeCidrCollectionResponse(TypedDict):
+class ChangeCidrCollectionResponse(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.change_id.ChangeId"
     """<p>The ID that is returned by <code>ChangeCidrCollection</code>. You can use it as input to <code>GetChange</code> to see if a CIDR collection change has propagated or not.</p>"""
 

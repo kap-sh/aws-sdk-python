@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.tag_list
 
 
-class CreateStreamRequest(TypedDict):
+class CreateStreamRequest(TypedDict, closed=True):
     stream_id: "aws_sdk_iot.types.stream_id.StreamId"
     """<p>The stream ID.</p>"""
     description: NotRequired["aws_sdk_iot.types.stream_description.StreamDescription"]

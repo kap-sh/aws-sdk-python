@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#AttemptEcsTaskDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.list_attempt_task_container_details
     import aws_sdk_batch.types.string
 
 
-class AttemptEcsTaskDetails(TypedDict):
+class AttemptEcsTaskDetails(TypedDict, closed=True):
     container_instance_arn: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the container instance that hosts the task.</p>"""
     task_arn: NotRequired["aws_sdk_batch.types.string.String"]

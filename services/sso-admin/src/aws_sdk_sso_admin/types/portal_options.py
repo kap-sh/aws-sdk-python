@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#PortalOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.application_visibility
     import aws_sdk_sso_admin.types.sign_in_options
 
 
-class PortalOptions(TypedDict):
+class PortalOptions(TypedDict, closed=True):
     sign_in_options: NotRequired[
         "aws_sdk_sso_admin.types.sign_in_options.SignInOptions"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#MutualAuthenticationAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.trust_store_association_status_enum
 
 
-class MutualAuthenticationAttributes(TypedDict):
+class MutualAuthenticationAttributes(TypedDict, closed=True):
     mode: NotRequired["aws_sdk_elastic_load_balancing_v2.types.mode.Mode"]
     """<p>The client certificate handling method. Options are <code>off</code>, <code>passthrough</code> or <code>verify</code>. The default value is <code>off</code>.</p>"""
     trust_store_arn: NotRequired[

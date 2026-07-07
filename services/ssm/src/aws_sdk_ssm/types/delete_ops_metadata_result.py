@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeleteOpsMetadataResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteOpsMetadataResult(TypedDict):
+class DeleteOpsMetadataResult(TypedDict, closed=True):
     pass
 
 

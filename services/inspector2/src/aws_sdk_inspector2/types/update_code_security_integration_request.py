@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#UpdateCodeSecurityIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.update_integration_details
 
 
-class UpdateCodeSecurityIntegrationRequest(TypedDict):
+class UpdateCodeSecurityIntegrationRequest(TypedDict, closed=True):
     integration_arn: "aws_sdk_inspector2.types.code_security_integration_arn.CodeSecurityIntegrationArn"
     """<p>The Amazon Resource Name (ARN) of the code security integration to update.</p>"""
     details: (

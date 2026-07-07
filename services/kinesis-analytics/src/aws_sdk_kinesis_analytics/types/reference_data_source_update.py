@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#ReferenceDataSourceUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.source_schema
 
 
-class ReferenceDataSourceUpdate(TypedDict):
+class ReferenceDataSourceUpdate(TypedDict, closed=True):
     reference_id: "aws_sdk_kinesis_analytics.types.id.Id"
     r"""<p>ID of the reference data source being updated. You can use the <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html\">DescribeApplication</a> operation to get this value.</p>"""
     table_name_update: NotRequired[

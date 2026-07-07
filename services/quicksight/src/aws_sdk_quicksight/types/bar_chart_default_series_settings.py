@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BarChartDefaultSeriesSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.border_settings
     import aws_sdk_quicksight.types.decal_settings
 
 
-class BarChartDefaultSeriesSettings(TypedDict):
+class BarChartDefaultSeriesSettings(TypedDict, closed=True):
     decal_settings: NotRequired["aws_sdk_quicksight.types.decal_settings.DecalSettings"]
     """<p>Decal settings for all bar series in the visual.</p>"""
     border_settings: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#CreateInterconnectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_direct_connect.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.tag_list
 
 
-class CreateInterconnectRequest(TypedDict):
+class CreateInterconnectRequest(TypedDict, closed=True):
     interconnect_name: "aws_sdk_direct_connect.types.interconnect_name.InterconnectName"
     """<p>The name of the interconnect.</p>"""
     bandwidth: "aws_sdk_direct_connect.types.bandwidth.Bandwidth"

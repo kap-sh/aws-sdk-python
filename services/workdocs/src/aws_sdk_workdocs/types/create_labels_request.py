@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#CreateLabelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workdocs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.shared_labels
 
 
-class CreateLabelsRequest(TypedDict):
+class CreateLabelsRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_workdocs.types.resource_id_type.ResourceIdType"
     """<p>The ID of the resource.</p>"""
     labels: "aws_sdk_workdocs.types.shared_labels.SharedLabels"

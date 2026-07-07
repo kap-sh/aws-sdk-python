@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#QueryObjectsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.string
 
 
-class QueryObjectsOutput(TypedDict):
+class QueryObjectsOutput(TypedDict, closed=True):
     ids: NotRequired["aws_sdk_data_pipeline.types.id_list.idList"]
     """<p>The identifiers that match the query selectors.</p>"""
     marker: NotRequired["aws_sdk_data_pipeline.types.string.string"]

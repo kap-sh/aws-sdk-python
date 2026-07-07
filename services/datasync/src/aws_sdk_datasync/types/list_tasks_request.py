@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#ListTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.task_filters
 
 
-class ListTasksRequest(TypedDict):
+class ListTasksRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_datasync.types.max_results.MaxResults"]
     """<p>The maximum number of tasks to return.</p>"""
     next_token: NotRequired["aws_sdk_datasync.types.next_token.NextToken"]

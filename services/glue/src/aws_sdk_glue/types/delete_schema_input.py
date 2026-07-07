@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteSchemaInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_id
 
 
-class DeleteSchemaInput(TypedDict):
+class DeleteSchemaInput(TypedDict, closed=True):
     schema_id: "aws_sdk_glue.types.schema_id.SchemaId"
     """<p>This is a wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>"""
 

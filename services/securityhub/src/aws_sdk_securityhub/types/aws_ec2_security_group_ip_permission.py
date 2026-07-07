@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2SecurityGroupIpPermission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_security_group_ip_range_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2SecurityGroupIpPermission(TypedDict):
+class AwsEc2SecurityGroupIpPermission(TypedDict, closed=True):
     ip_protocol: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

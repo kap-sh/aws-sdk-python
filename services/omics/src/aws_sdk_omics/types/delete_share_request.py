@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DeleteShareRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteShareRequest(TypedDict):
+class DeleteShareRequest(TypedDict, closed=True):
     share_id: "str"
     """<p>The ID for the resource share to be deleted.</p>"""
 

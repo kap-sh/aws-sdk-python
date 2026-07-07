@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#UnmappedAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.attribute
     import aws_sdk_comprehendmedical.types.entity_type
 
 
-class UnmappedAttribute(TypedDict):
+class UnmappedAttribute(TypedDict, closed=True):
     type: NotRequired["aws_sdk_comprehendmedical.types.entity_type.EntityType"]
     r"""<p> The type of the unmapped attribute, could be one of the following values: \"MEDICATION\", \"MEDICAL_CONDITION\", \"ANATOMY\", \"TEST_AND_TREATMENT_PROCEDURE\" or \"PROTECTED_HEALTH_INFORMATION\". </p>"""
     attribute: NotRequired["aws_sdk_comprehendmedical.types.attribute.Attribute"]

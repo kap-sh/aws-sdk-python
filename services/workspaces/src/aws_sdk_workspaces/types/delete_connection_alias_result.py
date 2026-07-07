@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DeleteConnectionAliasResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteConnectionAliasResult(TypedDict):
+class DeleteConnectionAliasResult(TypedDict, closed=True):
     pass
 
 

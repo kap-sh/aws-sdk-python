@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#SendingOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.enabled
 
 
-class SendingOptions(TypedDict):
+class SendingOptions(TypedDict, closed=True):
     sending_enabled: "aws_sdk_sesv2.types.enabled.Enabled"
     """<p>If <code>true</code>, email sending is enabled for the configuration set. If <code>false</code>, email sending is disabled for the configuration set.</p>"""
 

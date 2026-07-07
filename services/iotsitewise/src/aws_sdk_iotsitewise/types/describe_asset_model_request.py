@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DescribeAssetModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.asset_model_version_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.exclude_properties
 
 
-class DescribeAssetModelRequest(TypedDict):
+class DescribeAssetModelRequest(TypedDict, closed=True):
     asset_model_id: "aws_sdk_iotsitewise.types.custom_id.CustomID"
     r"""<p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references\">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
     exclude_properties: "aws_sdk_iotsitewise.types.exclude_properties.ExcludeProperties"

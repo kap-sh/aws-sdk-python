@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.aiops#ValidationException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_aiops.errors import ServiceError
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

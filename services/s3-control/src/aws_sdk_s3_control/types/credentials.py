@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#Credentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.session_token
 
 
-class Credentials(TypedDict):
+class Credentials(TypedDict, closed=True):
     access_key_id: NotRequired["aws_sdk_s3_control.types.access_key_id.AccessKeyId"]
     """<p>The unique access key ID of the Amazon Web Services STS temporary credential that S3 Access Grants vends to grantees and client applications. </p>"""
     secret_access_key: NotRequired[

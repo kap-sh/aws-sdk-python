@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StatementOutputData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_string
 
 
-class StatementOutputData(TypedDict):
+class StatementOutputData(TypedDict, closed=True):
     text_plain: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]
     """<p>The code execution output in text format.</p>"""
 

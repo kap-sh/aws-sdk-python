@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#DeleteDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.destination_name
 
 
-class DeleteDestinationRequest(TypedDict):
+class DeleteDestinationRequest(TypedDict, closed=True):
     name: "aws_sdk_iot_managed_integrations.types.destination_name.DestinationName"
     """<p>The id of the customer-managed destination.</p>"""
 

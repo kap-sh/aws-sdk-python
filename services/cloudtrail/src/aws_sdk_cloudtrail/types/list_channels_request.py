@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListChannelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.list_channels_max_results_count
     import aws_sdk_cloudtrail.types.pagination_token
 
 
-class ListChannelsRequest(TypedDict):
+class ListChannelsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_cloudtrail.types.list_channels_max_results_count.ListChannelsMaxResultsCount"
     ]

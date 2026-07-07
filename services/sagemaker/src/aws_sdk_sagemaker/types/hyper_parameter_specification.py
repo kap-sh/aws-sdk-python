@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HyperParameterSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.parameter_type
 
 
-class HyperParameterSpecification(TypedDict):
+class HyperParameterSpecification(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sagemaker.types.parameter_name.ParameterName"]
     """<p>The name of this hyperparameter. The name must be unique.</p>"""
     description: NotRequired[

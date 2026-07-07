@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#Query``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.selector_list
 
 
-class Query(TypedDict):
+class Query(TypedDict, closed=True):
     selectors: NotRequired["aws_sdk_data_pipeline.types.selector_list.SelectorList"]
     """<p>List of selectors that define the query. An object must satisfy all of the selectors to match the query.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#ListIdentityPoolUsageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.integer_string
     import aws_sdk_cognito_sync.types.string
 
 
-class ListIdentityPoolUsageRequest(TypedDict):
+class ListIdentityPoolUsageRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cognito_sync.types.string.String"]
     """A pagination token for obtaining the next page of results."""
     max_results: NotRequired["aws_sdk_cognito_sync.types.integer_string.IntegerString"]

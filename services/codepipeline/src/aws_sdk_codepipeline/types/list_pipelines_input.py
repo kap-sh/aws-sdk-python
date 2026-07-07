@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ListPipelinesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.max_pipelines
     import aws_sdk_codepipeline.types.next_token
 
 
-class ListPipelinesInput(TypedDict):
+class ListPipelinesInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_codepipeline.types.next_token.NextToken"]
     """<p>An identifier that was returned from the previous list pipelines call. It can be used to return the next set of pipelines in the list.</p>"""
     max_results: NotRequired["aws_sdk_codepipeline.types.max_pipelines.MaxPipelines"]

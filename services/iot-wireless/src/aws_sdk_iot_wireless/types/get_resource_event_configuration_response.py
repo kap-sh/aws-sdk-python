@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetResourceEventConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.connection_status_event_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.proximity_event_configuration
 
 
-class GetResourceEventConfigurationResponse(TypedDict):
+class GetResourceEventConfigurationResponse(TypedDict, closed=True):
     device_registration_state: NotRequired[
         "aws_sdk_iot_wireless.types.device_registration_state_event_configuration.DeviceRegistrationStateEventConfiguration"
     ]

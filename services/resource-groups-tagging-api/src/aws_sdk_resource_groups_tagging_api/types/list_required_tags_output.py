@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#ListRequiredTagsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.pagination_token
     import aws_sdk_resource_groups_tagging_api.types.required_tags_for_list_required_tags
 
 
-class ListRequiredTagsOutput(TypedDict):
+class ListRequiredTagsOutput(TypedDict, closed=True):
     required_tags: NotRequired[
         "aws_sdk_resource_groups_tagging_api.types.required_tags_for_list_required_tags.RequiredTagsForListRequiredTags"
     ]

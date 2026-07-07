@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeReportJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.report_job
 
 
-class DescribeReportJobOutput(TypedDict):
+class DescribeReportJobOutput(TypedDict, closed=True):
     report_job: NotRequired["aws_sdk_backup.types.report_job.ReportJob"]
     """<p>The information about a report job, including its completion and creation times, report destination, unique report job ID, Amazon Resource Name (ARN), report template, status, and status message.</p>"""
 

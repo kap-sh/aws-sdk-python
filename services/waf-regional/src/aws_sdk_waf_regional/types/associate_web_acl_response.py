@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#AssociateWebACLResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateWebACLResponse(TypedDict):
+class AssociateWebACLResponse(TypedDict, closed=True):
     pass
 
 

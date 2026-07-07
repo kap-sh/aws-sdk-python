@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AnalyticsIntentResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_bin_keys
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_intent_metric_results
 
 
-class AnalyticsIntentResult(TypedDict):
+class AnalyticsIntentResult(TypedDict, closed=True):
     bin_keys: NotRequired[
         "aws_sdk_lex_models_v2.types.analytics_bin_keys.AnalyticsBinKeys"
     ]

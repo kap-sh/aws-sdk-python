@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#KinesisVideoStreamConfigurationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.data_retention_change_in_hours
 
 
-class KinesisVideoStreamConfigurationUpdate(TypedDict):
+class KinesisVideoStreamConfigurationUpdate(TypedDict, closed=True):
     data_retention_in_hours: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.data_retention_change_in_hours.DataRetentionChangeInHours"
     ]

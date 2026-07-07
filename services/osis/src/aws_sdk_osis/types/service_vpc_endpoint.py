@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.osis#ServiceVpcEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.string
     import aws_sdk_osis.types.vpc_endpoint_service_name
 
 
-class ServiceVpcEndpoint(TypedDict):
+class ServiceVpcEndpoint(TypedDict, closed=True):
     service_name: NotRequired[
         "aws_sdk_osis.types.vpc_endpoint_service_name.VpcEndpointServiceName"
     ]

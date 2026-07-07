@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#MonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cloud_watch_log_configuration
     import aws_sdk_emr.types.s3_logging_configuration
 
 
-class MonitoringConfiguration(TypedDict):
+class MonitoringConfiguration(TypedDict, closed=True):
     cloud_watch_log_configuration: NotRequired[
         "aws_sdk_emr.types.cloud_watch_log_configuration.CloudWatchLogConfiguration"
     ]

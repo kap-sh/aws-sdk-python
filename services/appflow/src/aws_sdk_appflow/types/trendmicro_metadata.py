@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#TrendmicroMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class TrendmicroMetadata(TypedDict):
+class TrendmicroMetadata(TypedDict, closed=True):
     pass
 
 

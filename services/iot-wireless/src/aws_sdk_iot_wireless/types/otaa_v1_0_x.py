@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#OtaaV1_0_x``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.app_eui
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.join_eui
 
 
-class OtaaV1_0_x(TypedDict):
+class OtaaV1_0_x(TypedDict, closed=True):
     app_key: NotRequired["aws_sdk_iot_wireless.types.app_key.AppKey"]
     """<p>The AppKey value.</p>"""
     app_eui: NotRequired["aws_sdk_iot_wireless.types.app_eui.AppEui"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#InsightHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.mean_time_to_recover_in_milliseconds
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.num_open_reactive_insights
 
 
-class InsightHealth(TypedDict):
+class InsightHealth(TypedDict, closed=True):
     open_proactive_insights: (
         "aws_sdk_devops_guru.types.num_open_proactive_insights.NumOpenProactiveInsights"
     )

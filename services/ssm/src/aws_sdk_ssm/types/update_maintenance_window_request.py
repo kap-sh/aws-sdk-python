@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateMaintenanceWindowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_timezone
 
 
-class UpdateMaintenanceWindowRequest(TypedDict):
+class UpdateMaintenanceWindowRequest(TypedDict, closed=True):
     window_id: "aws_sdk_ssm.types.maintenance_window_id.MaintenanceWindowId"
     """<p>The ID of the maintenance window to update.</p>"""
     name: NotRequired["aws_sdk_ssm.types.maintenance_window_name.MaintenanceWindowName"]

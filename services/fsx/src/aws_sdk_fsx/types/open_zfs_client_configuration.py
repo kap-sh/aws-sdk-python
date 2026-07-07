@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#OpenZFSClientConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.open_zfs_clients
     import aws_sdk_fsx.types.open_zfs_nfs_export_options
 
 
-class OpenZFSClientConfiguration(TypedDict):
+class OpenZFSClientConfiguration(TypedDict, closed=True):
     clients: NotRequired["aws_sdk_fsx.types.open_zfs_clients.OpenZFSClients"]
     """<p>A value that specifies who can mount the file system. You can provide a wildcard character (<code>*</code>), an IP address (<code>0.0.0.0</code>), or a CIDR address (<code>192.0.2.0/24</code>). By default, Amazon FSx uses the wildcard character when specifying the client. </p>"""
     options: NotRequired[

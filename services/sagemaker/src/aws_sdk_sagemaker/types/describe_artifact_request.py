@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeArtifactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.artifact_arn
 
 
-class DescribeArtifactRequest(TypedDict):
+class DescribeArtifactRequest(TypedDict, closed=True):
     artifact_arn: NotRequired["aws_sdk_sagemaker.types.artifact_arn.ArtifactArn"]
     """<p>The Amazon Resource Name (ARN) of the artifact to describe.</p>"""
 

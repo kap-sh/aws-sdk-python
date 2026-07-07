@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#Srt``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.srt_endpoint
     import aws_sdk_ivs.types.srt_passphrase
 
 
-class Srt(TypedDict):
+class Srt(TypedDict, closed=True):
     endpoint: NotRequired["aws_sdk_ivs.types.srt_endpoint.SrtEndpoint"]
     """<p>The endpoint to be used when streaming with IVS using the SRT protocol.</p>"""
     passphrase: NotRequired["aws_sdk_ivs.types.srt_passphrase.SrtPassphrase"]

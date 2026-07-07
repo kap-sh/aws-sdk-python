@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#SqlApplicationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.inputs
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.reference_data_sources
 
 
-class SqlApplicationConfiguration(TypedDict):
+class SqlApplicationConfiguration(TypedDict, closed=True):
     inputs: NotRequired["aws_sdk_kinesis_analytics_v2.types.inputs.Inputs"]
     """<p>The array of <a>Input</a> objects describing the input streams used by the application.</p>"""
     outputs: NotRequired["aws_sdk_kinesis_analytics_v2.types.outputs.Outputs"]

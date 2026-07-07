@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListDiscoveredResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_type
 
 
-class ListDiscoveredResourcesRequest(TypedDict):
+class ListDiscoveredResourcesRequest(TypedDict, closed=True):
     member_account_ids: "aws_sdk_fms.types.aws_account_id_list.AWSAccountIdList"
     """<p>The Amazon Web Services account IDs to discover resources in. Only one account is supported per request. The account must be a member of your organization.</p>"""
     resource_type: "aws_sdk_fms.types.resource_type.ResourceType"

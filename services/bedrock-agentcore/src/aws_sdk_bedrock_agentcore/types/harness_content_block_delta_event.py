@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessContentBlockDeltaEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_content_block_delta
 
 
-class HarnessContentBlockDeltaEvent(TypedDict):
+class HarnessContentBlockDeltaEvent(TypedDict, closed=True):
     content_block_index: "int"
     """<p>The index of the content block being updated.</p>"""
     delta: "aws_sdk_bedrock_agentcore.types.harness_content_block_delta.HarnessContentBlockDelta"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#CreateResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.resource_id
 
 
-class CreateResourceResponse(TypedDict):
+class CreateResourceResponse(TypedDict, closed=True):
     resource_id: NotRequired["aws_sdk_workmail.types.resource_id.ResourceId"]
     """<p>The identifier of the new resource.</p>"""
 

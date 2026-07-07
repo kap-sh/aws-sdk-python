@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SheetBackgroundStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.color
     import aws_sdk_quicksight.types.string
 
 
-class SheetBackgroundStyle(TypedDict):
+class SheetBackgroundStyle(TypedDict, closed=True):
     color: NotRequired["aws_sdk_quicksight.types.color.Color"]
     """<p>The solid color background option for sheets.</p>"""
     gradient: NotRequired["aws_sdk_quicksight.types.string.String"]

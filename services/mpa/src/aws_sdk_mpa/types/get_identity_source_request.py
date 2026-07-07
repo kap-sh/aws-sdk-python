@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#GetIdentitySourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class GetIdentitySourceRequest(TypedDict):
+class GetIdentitySourceRequest(TypedDict, closed=True):
     identity_source_arn: "aws_sdk_mpa.types.string.String"
     """<p>Amazon Resource Name (ARN) for the identity source.</p>"""
 

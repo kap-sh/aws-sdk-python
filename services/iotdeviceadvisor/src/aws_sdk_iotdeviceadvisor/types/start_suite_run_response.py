@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#StartSuiteRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.amazon_resource_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.uuid
 
 
-class StartSuiteRunResponse(TypedDict):
+class StartSuiteRunResponse(TypedDict, closed=True):
     suite_run_id: NotRequired["aws_sdk_iotdeviceadvisor.types.uuid.UUID"]
     """<p>Suite Run ID of the started suite run.</p>"""
     suite_run_arn: NotRequired[

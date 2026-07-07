@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RecommendationJobInferenceBenchmark``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_output_configuration
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.recommendation_metrics
 
 
-class RecommendationJobInferenceBenchmark(TypedDict):
+class RecommendationJobInferenceBenchmark(TypedDict, closed=True):
     metrics: NotRequired[
         "aws_sdk_sagemaker.types.recommendation_metrics.RecommendationMetrics"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AxisTickLabelOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.double
     import aws_sdk_quicksight.types.label_options
 
 
-class AxisTickLabelOptions(TypedDict):
+class AxisTickLabelOptions(TypedDict, closed=True):
     label_options: NotRequired["aws_sdk_quicksight.types.label_options.LabelOptions"]
     """<p>Determines whether or not the axis ticks are visible.</p>"""
     rotation_angle: NotRequired["aws_sdk_quicksight.types.double.Double"]

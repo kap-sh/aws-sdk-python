@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#ListFlowOperationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.flow_operations
     import aws_sdk_network_firewall.types.pagination_token
 
 
-class ListFlowOperationsResponse(TypedDict):
+class ListFlowOperationsResponse(TypedDict, closed=True):
     flow_operations: NotRequired[
         "aws_sdk_network_firewall.types.flow_operations.FlowOperations"
     ]

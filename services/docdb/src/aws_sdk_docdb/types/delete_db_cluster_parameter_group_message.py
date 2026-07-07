@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#DeleteDBClusterParameterGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class DeleteDBClusterParameterGroupMessage(TypedDict):
+class DeleteDBClusterParameterGroupMessage(TypedDict, closed=True):
     db_cluster_parameter_group_name: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The name of the cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must be the name of an existing cluster parameter group.</p> </li> <li> <p>You can't delete a default cluster parameter group.</p> </li> <li> <p>Cannot be associated with any clusters.</p> </li> </ul>"""
 

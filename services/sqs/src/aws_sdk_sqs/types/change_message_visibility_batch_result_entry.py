@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#ChangeMessageVisibilityBatchResultEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class ChangeMessageVisibilityBatchResultEntry(TypedDict):
+class ChangeMessageVisibilityBatchResultEntry(TypedDict, closed=True):
     id: "aws_sdk_sqs.types.string.String"
     """<p>Represents a message whose visibility timeout has been changed successfully.</p>"""
 

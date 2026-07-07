@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetServiceLastAccessedDetailsWithEntitiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.response_marker_type
 
 
-class GetServiceLastAccessedDetailsWithEntitiesResponse(TypedDict):
+class GetServiceLastAccessedDetailsWithEntitiesResponse(TypedDict, closed=True):
     job_status: "aws_sdk_iam.types.job_status_type.jobStatusType"
     """<p>The status of the job.</p>"""
     job_creation_date: "aws_sdk_iam.types.date_type.dateType"

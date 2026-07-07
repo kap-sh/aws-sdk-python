@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetFunctionScalingConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.function_arn
     import aws_sdk_lambda.types.function_scaling_config
 
 
-class GetFunctionScalingConfigResponse(TypedDict):
+class GetFunctionScalingConfigResponse(TypedDict, closed=True):
     function_arn: NotRequired["aws_sdk_lambda.types.function_arn.FunctionArn"]
     """<p>The Amazon Resource Name (ARN) of the function.</p>"""
     applied_function_scaling_config: NotRequired[

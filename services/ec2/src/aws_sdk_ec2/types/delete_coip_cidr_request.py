@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeleteCoipCidrRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DeleteCoipCidrRequest(TypedDict):
+class DeleteCoipCidrRequest(TypedDict, closed=True):
     cidr: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p> A customer-owned IP address range that you want to delete. </p>"""
     coip_pool_id: NotRequired["aws_sdk_ec2.types.ipv4_pool_coip_id.Ipv4PoolCoipId"]

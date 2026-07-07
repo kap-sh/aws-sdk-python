@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationFlowExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.uuid
 
 
-class DataIntegrationFlowExecution(TypedDict):
+class DataIntegrationFlowExecution(TypedDict, closed=True):
     instance_id: "aws_sdk_supplychain.types.uuid.UUID"
     """<p>The flow execution's instanceId.</p>"""
     flow_name: (

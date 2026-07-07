@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#CustomerAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.acknowledge_action_configuration
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.snooze_action_configuration
 
 
-class CustomerAction(TypedDict):
+class CustomerAction(TypedDict, closed=True):
     action_name: NotRequired[
         "aws_sdk_iot_events_data.types.customer_action_name.CustomerActionName"
     ]

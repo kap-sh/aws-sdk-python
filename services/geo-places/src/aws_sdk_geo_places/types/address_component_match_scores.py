@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#AddressComponentMatchScores``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.match_score
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.secondary_address_component_match_score_list
 
 
-class AddressComponentMatchScores(TypedDict):
+class AddressComponentMatchScores(TypedDict, closed=True):
     country: "aws_sdk_geo_places.types.match_score.MatchScore"
     """<p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>"""
     region: "aws_sdk_geo_places.types.match_score.MatchScore"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ContainerFleetLocationAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.container_fleet_location_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.player_gateway_status
 
 
-class ContainerFleetLocationAttributes(TypedDict):
+class ContainerFleetLocationAttributes(TypedDict, closed=True):
     location: NotRequired[
         "aws_sdk_gamelift.types.location_string_model.LocationStringModel"
     ]

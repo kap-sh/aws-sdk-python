@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListTriggersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_string
     import aws_sdk_glue.types.trigger_name_list
 
 
-class ListTriggersResponse(TypedDict):
+class ListTriggersResponse(TypedDict, closed=True):
     trigger_names: NotRequired["aws_sdk_glue.types.trigger_name_list.TriggerNameList"]
     """<p>The names of all triggers in the account, or the triggers with the specified tags.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]

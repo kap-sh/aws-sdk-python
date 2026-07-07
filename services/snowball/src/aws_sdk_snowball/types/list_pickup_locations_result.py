@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#ListPickupLocationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.address_list
     import aws_sdk_snowball.types.string
 
 
-class ListPickupLocationsResult(TypedDict):
+class ListPickupLocationsResult(TypedDict, closed=True):
     addresses: NotRequired["aws_sdk_snowball.types.address_list.AddressList"]
     """<p>Information about the address of pickup locations.</p>"""
     next_token: NotRequired["aws_sdk_snowball.types.string.String"]

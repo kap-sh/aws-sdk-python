@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#LensMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.risk_counts
 
 
-class LensMetric(TypedDict):
+class LensMetric(TypedDict, closed=True):
     lens_arn: NotRequired["aws_sdk_wellarchitected.types.lens_arn.LensArn"]
     """<p>The lens ARN.</p>"""
     pillars: NotRequired["aws_sdk_wellarchitected.types.pillar_metrics.PillarMetrics"]

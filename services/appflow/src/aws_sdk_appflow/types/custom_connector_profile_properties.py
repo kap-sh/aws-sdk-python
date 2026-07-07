@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#CustomConnectorProfileProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.o_auth2_properties
     import aws_sdk_appflow.types.profile_properties_map
 
 
-class CustomConnectorProfileProperties(TypedDict):
+class CustomConnectorProfileProperties(TypedDict, closed=True):
     profile_properties: NotRequired[
         "aws_sdk_appflow.types.profile_properties_map.ProfilePropertiesMap"
     ]

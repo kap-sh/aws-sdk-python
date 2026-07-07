@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#GetInboundExternalLinkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.gateway_id
     import aws_sdk_rtbfabric.types.link_id
 
 
-class GetInboundExternalLinkRequest(TypedDict):
+class GetInboundExternalLinkRequest(TypedDict, closed=True):
     gateway_id: "aws_sdk_rtbfabric.types.gateway_id.GatewayId"
     """<p>The unique identifier of the gateway.</p>"""
     link_id: "aws_sdk_rtbfabric.types.link_id.LinkId"

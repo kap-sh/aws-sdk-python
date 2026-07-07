@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#VisualCustomActionOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.custom_action_filter_operation
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.custom_action_url_operation
 
 
-class VisualCustomActionOperation(TypedDict):
+class VisualCustomActionOperation(TypedDict, closed=True):
     filter_operation: NotRequired[
         "aws_sdk_quicksight.types.custom_action_filter_operation.CustomActionFilterOperation"
     ]

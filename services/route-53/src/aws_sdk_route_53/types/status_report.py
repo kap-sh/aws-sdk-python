@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#StatusReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.time_stamp
 
 
-class StatusReport(TypedDict):
+class StatusReport(TypedDict, closed=True):
     status: NotRequired["aws_sdk_route_53.types.status.Status"]
     """<p>A description of the status of the health check endpoint as reported by one of the Amazon Route 53 health checkers.</p>"""
     checked_time: NotRequired["aws_sdk_route_53.types.time_stamp.TimeStamp"]

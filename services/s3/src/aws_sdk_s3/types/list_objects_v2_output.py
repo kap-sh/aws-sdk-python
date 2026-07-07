@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListObjectsV2Output``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.token
 
 
-class ListObjectsV2Output(TypedDict):
+class ListObjectsV2Output(TypedDict, closed=True):
     is_truncated: NotRequired["aws_sdk_s3.types.is_truncated.IsTruncated"]
     """<p>Set to <code>false</code> if all of the results were returned. Set to <code>true</code> if more keys are available to return. If the number of results exceeds that specified by <code>MaxKeys</code>, all of the results might not be returned.</p>"""
     contents: NotRequired["aws_sdk_s3.types.object_list.ObjectList"]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#UpdateSnapshotRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
 
-class UpdateSnapshotRequest(TypedDict):
+class UpdateSnapshotRequest(TypedDict, closed=True):
     snapshot_name: "str"
     """<p>The name of the snapshot.</p>"""
     retention_period: NotRequired["int"]

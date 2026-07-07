@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DescribeVpcEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.vpc_endpoint_id_list
 
 
-class DescribeVpcEndpointsRequest(TypedDict):
+class DescribeVpcEndpointsRequest(TypedDict, closed=True):
     vpc_endpoint_ids: (
         "aws_sdk_elasticsearch_service.types.vpc_endpoint_id_list.VpcEndpointIdList"
     )

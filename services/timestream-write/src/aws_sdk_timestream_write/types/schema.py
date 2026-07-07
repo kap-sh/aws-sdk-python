@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#Schema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.partition_key_list
 
 
-class Schema(TypedDict):
+class Schema(TypedDict, closed=True):
     composite_partition_key: NotRequired[
         "aws_sdk_timestream_write.types.partition_key_list.PartitionKeyList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#CreateCollaborationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.tag_map
 
 
-class CreateCollaborationInput(TypedDict):
+class CreateCollaborationInput(TypedDict, closed=True):
     members: "aws_sdk_cleanrooms.types.member_list.MemberList"
     """<p>A list of initial members, not including the creator. This list is immutable.</p>"""
     name: "aws_sdk_cleanrooms.types.collaboration_name.CollaborationName"

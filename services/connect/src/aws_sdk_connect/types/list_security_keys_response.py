@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListSecurityKeysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.next_token
     import aws_sdk_connect.types.security_keys_list
 
 
-class ListSecurityKeysResponse(TypedDict):
+class ListSecurityKeysResponse(TypedDict, closed=True):
     security_keys: NotRequired[
         "aws_sdk_connect.types.security_keys_list.SecurityKeysList"
     ]

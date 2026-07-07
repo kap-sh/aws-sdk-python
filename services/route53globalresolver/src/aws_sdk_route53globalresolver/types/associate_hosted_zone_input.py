@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#AssociateHostedZoneInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_name
 
 
-class AssociateHostedZoneInput(TypedDict):
+class AssociateHostedZoneInput(TypedDict, closed=True):
     hosted_zone_id: "aws_sdk_route53globalresolver.types.hosted_zone_id.HostedZoneId"
     """<p>The ID of the Route 53 private hosted zone to associate with the Route 53 Global Resolver resource.</p>"""
     resource_arn: "aws_sdk_route53globalresolver.types.resource_arn.ResourceArn"

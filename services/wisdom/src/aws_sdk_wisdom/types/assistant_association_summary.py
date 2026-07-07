@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#AssistantAssociationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wisdom.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.uuid
 
 
-class AssistantAssociationSummary(TypedDict):
+class AssistantAssociationSummary(TypedDict, closed=True):
     assistant_association_id: "aws_sdk_wisdom.types.uuid.Uuid"
     """<p>The identifier of the assistant association.</p>"""
     assistant_association_arn: "aws_sdk_wisdom.types.arn.Arn"

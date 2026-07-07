@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#LinkAttributeAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.typed_attribute_value
     import aws_sdk_clouddirectory.types.update_action_type
 
 
-class LinkAttributeAction(TypedDict):
+class LinkAttributeAction(TypedDict, closed=True):
     attribute_action_type: NotRequired[
         "aws_sdk_clouddirectory.types.update_action_type.UpdateActionType"
     ]

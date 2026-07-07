@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#StartSpeechSynthesisStreamEventStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_polly._iter import AnyIterator
 from aws_sdk_polly._protocol.eventstream import Message
@@ -14,31 +16,39 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.stream_closed_event
 
 
-class _StartSpeechSynthesisStreamEventStream_AudioEvent(TypedDict):
+class _StartSpeechSynthesisStreamEventStream_AudioEvent(TypedDict, closed=True):
     AudioEvent: "aws_sdk_polly.types.audio_event.AudioEvent"
 
 
-class _StartSpeechSynthesisStreamEventStream_StreamClosedEvent(TypedDict):
+class _StartSpeechSynthesisStreamEventStream_StreamClosedEvent(TypedDict, closed=True):
     StreamClosedEvent: "aws_sdk_polly.types.stream_closed_event.StreamClosedEvent"
 
 
-class _StartSpeechSynthesisStreamEventStream_ValidationException(TypedDict):
+class _StartSpeechSynthesisStreamEventStream_ValidationException(
+    TypedDict, closed=True
+):
     ValidationException: (
         "aws_sdk_polly.errors.validation_exception.ValidationException_"
     )
 
 
-class _StartSpeechSynthesisStreamEventStream_ServiceQuotaExceededException(TypedDict):
+class _StartSpeechSynthesisStreamEventStream_ServiceQuotaExceededException(
+    TypedDict, closed=True
+):
     ServiceQuotaExceededException: "aws_sdk_polly.errors.service_quota_exceeded_exception.ServiceQuotaExceededException_"
 
 
-class _StartSpeechSynthesisStreamEventStream_ServiceFailureException(TypedDict):
+class _StartSpeechSynthesisStreamEventStream_ServiceFailureException(
+    TypedDict, closed=True
+):
     ServiceFailureException: (
         "aws_sdk_polly.errors.service_failure_exception.ServiceFailureException_"
     )
 
 
-class _StartSpeechSynthesisStreamEventStream_ThrottlingException(TypedDict):
+class _StartSpeechSynthesisStreamEventStream_ThrottlingException(
+    TypedDict, closed=True
+):
     ThrottlingException: (
         "aws_sdk_polly.errors.throttling_exception.ThrottlingException_"
     )

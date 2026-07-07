@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#CodegenGenericDataNonModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.codegen_generic_data_non_model_fields
 
 
-class CodegenGenericDataNonModel(TypedDict):
+class CodegenGenericDataNonModel(TypedDict, closed=True):
     fields: "aws_sdk_amplifyuibuilder.types.codegen_generic_data_non_model_fields.CodegenGenericDataNonModelFields"
     """<p>The fields in a generic data schema non model.</p>"""
 

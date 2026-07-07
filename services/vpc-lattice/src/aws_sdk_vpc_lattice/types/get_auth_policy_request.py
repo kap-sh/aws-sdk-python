@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#GetAuthPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.resource_identifier
 
 
-class GetAuthPolicyRequest(TypedDict):
+class GetAuthPolicyRequest(TypedDict, closed=True):
     resource_identifier: (
         "aws_sdk_vpc_lattice.types.resource_identifier.ResourceIdentifier"
     )

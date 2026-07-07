@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#PutRecordsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.put_records_result_entry_list
 
 
-class PutRecordsOutput(TypedDict):
+class PutRecordsOutput(TypedDict, closed=True):
     failed_record_count: NotRequired[
         "aws_sdk_kinesis.types.positive_integer_object.PositiveIntegerObject"
     ]

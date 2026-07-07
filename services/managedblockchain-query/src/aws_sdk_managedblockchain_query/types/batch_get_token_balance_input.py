@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#BatchGetTokenBalanceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.get_token_balance_input_list
 
 
-class BatchGetTokenBalanceInput(TypedDict):
+class BatchGetTokenBalanceInput(TypedDict, closed=True):
     get_token_balance_inputs: NotRequired[
         "aws_sdk_managedblockchain_query.types.get_token_balance_input_list.GetTokenBalanceInputList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetAnnotationStoreVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.version_status
 
 
-class GetAnnotationStoreVersionResponse(TypedDict):
+class GetAnnotationStoreVersionResponse(TypedDict, closed=True):
     store_id: "aws_sdk_omics.types.resource_id.ResourceId"
     """<p> The store ID for annotation store version. </p>"""
     id: "aws_sdk_omics.types.resource_id.ResourceId"

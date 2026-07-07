@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetTableResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.table
 
 
-class GetTableResponse(TypedDict):
+class GetTableResponse(TypedDict, closed=True):
     table: NotRequired["aws_sdk_glue.types.table.Table"]
     """<p>The <code>Table</code> object that defines the specified table.</p>"""
 

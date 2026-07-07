@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#VMScannerState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.date_time_timestamp
     import aws_sdk_inspector2.types.vm_scanner_status
 
 
-class VMScannerState(TypedDict):
+class VMScannerState(TypedDict, closed=True):
     activated: NotRequired["bool"]
     """<p>Whether the VM scanner is activated.</p>"""
     activated_at: NotRequired[

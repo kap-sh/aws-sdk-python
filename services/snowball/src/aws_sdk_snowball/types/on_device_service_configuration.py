@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#OnDeviceServiceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.eks_on_device_service_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.tgw_on_device_service_configuration
 
 
-class OnDeviceServiceConfiguration(TypedDict):
+class OnDeviceServiceConfiguration(TypedDict, closed=True):
     nfs_on_device_service: NotRequired[
         "aws_sdk_snowball.types.nfs_on_device_service_configuration.NFSOnDeviceServiceConfiguration"
     ]

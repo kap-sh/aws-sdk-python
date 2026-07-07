@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsServiceCapacityProviderStrategyDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsServiceCapacityProviderStrategyDetails(TypedDict):
+class AwsEcsServiceCapacityProviderStrategyDetails(TypedDict, closed=True):
     base: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The minimum number of tasks to run on the capacity provider. Only one strategy item can specify a value for <code>Base</code>.</p> <p>The value must be between 0 and 100000.</p>"""
     capacity_provider: NotRequired[

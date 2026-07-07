@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#DBCluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.vpc_security_group_membership_list
 
 
-class DBCluster(TypedDict):
+class DBCluster(TypedDict, closed=True):
     allocated_storage: NotRequired[
         "aws_sdk_neptune.types.integer_optional.IntegerOptional"
     ]

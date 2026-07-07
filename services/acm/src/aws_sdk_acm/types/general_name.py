@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#GeneralName``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError, SerializationError
 
@@ -10,31 +12,31 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.string
 
 
-class _GeneralName_DirectoryName(TypedDict):
+class _GeneralName_DirectoryName(TypedDict, closed=True):
     DirectoryName: "aws_sdk_acm.types.distinguished_name.DistinguishedName"
 
 
-class _GeneralName_DnsName(TypedDict):
+class _GeneralName_DnsName(TypedDict, closed=True):
     DnsName: "aws_sdk_acm.types.string.String"
 
 
-class _GeneralName_IpAddress(TypedDict):
+class _GeneralName_IpAddress(TypedDict, closed=True):
     IpAddress: "aws_sdk_acm.types.string.String"
 
 
-class _GeneralName_OtherName(TypedDict):
+class _GeneralName_OtherName(TypedDict, closed=True):
     OtherName: "aws_sdk_acm.types.other_name.OtherName"
 
 
-class _GeneralName_RegisteredId(TypedDict):
+class _GeneralName_RegisteredId(TypedDict, closed=True):
     RegisteredId: "aws_sdk_acm.types.string.String"
 
 
-class _GeneralName_Rfc822Name(TypedDict):
+class _GeneralName_Rfc822Name(TypedDict, closed=True):
     Rfc822Name: "aws_sdk_acm.types.string.String"
 
 
-class _GeneralName_UniformResourceIdentifier(TypedDict):
+class _GeneralName_UniformResourceIdentifier(TypedDict, closed=True):
     UniformResourceIdentifier: "aws_sdk_acm.types.string.String"
 
 

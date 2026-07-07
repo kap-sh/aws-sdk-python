@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeHostsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeHostsRequest(TypedDict):
+class DescribeHostsRequest(TypedDict, closed=True):
     host_ids: NotRequired["aws_sdk_ec2.types.request_host_id_list.RequestHostIdList"]
     """<p>The IDs of the Dedicated Hosts. The IDs are used for targeted instance launches.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]

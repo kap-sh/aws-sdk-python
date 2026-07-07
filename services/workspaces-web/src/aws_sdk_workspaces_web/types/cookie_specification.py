@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CookieSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.cookie_path
 
 
-class CookieSpecification(TypedDict):
+class CookieSpecification(TypedDict, closed=True):
     domain: "aws_sdk_workspaces_web.types.cookie_domain.CookieDomain"
     """<p>The domain of the cookie.</p>"""
     name: NotRequired["aws_sdk_workspaces_web.types.cookie_name.CookieName"]

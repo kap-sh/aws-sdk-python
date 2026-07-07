@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#APISchema``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.s3_identifier
 
 
-class _APISchema_s3(TypedDict):
+class _APISchema_s3(TypedDict, closed=True):
     s3: "aws_sdk_bedrock_agent_runtime.types.s3_identifier.S3Identifier"
 
 
-class _APISchema_payload(TypedDict):
+class _APISchema_payload(TypedDict, closed=True):
     payload: "aws_sdk_bedrock_agent_runtime.types.payload.Payload"
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StartImportLabelsTaskRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.uri_string
 
 
-class StartImportLabelsTaskRunRequest(TypedDict):
+class StartImportLabelsTaskRunRequest(TypedDict, closed=True):
     transform_id: "aws_sdk_glue.types.hash_string.HashString"
     """<p>The unique identifier of the machine learning transform.</p>"""
     input_s3_path: "aws_sdk_glue.types.uri_string.UriString"

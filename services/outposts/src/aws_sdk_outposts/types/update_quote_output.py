@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#UpdateQuoteOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.quote
 
 
-class UpdateQuoteOutput(TypedDict):
+class UpdateQuoteOutput(TypedDict, closed=True):
     quote: NotRequired["aws_sdk_outposts.types.quote.Quote"]
     """<p>Information about the updated quote.</p>"""
 

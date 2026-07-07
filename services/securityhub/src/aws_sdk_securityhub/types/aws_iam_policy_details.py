@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsIamPolicyDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_iam_policy_version_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsIamPolicyDetails(TypedDict):
+class AwsIamPolicyDetails(TypedDict, closed=True):
     attachment_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of users, groups, and roles that the policy is attached to.</p>"""
     create_date: NotRequired[

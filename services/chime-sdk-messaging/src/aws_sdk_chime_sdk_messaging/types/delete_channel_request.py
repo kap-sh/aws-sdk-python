@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#DeleteChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.chime_arn
 
 
-class DeleteChannelRequest(TypedDict):
+class DeleteChannelRequest(TypedDict, closed=True):
     channel_arn: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
     """<p>The ARN of the channel being deleted.</p>"""
     chime_bearer: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"

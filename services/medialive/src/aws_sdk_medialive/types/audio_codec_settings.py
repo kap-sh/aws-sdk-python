@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AudioCodecSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.aac_settings
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.wav_settings
 
 
-class AudioCodecSettings(TypedDict):
+class AudioCodecSettings(TypedDict, closed=True):
     aac_settings: NotRequired["aws_sdk_medialive.types.aac_settings.AacSettings"]
     ac3_settings: NotRequired["aws_sdk_medialive.types.ac3_settings.Ac3Settings"]
     eac3_atmos_settings: NotRequired[

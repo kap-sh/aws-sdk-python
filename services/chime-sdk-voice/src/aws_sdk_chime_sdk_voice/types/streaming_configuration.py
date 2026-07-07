@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#StreamingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.streaming_notification_target_list
 
 
-class StreamingConfiguration(TypedDict):
+class StreamingConfiguration(TypedDict, closed=True):
     data_retention_in_hours: (
         "aws_sdk_chime_sdk_voice.types.data_retention_in_hours.DataRetentionInHours"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmonitor#CreateMonitorInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkmonitor.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmonitor.types.tag_map
 
 
-class CreateMonitorInput(TypedDict):
+class CreateMonitorInput(TypedDict, closed=True):
     monitor_name: "aws_sdk_networkmonitor.types.resource_name.ResourceName"
     """<p>The name identifying the monitor. It can contain only letters, underscores (_), or dashes (-), and can be up to 200 characters.</p>"""
     probes: NotRequired[

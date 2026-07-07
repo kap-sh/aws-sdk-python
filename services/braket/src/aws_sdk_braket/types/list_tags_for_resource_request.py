@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.braket#ListTagsForResourceRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>Specify the <code>resourceArn</code> for the resource whose tags to display.</p>"""
 

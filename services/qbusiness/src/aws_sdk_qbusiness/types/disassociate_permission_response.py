@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DisassociatePermissionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociatePermissionResponse(TypedDict):
+class DisassociatePermissionResponse(TypedDict, closed=True):
     pass
 
 

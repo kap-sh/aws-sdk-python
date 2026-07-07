@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UserDefinedFunctionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.function_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.resource_uri_list
 
 
-class UserDefinedFunctionInput(TypedDict):
+class UserDefinedFunctionInput(TypedDict, closed=True):
     function_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the function.</p>"""
     class_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

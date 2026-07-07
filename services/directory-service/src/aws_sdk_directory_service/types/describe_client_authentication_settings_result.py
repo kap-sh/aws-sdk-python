@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeClientAuthenticationSettingsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.client_authentication_settings_info
     import aws_sdk_directory_service.types.next_token
 
 
-class DescribeClientAuthenticationSettingsResult(TypedDict):
+class DescribeClientAuthenticationSettingsResult(TypedDict, closed=True):
     client_authentication_settings_info: NotRequired[
         "aws_sdk_directory_service.types.client_authentication_settings_info.ClientAuthenticationSettingsInfo"
     ]

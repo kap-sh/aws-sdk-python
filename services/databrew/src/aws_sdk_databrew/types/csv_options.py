@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#CsvOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.delimiter
     import aws_sdk_databrew.types.header_row
 
 
-class CsvOptions(TypedDict):
+class CsvOptions(TypedDict, closed=True):
     delimiter: NotRequired["aws_sdk_databrew.types.delimiter.Delimiter"]
     """<p>A single character that specifies the delimiter being used in the CSV file.</p>"""
     header_row: NotRequired["aws_sdk_databrew.types.header_row.HeaderRow"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.managed_source_configuration
 
 
-class _SourceConfiguration_appIntegrations(TypedDict):
+class _SourceConfiguration_appIntegrations(TypedDict, closed=True):
     appIntegrations: "aws_sdk_qconnect.types.app_integrations_configuration.AppIntegrationsConfiguration"
 
 
-class _SourceConfiguration_managedSourceConfiguration(TypedDict):
+class _SourceConfiguration_managedSourceConfiguration(TypedDict, closed=True):
     managedSourceConfiguration: (
         "aws_sdk_qconnect.types.managed_source_configuration.ManagedSourceConfiguration"
     )

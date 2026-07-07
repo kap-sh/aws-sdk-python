@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#InvalidResourceException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_snowball.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class InvalidResourceException_(TypedDict):
+class InvalidResourceException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_snowball.types.string.String"]
     resource_type: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The provided resource value is invalid.</p>"""

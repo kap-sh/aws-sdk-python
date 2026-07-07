@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateGlossaryTermOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.term_relations
 
 
-class UpdateGlossaryTermOutput(TypedDict):
+class UpdateGlossaryTermOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.glossary_term_id.GlossaryTermId"
     """<p>The identifier of the business glossary term that is to be updated.</p>"""
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"

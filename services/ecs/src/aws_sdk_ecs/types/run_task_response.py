@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#RunTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.failures
     import aws_sdk_ecs.types.tasks
 
 
-class RunTaskResponse(TypedDict):
+class RunTaskResponse(TypedDict, closed=True):
     tasks: NotRequired["aws_sdk_ecs.types.tasks.Tasks"]
     """<p>A full description of the tasks that were run. The tasks that were successfully placed on your cluster are described here.</p>"""
     failures: NotRequired["aws_sdk_ecs.types.failures.Failures"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ExecutionStepResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.execution_error
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.workflow_step_type
 
 
-class ExecutionStepResult(TypedDict):
+class ExecutionStepResult(TypedDict, closed=True):
     step_type: NotRequired["aws_sdk_transfer.types.workflow_step_type.WorkflowStepType"]
     """<p>One of the available step types.</p> <ul> <li> <p> <b> <code>COPY</code> </b> - Copy the file to another location.</p> </li> <li> <p> <b> <code>CUSTOM</code> </b> - Perform a custom step with an Lambda function target.</p> </li> <li> <p> <b> <code>DECRYPT</code> </b> - Decrypt a file that was encrypted before it was uploaded.</p> </li> <li> <p> <b> <code>DELETE</code> </b> - Delete the file.</p> </li> <li> <p> <b> <code>TAG</code> </b> - Add a tag to the file.</p> </li> </ul>"""
     outputs: NotRequired[

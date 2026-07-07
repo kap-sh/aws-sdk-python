@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#UpdatePresetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
     import aws_sdk_mediaconvert.types.preset_settings
 
 
-class UpdatePresetRequest(TypedDict):
+class UpdatePresetRequest(TypedDict, closed=True):
     category: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """The new category for the preset, if you are changing it."""
     description: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]

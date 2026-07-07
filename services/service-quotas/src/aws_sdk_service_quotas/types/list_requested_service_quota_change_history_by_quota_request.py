@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryByQuotaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_quotas.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.service_code
 
 
-class ListRequestedServiceQuotaChangeHistoryByQuotaRequest(TypedDict):
+class ListRequestedServiceQuotaChangeHistoryByQuotaRequest(TypedDict, closed=True):
     service_code: "aws_sdk_service_quotas.types.service_code.ServiceCode"
     """<p>Specifies the service identifier. To find the service code value for an Amazon Web Services service, use the <a>ListServices</a> operation.</p>"""
     quota_code: "aws_sdk_service_quotas.types.quota_code.QuotaCode"

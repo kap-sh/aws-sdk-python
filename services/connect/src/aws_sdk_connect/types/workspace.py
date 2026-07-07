@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Workspace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.workspace_title
 
 
-class Workspace(TypedDict):
+class Workspace(TypedDict, closed=True):
     visibility: NotRequired["aws_sdk_connect.types.visibility.Visibility"]
     """<p>Controls who can access the workspace. Valid values are: <code>ALL</code> (all users), <code>ASSIGNED</code> (only assigned users and routing profiles), and <code>NONE</code> (not visible).</p>"""
     id: "aws_sdk_connect.types.workspace_id.WorkspaceId"

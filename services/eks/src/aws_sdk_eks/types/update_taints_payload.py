@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateTaintsPayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.taints_list
 
 
-class UpdateTaintsPayload(TypedDict):
+class UpdateTaintsPayload(TypedDict, closed=True):
     add_or_update_taints: NotRequired["aws_sdk_eks.types.taints_list.taintsList"]
     """<p>Kubernetes taints to be added or updated.</p>"""
     remove_taints: NotRequired["aws_sdk_eks.types.taints_list.taintsList"]

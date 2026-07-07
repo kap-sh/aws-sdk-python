@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#SubmitAttachmentStateChangesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class SubmitAttachmentStateChangesResponse(TypedDict):
+class SubmitAttachmentStateChangesResponse(TypedDict, closed=True):
     acknowledgment: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>Acknowledgement of the state change.</p>"""
 

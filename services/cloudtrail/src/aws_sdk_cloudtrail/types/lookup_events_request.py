@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#LookupEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.date
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.next_token
 
 
-class LookupEventsRequest(TypedDict):
+class LookupEventsRequest(TypedDict, closed=True):
     lookup_attributes: NotRequired[
         "aws_sdk_cloudtrail.types.lookup_attributes_list.LookupAttributesList"
     ]

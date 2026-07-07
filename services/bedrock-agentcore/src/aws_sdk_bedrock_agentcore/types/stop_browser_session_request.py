@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#StopBrowserSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.browser_session_id
     import aws_sdk_bedrock_agentcore.types.client_token
 
 
-class StopBrowserSessionRequest(TypedDict):
+class StopBrowserSessionRequest(TypedDict, closed=True):
     trace_id: NotRequired["str"]
     """<p>The trace identifier for request tracking.</p>"""
     trace_parent: NotRequired["str"]

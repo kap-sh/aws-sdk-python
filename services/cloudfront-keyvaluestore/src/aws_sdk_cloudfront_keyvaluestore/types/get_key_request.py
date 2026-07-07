@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfrontkeyvaluestore#GetKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudfront_keyvaluestore.types.key
     import aws_sdk_cloudfront_keyvaluestore.types.kvs_arn
 
 
-class GetKeyRequest(TypedDict):
+class GetKeyRequest(TypedDict, closed=True):
     kvs_arn: "aws_sdk_cloudfront_keyvaluestore.types.kvs_arn.KvsARN"
     """<p>The Amazon Resource Name (ARN) of the Key Value Store.</p>"""
     key: "aws_sdk_cloudfront_keyvaluestore.types.key.Key"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#CreateArchiveResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.archive_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.timestamp
 
 
-class CreateArchiveResponse(TypedDict):
+class CreateArchiveResponse(TypedDict, closed=True):
     archive_arn: NotRequired["aws_sdk_cloudwatch_events.types.archive_arn.ArchiveArn"]
     """<p>The ARN of the archive that was created.</p>"""
     state: NotRequired["aws_sdk_cloudwatch_events.types.archive_state.ArchiveState"]

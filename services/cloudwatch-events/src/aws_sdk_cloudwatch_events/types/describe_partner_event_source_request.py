@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#DescribePartnerEventSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.event_source_name
 
 
-class DescribePartnerEventSourceRequest(TypedDict):
+class DescribePartnerEventSourceRequest(TypedDict, closed=True):
     name: "aws_sdk_cloudwatch_events.types.event_source_name.EventSourceName"
     """<p>The name of the event source to display.</p>"""
 

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#WebLocation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class WebLocation(TypedDict):
+class WebLocation(TypedDict, closed=True):
     url: NotRequired["str"]
     """<p>The URL that was cited when performing a web search.</p>"""
     domain: NotRequired["str"]

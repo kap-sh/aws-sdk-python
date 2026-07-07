@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#HlsCdnSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.hls_akamai_settings
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.hls_webdav_settings
 
 
-class HlsCdnSettings(TypedDict):
+class HlsCdnSettings(TypedDict, closed=True):
     hls_akamai_settings: NotRequired[
         "aws_sdk_medialive.types.hls_akamai_settings.HlsAkamaiSettings"
     ]

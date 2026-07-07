@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#InvalidParameterValueException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import ServiceError
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class InvalidParameterValueException_(TypedDict):
+class InvalidParameterValueException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_sns.types.string.String"]
     """<p>The parameter of an entry in a request doesn't abide by the specification. </p>"""
 

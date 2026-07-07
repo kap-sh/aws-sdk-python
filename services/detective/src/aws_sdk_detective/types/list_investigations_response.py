@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#ListInvestigationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.ai_pagination_token
     import aws_sdk_detective.types.investigation_details
 
 
-class ListInvestigationsResponse(TypedDict):
+class ListInvestigationsResponse(TypedDict, closed=True):
     investigation_details: NotRequired[
         "aws_sdk_detective.types.investigation_details.InvestigationDetails"
     ]

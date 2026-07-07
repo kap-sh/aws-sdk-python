@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#DescribeAutoScalingInstancesType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.xml_string
 
 
-class DescribeAutoScalingInstancesType(TypedDict):
+class DescribeAutoScalingInstancesType(TypedDict, closed=True):
     instance_ids: NotRequired["aws_sdk_auto_scaling.types.instance_ids.InstanceIds"]
     """<p>The IDs of the instances. If you omit this property, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.</p> <p>Array Members: Maximum number of 50 items.</p>"""
     max_records: NotRequired["aws_sdk_auto_scaling.types.max_records.MaxRecords"]

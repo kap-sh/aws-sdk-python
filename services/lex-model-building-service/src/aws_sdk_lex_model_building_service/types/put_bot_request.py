@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#PutBotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.tag_list
 
 
-class PutBotRequest(TypedDict):
+class PutBotRequest(TypedDict, closed=True):
     name: "aws_sdk_lex_model_building_service.types.bot_name.BotName"
     """<p>The name of the bot. The name is <i>not</i> case sensitive. </p>"""
     description: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#UtilizationByTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.date_interval
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.reservation_utilization_groups
 
 
-class UtilizationByTime(TypedDict):
+class UtilizationByTime(TypedDict, closed=True):
     time_period: NotRequired["aws_sdk_cost_explorer.types.date_interval.DateInterval"]
     """<p>The period of time that this utilization was used for.</p>"""
     groups: NotRequired[

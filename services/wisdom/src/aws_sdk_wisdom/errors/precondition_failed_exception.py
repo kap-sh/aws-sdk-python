@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#PreconditionFailedException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wisdom.errors import ServiceError
 
 
-class PreconditionFailedException_(TypedDict):
+class PreconditionFailedException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

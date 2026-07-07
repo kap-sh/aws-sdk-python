@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#SimulatePrincipalPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.simulation_policy_list_type
 
 
-class SimulatePrincipalPolicyRequest(TypedDict):
+class SimulatePrincipalPolicyRequest(TypedDict, closed=True):
     policy_source_arn: "aws_sdk_iam.types.arn_type.arnType"
     r"""<p>The Amazon Resource Name (ARN) of a user, group, or role whose policies you want to include in the simulation. If you specify a user, group, or role, the simulation includes all policies that are associated with that entity. If you specify a user, the simulation also includes all policies that are attached to any groups the user belongs to.</p> <p>The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length\">IAM and STS character quotas</a>.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     policy_input_list: NotRequired[

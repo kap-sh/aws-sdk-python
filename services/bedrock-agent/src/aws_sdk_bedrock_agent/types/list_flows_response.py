@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ListFlowsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.next_token
 
 
-class ListFlowsResponse(TypedDict):
+class ListFlowsResponse(TypedDict, closed=True):
     flow_summaries: "aws_sdk_bedrock_agent.types.flow_summaries.FlowSummaries"
     """<p>A list, each member of which contains information about a flow.</p>"""
     next_token: NotRequired["aws_sdk_bedrock_agent.types.next_token.NextToken"]

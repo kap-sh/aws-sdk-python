@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#SsmAutomation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.ssm_target_account
 
 
-class SsmAutomation(TypedDict):
+class SsmAutomation(TypedDict, closed=True):
     role_arn: "aws_sdk_ssm_incidents.types.role_arn.RoleArn"
     """<p>The Amazon Resource Name (ARN) of the role that the automation document will assume when running commands.</p>"""
     document_name: "str"

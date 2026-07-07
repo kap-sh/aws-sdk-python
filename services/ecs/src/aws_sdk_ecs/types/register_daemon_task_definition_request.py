@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#RegisterDaemonTaskDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.tags
 
 
-class RegisterDaemonTaskDefinitionRequest(TypedDict):
+class RegisterDaemonTaskDefinitionRequest(TypedDict, closed=True):
     family: "aws_sdk_ecs.types.string.String"
     """<p>You must specify a <code>family</code> for a daemon task definition. This family is used as a name for your daemon task definition. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p>"""
     task_role_arn: NotRequired["aws_sdk_ecs.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ImplementationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.implementation_type
 
 
-class ImplementationSummary(TypedDict):
+class ImplementationSummary(TypedDict, closed=True):
     type: "aws_sdk_controlcatalog.types.implementation_type.ImplementationType"
     """<p>A string that represents the Amazon Web Services service that implements this control. For example, a value of <code>AWS::Config::ConfigRule</code> indicates that the control is implemented by Amazon Web Services Config, and <code>AWS::SecurityHub::SecurityControl</code> indicates implementation by Amazon Web Services Security Hub.</p>"""
     identifier: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.tag_list
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_comprehend.types.comprehend_arn.ComprehendArn"
     """<p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want to associate the tags. </p>"""
     tags: "aws_sdk_comprehend.types.tag_list.TagList"

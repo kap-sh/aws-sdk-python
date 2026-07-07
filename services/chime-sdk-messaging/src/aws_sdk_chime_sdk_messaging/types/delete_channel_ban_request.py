@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#DeleteChannelBanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.chime_arn
 
 
-class DeleteChannelBanRequest(TypedDict):
+class DeleteChannelBanRequest(TypedDict, closed=True):
     channel_arn: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
     """<p>The ARN of the channel from which the <code>AppInstanceUser</code> was banned.</p>"""
     member_arn: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"

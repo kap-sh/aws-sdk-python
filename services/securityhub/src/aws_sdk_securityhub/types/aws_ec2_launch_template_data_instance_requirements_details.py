@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataInstanceRequirementsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_launch_template_data_instance_requirements_accelerator_count_details
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsDetails(TypedDict):
+class AwsEc2LaunchTemplateDataInstanceRequirementsDetails(TypedDict, closed=True):
     accelerator_count: NotRequired[
         "aws_sdk_securityhub.types.aws_ec2_launch_template_data_instance_requirements_accelerator_count_details.AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails"
     ]

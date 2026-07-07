@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#LaunchedInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.ec2_instance_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.job_id
 
 
-class LaunchedInstance(TypedDict):
+class LaunchedInstance(TypedDict, closed=True):
     ec2_instance_id: NotRequired["aws_sdk_mgn.types.ec2_instance_id.EC2InstanceID"]
     """<p>Launched instance EC2 ID.</p>"""
     job_id: NotRequired["aws_sdk_mgn.types.job_id.JobID"]

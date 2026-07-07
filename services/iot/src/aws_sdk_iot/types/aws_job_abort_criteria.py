@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AwsJobAbortCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.aws_job_abort_criteria_minimum_number_of_executed_things
 
 
-class AwsJobAbortCriteria(TypedDict):
+class AwsJobAbortCriteria(TypedDict, closed=True):
     failure_type: "aws_sdk_iot.types.aws_job_abort_criteria_failure_type.AwsJobAbortCriteriaFailureType"
     """<p>The type of job execution failures that can initiate a job abort.</p>"""
     action: "aws_sdk_iot.types.aws_job_abort_criteria_abort_action.AwsJobAbortCriteriaAbortAction"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#CheckIfPhoneNumberIsOptedOutInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.phone_number
 
 
-class CheckIfPhoneNumberIsOptedOutInput(TypedDict):
+class CheckIfPhoneNumberIsOptedOutInput(TypedDict, closed=True):
     phone_number: "aws_sdk_sns.types.phone_number.PhoneNumber"
     """<p>The phone number for which you want to check the opt out status.</p>"""
 

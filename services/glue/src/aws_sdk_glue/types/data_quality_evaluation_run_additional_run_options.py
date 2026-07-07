@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DataQualityEvaluationRunAdditionalRunOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.dq_composite_rule_evaluation_method
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.uri_string
 
 
-class DataQualityEvaluationRunAdditionalRunOptions(TypedDict):
+class DataQualityEvaluationRunAdditionalRunOptions(TypedDict, closed=True):
     cloud_watch_metrics_enabled: NotRequired[
         "aws_sdk_glue.types.nullable_boolean.NullableBoolean"
     ]

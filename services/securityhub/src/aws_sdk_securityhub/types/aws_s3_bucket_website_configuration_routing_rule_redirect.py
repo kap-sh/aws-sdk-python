@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3BucketWebsiteConfigurationRoutingRuleRedirect``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsS3BucketWebsiteConfigurationRoutingRuleRedirect(TypedDict):
+class AwsS3BucketWebsiteConfigurationRoutingRuleRedirect(TypedDict, closed=True):
     hostname: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The host name to use in the redirect request.</p>"""
     http_redirect_code: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetQueryExecutionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.query_execution
 
 
-class GetQueryExecutionOutput(TypedDict):
+class GetQueryExecutionOutput(TypedDict, closed=True):
     query_execution: NotRequired["aws_sdk_athena.types.query_execution.QueryExecution"]
     """<p>Information about the query execution.</p>"""
 

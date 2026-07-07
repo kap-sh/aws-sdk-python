@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#BatchContainerOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.batch_environment_variable_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.string_list
 
 
-class BatchContainerOverrides(TypedDict):
+class BatchContainerOverrides(TypedDict, closed=True):
     command: NotRequired["aws_sdk_pipes.types.string_list.StringList"]
     """<p>The command to send to the container that overrides the default command from the Docker image or the task definition.</p>"""
     environment: NotRequired[

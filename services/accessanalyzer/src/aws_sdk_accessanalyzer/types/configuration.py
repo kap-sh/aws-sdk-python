@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#Configuration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, SerializationError
 
@@ -21,65 +23,65 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.sqs_queue_configuration
 
 
-class _Configuration_ebsSnapshot(TypedDict):
+class _Configuration_ebsSnapshot(TypedDict, closed=True):
     ebsSnapshot: "aws_sdk_accessanalyzer.types.ebs_snapshot_configuration.EbsSnapshotConfiguration"
 
 
-class _Configuration_ecrRepository(TypedDict):
+class _Configuration_ecrRepository(TypedDict, closed=True):
     ecrRepository: "aws_sdk_accessanalyzer.types.ecr_repository_configuration.EcrRepositoryConfiguration"
 
 
-class _Configuration_iamRole(TypedDict):
+class _Configuration_iamRole(TypedDict, closed=True):
     iamRole: "aws_sdk_accessanalyzer.types.iam_role_configuration.IamRoleConfiguration"
 
 
-class _Configuration_efsFileSystem(TypedDict):
+class _Configuration_efsFileSystem(TypedDict, closed=True):
     efsFileSystem: "aws_sdk_accessanalyzer.types.efs_file_system_configuration.EfsFileSystemConfiguration"
 
 
-class _Configuration_kmsKey(TypedDict):
+class _Configuration_kmsKey(TypedDict, closed=True):
     kmsKey: "aws_sdk_accessanalyzer.types.kms_key_configuration.KmsKeyConfiguration"
 
 
-class _Configuration_rdsDbClusterSnapshot(TypedDict):
+class _Configuration_rdsDbClusterSnapshot(TypedDict, closed=True):
     rdsDbClusterSnapshot: "aws_sdk_accessanalyzer.types.rds_db_cluster_snapshot_configuration.RdsDbClusterSnapshotConfiguration"
 
 
-class _Configuration_rdsDbSnapshot(TypedDict):
+class _Configuration_rdsDbSnapshot(TypedDict, closed=True):
     rdsDbSnapshot: "aws_sdk_accessanalyzer.types.rds_db_snapshot_configuration.RdsDbSnapshotConfiguration"
 
 
-class _Configuration_secretsManagerSecret(TypedDict):
+class _Configuration_secretsManagerSecret(TypedDict, closed=True):
     secretsManagerSecret: "aws_sdk_accessanalyzer.types.secrets_manager_secret_configuration.SecretsManagerSecretConfiguration"
 
 
-class _Configuration_s3Bucket(TypedDict):
+class _Configuration_s3Bucket(TypedDict, closed=True):
     s3Bucket: (
         "aws_sdk_accessanalyzer.types.s3_bucket_configuration.S3BucketConfiguration"
     )
 
 
-class _Configuration_snsTopic(TypedDict):
+class _Configuration_snsTopic(TypedDict, closed=True):
     snsTopic: (
         "aws_sdk_accessanalyzer.types.sns_topic_configuration.SnsTopicConfiguration"
     )
 
 
-class _Configuration_sqsQueue(TypedDict):
+class _Configuration_sqsQueue(TypedDict, closed=True):
     sqsQueue: (
         "aws_sdk_accessanalyzer.types.sqs_queue_configuration.SqsQueueConfiguration"
     )
 
 
-class _Configuration_s3ExpressDirectoryBucket(TypedDict):
+class _Configuration_s3ExpressDirectoryBucket(TypedDict, closed=True):
     s3ExpressDirectoryBucket: "aws_sdk_accessanalyzer.types.s3_express_directory_bucket_configuration.S3ExpressDirectoryBucketConfiguration"
 
 
-class _Configuration_dynamodbStream(TypedDict):
+class _Configuration_dynamodbStream(TypedDict, closed=True):
     dynamodbStream: "aws_sdk_accessanalyzer.types.dynamodb_stream_configuration.DynamodbStreamConfiguration"
 
 
-class _Configuration_dynamodbTable(TypedDict):
+class _Configuration_dynamodbTable(TypedDict, closed=True):
     dynamodbTable: "aws_sdk_accessanalyzer.types.dynamodb_table_configuration.DynamodbTableConfiguration"
 
 

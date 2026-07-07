@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
@@ -10,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails(TypedDict):
+class AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails(
+    TypedDict, closed=True
+):
     delete_on_termination: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether to delete the volume when the instance is terminated.</p>"""
     encrypted: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#DeleteVerifiedEmailAddressRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.address
 
 
-class DeleteVerifiedEmailAddressRequest(TypedDict):
+class DeleteVerifiedEmailAddressRequest(TypedDict, closed=True):
     email_address: "aws_sdk_ses.types.address.Address"
     """<p>An email address to be removed from the list of verified addresses.</p>"""
 

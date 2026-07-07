@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#PortRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.port
 
 
-class PortRange(TypedDict):
+class PortRange(TypedDict, closed=True):
     begin: "aws_sdk_inspector2.types.port.Port"
     """<p>The beginning port in a port range.</p>"""
     end: "aws_sdk_inspector2.types.port.Port"

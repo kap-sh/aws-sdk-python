@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#MergeOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.merge_constructs
 
 
-class MergeOperation(TypedDict):
+class MergeOperation(TypedDict, closed=True):
     merge_constructs: NotRequired["aws_sdk_mgn.types.merge_constructs.MergeConstructs"]
     """<p>The list of constructs to merge into the target.</p>"""
 

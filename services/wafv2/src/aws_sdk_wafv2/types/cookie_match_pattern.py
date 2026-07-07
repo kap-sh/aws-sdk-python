@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#CookieMatchPattern``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.all
     import aws_sdk_wafv2.types.cookie_names
 
 
-class CookieMatchPattern(TypedDict):
+class CookieMatchPattern(TypedDict, closed=True):
     all: NotRequired["aws_sdk_wafv2.types.all.All"]
     """<p>Inspect all cookies. </p>"""
     included_cookies: NotRequired["aws_sdk_wafv2.types.cookie_names.CookieNames"]

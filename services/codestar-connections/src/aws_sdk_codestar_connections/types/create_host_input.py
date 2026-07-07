@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#CreateHostInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.vpc_configuration
 
 
-class CreateHostInput(TypedDict):
+class CreateHostInput(TypedDict, closed=True):
     name: "aws_sdk_codestar_connections.types.host_name.HostName"
     """<p>The name of the host to be created.</p>"""
     provider_type: "aws_sdk_codestar_connections.types.provider_type.ProviderType"

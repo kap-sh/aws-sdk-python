@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#CancelChannelHandshakeDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.handshake_status
 
 
-class CancelChannelHandshakeDetail(TypedDict):
+class CancelChannelHandshakeDetail(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_partnercentral_channel.types.channel_handshake_id.ChannelHandshakeId"
     ]

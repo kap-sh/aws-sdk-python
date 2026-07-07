@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#StartReportJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.report_plan_name
     import aws_sdk_backup.types.string
 
 
-class StartReportJobInput(TypedDict):
+class StartReportJobInput(TypedDict, closed=True):
     report_plan_name: "aws_sdk_backup.types.report_plan_name.ReportPlanName"
     """<p>The unique name of a report plan.</p>"""
     idempotency_token: NotRequired["aws_sdk_backup.types.string.string"]

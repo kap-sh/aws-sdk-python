@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#GetDocumentTextDetectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.block_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.warnings
 
 
-class GetDocumentTextDetectionResponse(TypedDict):
+class GetDocumentTextDetectionResponse(TypedDict, closed=True):
     document_metadata: NotRequired[
         "aws_sdk_textract.types.document_metadata.DocumentMetadata"
     ]

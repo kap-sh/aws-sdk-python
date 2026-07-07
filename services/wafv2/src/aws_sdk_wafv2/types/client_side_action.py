@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ClientSideAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.usage_of_action
 
 
-class ClientSideAction(TypedDict):
+class ClientSideAction(TypedDict, closed=True):
     usage_of_action: "aws_sdk_wafv2.types.usage_of_action.UsageOfAction"
     """<p>Determines whether to use the <code>AWSManagedRulesAntiDDoSRuleSet</code> rules <code>ChallengeAllDuringEvent</code> and <code>ChallengeDDoSRequests</code> in the rule group evaluation and the related label <code>awswaf:managed:aws:anti-ddos:challengeable-request</code>. </p> <ul> <li> <p>If usage is enabled: </p> <ul> <li> <p>The managed rule group adds the label <code>awswaf:managed:aws:anti-ddos:challengeable-request</code> to any web request whose URL does <i>NOT</i> match the regular expressions provided in the <code>ClientSideAction</code> setting <code>ExemptUriRegularExpressions</code>. </p> </li> <li> <p>The two rules are evaluated against web requests for protected resources that are experiencing a DDoS attack. The two rules only apply their action to matching requests that have the label <code>awswaf:managed:aws:anti-ddos:challengeable-request</code>. </p> </li> </ul> </li> <li> <p>If usage is disabled: </p> <ul> <li> <p>The managed rule group doesn't add the label <code>awswaf:managed:aws:anti-ddos:challengeable-request</code> to any web requests. </p> </li> <li> <p>The two rules are not evaluated.</p> </li> <li> <p>None of the other <code>ClientSideAction</code> settings have any effect.</p> </li> </ul> </li> </ul> <note> <p>This setting only enables or disables the use of the two anti-DDOS rules <code>ChallengeAllDuringEvent</code> and <code>ChallengeDDoSRequests</code> in the anti-DDoS managed rule group. </p> <p>This setting doesn't alter the action setting in the two rules. To override the actions used by the rules <code>ChallengeAllDuringEvent</code> and <code>ChallengeDDoSRequests</code>, enable this setting, and then override the rule actions in the usual way, in your managed rule group configuration. </p> </note>"""
     sensitivity: NotRequired["aws_sdk_wafv2.types.sensitivity_to_act.SensitivityToAct"]

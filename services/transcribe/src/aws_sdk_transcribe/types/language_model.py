@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#LanguageModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.base_model_name
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.model_status
 
 
-class LanguageModel(TypedDict):
+class LanguageModel(TypedDict, closed=True):
     model_name: NotRequired["aws_sdk_transcribe.types.model_name.ModelName"]
     """<p>A unique name, chosen by you, for your custom language model.</p> <p>This name is case sensitive, cannot contain spaces, and must be unique within an Amazon Web Services account.</p>"""
     create_time: NotRequired["aws_sdk_transcribe.types.date_time.DateTime"]

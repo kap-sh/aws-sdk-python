@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#DeleteReplicationSetOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteReplicationSetOutput(TypedDict):
+class DeleteReplicationSetOutput(TypedDict, closed=True):
     pass
 
 

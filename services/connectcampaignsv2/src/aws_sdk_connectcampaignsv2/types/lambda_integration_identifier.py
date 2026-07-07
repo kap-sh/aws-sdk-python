@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#LambdaIntegrationIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.lambda_arn
 
 
-class LambdaIntegrationIdentifier(TypedDict):
+class LambdaIntegrationIdentifier(TypedDict, closed=True):
     function_arn: "aws_sdk_connectcampaignsv2.types.lambda_arn.LambdaArn"
 
 

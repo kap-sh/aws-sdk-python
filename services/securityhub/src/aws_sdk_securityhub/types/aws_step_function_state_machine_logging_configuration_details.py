@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsStepFunctionStateMachineLoggingConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_destinations_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsStepFunctionStateMachineLoggingConfigurationDetails(TypedDict):
+class AwsStepFunctionStateMachineLoggingConfigurationDetails(TypedDict, closed=True):
     destinations: NotRequired[
         "aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_destinations_list.AwsStepFunctionStateMachineLoggingConfigurationDestinationsList"
     ]

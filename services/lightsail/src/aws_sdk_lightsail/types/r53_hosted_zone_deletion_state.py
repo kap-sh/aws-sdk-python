@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#R53HostedZoneDeletionState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.r53_hosted_zone_deletion_state_code
     import aws_sdk_lightsail.types.string
 
 
-class R53HostedZoneDeletionState(TypedDict):
+class R53HostedZoneDeletionState(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_lightsail.types.r53_hosted_zone_deletion_state_code.R53HostedZoneDeletionStateCode"
     ]

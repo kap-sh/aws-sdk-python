@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#StopLoggingResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopLoggingResponse(TypedDict):
+class StopLoggingResponse(TypedDict, closed=True):
     pass
 
 

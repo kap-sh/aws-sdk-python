@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ListHandshakesForAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.handshake_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.next_token
 
 
-class ListHandshakesForAccountRequest(TypedDict):
+class ListHandshakesForAccountRequest(TypedDict, closed=True):
     filter: NotRequired["aws_sdk_organizations.types.handshake_filter.HandshakeFilter"]
     """<p>A <code>HandshakeFilter</code> object. Contains the filer used to select the handshakes for an operation.</p>"""
     next_token: NotRequired["aws_sdk_organizations.types.next_token.NextToken"]

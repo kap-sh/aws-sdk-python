@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListBatchRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.batch_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.run_group_id
 
 
-class ListBatchRequest(TypedDict):
+class ListBatchRequest(TypedDict, closed=True):
     max_items: NotRequired["int"]
     """<p>The maximum number of batches to return. If not specified, defaults to 100.</p>"""
     starting_token: NotRequired["aws_sdk_omics.types.list_token.ListToken"]

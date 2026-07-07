@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#EnableInstanceSqlHaStandbyDetectionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.secret_arn
 
 
-class EnableInstanceSqlHaStandbyDetectionsRequest(TypedDict):
+class EnableInstanceSqlHaStandbyDetectionsRequest(TypedDict, closed=True):
     instance_ids: NotRequired[
         "aws_sdk_ec2.types.instance_id_update_string_list.InstanceIdUpdateStringList"
     ]

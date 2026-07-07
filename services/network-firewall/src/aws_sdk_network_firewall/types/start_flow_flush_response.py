@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#StartFlowFlushResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.flow_operation_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.resource_arn
 
 
-class StartFlowFlushResponse(TypedDict):
+class StartFlowFlushResponse(TypedDict, closed=True):
     firewall_arn: NotRequired["aws_sdk_network_firewall.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the firewall.</p>"""
     flow_operation_id: NotRequired[

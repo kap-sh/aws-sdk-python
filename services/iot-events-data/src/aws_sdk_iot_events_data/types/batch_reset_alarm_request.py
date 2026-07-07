@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#BatchResetAlarmRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events_data.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.reset_alarm_action_requests
 
 
-class BatchResetAlarmRequest(TypedDict):
+class BatchResetAlarmRequest(TypedDict, closed=True):
     reset_action_requests: "aws_sdk_iot_events_data.types.reset_alarm_action_requests.ResetAlarmActionRequests"
     """<p>The list of reset action requests. You can specify up to 10 requests per operation.</p>"""
 

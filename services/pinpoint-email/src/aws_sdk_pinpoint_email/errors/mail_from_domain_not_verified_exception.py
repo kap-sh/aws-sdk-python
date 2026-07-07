@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#MailFromDomainNotVerifiedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_email.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.error_message
 
 
-class MailFromDomainNotVerifiedException_(TypedDict):
+class MailFromDomainNotVerifiedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_pinpoint_email.types.error_message.ErrorMessage"]
 
 

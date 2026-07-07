@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
@@ -10,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails(TypedDict):
+class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails(
+    TypedDict, closed=True
+):
     container_path: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

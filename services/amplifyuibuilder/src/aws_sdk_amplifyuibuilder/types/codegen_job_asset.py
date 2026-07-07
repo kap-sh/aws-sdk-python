@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#CodegenJobAsset``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CodegenJobAsset(TypedDict):
+class CodegenJobAsset(TypedDict, closed=True):
     download_url: NotRequired["str"]
     """<p>The URL to use to access the asset.</p>"""
 

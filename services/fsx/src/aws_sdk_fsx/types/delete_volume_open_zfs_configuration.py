@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteVolumeOpenZFSConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.delete_open_zfs_volume_options
 
 
-class DeleteVolumeOpenZFSConfiguration(TypedDict):
+class DeleteVolumeOpenZFSConfiguration(TypedDict, closed=True):
     options: NotRequired[
         "aws_sdk_fsx.types.delete_open_zfs_volume_options.DeleteOpenZFSVolumeOptions"
     ]

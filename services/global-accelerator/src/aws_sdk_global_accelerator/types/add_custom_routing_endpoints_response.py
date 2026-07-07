@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#AddCustomRoutingEndpointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.custom_routing_endpoint_descriptions
     import aws_sdk_global_accelerator.types.generic_string
 
 
-class AddCustomRoutingEndpointsResponse(TypedDict):
+class AddCustomRoutingEndpointsResponse(TypedDict, closed=True):
     endpoint_descriptions: NotRequired[
         "aws_sdk_global_accelerator.types.custom_routing_endpoint_descriptions.CustomRoutingEndpointDescriptions"
     ]

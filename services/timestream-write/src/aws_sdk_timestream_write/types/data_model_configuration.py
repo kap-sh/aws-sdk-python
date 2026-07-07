@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#DataModelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.data_model
     import aws_sdk_timestream_write.types.data_model_s3_configuration
 
 
-class DataModelConfiguration(TypedDict):
+class DataModelConfiguration(TypedDict, closed=True):
     data_model: NotRequired["aws_sdk_timestream_write.types.data_model.DataModel"]
     """<p></p>"""
     data_model_s3_configuration: NotRequired[

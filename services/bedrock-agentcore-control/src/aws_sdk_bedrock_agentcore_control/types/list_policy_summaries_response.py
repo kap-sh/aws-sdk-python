@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListPolicySummariesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.policy_summary_list
 
 
-class ListPolicySummariesResponse(TypedDict):
+class ListPolicySummariesResponse(TypedDict, closed=True):
     policies: (
         "aws_sdk_bedrock_agentcore_control.types.policy_summary_list.PolicySummaryList"
     )

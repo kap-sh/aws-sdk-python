@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#SecurityControlsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.disabled_security_control_identifier_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.security_control_custom_parameters_list
 
 
-class SecurityControlsConfiguration(TypedDict):
+class SecurityControlsConfiguration(TypedDict, closed=True):
     enabled_security_control_identifiers: NotRequired[
         "aws_sdk_securityhub.types.enabled_security_control_identifier_list.EnabledSecurityControlIdentifierList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ListWorkspacesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.max_results
     import aws_sdk_iottwinmaker.types.next_token
 
 
-class ListWorkspacesRequest(TypedDict):
+class ListWorkspacesRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_iottwinmaker.types.max_results.MaxResults"]
     """<p>The maximum number of results to return at one time. The default is 25.</p> <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>"""
     next_token: NotRequired["aws_sdk_iottwinmaker.types.next_token.NextToken"]

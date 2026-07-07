@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#GetEventConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.aggregation_configurations
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.string
 
 
-class GetEventConfigurationResponse(TypedDict):
+class GetEventConfigurationResponse(TypedDict, closed=True):
     trail_arn: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the trail for which the event configuration settings are returned.</p>"""
     event_data_store_arn: NotRequired[

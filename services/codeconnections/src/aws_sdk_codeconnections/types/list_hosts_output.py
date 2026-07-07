@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#ListHostsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.host_list
     import aws_sdk_codeconnections.types.next_token
 
 
-class ListHostsOutput(TypedDict):
+class ListHostsOutput(TypedDict, closed=True):
     hosts: NotRequired["aws_sdk_codeconnections.types.host_list.HostList"]
     """<p>A list of hosts and the details for each host, such as status, endpoint, and provider type.</p>"""
     next_token: NotRequired["aws_sdk_codeconnections.types.next_token.NextToken"]

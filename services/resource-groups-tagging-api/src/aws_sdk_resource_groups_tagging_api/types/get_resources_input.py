@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#GetResourcesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.exclude_compliant_resources
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.tags_per_page
 
 
-class GetResourcesInput(TypedDict):
+class GetResourcesInput(TypedDict, closed=True):
     pagination_token: NotRequired[
         "aws_sdk_resource_groups_tagging_api.types.pagination_token.PaginationToken"
     ]

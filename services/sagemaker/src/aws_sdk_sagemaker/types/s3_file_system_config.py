@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#S3FileSystemConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_schema_uri
     import aws_sdk_sagemaker.types.string1024
 
 
-class S3FileSystemConfig(TypedDict):
+class S3FileSystemConfig(TypedDict, closed=True):
     mount_path: NotRequired["aws_sdk_sagemaker.types.string1024.String1024"]
     """<p>The file system path where the Amazon S3 storage location will be mounted within the Amazon SageMaker Studio environment.</p>"""
     s3_uri: NotRequired["aws_sdk_sagemaker.types.s3_schema_uri.S3SchemaUri"]

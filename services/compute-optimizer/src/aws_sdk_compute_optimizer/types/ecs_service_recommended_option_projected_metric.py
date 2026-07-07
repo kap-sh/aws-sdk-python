@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ECSServiceRecommendedOptionProjectedMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.cpu_size
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.memory_size
 
 
-class ECSServiceRecommendedOptionProjectedMetric(TypedDict):
+class ECSServiceRecommendedOptionProjectedMetric(TypedDict, closed=True):
     recommended_cpu_units: "aws_sdk_compute_optimizer.types.cpu_size.CpuSize"
     """<p> The recommended CPU size for the Amazon ECS service. </p>"""
     recommended_memory_size: "aws_sdk_compute_optimizer.types.memory_size.MemorySize"

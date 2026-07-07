@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#UpdateSubscriptionsToEventBridgeMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.boolean_optional
 
 
-class UpdateSubscriptionsToEventBridgeMessage(TypedDict):
+class UpdateSubscriptionsToEventBridgeMessage(TypedDict, closed=True):
     force_move: NotRequired[
         "aws_sdk_database_migration_service.types.boolean_optional.BooleanOptional"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#RepositoryAnalysis``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.repository_head_source_code_type
     import aws_sdk_codeguru_reviewer.types.source_code_type
 
 
-class RepositoryAnalysis(TypedDict):
+class RepositoryAnalysis(TypedDict, closed=True):
     repository_head: NotRequired[
         "aws_sdk_codeguru_reviewer.types.repository_head_source_code_type.RepositoryHeadSourceCodeType"
     ]

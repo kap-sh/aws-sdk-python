@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetTransitGatewayRegistrationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.next_token
     import aws_sdk_networkmanager.types.transit_gateway_registration_list
 
 
-class GetTransitGatewayRegistrationsResponse(TypedDict):
+class GetTransitGatewayRegistrationsResponse(TypedDict, closed=True):
     transit_gateway_registrations: NotRequired[
         "aws_sdk_networkmanager.types.transit_gateway_registration_list.TransitGatewayRegistrationList"
     ]

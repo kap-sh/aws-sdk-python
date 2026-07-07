@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ContinuousBackupsDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.point_in_time_recovery_description
 
 
-class ContinuousBackupsDescription(TypedDict):
+class ContinuousBackupsDescription(TypedDict, closed=True):
     continuous_backups_status: (
         "aws_sdk_dynamodb.types.continuous_backups_status.ContinuousBackupsStatus"
     )

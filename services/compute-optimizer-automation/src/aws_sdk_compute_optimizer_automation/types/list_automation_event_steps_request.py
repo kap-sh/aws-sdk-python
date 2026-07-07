@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#ListAutomationEventStepsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.next_token
 
 
-class ListAutomationEventStepsRequest(TypedDict):
+class ListAutomationEventStepsRequest(TypedDict, closed=True):
     event_id: "aws_sdk_compute_optimizer_automation.types.event_id.EventId"
     """<p> The ID of the automation event. </p>"""
     max_results: NotRequired["int"]

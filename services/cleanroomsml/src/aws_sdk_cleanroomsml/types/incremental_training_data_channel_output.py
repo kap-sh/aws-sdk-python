@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#IncrementalTrainingDataChannelOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.uuid
 
 
-class IncrementalTrainingDataChannelOutput(TypedDict):
+class IncrementalTrainingDataChannelOutput(TypedDict, closed=True):
     channel_name: "aws_sdk_cleanroomsml.types.model_training_data_channel_name.ModelTrainingDataChannelName"
     """<p>The name of the incremental training data channel that was used.</p>"""
     version_identifier: NotRequired["aws_sdk_cleanroomsml.types.uuid.UUID"]

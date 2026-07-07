@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#ChangeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_finspace.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.s3_path
 
 
-class ChangeRequest(TypedDict):
+class ChangeRequest(TypedDict, closed=True):
     change_type: "aws_sdk_finspace.types.change_type.ChangeType"
     """<p>Defines the type of change request. A <code>changeType</code> can have the following values:</p> <ul> <li> <p>PUT – Adds or updates files in a database.</p> </li> <li> <p>DELETE – Deletes files in a database.</p> </li> </ul>"""
     s3_path: NotRequired["aws_sdk_finspace.types.s3_path.S3Path"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailStreamConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_identifier
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_version
 
 
-class GuardrailStreamConfiguration(TypedDict):
+class GuardrailStreamConfiguration(TypedDict, closed=True):
     guardrail_identifier: (
         "aws_sdk_bedrock_runtime.types.guardrail_identifier.GuardrailIdentifier"
     )

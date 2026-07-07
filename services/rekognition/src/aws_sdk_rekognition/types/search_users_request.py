@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#SearchUsersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.user_id
 
 
-class SearchUsersRequest(TypedDict):
+class SearchUsersRequest(TypedDict, closed=True):
     collection_id: "aws_sdk_rekognition.types.collection_id.CollectionId"
     """<p>The ID of an existing collection containing the UserID, used with a UserId or FaceId. If a FaceId is provided, UserId isn’t required to be present in the Collection.</p>"""
     user_id: NotRequired["aws_sdk_rekognition.types.user_id.UserId"]

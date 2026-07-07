@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateSvmActiveDirectoryConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.net_bios_alias
     import aws_sdk_fsx.types.self_managed_active_directory_configuration
 
 
-class CreateSvmActiveDirectoryConfiguration(TypedDict):
+class CreateSvmActiveDirectoryConfiguration(TypedDict, closed=True):
     net_bios_name: NotRequired["aws_sdk_fsx.types.net_bios_alias.NetBiosAlias"]
     """<p>The NetBIOS name of the Active Directory computer object that will be created for your SVM.</p>"""
     self_managed_active_directory_configuration: NotRequired[

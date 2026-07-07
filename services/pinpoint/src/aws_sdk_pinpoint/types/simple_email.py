@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SimpleEmail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.list_of_message_header
     import aws_sdk_pinpoint.types.simple_email_part
 
 
-class SimpleEmail(TypedDict):
+class SimpleEmail(TypedDict, closed=True):
     html_part: NotRequired["aws_sdk_pinpoint.types.simple_email_part.SimpleEmailPart"]
     """<p>The body of the email message, in HTML format. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.</p>"""
     subject: NotRequired["aws_sdk_pinpoint.types.simple_email_part.SimpleEmailPart"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#LifecyclePolicyPreviewSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_count
     import aws_sdk_ecr.types.transitioning_image_total_counts
 
 
-class LifecyclePolicyPreviewSummary(TypedDict):
+class LifecyclePolicyPreviewSummary(TypedDict, closed=True):
     expiring_image_total_count: NotRequired["aws_sdk_ecr.types.image_count.ImageCount"]
     """<p>The number of expiring images.</p>"""
     transitioning_image_total_counts: NotRequired[

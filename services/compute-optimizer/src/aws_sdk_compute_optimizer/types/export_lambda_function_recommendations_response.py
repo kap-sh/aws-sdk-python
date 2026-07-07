@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ExportLambdaFunctionRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.job_id
     import aws_sdk_compute_optimizer.types.s3_destination
 
 
-class ExportLambdaFunctionRecommendationsResponse(TypedDict):
+class ExportLambdaFunctionRecommendationsResponse(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_compute_optimizer.types.job_id.JobId"]
     """<p>The identification number of the export job.</p> <p>Use the <a>DescribeRecommendationExportJobs</a> action, and specify the job ID to view the status of an export job.</p>"""
     s3_destination: NotRequired[

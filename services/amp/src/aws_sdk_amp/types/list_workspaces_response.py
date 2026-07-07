@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#ListWorkspacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_summary_list
 
 
-class ListWorkspacesResponse(TypedDict):
+class ListWorkspacesResponse(TypedDict, closed=True):
     workspaces: "aws_sdk_amp.types.workspace_summary_list.WorkspaceSummaryList"
     """<p>An array of <code>WorkspaceSummary</code> structures containing information about the workspaces requested.</p>"""
     next_token: NotRequired["aws_sdk_amp.types.pagination_token.PaginationToken"]

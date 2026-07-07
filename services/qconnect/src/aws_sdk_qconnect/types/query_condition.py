@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#QueryCondition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.query_condition_item
 
 
-class _QueryCondition_single(TypedDict):
+class _QueryCondition_single(TypedDict, closed=True):
     single: "aws_sdk_qconnect.types.query_condition_item.QueryConditionItem"
 
 

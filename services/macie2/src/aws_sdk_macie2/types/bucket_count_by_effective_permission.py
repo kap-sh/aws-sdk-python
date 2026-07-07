@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BucketCountByEffectivePermission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
 
 
-class BucketCountByEffectivePermission(TypedDict):
+class BucketCountByEffectivePermission(TypedDict, closed=True):
     publicly_accessible: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The total number of buckets that allow the general public to have read or write access to the bucket.</p>"""
     publicly_readable: NotRequired["aws_sdk_macie2.types.__long.__long"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#DeploymentConfigAlreadyExistsException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codedeploy.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.message
 
 
-class DeploymentConfigAlreadyExistsException_(TypedDict):
+class DeploymentConfigAlreadyExistsException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_codedeploy.types.message.Message"]
     """<p>The message that corresponds to the exception thrown by CodeDeploy.</p>"""
 

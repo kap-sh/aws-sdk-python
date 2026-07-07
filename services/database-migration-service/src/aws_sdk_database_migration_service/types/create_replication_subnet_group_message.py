@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#CreateReplicationSubnetGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.tag_list
 
 
-class CreateReplicationSubnetGroupMessage(TypedDict):
+class CreateReplicationSubnetGroupMessage(TypedDict, closed=True):
     replication_subnet_group_identifier: (
         "aws_sdk_database_migration_service.types.string.String"
     )

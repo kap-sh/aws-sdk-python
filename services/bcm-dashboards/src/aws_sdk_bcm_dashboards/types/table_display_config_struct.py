@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#TableDisplayConfigStruct``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class TableDisplayConfigStruct(TypedDict):
+class TableDisplayConfigStruct(TypedDict, closed=True):
     pass
 
 

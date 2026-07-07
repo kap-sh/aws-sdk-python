@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RoutingClassifierTrace``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -14,21 +16,21 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.routing_classifier_model_invocation_output
 
 
-class _RoutingClassifierTrace_invocationInput(TypedDict):
+class _RoutingClassifierTrace_invocationInput(TypedDict, closed=True):
     invocationInput: (
         "aws_sdk_bedrock_agent_runtime.types.invocation_input.InvocationInput"
     )
 
 
-class _RoutingClassifierTrace_observation(TypedDict):
+class _RoutingClassifierTrace_observation(TypedDict, closed=True):
     observation: "aws_sdk_bedrock_agent_runtime.types.observation.Observation"
 
 
-class _RoutingClassifierTrace_modelInvocationInput(TypedDict):
+class _RoutingClassifierTrace_modelInvocationInput(TypedDict, closed=True):
     modelInvocationInput: "aws_sdk_bedrock_agent_runtime.types.model_invocation_input.ModelInvocationInput"
 
 
-class _RoutingClassifierTrace_modelInvocationOutput(TypedDict):
+class _RoutingClassifierTrace_modelInvocationOutput(TypedDict, closed=True):
     modelInvocationOutput: "aws_sdk_bedrock_agent_runtime.types.routing_classifier_model_invocation_output.RoutingClassifierModelInvocationOutput"
 
 

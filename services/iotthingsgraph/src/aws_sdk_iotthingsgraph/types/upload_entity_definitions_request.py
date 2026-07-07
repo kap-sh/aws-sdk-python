@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#UploadEntityDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.definition_document
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.sync_with_public_namespace
 
 
-class UploadEntityDefinitionsRequest(TypedDict):
+class UploadEntityDefinitionsRequest(TypedDict, closed=True):
     document: NotRequired[
         "aws_sdk_iotthingsgraph.types.definition_document.DefinitionDocument"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#JwtBearerGrant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.authorized_token_issuers
 
 
-class JwtBearerGrant(TypedDict):
+class JwtBearerGrant(TypedDict, closed=True):
     authorized_token_issuers: NotRequired[
         "aws_sdk_sso_admin.types.authorized_token_issuers.AuthorizedTokenIssuers"
     ]

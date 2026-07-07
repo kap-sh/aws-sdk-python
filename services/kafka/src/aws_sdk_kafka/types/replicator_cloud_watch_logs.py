@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ReplicatorCloudWatchLogs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__boolean
     import aws_sdk_kafka.types.__string
 
 
-class ReplicatorCloudWatchLogs(TypedDict):
+class ReplicatorCloudWatchLogs(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_kafka.types.__boolean.__boolean"]
     """<p>Whether log delivery to CloudWatch Logs is enabled.</p>"""
     log_group: NotRequired["aws_sdk_kafka.types.__string.__string"]

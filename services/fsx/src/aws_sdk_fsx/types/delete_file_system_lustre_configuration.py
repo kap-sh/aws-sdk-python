@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteFileSystemLustreConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.flag
     import aws_sdk_fsx.types.tags
 
 
-class DeleteFileSystemLustreConfiguration(TypedDict):
+class DeleteFileSystemLustreConfiguration(TypedDict, closed=True):
     skip_final_backup: NotRequired["aws_sdk_fsx.types.flag.Flag"]
     """<p>Set <code>SkipFinalBackup</code> to false if you want to take a final backup of the file system you are deleting. By default, Amazon FSx will not take a final backup on your behalf when the <code>DeleteFileSystem</code> operation is invoked. (Default = true)</p> <note> <p>The <code>fsx:CreateBackup</code> permission is required if you set <code>SkipFinalBackup</code> to <code>false</code> in order to delete the file system and take a final backup.</p> </note>"""
     final_backup_tags: NotRequired["aws_sdk_fsx.types.tags.Tags"]

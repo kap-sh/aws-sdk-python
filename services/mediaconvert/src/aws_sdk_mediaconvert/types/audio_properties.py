@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AudioProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.frame_rate
 
 
-class AudioProperties(TypedDict):
+class AudioProperties(TypedDict, closed=True):
     bit_depth: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]
     """The bit depth of the audio track."""
     bit_rate: NotRequired["aws_sdk_mediaconvert.types.__long.__long"]

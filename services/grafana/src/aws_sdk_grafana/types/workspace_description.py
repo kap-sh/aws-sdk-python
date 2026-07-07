@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#WorkspaceDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -34,7 +34,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_status
 
 
-class WorkspaceDescription(TypedDict):
+class WorkspaceDescription(TypedDict, closed=True):
     account_access_type: NotRequired[
         "aws_sdk_grafana.types.account_access_type.AccountAccessType"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#IdentityProviderConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.saml_provider_configuration
 
 
-class _IdentityProviderConfiguration_samlConfiguration(TypedDict):
+class _IdentityProviderConfiguration_samlConfiguration(TypedDict, closed=True):
     samlConfiguration: (
         "aws_sdk_qbusiness.types.saml_provider_configuration.SamlProviderConfiguration"
     )
 
 
-class _IdentityProviderConfiguration_openIDConnectConfiguration(TypedDict):
+class _IdentityProviderConfiguration_openIDConnectConfiguration(TypedDict, closed=True):
     openIDConnectConfiguration: "aws_sdk_qbusiness.types.open_id_connect_provider_configuration.OpenIDConnectProviderConfiguration"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#Deployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.deployment_type
 
 
-class Deployment(TypedDict):
+class Deployment(TypedDict, closed=True):
     created_at: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The time, in milliseconds since the epoch, when the deployment was created."""
     deployment_arn: NotRequired["aws_sdk_greengrass.types.__string.__string"]

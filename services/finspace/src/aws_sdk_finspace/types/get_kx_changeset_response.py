@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#GetKxChangesetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.change_requests
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.timestamp
 
 
-class GetKxChangesetResponse(TypedDict):
+class GetKxChangesetResponse(TypedDict, closed=True):
     changeset_id: NotRequired["aws_sdk_finspace.types.changeset_id.ChangesetId"]
     """<p>A unique identifier for the changeset.</p>"""
     database_name: NotRequired["aws_sdk_finspace.types.database_name.DatabaseName"]

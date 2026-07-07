@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ProfileQueryFailures``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.profile_id
 
 
-class ProfileQueryFailures(TypedDict):
+class ProfileQueryFailures(TypedDict, closed=True):
     profile_id: "aws_sdk_customer_profiles.types.profile_id.ProfileId"
     """<p>The profile id the failure belongs to.</p>"""
     message: "aws_sdk_customer_profiles.types.get_segment_membership_message.GetSegmentMembershipMessage"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#TimerFiredEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.timer_id
 
 
-class TimerFiredEventAttributes(TypedDict):
+class TimerFiredEventAttributes(TypedDict, closed=True):
     timer_id: "aws_sdk_swf.types.timer_id.TimerId"
     """<p>The unique ID of the timer that fired.</p>"""
     started_event_id: "aws_sdk_swf.types.event_id.EventId"

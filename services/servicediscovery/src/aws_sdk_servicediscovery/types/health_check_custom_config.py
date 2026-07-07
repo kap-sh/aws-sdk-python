@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#HealthCheckCustomConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.failure_threshold
 
 
-class HealthCheckCustomConfig(TypedDict):
+class HealthCheckCustomConfig(TypedDict, closed=True):
     failure_threshold: NotRequired[
         "aws_sdk_servicediscovery.types.failure_threshold.FailureThreshold"
     ]

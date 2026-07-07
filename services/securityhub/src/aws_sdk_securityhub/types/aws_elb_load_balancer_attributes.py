@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElbLoadBalancerAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_elb_load_balancer_access_log
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_elb_load_balancer_cross_zone_load_balancing
 
 
-class AwsElbLoadBalancerAttributes(TypedDict):
+class AwsElbLoadBalancerAttributes(TypedDict, closed=True):
     access_log: NotRequired[
         "aws_sdk_securityhub.types.aws_elb_load_balancer_access_log.AwsElbLoadBalancerAccessLog"
     ]

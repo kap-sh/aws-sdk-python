@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#RelativeAggregationDuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.time_value
 
 
-class RelativeAggregationDuration(TypedDict):
+class RelativeAggregationDuration(TypedDict, closed=True):
     time_dimension: "aws_sdk_lex_models_v2.types.time_dimension.TimeDimension"
     """<p>The type of time period that the <code>timeValue</code> field represents. </p>"""
     time_value: "aws_sdk_lex_models_v2.types.time_value.TimeValue"

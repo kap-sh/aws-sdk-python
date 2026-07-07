@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ServiceSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class ServiceSetting(TypedDict):
+class ServiceSetting(TypedDict, closed=True):
     setting_id: NotRequired["aws_sdk_ssm.types.service_setting_id.ServiceSettingId"]
     """<p>The ID of the service setting.</p>"""
     setting_value: NotRequired[

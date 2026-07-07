@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#MessageConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class MessageConfiguration(TypedDict):
+class MessageConfiguration(TypedDict, closed=True):
     generate_filler_message: NotRequired["bool"]
     """<p>Generates a filler response when tool selection is <code>QUESTION</code>.</p>"""
     generate_chunked_message: NotRequired["bool"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#MfaMethod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.mfa_type
 
 
-class MfaMethod(TypedDict):
+class MfaMethod(TypedDict, closed=True):
     type: "aws_sdk_mpa.types.mfa_type.MfaType"
     """<p>The type of MFA configuration used by the approver</p>"""
     sync_status: "aws_sdk_mpa.types.mfa_sync_status.MfaSyncStatus"

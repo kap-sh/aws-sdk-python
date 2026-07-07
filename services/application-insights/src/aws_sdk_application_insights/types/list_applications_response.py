@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#ListApplicationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.application_info_list
     import aws_sdk_application_insights.types.pagination_token
 
 
-class ListApplicationsResponse(TypedDict):
+class ListApplicationsResponse(TypedDict, closed=True):
     application_info_list: NotRequired[
         "aws_sdk_application_insights.types.application_info_list.ApplicationInfoList"
     ]

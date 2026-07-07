@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#NielsenNonLinearWatermarkSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max65534
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.nielsen_unique_tic_per_audio_track_type
 
 
-class NielsenNonLinearWatermarkSettings(TypedDict):
+class NielsenNonLinearWatermarkSettings(TypedDict, closed=True):
     active_watermark_process: NotRequired[
         "aws_sdk_mediaconvert.types.nielsen_active_watermark_process_type.NielsenActiveWatermarkProcessType"
     ]

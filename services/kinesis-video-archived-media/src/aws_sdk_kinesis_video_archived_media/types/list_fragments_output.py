@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideoarchivedmedia#ListFragmentsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.fragment_list
     import aws_sdk_kinesis_video_archived_media.types.next_token
 
 
-class ListFragmentsOutput(TypedDict):
+class ListFragmentsOutput(TypedDict, closed=True):
     fragments: NotRequired[
         "aws_sdk_kinesis_video_archived_media.types.fragment_list.FragmentList"
     ]

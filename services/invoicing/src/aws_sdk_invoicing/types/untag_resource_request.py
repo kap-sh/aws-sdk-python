@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.tagris_arn
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_invoicing.types.tagris_arn.TagrisArn"
     """<p> The Amazon Resource Name (ARN) to untag. </p>"""
     resource_tag_keys: (

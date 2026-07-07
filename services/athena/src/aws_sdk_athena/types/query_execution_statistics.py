@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#QueryExecutionStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.dpu_count
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.string
 
 
-class QueryExecutionStatistics(TypedDict):
+class QueryExecutionStatistics(TypedDict, closed=True):
     engine_execution_time_in_millis: NotRequired["aws_sdk_athena.types.long.Long"]
     """<p>The number of milliseconds that the query took to execute.</p>"""
     data_scanned_in_bytes: NotRequired["aws_sdk_athena.types.long.Long"]

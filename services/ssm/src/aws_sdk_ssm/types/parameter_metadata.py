@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ParameterMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.allowed_pattern
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class ParameterMetadata(TypedDict):
+class ParameterMetadata(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ssm.types.ps_parameter_name.PSParameterName"]
     """<p>The parameter name.</p>"""
     arn: NotRequired["aws_sdk_ssm.types.string.String"]

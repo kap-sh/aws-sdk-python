@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteConnectionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteConnectionResponse(TypedDict):
+class DeleteConnectionResponse(TypedDict, closed=True):
     pass
 
 

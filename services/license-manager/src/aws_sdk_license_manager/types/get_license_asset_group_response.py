@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#GetLicenseAssetGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.license_asset_group
 
 
-class GetLicenseAssetGroupResponse(TypedDict):
+class GetLicenseAssetGroupResponse(TypedDict, closed=True):
     license_asset_group: (
         "aws_sdk_license_manager.types.license_asset_group.LicenseAssetGroup"
     )

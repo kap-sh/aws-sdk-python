@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#DatabaseSnapshotInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.timestamp
 
 
-class DatabaseSnapshotInfo(TypedDict):
+class DatabaseSnapshotInfo(TypedDict, closed=True):
     id: "aws_sdk_firehose.types.non_empty_string_without_whitespace.NonEmptyStringWithoutWhitespace"
     """<p> The identifier of the current snapshot of the table in source database endpoint. </p> <p>Amazon Data Firehose is in preview release and is subject to change.</p>"""
     table: "aws_sdk_firehose.types.database_table_name.DatabaseTableName"

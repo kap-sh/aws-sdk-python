@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#DeregisterIdentityProviderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.identity_provider_summary
 
 
-class DeregisterIdentityProviderResponse(TypedDict):
+class DeregisterIdentityProviderResponse(TypedDict, closed=True):
     identity_provider_summary: "aws_sdk_license_manager_user_subscriptions.types.identity_provider_summary.IdentityProviderSummary"
     """<p>Metadata that describes the results of an identity provider operation.</p>"""
 

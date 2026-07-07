@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SucceededTopicReviewedAnswer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.answer_id
 
 
-class SucceededTopicReviewedAnswer(TypedDict):
+class SucceededTopicReviewedAnswer(TypedDict, closed=True):
     answer_id: NotRequired["aws_sdk_quicksight.types.answer_id.AnswerId"]
     """<p>The answer ID for the <code>SucceededTopicReviewedAnswer</code>.</p>"""
 

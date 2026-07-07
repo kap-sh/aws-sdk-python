@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualGatewayListenerTlsCertificate``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_gateway_listener_tls_sds_certificate
 
 
-class _VirtualGatewayListenerTlsCertificate_acm(TypedDict):
+class _VirtualGatewayListenerTlsCertificate_acm(TypedDict, closed=True):
     acm: "aws_sdk_app_mesh.types.virtual_gateway_listener_tls_acm_certificate.VirtualGatewayListenerTlsAcmCertificate"
 
 
-class _VirtualGatewayListenerTlsCertificate_file(TypedDict):
+class _VirtualGatewayListenerTlsCertificate_file(TypedDict, closed=True):
     file: "aws_sdk_app_mesh.types.virtual_gateway_listener_tls_file_certificate.VirtualGatewayListenerTlsFileCertificate"
 
 
-class _VirtualGatewayListenerTlsCertificate_sds(TypedDict):
+class _VirtualGatewayListenerTlsCertificate_sds(TypedDict, closed=True):
     sds: "aws_sdk_app_mesh.types.virtual_gateway_listener_tls_sds_certificate.VirtualGatewayListenerTlsSdsCertificate"
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GetLogRecordResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.log_record
 
 
-class GetLogRecordResponse(TypedDict):
+class GetLogRecordResponse(TypedDict, closed=True):
     log_record: NotRequired["aws_sdk_cloudwatch_logs.types.log_record.LogRecord"]
     """<p>The requested log event, as a JSON string.</p>"""
 

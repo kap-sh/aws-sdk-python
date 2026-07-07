@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#StartRemoteMoveRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.file_path
 
 
-class StartRemoteMoveRequest(TypedDict):
+class StartRemoteMoveRequest(TypedDict, closed=True):
     connector_id: "aws_sdk_transfer.types.connector_id.ConnectorId"
     """<p>The unique identifier for the connector.</p>"""
     source_path: "aws_sdk_transfer.types.file_path.FilePath"

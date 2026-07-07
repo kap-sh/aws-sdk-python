@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#UpdateIndexingRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class UpdateIndexingRuleRequest(TypedDict):
+class UpdateIndexingRuleRequest(TypedDict, closed=True):
     name: "aws_sdk_xray.types.string.String"
     """<p> Name of the indexing rule to be updated. </p>"""
     rule: "aws_sdk_xray.types.indexing_rule_value_update.IndexingRuleValueUpdate"

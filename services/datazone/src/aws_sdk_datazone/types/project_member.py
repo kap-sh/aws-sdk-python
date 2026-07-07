@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ProjectMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.user_designation
 
 
-class ProjectMember(TypedDict):
+class ProjectMember(TypedDict, closed=True):
     member_details: "aws_sdk_datazone.types.member_details.MemberDetails"
     """<p>The membership details of a project member.</p>"""
     designation: "aws_sdk_datazone.types.user_designation.UserDesignation"

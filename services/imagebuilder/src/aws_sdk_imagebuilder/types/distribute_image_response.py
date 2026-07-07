@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#DistributeImageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.client_token
     import aws_sdk_imagebuilder.types.image_build_version_arn
 
 
-class DistributeImageResponse(TypedDict):
+class DistributeImageResponse(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_imagebuilder.types.client_token.ClientToken"]
     """<p>The client token that uniquely identifies the request.</p>"""
     image_build_version_arn: NotRequired[

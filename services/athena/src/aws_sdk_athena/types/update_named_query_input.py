@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#UpdateNamedQueryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.query_string
 
 
-class UpdateNamedQueryInput(TypedDict):
+class UpdateNamedQueryInput(TypedDict, closed=True):
     named_query_id: "aws_sdk_athena.types.named_query_id.NamedQueryId"
     """<p>The unique identifier (UUID) of the query.</p>"""
     name: "aws_sdk_athena.types.name_string.NameString"

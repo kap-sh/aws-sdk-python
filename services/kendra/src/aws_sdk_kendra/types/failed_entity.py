@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#FailedEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.entity_id
     import aws_sdk_kendra.types.error_message
 
 
-class FailedEntity(TypedDict):
+class FailedEntity(TypedDict, closed=True):
     entity_id: NotRequired["aws_sdk_kendra.types.entity_id.EntityId"]
     """<p>The identifier of the user or group in your IAM Identity Center identity source. For example, a user ID could be an email.</p>"""
     error_message: NotRequired["aws_sdk_kendra.types.error_message.ErrorMessage"]

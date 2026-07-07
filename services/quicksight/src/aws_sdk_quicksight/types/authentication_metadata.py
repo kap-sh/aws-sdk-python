@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AuthenticationMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -13,31 +15,31 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.none_connection_metadata
 
 
-class _AuthenticationMetadata_AuthorizationCodeGrantMetadata(TypedDict):
+class _AuthenticationMetadata_AuthorizationCodeGrantMetadata(TypedDict, closed=True):
     AuthorizationCodeGrantMetadata: "aws_sdk_quicksight.types.authorization_code_grant_metadata.AuthorizationCodeGrantMetadata"
 
 
-class _AuthenticationMetadata_ClientCredentialsGrantMetadata(TypedDict):
+class _AuthenticationMetadata_ClientCredentialsGrantMetadata(TypedDict, closed=True):
     ClientCredentialsGrantMetadata: "aws_sdk_quicksight.types.client_credentials_grant_metadata.ClientCredentialsGrantMetadata"
 
 
-class _AuthenticationMetadata_BasicAuthConnectionMetadata(TypedDict):
+class _AuthenticationMetadata_BasicAuthConnectionMetadata(TypedDict, closed=True):
     BasicAuthConnectionMetadata: "aws_sdk_quicksight.types.basic_auth_connection_metadata.BasicAuthConnectionMetadata"
 
 
-class _AuthenticationMetadata_ApiKeyConnectionMetadata(TypedDict):
+class _AuthenticationMetadata_ApiKeyConnectionMetadata(TypedDict, closed=True):
     ApiKeyConnectionMetadata: (
         "aws_sdk_quicksight.types.api_key_connection_metadata.APIKeyConnectionMetadata"
     )
 
 
-class _AuthenticationMetadata_NoneConnectionMetadata(TypedDict):
+class _AuthenticationMetadata_NoneConnectionMetadata(TypedDict, closed=True):
     NoneConnectionMetadata: (
         "aws_sdk_quicksight.types.none_connection_metadata.NoneConnectionMetadata"
     )
 
 
-class _AuthenticationMetadata_IamConnectionMetadata(TypedDict):
+class _AuthenticationMetadata_IamConnectionMetadata(TypedDict, closed=True):
     IamConnectionMetadata: (
         "aws_sdk_quicksight.types.iam_connection_metadata.IAMConnectionMetadata"
     )

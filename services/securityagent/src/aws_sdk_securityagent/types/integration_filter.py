@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#IntegrationFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.provider_type
 
 
-class _IntegrationFilter_provider(TypedDict):
+class _IntegrationFilter_provider(TypedDict, closed=True):
     provider: "aws_sdk_securityagent.types.provider.Provider"
 
 
-class _IntegrationFilter_providerType(TypedDict):
+class _IntegrationFilter_providerType(TypedDict, closed=True):
     providerType: "aws_sdk_securityagent.types.provider_type.ProviderType"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#AnalyticsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.storage_class_analysis
 
 
-class AnalyticsConfiguration(TypedDict):
+class AnalyticsConfiguration(TypedDict, closed=True):
     id: "aws_sdk_s3.types.analytics_id.AnalyticsId"
     """<p>The ID that identifies the analytics configuration.</p>"""
     filter: NotRequired["aws_sdk_s3.types.analytics_filter.AnalyticsFilter"]

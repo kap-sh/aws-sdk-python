@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#LexiconAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.alphabet
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.size
 
 
-class LexiconAttributes(TypedDict):
+class LexiconAttributes(TypedDict, closed=True):
     alphabet: NotRequired["aws_sdk_polly.types.alphabet.Alphabet"]
     """<p>Phonetic alphabet used in the lexicon. Valid values are <code>ipa</code> and <code>x-sampa</code>.</p>"""
     language_code: NotRequired["aws_sdk_polly.types.language_code.LanguageCode"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ResourceSyncEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class ResourceSyncEvent(TypedDict):
+class ResourceSyncEvent(TypedDict, closed=True):
     type: "str"
     """<p>The type of event.</p>"""
     external_id: NotRequired["str"]

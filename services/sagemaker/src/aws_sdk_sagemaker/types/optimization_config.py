@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#OptimizationConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError, SerializationError
 
@@ -11,25 +13,25 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_speculative_decoding_config
 
 
-class _OptimizationConfig_ModelQuantizationConfig(TypedDict):
+class _OptimizationConfig_ModelQuantizationConfig(TypedDict, closed=True):
     ModelQuantizationConfig: (
         "aws_sdk_sagemaker.types.model_quantization_config.ModelQuantizationConfig"
     )
 
 
-class _OptimizationConfig_ModelCompilationConfig(TypedDict):
+class _OptimizationConfig_ModelCompilationConfig(TypedDict, closed=True):
     ModelCompilationConfig: (
         "aws_sdk_sagemaker.types.model_compilation_config.ModelCompilationConfig"
     )
 
 
-class _OptimizationConfig_ModelShardingConfig(TypedDict):
+class _OptimizationConfig_ModelShardingConfig(TypedDict, closed=True):
     ModelShardingConfig: (
         "aws_sdk_sagemaker.types.model_sharding_config.ModelShardingConfig"
     )
 
 
-class _OptimizationConfig_ModelSpeculativeDecodingConfig(TypedDict):
+class _OptimizationConfig_ModelSpeculativeDecodingConfig(TypedDict, closed=True):
     ModelSpeculativeDecodingConfig: "aws_sdk_sagemaker.types.model_speculative_decoding_config.ModelSpeculativeDecodingConfig"
 
 

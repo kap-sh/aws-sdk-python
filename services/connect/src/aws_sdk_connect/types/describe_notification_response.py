@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribeNotificationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.notification
 
 
-class DescribeNotificationResponse(TypedDict):
+class DescribeNotificationResponse(TypedDict, closed=True):
     notification: "aws_sdk_connect.types.notification.Notification"
     """<p>The complete notification information including content, priority, recipients, and metadata.</p>"""
 

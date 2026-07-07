@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CapacityBytesRangeFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.capacity_bytes_range_filter_max_bytes_long
     import aws_sdk_quicksight.types.capacity_bytes_range_filter_min_bytes_long
 
 
-class CapacityBytesRangeFilter(TypedDict):
+class CapacityBytesRangeFilter(TypedDict, closed=True):
     min_bytes: NotRequired[
         "aws_sdk_quicksight.types.capacity_bytes_range_filter_min_bytes_long.CapacityBytesRangeFilterMinBytesLong"
     ]

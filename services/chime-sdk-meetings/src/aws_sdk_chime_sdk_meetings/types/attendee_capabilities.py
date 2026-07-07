@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#AttendeeCapabilities``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_meetings.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.media_capabilities
 
 
-class AttendeeCapabilities(TypedDict):
+class AttendeeCapabilities(TypedDict, closed=True):
     audio: "aws_sdk_chime_sdk_meetings.types.media_capabilities.MediaCapabilities"
     """<p>The audio capability assigned to an attendee.</p>"""
     video: "aws_sdk_chime_sdk_meetings.types.media_capabilities.MediaCapabilities"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ListS3TableIntegrationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.integration_summaries
     import aws_sdk_observabilityadmin.types.next_token
 
 
-class ListS3TableIntegrationsOutput(TypedDict):
+class ListS3TableIntegrationsOutput(TypedDict, closed=True):
     integration_summaries: NotRequired[
         "aws_sdk_observabilityadmin.types.integration_summaries.IntegrationSummaries"
     ]

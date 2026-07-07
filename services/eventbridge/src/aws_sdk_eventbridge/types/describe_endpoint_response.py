@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#DescribeEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.endpoint_arn
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.timestamp
 
 
-class DescribeEndpointResponse(TypedDict):
+class DescribeEndpointResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_eventbridge.types.endpoint_name.EndpointName"]
     """<p>The name of the endpoint you asked for information about.</p>"""
     description: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ExportJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.export_source_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class ExportJobSummary(TypedDict):
+class ExportJobSummary(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_sesv2.types.job_id.JobId"]
     """<p>The export job ID.</p>"""
     export_source_type: NotRequired[

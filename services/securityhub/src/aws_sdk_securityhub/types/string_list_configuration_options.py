@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#StringListConfigurationOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_list
 
 
-class StringListConfigurationOptions(TypedDict):
+class StringListConfigurationOptions(TypedDict, closed=True):
     default_value: NotRequired["aws_sdk_securityhub.types.string_list.StringList"]
     """<p> The Security Hub CSPM default value for a control parameter that is a list of strings. </p>"""
     re2_expression: NotRequired[

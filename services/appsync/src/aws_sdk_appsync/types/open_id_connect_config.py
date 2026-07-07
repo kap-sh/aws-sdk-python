@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#OpenIDConnectConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class OpenIDConnectConfig(TypedDict):
+class OpenIDConnectConfig(TypedDict, closed=True):
     issuer: "aws_sdk_appsync.types.string.String"
     """<p>The issuer for the OIDC configuration. The issuer returned by discovery must exactly match the value of <code>iss</code> in the ID token.</p>"""
     client_id: NotRequired["aws_sdk_appsync.types.string.String"]

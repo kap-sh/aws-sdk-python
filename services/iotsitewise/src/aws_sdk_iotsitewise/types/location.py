@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.string
 
 
-class Location(TypedDict):
+class Location(TypedDict, closed=True):
     uri: NotRequired["aws_sdk_iotsitewise.types.string.String"]
     """<p>The URI of the location.</p>"""
 

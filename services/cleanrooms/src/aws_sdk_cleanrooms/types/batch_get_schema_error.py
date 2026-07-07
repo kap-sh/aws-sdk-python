@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#BatchGetSchemaError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.table_alias
 
 
-class BatchGetSchemaError(TypedDict):
+class BatchGetSchemaError(TypedDict, closed=True):
     name: "aws_sdk_cleanrooms.types.table_alias.TableAlias"
     """<p>An error name for the error.</p>"""
     code: "str"

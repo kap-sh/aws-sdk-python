@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#UpdateApprovalTeamResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class UpdateApprovalTeamResponse(TypedDict):
+class UpdateApprovalTeamResponse(TypedDict, closed=True):
     version_id: NotRequired["aws_sdk_mpa.types.string.String"]
     """<p>Version ID for the team that was created. When an approval team is updated, the version ID changes.</p>"""
 

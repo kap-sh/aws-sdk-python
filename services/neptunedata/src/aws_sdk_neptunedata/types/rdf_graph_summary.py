@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#RDFGraphSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.classes
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.subject_structures
 
 
-class RDFGraphSummary(TypedDict):
+class RDFGraphSummary(TypedDict, closed=True):
     num_distinct_subjects: NotRequired["int"]
     """<p>The number of distinct subjects in the graph.</p>"""
     num_distinct_predicates: NotRequired["int"]

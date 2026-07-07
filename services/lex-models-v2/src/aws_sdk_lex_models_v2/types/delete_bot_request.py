@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DeleteBotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
     import aws_sdk_lex_models_v2.types.skip_resource_in_use_check
 
 
-class DeleteBotRequest(TypedDict):
+class DeleteBotRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The identifier of the bot to delete. </p>"""
     skip_resource_in_use_check: (

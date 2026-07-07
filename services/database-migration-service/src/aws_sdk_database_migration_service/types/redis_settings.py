@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#RedisSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class RedisSettings(TypedDict):
+class RedisSettings(TypedDict, closed=True):
     server_name: "aws_sdk_database_migration_service.types.string.String"
     """<p>Fully qualified domain name of the endpoint.</p>"""
     port: "aws_sdk_database_migration_service.types.integer.Integer"

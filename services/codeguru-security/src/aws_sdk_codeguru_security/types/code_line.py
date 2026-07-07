@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#CodeLine``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CodeLine(TypedDict):
+class CodeLine(TypedDict, closed=True):
     number: NotRequired["int"]
     """<p>The code line number.</p>"""
     content: NotRequired["str"]

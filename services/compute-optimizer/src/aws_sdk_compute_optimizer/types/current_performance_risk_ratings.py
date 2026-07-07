@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#CurrentPerformanceRiskRatings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.high
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.very_low
 
 
-class CurrentPerformanceRiskRatings(TypedDict):
+class CurrentPerformanceRiskRatings(TypedDict, closed=True):
     high: "aws_sdk_compute_optimizer.types.high.High"
     """<p>A count of the applicable resource types with a high performance risk rating.</p>"""
     medium: "aws_sdk_compute_optimizer.types.medium.Medium"

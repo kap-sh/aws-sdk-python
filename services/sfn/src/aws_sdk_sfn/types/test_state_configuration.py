@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#TestStateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.map_iteration_failure_count
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.test_state_state_name
 
 
-class TestStateConfiguration(TypedDict):
+class TestStateConfiguration(TypedDict, closed=True):
     retrier_retry_count: NotRequired[
         "aws_sdk_sfn.types.retrier_retry_count.RetrierRetryCount"
     ]

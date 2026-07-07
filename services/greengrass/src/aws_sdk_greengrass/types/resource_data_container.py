@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ResourceDataContainer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.local_device_resource_data
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrass.types.secrets_manager_secret_resource_data
 
 
-class ResourceDataContainer(TypedDict):
+class ResourceDataContainer(TypedDict, closed=True):
     local_device_resource_data: NotRequired[
         "aws_sdk_greengrass.types.local_device_resource_data.LocalDeviceResourceData"
     ]

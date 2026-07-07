@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#LakeFormationOptInsInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.condition
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.resource
 
 
-class LakeFormationOptInsInfo(TypedDict):
+class LakeFormationOptInsInfo(TypedDict, closed=True):
     resource: NotRequired["aws_sdk_lakeformation.types.resource.Resource"]
     principal: NotRequired[
         "aws_sdk_lakeformation.types.data_lake_principal.DataLakePrincipal"

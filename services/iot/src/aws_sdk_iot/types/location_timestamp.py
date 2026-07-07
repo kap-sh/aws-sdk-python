@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#LocationTimestamp``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.string
 
 
-class LocationTimestamp(TypedDict):
+class LocationTimestamp(TypedDict, closed=True):
     value: "aws_sdk_iot.types.string.String"
     """<p>An expression that returns a long epoch time value.</p>"""
     unit: NotRequired["aws_sdk_iot.types.string.String"]

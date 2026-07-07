@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SuggestionValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.suggestion_text_with_highlights
 
 
-class SuggestionValue(TypedDict):
+class SuggestionValue(TypedDict, closed=True):
     text: NotRequired[
         "aws_sdk_kendra.types.suggestion_text_with_highlights.SuggestionTextWithHighlights"
     ]

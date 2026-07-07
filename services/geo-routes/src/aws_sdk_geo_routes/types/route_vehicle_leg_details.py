@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteVehicleLegDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.truck_road_type_list
 
 
-class RouteVehicleLegDetails(TypedDict):
+class RouteVehicleLegDetails(TypedDict, closed=True):
     after_travel_steps: "aws_sdk_geo_routes.types.route_vehicle_after_travel_step_list.RouteVehicleAfterTravelStepList"
     """<p>Steps of a leg that must be performed after the travel portion of the leg.</p>"""
     arrival: "aws_sdk_geo_routes.types.route_vehicle_arrival.RouteVehicleArrival"

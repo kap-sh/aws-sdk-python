@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#Messages``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_string
 
 
-class Messages(TypedDict):
+class Messages(TypedDict, closed=True):
     errors: NotRequired["aws_sdk_mediaconnect.types.__list_of_string.__listOfString"]
     """<p> A list of errors that might have been generated from processes on this flow.</p>"""
 

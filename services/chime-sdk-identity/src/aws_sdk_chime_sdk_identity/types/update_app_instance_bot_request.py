@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#UpdateAppInstanceBotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_identity.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.resource_name
 
 
-class UpdateAppInstanceBotRequest(TypedDict):
+class UpdateAppInstanceBotRequest(TypedDict, closed=True):
     app_instance_bot_arn: "aws_sdk_chime_sdk_identity.types.chime_arn.ChimeArn"
     """<p>The ARN of the <code>AppInstanceBot</code>.</p>"""
     name: "aws_sdk_chime_sdk_identity.types.resource_name.ResourceName"

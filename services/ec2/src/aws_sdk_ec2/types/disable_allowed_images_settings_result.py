@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DisableAllowedImagesSettingsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.allowed_images_settings_disabled_state
 
 
-class DisableAllowedImagesSettingsResult(TypedDict):
+class DisableAllowedImagesSettingsResult(TypedDict, closed=True):
     allowed_images_settings_state: NotRequired[
         "aws_sdk_ec2.types.allowed_images_settings_disabled_state.AllowedImagesSettingsDisabledState"
     ]

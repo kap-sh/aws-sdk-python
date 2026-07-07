@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#CreateEventStreamResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.tag_map
 
 
-class CreateEventStreamResponse(TypedDict):
+class CreateEventStreamResponse(TypedDict, closed=True):
     event_stream_arn: "aws_sdk_customer_profiles.types.string1_to255.string1To255"
     """<p>A unique identifier for the event stream.</p>"""
     tags: NotRequired["aws_sdk_customer_profiles.types.tag_map.TagMap"]

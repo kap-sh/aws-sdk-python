@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#DeleteChannelNamespaceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteChannelNamespaceResponse(TypedDict):
+class DeleteChannelNamespaceResponse(TypedDict, closed=True):
     pass
 
 

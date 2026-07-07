@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#ListBackendJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
     import aws_sdk_amplifybackend.types.list_of_backend_job_resp_obj
 
 
-class ListBackendJobsResponse(TypedDict):
+class ListBackendJobsResponse(TypedDict, closed=True):
     jobs: NotRequired[
         "aws_sdk_amplifybackend.types.list_of_backend_job_resp_obj.ListOfBackendJobRespObj"
     ]

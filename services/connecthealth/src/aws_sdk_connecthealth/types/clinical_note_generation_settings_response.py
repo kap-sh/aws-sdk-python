@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#ClinicalNoteGenerationSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.note_template_settings_response
 
 
-class ClinicalNoteGenerationSettingsResponse(TypedDict):
+class ClinicalNoteGenerationSettingsResponse(TypedDict, closed=True):
     note_template_settings: NotRequired[
         "aws_sdk_connecthealth.types.note_template_settings_response.NoteTemplateSettingsResponse"
     ]

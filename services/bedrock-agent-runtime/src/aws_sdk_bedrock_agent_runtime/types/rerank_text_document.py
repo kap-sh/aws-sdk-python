@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RerankTextDocument``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RerankTextDocument(TypedDict):
+class RerankTextDocument(TypedDict, closed=True):
     text: NotRequired["str"]
     """<p>The text of the document.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#FulfillmentActivity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.fulfillment_activity_type
 
 
-class FulfillmentActivity(TypedDict):
+class FulfillmentActivity(TypedDict, closed=True):
     type: "aws_sdk_lex_model_building_service.types.fulfillment_activity_type.FulfillmentActivityType"
     """<p> How the intent should be fulfilled, either by running a Lambda function or by returning the slot data to the client application. </p>"""
     code_hook: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#SubnetMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.subnet_id
 
 
-class SubnetMapping(TypedDict):
+class SubnetMapping(TypedDict, closed=True):
     subnet_id: NotRequired["aws_sdk_elastic_load_balancing_v2.types.subnet_id.SubnetId"]
     """<p>The ID of the subnet.</p>"""
     allocation_id: NotRequired[

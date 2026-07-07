@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#CreateServiceLinkedAnalyzerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.type
 
 
-class CreateServiceLinkedAnalyzerRequest(TypedDict):
+class CreateServiceLinkedAnalyzerRequest(TypedDict, closed=True):
     type: "aws_sdk_accessanalyzer.types.type.Type"
     """<p>The type of analyzer to create. Valid values are <code>ACCOUNT_UNUSED_ACCESS</code> and <code>ORGANIZATION_UNUSED_ACCESS</code>.</p>"""
     archive_rules: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#CreateBillOfMaterialsImportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.uuid
 
 
-class CreateBillOfMaterialsImportJobResponse(TypedDict):
+class CreateBillOfMaterialsImportJobResponse(TypedDict, closed=True):
     job_id: "aws_sdk_supplychain.types.uuid.UUID"
     """<p>The new BillOfMaterialsImportJob identifier.</p>"""
 

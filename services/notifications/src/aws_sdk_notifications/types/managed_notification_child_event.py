@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ManagedNotificationChildEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.url
 
 
-class ManagedNotificationChildEvent(TypedDict):
+class ManagedNotificationChildEvent(TypedDict, closed=True):
     schema_version: "aws_sdk_notifications.types.schema_version.SchemaVersion"
     """<p>The schema version of the Managed Notification Child Event.</p>"""
     id: "aws_sdk_notifications.types.notification_event_id.NotificationEventId"

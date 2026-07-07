@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#NetworkMigrationAnalysisResultTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.subnet_id
     import aws_sdk_mgn.types.vpc_id
 
 
-class NetworkMigrationAnalysisResultTarget(TypedDict):
+class NetworkMigrationAnalysisResultTarget(TypedDict, closed=True):
     vpc_id: NotRequired["aws_sdk_mgn.types.vpc_id.VpcID"]
     """<p>The VPC ID of the target resource.</p>"""
     subnet_id: NotRequired["aws_sdk_mgn.types.subnet_id.SubnetID"]

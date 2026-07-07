@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#ListTagsForResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.resource_arn
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_securityagent.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>"""
 

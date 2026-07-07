@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#QualificationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.boolean
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.timestamp
 
 
-class QualificationType(TypedDict):
+class QualificationType(TypedDict, closed=True):
     qualification_type_id: NotRequired["aws_sdk_mturk.types.entity_id.EntityId"]
     """<p> A unique identifier for the Qualification type. A Qualification type is given a Qualification type ID when you call the CreateQualificationType operation. </p>"""
     creation_time: NotRequired["aws_sdk_mturk.types.timestamp.Timestamp"]

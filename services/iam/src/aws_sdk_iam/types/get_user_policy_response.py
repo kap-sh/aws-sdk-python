@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetUserPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.policy_name_type
 
 
-class GetUserPolicyResponse(TypedDict):
+class GetUserPolicyResponse(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.existing_user_name_type.existingUserNameType"
     """<p>The user the policy is associated with.</p>"""
     policy_name: "aws_sdk_iam.types.policy_name_type.policyNameType"

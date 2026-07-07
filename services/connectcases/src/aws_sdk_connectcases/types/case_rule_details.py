@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#CaseRuleDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.required_case_rule
 
 
-class _CaseRuleDetails_required(TypedDict):
+class _CaseRuleDetails_required(TypedDict, closed=True):
     required: "aws_sdk_connectcases.types.required_case_rule.RequiredCaseRule"
 
 
-class _CaseRuleDetails_fieldOptions(TypedDict):
+class _CaseRuleDetails_fieldOptions(TypedDict, closed=True):
     fieldOptions: (
         "aws_sdk_connectcases.types.field_options_case_rule.FieldOptionsCaseRule"
     )
 
 
-class _CaseRuleDetails_hidden(TypedDict):
+class _CaseRuleDetails_hidden(TypedDict, closed=True):
     hidden: "aws_sdk_connectcases.types.hidden_case_rule.HiddenCaseRule"
 
 

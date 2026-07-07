@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#GetDataSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.data_source
 
 
-class GetDataSourceResponse(TypedDict):
+class GetDataSourceResponse(TypedDict, closed=True):
     data_source: "aws_sdk_bedrock_agent.types.data_source.DataSource"
     """<p>Contains details about the data source.</p>"""
 

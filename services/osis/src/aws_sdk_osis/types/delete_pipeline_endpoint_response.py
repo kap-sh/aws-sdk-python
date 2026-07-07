@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.osis#DeletePipelineEndpointResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePipelineEndpointResponse(TypedDict):
+class DeletePipelineEndpointResponse(TypedDict, closed=True):
     pass
 
 

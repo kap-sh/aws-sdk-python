@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#LogSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.destination
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.resource_prefix
 
 
-class LogSettingsResponse(TypedDict):
+class LogSettingsResponse(TypedDict, closed=True):
     log_type: NotRequired["aws_sdk_lex_model_building_service.types.log_type.LogType"]
     """<p>The type of logging that is enabled.</p>"""
     destination: NotRequired[

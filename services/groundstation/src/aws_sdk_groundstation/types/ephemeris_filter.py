@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#EphemerisFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.az_el_ephemeris_filter
 
 
-class _EphemerisFilter_azEl(TypedDict):
+class _EphemerisFilter_azEl(TypedDict, closed=True):
     azEl: "aws_sdk_groundstation.types.az_el_ephemeris_filter.AzElEphemerisFilter"
 
 

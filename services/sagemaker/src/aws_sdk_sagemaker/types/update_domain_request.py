@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.app_network_access_type
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.vpc_id
 
 
-class UpdateDomainRequest(TypedDict):
+class UpdateDomainRequest(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_sagemaker.types.domain_id.DomainId"]
     """<p>The ID of the domain to be updated.</p>"""
     default_user_settings: NotRequired[

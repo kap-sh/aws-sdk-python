@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#MetricsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.metrics_id
 
 
-class MetricsConfiguration(TypedDict):
+class MetricsConfiguration(TypedDict, closed=True):
     id: "aws_sdk_s3.types.metrics_id.MetricsId"
     """<p>The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.</p>"""
     filter: NotRequired["aws_sdk_s3.types.metrics_filter.MetricsFilter"]

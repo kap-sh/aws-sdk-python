@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#HistoricalMetricData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.historical_metric
     import aws_sdk_connect.types.value
 
 
-class HistoricalMetricData(TypedDict):
+class HistoricalMetricData(TypedDict, closed=True):
     metric: NotRequired["aws_sdk_connect.types.historical_metric.HistoricalMetric"]
     """<p>Information about the metric.</p>"""
     value: NotRequired["aws_sdk_connect.types.value.Value"]

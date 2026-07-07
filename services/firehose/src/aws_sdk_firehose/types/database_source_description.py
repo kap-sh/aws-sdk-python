@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#DatabaseSourceDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.database_column_include_or_exclude_list
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.ssl_mode
 
 
-class DatabaseSourceDescription(TypedDict):
+class DatabaseSourceDescription(TypedDict, closed=True):
     type: NotRequired["aws_sdk_firehose.types.database_type.DatabaseType"]
     """<p>The type of database engine. This can be one of the following values. </p> <ul> <li> <p>MySQL</p> </li> <li> <p>PostgreSQL</p> </li> </ul> <p>Amazon Data Firehose is in preview release and is subject to change.</p>"""
     endpoint: NotRequired["aws_sdk_firehose.types.database_endpoint.DatabaseEndpoint"]

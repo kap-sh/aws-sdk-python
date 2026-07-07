@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservicedata#Member``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service_data.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service_data.types.sid
 
 
-class Member(TypedDict):
+class Member(TypedDict, closed=True):
     sid: "aws_sdk_directory_service_data.types.sid.SID"
     """<p> The unique security identifier (SID) of the group member. </p>"""
     sam_account_name: "aws_sdk_directory_service_data.types.member_name.MemberName"

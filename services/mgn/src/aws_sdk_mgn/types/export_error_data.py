@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ExportErrorData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.large_bounded_string
 
 
-class ExportErrorData(TypedDict):
+class ExportErrorData(TypedDict, closed=True):
     raw_error: NotRequired["aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"]
     """<p>Export errors data raw error.</p>"""
 

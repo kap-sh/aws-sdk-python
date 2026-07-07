@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#AccessPoliciesStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.policy_document
 
 
-class AccessPoliciesStatus(TypedDict):
+class AccessPoliciesStatus(TypedDict, closed=True):
     options: "aws_sdk_elasticsearch_service.types.policy_document.PolicyDocument"
     r"""<p>The access policy configured for the Elasticsearch domain. Access policies may be resource-based, IP-based, or IAM-based. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies\" target=\"_blank\"> Configuring Access Policies</a>for more information.</p>"""
     status: "aws_sdk_elasticsearch_service.types.option_status.OptionStatus"

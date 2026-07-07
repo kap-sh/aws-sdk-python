@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#LogPublishingOptionsStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.log_publishing_options
     import aws_sdk_elasticsearch_service.types.option_status
 
 
-class LogPublishingOptionsStatus(TypedDict):
+class LogPublishingOptionsStatus(TypedDict, closed=True):
     options: NotRequired[
         "aws_sdk_elasticsearch_service.types.log_publishing_options.LogPublishingOptions"
     ]

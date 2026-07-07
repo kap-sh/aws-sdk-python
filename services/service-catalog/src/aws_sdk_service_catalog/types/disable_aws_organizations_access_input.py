@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#DisableAWSOrganizationsAccessInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisableAWSOrganizationsAccessInput(TypedDict):
+class DisableAWSOrganizationsAccessInput(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeOutpostLagsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeOutpostLagsResult(TypedDict):
+class DescribeOutpostLagsResult(TypedDict, closed=True):
     outpost_lags: NotRequired["aws_sdk_ec2.types.outpost_lag_set.OutpostLagSet"]
     """<p>The Outpost LAGs.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]

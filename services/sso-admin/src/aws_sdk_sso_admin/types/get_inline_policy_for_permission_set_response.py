@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#GetInlinePolicyForPermissionSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.permission_set_policy_document
 
 
-class GetInlinePolicyForPermissionSetResponse(TypedDict):
+class GetInlinePolicyForPermissionSetResponse(TypedDict, closed=True):
     inline_policy: NotRequired[
         "aws_sdk_sso_admin.types.permission_set_policy_document.PermissionSetPolicyDocument"
     ]

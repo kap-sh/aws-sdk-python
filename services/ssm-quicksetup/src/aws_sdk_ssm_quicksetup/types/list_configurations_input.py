@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#ListConfigurationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.filters_list
 
 
-class ListConfigurationsInput(TypedDict):
+class ListConfigurationsInput(TypedDict, closed=True):
     starting_token: NotRequired["str"]
     """<p>The token to use when requesting a specific set of items from a list.</p>"""
     max_items: NotRequired["int"]

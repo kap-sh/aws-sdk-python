@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#Setting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.directory_configuration_setting_value
 
 
-class Setting(TypedDict):
+class Setting(TypedDict, closed=True):
     name: "aws_sdk_directory_service.types.directory_configuration_setting_name.DirectoryConfigurationSettingName"
     """<p>The name of the directory setting. For example:</p> <p> <code>TLS_1_0</code> </p>"""
     value: "aws_sdk_directory_service.types.directory_configuration_setting_value.DirectoryConfigurationSettingValue"

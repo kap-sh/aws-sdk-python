@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#UpdateAssertionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.assertion
 
 
-class UpdateAssertionResponse(TypedDict):
+class UpdateAssertionResponse(TypedDict, closed=True):
     assertion: "aws_sdk_resiliencehubv2.types.assertion.Assertion"
     """<p>The updated assertion.</p>"""
 

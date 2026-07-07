@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#DescribeApplicationAssignmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.application_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.principal_type
 
 
-class DescribeApplicationAssignmentResponse(TypedDict):
+class DescribeApplicationAssignmentResponse(TypedDict, closed=True):
     principal_type: NotRequired["aws_sdk_sso_admin.types.principal_type.PrincipalType"]
     """<p>The entity type for which the assignment will be created.</p>"""
     principal_id: NotRequired["aws_sdk_sso_admin.types.principal_id.PrincipalId"]

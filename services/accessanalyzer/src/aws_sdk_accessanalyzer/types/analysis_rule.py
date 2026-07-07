@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#AnalysisRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.analysis_rule_criteria_list
 
 
-class AnalysisRule(TypedDict):
+class AnalysisRule(TypedDict, closed=True):
     exclusions: NotRequired[
         "aws_sdk_accessanalyzer.types.analysis_rule_criteria_list.AnalysisRuleCriteriaList"
     ]

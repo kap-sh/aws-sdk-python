@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateDocumentResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.document_description
 
 
-class UpdateDocumentResult(TypedDict):
+class UpdateDocumentResult(TypedDict, closed=True):
     document_description: NotRequired[
         "aws_sdk_ssm.types.document_description.DocumentDescription"
     ]

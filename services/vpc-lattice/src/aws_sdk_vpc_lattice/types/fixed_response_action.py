@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#FixedResponseAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.http_status_code
 
 
-class FixedResponseAction(TypedDict):
+class FixedResponseAction(TypedDict, closed=True):
     status_code: "aws_sdk_vpc_lattice.types.http_status_code.HttpStatusCode"
     """<p>The HTTP response code. Only <code>404</code> and <code>500</code> status codes are supported.</p>"""
 

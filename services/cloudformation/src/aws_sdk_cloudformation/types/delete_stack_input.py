@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#DeleteStackInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.stack_name
 
 
-class DeleteStackInput(TypedDict):
+class DeleteStackInput(TypedDict, closed=True):
     stack_name: NotRequired["aws_sdk_cloudformation.types.stack_name.StackName"]
     """<p>The name or the unique stack ID that's associated with the stack.</p>"""
     retain_resources: NotRequired[

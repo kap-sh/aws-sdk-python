@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeAttachmentLimitExceeded``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_support.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.error_message
 
 
-class DescribeAttachmentLimitExceeded_(TypedDict):
+class DescribeAttachmentLimitExceeded_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_support.types.error_message.ErrorMessage"]
     """<p>The limit for the number of <a>DescribeAttachment</a> requests in a short period of time has been exceeded.</p>"""
 

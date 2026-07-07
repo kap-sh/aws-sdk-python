@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.magnus.controlplane#CfnKeyItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.resource_policy
 
 
-class CfnKeyItem(TypedDict):
+class CfnKeyItem(TypedDict, closed=True):
     policy: NotRequired[
         "aws_sdk_payment_cryptography.types.resource_policy.ResourcePolicy"
     ]

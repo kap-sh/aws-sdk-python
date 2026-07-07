@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeCommunicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_support.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.next_token
 
 
-class DescribeCommunicationsRequest(TypedDict):
+class DescribeCommunicationsRequest(TypedDict, closed=True):
     case_id: "aws_sdk_support.types.case_id.CaseId"
     """<p>The support case ID requested or returned in the call. The case ID is an alphanumeric string formatted as shown in this example: case-<i>12345678910-2013-c4c1d2bf33c5cf47</i> </p>"""
     before_time: NotRequired["aws_sdk_support.types.before_time.BeforeTime"]

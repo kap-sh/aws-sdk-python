@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#Input``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.data_catalog_input_definition
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.s3_location
 
 
-class Input(TypedDict):
+class Input(TypedDict, closed=True):
     s3_input_definition: NotRequired["aws_sdk_databrew.types.s3_location.S3Location"]
     """<p>The Amazon S3 location where the data is stored.</p>"""
     data_catalog_input_definition: NotRequired[

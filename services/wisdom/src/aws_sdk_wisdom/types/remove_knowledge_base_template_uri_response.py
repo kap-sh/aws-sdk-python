@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#RemoveKnowledgeBaseTemplateUriResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveKnowledgeBaseTemplateUriResponse(TypedDict):
+class RemoveKnowledgeBaseTemplateUriResponse(TypedDict, closed=True):
     pass
 
 

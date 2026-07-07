@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UserDataFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agents_min_one_max_hundred
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.user_data_hierarchy_groups
 
 
-class UserDataFilters(TypedDict):
+class UserDataFilters(TypedDict, closed=True):
     queues: NotRequired["aws_sdk_connect.types.queues.Queues"]
     """<p>A list of up to 100 queues or ARNs.</p>"""
     contact_filter: NotRequired["aws_sdk_connect.types.contact_filter.ContactFilter"]

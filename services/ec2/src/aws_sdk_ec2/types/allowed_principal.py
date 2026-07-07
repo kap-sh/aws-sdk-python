@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AllowedPrincipal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class AllowedPrincipal(TypedDict):
+class AllowedPrincipal(TypedDict, closed=True):
     principal_type: NotRequired["aws_sdk_ec2.types.principal_type.PrincipalType"]
     """<p>The type of principal.</p>"""
     principal: NotRequired["aws_sdk_ec2.types.string.String"]

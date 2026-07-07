@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ImportVmImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.version_number
 
 
-class ImportVmImageRequest(TypedDict):
+class ImportVmImageRequest(TypedDict, closed=True):
     name: "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
     """<p>The name of the base image that is created by the import process.</p>"""
     semantic_version: "aws_sdk_imagebuilder.types.version_number.VersionNumber"

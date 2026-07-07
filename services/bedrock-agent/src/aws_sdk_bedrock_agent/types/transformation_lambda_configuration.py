@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#TransformationLambdaConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.lambda_arn
 
 
-class TransformationLambdaConfiguration(TypedDict):
+class TransformationLambdaConfiguration(TypedDict, closed=True):
     lambda_arn: "aws_sdk_bedrock_agent.types.lambda_arn.LambdaArn"
     """<p>The function's ARN identifier.</p>"""
 

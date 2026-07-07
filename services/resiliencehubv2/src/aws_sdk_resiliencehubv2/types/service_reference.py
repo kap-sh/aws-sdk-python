@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ServiceReference``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ServiceReference(TypedDict):
+class ServiceReference(TypedDict, closed=True):
     service_id: NotRequired["str"]
     """<p>The identifier of the referenced service.</p>"""
     service_name: NotRequired["str"]

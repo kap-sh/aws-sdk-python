@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#UpdateContentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.content_data
 
 
-class UpdateContentResponse(TypedDict):
+class UpdateContentResponse(TypedDict, closed=True):
     content: NotRequired["aws_sdk_wisdom.types.content_data.ContentData"]
     """<p>The content.</p>"""
 

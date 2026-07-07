@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#MappingRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.mapping_rule_match_type
 
 
-class MappingRule(TypedDict):
+class MappingRule(TypedDict, closed=True):
     claim: "aws_sdk_cognito_identity.types.claim_name.ClaimName"
     r"""<p>The claim name that must be present in the token, for example, \"isAdmin\" or \"paid\".</p>"""
     match_type: (

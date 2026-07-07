@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAppSyncGraphQlApiDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_app_sync_graph_ql_api_additional_authentication_providers_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsAppSyncGraphQlApiDetails(TypedDict):
+class AwsAppSyncGraphQlApiDetails(TypedDict, closed=True):
     api_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The unique identifier for the API. </p>"""
     id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ThumbnailConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.thumbnail_state
 
 
-class ThumbnailConfiguration(TypedDict):
+class ThumbnailConfiguration(TypedDict, closed=True):
     state: NotRequired["aws_sdk_medialive.types.thumbnail_state.ThumbnailState"]
     """Enables the thumbnail feature. The feature generates thumbnails of the incoming video in each pipeline in the channel. AUTO turns the feature on, DISABLE turns the feature off."""
 

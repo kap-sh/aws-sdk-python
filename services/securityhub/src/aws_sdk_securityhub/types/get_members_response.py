@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetMembersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.member_list
     import aws_sdk_securityhub.types.result_list
 
 
-class GetMembersResponse(TypedDict):
+class GetMembersResponse(TypedDict, closed=True):
     members: NotRequired["aws_sdk_securityhub.types.member_list.MemberList"]
     """<p>The list of details about the Security Hub CSPM member accounts.</p>"""
     unprocessed_accounts: NotRequired[

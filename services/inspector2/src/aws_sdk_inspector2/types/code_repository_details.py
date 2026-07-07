@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CodeRepositoryDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.code_repository_integration_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.code_repository_provider_type
 
 
-class CodeRepositoryDetails(TypedDict):
+class CodeRepositoryDetails(TypedDict, closed=True):
     project_name: NotRequired[
         "aws_sdk_inspector2.types.code_repository_project_name.CodeRepositoryProjectName"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#StorageGatewayError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.error_code
     import aws_sdk_storage_gateway.types.error_details
 
 
-class StorageGatewayError(TypedDict):
+class StorageGatewayError(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_storage_gateway.types.error_code.ErrorCode"]
     """<p>Additional information about the error.</p>"""
     error_details: NotRequired[

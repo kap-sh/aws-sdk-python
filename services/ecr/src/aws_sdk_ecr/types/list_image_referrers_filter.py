@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ListImageReferrersFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.artifact_status_filter
     import aws_sdk_ecr.types.artifact_type_list
 
 
-class ListImageReferrersFilter(TypedDict):
+class ListImageReferrersFilter(TypedDict, closed=True):
     artifact_types: NotRequired["aws_sdk_ecr.types.artifact_type_list.ArtifactTypeList"]
     """<p>The artifact types with which to filter your <a>ListImageReferrers</a> results.</p>"""
     artifact_status: NotRequired[

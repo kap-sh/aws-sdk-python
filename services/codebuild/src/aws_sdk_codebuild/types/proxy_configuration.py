@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ProxyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.fleet_proxy_rule_behavior
     import aws_sdk_codebuild.types.fleet_proxy_rules
 
 
-class ProxyConfiguration(TypedDict):
+class ProxyConfiguration(TypedDict, closed=True):
     default_behavior: NotRequired[
         "aws_sdk_codebuild.types.fleet_proxy_rule_behavior.FleetProxyRuleBehavior"
     ]

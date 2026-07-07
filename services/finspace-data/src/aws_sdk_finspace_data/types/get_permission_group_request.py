@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#GetPermissionGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.permission_group_id
 
 
-class GetPermissionGroupRequest(TypedDict):
+class GetPermissionGroupRequest(TypedDict, closed=True):
     permission_group_id: (
         "aws_sdk_finspace_data.types.permission_group_id.PermissionGroupId"
     )

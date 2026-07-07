@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#LambdaAuthorizerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.ttl
 
 
-class LambdaAuthorizerConfig(TypedDict):
+class LambdaAuthorizerConfig(TypedDict, closed=True):
     authorizer_result_ttl_in_seconds: "aws_sdk_appsync.types.ttl.TTL"
     """<p>The number of seconds a response should be cached for. The default is 0 seconds, which disables caching. If you don't specify a value for <code>authorizerResultTtlInSeconds</code>, the default value is used. The maximum value is one hour (3600 seconds). The Lambda function can override this by returning a <code>ttlOverride</code> key in its response.</p>"""
     authorizer_uri: "aws_sdk_appsync.types.string.String"

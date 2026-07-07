@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EndpointLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__double
     import aws_sdk_pinpoint.types.__string
 
 
-class EndpointLocation(TypedDict):
+class EndpointLocation(TypedDict, closed=True):
     city: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The name of the city where the endpoint is located.</p>"""
     country: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

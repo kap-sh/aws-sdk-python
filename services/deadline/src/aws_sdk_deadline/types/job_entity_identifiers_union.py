@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#JobEntityIdentifiersUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -11,21 +13,21 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.step_details_identifiers
 
 
-class _JobEntityIdentifiersUnion_jobDetails(TypedDict):
+class _JobEntityIdentifiersUnion_jobDetails(TypedDict, closed=True):
     jobDetails: "aws_sdk_deadline.types.job_details_identifiers.JobDetailsIdentifiers"
 
 
-class _JobEntityIdentifiersUnion_jobAttachmentDetails(TypedDict):
+class _JobEntityIdentifiersUnion_jobAttachmentDetails(TypedDict, closed=True):
     jobAttachmentDetails: "aws_sdk_deadline.types.job_attachment_details_identifiers.JobAttachmentDetailsIdentifiers"
 
 
-class _JobEntityIdentifiersUnion_stepDetails(TypedDict):
+class _JobEntityIdentifiersUnion_stepDetails(TypedDict, closed=True):
     stepDetails: (
         "aws_sdk_deadline.types.step_details_identifiers.StepDetailsIdentifiers"
     )
 
 
-class _JobEntityIdentifiersUnion_environmentDetails(TypedDict):
+class _JobEntityIdentifiersUnion_environmentDetails(TypedDict, closed=True):
     environmentDetails: "aws_sdk_deadline.types.environment_details_identifiers.EnvironmentDetailsIdentifiers"
 
 

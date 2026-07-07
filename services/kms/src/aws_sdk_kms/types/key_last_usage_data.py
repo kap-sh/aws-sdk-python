@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#KeyLastUsageData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.cloud_trail_event_id_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.kms_request_id_type
 
 
-class KeyLastUsageData(TypedDict):
+class KeyLastUsageData(TypedDict, closed=True):
     operation: NotRequired[
         "aws_sdk_kms.types.key_last_usage_tracking_operation.KeyLastUsageTrackingOperation"
     ]

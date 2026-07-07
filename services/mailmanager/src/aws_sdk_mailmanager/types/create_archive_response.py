@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#CreateArchiveResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.archive_id_string
 
 
-class CreateArchiveResponse(TypedDict):
+class CreateArchiveResponse(TypedDict, closed=True):
     archive_id: "aws_sdk_mailmanager.types.archive_id_string.ArchiveIdString"
     """<p>The unique identifier for the newly created archive.</p>"""
 

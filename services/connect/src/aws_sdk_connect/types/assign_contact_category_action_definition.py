@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AssignContactCategoryActionDefinition``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssignContactCategoryActionDefinition(TypedDict):
+class AssignContactCategoryActionDefinition(TypedDict, closed=True):
     pass
 
 

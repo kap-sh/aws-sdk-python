@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#CustomConnectorDestinationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.write_operation_type
 
 
-class CustomConnectorDestinationProperties(TypedDict):
+class CustomConnectorDestinationProperties(TypedDict, closed=True):
     entity_name: "aws_sdk_appflow.types.entity_name.EntityName"
     """<p>The entity specified in the custom connector as a destination in the flow.</p>"""
     error_handling_config: NotRequired[

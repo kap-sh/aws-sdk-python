@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#DescribeAccountSettingsInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeAccountSettingsInput(TypedDict):
+class DescribeAccountSettingsInput(TypedDict, closed=True):
     pass
 
 

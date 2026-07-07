@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#CreateQueueRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.tag_map
 
 
-class CreateQueueRequest(TypedDict):
+class CreateQueueRequest(TypedDict, closed=True):
     queue_name: "aws_sdk_sqs.types.string.String"
     """<p>The name of the new queue. The following limits apply to this name:</p> <ul> <li> <p>A queue name can have up to 80 characters.</p> </li> <li> <p>Valid values: alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</p> </li> <li> <p>A FIFO queue name must end with the <code>.fifo</code> suffix.</p> </li> </ul> <p>Queue URLs and names are case-sensitive.</p>"""
     attributes: NotRequired["aws_sdk_sqs.types.queue_attribute_map.QueueAttributeMap"]

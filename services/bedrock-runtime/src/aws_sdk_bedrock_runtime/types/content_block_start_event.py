@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ContentBlockStartEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_runtime.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.non_negative_integer
 
 
-class ContentBlockStartEvent(TypedDict):
+class ContentBlockStartEvent(TypedDict, closed=True):
     start: "aws_sdk_bedrock_runtime.types.content_block_start.ContentBlockStart"
     """<p>Start information about a content block start event. </p>"""
     content_block_index: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#CreateResiliencyPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.tag_map
 
 
-class CreateResiliencyPolicyRequest(TypedDict):
+class CreateResiliencyPolicyRequest(TypedDict, closed=True):
     policy_name: "aws_sdk_resiliencehub.types.entity_name.EntityName"
     """<p>Name of the resiliency policy.</p>"""
     policy_description: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#EnableIoTLoggingParams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.role_arn
 
 
-class EnableIoTLoggingParams(TypedDict):
+class EnableIoTLoggingParams(TypedDict, closed=True):
     role_arn_for_logging: "aws_sdk_iot.types.role_arn.RoleArn"
     """<p>The Amazon Resource Name (ARN) of the IAM role used for logging.</p>"""
     log_level: "aws_sdk_iot.types.log_level.LogLevel"

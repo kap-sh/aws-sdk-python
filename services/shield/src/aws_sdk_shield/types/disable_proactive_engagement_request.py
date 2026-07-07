@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DisableProactiveEngagementRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisableProactiveEngagementRequest(TypedDict):
+class DisableProactiveEngagementRequest(TypedDict, closed=True):
     pass
 
 

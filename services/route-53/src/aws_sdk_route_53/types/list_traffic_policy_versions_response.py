@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ListTrafficPolicyVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.traffic_policy_version_marker
 
 
-class ListTrafficPolicyVersionsResponse(TypedDict):
+class ListTrafficPolicyVersionsResponse(TypedDict, closed=True):
     traffic_policies: "aws_sdk_route_53.types.traffic_policies.TrafficPolicies"
     """<p>A list that contains one <code>TrafficPolicy</code> element for each traffic policy version that is associated with the specified traffic policy.</p>"""
     is_truncated: "aws_sdk_route_53.types.page_truncated.PageTruncated"

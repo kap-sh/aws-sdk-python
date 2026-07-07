@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#HadoopJarStepConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.key_value_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_list
 
 
-class HadoopJarStepConfig(TypedDict):
+class HadoopJarStepConfig(TypedDict, closed=True):
     properties: NotRequired["aws_sdk_emr.types.key_value_list.KeyValueList"]
     """<p>A list of Java properties that are set when the step runs. You can use these properties to pass key-value pairs to your main function.</p>"""
     jar: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]

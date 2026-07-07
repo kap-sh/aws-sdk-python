@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmguiconnect#UpdateConnectionRecordingPreferencesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_guiconnect.types.client_token
     import aws_sdk_ssm_guiconnect.types.connection_recording_preferences
 
 
-class UpdateConnectionRecordingPreferencesResponse(TypedDict):
+class UpdateConnectionRecordingPreferencesResponse(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_ssm_guiconnect.types.client_token.ClientToken"]
     """<p>Service-provided idempotency token.</p>"""
     connection_recording_preferences: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#AggregationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.summarization_dimension_overviews
 
 
-class AggregationSummary(TypedDict):
+class AggregationSummary(TypedDict, closed=True):
     event_count: "int"
     """<p>Indicates the number of events associated with the aggregation key.</p>"""
     aggregated_by: "aws_sdk_notifications.types.aggregation_keys.AggregationKeys"

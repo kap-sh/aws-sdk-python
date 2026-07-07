@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SidewalkSendDataToDevice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.ack_mode_retry_duration_secs
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.seq
 
 
-class SidewalkSendDataToDevice(TypedDict):
+class SidewalkSendDataToDevice(TypedDict, closed=True):
     seq: NotRequired["aws_sdk_iot_wireless.types.seq.Seq"]
     """<p>The sequence number.</p>"""
     message_type: NotRequired["aws_sdk_iot_wireless.types.message_type.MessageType"]

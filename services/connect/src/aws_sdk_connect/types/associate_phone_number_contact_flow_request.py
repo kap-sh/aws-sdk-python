@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AssociatePhoneNumberContactFlowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.phone_number_id
 
 
-class AssociatePhoneNumberContactFlowRequest(TypedDict):
+class AssociatePhoneNumberContactFlowRequest(TypedDict, closed=True):
     phone_number_id: "aws_sdk_connect.types.phone_number_id.PhoneNumberId"
     """<p>A unique identifier for the phone number.</p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"

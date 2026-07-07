@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ListRuleExecutionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.next_token
     import aws_sdk_codepipeline.types.rule_execution_detail_list
 
 
-class ListRuleExecutionsOutput(TypedDict):
+class ListRuleExecutionsOutput(TypedDict, closed=True):
     rule_execution_details: NotRequired[
         "aws_sdk_codepipeline.types.rule_execution_detail_list.RuleExecutionDetailList"
     ]

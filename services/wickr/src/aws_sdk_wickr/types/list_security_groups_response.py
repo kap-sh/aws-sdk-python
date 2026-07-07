@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#ListSecurityGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
     import aws_sdk_wickr.types.security_group_list
 
 
-class ListSecurityGroupsResponse(TypedDict):
+class ListSecurityGroupsResponse(TypedDict, closed=True):
     security_groups: NotRequired[
         "aws_sdk_wickr.types.security_group_list.SecurityGroupList"
     ]

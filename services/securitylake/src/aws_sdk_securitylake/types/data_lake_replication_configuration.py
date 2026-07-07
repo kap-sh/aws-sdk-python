@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DataLakeReplicationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.region_list
     import aws_sdk_securitylake.types.role_arn
 
 
-class DataLakeReplicationConfiguration(TypedDict):
+class DataLakeReplicationConfiguration(TypedDict, closed=True):
     regions: NotRequired["aws_sdk_securitylake.types.region_list.RegionList"]
     r"""<p>Specifies one or more centralized rollup Regions. The Amazon Web Services Region specified in the <code>region</code> parameter of the <a href=\"https://docs.aws.amazon.com/security-lake/latest/APIReference/API_CreateDataLake.html\"> <code>CreateDataLake</code> </a> or <a href=\"https://docs.aws.amazon.com/security-lake/latest/APIReference/API_UpdateDataLake.html\"> <code>UpdateDataLake</code> </a> operations contributes data to the rollup Region or Regions specified in this parameter.</p> <p>Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. S3 buckets that are configured for object replication can be owned by the same Amazon Web Services account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different Regions or within the same Region as the source bucket.</p>"""
     role_arn: NotRequired["aws_sdk_securitylake.types.role_arn.RoleArn"]

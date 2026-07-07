@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#AggregateLogGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.grouping_identifiers
     import aws_sdk_cloudwatch_logs.types.log_group_count
 
 
-class AggregateLogGroupSummary(TypedDict):
+class AggregateLogGroupSummary(TypedDict, closed=True):
     log_group_count: NotRequired[
         "aws_sdk_cloudwatch_logs.types.log_group_count.LogGroupCount"
     ]

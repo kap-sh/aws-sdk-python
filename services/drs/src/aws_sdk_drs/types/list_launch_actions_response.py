@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ListLaunchActionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_actions
     import aws_sdk_drs.types.pagination_token
 
 
-class ListLaunchActionsResponse(TypedDict):
+class ListLaunchActionsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_drs.types.launch_actions.LaunchActions"]
     """<p>List of resource launch actions.</p>"""
     next_token: NotRequired["aws_sdk_drs.types.pagination_token.PaginationToken"]

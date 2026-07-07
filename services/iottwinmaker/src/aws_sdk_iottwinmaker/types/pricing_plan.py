@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#PricingPlan``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.update_reason
 
 
-class PricingPlan(TypedDict):
+class PricingPlan(TypedDict, closed=True):
     billable_entity_count: NotRequired["aws_sdk_iottwinmaker.types.long.Long"]
     """<p>The billable entity count.</p>"""
     bundle_information: NotRequired[

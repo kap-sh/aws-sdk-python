@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ConfigListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.config_arn
     import aws_sdk_groundstation.types.config_capability_type
 
 
-class ConfigListItem(TypedDict):
+class ConfigListItem(TypedDict, closed=True):
     config_id: NotRequired["str"]
     """<p>UUID of a <code>Config</code>.</p>"""
     config_type: NotRequired[

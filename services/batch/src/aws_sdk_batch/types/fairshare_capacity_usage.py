@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#FairshareCapacityUsage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.double
     import aws_sdk_batch.types.string
 
 
-class FairshareCapacityUsage(TypedDict):
+class FairshareCapacityUsage(TypedDict, closed=True):
     capacity_unit: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The unit of measure for the capacity usage. For compute jobs, this is <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS. For service jobs, this is the instance type.</p>"""
     quantity: NotRequired["aws_sdk_batch.types.double.Double"]

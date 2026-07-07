@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#CarrierLookupResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.phone_number_type
 
 
-class CarrierLookupResult(TypedDict):
+class CarrierLookupResult(TypedDict, closed=True):
     e164_phone_number: (
         "aws_sdk_pinpoint_sms_voice_v2.types.e164_phone_number_type.E164PhoneNumberType"
     )

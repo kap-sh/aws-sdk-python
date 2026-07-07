@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcontactlens#PointOfInterest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect_contact_lens.types.offset_millis
 
 
-class PointOfInterest(TypedDict):
+class PointOfInterest(TypedDict, closed=True):
     begin_offset_millis: NotRequired[
         "aws_sdk_connect_contact_lens.types.offset_millis.OffsetMillis"
     ]

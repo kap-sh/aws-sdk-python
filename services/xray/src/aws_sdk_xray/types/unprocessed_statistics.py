@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#UnprocessedStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class UnprocessedStatistics(TypedDict):
+class UnprocessedStatistics(TypedDict, closed=True):
     rule_name: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>The name of the sampling rule.</p>"""
     error_code: NotRequired["aws_sdk_xray.types.string.String"]

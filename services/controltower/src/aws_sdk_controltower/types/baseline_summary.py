@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#BaselineSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
 
-class BaselineSummary(TypedDict):
+class BaselineSummary(TypedDict, closed=True):
     arn: "str"
     """<p>The full ARN of a Baseline.</p>"""
     name: "str"

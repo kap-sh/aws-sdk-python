@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#SendConnectorEventResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.connector_id
 
 
-class SendConnectorEventResponse(TypedDict):
+class SendConnectorEventResponse(TypedDict, closed=True):
     connector_id: "aws_sdk_iot_managed_integrations.types.connector_id.ConnectorId"
     """<p>The id of the connector between the third-party cloud provider and IoT managed integrations.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#EventDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.sns_destination
 
 
-class EventDestination(TypedDict):
+class EventDestination(TypedDict, closed=True):
     name: "aws_sdk_sesv2.types.event_destination_name.EventDestinationName"
     """<p>A name that identifies the event destination.</p>"""
     enabled: "aws_sdk_sesv2.types.enabled.Enabled"

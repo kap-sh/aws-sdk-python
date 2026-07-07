@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#ExportCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.passphrase_blob
 
 
-class ExportCertificateRequest(TypedDict):
+class ExportCertificateRequest(TypedDict, closed=True):
     certificate_arn: "aws_sdk_acm.types.arn.Arn"
     """<p>An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:</p> <p> <code>arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012</code> </p>"""
     passphrase: "aws_sdk_acm.types.passphrase_blob.PassphraseBlob"

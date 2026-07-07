@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#RemoteSourceCodeAnalysisServerInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class RemoteSourceCodeAnalysisServerInfo(TypedDict):
+class RemoteSourceCodeAnalysisServerInfo(TypedDict, closed=True):
     remote_source_code_analysis_server_configuration_timestamp: NotRequired[
         "aws_sdk_migrationhubstrategy.types.string.String"
     ]

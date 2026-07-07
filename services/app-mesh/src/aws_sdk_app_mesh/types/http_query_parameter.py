@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#HttpQueryParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.query_parameter_name
 
 
-class HttpQueryParameter(TypedDict):
+class HttpQueryParameter(TypedDict, closed=True):
     name: "aws_sdk_app_mesh.types.query_parameter_name.QueryParameterName"
     """<p>A name for the query parameter that will be matched on.</p>"""
     match: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SchemaColumn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.column_name_string
     import aws_sdk_glue.types.column_type_string
 
 
-class SchemaColumn(TypedDict):
+class SchemaColumn(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.column_name_string.ColumnNameString"]
     """<p>The name of the column.</p>"""
     data_type: NotRequired["aws_sdk_glue.types.column_type_string.ColumnTypeString"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#IssuerConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.issuer_type
 
 
-class IssuerConfigurationType(TypedDict):
+class IssuerConfigurationType(TypedDict, closed=True):
     type: NotRequired["aws_sdk_cognito_identity_provider.types.issuer_type.IssuerType"]
     """<p>The type of issuer configuration. Determines the token issuing behavior for the user pool.</p> <dl> <dt>ORIGINAL</dt> <dd> <p>The original issuer configuration for user pools. The issuer URL is hosted in the user pool’s region and provides OIDC endpoints specific to that region.</p> <p>Original issuers have the format of <code>https://cognito-idp.[region].amazonaws.com/[userPoolId]</code> </p> </dd> <dt>UPDATED</dt> <dd> <p>Recommended for all user pools, including for multi-Region replication. Updated issuers host the same JWKS content in multiple regions, resulting in improved resilience and efficiency.</p> <p>Updated issuers have the format of <code>https://issuer-cognito-idp.[region].amazonaws.com/[userPoolId]</code>, where region is the primary Amazon Web Services Region of your user pool.</p> </dd> </dl>"""
 

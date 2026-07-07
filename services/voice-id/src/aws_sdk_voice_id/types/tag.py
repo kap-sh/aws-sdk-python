@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_voice_id.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_voice_id.types.tag_key.TagKey"
     """<p>The first part of a key:value pair that forms a tag associated with a given resource. For example, in the tag 'Department':'Sales', the key is 'Department'. </p>"""
     value: "aws_sdk_voice_id.types.tag_value.TagValue"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#DeleteProxyConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.resource_arn
     import aws_sdk_network_firewall.types.resource_name
 
 
-class DeleteProxyConfigurationRequest(TypedDict):
+class DeleteProxyConfigurationRequest(TypedDict, closed=True):
     proxy_configuration_name: NotRequired[
         "aws_sdk_network_firewall.types.resource_name.ResourceName"
     ]

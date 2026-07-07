@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#EdiConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.transformer_id
 
 
-class EdiConfiguration(TypedDict):
+class EdiConfiguration(TypedDict, closed=True):
     capability_direction: NotRequired[
         "aws_sdk_b2bi.types.capability_direction.CapabilityDirection"
     ]

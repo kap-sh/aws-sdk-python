@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceExperimentSchedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class InferenceExperimentSchedule(TypedDict):
+class InferenceExperimentSchedule(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     """<p>The timestamp at which the inference experiment started or will start.</p>"""
     end_time: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]

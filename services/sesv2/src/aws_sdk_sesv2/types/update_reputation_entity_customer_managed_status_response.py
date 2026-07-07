@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#UpdateReputationEntityCustomerManagedStatusResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateReputationEntityCustomerManagedStatusResponse(TypedDict):
+class UpdateReputationEntityCustomerManagedStatusResponse(TypedDict, closed=True):
     pass
 
 

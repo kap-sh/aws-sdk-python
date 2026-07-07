@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#DeletePlaybackKeyPairResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePlaybackKeyPairResponse(TypedDict):
+class DeletePlaybackKeyPairResponse(TypedDict, closed=True):
     pass
 
 

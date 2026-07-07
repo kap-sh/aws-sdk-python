@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CustomOriginConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.origin_ssl_protocols
 
 
-class CustomOriginConfig(TypedDict):
+class CustomOriginConfig(TypedDict, closed=True):
     http_port: "aws_sdk_cloudfront.types.integer.integer"
     """<p>The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.</p>"""
     https_port: "aws_sdk_cloudfront.types.integer.integer"

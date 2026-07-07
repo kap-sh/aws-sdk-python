@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#DeactivateMessageTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.version
 
 
-class DeactivateMessageTemplateRequest(TypedDict):
+class DeactivateMessageTemplateRequest(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>"""
     message_template_id: "aws_sdk_qconnect.types.uuid_or_arn_or_either_with_qualifier.UuidOrArnOrEitherWithQualifier"

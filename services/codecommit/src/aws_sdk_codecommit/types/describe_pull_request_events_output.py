@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#DescribePullRequestEventsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.pull_request_event_list
 
 
-class DescribePullRequestEventsOutput(TypedDict):
+class DescribePullRequestEventsOutput(TypedDict, closed=True):
     pull_request_events: (
         "aws_sdk_codecommit.types.pull_request_event_list.PullRequestEventList"
     )

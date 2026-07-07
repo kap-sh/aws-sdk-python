@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#CancelHandshakeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.handshake_id
 
 
-class CancelHandshakeRequest(TypedDict):
+class CancelHandshakeRequest(TypedDict, closed=True):
     handshake_id: "aws_sdk_organizations.types.handshake_id.HandshakeId"
     r"""<p>ID for the handshake that you want to cancel. You can get the ID from the <a>ListHandshakesForOrganization</a> operation.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for handshake ID string requires \"h-\" followed by from 8 to 32 lowercase letters or digits.</p>"""
 

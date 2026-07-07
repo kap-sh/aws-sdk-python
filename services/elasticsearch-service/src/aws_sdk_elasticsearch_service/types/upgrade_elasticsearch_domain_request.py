@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#UpgradeElasticsearchDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.elasticsearch_version_string
 
 
-class UpgradeElasticsearchDomainRequest(TypedDict):
+class UpgradeElasticsearchDomainRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_elasticsearch_service.types.domain_name.DomainName"
     target_version: "aws_sdk_elasticsearch_service.types.elasticsearch_version_string.ElasticsearchVersionString"
     """<p>The version of Elasticsearch that you intend to upgrade the domain to.</p>"""

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CustomerVoiceActivity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class CustomerVoiceActivity(TypedDict):
+class CustomerVoiceActivity(TypedDict, closed=True):
     greeting_start_timestamp: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]
     """<p>Timestamp that measures the beginning of the customer greeting from an outbound voice call.</p>"""
     greeting_end_timestamp: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]

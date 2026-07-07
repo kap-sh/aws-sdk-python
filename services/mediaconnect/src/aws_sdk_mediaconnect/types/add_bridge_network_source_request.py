@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#AddBridgeNetworkSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.multicast_source_settings
     import aws_sdk_mediaconnect.types.protocol
 
 
-class AddBridgeNetworkSourceRequest(TypedDict):
+class AddBridgeNetworkSourceRequest(TypedDict, closed=True):
     multicast_ip: NotRequired["str"]
     """<p> The network source multicast IP.</p>"""
     multicast_source_settings: NotRequired[

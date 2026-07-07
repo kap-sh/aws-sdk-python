@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#StartSchemaExtensionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.ldif_content
 
 
-class StartSchemaExtensionRequest(TypedDict):
+class StartSchemaExtensionRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>The identifier of the directory for which the schema extension will be applied to.</p>"""
     create_snapshot_before_schema_extension: "aws_sdk_directory_service.types.create_snapshot_before_schema_extension.CreateSnapshotBeforeSchemaExtension"

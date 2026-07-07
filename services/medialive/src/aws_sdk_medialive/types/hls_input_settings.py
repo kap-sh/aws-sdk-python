@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#HlsInputSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0
     import aws_sdk_medialive.types.hls_scte35_source_type
 
 
-class HlsInputSettings(TypedDict):
+class HlsInputSettings(TypedDict, closed=True):
     bandwidth: NotRequired["aws_sdk_medialive.types.__integer_min0.__integerMin0"]
     """When specified the HLS stream with the m3u8 BANDWIDTH that most closely matches this value will be chosen, otherwise the highest bandwidth stream in the m3u8 will be chosen. The bitrate is specified in bits per second, as in an HLS manifest."""
     buffer_segments: NotRequired["aws_sdk_medialive.types.__integer_min0.__integerMin0"]

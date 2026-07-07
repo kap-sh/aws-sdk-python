@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Container``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.format
 
 
-class Container(TypedDict):
+class Container(TypedDict, closed=True):
     duration: NotRequired["aws_sdk_mediaconvert.types.__double.__double"]
     """The total duration of your media file, in seconds."""
     format: NotRequired["aws_sdk_mediaconvert.types.format.Format"]

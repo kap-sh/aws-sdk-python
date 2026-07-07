@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateModelInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.boolean
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.vpc_config
 
 
-class CreateModelInput(TypedDict):
+class CreateModelInput(TypedDict, closed=True):
     model_name: NotRequired["aws_sdk_sagemaker.types.model_name.ModelName"]
     """<p>The name of the new model.</p>"""
     primary_container: NotRequired[

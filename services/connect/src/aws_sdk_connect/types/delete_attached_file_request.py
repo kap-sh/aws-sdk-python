@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DeleteAttachedFileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id
 
 
-class DeleteAttachedFileRequest(TypedDict):
+class DeleteAttachedFileRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     """<p>The unique identifier of the Connect instance.</p>"""
     file_id: "aws_sdk_connect.types.file_id.FileId"

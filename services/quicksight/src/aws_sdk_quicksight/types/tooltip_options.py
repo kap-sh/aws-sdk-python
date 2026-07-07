@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TooltipOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.field_based_tooltip
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class TooltipOptions(TypedDict):
+class TooltipOptions(TypedDict, closed=True):
     tooltip_visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>Determines whether or not the tooltip is visible.</p>"""
     selected_tooltip_type: NotRequired[

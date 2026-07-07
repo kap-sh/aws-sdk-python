@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#PlayerLatencyPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.whole_number
 
 
-class PlayerLatencyPolicy(TypedDict):
+class PlayerLatencyPolicy(TypedDict, closed=True):
     maximum_individual_player_latency_milliseconds: NotRequired[
         "aws_sdk_gamelift.types.whole_number.WholeNumber"
     ]

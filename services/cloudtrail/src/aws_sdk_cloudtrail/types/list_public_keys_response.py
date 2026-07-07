@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListPublicKeysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.public_key_list
     import aws_sdk_cloudtrail.types.string
 
 
-class ListPublicKeysResponse(TypedDict):
+class ListPublicKeysResponse(TypedDict, closed=True):
     public_key_list: NotRequired[
         "aws_sdk_cloudtrail.types.public_key_list.PublicKeyList"
     ]

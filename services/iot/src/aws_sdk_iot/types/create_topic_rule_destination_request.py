@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateTopicRuleDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.topic_rule_destination_configuration
 
 
-class CreateTopicRuleDestinationRequest(TypedDict):
+class CreateTopicRuleDestinationRequest(TypedDict, closed=True):
     destination_configuration: "aws_sdk_iot.types.topic_rule_destination_configuration.TopicRuleDestinationConfiguration"
     """<p>The topic rule destination configuration.</p>"""
 

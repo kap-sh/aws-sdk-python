@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#MetadataValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.metadata_value_string
 
 
-class MetadataValue(TypedDict):
+class MetadataValue(TypedDict, closed=True):
     value: NotRequired["aws_sdk_ssm.types.metadata_value_string.MetadataValueString"]
     """<p>Metadata value to assign to an Application Manager application.</p>"""
 

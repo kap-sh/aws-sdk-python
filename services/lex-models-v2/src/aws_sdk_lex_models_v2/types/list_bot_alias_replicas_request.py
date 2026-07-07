@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListBotAliasReplicasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.replica_region
 
 
-class ListBotAliasReplicasRequest(TypedDict):
+class ListBotAliasReplicasRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The request for the unique bot ID of the replicated bot created from the source bot alias.</p>"""
     replica_region: "aws_sdk_lex_models_v2.types.replica_region.ReplicaRegion"

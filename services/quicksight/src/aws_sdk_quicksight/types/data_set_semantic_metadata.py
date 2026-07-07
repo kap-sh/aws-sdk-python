@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetSemanticMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.custom_instruction_list
     import aws_sdk_quicksight.types.data_set_semantic_description
 
 
-class DataSetSemanticMetadata(TypedDict):
+class DataSetSemanticMetadata(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_quicksight.types.data_set_semantic_description.DataSetSemanticDescription"
     ]

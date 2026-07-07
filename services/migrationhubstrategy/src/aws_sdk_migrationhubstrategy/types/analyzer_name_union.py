@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#AnalyzerNameUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhubstrategy.errors import DeserializationError, SerializationError
 
@@ -10,19 +12,19 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.source_code_analyzer_name
 
 
-class _AnalyzerNameUnion_binaryAnalyzerName(TypedDict):
+class _AnalyzerNameUnion_binaryAnalyzerName(TypedDict, closed=True):
     binaryAnalyzerName: (
         "aws_sdk_migrationhubstrategy.types.binary_analyzer_name.BinaryAnalyzerName"
     )
 
 
-class _AnalyzerNameUnion_runTimeAnalyzerName(TypedDict):
+class _AnalyzerNameUnion_runTimeAnalyzerName(TypedDict, closed=True):
     runTimeAnalyzerName: (
         "aws_sdk_migrationhubstrategy.types.run_time_analyzer_name.RunTimeAnalyzerName"
     )
 
 
-class _AnalyzerNameUnion_sourceCodeAnalyzerName(TypedDict):
+class _AnalyzerNameUnion_sourceCodeAnalyzerName(TypedDict, closed=True):
     sourceCodeAnalyzerName: "aws_sdk_migrationhubstrategy.types.source_code_analyzer_name.SourceCodeAnalyzerName"
 
 

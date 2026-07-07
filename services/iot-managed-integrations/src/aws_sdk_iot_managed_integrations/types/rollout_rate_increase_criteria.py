@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#RolloutRateIncreaseCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.number_of_notified_things
     import aws_sdk_iot_managed_integrations.types.number_of_succeeded_things
 
 
-class RolloutRateIncreaseCriteria(TypedDict):
+class RolloutRateIncreaseCriteria(TypedDict, closed=True):
     number_of_notified_things: NotRequired[
         "aws_sdk_iot_managed_integrations.types.number_of_notified_things.NumberOfNotifiedThings"
     ]

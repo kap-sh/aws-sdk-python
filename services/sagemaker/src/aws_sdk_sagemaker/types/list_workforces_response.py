@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListWorkforcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
     import aws_sdk_sagemaker.types.workforces
 
 
-class ListWorkforcesResponse(TypedDict):
+class ListWorkforcesResponse(TypedDict, closed=True):
     workforces: NotRequired["aws_sdk_sagemaker.types.workforces.Workforces"]
     """<p>A list containing information about your workforce.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]

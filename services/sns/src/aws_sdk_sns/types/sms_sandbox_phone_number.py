@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#SMSSandboxPhoneNumber``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.sms_sandbox_phone_number_verification_status
 
 
-class SMSSandboxPhoneNumber(TypedDict):
+class SMSSandboxPhoneNumber(TypedDict, closed=True):
     phone_number: NotRequired["aws_sdk_sns.types.phone_number_string.PhoneNumberString"]
     """<p>The destination phone number.</p>"""
     status: NotRequired[

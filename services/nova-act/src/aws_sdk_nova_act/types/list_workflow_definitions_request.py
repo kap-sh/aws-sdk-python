@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#ListWorkflowDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_nova_act.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.sort_order
 
 
-class ListWorkflowDefinitionsRequest(TypedDict):
+class ListWorkflowDefinitionsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_nova_act.types.max_results.MaxResults"]
     """<p>The maximum number of workflow definitions to return in a single response.</p>"""
     next_token: NotRequired["aws_sdk_nova_act.types.next_token.NextToken"]

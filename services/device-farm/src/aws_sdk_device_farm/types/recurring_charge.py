@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#RecurringCharge``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.monetary_amount
     import aws_sdk_device_farm.types.recurring_charge_frequency
 
 
-class RecurringCharge(TypedDict):
+class RecurringCharge(TypedDict, closed=True):
     cost: NotRequired["aws_sdk_device_farm.types.monetary_amount.MonetaryAmount"]
     """<p>The cost of the recurring charge.</p>"""
     frequency: NotRequired[

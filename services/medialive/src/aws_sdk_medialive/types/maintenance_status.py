@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MaintenanceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.maintenance_day
 
 
-class MaintenanceStatus(TypedDict):
+class MaintenanceStatus(TypedDict, closed=True):
     maintenance_day: NotRequired[
         "aws_sdk_medialive.types.maintenance_day.MaintenanceDay"
     ]

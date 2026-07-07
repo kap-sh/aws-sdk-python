@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetGroupsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.group_summary_list
     import aws_sdk_xray.types.string
 
 
-class GetGroupsResult(TypedDict):
+class GetGroupsResult(TypedDict, closed=True):
     groups: NotRequired["aws_sdk_xray.types.group_summary_list.GroupSummaryList"]
     """<p>The collection of all active groups.</p>"""
     next_token: NotRequired["aws_sdk_xray.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#DeleteGeoMatchSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_id
 
 
-class DeleteGeoMatchSetRequest(TypedDict):
+class DeleteGeoMatchSetRequest(TypedDict, closed=True):
     geo_match_set_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>GeoMatchSetID</code> of the <a>GeoMatchSet</a> that you want to delete. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by <a>ListGeoMatchSets</a>.</p>"""
     change_token: "aws_sdk_waf.types.change_token.ChangeToken"

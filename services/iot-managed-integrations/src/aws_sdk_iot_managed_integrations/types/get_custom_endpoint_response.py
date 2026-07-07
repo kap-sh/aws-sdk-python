@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#GetCustomEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.endpoint_address
 
 
-class GetCustomEndpointResponse(TypedDict):
+class GetCustomEndpointResponse(TypedDict, closed=True):
     endpoint_address: (
         "aws_sdk_iot_managed_integrations.types.endpoint_address.EndpointAddress"
     )

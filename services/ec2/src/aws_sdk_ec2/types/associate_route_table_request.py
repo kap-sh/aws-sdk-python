@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AssociateRouteTableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.subnet_id
 
 
-class AssociateRouteTableRequest(TypedDict):
+class AssociateRouteTableRequest(TypedDict, closed=True):
     gateway_id: NotRequired["aws_sdk_ec2.types.route_gateway_id.RouteGatewayId"]
     """<p>The ID of the internet gateway or virtual private gateway.</p>"""
     public_ipv4_pool: NotRequired["aws_sdk_ec2.types.ipv4_pool_ec2_id.Ipv4PoolEc2Id"]

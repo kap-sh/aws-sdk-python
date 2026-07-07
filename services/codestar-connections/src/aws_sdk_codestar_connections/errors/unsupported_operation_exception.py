@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#UnsupportedOperationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codestar_connections.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.error_message
 
 
-class UnsupportedOperationException_(TypedDict):
+class UnsupportedOperationException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_codestar_connections.types.error_message.ErrorMessage"
     ]

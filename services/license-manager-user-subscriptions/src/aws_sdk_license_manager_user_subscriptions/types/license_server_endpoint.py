@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#LicenseServerEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.server_type
 
 
-class LicenseServerEndpoint(TypedDict):
+class LicenseServerEndpoint(TypedDict, closed=True):
     identity_provider_arn: NotRequired["str"]
     """<p>The Amazon Resource Name (ARN) of the identity provider that's associated with the RDS license server endpoint.</p>"""
     server_type: NotRequired[

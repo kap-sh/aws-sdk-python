@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#AdvancedSecurityOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.saml_options_output
 
 
-class AdvancedSecurityOptions(TypedDict):
+class AdvancedSecurityOptions(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_elasticsearch_service.types.boolean.Boolean"]
     """<p>True if advanced security is enabled.</p>"""
     internal_user_database_enabled: NotRequired[

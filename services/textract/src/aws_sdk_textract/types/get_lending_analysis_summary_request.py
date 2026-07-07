@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#GetLendingAnalysisSummaryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.job_id
 
 
-class GetLendingAnalysisSummaryRequest(TypedDict):
+class GetLendingAnalysisSummaryRequest(TypedDict, closed=True):
     job_id: "aws_sdk_textract.types.job_id.JobId"
     """<p> A unique identifier for the lending or text-detection job. The <code>JobId</code> is returned from StartLendingAnalysis. A <code>JobId</code> value is only valid for 7 days.</p>"""
 

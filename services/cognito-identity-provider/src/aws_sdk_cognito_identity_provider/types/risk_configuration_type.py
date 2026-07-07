@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#RiskConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.account_takeover_risk_configuration_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_pool_id_type
 
 
-class RiskConfigurationType(TypedDict):
+class RiskConfigurationType(TypedDict, closed=True):
     user_pool_id: NotRequired[
         "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType"
     ]

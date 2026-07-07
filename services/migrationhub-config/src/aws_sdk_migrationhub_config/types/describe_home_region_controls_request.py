@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubconfig#DescribeHomeRegionControlsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhub_config.types.control_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhub_config.types.token
 
 
-class DescribeHomeRegionControlsRequest(TypedDict):
+class DescribeHomeRegionControlsRequest(TypedDict, closed=True):
     control_id: NotRequired["aws_sdk_migrationhub_config.types.control_id.ControlId"]
     """<p>The <code>ControlID</code> is a unique identifier string of your <code>HomeRegionControl</code> object.</p>"""
     home_region: NotRequired["aws_sdk_migrationhub_config.types.home_region.HomeRegion"]

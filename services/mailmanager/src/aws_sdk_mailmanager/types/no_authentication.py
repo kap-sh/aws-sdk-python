@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#NoAuthentication``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class NoAuthentication(TypedDict):
+class NoAuthentication(TypedDict, closed=True):
     pass
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#BatchGetDeploymentInstancesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.error_message
     import aws_sdk_codedeploy.types.instance_summary_list
 
 
-class BatchGetDeploymentInstancesOutput(TypedDict):
+class BatchGetDeploymentInstancesOutput(TypedDict, closed=True):
     instances_summary: NotRequired[
         "aws_sdk_codedeploy.types.instance_summary_list.InstanceSummaryList"
     ]

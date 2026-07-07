@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#ScheduleItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.bounded_string
 
 
-class ScheduleItem(TypedDict):
+class ScheduleItem(TypedDict, closed=True):
     charge_date: "datetime.datetime"
     """<p>The date when the payment is due.</p>"""
     charge_amount: "aws_sdk_marketplace_discovery.types.bounded_string.BoundedString"

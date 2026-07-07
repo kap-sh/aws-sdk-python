@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetWorkGroupOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.work_group
 
 
-class GetWorkGroupOutput(TypedDict):
+class GetWorkGroupOutput(TypedDict, closed=True):
     work_group: NotRequired["aws_sdk_athena.types.work_group.WorkGroup"]
     """<p>Information about the workgroup.</p>"""
 

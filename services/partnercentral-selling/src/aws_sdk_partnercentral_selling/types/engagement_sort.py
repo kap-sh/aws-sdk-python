@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#EngagementSort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.sort_order
 
 
-class EngagementSort(TypedDict):
+class EngagementSort(TypedDict, closed=True):
     sort_order: "aws_sdk_partnercentral_selling.types.sort_order.SortOrder"
     """<p>The order in which to sort the results.</p>"""
     sort_by: (

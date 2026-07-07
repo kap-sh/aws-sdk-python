@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteTransitIntermediateStop``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_transit_transport_mode_details
 
 
-class RouteTransitIntermediateStop(TypedDict):
+class RouteTransitIntermediateStop(TypedDict, closed=True):
     attributes: NotRequired[
         "aws_sdk_geo_routes.types.route_transit_intermediate_stop_attribute_list.RouteTransitIntermediateStopAttributeList"
     ]

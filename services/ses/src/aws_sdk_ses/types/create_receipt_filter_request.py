@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#CreateReceiptFilterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.receipt_filter
 
 
-class CreateReceiptFilterRequest(TypedDict):
+class CreateReceiptFilterRequest(TypedDict, closed=True):
     filter: "aws_sdk_ses.types.receipt_filter.ReceiptFilter"
     """<p>A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#KeyRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class KeyRange(TypedDict):
+class KeyRange(TypedDict, closed=True):
     begin_marker: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The key that starts an optional key range for an export job. Ranges are inclusive and UTF-8 binary sorted.</p>"""
     end_marker: NotRequired["aws_sdk_snowball.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#StreamSelection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__integer
     import aws_sdk_mediapackage.types.stream_order
 
 
-class StreamSelection(TypedDict):
+class StreamSelection(TypedDict, closed=True):
     max_video_bits_per_second: NotRequired[
         "aws_sdk_mediapackage.types.__integer.__integer"
     ]

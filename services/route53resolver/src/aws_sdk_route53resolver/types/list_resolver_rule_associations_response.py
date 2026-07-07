@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListResolverRuleAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resolver_rule_associations
 
 
-class ListResolverRuleAssociationsResponse(TypedDict):
+class ListResolverRuleAssociationsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_route53resolver.types.next_token.NextToken"]
     """<p>If more than <code>MaxResults</code> rule associations match the specified criteria, you can submit another <code>ListResolverRuleAssociation</code> request to get the next group of results. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>"""
     max_results: NotRequired["aws_sdk_route53resolver.types.max_results.MaxResults"]

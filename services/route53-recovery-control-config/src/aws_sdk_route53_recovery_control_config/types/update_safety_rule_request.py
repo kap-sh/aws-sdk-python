@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycontrolconfig#UpdateSafetyRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.assertion_rule_update
     import aws_sdk_route53_recovery_control_config.types.gating_rule_update
 
 
-class UpdateSafetyRuleRequest(TypedDict):
+class UpdateSafetyRuleRequest(TypedDict, closed=True):
     assertion_rule_update: NotRequired[
         "aws_sdk_route53_recovery_control_config.types.assertion_rule_update.AssertionRuleUpdate"
     ]

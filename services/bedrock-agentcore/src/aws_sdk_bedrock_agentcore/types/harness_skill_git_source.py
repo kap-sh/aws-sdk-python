@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessSkillGitSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_skill_git_url
 
 
-class HarnessSkillGitSource(TypedDict):
+class HarnessSkillGitSource(TypedDict, closed=True):
     url: "aws_sdk_bedrock_agentcore.types.harness_skill_git_url.HarnessSkillGitUrl"
     """<p>The HTTPS URL of the git repository.</p>"""
     path: NotRequired["str"]

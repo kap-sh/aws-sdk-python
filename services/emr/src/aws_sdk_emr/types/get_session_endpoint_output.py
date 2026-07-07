@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#GetSessionEndpointOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.credentials
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string
 
 
-class GetSessionEndpointOutput(TypedDict):
+class GetSessionEndpointOutput(TypedDict, closed=True):
     endpoint: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]
     """<p>The Spark Connect endpoint URL to use in the PySpark client.</p>"""
     auth_token: NotRequired["aws_sdk_emr.types.sensitive_string.SensitiveString"]

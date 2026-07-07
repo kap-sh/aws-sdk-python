@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#NdiSourceInfo``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class NdiSourceInfo(TypedDict):
+class NdiSourceInfo(TypedDict, closed=True):
     source_name: NotRequired["str"]
     """<p> The name of the upstream NDI sender. </p>"""
 

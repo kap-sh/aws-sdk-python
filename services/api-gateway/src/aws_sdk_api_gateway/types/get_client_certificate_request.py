@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#GetClientCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class GetClientCertificateRequest(TypedDict):
+class GetClientCertificateRequest(TypedDict, closed=True):
     client_certificate_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The identifier of the ClientCertificate resource to be described.</p>"""
 

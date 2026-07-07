@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#NoManagementPreference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhubstrategy.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.no_preference_target_destinations
 
 
-class NoManagementPreference(TypedDict):
+class NoManagementPreference(TypedDict, closed=True):
     target_destination: "aws_sdk_migrationhubstrategy.types.no_preference_target_destinations.NoPreferenceTargetDestinations"
     """<p> The choice of application destination that you specify. </p>"""
 

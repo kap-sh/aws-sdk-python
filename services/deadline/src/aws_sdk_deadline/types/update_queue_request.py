@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#UpdateQueueRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.allowed_storage_profile_ids
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.scheduling_configuration
 
 
-class UpdateQueueRequest(TypedDict):
+class UpdateQueueRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID to update in the queue.</p>"""
     queue_id: "aws_sdk_deadline.types.queue_id.QueueId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.date_time
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_ram.types.string.String"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource.</p>"""
     type: NotRequired["aws_sdk_ram.types.string.String"]

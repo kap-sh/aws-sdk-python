@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListUsageTotalsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.list_usage_totals_max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.usage_account_id_list
 
 
-class ListUsageTotalsRequest(TypedDict):
+class ListUsageTotalsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_inspector2.types.list_usage_totals_max_results.ListUsageTotalsMaxResults"
     ]

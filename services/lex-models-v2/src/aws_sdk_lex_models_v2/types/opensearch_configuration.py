@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#OpensearchConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.os_index_name
 
 
-class OpensearchConfiguration(TypedDict):
+class OpensearchConfiguration(TypedDict, closed=True):
     domain_endpoint: "aws_sdk_lex_models_v2.types.domain_endpoint.DomainEndpoint"
     """<p>The endpoint of the Amazon OpenSearch Service domain.</p>"""
     index_name: "aws_sdk_lex_models_v2.types.os_index_name.OSIndexName"

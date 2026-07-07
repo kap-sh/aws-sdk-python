@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#DeleteModelInvocationLoggingConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteModelInvocationLoggingConfigurationResponse(TypedDict):
+class DeleteModelInvocationLoggingConfigurationResponse(TypedDict, closed=True):
     pass
 
 

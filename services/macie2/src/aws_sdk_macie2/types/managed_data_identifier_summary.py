@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ManagedDataIdentifierSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
     import aws_sdk_macie2.types.sensitive_data_item_category
 
 
-class ManagedDataIdentifierSummary(TypedDict):
+class ManagedDataIdentifierSummary(TypedDict, closed=True):
     category: NotRequired[
         "aws_sdk_macie2.types.sensitive_data_item_category.SensitiveDataItemCategory"
     ]

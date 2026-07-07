@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ParticipantTimerValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.participant_timer_duration_in_minutes
 
 
-class _ParticipantTimerValue_ParticipantTimerAction(TypedDict):
+class _ParticipantTimerValue_ParticipantTimerAction(TypedDict, closed=True):
     ParticipantTimerAction: (
         "aws_sdk_connect.types.participant_timer_action.ParticipantTimerAction"
     )
 
 
-class _ParticipantTimerValue_ParticipantTimerDurationInMinutes(TypedDict):
+class _ParticipantTimerValue_ParticipantTimerDurationInMinutes(TypedDict, closed=True):
     ParticipantTimerDurationInMinutes: "aws_sdk_connect.types.participant_timer_duration_in_minutes.ParticipantTimerDurationInMinutes"
 
 

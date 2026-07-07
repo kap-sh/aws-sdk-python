@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#DescribeEdgeConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.edge_agent_status
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.timestamp
 
 
-class DescribeEdgeConfigurationOutput(TypedDict):
+class DescribeEdgeConfigurationOutput(TypedDict, closed=True):
     stream_name: NotRequired["aws_sdk_kinesis_video.types.stream_name.StreamName"]
     """<p>The name of the stream from which the edge configuration was updated.</p>"""
     stream_arn: NotRequired["aws_sdk_kinesis_video.types.resource_arn.ResourceARN"]

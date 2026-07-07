@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CustomizationFeatureContentModerationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.percent
 
 
-class CustomizationFeatureContentModerationConfig(TypedDict):
+class CustomizationFeatureContentModerationConfig(TypedDict, closed=True):
     confidence_threshold: NotRequired["aws_sdk_rekognition.types.percent.Percent"]
     """<p>The confidence level you plan to use to identify if unsafe content is present during inference.</p>"""
 

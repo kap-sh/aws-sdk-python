@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#DetachGroupPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.group_name_type
 
 
-class DetachGroupPolicyRequest(TypedDict):
+class DetachGroupPolicyRequest(TypedDict, closed=True):
     group_name: "aws_sdk_iam.types.group_name_type.groupNameType"
     r"""<p>The name (friendly name, not ARN) of the IAM group to detach the policy from.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     policy_arn: "aws_sdk_iam.types.arn_type.arnType"

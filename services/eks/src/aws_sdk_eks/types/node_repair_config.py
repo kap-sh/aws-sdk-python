@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#NodeRepairConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boxed_boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.percent_capacity
 
 
-class NodeRepairConfig(TypedDict):
+class NodeRepairConfig(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_eks.types.boxed_boolean.BoxedBoolean"]
     """<p>Specifies whether to enable node auto repair for the node group. Node auto repair is disabled by default.</p>"""
     max_unhealthy_node_threshold_count: NotRequired[

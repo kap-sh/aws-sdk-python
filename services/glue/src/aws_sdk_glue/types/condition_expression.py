@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ConditionExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.target_column
 
 
-class ConditionExpression(TypedDict):
+class ConditionExpression(TypedDict, closed=True):
     condition: "aws_sdk_glue.types.databrew_condition.DatabrewCondition"
     """<p>The condition of the condition expression.</p>"""
     value: NotRequired[

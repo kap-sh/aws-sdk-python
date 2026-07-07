@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
     import aws_sdk_batch.types.tagris_tags_map
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_batch.types.string.String"
     """<p>The Amazon Resource Name (ARN) of the resource that tags are added to. Batch resources that support tags are compute environments, jobs, job definitions, job queues, and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.</p>"""
     tags: NotRequired["aws_sdk_batch.types.tagris_tags_map.TagrisTagsMap"]

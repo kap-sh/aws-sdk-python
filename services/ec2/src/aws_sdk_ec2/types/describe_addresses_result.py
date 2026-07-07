@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeAddressesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.address_list
 
 
-class DescribeAddressesResult(TypedDict):
+class DescribeAddressesResult(TypedDict, closed=True):
     addresses: NotRequired["aws_sdk_ec2.types.address_list.AddressList"]
     """<p>Information about the Elastic IP addresses.</p>"""
 

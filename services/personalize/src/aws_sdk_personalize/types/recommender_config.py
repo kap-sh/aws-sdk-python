@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#RecommenderConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.transactions_per_second
 
 
-class RecommenderConfig(TypedDict):
+class RecommenderConfig(TypedDict, closed=True):
     item_exploration_config: NotRequired[
         "aws_sdk_personalize.types.hyper_parameters.HyperParameters"
     ]

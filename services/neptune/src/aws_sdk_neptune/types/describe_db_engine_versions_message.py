@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#DescribeDBEngineVersionsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.string
 
 
-class DescribeDBEngineVersionsMessage(TypedDict):
+class DescribeDBEngineVersionsMessage(TypedDict, closed=True):
     engine: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>The database engine to return.</p>"""
     engine_version: NotRequired["aws_sdk_neptune.types.string.String"]

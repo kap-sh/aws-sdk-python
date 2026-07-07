@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#DeleteChimeWebhookConfigurationResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteChimeWebhookConfigurationResult(TypedDict):
+class DeleteChimeWebhookConfigurationResult(TypedDict, closed=True):
     pass
 
 

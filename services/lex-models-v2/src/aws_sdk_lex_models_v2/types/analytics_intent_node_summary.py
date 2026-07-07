@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AnalyticsIntentNodeSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_node_count
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.name
 
 
-class AnalyticsIntentNodeSummary(TypedDict):
+class AnalyticsIntentNodeSummary(TypedDict, closed=True):
     intent_name: NotRequired["aws_sdk_lex_models_v2.types.name.Name"]
     """<p>The name of the intent at the end of the requested path.</p>"""
     intent_path: NotRequired["aws_sdk_lex_models_v2.types.analytics_path.AnalyticsPath"]

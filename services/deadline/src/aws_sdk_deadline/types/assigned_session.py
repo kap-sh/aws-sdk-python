@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#AssignedSession``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.queue_id
 
 
-class AssignedSession(TypedDict):
+class AssignedSession(TypedDict, closed=True):
     queue_id: "aws_sdk_deadline.types.queue_id.QueueId"
     """<p>The queue ID of the assigned session.</p>"""
     job_id: "aws_sdk_deadline.types.job_id.JobId"

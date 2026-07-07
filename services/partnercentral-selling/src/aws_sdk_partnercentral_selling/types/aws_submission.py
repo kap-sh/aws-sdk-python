@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#AwsSubmission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.visibility
 
 
-class AwsSubmission(TypedDict):
+class AwsSubmission(TypedDict, closed=True):
     involvement_type: "aws_sdk_partnercentral_selling.types.sales_involvement_type.SalesInvolvementType"
     """<p>Specifies the type of AWS involvement in the opportunity, such as coselling, deal support, or technical consultation. This helps categorize the nature of AWS participation.</p>"""
     visibility: NotRequired[

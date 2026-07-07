@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#GetTableStorageClassRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.namespace_name
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_name
 
 
-class GetTableStorageClassRequest(TypedDict):
+class GetTableStorageClassRequest(TypedDict, closed=True):
     table_bucket_arn: "aws_sdk_s3tables.types.table_bucket_arn.TableBucketARN"
     """<p>The Amazon Resource Name (ARN) of the table bucket that contains the table.</p>"""
     namespace: "aws_sdk_s3tables.types.namespace_name.NamespaceName"

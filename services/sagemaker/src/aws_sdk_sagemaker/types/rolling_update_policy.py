@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RollingUpdatePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.capacity_size
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.wait_interval_in_seconds
 
 
-class RollingUpdatePolicy(TypedDict):
+class RollingUpdatePolicy(TypedDict, closed=True):
     maximum_batch_size: NotRequired[
         "aws_sdk_sagemaker.types.capacity_size.CapacitySize"
     ]

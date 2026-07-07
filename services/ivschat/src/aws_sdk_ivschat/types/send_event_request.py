@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#SendEventRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivschat.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.room_identifier
 
 
-class SendEventRequest(TypedDict):
+class SendEventRequest(TypedDict, closed=True):
     room_identifier: "aws_sdk_ivschat.types.room_identifier.RoomIdentifier"
     """<p>Identifier of the room to which the event will be sent. Currently this must be an ARN.</p>"""
     event_name: "aws_sdk_ivschat.types.event_name.EventName"

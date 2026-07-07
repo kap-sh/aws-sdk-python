@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#TrainingDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.invocation_logs_config
     import aws_sdk_bedrock.types.s3_uri
 
 
-class TrainingDataConfig(TypedDict):
+class TrainingDataConfig(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_bedrock.types.s3_uri.S3Uri"]
     """<p>The S3 URI where the training data is stored.</p>"""
     invocation_logs_config: NotRequired[

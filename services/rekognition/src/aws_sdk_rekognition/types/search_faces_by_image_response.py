@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#SearchFacesByImageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.bounding_box
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
 
 
-class SearchFacesByImageResponse(TypedDict):
+class SearchFacesByImageResponse(TypedDict, closed=True):
     searched_face_bounding_box: NotRequired[
         "aws_sdk_rekognition.types.bounding_box.BoundingBox"
     ]

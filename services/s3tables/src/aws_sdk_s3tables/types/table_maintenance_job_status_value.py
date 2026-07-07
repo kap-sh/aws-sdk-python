@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#TableMaintenanceJobStatusValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.job_status
 
 
-class TableMaintenanceJobStatusValue(TypedDict):
+class TableMaintenanceJobStatusValue(TypedDict, closed=True):
     status: "aws_sdk_s3tables.types.job_status.JobStatus"
     """<p>The status of the job.</p>"""
     last_run_timestamp: NotRequired["datetime.datetime"]

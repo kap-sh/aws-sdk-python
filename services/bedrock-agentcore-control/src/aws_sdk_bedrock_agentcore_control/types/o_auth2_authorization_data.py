@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#OAuth2AuthorizationData``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
 
-class OAuth2AuthorizationData(TypedDict):
+class OAuth2AuthorizationData(TypedDict, closed=True):
     authorization_url: "str"
     """<p>The URL to initiate the authorization process. This URL is provided when the OAuth2 access token requires user authorization.</p>"""
     user_id: NotRequired["str"]

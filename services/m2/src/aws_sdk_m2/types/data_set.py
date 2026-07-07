@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#DataSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.record_length
 
 
-class DataSet(TypedDict):
+class DataSet(TypedDict, closed=True):
     storage_type: NotRequired["str"]
     """<p>The storage type of the data set: database or file system. For Micro Focus, database corresponds to datastore and file system corresponds to EFS/FSX. For Blu Age, there is no support of file system and database corresponds to Blusam. </p>"""
     dataset_name: "str"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#CreateFargateProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.tag_map
 
 
-class CreateFargateProfileRequest(TypedDict):
+class CreateFargateProfileRequest(TypedDict, closed=True):
     fargate_profile_name: "aws_sdk_eks.types.string.String"
     """<p>The name of the Fargate profile.</p>"""
     cluster_name: "aws_sdk_eks.types.string.String"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#Circle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_double
 
 
-class Circle(TypedDict):
+class Circle(TypedDict, closed=True):
     center: "aws_sdk_geo_routes.types.position.Position"
     """<p>Center of the Circle in World Geodetic System (WGS 84) format: [longitude, latitude].</p> <p>Example: <code>[-123.1174, 49.2847]</code> represents the position with longitude <code>-123.1174</code> and latitude <code>49.2847</code>. </p>"""
     radius: "aws_sdk_geo_routes.types.sensitive_double.SensitiveDouble"

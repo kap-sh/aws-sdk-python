@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#VirtualMachineDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.name
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.vmware_tags
 
 
-class VirtualMachineDetails(TypedDict):
+class VirtualMachineDetails(TypedDict, closed=True):
     host_name: NotRequired["aws_sdk_backup_gateway.types.name.Name"]
     """<p>The host name of the virtual machine.</p>"""
     hypervisor_id: NotRequired["aws_sdk_backup_gateway.types.string.string"]

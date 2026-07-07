@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#GetObjectOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3.types.accept_ranges
@@ -50,7 +50,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.website_redirect_location
 
 
-class GetObjectOutput(TypedDict):
+class GetObjectOutput(TypedDict, closed=True):
     body: "aws_sdk_s3.types.streaming_blob.StreamingBlob"
     """<p>Object data.</p>"""
     delete_marker: NotRequired["aws_sdk_s3.types.delete_marker.DeleteMarker"]

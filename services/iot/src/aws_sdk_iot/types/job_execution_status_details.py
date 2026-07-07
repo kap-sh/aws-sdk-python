@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#JobExecutionStatusDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.details_map
 
 
-class JobExecutionStatusDetails(TypedDict):
+class JobExecutionStatusDetails(TypedDict, closed=True):
     details_map: NotRequired["aws_sdk_iot.types.details_map.DetailsMap"]
     """<p>The job execution status.</p>"""
 

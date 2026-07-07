@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BucketPermissionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.account_level_permissions
     import aws_sdk_macie2.types.bucket_level_permissions
 
 
-class BucketPermissionConfiguration(TypedDict):
+class BucketPermissionConfiguration(TypedDict, closed=True):
     account_level_permissions: NotRequired[
         "aws_sdk_macie2.types.account_level_permissions.AccountLevelPermissions"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#TextInputEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness._protocol.eventstream import HeaderValue, Message
 from aws_sdk_qbusiness.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.user_message
 
 
-class TextInputEvent(TypedDict):
+class TextInputEvent(TypedDict, closed=True):
     user_message: "aws_sdk_qbusiness.types.user_message.UserMessage"
     """<p>A user message in a text message input event.</p>"""
 

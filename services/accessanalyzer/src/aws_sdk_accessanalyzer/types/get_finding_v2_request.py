@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#GetFindingV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.analyzer_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.token
 
 
-class GetFindingV2Request(TypedDict):
+class GetFindingV2Request(TypedDict, closed=True):
     analyzer_arn: "aws_sdk_accessanalyzer.types.analyzer_arn.AnalyzerArn"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources\">ARN of the analyzer</a> that generated the finding.</p>"""
     id: "aws_sdk_accessanalyzer.types.finding_id.FindingId"

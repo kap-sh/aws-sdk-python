@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#CreateCapabilityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.tag_map
 
 
-class CreateCapabilityRequest(TypedDict):
+class CreateCapabilityRequest(TypedDict, closed=True):
     capability_name: "aws_sdk_eks.types.string.String"
     """<p>A unique name for the capability. The name must be unique within your cluster and can contain alphanumeric characters, hyphens, and underscores.</p>"""
     cluster_name: "aws_sdk_eks.types.string.String"

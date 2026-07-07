@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#ViewBillingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.page_marker
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.timestamp
 
 
-class ViewBillingRequest(TypedDict):
+class ViewBillingRequest(TypedDict, closed=True):
     start: NotRequired["aws_sdk_route_53_domains.types.timestamp.Timestamp"]
     """<p>The beginning date and time for the time period for which you want a list of billing records. Specify the date and time in Unix time format and Coordinated Universal time (UTC).</p>"""
     end: NotRequired["aws_sdk_route_53_domains.types.timestamp.Timestamp"]

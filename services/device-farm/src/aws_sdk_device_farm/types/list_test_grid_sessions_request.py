@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListTestGridSessionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.test_grid_session_status
 
 
-class ListTestGridSessionsRequest(TypedDict):
+class ListTestGridSessionsRequest(TypedDict, closed=True):
     project_arn: "aws_sdk_device_farm.types.device_farm_arn.DeviceFarmArn"
     """<p>ARN of a <a>TestGridProject</a>.</p>"""
     status: NotRequired[

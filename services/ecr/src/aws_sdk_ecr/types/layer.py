@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#Layer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.layer_availability
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.media_type
 
 
-class Layer(TypedDict):
+class Layer(TypedDict, closed=True):
     layer_digest: NotRequired["aws_sdk_ecr.types.layer_digest.LayerDigest"]
     """<p>The <code>sha256</code> digest of the image layer.</p>"""
     layer_availability: NotRequired[

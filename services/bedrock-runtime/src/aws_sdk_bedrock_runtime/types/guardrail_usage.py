@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailUsage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_word_policy_units_processed
 
 
-class GuardrailUsage(TypedDict):
+class GuardrailUsage(TypedDict, closed=True):
     topic_policy_units: "aws_sdk_bedrock_runtime.types.guardrail_topic_policy_units_processed.GuardrailTopicPolicyUnitsProcessed"
     """<p>The topic policy units processed by the guardrail.</p>"""
     content_policy_units: "aws_sdk_bedrock_runtime.types.guardrail_content_policy_units_processed.GuardrailContentPolicyUnitsProcessed"

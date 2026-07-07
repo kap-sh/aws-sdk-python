@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#GetResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class GetResourcesRequest(TypedDict):
+class GetResourcesRequest(TypedDict, closed=True):
     rest_api_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The string identifier of the associated RestApi.</p>"""
     position: NotRequired["aws_sdk_api_gateway.types.string.String"]

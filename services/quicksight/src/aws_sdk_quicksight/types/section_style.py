@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SectionStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pixel_length
     import aws_sdk_quicksight.types.spacing
 
 
-class SectionStyle(TypedDict):
+class SectionStyle(TypedDict, closed=True):
     height: NotRequired["aws_sdk_quicksight.types.pixel_length.PixelLength"]
     """<p>The height of a section.</p> <p>Heights can only be defined for header and footer sections. The default height margin is 0.5 inches. </p>"""
     padding: NotRequired["aws_sdk_quicksight.types.spacing.Spacing"]

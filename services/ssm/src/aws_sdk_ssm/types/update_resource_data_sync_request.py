@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateResourceDataSyncRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_data_sync_type
 
 
-class UpdateResourceDataSyncRequest(TypedDict):
+class UpdateResourceDataSyncRequest(TypedDict, closed=True):
     sync_name: "aws_sdk_ssm.types.resource_data_sync_name.ResourceDataSyncName"
     """<p>The name of the resource data sync you want to update.</p>"""
     sync_type: "aws_sdk_ssm.types.resource_data_sync_type.ResourceDataSyncType"

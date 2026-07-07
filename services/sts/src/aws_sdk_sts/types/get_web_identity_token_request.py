@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#GetWebIdentityTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 from aws_sdk_sts.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.web_identity_token_duration_seconds_type
 
 
-class GetWebIdentityTokenRequest(TypedDict):
+class GetWebIdentityTokenRequest(TypedDict, closed=True):
     audience: "aws_sdk_sts.types.web_identity_token_audience_list_type.webIdentityTokenAudienceListType"
     """<p>The intended recipient of the web identity token. This value populates the <code>aud</code> claim in the JWT and should identify the service or application that will validate and use the token. The external service should verify this claim to ensure the token was intended for their use.</p>"""
     duration_seconds: NotRequired[

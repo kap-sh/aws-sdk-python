@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetPullRequestOverrideStateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.arn
     import aws_sdk_codecommit.types.overridden
 
 
-class GetPullRequestOverrideStateOutput(TypedDict):
+class GetPullRequestOverrideStateOutput(TypedDict, closed=True):
     overridden: "aws_sdk_codecommit.types.overridden.Overridden"
     """<p>A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).</p>"""
     overrider: NotRequired["aws_sdk_codecommit.types.arn.Arn"]

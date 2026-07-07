@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#InvalidateProjectCacheInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
 
 
-class InvalidateProjectCacheInput(TypedDict):
+class InvalidateProjectCacheInput(TypedDict, closed=True):
     project_name: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     """<p>The name of the CodeBuild build project that the cache is reset for.</p>"""
 

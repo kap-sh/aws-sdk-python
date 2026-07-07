@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetCardinalityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.count
 
 
-class GetCardinalityResponse(TypedDict):
+class GetCardinalityResponse(TypedDict, closed=True):
     cardinality: "aws_sdk_iot.types.count.Count"
     """<p>The approximate count of unique values that match the query.</p>"""
 

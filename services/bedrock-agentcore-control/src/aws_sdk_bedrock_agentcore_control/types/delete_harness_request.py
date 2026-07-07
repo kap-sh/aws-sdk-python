@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteHarnessRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.client_token
     import aws_sdk_bedrock_agentcore_control.types.harness_id
 
 
-class DeleteHarnessRequest(TypedDict):
+class DeleteHarnessRequest(TypedDict, closed=True):
     harness_id: "aws_sdk_bedrock_agentcore_control.types.harness_id.HarnessId"
     """<p>The ID of the harness to delete.</p>"""
     client_token: NotRequired[

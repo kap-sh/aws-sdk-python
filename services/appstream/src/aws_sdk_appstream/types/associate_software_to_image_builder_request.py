@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#AssociateSoftwareToImageBuilderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.name
     import aws_sdk_appstream.types.string_list
 
 
-class AssociateSoftwareToImageBuilderRequest(TypedDict):
+class AssociateSoftwareToImageBuilderRequest(TypedDict, closed=True):
     image_builder_name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>The name of the target image builder instance.</p>"""
     software_names: NotRequired["aws_sdk_appstream.types.string_list.StringList"]

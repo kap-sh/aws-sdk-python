@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdateMemoryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.memory
 
 
-class UpdateMemoryOutput(TypedDict):
+class UpdateMemoryOutput(TypedDict, closed=True):
     memory: NotRequired["aws_sdk_bedrock_agentcore_control.types.memory.Memory"]
     """<p>The updated AgentCore Memory resource details.</p>"""
 

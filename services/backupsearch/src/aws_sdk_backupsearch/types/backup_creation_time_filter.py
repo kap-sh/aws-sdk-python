@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#BackupCreationTimeFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class BackupCreationTimeFilter(TypedDict):
+class BackupCreationTimeFilter(TypedDict, closed=True):
     created_after: NotRequired["datetime.datetime"]
     """<p>This timestamp includes recovery points only created after the specified time.</p>"""
     created_before: NotRequired["datetime.datetime"]

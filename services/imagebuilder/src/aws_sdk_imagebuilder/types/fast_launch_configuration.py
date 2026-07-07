@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#FastLaunchConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.max_parallel_launches
 
 
-class FastLaunchConfiguration(TypedDict):
+class FastLaunchConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_imagebuilder.types.boolean.Boolean"
     """<p>A Boolean that represents the current state of faster launching for the Windows AMI. Set to <code>true</code> to start using Windows faster launching, or <code>false</code> to stop using it.</p>"""
     snapshot_configuration: NotRequired[

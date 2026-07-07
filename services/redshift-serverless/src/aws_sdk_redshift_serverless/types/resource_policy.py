@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ResourcePolicy``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ResourcePolicy(TypedDict):
+class ResourcePolicy(TypedDict, closed=True):
     resource_arn: NotRequired["str"]
     """<p>The Amazon Resource Name (ARN) of the policy.</p>"""
     policy: NotRequired["str"]

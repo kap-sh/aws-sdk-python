@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DDBELTConnectionOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.enclosed_in_string_property
 
 
-class DDBELTConnectionOptions(TypedDict):
+class DDBELTConnectionOptions(TypedDict, closed=True):
     dynamodb_export: NotRequired["aws_sdk_glue.types.ddb_export_type.DdbExportType"]
     """<p>Specifies the export type for DynamoDB data extraction. This parameter determines how data is exported from the DynamoDB table during the ELT process.</p>"""
     dynamodb_unnest_ddb_json: "aws_sdk_glue.types.boolean_value.BooleanValue"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#AdBreak``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__long
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.time_signal_message
 
 
-class AdBreak(TypedDict):
+class AdBreak(TypedDict, closed=True):
     message_type: NotRequired["aws_sdk_mediatailor.types.message_type.MessageType"]
     """<p>The SCTE-35 ad insertion type. Accepted value: <code>SPLICE_INSERT</code>, <code>TIME_SIGNAL</code>.</p>"""
     offset_millis: "aws_sdk_mediatailor.types.__long.__long"

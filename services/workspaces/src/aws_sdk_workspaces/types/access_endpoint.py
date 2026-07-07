@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#AccessEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.access_endpoint_type
     import aws_sdk_workspaces.types.alphanumeric_dash_underscore_non_empty_string
 
 
-class AccessEndpoint(TypedDict):
+class AccessEndpoint(TypedDict, closed=True):
     access_endpoint_type: NotRequired[
         "aws_sdk_workspaces.types.access_endpoint_type.AccessEndpointType"
     ]

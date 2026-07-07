@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
     resource_id: NotRequired["str"]
     """<p/>"""

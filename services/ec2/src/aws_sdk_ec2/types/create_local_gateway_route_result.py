@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateLocalGatewayRouteResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.local_gateway_route
 
 
-class CreateLocalGatewayRouteResult(TypedDict):
+class CreateLocalGatewayRouteResult(TypedDict, closed=True):
     route: NotRequired["aws_sdk_ec2.types.local_gateway_route.LocalGatewayRoute"]
     """<p>Information about the route.</p>"""
 

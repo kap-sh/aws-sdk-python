@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialLayerColorField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_layer_dimension_field_list
     import aws_sdk_quicksight.types.geospatial_layer_measure_field_list
 
 
-class GeospatialLayerColorField(TypedDict):
+class GeospatialLayerColorField(TypedDict, closed=True):
     color_dimensions_fields: NotRequired[
         "aws_sdk_quicksight.types.geospatial_layer_dimension_field_list.GeospatialLayerDimensionFieldList"
     ]

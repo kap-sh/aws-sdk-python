@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CreateAssociationBatchResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.association_description_list
     import aws_sdk_ssm.types.failed_create_association_list
 
 
-class CreateAssociationBatchResult(TypedDict):
+class CreateAssociationBatchResult(TypedDict, closed=True):
     successful: NotRequired[
         "aws_sdk_ssm.types.association_description_list.AssociationDescriptionList"
     ]

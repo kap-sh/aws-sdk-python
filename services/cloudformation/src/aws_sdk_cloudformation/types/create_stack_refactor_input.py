@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#CreateStackRefactorInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.stack_definitions
 
 
-class CreateStackRefactorInput(TypedDict):
+class CreateStackRefactorInput(TypedDict, closed=True):
     description: NotRequired["aws_sdk_cloudformation.types.description.Description"]
     """<p>A description to help you identify the stack refactor.</p>"""
     enable_stack_creation: NotRequired[

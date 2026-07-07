@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#LineItemGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.line_item_list
     import aws_sdk_textract.types.u_integer
 
 
-class LineItemGroup(TypedDict):
+class LineItemGroup(TypedDict, closed=True):
     line_item_group_index: NotRequired["aws_sdk_textract.types.u_integer.UInteger"]
     """<p>The number used to identify a specific table in a document. The first table encountered will have a LineItemGroupIndex of 1, the second 2, etc.</p>"""
     line_items: NotRequired["aws_sdk_textract.types.line_item_list.LineItemList"]

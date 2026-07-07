@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#ExpenseType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.percent
     import aws_sdk_textract.types.string
 
 
-class ExpenseType(TypedDict):
+class ExpenseType(TypedDict, closed=True):
     text: NotRequired["aws_sdk_textract.types.string.String"]
     """<p>The word or line of text detected by Amazon Textract.</p>"""
     confidence: NotRequired["aws_sdk_textract.types.percent.Percent"]

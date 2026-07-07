@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#UsernamePassword``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class UsernamePassword(TypedDict):
+class UsernamePassword(TypedDict, closed=True):
     username: NotRequired["aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"]
     """<p>The username associated with the temporary credentials that you use to connect to cluster endpoints.</p>"""
     password: NotRequired["aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"]

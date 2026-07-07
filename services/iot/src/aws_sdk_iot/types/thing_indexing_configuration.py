@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ThingIndexingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_indexing_mode
 
 
-class ThingIndexingConfiguration(TypedDict):
+class ThingIndexingConfiguration(TypedDict, closed=True):
     thing_indexing_mode: "aws_sdk_iot.types.thing_indexing_mode.ThingIndexingMode"
     """<p>Thing indexing mode. Valid values are:</p> <ul> <li> <p>REGISTRY – Your thing index contains registry data only.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.</p> </li> <li> <p>OFF - Thing indexing is disabled.</p> </li> </ul>"""
     thing_connectivity_indexing_mode: NotRequired[

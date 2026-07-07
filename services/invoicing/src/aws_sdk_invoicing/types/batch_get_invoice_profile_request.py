@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#BatchGetInvoiceProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.account_id_list
 
 
-class BatchGetInvoiceProfileRequest(TypedDict):
+class BatchGetInvoiceProfileRequest(TypedDict, closed=True):
     account_ids: "aws_sdk_invoicing.types.account_id_list.AccountIdList"
     """<p>Retrieves the corresponding invoice profile data for these account IDs. </p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DatasetEntityRecognizerAnnotations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.s3_uri
 
 
-class DatasetEntityRecognizerAnnotations(TypedDict):
+class DatasetEntityRecognizerAnnotations(TypedDict, closed=True):
     s3_uri: "aws_sdk_comprehend.types.s3_uri.S3Uri"
     """<p> Specifies the Amazon S3 location where the training documents for an entity recognizer are located. The URI must be in the same Region as the API endpoint that you are calling.</p>"""
 

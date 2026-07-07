@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#EnvironmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.environment_error
     import aws_sdk_lambda.types.environment_variables
 
 
-class EnvironmentResponse(TypedDict):
+class EnvironmentResponse(TypedDict, closed=True):
     variables: NotRequired[
         "aws_sdk_lambda.types.environment_variables.EnvironmentVariables"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#Snapshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.snapshot_status
 
 
-class Snapshot(TypedDict):
+class Snapshot(TypedDict, closed=True):
     namespace_name: NotRequired["str"]
     """<p>The name of the namepsace.</p>"""
     namespace_arn: NotRequired["str"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetIndexingConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_group_indexing_configuration
     import aws_sdk_iot.types.thing_indexing_configuration
 
 
-class GetIndexingConfigurationResponse(TypedDict):
+class GetIndexingConfigurationResponse(TypedDict, closed=True):
     thing_indexing_configuration: NotRequired[
         "aws_sdk_iot.types.thing_indexing_configuration.ThingIndexingConfiguration"
     ]

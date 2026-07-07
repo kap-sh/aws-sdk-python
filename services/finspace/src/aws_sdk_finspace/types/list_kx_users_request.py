@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#ListKxUsersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.id_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.result_limit
 
 
-class ListKxUsersRequest(TypedDict):
+class ListKxUsersRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_finspace.types.id_type.IdType"
     """<p>A unique identifier for the kdb environment.</p>"""
     next_token: NotRequired["aws_sdk_finspace.types.pagination_token.PaginationToken"]

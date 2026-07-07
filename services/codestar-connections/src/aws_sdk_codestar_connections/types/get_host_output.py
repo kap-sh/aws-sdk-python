@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#GetHostOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.host_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.vpc_configuration
 
 
-class GetHostOutput(TypedDict):
+class GetHostOutput(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codestar_connections.types.host_name.HostName"]
     """<p>The name of the requested host.</p>"""
     status: NotRequired["aws_sdk_codestar_connections.types.host_status.HostStatus"]

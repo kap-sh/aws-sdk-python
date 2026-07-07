@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#MemoryRecordMetadataValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.string_value_list
 
 
-class _MemoryRecordMetadataValue_stringValue(TypedDict):
+class _MemoryRecordMetadataValue_stringValue(TypedDict, closed=True):
     stringValue: "aws_sdk_bedrock_agentcore.types.string_value.StringValue"
 
 
-class _MemoryRecordMetadataValue_stringListValue(TypedDict):
+class _MemoryRecordMetadataValue_stringListValue(TypedDict, closed=True):
     stringListValue: "aws_sdk_bedrock_agentcore.types.string_value_list.StringValueList"
 
 
-class _MemoryRecordMetadataValue_numberValue(TypedDict):
+class _MemoryRecordMetadataValue_numberValue(TypedDict, closed=True):
     numberValue: "float"
 
 
-class _MemoryRecordMetadataValue_dateTimeValue(TypedDict):
+class _MemoryRecordMetadataValue_dateTimeValue(TypedDict, closed=True):
     dateTimeValue: "datetime.datetime"
 
 

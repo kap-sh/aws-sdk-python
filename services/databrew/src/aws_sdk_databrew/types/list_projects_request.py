@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ListProjectsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.max_results100
     import aws_sdk_databrew.types.next_token
 
 
-class ListProjectsRequest(TypedDict):
+class ListProjectsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_databrew.types.next_token.NextToken"]
     """<p>The token returned by a previous call to retrieve the next set of results.</p>"""
     max_results: NotRequired["aws_sdk_databrew.types.max_results100.MaxResults100"]

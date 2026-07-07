@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ListVirtualServicesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_service_list
 
 
-class ListVirtualServicesOutput(TypedDict):
+class ListVirtualServicesOutput(TypedDict, closed=True):
     virtual_services: "aws_sdk_app_mesh.types.virtual_service_list.VirtualServiceList"
     """<p>The list of existing virtual services for the specified service mesh.</p>"""
     next_token: NotRequired["str"]

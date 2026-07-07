@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeMaintenanceStartTimeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.day_of_month
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.software_update_preferences
 
 
-class DescribeMaintenanceStartTimeOutput(TypedDict):
+class DescribeMaintenanceStartTimeOutput(TypedDict, closed=True):
     gateway_arn: NotRequired["aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"]
     hour_of_day: NotRequired["aws_sdk_storage_gateway.types.hour_of_day.HourOfDay"]
     """<p>The hour component of the maintenance start time represented as <i>hh</i>, where <i>hh</i> is the hour (0 to 23). The hour of the day is in the time zone of the gateway.</p>"""

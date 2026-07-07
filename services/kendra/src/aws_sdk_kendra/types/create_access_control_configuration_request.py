@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#CreateAccessControlConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.principal_list
 
 
-class CreateAccessControlConfigurationRequest(TypedDict):
+class CreateAccessControlConfigurationRequest(TypedDict, closed=True):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     """<p>The identifier of the index to create an access control configuration for your documents.</p>"""
     name: "aws_sdk_kendra.types.access_control_configuration_name.AccessControlConfigurationName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#OutputLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.s3_location
 
 
-class OutputLocation(TypedDict):
+class OutputLocation(TypedDict, closed=True):
     s3: NotRequired["aws_sdk_s3.types.s3_location.S3Location"]
     """<p>Describes an S3 location that will receive the results of the restore request.</p>"""
 

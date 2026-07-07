@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#RevokeSecurityGroupEgressRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class RevokeSecurityGroupEgressRequest(TypedDict):
+class RevokeSecurityGroupEgressRequest(TypedDict, closed=True):
     security_group_rule_ids: NotRequired[
         "aws_sdk_ec2.types.security_group_rule_id_list.SecurityGroupRuleIdList"
     ]

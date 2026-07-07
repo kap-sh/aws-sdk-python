@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RestartRouterInputResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_input_state
 
 
-class RestartRouterInputResponse(TypedDict):
+class RestartRouterInputResponse(TypedDict, closed=True):
     arn: "aws_sdk_mediaconnect.types.router_input_arn.RouterInputArn"
     """<p>The ARN of the router input that was restarted.</p>"""
     name: "str"

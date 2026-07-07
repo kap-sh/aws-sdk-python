@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#DescribeProductAsAdminOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.budgets
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.tags
 
 
-class DescribeProductAsAdminOutput(TypedDict):
+class DescribeProductAsAdminOutput(TypedDict, closed=True):
     product_view_detail: NotRequired[
         "aws_sdk_service_catalog.types.product_view_detail.ProductViewDetail"
     ]

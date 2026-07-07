@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#ListGroupingStatusesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group_string_v2
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.next_token
 
 
-class ListGroupingStatusesOutput(TypedDict):
+class ListGroupingStatusesOutput(TypedDict, closed=True):
     group: NotRequired["aws_sdk_resource_groups.types.group_string_v2.GroupStringV2"]
     """<p>The application group identifier, expressed as an Amazon resource name (ARN) or the application group name.</p>"""
     grouping_statuses: NotRequired[

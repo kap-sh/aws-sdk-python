@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#DeleteAppsListRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.list_id
 
 
-class DeleteAppsListRequest(TypedDict):
+class DeleteAppsListRequest(TypedDict, closed=True):
     list_id: "aws_sdk_fms.types.list_id.ListId"
     """<p>The ID of the applications list that you want to delete. You can retrieve this ID from <code>PutAppsList</code>, <code>ListAppsLists</code>, and <code>GetAppsList</code>.</p>"""
 

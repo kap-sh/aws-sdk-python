@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#CustomLaunchTemplate``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
 
-class CustomLaunchTemplate(TypedDict):
+class CustomLaunchTemplate(TypedDict, closed=True):
     id: "str"
     """<p>The ID of the EC2 launch template to use to provision instances.</p> <p> Example: <code>lt-xxxx</code> </p>"""
     version: "str"

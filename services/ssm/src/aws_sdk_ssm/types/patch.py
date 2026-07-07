@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#Patch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_version
 
 
-class Patch(TypedDict):
+class Patch(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ssm.types.patch_id.PatchId"]
     """<p>The ID of the patch. Applies to Windows patches only.</p> <note> <p>This ID isn't the same as the Microsoft Knowledge Base ID.</p> </note>"""
     release_date: NotRequired["aws_sdk_ssm.types.date_time.DateTime"]

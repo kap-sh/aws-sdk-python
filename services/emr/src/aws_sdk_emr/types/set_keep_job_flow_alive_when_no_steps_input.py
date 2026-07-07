@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#SetKeepJobFlowAliveWhenNoStepsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean
     import aws_sdk_emr.types.xml_string_list
 
 
-class SetKeepJobFlowAliveWhenNoStepsInput(TypedDict):
+class SetKeepJobFlowAliveWhenNoStepsInput(TypedDict, closed=True):
     job_flow_ids: NotRequired["aws_sdk_emr.types.xml_string_list.XmlStringList"]
     r"""<p>A list of strings that uniquely identify the clusters to protect. This identifier is returned by <a href=\"https://docs.aws.amazon.com/emr/latest/APIReference/API_RunJobFlow.html\">RunJobFlow</a> and can also be obtained from <a href=\"https://docs.aws.amazon.com/emr/latest/APIReference/API_DescribeJobFlows.html\">DescribeJobFlows</a>.</p>"""
     keep_job_flow_alive_when_no_steps: NotRequired["aws_sdk_emr.types.boolean.Boolean"]

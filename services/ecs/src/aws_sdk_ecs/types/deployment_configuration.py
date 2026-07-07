@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DeploymentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.linear_configuration
 
 
-class DeploymentConfiguration(TypedDict):
+class DeploymentConfiguration(TypedDict, closed=True):
     deployment_circuit_breaker: NotRequired[
         "aws_sdk_ecs.types.deployment_circuit_breaker.DeploymentCircuitBreaker"
     ]

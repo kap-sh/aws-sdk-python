@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeregisterManagedInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.managed_instance_id
 
 
-class DeregisterManagedInstanceRequest(TypedDict):
+class DeregisterManagedInstanceRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_ssm.types.managed_instance_id.ManagedInstanceId"
     """<p>The ID assigned to the managed node when you registered it using the activation process. </p>"""
 

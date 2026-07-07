@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteDomainConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.domain_configuration_name
 
 
-class DeleteDomainConfigurationRequest(TypedDict):
+class DeleteDomainConfigurationRequest(TypedDict, closed=True):
     domain_configuration_name: (
         "aws_sdk_iot.types.domain_configuration_name.DomainConfigurationName"
     )

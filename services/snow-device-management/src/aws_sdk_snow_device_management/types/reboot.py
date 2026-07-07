@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#Reboot``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class Reboot(TypedDict):
+class Reboot(TypedDict, closed=True):
     pass
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DataLakeSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.data_lake_source_status_list
     import aws_sdk_securitylake.types.ocsf_event_class_list
 
 
-class DataLakeSource(TypedDict):
+class DataLakeSource(TypedDict, closed=True):
     account: NotRequired["str"]
     """<p>The ID of the Security Lake account for which logs are collected.</p>"""
     source_name: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#GetOTelEnrichmentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.o_tel_enrichment_status
 
 
-class GetOTelEnrichmentOutput(TypedDict):
+class GetOTelEnrichmentOutput(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_cloudwatch.types.o_tel_enrichment_status.OTelEnrichmentStatus"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#DescribeCustomKeyStoresResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.boolean_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.marker_type
 
 
-class DescribeCustomKeyStoresResponse(TypedDict):
+class DescribeCustomKeyStoresResponse(TypedDict, closed=True):
     custom_key_stores: NotRequired[
         "aws_sdk_kms.types.custom_key_stores_list.CustomKeyStoresList"
     ]

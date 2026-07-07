@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetAutonomousDatabaseBackupOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.autonomous_database_backup
 
 
-class GetAutonomousDatabaseBackupOutput(TypedDict):
+class GetAutonomousDatabaseBackupOutput(TypedDict, closed=True):
     autonomous_database_backup: NotRequired[
         "aws_sdk_odb.types.autonomous_database_backup.AutonomousDatabaseBackup"
     ]

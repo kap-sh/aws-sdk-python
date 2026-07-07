@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#PurchaseOptionBadge``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.purchase_option_badge_type
 
 
-class PurchaseOptionBadge(TypedDict):
+class PurchaseOptionBadge(TypedDict, closed=True):
     display_name: "aws_sdk_marketplace_discovery.types.non_empty_string.NonEmptyString"
     """<p>The human-readable name of the badge.</p>"""
     badge_type: "aws_sdk_marketplace_discovery.types.purchase_option_badge_type.PurchaseOptionBadgeType"

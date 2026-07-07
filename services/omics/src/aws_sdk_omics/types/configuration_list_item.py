@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ConfigurationListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.configuration_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.configuration_timestamp
 
 
-class ConfigurationListItem(TypedDict):
+class ConfigurationListItem(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_omics.types.configuration_arn.ConfigurationArn"]
     """<p>Unique resource identifier for the configuration.</p>"""
     name: NotRequired["aws_sdk_omics.types.configuration_name.ConfigurationName"]

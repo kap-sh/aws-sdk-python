@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#UpdateDetectorVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.whole_number_version_string
 
 
-class UpdateDetectorVersionRequest(TypedDict):
+class UpdateDetectorVersionRequest(TypedDict, closed=True):
     detector_id: "aws_sdk_frauddetector.types.identifier.identifier"
     """<p>The parent detector ID for the detector version you want to update.</p>"""
     detector_version_id: "aws_sdk_frauddetector.types.whole_number_version_string.wholeNumberVersionString"

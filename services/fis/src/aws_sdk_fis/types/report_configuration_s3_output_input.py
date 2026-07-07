@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ReportConfigurationS3OutputInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.report_configuration_s3_output_prefix
     import aws_sdk_fis.types.s3_bucket_name
 
 
-class ReportConfigurationS3OutputInput(TypedDict):
+class ReportConfigurationS3OutputInput(TypedDict, closed=True):
     bucket_name: NotRequired["aws_sdk_fis.types.s3_bucket_name.S3BucketName"]
     """<p>The name of the S3 bucket where the experiment report will be stored.</p>"""
     prefix: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#StatefulEngineOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.rule_order
     import aws_sdk_fms.types.stream_exception_policy
 
 
-class StatefulEngineOptions(TypedDict):
+class StatefulEngineOptions(TypedDict, closed=True):
     rule_order: NotRequired["aws_sdk_fms.types.rule_order.RuleOrder"]
     r"""<p>Indicates how to manage the order of stateful rule evaluation for the policy. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see <a href=\"https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html\">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.</p> <p>Default: <code>DEFAULT_ACTION_ORDER</code> </p>"""
     stream_exception_policy: NotRequired[

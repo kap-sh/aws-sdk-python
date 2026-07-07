@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EndpointFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.comprehend_model_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.timestamp
 
 
-class EndpointFilter(TypedDict):
+class EndpointFilter(TypedDict, closed=True):
     model_arn: NotRequired[
         "aws_sdk_comprehend.types.comprehend_model_arn.ComprehendModelArn"
     ]

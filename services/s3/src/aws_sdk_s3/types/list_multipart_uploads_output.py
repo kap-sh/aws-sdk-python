@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListMultipartUploadsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.upload_id_marker
 
 
-class ListMultipartUploadsOutput(TypedDict):
+class ListMultipartUploadsOutput(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_s3.types.bucket_name.BucketName"]
     """<p>The name of the bucket to which the multipart upload was initiated. Does not return the access point ARN or access point alias if used.</p>"""
     key_marker: NotRequired["aws_sdk_s3.types.key_marker.KeyMarker"]

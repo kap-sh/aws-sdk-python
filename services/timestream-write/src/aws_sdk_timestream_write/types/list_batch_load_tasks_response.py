@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#ListBatchLoadTasksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.batch_load_task_list
     import aws_sdk_timestream_write.types.string
 
 
-class ListBatchLoadTasksResponse(TypedDict):
+class ListBatchLoadTasksResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_timestream_write.types.string.String"]
     """<p>A token to specify where to start paginating. Provide the next ListBatchLoadTasksRequest.</p>"""
     batch_load_tasks: NotRequired[

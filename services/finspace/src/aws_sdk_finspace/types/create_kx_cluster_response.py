@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#CreateKxClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.auto_scaling_configuration
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.vpc_configuration
 
 
-class CreateKxClusterResponse(TypedDict):
+class CreateKxClusterResponse(TypedDict, closed=True):
     environment_id: NotRequired[
         "aws_sdk_finspace.types.kx_environment_id.KxEnvironmentId"
     ]

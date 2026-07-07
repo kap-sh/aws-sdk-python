@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#StartSchemaMergeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.source_api_association_status
 
 
-class StartSchemaMergeResponse(TypedDict):
+class StartSchemaMergeResponse(TypedDict, closed=True):
     source_api_association_status: NotRequired[
         "aws_sdk_appsync.types.source_api_association_status.SourceApiAssociationStatus"
     ]

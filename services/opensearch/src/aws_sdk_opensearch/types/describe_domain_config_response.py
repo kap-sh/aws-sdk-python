@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeDomainConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_config
 
 
-class DescribeDomainConfigResponse(TypedDict):
+class DescribeDomainConfigResponse(TypedDict, closed=True):
     domain_config: "aws_sdk_opensearch.types.domain_config.DomainConfig"
     """<p>Container for the configuration of the OpenSearch Service domain.</p>"""
 

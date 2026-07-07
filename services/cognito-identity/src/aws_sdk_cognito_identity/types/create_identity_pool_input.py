@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#CreateIdentityPoolInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.saml_provider_list
 
 
-class CreateIdentityPoolInput(TypedDict):
+class CreateIdentityPoolInput(TypedDict, closed=True):
     identity_pool_name: (
         "aws_sdk_cognito_identity.types.identity_pool_name.IdentityPoolName"
     )

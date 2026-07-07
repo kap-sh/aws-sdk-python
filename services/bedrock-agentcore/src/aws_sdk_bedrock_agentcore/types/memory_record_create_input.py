@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#MemoryRecordCreateInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.request_identifier
 
 
-class MemoryRecordCreateInput(TypedDict):
+class MemoryRecordCreateInput(TypedDict, closed=True):
     request_identifier: (
         "aws_sdk_bedrock_agentcore.types.request_identifier.RequestIdentifier"
     )

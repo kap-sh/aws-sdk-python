@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DescribeProtectionGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.protection_group_id
 
 
-class DescribeProtectionGroupRequest(TypedDict):
+class DescribeProtectionGroupRequest(TypedDict, closed=True):
     protection_group_id: "aws_sdk_shield.types.protection_group_id.ProtectionGroupId"
     """<p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>"""
 

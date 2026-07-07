@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LaunchTemplateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.launch_template_id
 
 
-class LaunchTemplateConfiguration(TypedDict):
+class LaunchTemplateConfiguration(TypedDict, closed=True):
     launch_template_id: "aws_sdk_imagebuilder.types.launch_template_id.LaunchTemplateId"
     """<p>Identifies the Amazon EC2 launch template to use.</p>"""
     account_id: NotRequired["aws_sdk_imagebuilder.types.account_id.AccountId"]

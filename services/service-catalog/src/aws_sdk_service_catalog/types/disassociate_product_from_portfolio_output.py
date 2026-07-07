@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#DisassociateProductFromPortfolioOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateProductFromPortfolioOutput(TypedDict):
+class DisassociateProductFromPortfolioOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#OutputBand``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.output_type
 
 
-class OutputBand(TypedDict):
+class OutputBand(TypedDict, closed=True):
     band_name: "str"
     """<p>The name of the band.</p>"""
     output_data_type: "aws_sdk_sagemaker_geospatial.types.output_type.OutputType"

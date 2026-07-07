@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ReportDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.string
     import aws_sdk_backup.types.string_list
 
 
-class ReportDestination(TypedDict):
+class ReportDestination(TypedDict, closed=True):
     s3_bucket_name: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>The unique name of the Amazon S3 bucket that receives your reports.</p>"""
     s3_keys: NotRequired["aws_sdk_backup.types.string_list.stringList"]

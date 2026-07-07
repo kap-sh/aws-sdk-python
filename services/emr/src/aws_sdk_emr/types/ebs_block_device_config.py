@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#EbsBlockDeviceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.integer
     import aws_sdk_emr.types.volume_specification
 
 
-class EbsBlockDeviceConfig(TypedDict):
+class EbsBlockDeviceConfig(TypedDict, closed=True):
     volume_specification: NotRequired[
         "aws_sdk_emr.types.volume_specification.VolumeSpecification"
     ]

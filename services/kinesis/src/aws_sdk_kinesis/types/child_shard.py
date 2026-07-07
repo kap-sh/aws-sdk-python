@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#ChildShard``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.shard_id_list
 
 
-class ChildShard(TypedDict):
+class ChildShard(TypedDict, closed=True):
     shard_id: "aws_sdk_kinesis.types.shard_id.ShardId"
     """<p>The shard ID of the existing child shard of the current shard.</p>"""
     parent_shards: "aws_sdk_kinesis.types.shard_id_list.ShardIdList"

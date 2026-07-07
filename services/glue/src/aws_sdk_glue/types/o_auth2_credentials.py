@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#OAuth2Credentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.access_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.user_managed_client_application_client_secret
 
 
-class OAuth2Credentials(TypedDict):
+class OAuth2Credentials(TypedDict, closed=True):
     user_managed_client_application_client_secret: NotRequired[
         "aws_sdk_glue.types.user_managed_client_application_client_secret.UserManagedClientApplicationClientSecret"
     ]

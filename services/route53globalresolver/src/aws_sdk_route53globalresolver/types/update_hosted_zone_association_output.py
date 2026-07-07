@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#UpdateHostedZoneAssociationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -14,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_name
 
 
-class UpdateHostedZoneAssociationOutput(TypedDict):
+class UpdateHostedZoneAssociationOutput(TypedDict, closed=True):
     id: "aws_sdk_route53globalresolver.types.resource_id.ResourceId"
     """<p>The ID of the private hosted zone association.</p>"""
     resource_arn: "aws_sdk_route53globalresolver.types.resource_arn.ResourceArn"

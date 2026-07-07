@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#Stats``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.bytes_scanned
 
 
-class Stats(TypedDict):
+class Stats(TypedDict, closed=True):
     bytes_scanned: NotRequired["aws_sdk_s3.types.bytes_scanned.BytesScanned"]
     """<p>The total number of object bytes scanned.</p>"""
     bytes_processed: NotRequired["aws_sdk_s3.types.bytes_processed.BytesProcessed"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ListBrowserSessionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.browser_session_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.next_token
 
 
-class ListBrowserSessionsRequest(TypedDict):
+class ListBrowserSessionsRequest(TypedDict, closed=True):
     browser_identifier: "str"
     """<p>The unique identifier of the browser to list sessions for. If specified, only sessions for this browser are returned. If not specified, sessions for all browsers are returned.</p>"""
     max_results: NotRequired["aws_sdk_bedrock_agentcore.types.max_results.MaxResults"]

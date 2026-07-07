@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeMultiplexProgramRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class DescribeMultiplexProgramRequest(TypedDict):
+class DescribeMultiplexProgramRequest(TypedDict, closed=True):
     multiplex_id: "aws_sdk_medialive.types.__string.__string"
     """The ID of the multiplex that the program belongs to."""
     program_name: "aws_sdk_medialive.types.__string.__string"

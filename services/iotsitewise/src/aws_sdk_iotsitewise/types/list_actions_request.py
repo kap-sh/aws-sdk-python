@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListActionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.target_resource_type
 
 
-class ListActionsRequest(TypedDict):
+class ListActionsRequest(TypedDict, closed=True):
     target_resource_type: (
         "aws_sdk_iotsitewise.types.target_resource_type.TargetResourceType"
     )

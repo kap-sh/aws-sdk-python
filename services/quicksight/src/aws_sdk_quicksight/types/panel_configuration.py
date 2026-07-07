@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PanelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.hex_color_with_transparency
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class PanelConfiguration(TypedDict):
+class PanelConfiguration(TypedDict, closed=True):
     title: NotRequired["aws_sdk_quicksight.types.panel_title_options.PanelTitleOptions"]
     """<p>Configures the title display within each small multiples panel.</p>"""
     border_visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]

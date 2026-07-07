@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#Principal``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.principal_user
 
 
-class _Principal_user(TypedDict):
+class _Principal_user(TypedDict, closed=True):
     user: "aws_sdk_qbusiness.types.principal_user.PrincipalUser"
 
 
-class _Principal_group(TypedDict):
+class _Principal_group(TypedDict, closed=True):
     group: "aws_sdk_qbusiness.types.principal_group.PrincipalGroup"
 
 

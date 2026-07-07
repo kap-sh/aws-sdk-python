@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AuthorizationData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.o_auth2_authorization_data
 
 
-class _AuthorizationData_oauth2(TypedDict):
+class _AuthorizationData_oauth2(TypedDict, closed=True):
     oauth2: "aws_sdk_bedrock_agentcore_control.types.o_auth2_authorization_data.OAuth2AuthorizationData"
 
 

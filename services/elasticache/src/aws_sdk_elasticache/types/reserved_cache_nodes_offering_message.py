@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#ReservedCacheNodesOfferingMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class ReservedCacheNodesOfferingMessage(TypedDict):
+class ReservedCacheNodesOfferingMessage(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>Provides an identifier to allow retrieval of paginated results.</p>"""
     reserved_cache_nodes_offerings: NotRequired[

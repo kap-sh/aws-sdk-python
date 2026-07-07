@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#DataSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.data_source_s3_configuration
 
 
-class DataSourceConfiguration(TypedDict):
+class DataSourceConfiguration(TypedDict, closed=True):
     data_source_s3_configuration: "aws_sdk_timestream_write.types.data_source_s3_configuration.DataSourceS3Configuration"
     """<p>Configuration of an S3 location for a file which contains data to load.</p>"""
     csv_configuration: NotRequired[

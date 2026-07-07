@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListCapacityProvidersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.capacity_provider_state
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class ListCapacityProvidersRequest(TypedDict):
+class ListCapacityProvidersRequest(TypedDict, closed=True):
     state: NotRequired[
         "aws_sdk_lambda.types.capacity_provider_state.CapacityProviderState"
     ]

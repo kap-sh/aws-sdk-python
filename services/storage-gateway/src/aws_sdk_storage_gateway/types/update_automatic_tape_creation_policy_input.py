@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#UpdateAutomaticTapeCreationPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.gateway_arn
 
 
-class UpdateAutomaticTapeCreationPolicyInput(TypedDict):
+class UpdateAutomaticTapeCreationPolicyInput(TypedDict, closed=True):
     automatic_tape_creation_rules: "aws_sdk_storage_gateway.types.automatic_tape_creation_rules.AutomaticTapeCreationRules"
     """<p>An automatic tape creation policy consists of a list of automatic tape creation rules. The rules determine when and how to automatically create new tapes.</p>"""
     gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"

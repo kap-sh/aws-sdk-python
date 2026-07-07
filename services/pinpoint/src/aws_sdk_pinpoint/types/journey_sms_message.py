@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#JourneySMSMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.message_type
 
 
-class JourneySMSMessage(TypedDict):
+class JourneySMSMessage(TypedDict, closed=True):
     message_type: NotRequired["aws_sdk_pinpoint.types.message_type.MessageType"]
     """<p>The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).</p>"""
     origination_number: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

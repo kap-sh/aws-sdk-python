@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2VpcPeeringConnectionStatusDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2VpcPeeringConnectionStatusDetails(TypedDict):
+class AwsEc2VpcPeeringConnectionStatusDetails(TypedDict, closed=True):
     code: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The status of the VPC peering connection. </p>"""
     message: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

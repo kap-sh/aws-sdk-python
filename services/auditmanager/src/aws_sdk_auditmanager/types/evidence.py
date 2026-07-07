@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#Evidence``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.account_id
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class Evidence(TypedDict):
+class Evidence(TypedDict, closed=True):
     data_source: NotRequired["aws_sdk_auditmanager.types.string.String"]
     """<p> The data source where the evidence was collected from. </p>"""
     evidence_aws_account_id: NotRequired[

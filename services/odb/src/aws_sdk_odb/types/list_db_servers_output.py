@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ListDbServersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.db_server_list
 
 
-class ListDbServersOutput(TypedDict):
+class ListDbServersOutput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>"""
     db_servers: "aws_sdk_odb.types.db_server_list.DbServerList"

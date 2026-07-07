@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#RuleAction``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.forward_action
 
 
-class _RuleAction_forward(TypedDict):
+class _RuleAction_forward(TypedDict, closed=True):
     forward: "aws_sdk_vpc_lattice.types.forward_action.ForwardAction"
 
 
-class _RuleAction_fixedResponse(TypedDict):
+class _RuleAction_fixedResponse(TypedDict, closed=True):
     fixedResponse: "aws_sdk_vpc_lattice.types.fixed_response_action.FixedResponseAction"
 
 

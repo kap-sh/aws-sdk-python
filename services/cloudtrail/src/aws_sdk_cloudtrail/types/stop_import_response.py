@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#StopImportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.date
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.uuid
 
 
-class StopImportResponse(TypedDict):
+class StopImportResponse(TypedDict, closed=True):
     import_id: NotRequired["aws_sdk_cloudtrail.types.uuid.UUID"]
     """<p> The ID for the import. </p>"""
     import_source: NotRequired["aws_sdk_cloudtrail.types.import_source.ImportSource"]

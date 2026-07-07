@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#MessageUsefulnessFeedback``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.timestamp
 
 
-class MessageUsefulnessFeedback(TypedDict):
+class MessageUsefulnessFeedback(TypedDict, closed=True):
     usefulness: "aws_sdk_qbusiness.types.message_usefulness.MessageUsefulness"
     """<p>The usefulness value assigned by an end user to a message.</p>"""
     reason: NotRequired[

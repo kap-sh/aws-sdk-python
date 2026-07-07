@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#UpdateServiceAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.service_attributes_map
 
 
-class UpdateServiceAttributesRequest(TypedDict):
+class UpdateServiceAttributesRequest(TypedDict, closed=True):
     service_id: "aws_sdk_servicediscovery.types.arn.Arn"
     """<p>The ID or Amazon Resource Name (ARN) of the service that you want to update. For services created in a namespace shared with your Amazon Web Services account, specify the service ARN.</p>"""
     attributes: (

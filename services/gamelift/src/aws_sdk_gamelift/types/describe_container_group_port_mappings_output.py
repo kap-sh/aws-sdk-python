@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeContainerGroupPortMappingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.compute_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.location_string_model
 
 
-class DescribeContainerGroupPortMappingsOutput(TypedDict):
+class DescribeContainerGroupPortMappingsOutput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id.FleetId"]
     """<p>A unique identifier for the container fleet.</p>"""
     location: NotRequired[

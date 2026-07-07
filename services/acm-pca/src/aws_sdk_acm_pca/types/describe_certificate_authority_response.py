@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#DescribeCertificateAuthorityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.certificate_authority
 
 
-class DescribeCertificateAuthorityResponse(TypedDict):
+class DescribeCertificateAuthorityResponse(TypedDict, closed=True):
     certificate_authority: NotRequired[
         "aws_sdk_acm_pca.types.certificate_authority.CertificateAuthority"
     ]

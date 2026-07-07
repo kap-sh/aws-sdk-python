@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#DocumentAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.document_attribute_value
 
 
-class DocumentAttribute(TypedDict):
+class DocumentAttribute(TypedDict, closed=True):
     name: "aws_sdk_qapps.types.document_attribute_key.DocumentAttributeKey"
     """<p>The identifier for the attribute.</p>"""
     value: "aws_sdk_qapps.types.document_attribute_value.DocumentAttributeValue"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListScanJobSummariesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.account_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class ListScanJobSummariesInput(TypedDict):
+class ListScanJobSummariesInput(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_backup.types.account_id.AccountId"]
     """<p>Returns the job count for the specified account.</p> <p>If the request is sent from a member account or an account not part of Amazon Web Services Organizations, jobs within requestor's account will be returned.</p> <p>Root, admin, and delegated administrator accounts can use the value <code>ANY</code> to return job counts from every account in the organization.</p> <p> <code>AGGREGATE_ALL</code> aggregates job counts from all accounts within the authenticated organization, then returns the sum.</p>"""
     resource_type: NotRequired["aws_sdk_backup.types.resource_type.ResourceType"]

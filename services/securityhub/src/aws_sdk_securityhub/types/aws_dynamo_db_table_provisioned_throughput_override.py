@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsDynamoDbTableProvisionedThroughputOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
 
 
-class AwsDynamoDbTableProvisionedThroughputOverride(TypedDict):
+class AwsDynamoDbTableProvisionedThroughputOverride(TypedDict, closed=True):
     read_capacity_units: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The read capacity units for the replica.</p>"""
 

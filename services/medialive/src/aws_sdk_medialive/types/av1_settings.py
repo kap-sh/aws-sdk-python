@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Av1Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double_min0
@@ -28,7 +28,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.timecode_burnin_settings
 
 
-class Av1Settings(TypedDict):
+class Av1Settings(TypedDict, closed=True):
     afd_signaling: NotRequired["aws_sdk_medialive.types.afd_signaling.AfdSignaling"]
     """Configures whether MediaLive will write AFD values into the video. AUTO: MediaLive will try to preserve the input AFD value (in cases where multiple AFD values are valid). FIXED: the AFD value will be the value configured in the fixedAfd parameter. NONE: MediaLive won't write AFD into the video"""
     buf_size: NotRequired[

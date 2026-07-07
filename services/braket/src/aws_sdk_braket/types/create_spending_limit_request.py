@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#CreateSpendingLimitRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.time_period
 
 
-class CreateSpendingLimitRequest(TypedDict):
+class CreateSpendingLimitRequest(TypedDict, closed=True):
     client_token: "aws_sdk_braket.types.string64.String64"
     """<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Braket ignores the request, but does not return an error.</p>"""
     device_arn: "aws_sdk_braket.types.device_arn.DeviceArn"

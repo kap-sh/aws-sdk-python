@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#IdentityNotificationAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.notification_topic
 
 
-class IdentityNotificationAttributes(TypedDict):
+class IdentityNotificationAttributes(TypedDict, closed=True):
     bounce_topic: "aws_sdk_ses.types.notification_topic.NotificationTopic"
     """<p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES publishes bounce notifications.</p>"""
     complaint_topic: "aws_sdk_ses.types.notification_topic.NotificationTopic"

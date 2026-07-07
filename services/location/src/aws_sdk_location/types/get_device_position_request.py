@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetDevicePositionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.id
     import aws_sdk_location.types.resource_name
 
 
-class GetDevicePositionRequest(TypedDict):
+class GetDevicePositionRequest(TypedDict, closed=True):
     tracker_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The tracker resource receiving the position update.</p>"""
     device_id: "aws_sdk_location.types.id.Id"

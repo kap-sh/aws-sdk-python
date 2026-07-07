@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#TestInvokeMethodRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.map_of_string_to_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class TestInvokeMethodRequest(TypedDict):
+class TestInvokeMethodRequest(TypedDict, closed=True):
     rest_api_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The string identifier of the associated RestApi.</p>"""
     resource_id: "aws_sdk_api_gateway.types.string.String"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#TestRoleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.exception_messages
     import aws_sdk_elastic_transcoder.types.success
 
 
-class TestRoleResponse(TypedDict):
+class TestRoleResponse(TypedDict, closed=True):
     success: NotRequired["aws_sdk_elastic_transcoder.types.success.Success"]
     """<p>If the operation is successful, this value is <code>true</code>; otherwise, the value is <code>false</code>.</p>"""
     messages: NotRequired[

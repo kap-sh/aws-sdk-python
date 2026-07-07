@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CollectionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.uuid
 
 
-class CollectionSummary(TypedDict):
+class CollectionSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_route_53.types.arn.ARN"]
     """<p>The ARN of the collection summary. Can be used to reference the collection in IAM policy or cross-account.</p>"""
     id: NotRequired["aws_sdk_route_53.types.uuid.UUID"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#GetTrustStoreRevocationContentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.trust_store_arn
 
 
-class GetTrustStoreRevocationContentInput(TypedDict):
+class GetTrustStoreRevocationContentInput(TypedDict, closed=True):
     trust_store_arn: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.trust_store_arn.TrustStoreArn"
     ]

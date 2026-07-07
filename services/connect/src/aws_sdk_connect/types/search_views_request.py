@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchViewsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.view_search_filter
 
 
-class SearchViewsRequest(TypedDict):
+class SearchViewsRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id_or_arn.InstanceIdOrArn"
     r"""<p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token2500.NextToken2500"]

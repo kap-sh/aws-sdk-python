@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#MetadataTableEncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.table_sse_algorithm
 
 
-class MetadataTableEncryptionConfiguration(TypedDict):
+class MetadataTableEncryptionConfiguration(TypedDict, closed=True):
     sse_algorithm: "aws_sdk_s3.types.table_sse_algorithm.TableSseAlgorithm"
     """<p> The encryption type specified for a metadata table. To specify server-side encryption with Key Management Service (KMS) keys (SSE-KMS), use the <code>aws:kms</code> value. To specify server-side encryption with Amazon S3 managed keys (SSE-S3), use the <code>AES256</code> value. </p>"""
     kms_key_arn: NotRequired["aws_sdk_s3.types.kms_key_arn.KmsKeyArn"]

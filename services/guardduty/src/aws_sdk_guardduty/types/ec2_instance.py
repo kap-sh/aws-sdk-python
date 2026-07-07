@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Ec2Instance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.ec2_network_interface_uids
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class Ec2Instance(TypedDict):
+class Ec2Instance(TypedDict, closed=True):
     availability_zone: NotRequired["aws_sdk_guardduty.types.string.String"]
     r"""<p>The availability zone of the Amazon EC2 instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones\">Availability zones</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     image_description: NotRequired["aws_sdk_guardduty.types.string.String"]

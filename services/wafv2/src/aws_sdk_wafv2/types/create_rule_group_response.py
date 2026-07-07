@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#CreateRuleGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.rule_group_summary
 
 
-class CreateRuleGroupResponse(TypedDict):
+class CreateRuleGroupResponse(TypedDict, closed=True):
     summary: NotRequired["aws_sdk_wafv2.types.rule_group_summary.RuleGroupSummary"]
     """<p>High-level information about a <a>RuleGroup</a>, returned by operations like create and list. This provides information like the ID, that you can use to retrieve and manage a <code>RuleGroup</code>, and the ARN, that you provide to the <a>RuleGroupReferenceStatement</a> to use the rule group in a <a>Rule</a>.</p>"""
 

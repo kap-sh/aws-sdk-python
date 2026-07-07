@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.polly#CloseStreamEvent``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_polly._protocol.eventstream import HeaderValue, Message
 
 
-class CloseStreamEvent(TypedDict):
+class CloseStreamEvent(TypedDict, closed=True):
     pass
 
 

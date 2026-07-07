@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emr#PutBlockPublicAccessConfigurationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutBlockPublicAccessConfigurationOutput(TypedDict):
+class PutBlockPublicAccessConfigurationOutput(TypedDict, closed=True):
     pass
 
 

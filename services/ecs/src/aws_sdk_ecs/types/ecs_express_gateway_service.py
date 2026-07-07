@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ECSExpressGatewayService``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.express_gateway_service_configurations
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class ECSExpressGatewayService(TypedDict):
+class ECSExpressGatewayService(TypedDict, closed=True):
     cluster: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The short name or full ARN of the cluster that hosts the Express service.</p>"""
     service_name: NotRequired["aws_sdk_ecs.types.string.String"]

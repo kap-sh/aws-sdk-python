@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#PreferredResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.preferred_resource_name
     import aws_sdk_compute_optimizer.types.preferred_resource_values
 
 
-class PreferredResource(TypedDict):
+class PreferredResource(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_compute_optimizer.types.preferred_resource_name.PreferredResourceName"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DescribeTenantDatabasesMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DescribeTenantDatabasesMessage(TypedDict):
+class DescribeTenantDatabasesMessage(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The user-supplied DB instance identifier, which must match the identifier of an existing instance owned by the Amazon Web Services account. This parameter isn't case-sensitive.</p>"""
     tenant_db_name: NotRequired["aws_sdk_rds.types.string.String"]

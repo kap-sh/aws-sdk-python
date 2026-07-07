@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#StartCodeRemediationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.finding_id_list
 
 
-class StartCodeRemediationInput(TypedDict):
+class StartCodeRemediationInput(TypedDict, closed=True):
     agent_space_id: "str"
     """<p>The unique identifier of the agent space.</p>"""
     pentest_job_id: NotRequired["str"]

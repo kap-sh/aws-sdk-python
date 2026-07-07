@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#ListResourcePermissionStatementsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_signin.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.permission_statement_summaries
 
 
-class ListResourcePermissionStatementsOutput(TypedDict):
+class ListResourcePermissionStatementsOutput(TypedDict, closed=True):
     permission_statements: "aws_sdk_signin.types.permission_statement_summaries.PermissionStatementSummaries"
     """List of permission statement summaries"""
     next_token: NotRequired["aws_sdk_signin.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#ListServiceQuotaIncreaseRequestsInTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.aws_region
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.service_code
 
 
-class ListServiceQuotaIncreaseRequestsInTemplateRequest(TypedDict):
+class ListServiceQuotaIncreaseRequestsInTemplateRequest(TypedDict, closed=True):
     service_code: NotRequired["aws_sdk_service_quotas.types.service_code.ServiceCode"]
     """<p>Specifies the service identifier. To find the service code value for an Amazon Web Services service, use the <a>ListServices</a> operation.</p>"""
     aws_region: NotRequired["aws_sdk_service_quotas.types.aws_region.AwsRegion"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#GenerativeAiSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.role_arn
 
 
-class GenerativeAiSettings(TypedDict):
+class GenerativeAiSettings(TypedDict, closed=True):
     amazon_bedrock_role_arn: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]
     """<p>The ARN of an Amazon Web Services IAM role that allows fine-tuning of large language models (LLMs) in Amazon Bedrock. The IAM role should have Amazon S3 read and write permissions, as well as a trust relationship that establishes <code>bedrock.amazonaws.com</code> as a service principal.</p>"""
 

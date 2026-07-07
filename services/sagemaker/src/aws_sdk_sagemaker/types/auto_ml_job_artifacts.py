@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoMLJobArtifacts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.candidate_definition_notebook_location
     import aws_sdk_sagemaker.types.data_exploration_notebook_location
 
 
-class AutoMLJobArtifacts(TypedDict):
+class AutoMLJobArtifacts(TypedDict, closed=True):
     candidate_definition_notebook_location: NotRequired[
         "aws_sdk_sagemaker.types.candidate_definition_notebook_location.CandidateDefinitionNotebookLocation"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#UpdateBillingGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.update_billing_group_account_grouping
 
 
-class UpdateBillingGroupInput(TypedDict):
+class UpdateBillingGroupInput(TypedDict, closed=True):
     arn: "aws_sdk_billingconductor.types.billing_group_arn.BillingGroupArn"
     """<p>The Amazon Resource Name (ARN) of the billing group being updated. </p>"""
     name: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#UpdateTrafficPolicyCommentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.traffic_policy_version
 
 
-class UpdateTrafficPolicyCommentRequest(TypedDict):
+class UpdateTrafficPolicyCommentRequest(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.traffic_policy_id.TrafficPolicyId"
     """<p>The value of <code>Id</code> for the traffic policy that you want to update the comment for.</p>"""
     version: "aws_sdk_route_53.types.traffic_policy_version.TrafficPolicyVersion"

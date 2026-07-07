@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#TaggedTable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.column_lf_tags_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.table_resource
 
 
-class TaggedTable(TypedDict):
+class TaggedTable(TypedDict, closed=True):
     table: NotRequired["aws_sdk_lakeformation.types.table_resource.TableResource"]
     """<p>A table that has LF-tags attached to it.</p>"""
     lf_tag_on_database: NotRequired[

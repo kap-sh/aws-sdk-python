@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#CreateWorkloadEstimateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.workload_estimate_status
 
 
-class CreateWorkloadEstimateResponse(TypedDict):
+class CreateWorkloadEstimateResponse(TypedDict, closed=True):
     id: "aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"
     """<p> The unique identifier for the created workload estimate. </p>"""
     name: NotRequired[

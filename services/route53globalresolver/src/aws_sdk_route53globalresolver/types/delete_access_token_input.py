@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#DeleteAccessTokenInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_id
 
 
-class DeleteAccessTokenInput(TypedDict):
+class DeleteAccessTokenInput(TypedDict, closed=True):
     access_token_id: "aws_sdk_route53globalresolver.types.resource_id.ResourceId"
     """<p>The unique identifier of the access token to delete.</p>"""
 

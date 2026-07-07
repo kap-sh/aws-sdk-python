@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetEC2InstanceRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.account_ids
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.recommendation_preferences
 
 
-class GetEC2InstanceRecommendationsRequest(TypedDict):
+class GetEC2InstanceRecommendationsRequest(TypedDict, closed=True):
     instance_arns: NotRequired[
         "aws_sdk_compute_optimizer.types.instance_arns.InstanceArns"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#GetPoliciesStatsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.access_policy_stats
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.security_policy_stats
 
 
-class GetPoliciesStatsResponse(TypedDict):
+class GetPoliciesStatsResponse(TypedDict, closed=True):
     access_policy_stats: NotRequired[
         "aws_sdk_opensearchserverless.types.access_policy_stats.AccessPolicyStats"
     ]

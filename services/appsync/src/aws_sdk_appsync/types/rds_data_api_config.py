@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#RdsDataApiConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.rds_data_api_config_secret_arn
 
 
-class RdsDataApiConfig(TypedDict):
+class RdsDataApiConfig(TypedDict, closed=True):
     resource_arn: "aws_sdk_appsync.types.rds_data_api_config_resource_arn.RdsDataApiConfigResourceArn"
     """<p>The resource ARN of the RDS cluster.</p>"""
     secret_arn: (

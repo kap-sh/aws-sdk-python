@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#DataPartition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.data_partition_upload_options
 
 
-class DataPartition(TypedDict):
+class DataPartition(TypedDict, closed=True):
     id: "aws_sdk_iotfleetwise.types.data_partition_id.DataPartitionId"
     """<p>The ID of the data partition. The data partition ID must be unique within a campaign. You can establish a data partition as the default partition for a campaign by using <code>default</code> as the ID.</p>"""
     storage_options: "aws_sdk_iotfleetwise.types.data_partition_storage_options.DataPartitionStorageOptions"

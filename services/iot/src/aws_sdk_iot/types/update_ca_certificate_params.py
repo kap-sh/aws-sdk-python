@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateCACertificateParams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.ca_certificate_update_action
 
 
-class UpdateCACertificateParams(TypedDict):
+class UpdateCACertificateParams(TypedDict, closed=True):
     action: "aws_sdk_iot.types.ca_certificate_update_action.CACertificateUpdateAction"
     """<p>The action that you want to apply to the CA certificate. The only supported value is <code>DEACTIVATE</code>.</p>"""
 

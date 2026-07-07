@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DescribeServicesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.failures
     import aws_sdk_ecs.types.services
 
 
-class DescribeServicesResponse(TypedDict):
+class DescribeServicesResponse(TypedDict, closed=True):
     services: NotRequired["aws_sdk_ecs.types.services.Services"]
     """<p>The list of services described.</p>"""
     failures: NotRequired["aws_sdk_ecs.types.failures.Failures"]

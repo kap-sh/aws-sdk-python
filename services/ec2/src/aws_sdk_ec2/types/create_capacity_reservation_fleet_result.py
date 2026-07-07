@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateCapacityReservationFleetResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class CreateCapacityReservationFleetResult(TypedDict):
+class CreateCapacityReservationFleetResult(TypedDict, closed=True):
     capacity_reservation_fleet_id: NotRequired[
         "aws_sdk_ec2.types.capacity_reservation_fleet_id.CapacityReservationFleetId"
     ]

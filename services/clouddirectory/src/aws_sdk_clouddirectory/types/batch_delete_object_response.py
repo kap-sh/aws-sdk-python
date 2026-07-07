@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchDeleteObjectResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class BatchDeleteObjectResponse(TypedDict):
+class BatchDeleteObjectResponse(TypedDict, closed=True):
     pass
 
 

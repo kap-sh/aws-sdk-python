@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#CreateSampleFindingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_finding_type
 
 
-class CreateSampleFindingsRequest(TypedDict):
+class CreateSampleFindingsRequest(TypedDict, closed=True):
     finding_types: NotRequired[
         "aws_sdk_macie2.types.__list_of_finding_type.__listOfFindingType"
     ]

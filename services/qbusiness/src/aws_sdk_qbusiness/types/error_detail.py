@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ErrorDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.error_code
     import aws_sdk_qbusiness.types.error_message
 
 
-class ErrorDetail(TypedDict):
+class ErrorDetail(TypedDict, closed=True):
     error_message: NotRequired["aws_sdk_qbusiness.types.error_message.ErrorMessage"]
     """<p>The message explaining the Amazon Q Business request error.</p>"""
     error_code: NotRequired["aws_sdk_qbusiness.types.error_code.ErrorCode"]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DeleteEmailIdentityPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.identity
     import aws_sdk_sesv2.types.policy_name
 
 
-class DeleteEmailIdentityPolicyRequest(TypedDict):
+class DeleteEmailIdentityPolicyRequest(TypedDict, closed=True):
     email_identity: "aws_sdk_sesv2.types.identity.Identity"
     """<p>The email identity.</p>"""
     policy_name: "aws_sdk_sesv2.types.policy_name.PolicyName"

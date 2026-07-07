@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeAvailablePatchesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
     import aws_sdk_ssm.types.patch_list
 
 
-class DescribeAvailablePatchesResult(TypedDict):
+class DescribeAvailablePatchesResult(TypedDict, closed=True):
     patches: NotRequired["aws_sdk_ssm.types.patch_list.PatchList"]
     """<p>An array of patches. Each entry in the array is a patch structure.</p>"""
     next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]

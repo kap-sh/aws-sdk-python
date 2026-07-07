@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#DeprecateWhatsAppFlowOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeprecateWhatsAppFlowOutput(TypedDict):
+class DeprecateWhatsAppFlowOutput(TypedDict, closed=True):
     pass
 
 

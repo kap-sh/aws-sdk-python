@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#BranchInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.branch_name
     import aws_sdk_codecommit.types.commit_id
 
 
-class BranchInfo(TypedDict):
+class BranchInfo(TypedDict, closed=True):
     branch_name: NotRequired["aws_sdk_codecommit.types.branch_name.BranchName"]
     """<p>The name of the branch.</p>"""
     commit_id: NotRequired["aws_sdk_codecommit.types.commit_id.CommitId"]

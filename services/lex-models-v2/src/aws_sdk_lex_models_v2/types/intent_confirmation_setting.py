@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#IntentConfirmationSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.response_specification
 
 
-class IntentConfirmationSetting(TypedDict):
+class IntentConfirmationSetting(TypedDict, closed=True):
     prompt_specification: (
         "aws_sdk_lex_models_v2.types.prompt_specification.PromptSpecification"
     )

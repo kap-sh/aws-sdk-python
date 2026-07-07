@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DetectorFeatureConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.detector_additional_configuration_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.timestamp
 
 
-class DetectorFeatureConfigurationResult(TypedDict):
+class DetectorFeatureConfigurationResult(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_guardduty.types.detector_feature_result.DetectorFeatureResult"
     ]

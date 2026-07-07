@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRdsDbPendingModifiedValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_rds_db_processor_features
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsRdsDbPendingModifiedValues(TypedDict):
+class AwsRdsDbPendingModifiedValues(TypedDict, closed=True):
     db_instance_class: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

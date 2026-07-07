@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#UpdateAnnotationStoreVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.description
 
 
-class UpdateAnnotationStoreVersionRequest(TypedDict):
+class UpdateAnnotationStoreVersionRequest(TypedDict, closed=True):
     name: "str"
     """<p> The name of an annotation store. </p>"""
     version_name: "str"

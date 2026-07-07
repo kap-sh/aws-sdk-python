@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#GetSubscriptionStateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.subscription_state
 
 
-class GetSubscriptionStateResponse(TypedDict):
+class GetSubscriptionStateResponse(TypedDict, closed=True):
     subscription_state: "aws_sdk_shield.types.subscription_state.SubscriptionState"
     """<p>The status of the subscription.</p>"""
 

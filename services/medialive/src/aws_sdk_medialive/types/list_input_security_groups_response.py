@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ListInputSecurityGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_input_security_group
     import aws_sdk_medialive.types.__string
 
 
-class ListInputSecurityGroupsResponse(TypedDict):
+class ListInputSecurityGroupsResponse(TypedDict, closed=True):
     input_security_groups: NotRequired[
         "aws_sdk_medialive.types.__list_of_input_security_group.__listOfInputSecurityGroup"
     ]

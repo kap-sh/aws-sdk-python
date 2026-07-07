@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#RejectedRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.error_message
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.record_version
 
 
-class RejectedRecord(TypedDict):
+class RejectedRecord(TypedDict, closed=True):
     record_index: "aws_sdk_timestream_write.types.record_index.RecordIndex"
     """<p> The index of the record in the input request for WriteRecords. Indexes begin with 0. </p>"""
     reason: NotRequired["aws_sdk_timestream_write.types.error_message.ErrorMessage"]

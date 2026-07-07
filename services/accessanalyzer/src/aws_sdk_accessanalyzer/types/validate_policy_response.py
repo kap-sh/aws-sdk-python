@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ValidatePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.validate_policy_finding_list
 
 
-class ValidatePolicyResponse(TypedDict):
+class ValidatePolicyResponse(TypedDict, closed=True):
     findings: "aws_sdk_accessanalyzer.types.validate_policy_finding_list.ValidatePolicyFindingList"
     """<p>The list of findings in a policy returned by IAM Access Analyzer based on its suite of policy checks.</p>"""
     next_token: NotRequired["aws_sdk_accessanalyzer.types.token.Token"]

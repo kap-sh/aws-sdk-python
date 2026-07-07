@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StreamProcessorSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.connected_home_settings
     import aws_sdk_rekognition.types.face_search_settings
 
 
-class StreamProcessorSettings(TypedDict):
+class StreamProcessorSettings(TypedDict, closed=True):
     face_search: NotRequired[
         "aws_sdk_rekognition.types.face_search_settings.FaceSearchSettings"
     ]

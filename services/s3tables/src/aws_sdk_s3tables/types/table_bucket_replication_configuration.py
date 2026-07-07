@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#TableBucketReplicationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_bucket_replication_rules
 
 
-class TableBucketReplicationConfiguration(TypedDict):
+class TableBucketReplicationConfiguration(TypedDict, closed=True):
     role: "aws_sdk_s3tables.types.iam_role.IAMRole"
     """<p>The Amazon Resource Name (ARN) of the IAM role that S3 Tables assumes to replicate tables on your behalf.</p>"""
     rules: "aws_sdk_s3tables.types.table_bucket_replication_rules.TableBucketReplicationRules"

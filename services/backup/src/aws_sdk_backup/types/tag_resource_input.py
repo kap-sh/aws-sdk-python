@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.tags
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_backup.types.arn.ARN"
     """<p>The ARN that uniquely identifies the resource.</p>"""
     tags: "aws_sdk_backup.types.tags.Tags"

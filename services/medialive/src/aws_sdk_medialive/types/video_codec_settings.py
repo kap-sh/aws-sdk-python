@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#VideoCodecSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.av1_settings
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.mpeg2_settings
 
 
-class VideoCodecSettings(TypedDict):
+class VideoCodecSettings(TypedDict, closed=True):
     frame_capture_settings: NotRequired[
         "aws_sdk_medialive.types.frame_capture_settings.FrameCaptureSettings"
     ]

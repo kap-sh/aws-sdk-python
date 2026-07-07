@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#CreateEngagementInvitationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.engagement_invitation_identifier
 
 
-class CreateEngagementInvitationResponse(TypedDict):
+class CreateEngagementInvitationResponse(TypedDict, closed=True):
     id: "aws_sdk_partnercentral_selling.types.engagement_invitation_identifier.EngagementInvitationIdentifier"
     """<p> Unique identifier assigned to the newly created engagement invitation. </p>"""
     arn: "aws_sdk_partnercentral_selling.types.engagement_invitation_arn.EngagementInvitationArn"

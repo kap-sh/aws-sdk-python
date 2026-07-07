@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#GetWorkflowStepRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.migration_workflow_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.step_id
 
 
-class GetWorkflowStepRequest(TypedDict):
+class GetWorkflowStepRequest(TypedDict, closed=True):
     workflow_id: "aws_sdk_migrationhuborchestrator.types.migration_workflow_id.MigrationWorkflowId"
     """<p>The ID of the migration workflow.</p>"""
     step_group_id: "aws_sdk_migrationhuborchestrator.types.step_group_id.StepGroupId"

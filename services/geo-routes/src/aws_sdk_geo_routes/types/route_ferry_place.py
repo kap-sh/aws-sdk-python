@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteFerryPlace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_string
 
 
-class RouteFerryPlace(TypedDict):
+class RouteFerryPlace(TypedDict, closed=True):
     name: NotRequired["aws_sdk_geo_routes.types.sensitive_string.SensitiveString"]
     """<p>The name of the place.</p>"""
     original_position: NotRequired["aws_sdk_geo_routes.types.position23.Position23"]

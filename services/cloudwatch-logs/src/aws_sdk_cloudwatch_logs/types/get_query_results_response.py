@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GetQueryResultsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.encryption_key
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.query_status
 
 
-class GetQueryResultsResponse(TypedDict):
+class GetQueryResultsResponse(TypedDict, closed=True):
     query_language: NotRequired[
         "aws_sdk_cloudwatch_logs.types.query_language.QueryLanguage"
     ]

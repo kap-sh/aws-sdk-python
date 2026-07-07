@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#JobStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.timestamp
 
 
-class JobStep(TypedDict):
+class JobStep(TypedDict, closed=True):
     step_number: "aws_sdk_m2.types.integer.Integer"
     """<p>The number of a step.</p>"""
     step_name: NotRequired["str"]

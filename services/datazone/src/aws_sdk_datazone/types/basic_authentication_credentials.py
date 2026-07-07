@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#BasicAuthenticationCredentials``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class BasicAuthenticationCredentials(TypedDict):
+class BasicAuthenticationCredentials(TypedDict, closed=True):
     user_name: NotRequired["str"]
     """<p>The user name for the connecion.</p>"""
     password: NotRequired["str"]

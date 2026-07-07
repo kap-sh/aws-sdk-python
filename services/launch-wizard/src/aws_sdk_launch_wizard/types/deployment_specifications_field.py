@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#DeploymentSpecificationsField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.allowed_values
     import aws_sdk_launch_wizard.types.specifications_conditional_data
 
 
-class DeploymentSpecificationsField(TypedDict):
+class DeploymentSpecificationsField(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the deployment specification.</p>"""
     description: NotRequired["str"]

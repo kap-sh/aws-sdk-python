@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.eksauth#AssumedRoleUser``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_eks_auth.errors import DeserializationError
 
 
-class AssumedRoleUser(TypedDict):
+class AssumedRoleUser(TypedDict, closed=True):
     arn: "str"
     """<p>The ARN of the IAM role that the temporary credentials authenticate to.</p>"""
     assume_role_id: "str"

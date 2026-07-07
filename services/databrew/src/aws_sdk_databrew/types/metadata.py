@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#Metadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.arn
 
 
-class Metadata(TypedDict):
+class Metadata(TypedDict, closed=True):
     source_arn: NotRequired["aws_sdk_databrew.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) associated with the dataset. Currently, DataBrew only supports ARNs from Amazon AppFlow.</p>"""
 

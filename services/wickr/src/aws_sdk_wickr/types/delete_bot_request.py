@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#DeleteBotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.bot_id
     import aws_sdk_wickr.types.network_id
 
 
-class DeleteBotRequest(TypedDict):
+class DeleteBotRequest(TypedDict, closed=True):
     network_id: "aws_sdk_wickr.types.network_id.NetworkId"
     """<p>The ID of the Wickr network from which the bot will be deleted.</p>"""
     bot_id: "aws_sdk_wickr.types.bot_id.BotId"

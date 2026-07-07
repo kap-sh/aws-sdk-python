@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#CreateLiveSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.http_package_configurations
 
 
-class CreateLiveSourceRequest(TypedDict):
+class CreateLiveSourceRequest(TypedDict, closed=True):
     http_package_configurations: "aws_sdk_mediatailor.types.http_package_configurations.HttpPackageConfigurations"
     """<p>A list of HTTP package configuration parameters for this live source.</p>"""
     live_source_name: "aws_sdk_mediatailor.types.__string.__string"

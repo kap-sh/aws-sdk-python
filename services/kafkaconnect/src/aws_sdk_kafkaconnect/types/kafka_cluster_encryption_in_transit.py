@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#KafkaClusterEncryptionInTransit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kafkaconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.kafka_cluster_encryption_in_transit_type
 
 
-class KafkaClusterEncryptionInTransit(TypedDict):
+class KafkaClusterEncryptionInTransit(TypedDict, closed=True):
     encryption_type: "aws_sdk_kafkaconnect.types.kafka_cluster_encryption_in_transit_type.KafkaClusterEncryptionInTransitType"
     """<p>The type of encryption in transit to the Apache Kafka cluster.</p>"""
 

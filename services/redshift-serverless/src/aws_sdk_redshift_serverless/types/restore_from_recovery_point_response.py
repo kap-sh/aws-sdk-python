@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#RestoreFromRecoveryPointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.namespace
 
 
-class RestoreFromRecoveryPointResponse(TypedDict):
+class RestoreFromRecoveryPointResponse(TypedDict, closed=True):
     recovery_point_id: NotRequired["str"]
     """<p>The unique identifier of the recovery point used for the restore.</p>"""
     namespace: NotRequired["aws_sdk_redshift_serverless.types.namespace.Namespace"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#IcebergSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.schema_field_list
 
 
-class IcebergSchema(TypedDict):
+class IcebergSchema(TypedDict, closed=True):
     fields: "aws_sdk_s3tables.types.schema_field_list.SchemaFieldList"
     """<p>The schema fields for the table</p>"""
 

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#IcebergPartitionField``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
 
-class IcebergPartitionField(TypedDict):
+class IcebergPartitionField(TypedDict, closed=True):
     source_id: "int"
     """<p>The ID of the source schema field to partition by. This must reference a valid field ID from the table schema.</p>"""
     transform: "str"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_secrets_manager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.tag_key_list_type
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     secret_id: "aws_sdk_secrets_manager.types.secret_id_type.SecretIdType"
     r"""<p>The ARN or name of the secret.</p> <p>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN. See <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen\">Finding a secret from a partial ARN</a>.</p>"""
     tag_keys: "aws_sdk_secrets_manager.types.tag_key_list_type.TagKeyListType"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#ConfigurationDefinitionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.configuration_parameters_map
 
 
-class ConfigurationDefinitionSummary(TypedDict):
+class ConfigurationDefinitionSummary(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The ID of the configuration definition.</p>"""
     type: NotRequired["str"]

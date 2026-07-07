@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pricing#GetPriceListFileUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pricing.types.string
 
 
-class GetPriceListFileUrlResponse(TypedDict):
+class GetPriceListFileUrlResponse(TypedDict, closed=True):
     url: NotRequired["aws_sdk_pricing.types.string.String"]
     """<p>The URL to download your Price List file from. </p>"""
 

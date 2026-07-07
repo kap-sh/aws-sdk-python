@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#AcceptPageResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AcceptPageResult(TypedDict):
+class AcceptPageResult(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#AdditionalServiceRegistrationStep``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.o_auth_additional_step_details
 
 
-class _AdditionalServiceRegistrationStep_oauth(TypedDict):
+class _AdditionalServiceRegistrationStep_oauth(TypedDict, closed=True):
     oauth: "aws_sdk_devops_agent.types.o_auth_additional_step_details.OAuthAdditionalStepDetails"
 
 

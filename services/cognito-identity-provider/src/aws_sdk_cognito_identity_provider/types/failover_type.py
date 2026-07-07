@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#FailoverType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.region_name_type
 
 
-class FailoverType(TypedDict):
+class FailoverType(TypedDict, closed=True):
     secondary_region: (
         "aws_sdk_cognito_identity_provider.types.region_name_type.RegionNameType"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DescribeAccountAttributesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.account_attribute_list
     import aws_sdk_pinpoint_sms_voice_v2.types.next_token
 
 
-class DescribeAccountAttributesResult(TypedDict):
+class DescribeAccountAttributesResult(TypedDict, closed=True):
     account_attributes: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.account_attribute_list.AccountAttributeList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#ListSessionsResponseSession``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.account_id
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class ListSessionsResponseSession(TypedDict):
+class ListSessionsResponseSession(TypedDict, closed=True):
     session_arn: NotRequired["aws_sdk_mpa.types.session_arn.SessionArn"]
     """<p>Amazon Resource Name (ARN) for the session.</p>"""
     approval_team_name: NotRequired[

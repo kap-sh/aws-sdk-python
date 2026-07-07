@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ProductCode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.product_code_id
     import aws_sdk_drs.types.product_code_mode
 
 
-class ProductCode(TypedDict):
+class ProductCode(TypedDict, closed=True):
     product_code_id: NotRequired["aws_sdk_drs.types.product_code_id.ProductCodeId"]
     """<p>Id of a product code associated with a volume.</p>"""
     product_code_mode: NotRequired[

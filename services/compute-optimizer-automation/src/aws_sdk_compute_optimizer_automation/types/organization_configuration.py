@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#OrganizationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.organization_configuration_account_ids
     import aws_sdk_compute_optimizer_automation.types.rule_apply_order
 
 
-class OrganizationConfiguration(TypedDict):
+class OrganizationConfiguration(TypedDict, closed=True):
     rule_apply_order: NotRequired[
         "aws_sdk_compute_optimizer_automation.types.rule_apply_order.RuleApplyOrder"
     ]

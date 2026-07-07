@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListChatResponseConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.next_token
 
 
-class ListChatResponseConfigurationsRequest(TypedDict):
+class ListChatResponseConfigurationsRequest(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The unique identifier of the Amazon Q Business application for which to list available chat response configurations.</p>"""
     max_results: NotRequired["aws_sdk_qbusiness.types.integer.Integer"]

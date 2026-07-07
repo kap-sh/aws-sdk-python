@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmguiconnect#UpdateConnectionRecordingPreferencesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_guiconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_guiconnect.types.connection_recording_preferences
 
 
-class UpdateConnectionRecordingPreferencesRequest(TypedDict):
+class UpdateConnectionRecordingPreferencesRequest(TypedDict, closed=True):
     connection_recording_preferences: "aws_sdk_ssm_guiconnect.types.connection_recording_preferences.ConnectionRecordingPreferences"
     """<p>The set of preferences used for recording RDP connections in the requesting Amazon Web Services account and Amazon Web Services Region. This includes details such as which S3 bucket recordings are stored in.</p>"""
     client_token: NotRequired["aws_sdk_ssm_guiconnect.types.client_token.ClientToken"]

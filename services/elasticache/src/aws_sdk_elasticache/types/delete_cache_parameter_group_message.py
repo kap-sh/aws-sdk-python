@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DeleteCacheParameterGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class DeleteCacheParameterGroupMessage(TypedDict):
+class DeleteCacheParameterGroupMessage(TypedDict, closed=True):
     cache_parameter_group_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The name of the cache parameter group to delete.</p> <note> <p>The specified cache security group must not be associated with any clusters.</p> </note>"""
 

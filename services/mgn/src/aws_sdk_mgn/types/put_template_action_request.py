@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#PutTemplateActionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.strictly_positive_integer
 
 
-class PutTemplateActionRequest(TypedDict):
+class PutTemplateActionRequest(TypedDict, closed=True):
     launch_configuration_template_id: "aws_sdk_mgn.types.launch_configuration_template_id.LaunchConfigurationTemplateID"
     """<p>Launch configuration template ID.</p>"""
     action_name: "aws_sdk_mgn.types.bounded_string.BoundedString"

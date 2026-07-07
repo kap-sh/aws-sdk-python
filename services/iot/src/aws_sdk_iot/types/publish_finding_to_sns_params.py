@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#PublishFindingToSnsParams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.sns_topic_arn
 
 
-class PublishFindingToSnsParams(TypedDict):
+class PublishFindingToSnsParams(TypedDict, closed=True):
     topic_arn: "aws_sdk_iot.types.sns_topic_arn.SnsTopicArn"
     """<p>The ARN of the topic to which you want to publish the findings.</p>"""
 

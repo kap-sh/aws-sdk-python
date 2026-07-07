@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#CustomDetection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.occurrences
 
 
-class CustomDetection(TypedDict):
+class CustomDetection(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The unique identifier for the custom data identifier.</p>"""
     count: NotRequired["aws_sdk_macie2.types.__long.__long"]

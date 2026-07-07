@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#StartJobRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.job_run_id
 
 
-class StartJobRunResponse(TypedDict):
+class StartJobRunResponse(TypedDict, closed=True):
     run_id: "aws_sdk_databrew.types.job_run_id.JobRunId"
     """<p>A system-generated identifier for this particular job run.</p>"""
 

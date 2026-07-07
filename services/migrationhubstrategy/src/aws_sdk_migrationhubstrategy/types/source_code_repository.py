@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#SourceCodeRepository``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class SourceCodeRepository(TypedDict):
+class SourceCodeRepository(TypedDict, closed=True):
     repository: NotRequired["aws_sdk_migrationhubstrategy.types.string.String"]
     """<p> The repository name for the source code. </p>"""
     branch: NotRequired["aws_sdk_migrationhubstrategy.types.string.String"]

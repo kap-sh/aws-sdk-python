@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#ListShardsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.types.list_shards_input_limit
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.timestamp
 
 
-class ListShardsInput(TypedDict):
+class ListShardsInput(TypedDict, closed=True):
     stream_name: NotRequired["aws_sdk_kinesis.types.stream_name.StreamName"]
     """<p>The name of the data stream whose shards you want to list. </p> <p>You cannot specify this parameter if you specify the <code>NextToken</code> parameter.</p>"""
     next_token: NotRequired["aws_sdk_kinesis.types.next_token.NextToken"]

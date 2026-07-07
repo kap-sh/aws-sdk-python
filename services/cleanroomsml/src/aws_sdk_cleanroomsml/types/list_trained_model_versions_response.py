@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#ListTrainedModelVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.trained_model_list
 
 
-class ListTrainedModelVersionsResponse(TypedDict):
+class ListTrainedModelVersionsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cleanroomsml.types.next_token.NextToken"]
     """<p>The pagination token to use in a subsequent <code>ListTrainedModelVersions</code> request to retrieve the next page of results. This value is null when there are no more results to return.</p>"""
     trained_models: "aws_sdk_cleanroomsml.types.trained_model_list.TrainedModelList"

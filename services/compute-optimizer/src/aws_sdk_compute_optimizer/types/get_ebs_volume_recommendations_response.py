@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetEBSVolumeRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.get_recommendation_errors
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.volume_recommendations
 
 
-class GetEBSVolumeRecommendationsResponse(TypedDict):
+class GetEBSVolumeRecommendationsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_compute_optimizer.types.next_token.NextToken"]
     """<p>The token to use to advance to the next page of volume recommendations.</p> <p>This value is null when there are no more pages of volume recommendations to return.</p>"""
     volume_recommendations: NotRequired[

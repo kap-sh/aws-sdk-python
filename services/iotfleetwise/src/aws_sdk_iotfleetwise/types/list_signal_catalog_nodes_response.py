@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ListSignalCatalogNodesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.next_token
     import aws_sdk_iotfleetwise.types.nodes
 
 
-class ListSignalCatalogNodesResponse(TypedDict):
+class ListSignalCatalogNodesResponse(TypedDict, closed=True):
     nodes: NotRequired["aws_sdk_iotfleetwise.types.nodes.Nodes"]
     """<p> A list of information about nodes. </p>"""
     next_token: NotRequired["aws_sdk_iotfleetwise.types.next_token.nextToken"]

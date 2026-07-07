@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#DescribeReturnShippingLabelResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.shipping_label_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.timestamp
 
 
-class DescribeReturnShippingLabelResult(TypedDict):
+class DescribeReturnShippingLabelResult(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_snowball.types.shipping_label_status.ShippingLabelStatus"
     ]

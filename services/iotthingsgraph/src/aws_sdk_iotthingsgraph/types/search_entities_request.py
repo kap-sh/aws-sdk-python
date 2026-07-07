@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#SearchEntitiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotthingsgraph.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.version
 
 
-class SearchEntitiesRequest(TypedDict):
+class SearchEntitiesRequest(TypedDict, closed=True):
     entity_types: "aws_sdk_iotthingsgraph.types.entity_types.EntityTypes"
     """<p>The entity types for which to search.</p>"""
     filters: NotRequired["aws_sdk_iotthingsgraph.types.entity_filters.EntityFilters"]

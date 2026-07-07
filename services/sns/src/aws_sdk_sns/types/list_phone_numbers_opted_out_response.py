@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#ListPhoneNumbersOptedOutResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class ListPhoneNumbersOptedOutResponse(TypedDict):
+class ListPhoneNumbersOptedOutResponse(TypedDict, closed=True):
     phone_numbers: NotRequired["aws_sdk_sns.types.phone_number_list.PhoneNumberList"]
     """<p>A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.</p>"""
     next_token: NotRequired["aws_sdk_sns.types.string.String"]

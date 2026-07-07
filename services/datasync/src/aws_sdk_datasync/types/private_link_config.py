@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#PrivateLinkConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.endpoint
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.vpc_endpoint_id
 
 
-class PrivateLinkConfig(TypedDict):
+class PrivateLinkConfig(TypedDict, closed=True):
     vpc_endpoint_id: NotRequired["aws_sdk_datasync.types.vpc_endpoint_id.VpcEndpointId"]
     """<p>Specifies the ID of the VPC endpoint that your agent connects to.</p>"""
     private_link_endpoint: NotRequired["aws_sdk_datasync.types.endpoint.Endpoint"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ImportDecoderManifestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.resource_name
 
 
-class ImportDecoderManifestRequest(TypedDict):
+class ImportDecoderManifestRequest(TypedDict, closed=True):
     name: "aws_sdk_iotfleetwise.types.resource_name.resourceName"
     """<p> The name of the decoder manifest to import. </p>"""
     network_file_definitions: (

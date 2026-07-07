@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#CreateOutboundCrossClusterSearchConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.domain_information
 
 
-class CreateOutboundCrossClusterSearchConnectionRequest(TypedDict):
+class CreateOutboundCrossClusterSearchConnectionRequest(TypedDict, closed=True):
     source_domain_info: (
         "aws_sdk_elasticsearch_service.types.domain_information.DomainInformation"
     )

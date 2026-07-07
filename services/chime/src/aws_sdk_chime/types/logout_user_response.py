@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chime#LogoutUserResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class LogoutUserResponse(TypedDict):
+class LogoutUserResponse(TypedDict, closed=True):
     pass
 
 

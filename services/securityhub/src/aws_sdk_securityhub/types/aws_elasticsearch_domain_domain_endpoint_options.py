@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElasticsearchDomainDomainEndpointOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsElasticsearchDomainDomainEndpointOptions(TypedDict):
+class AwsElasticsearchDomainDomainEndpointOptions(TypedDict, closed=True):
     enforce_https: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether to require that all traffic to the domain arrive over HTTPS.</p>"""
     tls_security_policy: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#CreatePartnerEventSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.event_source_name
 
 
-class CreatePartnerEventSourceRequest(TypedDict):
+class CreatePartnerEventSourceRequest(TypedDict, closed=True):
     name: "aws_sdk_cloudwatch_events.types.event_source_name.EventSourceName"
     """<p>The name of the partner event source. This name must be unique and must be in the format <code> <i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i> </code>. The Amazon Web Services account that wants to use this partner event source must create a partner event bus with a name that matches the name of the partner event source.</p>"""
     account: "aws_sdk_cloudwatch_events.types.account_id.AccountId"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#LoginProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class LoginProfile(TypedDict):
+class LoginProfile(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.user_name_type.userNameType"
     """<p>The name of the user, which can be used for signing in to the Amazon Web Services Management Console.</p>"""
     create_date: "aws_sdk_iam.types.date_type.dateType"

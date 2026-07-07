@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#PutOptedOutNumberResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.phone_number
 
 
-class PutOptedOutNumberResult(TypedDict):
+class PutOptedOutNumberResult(TypedDict, closed=True):
     opt_out_list_arn: NotRequired["str"]
     """<p>The OptOutListArn that the phone number was removed from.</p>"""
     opt_out_list_name: NotRequired[

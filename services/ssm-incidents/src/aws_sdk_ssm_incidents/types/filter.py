@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.condition
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     key: "str"
     """<p>The key that you're filtering on.</p>"""
     condition: "aws_sdk_ssm_incidents.types.condition.Condition"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#LoggingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.module_logging_configuration
 
 
-class LoggingConfiguration(TypedDict):
+class LoggingConfiguration(TypedDict, closed=True):
     dag_processing_logs: NotRequired[
         "aws_sdk_mwaa.types.module_logging_configuration.ModuleLoggingConfiguration"
     ]

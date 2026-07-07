@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#KxDatabaseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_finspace.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_dataview_name
 
 
-class KxDatabaseConfiguration(TypedDict):
+class KxDatabaseConfiguration(TypedDict, closed=True):
     database_name: "aws_sdk_finspace.types.database_name.DatabaseName"
     """<p>The name of the kdb database. When this parameter is specified in the structure, S3 with the whole database is included by default.</p>"""
     cache_configurations: NotRequired[

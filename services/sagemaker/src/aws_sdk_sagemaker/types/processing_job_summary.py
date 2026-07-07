@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ProcessingJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.exit_message
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ProcessingJobSummary(TypedDict):
+class ProcessingJobSummary(TypedDict, closed=True):
     processing_job_name: NotRequired[
         "aws_sdk_sagemaker.types.processing_job_name.ProcessingJobName"
     ]

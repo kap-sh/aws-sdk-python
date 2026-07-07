@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarnotifications#ListEventTypesFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codestar_notifications.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_notifications.types.list_event_types_filter_value
 
 
-class ListEventTypesFilter(TypedDict):
+class ListEventTypesFilter(TypedDict, closed=True):
     name: "aws_sdk_codestar_notifications.types.list_event_types_filter_name.ListEventTypesFilterName"
     """<p>The system-generated name of the filter type you want to filter by.</p>"""
     value: "aws_sdk_codestar_notifications.types.list_event_types_filter_value.ListEventTypesFilterValue"

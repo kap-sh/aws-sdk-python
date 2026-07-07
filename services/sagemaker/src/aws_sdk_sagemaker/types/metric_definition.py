@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MetricDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.metric_name
     import aws_sdk_sagemaker.types.metric_regex
 
 
-class MetricDefinition(TypedDict):
+class MetricDefinition(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sagemaker.types.metric_name.MetricName"]
     """<p>The name of the metric.</p>"""
     regex: NotRequired["aws_sdk_sagemaker.types.metric_regex.MetricRegex"]

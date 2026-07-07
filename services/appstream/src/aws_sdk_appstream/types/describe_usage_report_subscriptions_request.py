@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeUsageReportSubscriptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.integer
     import aws_sdk_appstream.types.string
 
 
-class DescribeUsageReportSubscriptionsRequest(TypedDict):
+class DescribeUsageReportSubscriptionsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_appstream.types.integer.Integer"]
     """<p>The maximum size of each page of results.</p>"""
     next_token: NotRequired["aws_sdk_appstream.types.string.String"]

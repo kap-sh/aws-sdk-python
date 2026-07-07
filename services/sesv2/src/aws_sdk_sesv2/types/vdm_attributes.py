@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#VdmAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.guardian_attributes
 
 
-class VdmAttributes(TypedDict):
+class VdmAttributes(TypedDict, closed=True):
     vdm_enabled: "aws_sdk_sesv2.types.feature_status.FeatureStatus"
     """<p>Specifies the status of your VDM configuration. Can be one of the following:</p> <ul> <li> <p> <code>ENABLED</code> – Amazon SES enables VDM for your account.</p> </li> <li> <p> <code>DISABLED</code> – Amazon SES disables VDM for your account.</p> </li> </ul>"""
     dashboard_attributes: NotRequired[

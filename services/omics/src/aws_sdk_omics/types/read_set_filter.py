@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ReadSetFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.subject_id
 
 
-class ReadSetFilter(TypedDict):
+class ReadSetFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_omics.types.read_set_name.ReadSetName"]
     """<p>A name to filter on.</p>"""
     status: NotRequired["aws_sdk_omics.types.read_set_status.ReadSetStatus"]

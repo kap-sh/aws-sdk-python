@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ExportECSServiceRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.job_id
     import aws_sdk_compute_optimizer.types.s3_destination
 
 
-class ExportECSServiceRecommendationsResponse(TypedDict):
+class ExportECSServiceRecommendationsResponse(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_compute_optimizer.types.job_id.JobId"]
     """<p> The identification number of the export job. </p> <p>To view the status of an export job, use the <a>DescribeRecommendationExportJobs</a> action and specify the job ID. </p>"""
     s3_destination: NotRequired[

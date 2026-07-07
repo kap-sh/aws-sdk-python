@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DirectDeploySettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.feature_status
 
 
-class DirectDeploySettings(TypedDict):
+class DirectDeploySettings(TypedDict, closed=True):
     status: NotRequired["aws_sdk_sagemaker.types.feature_status.FeatureStatus"]
     """<p>Describes whether model deployment permissions are enabled or disabled in the Canvas application.</p>"""
 

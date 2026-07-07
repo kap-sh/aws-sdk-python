@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#LimitExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.string
 
 
-class LimitExceededException_(TypedDict):
+class LimitExceededException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_cognito_identity.types.string.String"]
     """<p>The message returned by a LimitExceededException.</p>"""
 

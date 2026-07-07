@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#GetExportTaskInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.export_task_id
 
 
-class GetExportTaskInput(TypedDict):
+class GetExportTaskInput(TypedDict, closed=True):
     task_identifier: "aws_sdk_neptune_graph.types.export_task_id.ExportTaskId"
     """<p>The unique identifier of the export task.</p>"""
 

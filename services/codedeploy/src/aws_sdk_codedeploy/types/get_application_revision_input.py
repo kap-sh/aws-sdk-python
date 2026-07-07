@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#GetApplicationRevisionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codedeploy.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.revision_location
 
 
-class GetApplicationRevisionInput(TypedDict):
+class GetApplicationRevisionInput(TypedDict, closed=True):
     application_name: "aws_sdk_codedeploy.types.application_name.ApplicationName"
     """<p>The name of the application that corresponds to the revision.</p>"""
     revision: "aws_sdk_codedeploy.types.revision_location.RevisionLocation"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#UpdateWebAppIdentityCenterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.role
 
 
-class UpdateWebAppIdentityCenterConfig(TypedDict):
+class UpdateWebAppIdentityCenterConfig(TypedDict, closed=True):
     role: NotRequired["aws_sdk_transfer.types.role.Role"]
     """<p>The IAM role used to access IAM Identity Center.</p>"""
 

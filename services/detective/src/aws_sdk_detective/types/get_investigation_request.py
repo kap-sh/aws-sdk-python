@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#GetInvestigationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_detective.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.investigation_id
 
 
-class GetInvestigationRequest(TypedDict):
+class GetInvestigationRequest(TypedDict, closed=True):
     graph_arn: "aws_sdk_detective.types.graph_arn.GraphArn"
     """<p>The Amazon Resource Name (ARN) of the behavior graph.</p>"""
     investigation_id: "aws_sdk_detective.types.investigation_id.InvestigationId"

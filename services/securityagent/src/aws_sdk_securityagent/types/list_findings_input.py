@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#ListFindingsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.risk_level
 
 
-class ListFindingsInput(TypedDict):
+class ListFindingsInput(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_securityagent.types.max_results.MaxResults"]
     """<p>The maximum number of results to return in a single call.</p>"""
     pentest_job_id: NotRequired["str"]

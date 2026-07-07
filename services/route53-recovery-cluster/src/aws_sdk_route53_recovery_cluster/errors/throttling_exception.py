@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycluster#ThrottlingException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53_recovery_cluster.errors import DeserializationError, ServiceError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_cluster.types.string
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "aws_sdk_route53_recovery_cluster.types.string.String"
     retry_after_seconds: (
         "aws_sdk_route53_recovery_cluster.types.retry_after_seconds.RetryAfterSeconds"

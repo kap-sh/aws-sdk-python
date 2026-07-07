@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#Type``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.column_info
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.scalar_type
 
 
-class Type(TypedDict):
+class Type(TypedDict, closed=True):
     scalar_type: NotRequired["aws_sdk_timestream_query.types.scalar_type.ScalarType"]
     r"""<p>Indicates if the column is of type string, integer, Boolean, double, timestamp, date, time. For more information, see <a href=\"https://docs.aws.amazon.com/timestream/latest/developerguide/supported-data-types.html\">Supported data types</a>.</p>"""
     array_column_info: NotRequired[

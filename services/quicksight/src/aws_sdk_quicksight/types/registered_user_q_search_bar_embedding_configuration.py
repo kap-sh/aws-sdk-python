@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RegisteredUserQSearchBarEmbeddingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.restrictive_resource_id
 
 
-class RegisteredUserQSearchBarEmbeddingConfiguration(TypedDict):
+class RegisteredUserQSearchBarEmbeddingConfiguration(TypedDict, closed=True):
     initial_topic_id: NotRequired[
         "aws_sdk_quicksight.types.restrictive_resource_id.RestrictiveResourceId"
     ]

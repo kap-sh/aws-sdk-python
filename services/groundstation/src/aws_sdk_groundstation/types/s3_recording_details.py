@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#S3RecordingDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.bucket_arn
 
 
-class S3RecordingDetails(TypedDict):
+class S3RecordingDetails(TypedDict, closed=True):
     bucket_arn: NotRequired["aws_sdk_groundstation.types.bucket_arn.BucketArn"]
     """<p>ARN of the bucket used.</p>"""
     key_template: NotRequired["str"]

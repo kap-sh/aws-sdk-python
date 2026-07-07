@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#AttemptDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.attempt_container_detail
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class AttemptDetail(TypedDict):
+class AttemptDetail(TypedDict, closed=True):
     container: NotRequired[
         "aws_sdk_batch.types.attempt_container_detail.AttemptContainerDetail"
     ]

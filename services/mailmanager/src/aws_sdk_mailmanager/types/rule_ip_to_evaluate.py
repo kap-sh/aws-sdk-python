@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RuleIpToEvaluate``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.rule_ip_email_attribute
 
 
-class _RuleIpToEvaluate_Attribute(TypedDict):
+class _RuleIpToEvaluate_Attribute(TypedDict, closed=True):
     Attribute: "aws_sdk_mailmanager.types.rule_ip_email_attribute.RuleIpEmailAttribute"
 
 

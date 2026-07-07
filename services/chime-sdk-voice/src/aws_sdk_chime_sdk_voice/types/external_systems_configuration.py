@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ExternalSystemsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.contact_center_system_type_list
     import aws_sdk_chime_sdk_voice.types.session_border_controller_type_list
 
 
-class ExternalSystemsConfiguration(TypedDict):
+class ExternalSystemsConfiguration(TypedDict, closed=True):
     session_border_controller_types: NotRequired[
         "aws_sdk_chime_sdk_voice.types.session_border_controller_type_list.SessionBorderControllerTypeList"
     ]

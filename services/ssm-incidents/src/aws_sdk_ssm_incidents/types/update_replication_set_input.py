@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#UpdateReplicationSetInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.update_action_list
 
 
-class UpdateReplicationSetInput(TypedDict):
+class UpdateReplicationSetInput(TypedDict, closed=True):
     arn: "aws_sdk_ssm_incidents.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the replication set you're updating.</p>"""
     actions: "aws_sdk_ssm_incidents.types.update_action_list.UpdateActionList"

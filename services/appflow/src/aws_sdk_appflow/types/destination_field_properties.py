@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#DestinationFieldProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.boolean
     import aws_sdk_appflow.types.supported_write_operation_list
 
 
-class DestinationFieldProperties(TypedDict):
+class DestinationFieldProperties(TypedDict, closed=True):
     is_creatable: "aws_sdk_appflow.types.boolean.Boolean"
     """<p> Specifies if the destination field can be created by the current user. </p>"""
     is_nullable: "aws_sdk_appflow.types.boolean.Boolean"

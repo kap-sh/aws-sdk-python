@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#MarketoMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class MarketoMetadata(TypedDict):
+class MarketoMetadata(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#AnomalyDateInterval``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.year_month_day
 
 
-class AnomalyDateInterval(TypedDict):
+class AnomalyDateInterval(TypedDict, closed=True):
     start_date: "aws_sdk_cost_explorer.types.year_month_day.YearMonthDay"
     """<p>The first date an anomaly was observed. </p>"""
     end_date: NotRequired["aws_sdk_cost_explorer.types.year_month_day.YearMonthDay"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#RegistrationAssociationMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.phone_number
 
 
-class RegistrationAssociationMetadata(TypedDict):
+class RegistrationAssociationMetadata(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the origination identity that is associated with the registration. </p>"""
     resource_id: "str"

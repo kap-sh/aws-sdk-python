@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#PropertyValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.timestamp
 
 
-class PropertyValue(TypedDict):
+class PropertyValue(TypedDict, closed=True):
     timestamp: NotRequired["aws_sdk_iottwinmaker.types.timestamp.Timestamp"]
     """<p>The timestamp of a value for a time series property.</p>"""
     value: "aws_sdk_iottwinmaker.types.data_value.DataValue"

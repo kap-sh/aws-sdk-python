@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#PluginConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.plugin_id
 
 
-class PluginConfiguration(TypedDict):
+class PluginConfiguration(TypedDict, closed=True):
     plugin_id: "aws_sdk_qbusiness.types.plugin_id.PluginId"
     """<p> The identifier of the plugin you want to use.</p>"""
 

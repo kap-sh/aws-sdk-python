@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalScribeSessionControlEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe_streaming._protocol.eventstream import HeaderValue, Message
 from aws_sdk_transcribe_streaming.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event_type
 
 
-class MedicalScribeSessionControlEvent(TypedDict):
+class MedicalScribeSessionControlEvent(TypedDict, closed=True):
     type: "aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event_type.MedicalScribeSessionControlEventType"
     r"""<p>The type of <code>MedicalScribeSessionControlEvent</code>. </p> <p>Possible Values:</p> <ul> <li> <p> <code>END_OF_SESSION</code> - Indicates the audio streaming is complete. After you send an END_OF_SESSION event, Amazon Web Services HealthScribe starts the post-stream analytics. The session can't be resumed after this event is sent. After Amazon Web Services HealthScribe processes the event, the real-time <code>StreamStatus</code> is <code>COMPLETED</code>. You get the <code>StreamStatus</code> and other stream details with the <a href=\"https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_GetMedicalScribeStream.html\">GetMedicalScribeStream</a> API operation. For more information about different streaming statuses, see the <code>StreamStatus</code> description in the <a href=\"https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_MedicalScribeStreamDetails.html\">MedicalScribeStreamDetails</a>. </p> </li> </ul>"""
 

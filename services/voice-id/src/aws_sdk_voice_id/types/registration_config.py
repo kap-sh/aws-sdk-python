@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#RegistrationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.duplicate_registration_action
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.score
 
 
-class RegistrationConfig(TypedDict):
+class RegistrationConfig(TypedDict, closed=True):
     duplicate_registration_action: NotRequired[
         "aws_sdk_voice_id.types.duplicate_registration_action.DuplicateRegistrationAction"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.osis#BufferOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_osis.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_osis.types.boolean
 
 
-class BufferOptions(TypedDict):
+class BufferOptions(TypedDict, closed=True):
     persistent_buffer_enabled: "aws_sdk_osis.types.boolean.Boolean"
     """<p>Whether persistent buffering should be enabled.</p>"""
 

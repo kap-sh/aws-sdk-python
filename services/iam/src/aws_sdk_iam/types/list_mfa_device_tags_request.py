@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListMFADeviceTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.serial_number_type
 
 
-class ListMFADeviceTagsRequest(TypedDict):
+class ListMFADeviceTagsRequest(TypedDict, closed=True):
     serial_number: "aws_sdk_iam.types.serial_number_type.serialNumberType"
     r"""<p>The unique identifier for the IAM virtual MFA device whose tags you want to see. For virtual MFA devices, the serial number is the same as the ARN.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     marker: NotRequired["aws_sdk_iam.types.marker_type.markerType"]

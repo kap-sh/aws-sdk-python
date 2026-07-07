@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#StartViewerSessionRevocationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartViewerSessionRevocationResponse(TypedDict):
+class StartViewerSessionRevocationResponse(TypedDict, closed=True):
     pass
 
 

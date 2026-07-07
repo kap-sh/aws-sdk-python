@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#PutDeliverabilityDashboardOptionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.domain_deliverability_tracking_options
     import aws_sdk_pinpoint_email.types.enabled
 
 
-class PutDeliverabilityDashboardOptionRequest(TypedDict):
+class PutDeliverabilityDashboardOptionRequest(TypedDict, closed=True):
     dashboard_enabled: "aws_sdk_pinpoint_email.types.enabled.Enabled"
     """<p>Specifies whether to enable the Deliverability dashboard for your Amazon Pinpoint account. To enable the dashboard, set this value to <code>true</code>.</p>"""
     subscribed_domains: NotRequired[

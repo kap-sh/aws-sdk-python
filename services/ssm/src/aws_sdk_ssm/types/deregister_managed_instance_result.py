@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeregisterManagedInstanceResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeregisterManagedInstanceResult(TypedDict):
+class DeregisterManagedInstanceResult(TypedDict, closed=True):
     pass
 
 

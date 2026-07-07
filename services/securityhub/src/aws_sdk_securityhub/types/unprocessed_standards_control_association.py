@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UnprocessedStandardsControlAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.unprocessed_error_code
 
 
-class UnprocessedStandardsControlAssociation(TypedDict):
+class UnprocessedStandardsControlAssociation(TypedDict, closed=True):
     standards_control_association_id: NotRequired[
         "aws_sdk_securityhub.types.standards_control_association_id.StandardsControlAssociationId"
     ]

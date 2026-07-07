@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloud9#DescribeEnvironmentMembershipsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloud9.types.environment_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloud9.types.user_arn
 
 
-class DescribeEnvironmentMembershipsRequest(TypedDict):
+class DescribeEnvironmentMembershipsRequest(TypedDict, closed=True):
     user_arn: NotRequired["aws_sdk_cloud9.types.user_arn.UserArn"]
     """<p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>"""
     environment_id: NotRequired["aws_sdk_cloud9.types.environment_id.EnvironmentId"]

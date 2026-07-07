@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ReservedInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.double
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.update_timestamp
 
 
-class ReservedInstance(TypedDict):
+class ReservedInstance(TypedDict, closed=True):
     reservation_name: NotRequired[
         "aws_sdk_opensearch.types.reservation_token.ReservationToken"
     ]

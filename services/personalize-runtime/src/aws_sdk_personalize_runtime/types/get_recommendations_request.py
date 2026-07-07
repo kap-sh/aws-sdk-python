@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeruntime#GetRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.user_id
 
 
-class GetRecommendationsRequest(TypedDict):
+class GetRecommendationsRequest(TypedDict, closed=True):
     campaign_arn: NotRequired["aws_sdk_personalize_runtime.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the campaign to use for getting recommendations.</p>"""
     item_id: NotRequired["aws_sdk_personalize_runtime.types.item_id.ItemID"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#PurchaseReservedNodesOfferingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.reserved_node
 
 
-class PurchaseReservedNodesOfferingResponse(TypedDict):
+class PurchaseReservedNodesOfferingResponse(TypedDict, closed=True):
     reserved_node: NotRequired["aws_sdk_memorydb.types.reserved_node.ReservedNode"]
     """<p>Represents the output of a <code>PurchaseReservedNodesOffering</code> operation.</p>"""
 

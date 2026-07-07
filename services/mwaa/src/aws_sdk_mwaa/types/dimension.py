@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#Dimension``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_mwaa.errors import DeserializationError
 
 
-class Dimension(TypedDict):
+class Dimension(TypedDict, closed=True):
     name: "str"
     """<p> <b>Internal only</b>. The name of the dimension.</p>"""
     value: "str"

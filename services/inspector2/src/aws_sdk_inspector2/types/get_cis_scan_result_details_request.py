@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#GetCisScanResultDetailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.resource_id
 
 
-class GetCisScanResultDetailsRequest(TypedDict):
+class GetCisScanResultDetailsRequest(TypedDict, closed=True):
     scan_arn: "aws_sdk_inspector2.types.cis_scan_arn.CisScanArn"
     """<p>The scan ARN.</p>"""
     target_resource_id: "aws_sdk_inspector2.types.resource_id.ResourceId"

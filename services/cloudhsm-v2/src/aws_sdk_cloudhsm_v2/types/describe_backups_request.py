@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#DescribeBackupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.backups_max_size
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.next_token
 
 
-class DescribeBackupsRequest(TypedDict):
+class DescribeBackupsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cloudhsm_v2.types.next_token.NextToken"]
     """<p>The <code>NextToken</code> value that you received in the previous response. Use this value to get more backups.</p>"""
     max_results: NotRequired[

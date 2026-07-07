@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ListNamedQueriesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.named_query_id_list
     import aws_sdk_athena.types.token
 
 
-class ListNamedQueriesOutput(TypedDict):
+class ListNamedQueriesOutput(TypedDict, closed=True):
     named_query_ids: NotRequired[
         "aws_sdk_athena.types.named_query_id_list.NamedQueryIdList"
     ]

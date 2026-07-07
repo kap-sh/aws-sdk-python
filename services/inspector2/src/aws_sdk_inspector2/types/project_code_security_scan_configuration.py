@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ProjectCodeSecurityScanConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.project_continuous_integration_scan_configuration_list
     import aws_sdk_inspector2.types.project_periodic_scan_configuration_list
 
 
-class ProjectCodeSecurityScanConfiguration(TypedDict):
+class ProjectCodeSecurityScanConfiguration(TypedDict, closed=True):
     periodic_scan_configurations: NotRequired[
         "aws_sdk_inspector2.types.project_periodic_scan_configuration_list.ProjectPeriodicScanConfigurationList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#GetResourcePolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.resource_arn
 
 
-class GetResourcePolicyInput(TypedDict):
+class GetResourcePolicyInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_payment_cryptography.types.resource_arn.ResourceArn"
     """<p>The <code>KeyARN</code> of the key whose resource-based policy you want to retrieve.</p>"""
 

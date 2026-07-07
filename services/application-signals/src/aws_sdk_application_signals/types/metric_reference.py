@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#MetricReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.namespace
 
 
-class MetricReference(TypedDict):
+class MetricReference(TypedDict, closed=True):
     namespace: "aws_sdk_application_signals.types.namespace.Namespace"
     r"""<p>The namespace of the metric. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace\">CloudWatchNamespaces</a>.</p>"""
     metric_type: "aws_sdk_application_signals.types.metric_type.MetricType"

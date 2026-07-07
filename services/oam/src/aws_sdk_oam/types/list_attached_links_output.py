@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.oam#ListAttachedLinksOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_oam.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_oam.types.list_attached_links_items
 
 
-class ListAttachedLinksOutput(TypedDict):
+class ListAttachedLinksOutput(TypedDict, closed=True):
     items: "aws_sdk_oam.types.list_attached_links_items.ListAttachedLinksItems"
     """<p>An array of structures that contain the information about the attached links.</p>"""
     next_token: NotRequired["str"]

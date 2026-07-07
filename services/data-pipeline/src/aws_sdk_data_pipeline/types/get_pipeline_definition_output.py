@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#GetPipelineDefinitionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.parameter_object_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.pipeline_object_list
 
 
-class GetPipelineDefinitionOutput(TypedDict):
+class GetPipelineDefinitionOutput(TypedDict, closed=True):
     pipeline_objects: NotRequired[
         "aws_sdk_data_pipeline.types.pipeline_object_list.PipelineObjectList"
     ]

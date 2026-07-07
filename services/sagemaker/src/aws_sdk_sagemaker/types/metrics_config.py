@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MetricsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.enable_enhanced_metrics
     import aws_sdk_sagemaker.types.metric_publish_frequency_in_seconds
 
 
-class MetricsConfig(TypedDict):
+class MetricsConfig(TypedDict, closed=True):
     enable_enhanced_metrics: NotRequired[
         "aws_sdk_sagemaker.types.enable_enhanced_metrics.EnableEnhancedMetrics"
     ]

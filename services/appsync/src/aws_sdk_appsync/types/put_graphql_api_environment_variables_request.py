@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#PutGraphqlApiEnvironmentVariablesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class PutGraphqlApiEnvironmentVariablesRequest(TypedDict):
+class PutGraphqlApiEnvironmentVariablesRequest(TypedDict, closed=True):
     api_id: "aws_sdk_appsync.types.string.String"
     """<p>The ID of the API to which the environmental variable list will be written.</p>"""
     environment_variables: (

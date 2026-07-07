@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListProjectsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.pagination_token
     import aws_sdk_datazone.types.project_summaries
 
 
-class ListProjectsOutput(TypedDict):
+class ListProjectsOutput(TypedDict, closed=True):
     items: NotRequired["aws_sdk_datazone.types.project_summaries.ProjectSummaries"]
     """<p>The results of the <code>ListProjects</code> action.</p>"""
     next_token: NotRequired["aws_sdk_datazone.types.pagination_token.PaginationToken"]

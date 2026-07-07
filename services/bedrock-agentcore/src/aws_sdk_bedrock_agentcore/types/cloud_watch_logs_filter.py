@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CloudWatchLogsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.filter_value
 
 
-class CloudWatchLogsFilter(TypedDict):
+class CloudWatchLogsFilter(TypedDict, closed=True):
     key: "str"
     """<p>The key or field name to filter on within the agent trace data.</p>"""
     operator: "aws_sdk_bedrock_agentcore.types.cloud_watch_logs_filter_operator.CloudWatchLogsFilterOperator"

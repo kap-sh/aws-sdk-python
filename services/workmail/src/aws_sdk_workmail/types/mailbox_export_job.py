@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#MailboxExportJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.description
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.work_mail_identifier
 
 
-class MailboxExportJob(TypedDict):
+class MailboxExportJob(TypedDict, closed=True):
     job_id: NotRequired[
         "aws_sdk_workmail.types.mailbox_export_job_id.MailboxExportJobId"
     ]

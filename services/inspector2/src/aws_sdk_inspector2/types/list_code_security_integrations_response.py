@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListCodeSecurityIntegrationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.integration_summaries
 
 
-class ListCodeSecurityIntegrationsResponse(TypedDict):
+class ListCodeSecurityIntegrationsResponse(TypedDict, closed=True):
     integrations: NotRequired[
         "aws_sdk_inspector2.types.integration_summaries.IntegrationSummaries"
     ]

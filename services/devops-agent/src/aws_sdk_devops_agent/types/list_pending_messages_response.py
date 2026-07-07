@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ListPendingMessagesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.pending_messages
 
 
-class ListPendingMessagesResponse(TypedDict):
+class ListPendingMessagesResponse(TypedDict, closed=True):
     agent_space_id: "aws_sdk_devops_agent.types.agent_space_id.AgentSpaceId"
     execution_id: "str"
     """<p>The unique identifier for the execution.</p>"""

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#QueryStringNames``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.query_string_names_list
 
 
-class QueryStringNames(TypedDict):
+class QueryStringNames(TypedDict, closed=True):
     quantity: "aws_sdk_cloudfront.types.integer.integer"
     """<p>The number of query string names in the <code>Items</code> list.</p>"""
     items: NotRequired[

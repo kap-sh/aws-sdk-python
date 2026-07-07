@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#Tag``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "str"
     """<p>The tag key.</p>"""
     value: NotRequired["str"]

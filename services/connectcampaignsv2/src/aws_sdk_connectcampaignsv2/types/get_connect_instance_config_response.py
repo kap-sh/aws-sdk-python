@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#GetConnectInstanceConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.instance_config
 
 
-class GetConnectInstanceConfigResponse(TypedDict):
+class GetConnectInstanceConfigResponse(TypedDict, closed=True):
     connect_instance_config: NotRequired[
         "aws_sdk_connectcampaignsv2.types.instance_config.InstanceConfig"
     ]

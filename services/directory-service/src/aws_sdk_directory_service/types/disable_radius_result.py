@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DisableRadiusResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisableRadiusResult(TypedDict):
+class DisableRadiusResult(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetBucketStatisticsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.object_level_statistics
 
 
-class GetBucketStatisticsResponse(TypedDict):
+class GetBucketStatisticsResponse(TypedDict, closed=True):
     bucket_count: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The total number of buckets.</p>"""
     bucket_count_by_effective_permission: NotRequired[

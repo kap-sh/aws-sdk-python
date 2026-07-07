@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#UnsupportedOperationException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError, ServiceError
 
 
-class UnsupportedOperationException_(TypedDict):
+class UnsupportedOperationException_(TypedDict, closed=True):
     detailed_message: "str"
     """<p>A detailed message describing the problem.</p>"""
     request_id: "str"

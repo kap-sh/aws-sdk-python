@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsGuardDutyDetectorDataSourcesKubernetesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details
 
 
-class AwsGuardDutyDetectorDataSourcesKubernetesDetails(TypedDict):
+class AwsGuardDutyDetectorDataSourcesKubernetesDetails(TypedDict, closed=True):
     audit_logs: NotRequired[
         "aws_sdk_securityhub.types.aws_guard_duty_detector_data_sources_kubernetes_audit_logs_details.AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails"
     ]

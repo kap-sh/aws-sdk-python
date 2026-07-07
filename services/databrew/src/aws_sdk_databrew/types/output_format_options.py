@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#OutputFormatOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.csv_output_options
 
 
-class OutputFormatOptions(TypedDict):
+class OutputFormatOptions(TypedDict, closed=True):
     csv: NotRequired["aws_sdk_databrew.types.csv_output_options.CsvOutputOptions"]
     """<p>Represents a set of options that define the structure of comma-separated value (CSV) job output.</p>"""
 

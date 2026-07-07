@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#EngagementCustomer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.industry
 
 
-class EngagementCustomer(TypedDict):
+class EngagementCustomer(TypedDict, closed=True):
     industry: "aws_sdk_partnercentral_selling.types.industry.Industry"
     """<p>Specifies the industry to which the customer’s company belongs. This field helps categorize the opportunity based on the customer’s business sector.</p>"""
     company_name: "aws_sdk_partnercentral_selling.types.company_name.CompanyName"

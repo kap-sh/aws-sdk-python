@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BuildSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.resolved_artifact
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.timestamp
 
 
-class BuildSummary(TypedDict):
+class BuildSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_codebuild.types.string.String"]
     """<p>The batch build ARN.</p>"""
     requested_on: NotRequired["aws_sdk_codebuild.types.timestamp.Timestamp"]

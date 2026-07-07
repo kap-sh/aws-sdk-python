@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#UpdateMountTargetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.security_groups
 
 
-class UpdateMountTargetRequest(TypedDict):
+class UpdateMountTargetRequest(TypedDict, closed=True):
     mount_target_id: "aws_sdk_s3files.types.mount_target_id.MountTargetId"
     """<p>The ID of the mount target to update.</p>"""
     security_groups: "aws_sdk_s3files.types.security_groups.SecurityGroups"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElbv2LoadBalancerDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.availability_zones
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.security_groups
 
 
-class AwsElbv2LoadBalancerDetails(TypedDict):
+class AwsElbv2LoadBalancerDetails(TypedDict, closed=True):
     availability_zones: NotRequired[
         "aws_sdk_securityhub.types.availability_zones.AvailabilityZones"
     ]

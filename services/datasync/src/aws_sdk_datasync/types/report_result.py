@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#ReportResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.phase_status
     import aws_sdk_datasync.types.string
 
 
-class ReportResult(TypedDict):
+class ReportResult(TypedDict, closed=True):
     status: NotRequired["aws_sdk_datasync.types.phase_status.PhaseStatus"]
     """<p>Indicates whether DataSync is still working on your report, created a report, or can't create a complete report.</p>"""
     error_code: NotRequired["aws_sdk_datasync.types.string.string"]

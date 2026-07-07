@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#QuotaContextInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.quota_context_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.quota_context_scope_type
 
 
-class QuotaContextInfo(TypedDict):
+class QuotaContextInfo(TypedDict, closed=True):
     context_scope: NotRequired[
         "aws_sdk_service_quotas.types.quota_context_scope.QuotaContextScope"
     ]

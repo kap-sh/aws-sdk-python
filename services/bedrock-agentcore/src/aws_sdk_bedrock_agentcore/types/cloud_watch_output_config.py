@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CloudWatchOutputConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class CloudWatchOutputConfig(TypedDict):
+class CloudWatchOutputConfig(TypedDict, closed=True):
     log_group_name: "str"
     """<p>The name of the CloudWatch log group where evaluation results will be written.</p>"""
     log_stream_name: "str"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterOrchestratorEksConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.eks_cluster_arn
 
 
-class ClusterOrchestratorEksConfig(TypedDict):
+class ClusterOrchestratorEksConfig(TypedDict, closed=True):
     cluster_arn: NotRequired["aws_sdk_sagemaker.types.eks_cluster_arn.EksClusterArn"]
     """<p>The Amazon Resource Name (ARN) of the Amazon EKS cluster associated with the SageMaker HyperPod cluster.</p>"""
 

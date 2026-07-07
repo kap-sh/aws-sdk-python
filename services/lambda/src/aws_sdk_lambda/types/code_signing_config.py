@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#CodeSigningConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.timestamp
 
 
-class CodeSigningConfig(TypedDict):
+class CodeSigningConfig(TypedDict, closed=True):
     code_signing_config_id: (
         "aws_sdk_lambda.types.code_signing_config_id.CodeSigningConfigId"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ListAgentCollaboratorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.version
 
 
-class ListAgentCollaboratorsRequest(TypedDict):
+class ListAgentCollaboratorsRequest(TypedDict, closed=True):
     agent_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>The agent's ID.</p>"""
     agent_version: "aws_sdk_bedrock_agent.types.version.Version"

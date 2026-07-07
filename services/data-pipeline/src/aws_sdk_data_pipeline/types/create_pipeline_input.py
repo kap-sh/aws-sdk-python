@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#CreatePipelineInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_data_pipeline.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.tag_list
 
 
-class CreatePipelineInput(TypedDict):
+class CreatePipelineInput(TypedDict, closed=True):
     name: "aws_sdk_data_pipeline.types.id.id"
     """<p>The name for the pipeline. You can use the same name for multiple pipelines associated with your AWS account, because AWS Data Pipeline assigns each pipeline a unique pipeline identifier.</p>"""
     unique_id: "aws_sdk_data_pipeline.types.id.id"

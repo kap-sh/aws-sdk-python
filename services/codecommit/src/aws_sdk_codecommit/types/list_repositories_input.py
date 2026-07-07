@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ListRepositoriesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.sort_by_enum
 
 
-class ListRepositoriesInput(TypedDict):
+class ListRepositoriesInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_codecommit.types.next_token.NextToken"]
     """<p>An enumeration token that allows the operation to batch the results of the operation. Batch sizes are 1,000 for list repository operations. When the client sends the token back to CodeCommit, another page of 1,000 records is retrieved.</p>"""
     sort_by: NotRequired["aws_sdk_codecommit.types.sort_by_enum.SortByEnum"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#SearchTextRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.api_key
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.token
 
 
-class SearchTextRequest(TypedDict):
+class SearchTextRequest(TypedDict, closed=True):
     query_text: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     """<p>The free-form text query to match addresses against. This is usually a partially typed address from an end user in an address box or form.</p> <note> <p>Exactly one of the following fields must be set: <code>QueryText</code> or <code>QueryId</code>.</p> </note>"""
     query_id: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]

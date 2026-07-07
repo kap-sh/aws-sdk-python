@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListAuditFindingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_check_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestamp
 
 
-class ListAuditFindingsRequest(TypedDict):
+class ListAuditFindingsRequest(TypedDict, closed=True):
     task_id: NotRequired["aws_sdk_iot.types.audit_task_id.AuditTaskId"]
     """<p>A filter to limit results to the audit with the specified ID. You must specify either the taskId or the startTime and endTime, but not both.</p>"""
     check_name: NotRequired["aws_sdk_iot.types.audit_check_name.AuditCheckName"]

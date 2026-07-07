@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#CancelTrainedModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.trained_model_arn
     import aws_sdk_cleanroomsml.types.uuid
 
 
-class CancelTrainedModelRequest(TypedDict):
+class CancelTrainedModelRequest(TypedDict, closed=True):
     membership_identifier: "aws_sdk_cleanroomsml.types.uuid.UUID"
     """<p>The membership ID of the trained model job that you want to cancel.</p>"""
     trained_model_arn: "aws_sdk_cleanroomsml.types.trained_model_arn.TrainedModelArn"

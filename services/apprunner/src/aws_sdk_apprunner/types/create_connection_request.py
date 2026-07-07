@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#CreateConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.tag_list
 
 
-class CreateConnectionRequest(TypedDict):
+class CreateConnectionRequest(TypedDict, closed=True):
     connection_name: "aws_sdk_apprunner.types.connection_name.ConnectionName"
     """<p>A name for the new connection. It must be unique across all App Runner connections for the Amazon Web Services account in the Amazon Web Services Region.</p>"""
     provider_type: "aws_sdk_apprunner.types.provider_type.ProviderType"

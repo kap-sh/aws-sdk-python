@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#InputFormatOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.csv_options
 
 
-class InputFormatOptions(TypedDict):
+class InputFormatOptions(TypedDict, closed=True):
     csv: NotRequired["aws_sdk_dynamodb.types.csv_options.CsvOptions"]
     """<p> The options for imported source files in CSV format. The values are Delimiter and HeaderList. </p>"""
 

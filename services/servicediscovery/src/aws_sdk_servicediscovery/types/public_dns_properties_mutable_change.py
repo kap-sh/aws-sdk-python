@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#PublicDnsPropertiesMutableChange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.soa_change
 
 
-class PublicDnsPropertiesMutableChange(TypedDict):
+class PublicDnsPropertiesMutableChange(TypedDict, closed=True):
     soa: "aws_sdk_servicediscovery.types.soa_change.SOAChange"
     """<p>Updated fields for the Start of Authority (SOA) record for the hosted zone for the public DNS namespace.</p>"""
 

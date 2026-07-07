@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#S3RepositoryDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.code_artifacts
     import aws_sdk_codeguru_reviewer.types.s3_bucket_name
 
 
-class S3RepositoryDetails(TypedDict):
+class S3RepositoryDetails(TypedDict, closed=True):
     bucket_name: NotRequired[
         "aws_sdk_codeguru_reviewer.types.s3_bucket_name.S3BucketName"
     ]

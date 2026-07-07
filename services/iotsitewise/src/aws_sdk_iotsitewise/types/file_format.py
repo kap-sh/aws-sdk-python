@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#FileFormat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.csv
     import aws_sdk_iotsitewise.types.parquet
 
 
-class FileFormat(TypedDict):
+class FileFormat(TypedDict, closed=True):
     csv: NotRequired["aws_sdk_iotsitewise.types.csv.Csv"]
     """<p>The file is in .CSV format.</p>"""
     parquet: NotRequired["aws_sdk_iotsitewise.types.parquet.Parquet"]

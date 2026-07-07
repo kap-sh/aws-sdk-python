@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#HlsSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.hls_i_frame_only_manifest
 
 
-class HlsSettings(TypedDict):
+class HlsSettings(TypedDict, closed=True):
     audio_group_id: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """Specifies the group to which the audio rendition belongs."""
     audio_only_container: NotRequired[

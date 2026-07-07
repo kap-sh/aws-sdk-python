@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#MetaFlowHealthEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.meta_flow_health_status_availability
 
 
-class MetaFlowHealthEntity(TypedDict):
+class MetaFlowHealthEntity(TypedDict, closed=True):
     entity_type: "aws_sdk_socialmessaging.types.meta_flow_health_entity_type.MetaFlowHealthEntityType"
     """<p>The type of entity (for example, FLOW, WABA, BUSINESS, or APP).</p>"""
     id: "str"

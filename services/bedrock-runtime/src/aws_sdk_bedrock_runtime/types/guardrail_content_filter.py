@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailContentFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_content_policy_action
 
 
-class GuardrailContentFilter(TypedDict):
+class GuardrailContentFilter(TypedDict, closed=True):
     type: "aws_sdk_bedrock_runtime.types.guardrail_content_filter_type.GuardrailContentFilterType"
     """<p>The guardrail type.</p>"""
     confidence: "aws_sdk_bedrock_runtime.types.guardrail_content_filter_confidence.GuardrailContentFilterConfidence"

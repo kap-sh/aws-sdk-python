@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#RejectAttachmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.attachment_id
 
 
-class RejectAttachmentRequest(TypedDict):
+class RejectAttachmentRequest(TypedDict, closed=True):
     attachment_id: "aws_sdk_networkmanager.types.attachment_id.AttachmentId"
     """<p>The ID of the attachment.</p>"""
 

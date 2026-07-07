@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#PutTableBucketPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_bucket_arn
 
 
-class PutTableBucketPolicyRequest(TypedDict):
+class PutTableBucketPolicyRequest(TypedDict, closed=True):
     table_bucket_arn: "aws_sdk_s3tables.types.table_bucket_arn.TableBucketARN"
     """<p>The Amazon Resource Name (ARN) of the table bucket.</p>"""
     resource_policy: "aws_sdk_s3tables.types.resource_policy.ResourcePolicy"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#SessionsStatisticsResources``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.queue_ids
 
 
-class _SessionsStatisticsResources_queueIds(TypedDict):
+class _SessionsStatisticsResources_queueIds(TypedDict, closed=True):
     queueIds: "aws_sdk_deadline.types.queue_ids.QueueIds"
 
 
-class _SessionsStatisticsResources_fleetIds(TypedDict):
+class _SessionsStatisticsResources_fleetIds(TypedDict, closed=True):
     fleetIds: "aws_sdk_deadline.types.fleet_ids.FleetIds"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#GetMediaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.blob
     import aws_sdk_qbusiness.types.string
 
 
-class GetMediaResponse(TypedDict):
+class GetMediaResponse(TypedDict, closed=True):
     media_bytes: NotRequired["aws_sdk_qbusiness.types.blob.Blob"]
     """<p>The base64-encoded bytes of the media object.</p>"""
     media_mime_type: NotRequired["aws_sdk_qbusiness.types.string.String"]

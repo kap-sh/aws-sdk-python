@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#ListenerProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.listener_property_type
     import aws_sdk_network_firewall.types.nat_gateway_port
 
 
-class ListenerProperty(TypedDict):
+class ListenerProperty(TypedDict, closed=True):
     port: NotRequired["aws_sdk_network_firewall.types.nat_gateway_port.NatGatewayPort"]
     """<p>Port for processing traffic.</p>"""
     type: NotRequired[

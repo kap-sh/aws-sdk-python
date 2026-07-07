@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#UpdateAlarmModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.severity
 
 
-class UpdateAlarmModelRequest(TypedDict):
+class UpdateAlarmModelRequest(TypedDict, closed=True):
     alarm_model_name: "aws_sdk_iot_events.types.alarm_model_name.AlarmModelName"
     """<p>The name of the alarm model.</p>"""
     alarm_model_description: NotRequired[

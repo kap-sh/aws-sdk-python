@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SendUsersMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.template_configuration
 
 
-class SendUsersMessageRequest(TypedDict):
+class SendUsersMessageRequest(TypedDict, closed=True):
     context: NotRequired["aws_sdk_pinpoint.types.map_of__string.MapOf__string"]
     """<p>A map of custom attribute-value pairs. For a push notification, Amazon Pinpoint adds these attributes to the data.pinpoint object in the body of the notification payload. Amazon Pinpoint also provides these attributes in the events that it generates for users-messages deliveries.</p>"""
     message_configuration: NotRequired[

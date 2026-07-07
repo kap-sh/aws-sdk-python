@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeFrameworkInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.framework_name
 
 
-class DescribeFrameworkInput(TypedDict):
+class DescribeFrameworkInput(TypedDict, closed=True):
     framework_name: "aws_sdk_backup.types.framework_name.FrameworkName"
     """<p>The unique name of a framework.</p>"""
 

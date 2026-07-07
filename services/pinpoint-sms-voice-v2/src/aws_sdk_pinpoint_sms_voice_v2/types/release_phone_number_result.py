@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#ReleasePhoneNumberResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.two_way_channel_arn
 
 
-class ReleasePhoneNumberResult(TypedDict):
+class ReleasePhoneNumberResult(TypedDict, closed=True):
     phone_number_arn: NotRequired["str"]
     """<p>The PhoneNumberArn of the phone number that was released.</p>"""
     phone_number_id: NotRequired["str"]

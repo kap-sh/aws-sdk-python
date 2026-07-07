@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#TagFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.tag_key
     import aws_sdk_ram.types.tag_value_list
 
 
-class TagFilter(TypedDict):
+class TagFilter(TypedDict, closed=True):
     tag_key: NotRequired["aws_sdk_ram.types.tag_key.TagKey"]
     """<p>The tag key. This must have a valid string value and can't be empty.</p>"""
     tag_values: NotRequired["aws_sdk_ram.types.tag_value_list.TagValueList"]

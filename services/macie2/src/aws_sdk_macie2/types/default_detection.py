@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#DefaultDetection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.occurrences
 
 
-class DefaultDetection(TypedDict):
+class DefaultDetection(TypedDict, closed=True):
     count: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The total number of occurrences of the type of sensitive data that was detected.</p>"""
     occurrences: NotRequired["aws_sdk_macie2.types.occurrences.Occurrences"]

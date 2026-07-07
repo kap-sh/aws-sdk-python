@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#NumberDisplayFormatConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.decimal_places_configuration
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.suffix
 
 
-class NumberDisplayFormatConfiguration(TypedDict):
+class NumberDisplayFormatConfiguration(TypedDict, closed=True):
     prefix: NotRequired["aws_sdk_quicksight.types.prefix.Prefix"]
     """<p>Determines the prefix value of the number format.</p>"""
     suffix: NotRequired["aws_sdk_quicksight.types.suffix.Suffix"]

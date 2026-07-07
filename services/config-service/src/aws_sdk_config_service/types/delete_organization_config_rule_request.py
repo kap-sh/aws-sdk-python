@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DeleteOrganizationConfigRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.organization_config_rule_name
 
 
-class DeleteOrganizationConfigRuleRequest(TypedDict):
+class DeleteOrganizationConfigRuleRequest(TypedDict, closed=True):
     organization_config_rule_name: "aws_sdk_config_service.types.organization_config_rule_name.OrganizationConfigRuleName"
     """<p>The name of organization Config rule that you want to delete.</p>"""
 

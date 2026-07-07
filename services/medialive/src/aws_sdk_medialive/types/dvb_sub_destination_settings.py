@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DvbSubDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.input_location
 
 
-class DvbSubDestinationSettings(TypedDict):
+class DvbSubDestinationSettings(TypedDict, closed=True):
     alignment: NotRequired[
         "aws_sdk_medialive.types.dvb_sub_destination_alignment.DvbSubDestinationAlignment"
     ]

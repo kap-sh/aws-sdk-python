@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#MonitorContactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id
 
 
-class MonitorContactRequest(TypedDict):
+class MonitorContactRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     """<p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>"""
     contact_id: "aws_sdk_connect.types.contact_id.ContactId"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetPullRequestApprovalStatesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.approval_list
 
 
-class GetPullRequestApprovalStatesOutput(TypedDict):
+class GetPullRequestApprovalStatesOutput(TypedDict, closed=True):
     approvals: NotRequired["aws_sdk_codecommit.types.approval_list.ApprovalList"]
     """<p>Information about users who have approved the pull request.</p>"""
 

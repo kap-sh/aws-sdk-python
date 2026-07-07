@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#AccessPolicyStats``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AccessPolicyStats(TypedDict):
+class AccessPolicyStats(TypedDict, closed=True):
     data_policy_count: NotRequired["int"]
     """<p>The number of data access policies in the current account.</p>"""
 

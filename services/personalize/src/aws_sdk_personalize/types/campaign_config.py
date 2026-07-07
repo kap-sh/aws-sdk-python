@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#CampaignConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.ranking_influence
 
 
-class CampaignConfig(TypedDict):
+class CampaignConfig(TypedDict, closed=True):
     item_exploration_config: NotRequired[
         "aws_sdk_personalize.types.hyper_parameters.HyperParameters"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#Definition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_budgets.types.iam_action_definition
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.ssm_action_definition
 
 
-class Definition(TypedDict):
+class Definition(TypedDict, closed=True):
     iam_action_definition: NotRequired[
         "aws_sdk_budgets.types.iam_action_definition.IamActionDefinition"
     ]

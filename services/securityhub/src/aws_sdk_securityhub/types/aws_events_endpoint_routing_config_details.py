@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEventsEndpointRoutingConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_events_endpoint_routing_config_failover_config_details
 
 
-class AwsEventsEndpointRoutingConfigDetails(TypedDict):
+class AwsEventsEndpointRoutingConfigDetails(TypedDict, closed=True):
     failover_config: NotRequired[
         "aws_sdk_securityhub.types.aws_events_endpoint_routing_config_failover_config_details.AwsEventsEndpointRoutingConfigFailoverConfigDetails"
     ]

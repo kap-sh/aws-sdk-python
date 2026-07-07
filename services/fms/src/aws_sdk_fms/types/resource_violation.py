@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ResourceViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.aws_ec2_instance_violation
@@ -33,7 +33,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.web_acl_has_out_of_scope_resources_violation
 
 
-class ResourceViolation(TypedDict):
+class ResourceViolation(TypedDict, closed=True):
     aws_vpc_security_group_violation: NotRequired[
         "aws_sdk_fms.types.aws_vpc_security_group_violation.AwsVPCSecurityGroupViolation"
     ]

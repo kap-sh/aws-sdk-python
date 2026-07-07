@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#Role``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_identitystore.types.boolean_type
     import aws_sdk_identitystore.types.sensitive_string_type
 
 
-class Role(TypedDict):
+class Role(TypedDict, closed=True):
     value: NotRequired[
         "aws_sdk_identitystore.types.sensitive_string_type.SensitiveStringType"
     ]

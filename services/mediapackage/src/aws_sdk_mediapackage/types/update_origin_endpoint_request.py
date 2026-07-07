@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#UpdateOriginEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__integer
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.origination
 
 
-class UpdateOriginEndpointRequest(TypedDict):
+class UpdateOriginEndpointRequest(TypedDict, closed=True):
     authorization: NotRequired["aws_sdk_mediapackage.types.authorization.Authorization"]
     cmaf_package: NotRequired[
         "aws_sdk_mediapackage.types.cmaf_package_create_or_update_parameters.CmafPackageCreateOrUpdateParameters"

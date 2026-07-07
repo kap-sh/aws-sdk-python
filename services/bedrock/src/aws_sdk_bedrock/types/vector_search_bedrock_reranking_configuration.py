@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#VectorSearchBedrockRerankingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.vector_search_bedrock_reranking_model_configuration
 
 
-class VectorSearchBedrockRerankingConfiguration(TypedDict):
+class VectorSearchBedrockRerankingConfiguration(TypedDict, closed=True):
     model_configuration: "aws_sdk_bedrock.types.vector_search_bedrock_reranking_model_configuration.VectorSearchBedrockRerankingModelConfiguration"
     """<p>Configuration for the Amazon Bedrock foundation model used for reranking. This includes the model ARN and any additional request fields required by the model.</p>"""
     number_of_reranked_results: NotRequired["int"]

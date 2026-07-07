@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.list_recommendations_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.next_token
 
 
-class ListRecommendationsRequest(TypedDict):
+class ListRecommendationsRequest(TypedDict, closed=True):
     filter: NotRequired[
         "aws_sdk_sesv2.types.list_recommendations_filter.ListRecommendationsFilter"
     ]

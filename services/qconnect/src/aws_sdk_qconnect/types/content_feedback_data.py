@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ContentFeedbackData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.generative_content_feedback_data
 
 
-class _ContentFeedbackData_generativeContentFeedbackData(TypedDict):
+class _ContentFeedbackData_generativeContentFeedbackData(TypedDict, closed=True):
     generativeContentFeedbackData: "aws_sdk_qconnect.types.generative_content_feedback_data.GenerativeContentFeedbackData"
 
 

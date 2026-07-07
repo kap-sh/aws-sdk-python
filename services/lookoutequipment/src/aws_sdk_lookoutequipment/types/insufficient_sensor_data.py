@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#InsufficientSensorData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.sensors_with_short_date_range
 
 
-class InsufficientSensorData(TypedDict):
+class InsufficientSensorData(TypedDict, closed=True):
     missing_complete_sensor_data: "aws_sdk_lookoutequipment.types.missing_complete_sensor_data.MissingCompleteSensorData"
     """<p> Parameter that describes the total number of sensors that have data completely missing for it. </p>"""
     sensors_with_short_date_range: "aws_sdk_lookoutequipment.types.sensors_with_short_date_range.SensorsWithShortDateRange"

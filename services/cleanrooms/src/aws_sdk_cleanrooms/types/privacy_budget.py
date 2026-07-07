@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#PrivacyBudget``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.differential_privacy_privacy_budget
 
 
-class _PrivacyBudget_differentialPrivacy(TypedDict):
+class _PrivacyBudget_differentialPrivacy(TypedDict, closed=True):
     differentialPrivacy: "aws_sdk_cleanrooms.types.differential_privacy_privacy_budget.DifferentialPrivacyPrivacyBudget"
 
 
-class _PrivacyBudget_accessBudget(TypedDict):
+class _PrivacyBudget_accessBudget(TypedDict, closed=True):
     accessBudget: "aws_sdk_cleanrooms.types.access_budget.AccessBudget"
 
 

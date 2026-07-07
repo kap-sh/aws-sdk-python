@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#PhilippinesAdditionalInfo``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class PhilippinesAdditionalInfo(TypedDict):
+class PhilippinesAdditionalInfo(TypedDict, closed=True):
     is_vat_registered: NotRequired["bool"]
     """<p>Indicates whether the account is VAT-registered with the Philippines Bureau of Internal Revenue (BIR).</p>"""
 

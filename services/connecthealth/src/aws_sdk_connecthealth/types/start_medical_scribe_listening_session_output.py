@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#StartMedicalScribeListeningSessionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.domain_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.subscription_id
 
 
-class StartMedicalScribeListeningSessionOutput(TypedDict):
+class StartMedicalScribeListeningSessionOutput(TypedDict, closed=True):
     session_id: NotRequired[
         "aws_sdk_connecthealth.types.scribe_session_id.ScribeSessionId"
     ]

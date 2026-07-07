@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#EcrContainerImageMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.date_time_timestamp
     import aws_sdk_inspector2.types.tag_list
 
 
-class EcrContainerImageMetadata(TypedDict):
+class EcrContainerImageMetadata(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_inspector2.types.tag_list.TagList"]
     """<p>Tags associated with the Amazon ECR image metadata.</p>"""
     image_pulled_at: NotRequired[

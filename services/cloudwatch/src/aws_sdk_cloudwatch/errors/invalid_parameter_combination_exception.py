@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#InvalidParameterCombinationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 from aws_sdk_cloudwatch.errors import ServiceError
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.aws_query_error_message
 
 
-class InvalidParameterCombinationException_(TypedDict):
+class InvalidParameterCombinationException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_cloudwatch.types.aws_query_error_message.AwsQueryErrorMessage"
     ]
