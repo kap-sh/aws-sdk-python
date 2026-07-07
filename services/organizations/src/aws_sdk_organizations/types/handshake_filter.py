@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#HandshakeFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.action_type
     import aws_sdk_organizations.types.handshake_id
 
 
-class HandshakeFilter(TypedDict):
+class HandshakeFilter(TypedDict, closed=True):
     action_type: NotRequired["aws_sdk_organizations.types.action_type.ActionType"]
     """<p>The type of handshake.</p> <p>If you specify <code>ActionType</code>, you cannot also specify <code>ParentHandshakeId</code>.</p>"""
     parent_handshake_id: NotRequired[

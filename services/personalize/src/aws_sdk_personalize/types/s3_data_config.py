@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#S3DataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.s3_location
 
 
-class S3DataConfig(TypedDict):
+class S3DataConfig(TypedDict, closed=True):
     path: "aws_sdk_personalize.types.s3_location.S3Location"
     """<p>The file path of the Amazon S3 bucket.</p>"""
     kms_key_arn: NotRequired["aws_sdk_personalize.types.kms_key_arn.KmsKeyArn"]

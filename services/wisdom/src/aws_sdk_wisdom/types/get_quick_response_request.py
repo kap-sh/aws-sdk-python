@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#GetQuickResponseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.uuid_or_arn
 
 
-class GetQuickResponseRequest(TypedDict):
+class GetQuickResponseRequest(TypedDict, closed=True):
     quick_response_id: "aws_sdk_wisdom.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the quick response.</p>"""
     knowledge_base_id: "aws_sdk_wisdom.types.uuid_or_arn.UuidOrArn"

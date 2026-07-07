@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchableSegmentAttributesCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.searchable_segment_attribute_value_list
 
 
-class SearchableSegmentAttributesCriteria(TypedDict):
+class SearchableSegmentAttributesCriteria(TypedDict, closed=True):
     key: "aws_sdk_connect.types.searchable_segment_attribute_key.SearchableSegmentAttributeKey"
     """<p>The key containing a searchable segment attribute.</p>"""
     values: "aws_sdk_connect.types.searchable_segment_attribute_value_list.SearchableSegmentAttributeValueList"

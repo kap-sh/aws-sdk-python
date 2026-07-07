@@ -3,9 +3,9 @@
 import warnings
 from collections.abc import Generator, Iterator
 from contextlib import contextmanager
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_mediastore_data._auth._signers
@@ -52,7 +52,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore_data.types.upload_availability
 
 
-class MediaStoreDataClientConfig(TypedDict, total=False):
+class MediaStoreDataClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

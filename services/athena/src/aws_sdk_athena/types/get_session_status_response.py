@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetSessionStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.session_id
     import aws_sdk_athena.types.session_status
 
 
-class GetSessionStatusResponse(TypedDict):
+class GetSessionStatusResponse(TypedDict, closed=True):
     session_id: NotRequired["aws_sdk_athena.types.session_id.SessionId"]
     """<p>The session ID.</p>"""
     status: NotRequired["aws_sdk_athena.types.session_status.SessionStatus"]

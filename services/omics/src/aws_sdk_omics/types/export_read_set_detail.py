@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ExportReadSetDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.read_set_id
 
 
-class ExportReadSetDetail(TypedDict):
+class ExportReadSetDetail(TypedDict, closed=True):
     id: "aws_sdk_omics.types.read_set_id.ReadSetId"
     """<p>The set's ID.</p>"""
     status: (

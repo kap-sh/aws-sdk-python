@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#GetMedicalTranscriptionJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.medical_transcription_job
 
 
-class GetMedicalTranscriptionJobResponse(TypedDict):
+class GetMedicalTranscriptionJobResponse(TypedDict, closed=True):
     medical_transcription_job: NotRequired[
         "aws_sdk_transcribe.types.medical_transcription_job.MedicalTranscriptionJob"
     ]

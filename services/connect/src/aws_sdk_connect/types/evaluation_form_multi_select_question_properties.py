@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormMultiSelectQuestionProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_form_multi_select_question_option_list
 
 
-class EvaluationFormMultiSelectQuestionProperties(TypedDict):
+class EvaluationFormMultiSelectQuestionProperties(TypedDict, closed=True):
     options: "aws_sdk_connect.types.evaluation_form_multi_select_question_option_list.EvaluationFormMultiSelectQuestionOptionList"
     """<p>Options available for this multi-select question.</p>"""
     display_as: NotRequired[

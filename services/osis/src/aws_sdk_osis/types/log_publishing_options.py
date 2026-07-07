@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.osis#LogPublishingOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.boolean
     import aws_sdk_osis.types.cloud_watch_log_destination
 
 
-class LogPublishingOptions(TypedDict):
+class LogPublishingOptions(TypedDict, closed=True):
     is_logging_enabled: NotRequired["aws_sdk_osis.types.boolean.Boolean"]
     """<p>Whether logs should be published.</p>"""
     cloud_watch_log_destination: NotRequired[

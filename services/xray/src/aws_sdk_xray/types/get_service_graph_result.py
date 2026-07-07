@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetServiceGraphResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.timestamp
 
 
-class GetServiceGraphResult(TypedDict):
+class GetServiceGraphResult(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_xray.types.timestamp.Timestamp"]
     """<p>The start of the time frame for which the graph was generated.</p>"""
     end_time: NotRequired["aws_sdk_xray.types.timestamp.Timestamp"]

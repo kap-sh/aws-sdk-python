@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteMatrixAvoidanceOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_matrix_avoidance_area_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.truck_road_type_list
 
 
-class RouteMatrixAvoidanceOptions(TypedDict):
+class RouteMatrixAvoidanceOptions(TypedDict, closed=True):
     areas: NotRequired[
         "aws_sdk_geo_routes.types.route_matrix_avoidance_area_list.RouteMatrixAvoidanceAreaList"
     ]

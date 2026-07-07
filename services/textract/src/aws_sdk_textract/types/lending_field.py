@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#LendingField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.lending_detection
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.string
 
 
-class LendingField(TypedDict):
+class LendingField(TypedDict, closed=True):
     type: NotRequired["aws_sdk_textract.types.string.String"]
     """<p>The type of the lending document.</p>"""
     key_detection: NotRequired[

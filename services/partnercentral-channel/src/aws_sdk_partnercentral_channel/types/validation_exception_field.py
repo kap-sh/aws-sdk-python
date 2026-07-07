@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_channel.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The name of the field that failed validation.</p>"""
     code: "str"

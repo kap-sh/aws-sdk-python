@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#Loa``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.loa_content
     import aws_sdk_direct_connect.types.loa_content_type
 
 
-class Loa(TypedDict):
+class Loa(TypedDict, closed=True):
     loa_content: NotRequired["aws_sdk_direct_connect.types.loa_content.LoaContent"]
     """<p>The binary contents of the LOA-CFA document.</p>"""
     loa_content_type: NotRequired[

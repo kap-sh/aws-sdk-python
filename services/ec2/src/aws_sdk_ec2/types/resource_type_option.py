@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ResourceTypeOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.resource_type_option_values_list
 
 
-class ResourceTypeOption(TypedDict):
+class ResourceTypeOption(TypedDict, closed=True):
     option_name: NotRequired[
         "aws_sdk_ec2.types.image_reference_option_name.ImageReferenceOptionName"
     ]

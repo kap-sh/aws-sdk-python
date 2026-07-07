@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#LineItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.line_item_asset_information_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.sku_code
 
 
-class LineItem(TypedDict):
+class LineItem(TypedDict, closed=True):
     catalog_item_id: NotRequired["aws_sdk_outposts.types.sku_code.SkuCode"]
     """<p> The ID of the catalog item.</p>"""
     line_item_id: NotRequired["aws_sdk_outposts.types.line_item_id.LineItemId"]

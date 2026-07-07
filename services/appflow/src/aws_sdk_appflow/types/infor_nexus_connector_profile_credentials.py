@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#InforNexusConnectorProfileCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.username
 
 
-class InforNexusConnectorProfileCredentials(TypedDict):
+class InforNexusConnectorProfileCredentials(TypedDict, closed=True):
     access_key_id: "aws_sdk_appflow.types.access_key_id.AccessKeyId"
     """<p> The Access Key portion of the credentials. </p>"""
     user_id: "aws_sdk_appflow.types.username.Username"

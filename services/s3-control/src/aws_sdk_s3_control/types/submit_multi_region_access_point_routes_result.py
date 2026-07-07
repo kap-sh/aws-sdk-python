@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#SubmitMultiRegionAccessPointRoutesResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
 
-class SubmitMultiRegionAccessPointRoutesResult(TypedDict):
+class SubmitMultiRegionAccessPointRoutesResult(TypedDict, closed=True):
     pass
 
 

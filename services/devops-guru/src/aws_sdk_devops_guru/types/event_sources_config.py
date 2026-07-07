@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#EventSourcesConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.amazon_code_guru_profiler_integration
 
 
-class EventSourcesConfig(TypedDict):
+class EventSourcesConfig(TypedDict, closed=True):
     amazon_code_guru_profiler: NotRequired[
         "aws_sdk_devops_guru.types.amazon_code_guru_profiler_integration.AmazonCodeGuruProfilerIntegration"
     ]

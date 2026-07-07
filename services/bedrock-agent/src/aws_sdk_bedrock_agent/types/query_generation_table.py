@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#QueryGenerationTable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.query_generation_table_name
 
 
-class QueryGenerationTable(TypedDict):
+class QueryGenerationTable(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agent.types.query_generation_table_name.QueryGenerationTableName"
     """<p>The name of the table for which the other fields in this object apply.</p>"""
     description: NotRequired[

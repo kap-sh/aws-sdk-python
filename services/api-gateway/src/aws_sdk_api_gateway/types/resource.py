@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.map_of_method
     import aws_sdk_api_gateway.types.string
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     id: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The resource's identifier.</p>"""
     parent_id: NotRequired["aws_sdk_api_gateway.types.string.String"]

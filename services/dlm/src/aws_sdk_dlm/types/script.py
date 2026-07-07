@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#Script``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.execute_operation_on_script_failure
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.stages_list
 
 
-class Script(TypedDict):
+class Script(TypedDict, closed=True):
     stages: NotRequired["aws_sdk_dlm.types.stages_list.StagesList"]
     """<p>Indicate which scripts Amazon Data Lifecycle Manager should run on target instances. Pre scripts run before Amazon Data Lifecycle Manager initiates snapshot creation. Post scripts run after Amazon Data Lifecycle Manager initiates snapshot creation.</p> <ul> <li> <p>To run a pre script only, specify <code>PRE</code>. In this case, Amazon Data Lifecycle Manager calls the SSM document with the <code>pre-script</code> parameter before initiating snapshot creation.</p> </li> <li> <p>To run a post script only, specify <code>POST</code>. In this case, Amazon Data Lifecycle Manager calls the SSM document with the <code>post-script</code> parameter after initiating snapshot creation.</p> </li> <li> <p>To run both pre and post scripts, specify both <code>PRE</code> and <code>POST</code>. In this case, Amazon Data Lifecycle Manager calls the SSM document with the <code>pre-script</code> parameter before initiating snapshot creation, and then it calls the SSM document again with the <code>post-script</code> parameter after initiating snapshot creation.</p> </li> </ul> <p>If you are automating VSS Backups, omit this parameter.</p> <p>Default: PRE and POST</p>"""
     execution_handler_service: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ChildBlock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.integer
     import aws_sdk_comprehend.types.string
 
 
-class ChildBlock(TypedDict):
+class ChildBlock(TypedDict, closed=True):
     child_block_id: NotRequired["aws_sdk_comprehend.types.string.String"]
     """<p>Unique identifier for the child block.</p>"""
     begin_offset: NotRequired["aws_sdk_comprehend.types.integer.Integer"]

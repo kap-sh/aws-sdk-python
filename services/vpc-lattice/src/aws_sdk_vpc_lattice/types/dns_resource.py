@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#DnsResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.domain_name
     import aws_sdk_vpc_lattice.types.resource_configuration_ip_address_type
 
 
-class DnsResource(TypedDict):
+class DnsResource(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_vpc_lattice.types.domain_name.DomainName"]
     """<p>The domain name of the resource.</p>"""
     ip_address_type: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#CreateKnowledgeBaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.vector_ingestion_configuration
 
 
-class CreateKnowledgeBaseRequest(TypedDict):
+class CreateKnowledgeBaseRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_qconnect.types.non_empty_string.NonEmptyString"]
     r"""<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the Amazon Web Services SDK populates this field. For more information about idempotency, see <a href=\"http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>"""
     name: "aws_sdk_qconnect.types.name.Name"

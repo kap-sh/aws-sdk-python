@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#AssumeRoleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 from aws_sdk_sts.errors import DeserializationError
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.unrestricted_session_policy_document_type
 
 
-class AssumeRoleRequest(TypedDict):
+class AssumeRoleRequest(TypedDict, closed=True):
     role_arn: "aws_sdk_sts.types.arn_type.arnType"
     """<p>The Amazon Resource Name (ARN) of the role to assume.</p>"""
     role_session_name: "aws_sdk_sts.types.role_session_name_type.roleSessionNameType"

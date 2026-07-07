@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#ImageMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.timestamp
 
 
-class ImageMetadata(TypedDict):
+class ImageMetadata(TypedDict, closed=True):
     mime_type: "aws_sdk_workspaces_web.types.mime_type.MimeType"
     """<p>The MIME type of the image.</p>"""
     file_extension: "aws_sdk_workspaces_web.types.string_type.StringType"

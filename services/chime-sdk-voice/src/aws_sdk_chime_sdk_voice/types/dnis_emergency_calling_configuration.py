@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#DNISEmergencyCallingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.e164_phone_number
 
 
-class DNISEmergencyCallingConfiguration(TypedDict):
+class DNISEmergencyCallingConfiguration(TypedDict, closed=True):
     emergency_phone_number: (
         "aws_sdk_chime_sdk_voice.types.e164_phone_number.E164PhoneNumber"
     )

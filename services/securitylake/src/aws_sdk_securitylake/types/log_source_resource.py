@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#LogSourceResource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.custom_log_source_resource
 
 
-class _LogSourceResource_awsLogSource(TypedDict):
+class _LogSourceResource_awsLogSource(TypedDict, closed=True):
     awsLogSource: (
         "aws_sdk_securitylake.types.aws_log_source_resource.AwsLogSourceResource"
     )
 
 
-class _LogSourceResource_customLogSource(TypedDict):
+class _LogSourceResource_customLogSource(TypedDict, closed=True):
     customLogSource: (
         "aws_sdk_securitylake.types.custom_log_source_resource.CustomLogSourceResource"
     )

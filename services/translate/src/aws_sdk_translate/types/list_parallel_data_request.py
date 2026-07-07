@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.translate#ListParallelDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.max_results_integer
     import aws_sdk_translate.types.next_token
 
 
-class ListParallelDataRequest(TypedDict):
+class ListParallelDataRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_translate.types.next_token.NextToken"]
     """<p>A string that specifies the next page of results to return in a paginated response.</p>"""
     max_results: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FunctionDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.resource_name
 
 
-class FunctionDefinition(TypedDict):
+class FunctionDefinition(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agent_runtime.types.resource_name.ResourceName"
     """<p> A name for the function. </p>"""
     description: NotRequired[

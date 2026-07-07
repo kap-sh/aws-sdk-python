@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#DescribeSlackWorkspacesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chatbot.types.pagination_token
     import aws_sdk_chatbot.types.slack_workspaces_list
 
 
-class DescribeSlackWorkspacesResult(TypedDict):
+class DescribeSlackWorkspacesResult(TypedDict, closed=True):
     slack_workspaces: NotRequired[
         "aws_sdk_chatbot.types.slack_workspaces_list.SlackWorkspacesList"
     ]

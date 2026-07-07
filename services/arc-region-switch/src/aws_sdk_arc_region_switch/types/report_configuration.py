@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#ReportConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.report_output_list
 
 
-class ReportConfiguration(TypedDict):
+class ReportConfiguration(TypedDict, closed=True):
     report_output: NotRequired[
         "aws_sdk_arc_region_switch.types.report_output_list.ReportOutputList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#CustomerProfilesDestinationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.object_type_name
 
 
-class CustomerProfilesDestinationProperties(TypedDict):
+class CustomerProfilesDestinationProperties(TypedDict, closed=True):
     domain_name: "aws_sdk_appflow.types.domain_name.DomainName"
     """<p> The unique name of the Connect Customer Customer Profiles domain. </p>"""
     object_type_name: NotRequired[

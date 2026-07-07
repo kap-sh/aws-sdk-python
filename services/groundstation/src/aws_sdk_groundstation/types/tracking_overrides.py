@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#TrackingOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.program_track_settings
 
 
-class TrackingOverrides(TypedDict):
+class TrackingOverrides(TypedDict, closed=True):
     program_track_settings: NotRequired[
         "aws_sdk_groundstation.types.program_track_settings.ProgramTrackSettings"
     ]

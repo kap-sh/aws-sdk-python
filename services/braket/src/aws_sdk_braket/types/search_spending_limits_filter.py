@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#SearchSpendingLimitsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.string256_list
 
 
-class SearchSpendingLimitsFilter(TypedDict):
+class SearchSpendingLimitsFilter(TypedDict, closed=True):
     name: "aws_sdk_braket.types.string64.String64"
     """<p>The name of the field to filter on. Currently only supports <code>deviceArn</code>.</p>"""
     values: "aws_sdk_braket.types.string256_list.String256List"

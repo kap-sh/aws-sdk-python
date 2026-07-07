@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#OTAUpdateFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.attributes_map
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.ota_update_file_version
 
 
-class OTAUpdateFile(TypedDict):
+class OTAUpdateFile(TypedDict, closed=True):
     file_name: NotRequired["aws_sdk_iot.types.file_name.FileName"]
     """<p>The name of the file.</p>"""
     file_type: NotRequired["aws_sdk_iot.types.file_type.FileType"]

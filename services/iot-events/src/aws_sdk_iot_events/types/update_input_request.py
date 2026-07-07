@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#UpdateInputRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.input_name
 
 
-class UpdateInputRequest(TypedDict):
+class UpdateInputRequest(TypedDict, closed=True):
     input_name: "aws_sdk_iot_events.types.input_name.InputName"
     """<p>The name of the input you want to update.</p>"""
     input_description: NotRequired[

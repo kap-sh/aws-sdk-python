@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mq#Configurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__list_of_configuration_id
     import aws_sdk_mq.types.configuration_id
 
 
-class Configurations(TypedDict):
+class Configurations(TypedDict, closed=True):
     current: NotRequired["aws_sdk_mq.types.configuration_id.ConfigurationId"]
     """<p>The broker's current configuration.</p>"""
     history: NotRequired[

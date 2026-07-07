@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#SessionActionDefinitionSummary``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.task_run_session_action_definition_summary
 
 
-class _SessionActionDefinitionSummary_envEnter(TypedDict):
+class _SessionActionDefinitionSummary_envEnter(TypedDict, closed=True):
     envEnter: "aws_sdk_deadline.types.environment_enter_session_action_definition_summary.EnvironmentEnterSessionActionDefinitionSummary"
 
 
-class _SessionActionDefinitionSummary_envExit(TypedDict):
+class _SessionActionDefinitionSummary_envExit(TypedDict, closed=True):
     envExit: "aws_sdk_deadline.types.environment_exit_session_action_definition_summary.EnvironmentExitSessionActionDefinitionSummary"
 
 
-class _SessionActionDefinitionSummary_taskRun(TypedDict):
+class _SessionActionDefinitionSummary_taskRun(TypedDict, closed=True):
     taskRun: "aws_sdk_deadline.types.task_run_session_action_definition_summary.TaskRunSessionActionDefinitionSummary"
 
 
-class _SessionActionDefinitionSummary_syncInputJobAttachments(TypedDict):
+class _SessionActionDefinitionSummary_syncInputJobAttachments(TypedDict, closed=True):
     syncInputJobAttachments: "aws_sdk_deadline.types.sync_input_job_attachments_session_action_definition_summary.SyncInputJobAttachmentsSessionActionDefinitionSummary"
 
 

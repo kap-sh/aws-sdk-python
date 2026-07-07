@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#CustomOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.runtime_type
 
 
-class CustomOutputConfiguration(TypedDict):
+class CustomOutputConfiguration(TypedDict, closed=True):
     runtime: "aws_sdk_mediatailor.types.runtime_type.RuntimeType"
     """<p>The expression language used to evaluate expressions in the function configuration. Set this to <code>JSONata</code>.</p>"""
     output: NotRequired["aws_sdk_mediatailor.types.__map_of__string.__mapOf__string"]

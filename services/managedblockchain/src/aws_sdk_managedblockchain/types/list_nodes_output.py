@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#ListNodesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.node_summary_list
     import aws_sdk_managedblockchain.types.pagination_token
 
 
-class ListNodesOutput(TypedDict):
+class ListNodesOutput(TypedDict, closed=True):
     nodes: NotRequired[
         "aws_sdk_managedblockchain.types.node_summary_list.NodeSummaryList"
     ]

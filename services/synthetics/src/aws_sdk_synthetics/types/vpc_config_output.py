@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#VpcConfigOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.nullable_boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.vpc_id
 
 
-class VpcConfigOutput(TypedDict):
+class VpcConfigOutput(TypedDict, closed=True):
     vpc_id: NotRequired["aws_sdk_synthetics.types.vpc_id.VpcId"]
     """<p>The IDs of the VPC where this canary is to run.</p>"""
     subnet_ids: NotRequired["aws_sdk_synthetics.types.subnet_ids.SubnetIds"]

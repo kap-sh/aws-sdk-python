@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_quality_glue_table
     import aws_sdk_glue.types.glue_table
 
 
-class DataSource(TypedDict):
+class DataSource(TypedDict, closed=True):
     glue_table: NotRequired["aws_sdk_glue.types.glue_table.GlueTable"]
     """<p>An Glue table.</p>"""
     data_quality_glue_table: NotRequired[

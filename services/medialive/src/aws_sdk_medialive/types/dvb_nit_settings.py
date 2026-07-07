@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DvbNitSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0_max65536
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string_min1_max256
 
 
-class DvbNitSettings(TypedDict):
+class DvbNitSettings(TypedDict, closed=True):
     network_id: NotRequired[
         "aws_sdk_medialive.types.__integer_min0_max65536.__integerMin0Max65536"
     ]

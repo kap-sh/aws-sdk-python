@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DeleteDeliveryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.delivery_id
 
 
-class DeleteDeliveryRequest(TypedDict):
+class DeleteDeliveryRequest(TypedDict, closed=True):
     id: "aws_sdk_cloudwatch_logs.types.delivery_id.DeliveryId"
     r"""<p>The unique ID of the delivery to delete. You can find the ID of a delivery with the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html\">DescribeDeliveries</a> operation.</p>"""
 

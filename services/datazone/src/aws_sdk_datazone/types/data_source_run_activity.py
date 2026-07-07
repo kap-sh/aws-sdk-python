@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DataSourceRunActivity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
 
 
-class DataSourceRunActivity(TypedDict):
+class DataSourceRunActivity(TypedDict, closed=True):
     database: "aws_sdk_datazone.types.name.Name"
     """<p>The database included in the data source run activity.</p>"""
     data_source_run_id: "aws_sdk_datazone.types.data_source_run_id.DataSourceRunId"

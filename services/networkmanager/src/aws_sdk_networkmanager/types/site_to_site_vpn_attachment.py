@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#SiteToSiteVpnAttachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.attachment
     import aws_sdk_networkmanager.types.vpn_connection_arn
 
 
-class SiteToSiteVpnAttachment(TypedDict):
+class SiteToSiteVpnAttachment(TypedDict, closed=True):
     attachment: NotRequired["aws_sdk_networkmanager.types.attachment.Attachment"]
     """<p>Provides details about a site-to-site VPN attachment.</p>"""
     vpn_connection_arn: NotRequired[

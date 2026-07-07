@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeAccountAttributesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.account_quota_list
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeAccountAttributesResponse(TypedDict):
+class DescribeAccountAttributesResponse(TypedDict, closed=True):
     account_quotas: NotRequired[
         "aws_sdk_database_migration_service.types.account_quota_list.AccountQuotaList"
     ]

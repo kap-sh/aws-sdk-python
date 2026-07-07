@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#DeleteScraperResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.scraper_status
 
 
-class DeleteScraperResponse(TypedDict):
+class DeleteScraperResponse(TypedDict, closed=True):
     scraper_id: "aws_sdk_amp.types.scraper_id.ScraperId"
     """<p>The ID of the scraper to delete.</p>"""
     status: "aws_sdk_amp.types.scraper_status.ScraperStatus"

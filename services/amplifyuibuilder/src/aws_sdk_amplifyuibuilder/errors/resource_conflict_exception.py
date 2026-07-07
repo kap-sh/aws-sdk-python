@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ResourceConflictException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import ServiceError
 
 
-class ResourceConflictException_(TypedDict):
+class ResourceConflictException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

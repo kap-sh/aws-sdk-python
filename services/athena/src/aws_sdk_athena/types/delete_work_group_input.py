@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#DeleteWorkGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.work_group_name
 
 
-class DeleteWorkGroupInput(TypedDict):
+class DeleteWorkGroupInput(TypedDict, closed=True):
     work_group: "aws_sdk_athena.types.work_group_name.WorkGroupName"
     """<p>The unique name of the workgroup to delete.</p>"""
     recursive_delete_option: NotRequired[

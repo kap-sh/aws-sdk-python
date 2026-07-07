@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#PackageImportJobInputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.package_version_input_config
 
 
-class PackageImportJobInputConfig(TypedDict):
+class PackageImportJobInputConfig(TypedDict, closed=True):
     package_version_input_config: NotRequired[
         "aws_sdk_panorama.types.package_version_input_config.PackageVersionInputConfig"
     ]

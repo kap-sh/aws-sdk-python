@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#CustomModelUnits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.custom_model_units_version
 
 
-class CustomModelUnits(TypedDict):
+class CustomModelUnits(TypedDict, closed=True):
     custom_model_units_per_model_copy: NotRequired["int"]
     """<p>The number of custom model units used to host a model copy. </p>"""
     custom_model_units_version: NotRequired[

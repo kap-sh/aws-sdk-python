@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ListDataGrantsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_data_grant_summary_entry
     import aws_sdk_dataexchange.types.next_token
 
 
-class ListDataGrantsResponse(TypedDict):
+class ListDataGrantsResponse(TypedDict, closed=True):
     data_grant_summaries: NotRequired[
         "aws_sdk_dataexchange.types.list_of_data_grant_summary_entry.ListOfDataGrantSummaryEntry"
     ]

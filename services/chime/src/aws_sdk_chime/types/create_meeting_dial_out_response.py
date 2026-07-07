@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#CreateMeetingDialOutResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.guid_string
 
 
-class CreateMeetingDialOutResponse(TypedDict):
+class CreateMeetingDialOutResponse(TypedDict, closed=True):
     transaction_id: NotRequired["aws_sdk_chime.types.guid_string.GuidString"]
     """<p>Unique ID that tracks API calls.</p>"""
 

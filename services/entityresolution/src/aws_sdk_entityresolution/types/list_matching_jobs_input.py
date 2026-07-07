@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ListMatchingJobsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.entity_name
     import aws_sdk_entityresolution.types.next_token
 
 
-class ListMatchingJobsInput(TypedDict):
+class ListMatchingJobsInput(TypedDict, closed=True):
     workflow_name: "aws_sdk_entityresolution.types.entity_name.EntityName"
     """<p>The name of the workflow to be retrieved.</p>"""
     next_token: NotRequired["aws_sdk_entityresolution.types.next_token.NextToken"]

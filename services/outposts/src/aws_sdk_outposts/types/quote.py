@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#Quote``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.account_id
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.status_message
 
 
-class Quote(TypedDict):
+class Quote(TypedDict, closed=True):
     quote_id: NotRequired["aws_sdk_outposts.types.quote_id.QuoteId"]
     """<p>The ID of the quote.</p>"""
     account_id: NotRequired["aws_sdk_outposts.types.account_id.AccountId"]

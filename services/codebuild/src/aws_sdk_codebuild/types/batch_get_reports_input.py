@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BatchGetReportsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.report_arns
 
 
-class BatchGetReportsInput(TypedDict):
+class BatchGetReportsInput(TypedDict, closed=True):
     report_arns: "aws_sdk_codebuild.types.report_arns.ReportArns"
     """<p> An array of ARNs that identify the <code>Report</code> objects to return. </p>"""
 

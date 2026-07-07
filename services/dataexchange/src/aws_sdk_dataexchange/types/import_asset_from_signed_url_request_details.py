@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ImportAssetFromSignedUrlRequestDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.id
 
 
-class ImportAssetFromSignedUrlRequestDetails(TypedDict):
+class ImportAssetFromSignedUrlRequestDetails(TypedDict, closed=True):
     asset_name: "aws_sdk_dataexchange.types.asset_name.AssetName"
     """<p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name.</p>"""
     data_set_id: "aws_sdk_dataexchange.types.id.Id"

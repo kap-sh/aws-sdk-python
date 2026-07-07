@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ConfigurableUpfrontRateCardItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.constraints
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.selector
 
 
-class ConfigurableUpfrontRateCardItem(TypedDict):
+class ConfigurableUpfrontRateCardItem(TypedDict, closed=True):
     selector: NotRequired["aws_sdk_marketplace_agreement.types.selector.Selector"]
     """<p>Differentiates between the mutually exclusive rate cards in the same pricing term to be selected by the buyer.</p>"""
     constraints: NotRequired[

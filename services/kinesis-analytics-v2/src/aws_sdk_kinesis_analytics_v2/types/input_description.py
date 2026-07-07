@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#InputDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.id
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.source_schema
 
 
-class InputDescription(TypedDict):
+class InputDescription(TypedDict, closed=True):
     input_id: NotRequired["aws_sdk_kinesis_analytics_v2.types.id.Id"]
     """<p>The input ID that is associated with the application input. This is the ID that Kinesis Data Analytics assigns to each input configuration that you add to your application. </p>"""
     name_prefix: NotRequired[

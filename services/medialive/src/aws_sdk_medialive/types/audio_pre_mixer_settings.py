@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AudioPreMixerSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double_min_negative60_max60
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.remix_settings
 
 
-class AudioPreMixerSettings(TypedDict):
+class AudioPreMixerSettings(TypedDict, closed=True):
     audio_normalization_settings: NotRequired[
         "aws_sdk_medialive.types.audio_normalization_settings.AudioNormalizationSettings"
     ]

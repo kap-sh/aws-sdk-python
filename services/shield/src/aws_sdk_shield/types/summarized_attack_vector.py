@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#SummarizedAttackVector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.summarized_counter_list
 
 
-class SummarizedAttackVector(TypedDict):
+class SummarizedAttackVector(TypedDict, closed=True):
     vector_type: "aws_sdk_shield.types.string.String"
     """<p>The attack type, for example, SNMP reflection or SYN flood.</p>"""
     vector_counters: NotRequired[

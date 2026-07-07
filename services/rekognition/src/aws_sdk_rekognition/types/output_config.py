@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#OutputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.s3_bucket
     import aws_sdk_rekognition.types.s3_key_prefix
 
 
-class OutputConfig(TypedDict):
+class OutputConfig(TypedDict, closed=True):
     s3_bucket: NotRequired["aws_sdk_rekognition.types.s3_bucket.S3Bucket"]
     """<p>The S3 bucket where training output is placed.</p>"""
     s3_key_prefix: NotRequired["aws_sdk_rekognition.types.s3_key_prefix.S3KeyPrefix"]

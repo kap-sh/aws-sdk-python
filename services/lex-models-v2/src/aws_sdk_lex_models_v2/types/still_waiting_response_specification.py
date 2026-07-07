@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#StillWaitingResponseSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.still_waiting_response_timeout
 
 
-class StillWaitingResponseSpecification(TypedDict):
+class StillWaitingResponseSpecification(TypedDict, closed=True):
     message_groups: "aws_sdk_lex_models_v2.types.message_groups_list.MessageGroupsList"
     """<p>One or more message groups, each containing one or more messages, that define the prompts that Amazon Lex sends to the user.</p>"""
     frequency_in_seconds: "aws_sdk_lex_models_v2.types.still_waiting_response_frequency.StillWaitingResponseFrequency"

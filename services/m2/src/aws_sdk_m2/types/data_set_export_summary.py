@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.m2#DataSetExportSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.integer
 
 
-class DataSetExportSummary(TypedDict):
+class DataSetExportSummary(TypedDict, closed=True):
     total: "aws_sdk_m2.types.integer.Integer"
     """<p>The total number of data set exports.</p>"""
     succeeded: "aws_sdk_m2.types.integer.Integer"

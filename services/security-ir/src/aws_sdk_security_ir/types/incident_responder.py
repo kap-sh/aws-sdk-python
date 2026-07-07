@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#IncidentResponder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.job_title
 
 
-class IncidentResponder(TypedDict):
+class IncidentResponder(TypedDict, closed=True):
     name: "aws_sdk_security_ir.types.incident_responder_name.IncidentResponderName"
     """<p/>"""
     job_title: "aws_sdk_security_ir.types.job_title.JobTitle"

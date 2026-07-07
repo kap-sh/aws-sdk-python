@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#GetImageSetMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.image_set_metadata_blob
 
 
-class GetImageSetMetadataResponse(TypedDict):
+class GetImageSetMetadataResponse(TypedDict, closed=True):
     image_set_metadata_blob: (
         "aws_sdk_medical_imaging.types.image_set_metadata_blob.ImageSetMetadataBlob"
     )

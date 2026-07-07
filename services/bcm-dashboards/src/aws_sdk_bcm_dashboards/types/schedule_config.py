@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#ScheduleConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.generic_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.schedule_state
 
 
-class ScheduleConfig(TypedDict):
+class ScheduleConfig(TypedDict, closed=True):
     schedule_expression: NotRequired[
         "aws_sdk_bcm_dashboards.types.generic_string.GenericString"
     ]

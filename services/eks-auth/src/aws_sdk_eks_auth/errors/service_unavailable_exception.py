@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.eksauth#ServiceUnavailableException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks_auth.errors import ServiceError
 
 
-class ServiceUnavailableException_(TypedDict):
+class ServiceUnavailableException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

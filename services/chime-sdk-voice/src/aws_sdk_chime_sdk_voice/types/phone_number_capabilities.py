@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#PhoneNumberCapabilities``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.nullable_boolean
 
 
-class PhoneNumberCapabilities(TypedDict):
+class PhoneNumberCapabilities(TypedDict, closed=True):
     inbound_call: NotRequired[
         "aws_sdk_chime_sdk_voice.types.nullable_boolean.NullableBoolean"
     ]

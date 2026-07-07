@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#Goal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_signals.types.attainment_goal
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.warning_threshold
 
 
-class Goal(TypedDict):
+class Goal(TypedDict, closed=True):
     interval: NotRequired["aws_sdk_application_signals.types.interval.Interval"]
     """<p>The time period used to evaluate the SLO. It can be either a calendar interval or rolling interval.</p> <p>If you omit this parameter, a rolling interval of 7 days is used.</p>"""
     attainment_goal: NotRequired[

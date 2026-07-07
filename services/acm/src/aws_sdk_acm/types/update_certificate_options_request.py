@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#UpdateCertificateOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.certificate_options
 
 
-class UpdateCertificateOptionsRequest(TypedDict):
+class UpdateCertificateOptionsRequest(TypedDict, closed=True):
     certificate_arn: "aws_sdk_acm.types.arn.Arn"
     """<p>ARN of the requested certificate to update. This must be of the form:</p> <p> <code>arn:aws:acm:us-east-1:<i>account</i>:certificate/<i>12345678-1234-1234-1234-123456789012</i> </code> </p>"""
     options: "aws_sdk_acm.types.certificate_options.CertificateOptions"

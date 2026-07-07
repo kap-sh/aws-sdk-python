@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#ListDeploymentEventsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.deployment_event_data_summary_list
     import aws_sdk_launch_wizard.types.next_token
 
 
-class ListDeploymentEventsOutput(TypedDict):
+class ListDeploymentEventsOutput(TypedDict, closed=True):
     deployment_events: NotRequired[
         "aws_sdk_launch_wizard.types.deployment_event_data_summary_list.DeploymentEventDataSummaryList"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ExportLabelsTaskRunProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.uri_string
 
 
-class ExportLabelsTaskRunProperties(TypedDict):
+class ExportLabelsTaskRunProperties(TypedDict, closed=True):
     output_s3_path: NotRequired["aws_sdk_glue.types.uri_string.UriString"]
     """<p>The Amazon Simple Storage Service (Amazon S3) path where you will export the labels.</p>"""
 

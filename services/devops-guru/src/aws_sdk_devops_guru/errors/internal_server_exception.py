@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#InternalServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError, ServiceError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.retry_after_seconds
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "aws_sdk_devops_guru.types.error_message_string.ErrorMessageString"
     retry_after_seconds: (
         "aws_sdk_devops_guru.types.retry_after_seconds.RetryAfterSeconds"

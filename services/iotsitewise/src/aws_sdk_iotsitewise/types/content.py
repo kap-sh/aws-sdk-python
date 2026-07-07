@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#Content``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.string
 
 
-class Content(TypedDict):
+class Content(TypedDict, closed=True):
     text: NotRequired["aws_sdk_iotsitewise.types.string.String"]
     """<p>The cited text from the data source.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#ListPackagingGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__list_of_packaging_group
     import aws_sdk_mediapackage_vod.types.__string
 
 
-class ListPackagingGroupsResponse(TypedDict):
+class ListPackagingGroupsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_mediapackage_vod.types.__string.__string"]
     """A token that can be used to resume pagination from the end of the collection."""
     packaging_groups: NotRequired[

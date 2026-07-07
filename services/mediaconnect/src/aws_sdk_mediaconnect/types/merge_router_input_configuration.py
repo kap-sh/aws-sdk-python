@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MergeRouterInputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_network_interface_arn
 
 
-class MergeRouterInputConfiguration(TypedDict):
+class MergeRouterInputConfiguration(TypedDict, closed=True):
     network_interface_arn: "aws_sdk_mediaconnect.types.router_network_interface_arn.RouterNetworkInterfaceArn"
     """<p>The ARN of the network interface to use for this merge router input.</p>"""
     protocol_configurations: "aws_sdk_mediaconnect.types.merge_router_input_protocol_configuration_list.MergeRouterInputProtocolConfigurationList"

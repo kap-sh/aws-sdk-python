@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DeleteRemediationConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class DeleteRemediationConfigurationRequest(TypedDict):
+class DeleteRemediationConfigurationRequest(TypedDict, closed=True):
     config_rule_name: "aws_sdk_config_service.types.config_rule_name.ConfigRuleName"
     """<p>The name of the Config rule for which you want to delete remediation configuration.</p>"""
     resource_type: NotRequired["aws_sdk_config_service.types.string.String"]

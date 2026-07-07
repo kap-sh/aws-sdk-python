@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.setting_attribute
 
 
-class GetSettingsRequest(TypedDict):
+class GetSettingsRequest(TypedDict, closed=True):
     attribute: "aws_sdk_auditmanager.types.setting_attribute.SettingAttribute"
     """<p> The list of setting attribute enum values. </p>"""
 

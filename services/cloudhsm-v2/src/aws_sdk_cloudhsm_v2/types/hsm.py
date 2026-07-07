@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#Hsm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudhsm_v2.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.subnet_id
 
 
-class Hsm(TypedDict):
+class Hsm(TypedDict, closed=True):
     availability_zone: NotRequired["aws_sdk_cloudhsm_v2.types.external_az.ExternalAz"]
     """<p>The Availability Zone that contains the HSM.</p>"""
     cluster_id: NotRequired["aws_sdk_cloudhsm_v2.types.cluster_id.ClusterId"]

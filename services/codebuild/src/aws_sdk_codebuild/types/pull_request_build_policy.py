@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#PullRequestBuildPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.pull_request_build_comment_approval
 
 
-class PullRequestBuildPolicy(TypedDict):
+class PullRequestBuildPolicy(TypedDict, closed=True):
     requires_comment_approval: "aws_sdk_codebuild.types.pull_request_build_comment_approval.PullRequestBuildCommentApproval"
     """<p>Specifies when comment-based approval is required before triggering a build on pull requests. This setting determines whether builds run automatically or require explicit approval through comments.</p> <ul> <li> <p> <i>DISABLED</i>: Builds trigger automatically without requiring comment approval</p> </li> <li> <p> <i>ALL_PULL_REQUESTS</i>: All pull requests require comment approval before builds execute (unless contributor is one of the approver roles)</p> </li> <li> <p> <i>FORK_PULL_REQUESTS</i>: Only pull requests from forked repositories require comment approval (unless contributor is one of the approver roles)</p> </li> </ul>"""
     approver_roles: NotRequired[

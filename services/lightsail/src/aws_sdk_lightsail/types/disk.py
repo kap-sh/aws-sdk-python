@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#Disk``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.add_on_list
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.tag_list
 
 
-class Disk(TypedDict):
+class Disk(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
     """<p>The unique name of the disk.</p>"""
     arn: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]

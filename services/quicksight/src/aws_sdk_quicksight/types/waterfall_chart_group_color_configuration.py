@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#WaterfallChartGroupColorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.hex_color
 
 
-class WaterfallChartGroupColorConfiguration(TypedDict):
+class WaterfallChartGroupColorConfiguration(TypedDict, closed=True):
     positive_bar_color: NotRequired["aws_sdk_quicksight.types.hex_color.HexColor"]
     """<p>Defines the color for the positive bars of a waterfall chart.</p>"""
     negative_bar_color: NotRequired["aws_sdk_quicksight.types.hex_color.HexColor"]

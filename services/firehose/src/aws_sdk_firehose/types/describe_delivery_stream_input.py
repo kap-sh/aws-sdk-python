@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#DescribeDeliveryStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.destination_id
 
 
-class DescribeDeliveryStreamInput(TypedDict):
+class DescribeDeliveryStreamInput(TypedDict, closed=True):
     delivery_stream_name: (
         "aws_sdk_firehose.types.delivery_stream_name.DeliveryStreamName"
     )

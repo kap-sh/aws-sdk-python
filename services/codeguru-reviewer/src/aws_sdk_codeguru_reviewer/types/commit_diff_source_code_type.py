@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#CommitDiffSourceCodeType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.commit_id
 
 
-class CommitDiffSourceCodeType(TypedDict):
+class CommitDiffSourceCodeType(TypedDict, closed=True):
     source_commit: NotRequired["aws_sdk_codeguru_reviewer.types.commit_id.CommitId"]
     """<p>The SHA of the source commit used to generate a commit diff. This field is required for a pull request code review.</p>"""
     destination_commit: NotRequired[

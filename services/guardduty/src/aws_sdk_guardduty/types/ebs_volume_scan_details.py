@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#EbsVolumeScanDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.scan_detections
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.timestamp
 
 
-class EbsVolumeScanDetails(TypedDict):
+class EbsVolumeScanDetails(TypedDict, closed=True):
     scan_id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Unique Id of the malware scan that generated the finding.</p>"""
     scan_started_at: NotRequired["aws_sdk_guardduty.types.timestamp.Timestamp"]

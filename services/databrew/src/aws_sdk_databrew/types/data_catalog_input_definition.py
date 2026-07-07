@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#DataCatalogInputDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.table_name
 
 
-class DataCatalogInputDefinition(TypedDict):
+class DataCatalogInputDefinition(TypedDict, closed=True):
     catalog_id: NotRequired["aws_sdk_databrew.types.catalog_id.CatalogId"]
     """<p>The unique identifier of the Amazon Web Services account that holds the Data Catalog that stores the data.</p>"""
     database_name: "aws_sdk_databrew.types.database_name.DatabaseName"

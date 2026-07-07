@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListProfileObjectTypeTemplateItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.name
 
 
-class ListProfileObjectTypeTemplateItem(TypedDict):
+class ListProfileObjectTypeTemplateItem(TypedDict, closed=True):
     template_id: NotRequired["aws_sdk_customer_profiles.types.name.name"]
     """<p>A unique identifier for the object template.</p>"""
     source_name: NotRequired["aws_sdk_customer_profiles.types.name.name"]

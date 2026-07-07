@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ImportErrorData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.wave_id
 
 
-class ImportErrorData(TypedDict):
+class ImportErrorData(TypedDict, closed=True):
     source_server_id: NotRequired["aws_sdk_mgn.types.source_server_id.SourceServerID"]
     """<p>Import error data source server ID.</p>"""
     application_id: NotRequired["aws_sdk_mgn.types.application_id.ApplicationID"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListReleaseLabelsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.max_results_number
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.string
 
 
-class ListReleaseLabelsInput(TypedDict):
+class ListReleaseLabelsInput(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_emr.types.release_label_filter.ReleaseLabelFilter"]
     """<p>Filters the results of the request. <code>Prefix</code> specifies the prefix of release labels to return. <code>Application</code> specifies the application (with/without version) of release labels to return.</p>"""
     next_token: NotRequired["aws_sdk_emr.types.string.String"]

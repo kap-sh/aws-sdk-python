@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#AdditionalSearchKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.request_value_list
 
 
-class AdditionalSearchKey(TypedDict):
+class AdditionalSearchKey(TypedDict, closed=True):
     key_name: "aws_sdk_customer_profiles.types.name.name"
     """<p>A searchable identifier of a customer profile.</p>"""
     values: "aws_sdk_customer_profiles.types.request_value_list.requestValueList"

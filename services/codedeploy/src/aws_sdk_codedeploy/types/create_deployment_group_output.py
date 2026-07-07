@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#CreateDeploymentGroupOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.deployment_group_id
 
 
-class CreateDeploymentGroupOutput(TypedDict):
+class CreateDeploymentGroupOutput(TypedDict, closed=True):
     deployment_group_id: NotRequired[
         "aws_sdk_codedeploy.types.deployment_group_id.DeploymentGroupId"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#CreateGraphSnapshotInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.tag_map
 
 
-class CreateGraphSnapshotInput(TypedDict):
+class CreateGraphSnapshotInput(TypedDict, closed=True):
     graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"
     """<p>The unique identifier of the Neptune Analytics graph.</p>"""
     snapshot_name: "aws_sdk_neptune_graph.types.snapshot_name.SnapshotName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ReferenceListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.reference_store_id
 
 
-class ReferenceListItem(TypedDict):
+class ReferenceListItem(TypedDict, closed=True):
     id: "aws_sdk_omics.types.reference_id.ReferenceId"
     """<p>The reference's ID.</p>"""
     arn: "aws_sdk_omics.types.reference_arn.ReferenceArn"

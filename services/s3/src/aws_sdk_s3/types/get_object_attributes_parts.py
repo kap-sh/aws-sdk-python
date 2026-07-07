@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#GetObjectAttributesParts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.parts_list
 
 
-class GetObjectAttributesParts(TypedDict):
+class GetObjectAttributesParts(TypedDict, closed=True):
     total_parts_count: NotRequired["aws_sdk_s3.types.parts_count.PartsCount"]
     """<p>The total number of parts.</p>"""
     part_number_marker: NotRequired[

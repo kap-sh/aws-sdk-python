@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ResourceCountsSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
 
-class ResourceCountsSummary(TypedDict):
+class ResourceCountsSummary(TypedDict, closed=True):
     total: "int"
     """<p>The total number of resources of this type in the Amazon Web Services account.</p>"""
     failed: NotRequired["int"]

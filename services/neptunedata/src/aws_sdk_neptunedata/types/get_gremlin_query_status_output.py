@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetGremlinQueryStatusOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.query_eval_stats
 
 
-class GetGremlinQueryStatusOutput(TypedDict):
+class GetGremlinQueryStatusOutput(TypedDict, closed=True):
     query_id: NotRequired["str"]
     """<p>The ID of the query for which status is being returned.</p>"""
     query_string: NotRequired["str"]

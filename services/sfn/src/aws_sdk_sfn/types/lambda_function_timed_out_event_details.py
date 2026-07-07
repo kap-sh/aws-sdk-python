@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#LambdaFunctionTimedOutEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.sensitive_cause
     import aws_sdk_sfn.types.sensitive_error
 
 
-class LambdaFunctionTimedOutEventDetails(TypedDict):
+class LambdaFunctionTimedOutEventDetails(TypedDict, closed=True):
     error: NotRequired["aws_sdk_sfn.types.sensitive_error.SensitiveError"]
     """<p>The error code of the failure.</p>"""
     cause: NotRequired["aws_sdk_sfn.types.sensitive_cause.SensitiveCause"]

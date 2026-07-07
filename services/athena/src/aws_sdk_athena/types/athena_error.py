@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#AthenaError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.string
 
 
-class AthenaError(TypedDict):
+class AthenaError(TypedDict, closed=True):
     error_category: NotRequired["aws_sdk_athena.types.error_category.ErrorCategory"]
     """<p>An integer value that specifies the category of a query failure error. The following list shows the category for each integer value.</p> <p> <b>1</b> - System</p> <p> <b>2</b> - User</p> <p> <b>3</b> - Other</p>"""
     error_type: NotRequired["aws_sdk_athena.types.error_type.ErrorType"]

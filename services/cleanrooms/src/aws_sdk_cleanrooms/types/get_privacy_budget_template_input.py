@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetPrivacyBudgetTemplateInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.membership_identifier
     import aws_sdk_cleanrooms.types.privacy_budget_template_identifier
 
 
-class GetPrivacyBudgetTemplateInput(TypedDict):
+class GetPrivacyBudgetTemplateInput(TypedDict, closed=True):
     membership_identifier: (
         "aws_sdk_cleanrooms.types.membership_identifier.MembershipIdentifier"
     )

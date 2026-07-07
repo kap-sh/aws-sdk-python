@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ListGlobalTablesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.global_table_list
     import aws_sdk_dynamodb.types.table_name
 
 
-class ListGlobalTablesOutput(TypedDict):
+class ListGlobalTablesOutput(TypedDict, closed=True):
     global_tables: NotRequired[
         "aws_sdk_dynamodb.types.global_table_list.GlobalTableList"
     ]

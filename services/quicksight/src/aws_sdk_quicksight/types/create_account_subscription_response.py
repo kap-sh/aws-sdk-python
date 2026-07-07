@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CreateAccountSubscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.signup_response
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class CreateAccountSubscriptionResponse(TypedDict):
+class CreateAccountSubscriptionResponse(TypedDict, closed=True):
     signup_response: NotRequired[
         "aws_sdk_quicksight.types.signup_response.SignupResponse"
     ]

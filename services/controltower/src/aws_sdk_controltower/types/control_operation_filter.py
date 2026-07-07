@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#ControlOperationFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.control_identifiers
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.target_identifiers
 
 
-class ControlOperationFilter(TypedDict):
+class ControlOperationFilter(TypedDict, closed=True):
     control_identifiers: NotRequired[
         "aws_sdk_controltower.types.control_identifiers.ControlIdentifiers"
     ]

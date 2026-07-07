@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudcontrol#ListResourceRequestsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.next_token
     import aws_sdk_cloudcontrol.types.resource_request_status_summaries
 
 
-class ListResourceRequestsOutput(TypedDict):
+class ListResourceRequestsOutput(TypedDict, closed=True):
     resource_request_status_summaries: NotRequired[
         "aws_sdk_cloudcontrol.types.resource_request_status_summaries.ResourceRequestStatusSummaries"
     ]

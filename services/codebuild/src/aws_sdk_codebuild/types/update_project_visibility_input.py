@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#UpdateProjectVisibilityInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.project_visibility_type
 
 
-class UpdateProjectVisibilityInput(TypedDict):
+class UpdateProjectVisibilityInput(TypedDict, closed=True):
     project_arn: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     """<p>The Amazon Resource Name (ARN) of the build project.</p>"""
     project_visibility: (

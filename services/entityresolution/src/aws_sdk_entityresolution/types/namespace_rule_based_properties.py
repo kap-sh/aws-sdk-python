@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#NamespaceRuleBasedProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.attribute_matching_model
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.rule_list
 
 
-class NamespaceRuleBasedProperties(TypedDict):
+class NamespaceRuleBasedProperties(TypedDict, closed=True):
     rules: NotRequired["aws_sdk_entityresolution.types.rule_list.RuleList"]
     """<p> The rules for the ID namespace.</p>"""
     rule_definition_types: NotRequired[

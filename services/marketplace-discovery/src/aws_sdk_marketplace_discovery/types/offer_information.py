@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#OfferInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.seller_information
 
 
-class OfferInformation(TypedDict):
+class OfferInformation(TypedDict, closed=True):
     offer_id: "aws_sdk_marketplace_discovery.types.offer_id.OfferId"
     """<p>The unique identifier of the offer.</p>"""
     offer_name: NotRequired[

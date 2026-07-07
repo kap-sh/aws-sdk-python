@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#AnalyticsFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError, SerializationError
@@ -11,15 +13,15 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.tag
 
 
-class _AnalyticsFilter_Prefix(TypedDict):
+class _AnalyticsFilter_Prefix(TypedDict, closed=True):
     Prefix: "aws_sdk_s3.types.prefix.Prefix"
 
 
-class _AnalyticsFilter_Tag(TypedDict):
+class _AnalyticsFilter_Tag(TypedDict, closed=True):
     Tag: "aws_sdk_s3.types.tag.Tag"
 
 
-class _AnalyticsFilter_And(TypedDict):
+class _AnalyticsFilter_And(TypedDict, closed=True):
     And: "aws_sdk_s3.types.analytics_and_operator.AnalyticsAndOperator"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#KnowledgeBaseData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wisdom.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.uuid
 
 
-class KnowledgeBaseData(TypedDict):
+class KnowledgeBaseData(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_wisdom.types.uuid.Uuid"
     """<p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom Content resource to it.</p>"""
     knowledge_base_arn: "aws_sdk_wisdom.types.arn.Arn"

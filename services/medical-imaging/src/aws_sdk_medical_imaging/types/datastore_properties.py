@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#DatastoreProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.lossless_storage_format
 
 
-class DatastoreProperties(TypedDict):
+class DatastoreProperties(TypedDict, closed=True):
     datastore_id: "aws_sdk_medical_imaging.types.datastore_id.DatastoreId"
     """<p>The data store identifier.</p>"""
     datastore_name: "aws_sdk_medical_imaging.types.datastore_name.DatastoreName"

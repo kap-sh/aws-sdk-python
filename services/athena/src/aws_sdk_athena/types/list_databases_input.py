@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ListDatabasesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.work_group_name
 
 
-class ListDatabasesInput(TypedDict):
+class ListDatabasesInput(TypedDict, closed=True):
     catalog_name: "aws_sdk_athena.types.catalog_name_string.CatalogNameString"
     """<p>The name of the data catalog that contains the databases to return.</p>"""
     next_token: NotRequired["aws_sdk_athena.types.token.Token"]

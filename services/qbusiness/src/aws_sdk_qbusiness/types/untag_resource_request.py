@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.amazon_resource_name
     import aws_sdk_qbusiness.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_qbusiness.types.amazon_resource_name.AmazonResourceName"
     """<p>The Amazon Resource Name (ARN) of the Amazon Q Business application, or data source to remove the tag from.</p>"""
     tag_keys: "aws_sdk_qbusiness.types.tag_keys.TagKeys"

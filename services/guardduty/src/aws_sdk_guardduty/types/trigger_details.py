@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#TriggerDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.non_empty_string
     import aws_sdk_guardduty.types.trigger_type
 
 
-class TriggerDetails(TypedDict):
+class TriggerDetails(TypedDict, closed=True):
     guard_duty_finding_id: NotRequired[
         "aws_sdk_guardduty.types.non_empty_string.NonEmptyString"
     ]

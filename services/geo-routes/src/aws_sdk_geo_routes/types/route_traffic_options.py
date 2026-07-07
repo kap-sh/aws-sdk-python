@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteTrafficOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.duration_seconds
     import aws_sdk_geo_routes.types.traffic_usage
 
 
-class RouteTrafficOptions(TypedDict):
+class RouteTrafficOptions(TypedDict, closed=True):
     flow_event_threshold_override: (
         "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"
     )

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#BackendDefaults``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.client_policy
 
 
-class BackendDefaults(TypedDict):
+class BackendDefaults(TypedDict, closed=True):
     client_policy: NotRequired["aws_sdk_app_mesh.types.client_policy.ClientPolicy"]
     """<p>A reference to an object that represents a client policy.</p>"""
 

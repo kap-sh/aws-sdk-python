@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#SageMakerAlgorithmRecommendation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
 
-class SageMakerAlgorithmRecommendation(TypedDict):
+class SageMakerAlgorithmRecommendation(TypedDict, closed=True):
     recommended_batch_transform_instance_type: "str"
     """<p>The recommended instance type for batch inference.</p>"""
     recommended_realtime_inference_instance_type: NotRequired["str"]

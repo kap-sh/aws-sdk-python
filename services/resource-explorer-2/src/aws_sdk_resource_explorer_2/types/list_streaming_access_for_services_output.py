@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ListStreamingAccessForServicesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.streaming_access_details_list
 
 
-class ListStreamingAccessForServicesOutput(TypedDict):
+class ListStreamingAccessForServicesOutput(TypedDict, closed=True):
     streaming_access_for_services: "aws_sdk_resource_explorer_2.types.streaming_access_details_list.StreamingAccessDetailsList"
     """<p>A list of Amazon Web Services services that have streaming access to your Resource Explorer data, including details about when the access was granted.</p>"""
     next_token: NotRequired["str"]

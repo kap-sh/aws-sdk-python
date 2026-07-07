@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#CertificateSubjectType``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
 
-class CertificateSubjectType(TypedDict):
+class CertificateSubjectType(TypedDict, closed=True):
     common_name: "str"
     """<p>The name you provide to create the certificate signing request.</p>"""
     organization_unit: NotRequired["str"]

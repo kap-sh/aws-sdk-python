@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#DeregisterOnPremisesInstanceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codedeploy.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.instance_name
 
 
-class DeregisterOnPremisesInstanceInput(TypedDict):
+class DeregisterOnPremisesInstanceInput(TypedDict, closed=True):
     instance_name: "aws_sdk_codedeploy.types.instance_name.InstanceName"
     """<p>The name of the on-premises instance to deregister.</p>"""
 

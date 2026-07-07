@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#Progress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.double_optional
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class Progress(TypedDict):
+class Progress(TypedDict, closed=True):
     progress_percent: NotRequired[
         "aws_sdk_database_migration_service.types.double_optional.DoubleOptional"
     ]

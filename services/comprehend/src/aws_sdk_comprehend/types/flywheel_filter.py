@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#FlywheelFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.flywheel_status
     import aws_sdk_comprehend.types.timestamp
 
 
-class FlywheelFilter(TypedDict):
+class FlywheelFilter(TypedDict, closed=True):
     status: NotRequired["aws_sdk_comprehend.types.flywheel_status.FlywheelStatus"]
     """<p>Filter the flywheels based on the flywheel status.</p>"""
     creation_time_after: NotRequired["aws_sdk_comprehend.types.timestamp.Timestamp"]

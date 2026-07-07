@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicIR``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_ir_contribution_analysis
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_options
 
 
-class TopicIR(TypedDict):
+class TopicIR(TypedDict, closed=True):
     metrics: NotRequired[
         "aws_sdk_quicksight.types.topic_ir_metric_list.TopicIRMetricList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DeleteBotVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.skip_resource_in_use_check
 
 
-class DeleteBotVersionRequest(TypedDict):
+class DeleteBotVersionRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The identifier of the bot that contains the version.</p>"""
     bot_version: "aws_sdk_lex_models_v2.types.numerical_bot_version.NumericalBotVersion"

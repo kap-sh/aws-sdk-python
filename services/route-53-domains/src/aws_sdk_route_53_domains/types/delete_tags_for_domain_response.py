@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#DeleteTagsForDomainResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteTagsForDomainResponse(TypedDict):
+class DeleteTagsForDomainResponse(TypedDict, closed=True):
     pass
 
 

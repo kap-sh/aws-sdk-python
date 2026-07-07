@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateTriggerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class CreateTriggerResponse(TypedDict):
+class CreateTriggerResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the trigger.</p>"""
 

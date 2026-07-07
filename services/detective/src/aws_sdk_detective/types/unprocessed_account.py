@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#UnprocessedAccount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.account_id
     import aws_sdk_detective.types.unprocessed_reason
 
 
-class UnprocessedAccount(TypedDict):
+class UnprocessedAccount(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_detective.types.account_id.AccountId"]
     """<p>The Amazon Web Services account identifier of the member account that was not processed.</p>"""
     reason: NotRequired["aws_sdk_detective.types.unprocessed_reason.UnprocessedReason"]

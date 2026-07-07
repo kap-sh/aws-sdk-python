@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#InventoryEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.sses3
 
 
-class InventoryEncryption(TypedDict):
+class InventoryEncryption(TypedDict, closed=True):
     sses3: NotRequired["aws_sdk_s3.types.sses3.SSES3"]
     """<p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>"""
     ssekms: NotRequired["aws_sdk_s3.types.ssekms.SSEKMS"]

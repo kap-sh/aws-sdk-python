@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#GetTestExecutionArtifactsUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
     import aws_sdk_lex_models_v2.types.presigned_s3_url
 
 
-class GetTestExecutionArtifactsUrlResponse(TypedDict):
+class GetTestExecutionArtifactsUrlResponse(TypedDict, closed=True):
     test_execution_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The unique identifier of the completed test execution.</p>"""
     download_artifacts_url: NotRequired[

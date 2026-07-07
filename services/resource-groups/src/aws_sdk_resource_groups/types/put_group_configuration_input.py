@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#PutGroupConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group_configuration_list
     import aws_sdk_resource_groups.types.group_string
 
 
-class PutGroupConfigurationInput(TypedDict):
+class PutGroupConfigurationInput(TypedDict, closed=True):
     group: NotRequired["aws_sdk_resource_groups.types.group_string.GroupString"]
     """<p>The name or Amazon resource name (ARN) of the resource group with the configuration that you want to update.</p>"""
     configuration: NotRequired[

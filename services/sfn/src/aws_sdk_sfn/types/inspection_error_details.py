@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#InspectionErrorDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.exception_handler_index
     import aws_sdk_sfn.types.retry_backoff_interval_seconds
 
 
-class InspectionErrorDetails(TypedDict):
+class InspectionErrorDetails(TypedDict, closed=True):
     catch_index: NotRequired[
         "aws_sdk_sfn.types.exception_handler_index.ExceptionHandlerIndex"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetLinksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.constrained_string
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.site_id
 
 
-class GetLinksRequest(TypedDict):
+class GetLinksRequest(TypedDict, closed=True):
     global_network_id: "aws_sdk_networkmanager.types.global_network_id.GlobalNetworkId"
     """<p>The ID of the global network.</p>"""
     link_ids: NotRequired["aws_sdk_networkmanager.types.link_id_list.LinkIdList"]

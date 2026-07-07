@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#CreateConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.tags_map
 
 
-class CreateConfigRequest(TypedDict):
+class CreateConfigRequest(TypedDict, closed=True):
     name: "aws_sdk_groundstation.types.safe_name.SafeName"
     """<p>Name of a <code>Config</code>.</p>"""
     config_data: "aws_sdk_groundstation.types.config_type_data.ConfigTypeData"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EventMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError, SerializationError
 
@@ -11,21 +13,21 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.instance_metadata
 
 
-class _EventMetadata_Cluster(TypedDict):
+class _EventMetadata_Cluster(TypedDict, closed=True):
     Cluster: "aws_sdk_sagemaker.types.cluster_metadata.ClusterMetadata"
 
 
-class _EventMetadata_InstanceGroup(TypedDict):
+class _EventMetadata_InstanceGroup(TypedDict, closed=True):
     InstanceGroup: (
         "aws_sdk_sagemaker.types.instance_group_metadata.InstanceGroupMetadata"
     )
 
 
-class _EventMetadata_InstanceGroupScaling(TypedDict):
+class _EventMetadata_InstanceGroupScaling(TypedDict, closed=True):
     InstanceGroupScaling: "aws_sdk_sagemaker.types.instance_group_scaling_metadata.InstanceGroupScalingMetadata"
 
 
-class _EventMetadata_Instance(TypedDict):
+class _EventMetadata_Instance(TypedDict, closed=True):
     Instance: "aws_sdk_sagemaker.types.instance_metadata.InstanceMetadata"
 
 

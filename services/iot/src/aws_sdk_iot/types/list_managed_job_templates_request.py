@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListManagedJobTemplatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.laser_max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
 
 
-class ListManagedJobTemplatesRequest(TypedDict):
+class ListManagedJobTemplatesRequest(TypedDict, closed=True):
     template_name: NotRequired[
         "aws_sdk_iot.types.managed_job_template_name.ManagedJobTemplateName"
     ]

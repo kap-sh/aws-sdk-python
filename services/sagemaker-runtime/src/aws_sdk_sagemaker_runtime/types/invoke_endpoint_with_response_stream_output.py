@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntime#InvokeEndpointWithResponseStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.custom_attributes_header
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.response_stream
 
 
-class InvokeEndpointWithResponseStreamOutput(TypedDict):
+class InvokeEndpointWithResponseStreamOutput(TypedDict, closed=True):
     body: "aws_sdk_sagemaker_runtime.types.response_stream.ResponseStream"
     content_type: NotRequired["aws_sdk_sagemaker_runtime.types.header.Header"]
     """<p>The MIME type of the inference returned from the model container.</p>"""

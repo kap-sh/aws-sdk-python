@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DeleteAssetModelCompositeModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.asset_model_version_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.select_all
 
 
-class DeleteAssetModelCompositeModelRequest(TypedDict):
+class DeleteAssetModelCompositeModelRequest(TypedDict, closed=True):
     asset_model_id: "aws_sdk_iotsitewise.types.custom_id.CustomID"
     """<p>The ID of the asset model, in UUID format.</p>"""
     asset_model_composite_model_id: "aws_sdk_iotsitewise.types.custom_id.CustomID"

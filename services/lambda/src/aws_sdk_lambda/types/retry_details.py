@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#RetryDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.attempt_count
     import aws_sdk_lambda.types.duration_seconds
 
 
-class RetryDetails(TypedDict):
+class RetryDetails(TypedDict, closed=True):
     current_attempt: "aws_sdk_lambda.types.attempt_count.AttemptCount"
     """<p>The current attempt number for this operation.</p>"""
     next_attempt_delay_seconds: NotRequired[

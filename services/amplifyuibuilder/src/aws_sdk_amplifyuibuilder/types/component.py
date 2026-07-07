@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#Component``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.uuid
 
 
-class Component(TypedDict):
+class Component(TypedDict, closed=True):
     app_id: "str"
     """<p>The unique ID of the Amplify app associated with the component.</p>"""
     environment_name: "str"

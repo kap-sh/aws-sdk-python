@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.uxc#UpdateAccountCustomizationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_uxc.types.account_color
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_uxc.types.service_list
 
 
-class UpdateAccountCustomizationsOutput(TypedDict):
+class UpdateAccountCustomizationsOutput(TypedDict, closed=True):
     account_color: NotRequired["aws_sdk_uxc.types.account_color.AccountColor"]
     """<p>The current account color preference after the update.</p>"""
     visible_services: NotRequired["aws_sdk_uxc.types.service_list.ServiceList"]

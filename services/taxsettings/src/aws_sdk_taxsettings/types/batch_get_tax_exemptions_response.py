@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#BatchGetTaxExemptionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.account_ids
     import aws_sdk_taxsettings.types.tax_exemption_details_map
 
 
-class BatchGetTaxExemptionsResponse(TypedDict):
+class BatchGetTaxExemptionsResponse(TypedDict, closed=True):
     tax_exemption_details_map: NotRequired[
         "aws_sdk_taxsettings.types.tax_exemption_details_map.TaxExemptionDetailsMap"
     ]

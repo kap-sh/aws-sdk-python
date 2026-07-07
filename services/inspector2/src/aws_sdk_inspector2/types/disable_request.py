@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#DisableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.account_id_set
     import aws_sdk_inspector2.types.disable_resource_type_list
 
 
-class DisableRequest(TypedDict):
+class DisableRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_inspector2.types.account_id_set.AccountIdSet"]
     """<p>An array of account IDs you want to disable Amazon Inspector scans for.</p>"""
     resource_types: NotRequired[

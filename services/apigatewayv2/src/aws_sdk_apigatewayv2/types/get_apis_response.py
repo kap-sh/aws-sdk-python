@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetApisResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__list_of_api
     import aws_sdk_apigatewayv2.types.next_token
 
 
-class GetApisResponse(TypedDict):
+class GetApisResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_apigatewayv2.types.__list_of_api.__listOfApi"]
     """<p>The elements from this collection.</p>"""
     next_token: NotRequired["aws_sdk_apigatewayv2.types.next_token.NextToken"]

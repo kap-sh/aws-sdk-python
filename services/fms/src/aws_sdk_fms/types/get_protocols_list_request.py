@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#GetProtocolsListRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.list_id
 
 
-class GetProtocolsListRequest(TypedDict):
+class GetProtocolsListRequest(TypedDict, closed=True):
     list_id: "aws_sdk_fms.types.list_id.ListId"
     """<p>The ID of the Firewall Manager protocols list that you want the details for.</p>"""
     default_list: "aws_sdk_fms.types.boolean.Boolean"

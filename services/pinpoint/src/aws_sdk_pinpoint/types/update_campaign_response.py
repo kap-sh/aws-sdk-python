@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#UpdateCampaignResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.campaign_response
 
 
-class UpdateCampaignResponse(TypedDict):
+class UpdateCampaignResponse(TypedDict, closed=True):
     campaign_response: NotRequired[
         "aws_sdk_pinpoint.types.campaign_response.CampaignResponse"
     ]

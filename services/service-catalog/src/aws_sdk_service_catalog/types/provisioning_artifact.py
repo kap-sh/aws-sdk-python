@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ProvisioningArtifact``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.provisioning_artifact_name
 
 
-class ProvisioningArtifact(TypedDict):
+class ProvisioningArtifact(TypedDict, closed=True):
     id: NotRequired["aws_sdk_service_catalog.types.id.Id"]
     """<p>The identifier of the provisioning artifact.</p>"""
     name: NotRequired[

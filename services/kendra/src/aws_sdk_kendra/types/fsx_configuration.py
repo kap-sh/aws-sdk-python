@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#FsxConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.secret_arn
 
 
-class FsxConfiguration(TypedDict):
+class FsxConfiguration(TypedDict, closed=True):
     file_system_id: "aws_sdk_kendra.types.file_system_id.FileSystemId"
     r"""<p>The identifier of the Amazon FSx file system.</p> <p>You can find your file system ID on the file system dashboard in the Amazon FSx console. For information on how to create a file system in Amazon FSx console, using Windows File Server as an example, see <a href=\"https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started-step1.html\">Amazon FSx Getting started guide</a>.</p>"""
     file_system_type: "aws_sdk_kendra.types.fsx_file_system_type.FsxFileSystemType"

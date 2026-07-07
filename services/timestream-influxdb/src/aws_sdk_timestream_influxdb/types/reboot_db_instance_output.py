@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#RebootDbInstanceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError
 
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.vpc_subnet_id_list
 
 
-class RebootDbInstanceOutput(TypedDict):
+class RebootDbInstanceOutput(TypedDict, closed=True):
     id: "aws_sdk_timestream_influxdb.types.db_instance_id.DbInstanceId"
     """<p>A service-generated unique identifier.</p>"""
     name: "aws_sdk_timestream_influxdb.types.db_instance_name.DbInstanceName"

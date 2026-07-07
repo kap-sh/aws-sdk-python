@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#DeleteCustomDomainAssociationMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class DeleteCustomDomainAssociationMessage(TypedDict):
+class DeleteCustomDomainAssociationMessage(TypedDict, closed=True):
     cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The identifier of the cluster to delete a custom domain association for.</p>"""
     custom_domain_name: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#KafkaSchemaRegistryAccessConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.arn
     import aws_sdk_lambda.types.kafka_schema_registry_auth_type
 
 
-class KafkaSchemaRegistryAccessConfig(TypedDict):
+class KafkaSchemaRegistryAccessConfig(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_lambda.types.kafka_schema_registry_auth_type.KafkaSchemaRegistryAuthType"
     ]

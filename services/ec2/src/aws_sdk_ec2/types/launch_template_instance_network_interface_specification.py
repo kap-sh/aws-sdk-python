@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#LaunchTemplateInstanceNetworkInterfaceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.subnet_id
 
 
-class LaunchTemplateInstanceNetworkInterfaceSpecification(TypedDict):
+class LaunchTemplateInstanceNetworkInterfaceSpecification(TypedDict, closed=True):
     associate_carrier_ip_address: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     r"""<p>Indicates whether to associate a Carrier IP address with eth0 for a new network interface.</p> <p>Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <a href=\"https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip\">Carrier IP address</a> in the <i>Wavelength Developer Guide</i>.</p>"""
     associate_public_ip_address: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

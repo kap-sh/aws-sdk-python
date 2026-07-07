@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EndpointConfigStepMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_config_arn
 
 
-class EndpointConfigStepMetadata(TypedDict):
+class EndpointConfigStepMetadata(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.endpoint_config_arn.EndpointConfigArn"]
     """<p>The Amazon Resource Name (ARN) of the endpoint configuration used in the step.</p>"""
 

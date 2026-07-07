@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#PushNotificationPreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_messaging.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.filter_rule
 
 
-class PushNotificationPreferences(TypedDict):
+class PushNotificationPreferences(TypedDict, closed=True):
     allow_notifications: (
         "aws_sdk_chime_sdk_messaging.types.allow_notifications.AllowNotifications"
     )

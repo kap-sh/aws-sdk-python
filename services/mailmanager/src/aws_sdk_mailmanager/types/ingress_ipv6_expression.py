@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#IngressIpv6Expression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.ipv6_cidrs
 
 
-class IngressIpv6Expression(TypedDict):
+class IngressIpv6Expression(TypedDict, closed=True):
     evaluate: "aws_sdk_mailmanager.types.ingress_ipv6_to_evaluate.IngressIpv6ToEvaluate"
     """<p>The left hand side argument of an IPv6 condition expression.</p>"""
     operator: "aws_sdk_mailmanager.types.ingress_ip_operator.IngressIpOperator"

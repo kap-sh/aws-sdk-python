@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#FeedSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.resource_name
 
 
-class FeedSummary(TypedDict):
+class FeedSummary(TypedDict, closed=True):
     arn: "aws_sdk_elementalinference.types.feed_arn.FeedArn"
     """<p>The ARN of the feed.</p>"""
     id: "aws_sdk_elementalinference.types.feed_id.FeedId"

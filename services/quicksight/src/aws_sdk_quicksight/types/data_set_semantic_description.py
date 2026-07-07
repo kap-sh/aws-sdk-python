@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetSemanticDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_descriptive_text
 
 
-class DataSetSemanticDescription(TypedDict):
+class DataSetSemanticDescription(TypedDict, closed=True):
     text: "aws_sdk_quicksight.types.data_set_descriptive_text.DataSetDescriptiveText"
     """<p>The descriptive text for the dataset.</p>"""
 

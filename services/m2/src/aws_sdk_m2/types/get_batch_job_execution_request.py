@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.m2#GetBatchJobExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.identifier
 
 
-class GetBatchJobExecutionRequest(TypedDict):
+class GetBatchJobExecutionRequest(TypedDict, closed=True):
     application_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The identifier of the application.</p>"""
     execution_id: "aws_sdk_m2.types.identifier.Identifier"

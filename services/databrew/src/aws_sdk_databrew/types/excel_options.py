@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ExcelOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.header_row
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.sheet_name_list
 
 
-class ExcelOptions(TypedDict):
+class ExcelOptions(TypedDict, closed=True):
     sheet_names: NotRequired["aws_sdk_databrew.types.sheet_name_list.SheetNameList"]
     """<p>One or more named sheets in the Excel file that will be included in the dataset.</p>"""
     sheet_indexes: NotRequired["aws_sdk_databrew.types.sheet_index_list.SheetIndexList"]

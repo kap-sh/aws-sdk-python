@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#UpdateEventIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.description
     import aws_sdk_appintegrations.types.name
 
 
-class UpdateEventIntegrationRequest(TypedDict):
+class UpdateEventIntegrationRequest(TypedDict, closed=True):
     name: "aws_sdk_appintegrations.types.name.Name"
     """<p>The name of the event integration.</p>"""
     description: NotRequired["aws_sdk_appintegrations.types.description.Description"]

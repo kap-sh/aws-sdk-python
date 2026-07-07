@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#GetInvoicePDFResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.invoice_pdf
 
 
-class GetInvoicePDFResponse(TypedDict):
+class GetInvoicePDFResponse(TypedDict, closed=True):
     invoice_pdf: NotRequired["aws_sdk_invoicing.types.invoice_pdf.InvoicePDF"]
     """<p> The invoice document and supplemental documents associated with the invoice. </p>"""
 

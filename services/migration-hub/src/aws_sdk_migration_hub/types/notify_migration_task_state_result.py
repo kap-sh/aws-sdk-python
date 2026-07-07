@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#NotifyMigrationTaskStateResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class NotifyMigrationTaskStateResult(TypedDict):
+class NotifyMigrationTaskStateResult(TypedDict, closed=True):
     pass
 
 

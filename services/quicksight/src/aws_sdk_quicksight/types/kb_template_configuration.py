@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#KbTemplateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.kb_template
 
 
-class KbTemplateConfiguration(TypedDict):
+class KbTemplateConfiguration(TypedDict, closed=True):
     template: NotRequired["aws_sdk_quicksight.types.kb_template.KbTemplate"]
     """<p>The template document that defines the knowledge base behavior.</p>"""
 

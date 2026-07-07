@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IcebergOptimizationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.iam_role_arn
     import aws_sdk_glue.types.parameters_map
 
 
-class IcebergOptimizationProperties(TypedDict):
+class IcebergOptimizationProperties(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_glue.types.iam_role_arn.IAMRoleArn"]
     """<p>The Amazon Resource Name (ARN) of the IAM role that will be assumed to perform Iceberg table optimization operations.</p>"""
     compaction: NotRequired["aws_sdk_glue.types.parameters_map.ParametersMap"]

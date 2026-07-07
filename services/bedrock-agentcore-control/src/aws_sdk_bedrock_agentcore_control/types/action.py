@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#Action``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.route_to_target_action
 
 
-class _Action_configurationBundle(TypedDict):
+class _Action_configurationBundle(TypedDict, closed=True):
     configurationBundle: "aws_sdk_bedrock_agentcore_control.types.configuration_bundle_action.ConfigurationBundleAction"
 
 
-class _Action_routeToTarget(TypedDict):
+class _Action_routeToTarget(TypedDict, closed=True):
     routeToTarget: "aws_sdk_bedrock_agentcore_control.types.route_to_target_action.RouteToTargetAction"
 
 

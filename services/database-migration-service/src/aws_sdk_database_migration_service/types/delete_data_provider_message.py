@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DeleteDataProviderMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class DeleteDataProviderMessage(TypedDict):
+class DeleteDataProviderMessage(TypedDict, closed=True):
     data_provider_identifier: "aws_sdk_database_migration_service.types.string.String"
     """<p>The identifier of the data provider to delete.</p>"""
 

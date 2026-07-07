@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#StartSearchResultExportJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.tag_map
 
 
-class StartSearchResultExportJobInput(TypedDict):
+class StartSearchResultExportJobInput(TypedDict, closed=True):
     search_job_identifier: "aws_sdk_backupsearch.types.generic_id.GenericId"
     """<p>The unique string that specifies the search job.</p>"""
     export_specification: (

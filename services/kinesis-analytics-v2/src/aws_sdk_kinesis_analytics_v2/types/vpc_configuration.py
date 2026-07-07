@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#VpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.subnet_ids
 
 
-class VpcConfiguration(TypedDict):
+class VpcConfiguration(TypedDict, closed=True):
     subnet_ids: "aws_sdk_kinesis_analytics_v2.types.subnet_ids.SubnetIds"
     r"""<p>The array of <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html\">Subnet</a> IDs used by the VPC configuration.</p>"""
     security_group_ids: (

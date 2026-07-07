@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#DataCatalogSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.catalog_name_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.error_message
 
 
-class DataCatalogSummary(TypedDict):
+class DataCatalogSummary(TypedDict, closed=True):
     catalog_name: NotRequired[
         "aws_sdk_athena.types.catalog_name_string.CatalogNameString"
     ]

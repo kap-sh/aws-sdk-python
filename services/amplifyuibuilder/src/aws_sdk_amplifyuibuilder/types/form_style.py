@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FormStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.form_style_config
 
 
-class FormStyle(TypedDict):
+class FormStyle(TypedDict, closed=True):
     horizontal_gap: NotRequired[
         "aws_sdk_amplifyuibuilder.types.form_style_config.FormStyleConfig"
     ]

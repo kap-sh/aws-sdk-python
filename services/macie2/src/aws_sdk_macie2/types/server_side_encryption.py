@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ServerSideEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
     import aws_sdk_macie2.types.encryption_type
 
 
-class ServerSideEncryption(TypedDict):
+class ServerSideEncryption(TypedDict, closed=True):
     encryption_type: NotRequired["aws_sdk_macie2.types.encryption_type.EncryptionType"]
     """<p>The server-side encryption algorithm that's used when storing data in the bucket or object. If default encryption settings aren't configured for the bucket or the object isn't encrypted using server-side encryption, this value is NONE.</p>"""
     kms_master_key_id: NotRequired["aws_sdk_macie2.types.__string.__string"]

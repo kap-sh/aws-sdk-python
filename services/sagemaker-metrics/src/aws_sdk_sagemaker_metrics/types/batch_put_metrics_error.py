@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakermetrics#BatchPutMetricsError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_metrics.types.integer
     import aws_sdk_sagemaker_metrics.types.put_metrics_error_code
 
 
-class BatchPutMetricsError(TypedDict):
+class BatchPutMetricsError(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_sagemaker_metrics.types.put_metrics_error_code.PutMetricsErrorCode"
     ]

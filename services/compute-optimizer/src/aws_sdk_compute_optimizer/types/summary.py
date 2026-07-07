@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#Summary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.finding
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.summary_value
 
 
-class Summary(TypedDict):
+class Summary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_compute_optimizer.types.finding.Finding"]
     """<p>The finding classification of the recommendation.</p>"""
     value: "aws_sdk_compute_optimizer.types.summary_value.SummaryValue"

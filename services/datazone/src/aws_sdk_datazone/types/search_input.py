@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SearchInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.search_text
 
 
-class SearchInput(TypedDict):
+class SearchInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon DataZone domain.</p>"""
     owning_project_identifier: NotRequired[

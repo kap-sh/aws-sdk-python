@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#RuleSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.resource_name
 
 
-class RuleSummary(TypedDict):
+class RuleSummary(TypedDict, closed=True):
     rule_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>A unique identifier for a <code>Rule</code>. You use <code>RuleId</code> to get more information about a <code>Rule</code> (see <a>GetRule</a>), update a <code>Rule</code> (see <a>UpdateRule</a>), insert a <code>Rule</code> into a <code>WebACL</code> or delete one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>Rule</code> from AWS WAF (see <a>DeleteRule</a>).</p> <p> <code>RuleId</code> is returned by <a>CreateRule</a> and by <a>ListRules</a>.</p>"""
     name: "aws_sdk_waf_regional.types.resource_name.ResourceName"

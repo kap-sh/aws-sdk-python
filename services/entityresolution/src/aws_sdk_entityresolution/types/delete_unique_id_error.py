@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#DeleteUniqueIdError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.header_safe_unique_id
 
 
-class DeleteUniqueIdError(TypedDict):
+class DeleteUniqueIdError(TypedDict, closed=True):
     unique_id: "aws_sdk_entityresolution.types.header_safe_unique_id.HeaderSafeUniqueId"
     """<p>The unique ID that couldn't be deleted.</p>"""
     error_type: "aws_sdk_entityresolution.types.delete_unique_id_error_type.DeleteUniqueIdErrorType"

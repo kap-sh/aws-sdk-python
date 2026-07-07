@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ListPermissionAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.associated_permission_list
     import aws_sdk_ram.types.string
 
 
-class ListPermissionAssociationsResponse(TypedDict):
+class ListPermissionAssociationsResponse(TypedDict, closed=True):
     permissions: NotRequired[
         "aws_sdk_ram.types.associated_permission_list.AssociatedPermissionList"
     ]

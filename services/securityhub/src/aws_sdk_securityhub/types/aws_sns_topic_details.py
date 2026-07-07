@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsSnsTopicDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_sns_topic_subscription_list
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsSnsTopicDetails(TypedDict):
+class AwsSnsTopicDetails(TypedDict, closed=True):
     kms_master_key_id: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

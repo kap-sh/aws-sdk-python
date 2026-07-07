@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.sequence_token
 
 
-class DataAlreadyAcceptedException_(TypedDict):
+class DataAlreadyAcceptedException_(TypedDict, closed=True):
     expected_sequence_token: NotRequired[
         "aws_sdk_cloudwatch_logs.types.sequence_token.SequenceToken"
     ]

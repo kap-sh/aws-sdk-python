@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListExperienceEntitiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.experience_entities_summary_list
     import aws_sdk_kendra.types.next_token
 
 
-class ListExperienceEntitiesResponse(TypedDict):
+class ListExperienceEntitiesResponse(TypedDict, closed=True):
     summary_items: NotRequired[
         "aws_sdk_kendra.types.experience_entities_summary_list.ExperienceEntitiesSummaryList"
     ]

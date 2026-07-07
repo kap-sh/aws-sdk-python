@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#SupportedInstanceType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.string
 
 
-class SupportedInstanceType(TypedDict):
+class SupportedInstanceType(TypedDict, closed=True):
     type: NotRequired["aws_sdk_emr.types.string.String"]
     r"""<p>The <a href=\"http://aws.amazon.com/ec2/instance-types/\">Amazon EC2 instance type</a>, for example <code>m5.xlarge</code>, of the <code>SupportedInstanceType</code>.</p>"""
     memory_gb: NotRequired["aws_sdk_emr.types.float.Float"]

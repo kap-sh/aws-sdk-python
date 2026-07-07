@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#KnowledgeBasePromptTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.knowledge_base_text_prompt
 
 
-class KnowledgeBasePromptTemplate(TypedDict):
+class KnowledgeBasePromptTemplate(TypedDict, closed=True):
     text_prompt_template: NotRequired[
         "aws_sdk_bedrock_agent.types.knowledge_base_text_prompt.KnowledgeBaseTextPrompt"
     ]

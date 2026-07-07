@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#DescribeChannelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.time_shift_configuration
 
 
-class DescribeChannelResponse(TypedDict):
+class DescribeChannelResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The ARN of the channel.</p>"""
     channel_name: NotRequired["aws_sdk_mediatailor.types.__string.__string"]

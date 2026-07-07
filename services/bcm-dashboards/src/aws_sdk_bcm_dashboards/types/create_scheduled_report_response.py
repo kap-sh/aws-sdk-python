@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#CreateScheduledReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.scheduled_report_arn
 
 
-class CreateScheduledReportResponse(TypedDict):
+class CreateScheduledReportResponse(TypedDict, closed=True):
     arn: "aws_sdk_bcm_dashboards.types.scheduled_report_arn.ScheduledReportArn"
     """<p>The ARN of the newly created scheduled report.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#EbsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean_object
     import aws_sdk_emr.types.ebs_block_device_config_list
 
 
-class EbsConfiguration(TypedDict):
+class EbsConfiguration(TypedDict, closed=True):
     ebs_block_device_configs: NotRequired[
         "aws_sdk_emr.types.ebs_block_device_config_list.EbsBlockDeviceConfigList"
     ]

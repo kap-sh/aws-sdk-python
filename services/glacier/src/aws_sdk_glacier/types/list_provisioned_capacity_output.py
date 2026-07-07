@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#ListProvisionedCapacityOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.provisioned_capacity_list
 
 
-class ListProvisionedCapacityOutput(TypedDict):
+class ListProvisionedCapacityOutput(TypedDict, closed=True):
     provisioned_capacity_list: NotRequired[
         "aws_sdk_glacier.types.provisioned_capacity_list.ProvisionedCapacityList"
     ]

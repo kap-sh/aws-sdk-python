@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#StartImagePipelineExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.tag_map
 
 
-class StartImagePipelineExecutionRequest(TypedDict):
+class StartImagePipelineExecutionRequest(TypedDict, closed=True):
     image_pipeline_arn: "aws_sdk_imagebuilder.types.image_pipeline_arn.ImagePipelineArn"
     """<p>The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke.</p>"""
     client_token: "aws_sdk_imagebuilder.types.client_token.ClientToken"

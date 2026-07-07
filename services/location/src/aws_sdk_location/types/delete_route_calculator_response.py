@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.location#DeleteRouteCalculatorResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRouteCalculatorResponse(TypedDict):
+class DeleteRouteCalculatorResponse(TypedDict, closed=True):
     pass
 
 

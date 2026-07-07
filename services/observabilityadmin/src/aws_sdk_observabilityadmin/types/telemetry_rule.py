@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#TelemetryRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.telemetry_type
 
 
-class TelemetryRule(TypedDict):
+class TelemetryRule(TypedDict, closed=True):
     resource_type: NotRequired[
         "aws_sdk_observabilityadmin.types.resource_type.ResourceType"
     ]

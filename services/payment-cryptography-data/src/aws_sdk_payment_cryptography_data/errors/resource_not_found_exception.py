@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#ResourceNotFoundException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     resource_id: NotRequired["str"]
     """<p>The resource that is missing.</p>"""
 

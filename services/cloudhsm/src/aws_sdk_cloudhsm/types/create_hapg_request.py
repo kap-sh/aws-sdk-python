@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#CreateHapgRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudhsm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.label
 
 
-class CreateHapgRequest(TypedDict):
+class CreateHapgRequest(TypedDict, closed=True):
     label: "aws_sdk_cloudhsm.types.label.Label"
     """<p>The label of the new high-availability partition group.</p>"""
 

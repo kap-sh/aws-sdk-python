@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ListProjectPoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.extended_pagination_token
     import aws_sdk_rekognition.types.project_policies
 
 
-class ListProjectPoliciesResponse(TypedDict):
+class ListProjectPoliciesResponse(TypedDict, closed=True):
     project_policies: NotRequired[
         "aws_sdk_rekognition.types.project_policies.ProjectPolicies"
     ]

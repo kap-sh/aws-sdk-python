@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionReview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.action_payload_field_name_separator
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.plugin_type
 
 
-class ActionReview(TypedDict):
+class ActionReview(TypedDict, closed=True):
     plugin_id: NotRequired["aws_sdk_qbusiness.types.plugin_id.PluginId"]
     """<p>The identifier of the plugin associated with the action review.</p>"""
     plugin_type: NotRequired["aws_sdk_qbusiness.types.plugin_type.PluginType"]

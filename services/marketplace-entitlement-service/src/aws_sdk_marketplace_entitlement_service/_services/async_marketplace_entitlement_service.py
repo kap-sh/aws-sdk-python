@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceentitlementservice#AWSMPEntitlementService``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_marketplace_entitlement_service._auth._signers
@@ -35,7 +35,9 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_entitlement_service.types.product_code
 
 
-class AsyncMarketplaceEntitlementServiceClientConfig(TypedDict, total=False):
+class AsyncMarketplaceEntitlementServiceClientConfig(
+    TypedDict, total=False, closed=True
+):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     use_dual_stack: bool | None

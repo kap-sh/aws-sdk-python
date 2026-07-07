@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#LongTermPricingListEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.java_boolean
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.timestamp
 
 
-class LongTermPricingListEntry(TypedDict):
+class LongTermPricingListEntry(TypedDict, closed=True):
     long_term_pricing_id: NotRequired[
         "aws_sdk_snowball.types.long_term_pricing_id.LongTermPricingId"
     ]

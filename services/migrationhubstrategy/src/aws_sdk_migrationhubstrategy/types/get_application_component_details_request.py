@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#GetApplicationComponentDetailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.application_component_id
 
 
-class GetApplicationComponentDetailsRequest(TypedDict):
+class GetApplicationComponentDetailsRequest(TypedDict, closed=True):
     application_component_id: "aws_sdk_migrationhubstrategy.types.application_component_id.ApplicationComponentId"
     """<p> The ID of the application component. The ID is unique within an AWS account.</p>"""
 

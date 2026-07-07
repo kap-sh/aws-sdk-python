@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#PersonalizationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.personalization_control_mode
 
 
-class PersonalizationConfiguration(TypedDict):
+class PersonalizationConfiguration(TypedDict, closed=True):
     personalization_control_mode: "aws_sdk_qbusiness.types.personalization_control_mode.PersonalizationControlMode"
     """<p>An option to allow Amazon Q Business to customize chat responses using user specific metadata—specifically, location and job information—in your IAM Identity Center instance.</p>"""
 

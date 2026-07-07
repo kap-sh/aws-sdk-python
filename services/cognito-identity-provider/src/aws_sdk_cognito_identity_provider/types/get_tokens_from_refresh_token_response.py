@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#GetTokensFromRefreshTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.authentication_result_type
 
 
-class GetTokensFromRefreshTokenResponse(TypedDict):
+class GetTokensFromRefreshTokenResponse(TypedDict, closed=True):
     authentication_result: NotRequired[
         "aws_sdk_cognito_identity_provider.types.authentication_result_type.AuthenticationResultType"
     ]

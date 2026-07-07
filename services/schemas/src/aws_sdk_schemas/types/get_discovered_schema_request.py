@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#GetDiscoveredSchemaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__list_of_get_discovered_schema_version_item_input
     import aws_sdk_schemas.types.type
 
 
-class GetDiscoveredSchemaRequest(TypedDict):
+class GetDiscoveredSchemaRequest(TypedDict, closed=True):
     events: NotRequired[
         "aws_sdk_schemas.types.__list_of_get_discovered_schema_version_item_input.__listOfGetDiscoveredSchemaVersionItemInput"
     ]

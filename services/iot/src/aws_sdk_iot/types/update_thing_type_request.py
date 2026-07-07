@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateThingTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_type_name
     import aws_sdk_iot.types.thing_type_properties
 
 
-class UpdateThingTypeRequest(TypedDict):
+class UpdateThingTypeRequest(TypedDict, closed=True):
     thing_type_name: "aws_sdk_iot.types.thing_type_name.ThingTypeName"
     """<p>The name of a thing type.</p>"""
     thing_type_properties: NotRequired[

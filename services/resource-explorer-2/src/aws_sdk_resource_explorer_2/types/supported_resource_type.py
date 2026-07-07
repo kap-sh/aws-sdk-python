@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#SupportedResourceType``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SupportedResourceType(TypedDict):
+class SupportedResourceType(TypedDict, closed=True):
     service: NotRequired["str"]
     """<p>The Amazon Web Services service that is associated with the resource type. This is the primary service that lets you create and interact with resources of this type.</p>"""
     resource_type: NotRequired["str"]

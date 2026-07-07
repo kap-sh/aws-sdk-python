@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#OrganizationAffectedEntitiesErrorItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.string
 
 
-class OrganizationAffectedEntitiesErrorItem(TypedDict):
+class OrganizationAffectedEntitiesErrorItem(TypedDict, closed=True):
     aws_account_id: NotRequired["aws_sdk_health.types.account_id.accountId"]
     """<p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>"""
     event_arn: NotRequired["aws_sdk_health.types.event_arn.eventArn"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeDomainConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_name
 
 
-class DescribeDomainConfigRequest(TypedDict):
+class DescribeDomainConfigRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"
     """<p>Name of the OpenSearch Service domain configuration that you want to describe.</p>"""
 

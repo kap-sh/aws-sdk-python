@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#CreateVoiceConnectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.voice_connector_name
 
 
-class CreateVoiceConnectorRequest(TypedDict):
+class CreateVoiceConnectorRequest(TypedDict, closed=True):
     name: "aws_sdk_chime_sdk_voice.types.voice_connector_name.VoiceConnectorName"
     """<p>The name of the Voice Connector.</p>"""
     aws_region: NotRequired[

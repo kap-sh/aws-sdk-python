@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#GetDiscoveredSchemaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__string
 
 
-class GetDiscoveredSchemaResponse(TypedDict):
+class GetDiscoveredSchemaResponse(TypedDict, closed=True):
     content: NotRequired["aws_sdk_schemas.types.__string.__string"]
     """<p>The source of the schema definition.</p>"""
 

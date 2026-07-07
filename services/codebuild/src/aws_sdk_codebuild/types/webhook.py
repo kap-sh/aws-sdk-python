@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#Webhook``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.filter_groups
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_boolean
 
 
-class Webhook(TypedDict):
+class Webhook(TypedDict, closed=True):
     url: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p>The URL to the webhook.</p>"""
     payload_url: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]

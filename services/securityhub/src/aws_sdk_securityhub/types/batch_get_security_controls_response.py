@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#BatchGetSecurityControlsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.security_controls
     import aws_sdk_securityhub.types.unprocessed_security_controls
 
 
-class BatchGetSecurityControlsResponse(TypedDict):
+class BatchGetSecurityControlsResponse(TypedDict, closed=True):
     security_controls: NotRequired[
         "aws_sdk_securityhub.types.security_controls.SecurityControls"
     ]

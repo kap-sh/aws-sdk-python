@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElasticsearchDomainLogPublishingOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_elasticsearch_domain_log_publishing_options_log_config
 
 
-class AwsElasticsearchDomainLogPublishingOptions(TypedDict):
+class AwsElasticsearchDomainLogPublishingOptions(TypedDict, closed=True):
     index_slow_logs: NotRequired[
         "aws_sdk_securityhub.types.aws_elasticsearch_domain_log_publishing_options_log_config.AwsElasticsearchDomainLogPublishingOptionsLogConfig"
     ]

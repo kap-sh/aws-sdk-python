@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeDefaultAuthorizerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.authorizer_description
 
 
-class DescribeDefaultAuthorizerResponse(TypedDict):
+class DescribeDefaultAuthorizerResponse(TypedDict, closed=True):
     authorizer_description: NotRequired[
         "aws_sdk_iot.types.authorizer_description.AuthorizerDescription"
     ]

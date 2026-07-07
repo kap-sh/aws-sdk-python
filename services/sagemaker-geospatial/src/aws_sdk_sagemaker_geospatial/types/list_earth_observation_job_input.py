@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ListEarthObservationJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.earth_observation_job_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.sort_order
 
 
-class ListEarthObservationJobInput(TypedDict):
+class ListEarthObservationJobInput(TypedDict, closed=True):
     status_equals: NotRequired[
         "aws_sdk_sagemaker_geospatial.types.earth_observation_job_status.EarthObservationJobStatus"
     ]

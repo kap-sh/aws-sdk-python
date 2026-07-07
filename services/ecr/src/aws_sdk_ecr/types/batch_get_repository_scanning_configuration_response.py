@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#BatchGetRepositoryScanningConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.repository_scanning_configuration_failure_list
     import aws_sdk_ecr.types.repository_scanning_configuration_list
 
 
-class BatchGetRepositoryScanningConfigurationResponse(TypedDict):
+class BatchGetRepositoryScanningConfigurationResponse(TypedDict, closed=True):
     scanning_configurations: NotRequired[
         "aws_sdk_ecr.types.repository_scanning_configuration_list.RepositoryScanningConfigurationList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#ListAssetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__list_of_asset_shallow
     import aws_sdk_mediapackage_vod.types.__string
 
 
-class ListAssetsResponse(TypedDict):
+class ListAssetsResponse(TypedDict, closed=True):
     assets: NotRequired[
         "aws_sdk_mediapackage_vod.types.__list_of_asset_shallow.__listOfAssetShallow"
     ]

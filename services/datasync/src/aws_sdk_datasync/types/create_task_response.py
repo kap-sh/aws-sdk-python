@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.task_arn
 
 
-class CreateTaskResponse(TypedDict):
+class CreateTaskResponse(TypedDict, closed=True):
     task_arn: NotRequired["aws_sdk_datasync.types.task_arn.TaskArn"]
     """<p>The Amazon Resource Name (ARN) of the task.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#BatchUnameErrorResponseItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.uname
 
 
-class BatchUnameErrorResponseItem(TypedDict):
+class BatchUnameErrorResponseItem(TypedDict, closed=True):
     field: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>The field that caused the error.</p>"""
     reason: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

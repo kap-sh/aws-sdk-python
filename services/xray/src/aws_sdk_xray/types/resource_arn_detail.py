@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#ResourceARNDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class ResourceARNDetail(TypedDict):
+class ResourceARNDetail(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>The ARN of a corresponding resource.</p>"""
 

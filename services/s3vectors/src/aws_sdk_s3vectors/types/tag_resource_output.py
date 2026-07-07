@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#TagResourceOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class TagResourceOutput(TypedDict):
+class TagResourceOutput(TypedDict, closed=True):
     pass
 
 

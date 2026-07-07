@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListRegistriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.registry_list_definition
     import aws_sdk_glue.types.schema_registry_token_string
 
 
-class ListRegistriesResponse(TypedDict):
+class ListRegistriesResponse(TypedDict, closed=True):
     registries: NotRequired[
         "aws_sdk_glue.types.registry_list_definition.RegistryListDefinition"
     ]

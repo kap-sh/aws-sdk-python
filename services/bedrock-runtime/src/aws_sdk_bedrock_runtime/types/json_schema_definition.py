@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#JsonSchemaDefinition``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
 
-class JsonSchemaDefinition(TypedDict):
+class JsonSchemaDefinition(TypedDict, closed=True):
     schema: "str"
     r"""<p> The JSON schema to constrain the model's output. For more information, see <a href=\"https://json-schema.org/understanding-json-schema/reference\">JSON Schema Reference</a>. </p>"""
     name: NotRequired["str"]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#SourceEventMetadataSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
 
-class SourceEventMetadataSummary(TypedDict):
+class SourceEventMetadataSummary(TypedDict, closed=True):
     event_origin_region: NotRequired["str"]
     """<p>The Region where the notification originated.</p> <p>Unavailable for aggregated notifications.</p>"""
     source: "str"

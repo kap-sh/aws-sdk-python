@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TimestampFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class TimestampFilter(TypedDict):
+class TimestampFilter(TypedDict, closed=True):
     recorded_before: NotRequired["aws_sdk_glue.types.timestamp.Timestamp"]
     """<p>The timestamp before which statistics should be included in the results.</p>"""
     recorded_after: NotRequired["aws_sdk_glue.types.timestamp.Timestamp"]

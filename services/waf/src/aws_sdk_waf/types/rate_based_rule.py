@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#RateBasedRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_name
 
 
-class RateBasedRule(TypedDict):
+class RateBasedRule(TypedDict, closed=True):
     rule_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>A unique identifier for a <code>RateBasedRule</code>. You use <code>RuleId</code> to get more information about a <code>RateBasedRule</code> (see <a>GetRateBasedRule</a>), update a <code>RateBasedRule</code> (see <a>UpdateRateBasedRule</a>), insert a <code>RateBasedRule</code> into a <code>WebACL</code> or delete one from a <code>WebACL</code> (see <a>UpdateWebACL</a>), or delete a <code>RateBasedRule</code> from AWS WAF (see <a>DeleteRateBasedRule</a>).</p>"""
     name: NotRequired["aws_sdk_waf.types.resource_name.ResourceName"]

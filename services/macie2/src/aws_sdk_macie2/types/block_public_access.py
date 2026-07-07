@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BlockPublicAccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
 
 
-class BlockPublicAccess(TypedDict):
+class BlockPublicAccess(TypedDict, closed=True):
     block_public_acls: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]
     """<p>Specifies whether Amazon S3 blocks public access control lists (ACLs) for the bucket and objects in the bucket.</p>"""
     block_public_policy: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]

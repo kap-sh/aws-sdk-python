@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ListDomainNamesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.max_results
     import aws_sdk_appsync.types.pagination_token
 
 
-class ListDomainNamesRequest(TypedDict):
+class ListDomainNamesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_appsync.types.pagination_token.PaginationToken"]
     """<p>An identifier that was returned from the previous call to this operation, which you can use to return the next set of items in the list.</p>"""
     max_results: "aws_sdk_appsync.types.max_results.MaxResults"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DeleteIdNamespaceAssociationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteIdNamespaceAssociationOutput(TypedDict):
+class DeleteIdNamespaceAssociationOutput(TypedDict, closed=True):
     pass
 
 

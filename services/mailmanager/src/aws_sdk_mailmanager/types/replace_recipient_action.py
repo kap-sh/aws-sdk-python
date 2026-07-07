@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ReplaceRecipientAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.recipients
 
 
-class ReplaceRecipientAction(TypedDict):
+class ReplaceRecipientAction(TypedDict, closed=True):
     replace_with: NotRequired["aws_sdk_mailmanager.types.recipients.Recipients"]
     """<p>This action specifies the replacement recipient email addresses to insert.</p>"""
 

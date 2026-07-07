@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeParametersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.parameters_filter_list
 
 
-class DescribeParametersRequest(TypedDict):
+class DescribeParametersRequest(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_ssm.types.parameters_filter_list.ParametersFilterList"
     ]

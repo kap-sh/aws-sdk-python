@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#DeleteAssistantResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAssistantResponse(TypedDict):
+class DeleteAssistantResponse(TypedDict, closed=True):
     pass
 
 

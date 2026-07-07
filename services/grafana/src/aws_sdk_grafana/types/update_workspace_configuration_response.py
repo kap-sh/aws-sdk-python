@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#UpdateWorkspaceConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateWorkspaceConfigurationResponse(TypedDict):
+class UpdateWorkspaceConfigurationResponse(TypedDict, closed=True):
     pass
 
 

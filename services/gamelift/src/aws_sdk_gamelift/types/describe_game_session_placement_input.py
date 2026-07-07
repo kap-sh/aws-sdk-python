@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeGameSessionPlacementInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.id_string_model
 
 
-class DescribeGameSessionPlacementInput(TypedDict):
+class DescribeGameSessionPlacementInput(TypedDict, closed=True):
     placement_id: NotRequired["aws_sdk_gamelift.types.id_string_model.IdStringModel"]
     """<p>A unique identifier for a game session placement to retrieve.</p>"""
 

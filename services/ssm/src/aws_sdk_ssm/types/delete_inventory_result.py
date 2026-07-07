@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeleteInventoryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_deletion_summary
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.uuid
 
 
-class DeleteInventoryResult(TypedDict):
+class DeleteInventoryResult(TypedDict, closed=True):
     deletion_id: NotRequired["aws_sdk_ssm.types.uuid.UUID"]
     """<p>Every <code>DeleteInventory</code> operation is assigned a unique ID. This option returns a unique ID. You can use this ID to query the status of a delete operation. This option is useful for ensuring that a delete operation has completed before you begin other operations. </p>"""
     type_name: NotRequired[

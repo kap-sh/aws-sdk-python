@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#Member``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.member_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.sensitive_string
 
 
-class Member(TypedDict):
+class Member(TypedDict, closed=True):
     member_id: NotRequired["aws_sdk_chime.types.non_empty_string.NonEmptyString"]
     """<p>The member ID (user ID or bot ID).</p>"""
     member_type: NotRequired["aws_sdk_chime.types.member_type.MemberType"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetSequenceStoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.sequence_store_id
 
 
-class GetSequenceStoreRequest(TypedDict):
+class GetSequenceStoreRequest(TypedDict, closed=True):
     id: "aws_sdk_omics.types.sequence_store_id.SequenceStoreId"
     """<p>The store's ID.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#FilterGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.type
 
 
-class FilterGroup(TypedDict):
+class FilterGroup(TypedDict, closed=True):
     type: "aws_sdk_customer_profiles.types.type.Type"
     """<p>The type of logical relationship between the dimensions of the Filter group.</p>"""
     dimensions: (

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#IntegrationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.appflow_integration
 
 
-class IntegrationConfig(TypedDict):
+class IntegrationConfig(TypedDict, closed=True):
     appflow_integration: NotRequired[
         "aws_sdk_customer_profiles.types.appflow_integration.AppflowIntegration"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#SearchInsightsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class SearchInsightsRequest(TypedDict):
+class SearchInsightsRequest(TypedDict, closed=True):
     start_time_range: "aws_sdk_devops_guru.types.start_time_range.StartTimeRange"
     """<p> The start of the time range passed in. Returned insights occurred after this time. </p>"""
     filters: NotRequired[

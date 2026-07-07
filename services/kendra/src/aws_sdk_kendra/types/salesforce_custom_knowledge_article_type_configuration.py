@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SalesforceCustomKnowledgeArticleTypeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.salesforce_custom_knowledge_article_type_name
 
 
-class SalesforceCustomKnowledgeArticleTypeConfiguration(TypedDict):
+class SalesforceCustomKnowledgeArticleTypeConfiguration(TypedDict, closed=True):
     name: "aws_sdk_kendra.types.salesforce_custom_knowledge_article_type_name.SalesforceCustomKnowledgeArticleTypeName"
     """<p>The name of the configuration.</p>"""
     document_data_field_name: (

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloud9#UpdateEnvironmentResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateEnvironmentResult(TypedDict):
+class UpdateEnvironmentResult(TypedDict, closed=True):
     pass
 
 

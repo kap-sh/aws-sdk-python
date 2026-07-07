@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#StartSnapshotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ebs.types.block_size
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ebs.types.volume_size
 
 
-class StartSnapshotResponse(TypedDict):
+class StartSnapshotResponse(TypedDict, closed=True):
     description: NotRequired["aws_sdk_ebs.types.description.Description"]
     """<p>The description of the snapshot.</p>"""
     snapshot_id: NotRequired["aws_sdk_ebs.types.snapshot_id.SnapshotId"]

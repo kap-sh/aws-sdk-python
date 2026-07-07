@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#OtaTaskAbortConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.abort_config_criteria_list
 
 
-class OtaTaskAbortConfig(TypedDict):
+class OtaTaskAbortConfig(TypedDict, closed=True):
     abort_config_criteria_list: NotRequired[
         "aws_sdk_iot_managed_integrations.types.abort_config_criteria_list.AbortConfigCriteriaList"
     ]

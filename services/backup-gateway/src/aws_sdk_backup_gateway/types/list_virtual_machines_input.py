@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#ListVirtualMachinesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.server_arn
 
 
-class ListVirtualMachinesInput(TypedDict):
+class ListVirtualMachinesInput(TypedDict, closed=True):
     hypervisor_arn: NotRequired["aws_sdk_backup_gateway.types.server_arn.ServerArn"]
     """<p>The Amazon Resource Name (ARN) of the hypervisor connected to your virtual machine.</p>"""
     max_results: NotRequired["aws_sdk_backup_gateway.types.max_results.MaxResults"]

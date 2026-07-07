@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#BatchGetAttributeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.form_output_list
 
 
-class BatchGetAttributeOutput(TypedDict):
+class BatchGetAttributeOutput(TypedDict, closed=True):
     attribute_identifier: (
         "aws_sdk_datazone.types.attribute_identifier.AttributeIdentifier"
     )

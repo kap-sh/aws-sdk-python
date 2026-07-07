@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SourceAwsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.source_account_type
 
 
-class SourceAwsConfiguration(TypedDict):
+class SourceAwsConfiguration(TypedDict, closed=True):
     account_id: "str"
     """<p>AWS Account Id corresponding to provided resources.</p>"""
     account_type: "aws_sdk_devops_agent.types.source_account_type.SourceAccountType"

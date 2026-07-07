@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TrafficPattern``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.phases
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.traffic_type
 
 
-class TrafficPattern(TypedDict):
+class TrafficPattern(TypedDict, closed=True):
     traffic_type: NotRequired["aws_sdk_sagemaker.types.traffic_type.TrafficType"]
     """<p>Defines the traffic patterns. Choose either <code>PHASES</code> or <code>STAIRS</code>.</p>"""
     phases: NotRequired["aws_sdk_sagemaker.types.phases.Phases"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerfeaturestoreruntime#FeatureValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_featurestore_runtime.types.feature_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_featurestore_runtime.types.value_as_string_list
 
 
-class FeatureValue(TypedDict):
+class FeatureValue(TypedDict, closed=True):
     feature_name: NotRequired[
         "aws_sdk_sagemaker_featurestore_runtime.types.feature_name.FeatureName"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataPrepAggregationFunction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_prep_list_aggregation_function
     import aws_sdk_quicksight.types.data_prep_simple_aggregation_function
 
 
-class DataPrepAggregationFunction(TypedDict):
+class DataPrepAggregationFunction(TypedDict, closed=True):
     simple_aggregation: NotRequired[
         "aws_sdk_quicksight.types.data_prep_simple_aggregation_function.DataPrepSimpleAggregationFunction"
     ]

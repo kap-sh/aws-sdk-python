@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ComputeResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.compute_scaling_policy
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.tags_map
 
 
-class ComputeResource(TypedDict):
+class ComputeResource(TypedDict, closed=True):
     type: NotRequired["aws_sdk_batch.types.cr_type.CRType"]
     r"""<p>The type of compute environment: <code>EC2</code>, <code>SPOT</code>, <code>FARGATE</code>, or <code>FARGATE_SPOT</code>. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html\">Compute environments</a> in the <i>Batch User Guide</i>.</p> <p> If you choose <code>SPOT</code>, you must also specify an Amazon EC2 Spot Fleet role with the <code>spotIamFleetRole</code> parameter. For more information, see <a href=\"https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html\">Amazon EC2 spot fleet role</a> in the <i>Batch User Guide</i>.</p> <note> <p>Multi-node parallel jobs aren't supported on Spot Instances.</p> </note>"""
     allocation_strategy: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#AppSpecContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.raw_string_content
     import aws_sdk_codedeploy.types.raw_string_sha256
 
 
-class AppSpecContent(TypedDict):
+class AppSpecContent(TypedDict, closed=True):
     content: NotRequired["aws_sdk_codedeploy.types.raw_string_content.RawStringContent"]
     """<p> The YAML-formatted or JSON-formatted revision string. </p> <p> For an Lambda deployment, the content includes a Lambda function name, the alias for its original version, and the alias for its replacement version. The deployment shifts traffic from the original version of the Lambda function to the replacement version. </p> <p> For an Amazon ECS deployment, the content includes the task name, information about the load balancer that serves traffic to the container, and more. </p> <p> For both types of deployments, the content can specify Lambda functions that run at specified hooks, such as <code>BeforeInstall</code>, during a deployment. </p>"""
     sha256: NotRequired["aws_sdk_codedeploy.types.raw_string_sha256.RawStringSha256"]

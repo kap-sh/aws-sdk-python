@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#DetectedDataDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string_min1_max128
 
 
-class DetectedDataDetails(TypedDict):
+class DetectedDataDetails(TypedDict, closed=True):
     value: NotRequired["aws_sdk_macie2.types.__string_min1_max128.__stringMin1Max128"]
     """<p>An occurrence of the specified type of sensitive data. Each occurrence contains 1-128 characters.</p>"""
 

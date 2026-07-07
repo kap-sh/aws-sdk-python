@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DescribeAggregationAuthorizationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.limit
     import aws_sdk_config_service.types.string
 
 
-class DescribeAggregationAuthorizationsRequest(TypedDict):
+class DescribeAggregationAuthorizationsRequest(TypedDict, closed=True):
     limit: "aws_sdk_config_service.types.limit.Limit"
     """<p>The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>"""
     next_token: NotRequired["aws_sdk_config_service.types.string.String"]

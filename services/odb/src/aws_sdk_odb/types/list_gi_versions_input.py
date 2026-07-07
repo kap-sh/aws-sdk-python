@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ListGiVersionsInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListGiVersionsInput(TypedDict):
+class ListGiVersionsInput(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p> <p>Default: <code>10</code> </p>"""
     next_token: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#CodeArtifacts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguru_reviewer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.source_code_artifacts_object_key
 
 
-class CodeArtifacts(TypedDict):
+class CodeArtifacts(TypedDict, closed=True):
     source_code_artifacts_object_key: "aws_sdk_codeguru_reviewer.types.source_code_artifacts_object_key.SourceCodeArtifactsObjectKey"
     """<p>The S3 object key for a source code .zip file. This is required for all code reviews.</p>"""
     build_artifacts_object_key: NotRequired[

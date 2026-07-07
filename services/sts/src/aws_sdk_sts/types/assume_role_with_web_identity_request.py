@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#AssumeRoleWithWebIdentityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 from aws_sdk_sts.errors import DeserializationError
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.url_type
 
 
-class AssumeRoleWithWebIdentityRequest(TypedDict):
+class AssumeRoleWithWebIdentityRequest(TypedDict, closed=True):
     role_arn: "aws_sdk_sts.types.arn_type.arnType"
     r"""<p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p> <note> <p>Additional considerations apply to Amazon Cognito identity pools that assume <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html\">cross-account IAM roles</a>. The trust policies of these roles must accept the <code>cognito-identity.amazonaws.com</code> service principal and must contain the <code>cognito-identity.amazonaws.com:aud</code> condition key to restrict role assumption to users from your intended identity pools. A policy that trusts Amazon Cognito identity pools without this condition creates a risk that a user from an unintended identity pool can assume the role. For more information, see <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/iam-roles.html#trust-policies\"> Trust policies for IAM roles in Basic (Classic) authentication </a> in the <i>Amazon Cognito Developer Guide</i>.</p> </note>"""
     role_session_name: "aws_sdk_sts.types.role_session_name_type.roleSessionNameType"

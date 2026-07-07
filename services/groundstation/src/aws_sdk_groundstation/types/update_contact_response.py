@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#UpdateContactResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
     import aws_sdk_groundstation.types.version_id
 
 
-class UpdateContactResponse(TypedDict):
+class UpdateContactResponse(TypedDict, closed=True):
     contact_id: NotRequired["aws_sdk_groundstation.types.uuid.Uuid"]
     """<p>UUID of a contact.</p>"""
     version_id: NotRequired["aws_sdk_groundstation.types.version_id.VersionId"]

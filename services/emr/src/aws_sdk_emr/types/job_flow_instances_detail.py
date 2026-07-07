@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#JobFlowInstancesDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class JobFlowInstancesDetail(TypedDict):
+class JobFlowInstancesDetail(TypedDict, closed=True):
     master_instance_type: NotRequired["aws_sdk_emr.types.instance_type.InstanceType"]
     """<p>The Amazon EC2 master node instance type.</p>"""
     master_public_dns_name: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]

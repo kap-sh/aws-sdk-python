@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#Root``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.policy_types
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.root_name
 
 
-class Root(TypedDict):
+class Root(TypedDict, closed=True):
     id: NotRequired["aws_sdk_organizations.types.root_id.RootId"]
     r"""<p>The unique identifier (ID) for the root. The ID is unique to the organization only.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a root ID string requires \"r-\" followed by from 4 to 32 lowercase letters or digits.</p>"""
     arn: NotRequired["aws_sdk_organizations.types.root_arn.RootArn"]

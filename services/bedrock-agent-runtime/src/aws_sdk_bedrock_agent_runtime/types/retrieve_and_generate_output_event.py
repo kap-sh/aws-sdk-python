@@ -1,12 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrieveAndGenerateOutputEvent``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
 
-class RetrieveAndGenerateOutputEvent(TypedDict):
+class RetrieveAndGenerateOutputEvent(TypedDict, closed=True):
     text: "str"
     """<p>A text response.</p>"""
 

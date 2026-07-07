@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#AccessDeniedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_transcoder.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.exception_message
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: "aws_sdk_elastic_transcoder.types.exception_message.ExceptionMessage"
 
 

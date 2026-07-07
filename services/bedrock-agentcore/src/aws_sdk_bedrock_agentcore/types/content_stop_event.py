@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ContentStopEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.command_execution_status
 
 
-class ContentStopEvent(TypedDict):
+class ContentStopEvent(TypedDict, closed=True):
     exit_code: "int"
     """<p>The exit code returned by the executed command. An exit code of 0 indicates successful execution, -1 indicates a platform error, and values greater than 0 indicate command-specific errors.</p>"""
     status: "aws_sdk_bedrock_agentcore.types.command_execution_status.CommandExecutionStatus"

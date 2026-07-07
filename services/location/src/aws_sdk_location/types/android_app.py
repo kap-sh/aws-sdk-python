@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#AndroidApp``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.sha1_certificate_fingerprint
 
 
-class AndroidApp(TypedDict):
+class AndroidApp(TypedDict, closed=True):
     package: "aws_sdk_location.types.android_package_name.AndroidPackageName"
     """<p>Unique package name identifier for an Android app.</p> <p>Example: <code>com.mydomain.appname</code> </p>"""
     certificate_fingerprint: (

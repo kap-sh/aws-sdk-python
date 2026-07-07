@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#PrivateEndpointOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.private_endpoint_override_domain
 
 
-class PrivateEndpointOverride(TypedDict):
+class PrivateEndpointOverride(TypedDict, closed=True):
     domain: "aws_sdk_bedrock_agentcore_control.types.private_endpoint_override_domain.PrivateEndpointOverrideDomain"
     """<p>The domain to override with a private endpoint.</p>"""
     private_endpoint: (

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#VideoSegment``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
 
-class VideoSegment(TypedDict):
+class VideoSegment(TypedDict, closed=True):
     s3_uri: "str"
     """<p>The S3 URI where this specific video segment is stored in the multimodal storage destination.</p>"""
     summary: NotRequired["str"]

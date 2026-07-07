@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#Artifact``."""
 
 import warnings
-from typing import Any, Iterable, Optional, TypedDict
+from typing import Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 from aws_sdk_artifact._auth._identity import Credentials
@@ -30,7 +30,7 @@ from aws_sdk_artifact._services._pipeline import (
 )
 
 
-class ArtifactClientConfig(TypedDict, total=False):
+class ArtifactClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     use_dual_stack: bool | None

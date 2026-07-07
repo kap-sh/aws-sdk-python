@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#BasicAuthConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.secret_arn
 
 
-class BasicAuthConfiguration(TypedDict):
+class BasicAuthConfiguration(TypedDict, closed=True):
     secret_arn: "aws_sdk_qbusiness.types.secret_arn.SecretArn"
     """<p>The ARN of the Secrets Manager secret that stores the basic authentication credentials used for plugin configuration..</p>"""
     role_arn: "aws_sdk_qbusiness.types.role_arn.RoleArn"

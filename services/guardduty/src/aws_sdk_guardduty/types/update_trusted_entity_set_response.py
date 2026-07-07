@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#UpdateTrustedEntitySetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateTrustedEntitySetResponse(TypedDict):
+class UpdateTrustedEntitySetResponse(TypedDict, closed=True):
     pass
 
 

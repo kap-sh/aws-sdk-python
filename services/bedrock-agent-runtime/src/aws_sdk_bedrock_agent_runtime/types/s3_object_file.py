@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#S3ObjectFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.s3_uri
 
 
-class S3ObjectFile(TypedDict):
+class S3ObjectFile(TypedDict, closed=True):
     uri: "aws_sdk_bedrock_agent_runtime.types.s3_uri.S3Uri"
     """<p>The uri of the s3 object.</p>"""
 

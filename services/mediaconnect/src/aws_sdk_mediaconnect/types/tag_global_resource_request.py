@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#TagGlobalResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__map_of_string
 
 
-class TagGlobalResourceRequest(TypedDict):
+class TagGlobalResourceRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the global resource to tag.</p>"""
     tags: NotRequired["aws_sdk_mediaconnect.types.__map_of_string.__mapOfString"]

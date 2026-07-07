@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservicedata#AddGroupMemberResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AddGroupMemberResult(TypedDict):
+class AddGroupMemberResult(TypedDict, closed=True):
     pass
 
 

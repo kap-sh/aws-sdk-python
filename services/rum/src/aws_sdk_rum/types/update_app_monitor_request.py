@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#UpdateAppMonitorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.app_monitor_configuration
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.deobfuscation_configuration
 
 
-class UpdateAppMonitorRequest(TypedDict):
+class UpdateAppMonitorRequest(TypedDict, closed=True):
     name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName"
     """<p>The name of the app monitor to update.</p>"""
     domain: NotRequired["aws_sdk_rum.types.app_monitor_domain.AppMonitorDomain"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetRecommendationSummariesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.account_ids
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.next_token
 
 
-class GetRecommendationSummariesRequest(TypedDict):
+class GetRecommendationSummariesRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_compute_optimizer.types.account_ids.AccountIds"]
     """<p>The ID of the Amazon Web Services account for which to return recommendation summaries.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to return recommendation summaries.</p> <p>Only one account ID can be specified per request.</p>"""
     next_token: NotRequired["aws_sdk_compute_optimizer.types.next_token.NextToken"]

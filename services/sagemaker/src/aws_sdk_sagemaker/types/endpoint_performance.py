@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EndpointPerformance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_info
     import aws_sdk_sagemaker.types.inference_metrics
 
 
-class EndpointPerformance(TypedDict):
+class EndpointPerformance(TypedDict, closed=True):
     metrics: NotRequired["aws_sdk_sagemaker.types.inference_metrics.InferenceMetrics"]
     """<p>The metrics for an existing endpoint.</p>"""
     endpoint_info: NotRequired["aws_sdk_sagemaker.types.endpoint_info.EndpointInfo"]

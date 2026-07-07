@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeEventSubscriptionsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.filter_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeEventSubscriptionsMessage(TypedDict):
+class DescribeEventSubscriptionsMessage(TypedDict, closed=True):
     subscription_name: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

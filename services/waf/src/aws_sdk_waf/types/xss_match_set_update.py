@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#XssMatchSetUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.xss_match_tuple
 
 
-class XssMatchSetUpdate(TypedDict):
+class XssMatchSetUpdate(TypedDict, closed=True):
     action: "aws_sdk_waf.types.change_action.ChangeAction"
     """<p>Specify <code>INSERT</code> to add an <a>XssMatchSetUpdate</a> to an <a>XssMatchSet</a>. Use <code>DELETE</code> to remove an <code>XssMatchSetUpdate</code> from an <code>XssMatchSet</code>.</p>"""
     xss_match_tuple: "aws_sdk_waf.types.xss_match_tuple.XssMatchTuple"

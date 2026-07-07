@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#NdiMediaStreamInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.frame_resolution
     import aws_sdk_mediaconnect.types.scan_mode
 
 
-class NdiMediaStreamInfo(TypedDict):
+class NdiMediaStreamInfo(TypedDict, closed=True):
     stream_type: NotRequired["str"]
     """<p> The type of media stream (for example, <code>Video</code> or <code>Audio</code>). </p>"""
     codec: NotRequired["str"]

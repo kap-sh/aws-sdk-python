@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#DescribeAgentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.agent_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.time
 
 
-class DescribeAgentResponse(TypedDict):
+class DescribeAgentResponse(TypedDict, closed=True):
     agent_arn: NotRequired["aws_sdk_datasync.types.agent_arn.AgentArn"]
     """<p>The ARN of the agent.</p>"""
     name: NotRequired["aws_sdk_datasync.types.tag_value.TagValue"]

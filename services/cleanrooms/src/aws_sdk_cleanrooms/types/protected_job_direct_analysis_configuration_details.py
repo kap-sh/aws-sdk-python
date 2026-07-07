@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedJobDirectAnalysisConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.protected_job_receiver_account_ids
 
 
-class ProtectedJobDirectAnalysisConfigurationDetails(TypedDict):
+class ProtectedJobDirectAnalysisConfigurationDetails(TypedDict, closed=True):
     receiver_account_ids: NotRequired[
         "aws_sdk_cleanrooms.types.protected_job_receiver_account_ids.ProtectedJobReceiverAccountIds"
     ]

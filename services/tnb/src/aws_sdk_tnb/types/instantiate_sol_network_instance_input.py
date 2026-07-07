@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#InstantiateSolNetworkInstanceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.ns_instance_id
     import aws_sdk_tnb.types.tag_map
 
 
-class InstantiateSolNetworkInstanceInput(TypedDict):
+class InstantiateSolNetworkInstanceInput(TypedDict, closed=True):
     ns_instance_id: "aws_sdk_tnb.types.ns_instance_id.NsInstanceId"
     """<p>ID of the network instance.</p>"""
     dry_run: NotRequired["bool"]

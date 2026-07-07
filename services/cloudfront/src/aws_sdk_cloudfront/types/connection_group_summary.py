@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ConnectionGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.timestamp
 
 
-class ConnectionGroupSummary(TypedDict):
+class ConnectionGroupSummary(TypedDict, closed=True):
     id: "aws_sdk_cloudfront.types.string.string"
     """<p>The ID of the connection group.</p>"""
     name: "aws_sdk_cloudfront.types.string.string"

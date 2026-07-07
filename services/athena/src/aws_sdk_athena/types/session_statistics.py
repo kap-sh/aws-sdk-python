@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#SessionStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.long
 
 
-class SessionStatistics(TypedDict):
+class SessionStatistics(TypedDict, closed=True):
     dpu_execution_in_millis: NotRequired["aws_sdk_athena.types.long.Long"]
     """<p>The data processing unit execution time for a session in milliseconds.</p>"""
 

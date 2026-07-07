@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#Indicator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.indicator_detail
     import aws_sdk_detective.types.indicator_type
 
 
-class Indicator(TypedDict):
+class Indicator(TypedDict, closed=True):
     indicator_type: NotRequired["aws_sdk_detective.types.indicator_type.IndicatorType"]
     """<p>The type of indicator. </p>"""
     indicator_detail: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#CreatePrivateDnsNamespaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.tag_list
 
 
-class CreatePrivateDnsNamespaceRequest(TypedDict):
+class CreatePrivateDnsNamespaceRequest(TypedDict, closed=True):
     name: "aws_sdk_servicediscovery.types.namespace_name_private.NamespaceNamePrivate"
     """<p>The name that you want to assign to this namespace. When you create a private DNS namespace, Cloud Map automatically creates an Amazon Route 53 private hosted zone that has the same name as the namespace.</p>"""
     creator_request_id: NotRequired[

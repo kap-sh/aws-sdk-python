@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeDomainHealthResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.number_of_shards
 
 
-class DescribeDomainHealthResponse(TypedDict):
+class DescribeDomainHealthResponse(TypedDict, closed=True):
     domain_state: NotRequired["aws_sdk_opensearch.types.domain_state.DomainState"]
     """<p>The current state of the domain.</p> <ul> <li> <p> <code>Processing</code> - The domain has updates in progress.</p> </li> <li> <p> <code>Active</code> - Requested changes have been processed and deployed to the domain.</p> </li> </ul>"""
     availability_zone_count: NotRequired[

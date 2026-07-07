@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#S3InputFormatConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.s3_input_file_type
 
 
-class S3InputFormatConfig(TypedDict):
+class S3InputFormatConfig(TypedDict, closed=True):
     s3_input_file_type: NotRequired[
         "aws_sdk_appflow.types.s3_input_file_type.S3InputFileType"
     ]

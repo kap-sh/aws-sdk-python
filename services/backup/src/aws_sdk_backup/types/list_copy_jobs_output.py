@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListCopyJobsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.copy_jobs_list
     import aws_sdk_backup.types.string
 
 
-class ListCopyJobsOutput(TypedDict):
+class ListCopyJobsOutput(TypedDict, closed=True):
     copy_jobs: NotRequired["aws_sdk_backup.types.copy_jobs_list.CopyJobsList"]
     """<p>An array of structures containing metadata about your copy jobs returned in JSON format. </p>"""
     next_token: NotRequired["aws_sdk_backup.types.string.string"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#Constraints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.bounded_string
 
 
-class Constraints(TypedDict):
+class Constraints(TypedDict, closed=True):
     multiple_dimension_selection: NotRequired[
         "aws_sdk_marketplace_agreement.types.bounded_string.BoundedString"
     ]

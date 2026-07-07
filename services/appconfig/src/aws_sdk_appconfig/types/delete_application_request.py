@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#DeleteApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.id
 
 
-class DeleteApplicationRequest(TypedDict):
+class DeleteApplicationRequest(TypedDict, closed=True):
     application_id: "aws_sdk_appconfig.types.id.Id"
     """<p>The ID of the application to delete.</p>"""
 

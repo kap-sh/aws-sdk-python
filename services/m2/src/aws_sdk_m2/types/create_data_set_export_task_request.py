@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#CreateDataSetExportTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.kms_key_id
 
 
-class CreateDataSetExportTaskRequest(TypedDict):
+class CreateDataSetExportTaskRequest(TypedDict, closed=True):
     application_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The unique identifier of the application for which you want to export data sets.</p>"""
     export_config: "aws_sdk_m2.types.data_set_export_config.DataSetExportConfig"

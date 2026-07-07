@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteTurnStepDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.turn_angle
 
 
-class RouteTurnStepDetails(TypedDict):
+class RouteTurnStepDetails(TypedDict, closed=True):
     intersection: "aws_sdk_geo_routes.types.localized_string_list.LocalizedStringList"
     """<p>Name of the intersection, if applicable to the step.</p>"""
     steering_direction: NotRequired[

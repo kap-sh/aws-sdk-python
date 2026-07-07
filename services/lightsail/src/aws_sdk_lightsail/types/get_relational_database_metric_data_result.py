@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetRelationalDatabaseMetricDataResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.metric_datapoint_list
     import aws_sdk_lightsail.types.relational_database_metric_name
 
 
-class GetRelationalDatabaseMetricDataResult(TypedDict):
+class GetRelationalDatabaseMetricDataResult(TypedDict, closed=True):
     metric_name: NotRequired[
         "aws_sdk_lightsail.types.relational_database_metric_name.RelationalDatabaseMetricName"
     ]

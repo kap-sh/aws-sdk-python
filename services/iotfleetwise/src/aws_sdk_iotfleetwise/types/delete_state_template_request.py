@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#DeleteStateTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.resource_identifier
 
 
-class DeleteStateTemplateRequest(TypedDict):
+class DeleteStateTemplateRequest(TypedDict, closed=True):
     identifier: "aws_sdk_iotfleetwise.types.resource_identifier.ResourceIdentifier"
     """<p>The unique ID of the state template.</p>"""
 

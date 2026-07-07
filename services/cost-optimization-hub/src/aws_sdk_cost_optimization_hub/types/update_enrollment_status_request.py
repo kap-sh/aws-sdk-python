@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#UpdateEnrollmentStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_optimization_hub.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.enrollment_status
 
 
-class UpdateEnrollmentStatusRequest(TypedDict):
+class UpdateEnrollmentStatusRequest(TypedDict, closed=True):
     status: "aws_sdk_cost_optimization_hub.types.enrollment_status.EnrollmentStatus"
     """<p>Sets the account status.</p>"""
     include_member_accounts: NotRequired["bool"]

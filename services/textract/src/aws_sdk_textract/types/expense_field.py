@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#ExpenseField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.expense_currency
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.u_integer
 
 
-class ExpenseField(TypedDict):
+class ExpenseField(TypedDict, closed=True):
     type: NotRequired["aws_sdk_textract.types.expense_type.ExpenseType"]
     """<p>The implied label of a detected element. Present alongside LabelDetection for explicit elements.</p>"""
     label_detection: NotRequired[

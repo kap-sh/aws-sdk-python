@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyImageAttributeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.user_id_string_list
 
 
-class ModifyImageAttributeRequest(TypedDict):
+class ModifyImageAttributeRequest(TypedDict, closed=True):
     attribute: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The name of the attribute to modify.</p> <p>Valid values: <code>description</code> | <code>imdsSupport</code> | <code>launchPermission</code> </p>"""
     description: NotRequired["aws_sdk_ec2.types.attribute_value.AttributeValue"]

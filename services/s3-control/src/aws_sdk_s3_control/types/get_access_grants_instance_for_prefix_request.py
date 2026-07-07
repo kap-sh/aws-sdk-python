@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#GetAccessGrantsInstanceForPrefixRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.s3_prefix
 
 
-class GetAccessGrantsInstanceForPrefixRequest(TypedDict):
+class GetAccessGrantsInstanceForPrefixRequest(TypedDict, closed=True):
     account_id: "aws_sdk_s3_control.types.account_id.AccountId"
     """<p>The ID of the Amazon Web Services account that is making this request.</p>"""
     s3_prefix: "aws_sdk_s3_control.types.s3_prefix.S3Prefix"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#NegateReservedInstanceAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.uuid
 
 
-class NegateReservedInstanceAction(TypedDict):
+class NegateReservedInstanceAction(TypedDict, closed=True):
     reserved_instances_id: NotRequired["aws_sdk_bcm_pricing_calculator.types.uuid.Uuid"]
     """<p> The ID of the Reserved Instance to remove. </p>"""
 

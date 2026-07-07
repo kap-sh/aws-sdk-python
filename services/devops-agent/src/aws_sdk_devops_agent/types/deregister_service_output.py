@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#DeregisterServiceOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeregisterServiceOutput(TypedDict):
+class DeregisterServiceOutput(TypedDict, closed=True):
     pass
 
 

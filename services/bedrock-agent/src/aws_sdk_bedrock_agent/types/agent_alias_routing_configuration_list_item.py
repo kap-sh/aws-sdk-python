@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#AgentAliasRoutingConfigurationListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.provisioned_model_identifier
     import aws_sdk_bedrock_agent.types.version
 
 
-class AgentAliasRoutingConfigurationListItem(TypedDict):
+class AgentAliasRoutingConfigurationListItem(TypedDict, closed=True):
     agent_version: NotRequired["aws_sdk_bedrock_agent.types.version.Version"]
     """<p>The version of the agent with which the alias is associated.</p>"""
     provisioned_throughput: NotRequired[

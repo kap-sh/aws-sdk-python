@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GraphLink``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.string
     import aws_sdk_xray.types.trace_id_list
 
 
-class GraphLink(TypedDict):
+class GraphLink(TypedDict, closed=True):
     reference_type: NotRequired["aws_sdk_xray.types.string.String"]
     """<p> Relationship of a trace to the corresponding service. </p>"""
     source_trace_id: NotRequired["aws_sdk_xray.types.string.String"]

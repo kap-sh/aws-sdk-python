@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#StartEventsDetectionJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.comprehend_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.job_status
 
 
-class StartEventsDetectionJobResponse(TypedDict):
+class StartEventsDetectionJobResponse(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_comprehend.types.job_id.JobId"]
     """<p>An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>"""
     job_arn: NotRequired["aws_sdk_comprehend.types.comprehend_arn.ComprehendArn"]

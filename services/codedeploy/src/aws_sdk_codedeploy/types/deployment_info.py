@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#DeploymentInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.additional_deployment_status_info
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.timestamp
 
 
-class DeploymentInfo(TypedDict):
+class DeploymentInfo(TypedDict, closed=True):
     application_name: NotRequired[
         "aws_sdk_codedeploy.types.application_name.ApplicationName"
     ]

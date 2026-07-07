@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedQueryS3OutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.result_format
 
 
-class ProtectedQueryS3OutputConfiguration(TypedDict):
+class ProtectedQueryS3OutputConfiguration(TypedDict, closed=True):
     result_format: "aws_sdk_cleanrooms.types.result_format.ResultFormat"
     """<p>Intended file format of the result.</p>"""
     bucket: "str"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#DeactivateTypeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.type_name
 
 
-class DeactivateTypeInput(TypedDict):
+class DeactivateTypeInput(TypedDict, closed=True):
     type_name: NotRequired["aws_sdk_cloudformation.types.type_name.TypeName"]
     """<p>The type name of the extension in this account and Region. If you specified a type name alias when enabling the extension, use the type name alias.</p> <p>Conditional: You must specify either <code>Arn</code>, or <code>TypeName</code> and <code>Type</code>.</p>"""
     type: NotRequired["aws_sdk_cloudformation.types.third_party_type.ThirdPartyType"]

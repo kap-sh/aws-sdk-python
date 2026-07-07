@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#GetVocabularyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.vocabulary_name
 
 
-class GetVocabularyRequest(TypedDict):
+class GetVocabularyRequest(TypedDict, closed=True):
     vocabulary_name: "aws_sdk_transcribe.types.vocabulary_name.VocabularyName"
     """<p>The name of the custom vocabulary you want information about. Custom vocabulary names are case sensitive.</p>"""
 

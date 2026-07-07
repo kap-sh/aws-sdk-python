@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#Subscription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.currency_code
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.subscription_type
 
 
-class Subscription(TypedDict):
+class Subscription(TypedDict, closed=True):
     subscription_id: NotRequired["aws_sdk_outposts.types.string.String"]
     """<p>The ID of the subscription that appears on the Amazon Web Services Billing Center console.</p>"""
     subscription_type: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3vectors.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.tags_map
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_s3vectors.types.resource_arn.ResourceARN"
     """<p>The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you're applying tags to. The tagged resource can be a vector bucket or a vector index. </p>"""
     tags: "aws_sdk_s3vectors.types.tags_map.TagsMap"

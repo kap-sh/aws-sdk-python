@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycontrolconfig#DescribeClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.__string
 
 
-class DescribeClusterRequest(TypedDict):
+class DescribeClusterRequest(TypedDict, closed=True):
     cluster_arn: "aws_sdk_route53_recovery_control_config.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) of the cluster.</p>"""
 

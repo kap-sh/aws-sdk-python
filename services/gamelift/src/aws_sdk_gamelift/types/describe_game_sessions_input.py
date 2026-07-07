@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeGameSessionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.alias_id_or_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.positive_integer
 
 
-class DescribeGameSessionsInput(TypedDict):
+class DescribeGameSessionsInput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id_or_arn.FleetIdOrArn"]
     """<p>A unique identifier for the fleet to retrieve game sessions for. You can use either the fleet ID or ARN value. </p>"""
     game_session_id: NotRequired[

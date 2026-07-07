@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#LimitExceededException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_internetmonitor.errors import ServiceError
 
 
-class LimitExceededException_(TypedDict):
+class LimitExceededException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

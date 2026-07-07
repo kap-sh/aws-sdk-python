@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#GetStorageLensConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.storage_lens_configuration
 
 
-class GetStorageLensConfigurationResult(TypedDict):
+class GetStorageLensConfigurationResult(TypedDict, closed=True):
     storage_lens_configuration: NotRequired[
         "aws_sdk_s3_control.types.storage_lens_configuration.StorageLensConfiguration"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#ErrorMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.double
     import aws_sdk_forecast.types.forecast_type
 
 
-class ErrorMetric(TypedDict):
+class ErrorMetric(TypedDict, closed=True):
     forecast_type: NotRequired["aws_sdk_forecast.types.forecast_type.ForecastType"]
     """<p> The Forecast type used to compute WAPE, MAPE, MASE, and RMSE. </p>"""
     wape: NotRequired["aws_sdk_forecast.types.double.Double"]

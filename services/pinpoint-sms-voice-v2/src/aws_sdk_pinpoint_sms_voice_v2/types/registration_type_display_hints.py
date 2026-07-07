@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#RegistrationTypeDisplayHints``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
 
-class RegistrationTypeDisplayHints(TypedDict):
+class RegistrationTypeDisplayHints(TypedDict, closed=True):
     title: "str"
     """<p>The title of the display hint.</p>"""
     short_description: NotRequired["str"]

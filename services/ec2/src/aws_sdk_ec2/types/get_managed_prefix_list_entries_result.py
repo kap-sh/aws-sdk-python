@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetManagedPrefixListEntriesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.prefix_list_entry_set
 
 
-class GetManagedPrefixListEntriesResult(TypedDict):
+class GetManagedPrefixListEntriesResult(TypedDict, closed=True):
     entries: NotRequired["aws_sdk_ec2.types.prefix_list_entry_set.PrefixListEntrySet"]
     """<p>Information about the prefix list entries.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.next_token.NextToken"]

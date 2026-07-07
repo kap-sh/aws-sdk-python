@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.amp#GetDefaultScraperConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
 
-class GetDefaultScraperConfigurationResponse(TypedDict):
+class GetDefaultScraperConfigurationResponse(TypedDict, closed=True):
     configuration: "bytes"
     r"""<p>The configuration file. Base 64 encoded. For more information, see <a href=\"https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration\">Scraper configuration</a>in the <i>Amazon Managed Service for Prometheus User Guide</i>.</p>"""
 

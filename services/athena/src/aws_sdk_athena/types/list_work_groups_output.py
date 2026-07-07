@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ListWorkGroupsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.token
     import aws_sdk_athena.types.work_groups_list
 
 
-class ListWorkGroupsOutput(TypedDict):
+class ListWorkGroupsOutput(TypedDict, closed=True):
     work_groups: NotRequired["aws_sdk_athena.types.work_groups_list.WorkGroupsList"]
     """<p>A list of <a>WorkGroupSummary</a> objects that include the names, descriptions, creation times, and states for each workgroup.</p>"""
     next_token: NotRequired["aws_sdk_athena.types.token.Token"]

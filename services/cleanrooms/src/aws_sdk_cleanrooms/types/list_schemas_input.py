@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ListSchemasInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.collaboration_identifier
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.schema_type
 
 
-class ListSchemasInput(TypedDict):
+class ListSchemasInput(TypedDict, closed=True):
     collaboration_identifier: (
         "aws_sdk_cleanrooms.types.collaboration_identifier.CollaborationIdentifier"
     )

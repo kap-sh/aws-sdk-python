@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeSdiSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.sdi_source
 
 
-class DescribeSdiSourceResponse(TypedDict):
+class DescribeSdiSourceResponse(TypedDict, closed=True):
     sdi_source: NotRequired["aws_sdk_medialive.types.sdi_source.SdiSource"]
     """Settings for the SDI source."""
 

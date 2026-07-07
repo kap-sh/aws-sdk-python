@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Ipv6Pool``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class Ipv6Pool(TypedDict):
+class Ipv6Pool(TypedDict, closed=True):
     pool_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the address pool.</p>"""
     description: NotRequired["aws_sdk_ec2.types.string.String"]

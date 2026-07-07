@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#DeleteMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class DeleteMessageRequest(TypedDict):
+class DeleteMessageRequest(TypedDict, closed=True):
     queue_url: "aws_sdk_sqs.types.string.String"
     """<p>The URL of the Amazon SQS queue from which messages are deleted.</p> <p>Queue URLs and names are case-sensitive.</p>"""
     receipt_handle: "aws_sdk_sqs.types.string.String"

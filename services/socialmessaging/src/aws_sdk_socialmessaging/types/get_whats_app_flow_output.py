@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#GetWhatsAppFlowOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.validation_error_list
 
 
-class GetWhatsAppFlowOutput(TypedDict):
+class GetWhatsAppFlowOutput(TypedDict, closed=True):
     flow_id: "aws_sdk_socialmessaging.types.meta_flow_id.MetaFlowId"
     """<p>The unique identifier of the Flow.</p>"""
     flow_name: "aws_sdk_socialmessaging.types.meta_flow_name.MetaFlowName"

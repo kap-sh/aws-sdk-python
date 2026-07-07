@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#SearchFacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.face_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
 
 
-class SearchFacesResponse(TypedDict):
+class SearchFacesResponse(TypedDict, closed=True):
     searched_face_id: NotRequired["aws_sdk_rekognition.types.face_id.FaceId"]
     """<p>ID of the face that was searched for matches in a collection.</p>"""
     face_matches: NotRequired["aws_sdk_rekognition.types.face_match_list.FaceMatchList"]

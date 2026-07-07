@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#ATITrainingMetricsValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.ati_metric_data_points_list
     import aws_sdk_frauddetector.types.ati_model_performance
 
 
-class ATITrainingMetricsValue(TypedDict):
+class ATITrainingMetricsValue(TypedDict, closed=True):
     metric_data_points: NotRequired[
         "aws_sdk_frauddetector.types.ati_metric_data_points_list.ATIMetricDataPointsList"
     ]

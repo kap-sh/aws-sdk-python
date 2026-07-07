@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AssociationFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.association_filter_value
 
 
-class AssociationFilter(TypedDict):
+class AssociationFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.association_filter_key.AssociationFilterKey"
     """<p>The name of the filter.</p> <note> <p> <code>InstanceId</code> has been deprecated.</p> </note>"""
     value: "aws_sdk_ssm.types.association_filter_value.AssociationFilterValue"

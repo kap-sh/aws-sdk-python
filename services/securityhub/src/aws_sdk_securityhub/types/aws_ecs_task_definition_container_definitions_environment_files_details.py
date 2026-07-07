@@ -1,14 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails(TypedDict):
+class AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails(
+    TypedDict, closed=True
+):
     type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The type of environment file. The valid value is <code>s3</code>.</p>"""
     value: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

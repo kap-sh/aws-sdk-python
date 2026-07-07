@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#ListGraphsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.pagination_token
 
 
-class ListGraphsOutput(TypedDict):
+class ListGraphsOutput(TypedDict, closed=True):
     graphs: "aws_sdk_neptune_graph.types.graph_summary_list.GraphSummaryList"
     """<p>A list of the graphs.</p>"""
     next_token: NotRequired[

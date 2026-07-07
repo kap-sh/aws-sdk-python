@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GetNextMessageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class GetNextMessageResponse(TypedDict):
+class GetNextMessageResponse(TypedDict, closed=True):
     type: "aws_sdk_qconnect.types.message_type.MessageType"
     """<p>The type of message response.</p>"""
     response: "aws_sdk_qconnect.types.message_output.MessageOutput"

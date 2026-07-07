@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#ListFulfillmentOptionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.product_id
 
 
-class ListFulfillmentOptionsInput(TypedDict):
+class ListFulfillmentOptionsInput(TypedDict, closed=True):
     product_id: "aws_sdk_marketplace_discovery.types.product_id.ProductId"
     """<p>The unique identifier of the product for which to list fulfillment options.</p>"""
     max_results: "int"

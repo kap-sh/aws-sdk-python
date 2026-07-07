@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#RecommenderConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.events_config
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.recommender_config_training_frequency_integer
 
 
-class RecommenderConfig(TypedDict):
+class RecommenderConfig(TypedDict, closed=True):
     events_config: NotRequired[
         "aws_sdk_customer_profiles.types.events_config.EventsConfig"
     ]

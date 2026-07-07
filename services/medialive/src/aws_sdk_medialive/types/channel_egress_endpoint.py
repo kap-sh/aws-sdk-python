@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ChannelEgressEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class ChannelEgressEndpoint(TypedDict):
+class ChannelEgressEndpoint(TypedDict, closed=True):
     source_ip: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Public IP of where a channel's output comes from"""
 

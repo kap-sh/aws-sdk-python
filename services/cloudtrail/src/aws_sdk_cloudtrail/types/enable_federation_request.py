@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#EnableFederationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.federation_role_arn
 
 
-class EnableFederationRequest(TypedDict):
+class EnableFederationRequest(TypedDict, closed=True):
     event_data_store: "aws_sdk_cloudtrail.types.event_data_store_arn.EventDataStoreArn"
     """<p>The ARN (or ID suffix of the ARN) of the event data store for which you want to enable Lake query federation.</p>"""
     federation_role_arn: (

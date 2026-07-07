@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#InlineAgentResponseStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime._iter import AnyIterator
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import Message
@@ -21,61 +23,61 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.inline_agent_trace_part
 
 
-class _InlineAgentResponseStream_chunk(TypedDict):
+class _InlineAgentResponseStream_chunk(TypedDict, closed=True):
     chunk: "aws_sdk_bedrock_agent_runtime.types.inline_agent_payload_part.InlineAgentPayloadPart"
 
 
-class _InlineAgentResponseStream_trace(TypedDict):
+class _InlineAgentResponseStream_trace(TypedDict, closed=True):
     trace: "aws_sdk_bedrock_agent_runtime.types.inline_agent_trace_part.InlineAgentTracePart"
 
 
-class _InlineAgentResponseStream_returnControl(TypedDict):
+class _InlineAgentResponseStream_returnControl(TypedDict, closed=True):
     returnControl: "aws_sdk_bedrock_agent_runtime.types.inline_agent_return_control_payload.InlineAgentReturnControlPayload"
 
 
-class _InlineAgentResponseStream_internalServerException(TypedDict):
+class _InlineAgentResponseStream_internalServerException(TypedDict, closed=True):
     internalServerException: "aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException_"
 
 
-class _InlineAgentResponseStream_validationException(TypedDict):
+class _InlineAgentResponseStream_validationException(TypedDict, closed=True):
     validationException: (
         "aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException_"
     )
 
 
-class _InlineAgentResponseStream_resourceNotFoundException(TypedDict):
+class _InlineAgentResponseStream_resourceNotFoundException(TypedDict, closed=True):
     resourceNotFoundException: "aws_sdk_bedrock_agent_runtime.errors.resource_not_found_exception.ResourceNotFoundException_"
 
 
-class _InlineAgentResponseStream_serviceQuotaExceededException(TypedDict):
+class _InlineAgentResponseStream_serviceQuotaExceededException(TypedDict, closed=True):
     serviceQuotaExceededException: "aws_sdk_bedrock_agent_runtime.errors.service_quota_exceeded_exception.ServiceQuotaExceededException_"
 
 
-class _InlineAgentResponseStream_throttlingException(TypedDict):
+class _InlineAgentResponseStream_throttlingException(TypedDict, closed=True):
     throttlingException: (
         "aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException_"
     )
 
 
-class _InlineAgentResponseStream_accessDeniedException(TypedDict):
+class _InlineAgentResponseStream_accessDeniedException(TypedDict, closed=True):
     accessDeniedException: "aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException_"
 
 
-class _InlineAgentResponseStream_conflictException(TypedDict):
+class _InlineAgentResponseStream_conflictException(TypedDict, closed=True):
     conflictException: (
         "aws_sdk_bedrock_agent_runtime.errors.conflict_exception.ConflictException_"
     )
 
 
-class _InlineAgentResponseStream_dependencyFailedException(TypedDict):
+class _InlineAgentResponseStream_dependencyFailedException(TypedDict, closed=True):
     dependencyFailedException: "aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.DependencyFailedException_"
 
 
-class _InlineAgentResponseStream_badGatewayException(TypedDict):
+class _InlineAgentResponseStream_badGatewayException(TypedDict, closed=True):
     badGatewayException: "aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.BadGatewayException_"
 
 
-class _InlineAgentResponseStream_files(TypedDict):
+class _InlineAgentResponseStream_files(TypedDict, closed=True):
     files: (
         "aws_sdk_bedrock_agent_runtime.types.inline_agent_file_part.InlineAgentFilePart"
     )

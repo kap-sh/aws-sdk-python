@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#SchemaAttributeType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.attribute_data_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.string_attribute_constraints_type
 
 
-class SchemaAttributeType(TypedDict):
+class SchemaAttributeType(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_cognito_identity_provider.types.custom_attribute_name_type.CustomAttributeNameType"
     ]

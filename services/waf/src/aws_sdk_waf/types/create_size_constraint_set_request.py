@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#CreateSizeConstraintSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_name
 
 
-class CreateSizeConstraintSetRequest(TypedDict):
+class CreateSizeConstraintSetRequest(TypedDict, closed=True):
     name: "aws_sdk_waf.types.resource_name.ResourceName"
     """<p>A friendly name or description of the <a>SizeConstraintSet</a>. You can't change <code>Name</code> after you create a <code>SizeConstraintSet</code>.</p>"""
     change_token: "aws_sdk_waf.types.change_token.ChangeToken"

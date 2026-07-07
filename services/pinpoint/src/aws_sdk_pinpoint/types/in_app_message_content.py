@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#InAppMessageContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.in_app_message_header_config
 
 
-class InAppMessageContent(TypedDict):
+class InAppMessageContent(TypedDict, closed=True):
     background_color: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The background color for the message.</p>"""
     body_config: NotRequired[

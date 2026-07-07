@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#CollaboratorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.relay_conversation_history
 
 
-class CollaboratorConfiguration(TypedDict):
+class CollaboratorConfiguration(TypedDict, closed=True):
     collaborator_name: "aws_sdk_bedrock_agent_runtime.types.name.Name"
     """<p> Name of the inline collaborator agent which must be the same name as specified for <code>agentName</code>. </p>"""
     collaborator_instruction: "aws_sdk_bedrock_agent_runtime.types.collaboration_instruction.CollaborationInstruction"

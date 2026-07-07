@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#WorkflowRunStatusReason``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class WorkflowRunStatusReason(TypedDict):
+class WorkflowRunStatusReason(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#DeleteStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.version
 
 
-class DeleteStreamInput(TypedDict):
+class DeleteStreamInput(TypedDict, closed=True):
     stream_arn: "aws_sdk_kinesis_video.types.resource_arn.ResourceARN"
     """<p>The Amazon Resource Name (ARN) of the stream that you want to delete. </p>"""
     current_version: NotRequired["aws_sdk_kinesis_video.types.version.Version"]

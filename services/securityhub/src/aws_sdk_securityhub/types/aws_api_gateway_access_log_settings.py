@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsApiGatewayAccessLogSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsApiGatewayAccessLogSettings(TypedDict):
+class AwsApiGatewayAccessLogSettings(TypedDict, closed=True):
     format: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>A single-line format of the access logs of data, as specified by selected <code>$context</code> variables. The format must include at least <code>$context.requestId</code>.</p>"""
     destination_arn: NotRequired[

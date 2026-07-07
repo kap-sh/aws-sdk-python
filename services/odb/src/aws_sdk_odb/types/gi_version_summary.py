@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GiVersionSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GiVersionSummary(TypedDict):
+class GiVersionSummary(TypedDict, closed=True):
     version: NotRequired["str"]
     """<p>The GI software version.</p>"""
 

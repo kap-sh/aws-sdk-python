@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#DomainStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 from aws_sdk_cloudsearch.errors import DeserializationError
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.service_endpoint
 
 
-class DomainStatus(TypedDict):
+class DomainStatus(TypedDict, closed=True):
     domain_id: "aws_sdk_cloudsearch.types.domain_id.DomainId"
     domain_name: "aws_sdk_cloudsearch.types.domain_name.DomainName"
     arn: NotRequired["aws_sdk_cloudsearch.types.arn.ARN"]

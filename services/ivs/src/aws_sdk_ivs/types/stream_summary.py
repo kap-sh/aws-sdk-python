@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#StreamSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.channel_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.stream_viewer_count
 
 
-class StreamSummary(TypedDict):
+class StreamSummary(TypedDict, closed=True):
     channel_arn: NotRequired["aws_sdk_ivs.types.channel_arn.ChannelArn"]
     """<p>Channel ARN for the stream.</p>"""
     stream_id: NotRequired["aws_sdk_ivs.types.stream_id.StreamId"]

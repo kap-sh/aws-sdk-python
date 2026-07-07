@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningCheckRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_arn
     import aws_sdk_bedrock.types.automated_reasoning_policy_definition_rule_id
 
 
-class AutomatedReasoningCheckRule(TypedDict):
+class AutomatedReasoningCheckRule(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_bedrock.types.automated_reasoning_policy_definition_rule_id.AutomatedReasoningPolicyDefinitionRuleId"
     ]

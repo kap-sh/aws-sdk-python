@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListReferencesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.reference_store_id
 
 
-class ListReferencesRequest(TypedDict):
+class ListReferencesRequest(TypedDict, closed=True):
     reference_store_id: "aws_sdk_omics.types.reference_store_id.ReferenceStoreId"
     """<p>The references' reference store ID.</p>"""
     max_results: NotRequired["int"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateIntegrationTablePropertiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.target_table_config
 
 
-class CreateIntegrationTablePropertiesRequest(TypedDict):
+class CreateIntegrationTablePropertiesRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_glue.types.string512.String512"
     """<p>The Amazon Resource Name (ARN) of the target table for which to create integration table properties. Currently, this API only supports creating integration table properties for target tables, and the provided ARN should be the ARN of the target table in the Glue Data Catalog. Support for creating integration table properties for source connections (using the connection ARN) is not yet implemented and will be added in a future release. </p>"""
     table_name: "aws_sdk_glue.types.string128.String128"

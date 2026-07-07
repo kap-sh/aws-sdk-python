@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ImportModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.version_name
 
 
-class ImportModelRequest(TypedDict):
+class ImportModelRequest(TypedDict, closed=True):
     source_model_arn: "aws_sdk_comprehend.types.comprehend_model_arn.ComprehendModelArn"
     """<p>The Amazon Resource Name (ARN) of the custom model to import.</p>"""
     model_name: NotRequired[

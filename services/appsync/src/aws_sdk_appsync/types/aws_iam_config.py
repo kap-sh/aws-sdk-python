@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#AwsIamConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class AwsIamConfig(TypedDict):
+class AwsIamConfig(TypedDict, closed=True):
     signing_region: NotRequired["aws_sdk_appsync.types.string.String"]
     """<p>The signing Amazon Web Services Region for IAM authorization.</p>"""
     signing_service_name: NotRequired["aws_sdk_appsync.types.string.String"]

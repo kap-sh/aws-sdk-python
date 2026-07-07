@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ListEngagementResourceAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.engagement_resource_association_summary_list
 
 
-class ListEngagementResourceAssociationsResponse(TypedDict):
+class ListEngagementResourceAssociationsResponse(TypedDict, closed=True):
     engagement_resource_association_summaries: "aws_sdk_partnercentral_selling.types.engagement_resource_association_summary_list.EngagementResourceAssociationSummaryList"
     """<p> A list of engagement-resource association summaries. </p>"""
     next_token: NotRequired["str"]

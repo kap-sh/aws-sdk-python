@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#RadiusSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.port_number
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.use_same_username
 
 
-class RadiusSettings(TypedDict):
+class RadiusSettings(TypedDict, closed=True):
     radius_servers: NotRequired["aws_sdk_directory_service.types.servers.Servers"]
     """<p>The fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.</p>"""
     radius_servers_ipv6: NotRequired["aws_sdk_directory_service.types.servers.Servers"]

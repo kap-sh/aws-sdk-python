@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#GetCaseAuditEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.case_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.next_token
 
 
-class GetCaseAuditEventsRequest(TypedDict):
+class GetCaseAuditEventsRequest(TypedDict, closed=True):
     case_id: "aws_sdk_connectcases.types.case_id.CaseId"
     """<p>A unique identifier of the case.</p>"""
     domain_id: "aws_sdk_connectcases.types.domain_id.DomainId"

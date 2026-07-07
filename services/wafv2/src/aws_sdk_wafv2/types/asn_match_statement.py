@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#AsnMatchStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.forwarded_ip_config
 
 
-class AsnMatchStatement(TypedDict):
+class AsnMatchStatement(TypedDict, closed=True):
     asn_list: "aws_sdk_wafv2.types.asn_list.AsnList"
     """<p>Contains one or more Autonomous System Numbers (ASNs). ASNs are unique identifiers assigned to large internet networks managed by organizations such as internet service providers, enterprises, universities, or government agencies. </p>"""
     forwarded_ip_config: NotRequired[

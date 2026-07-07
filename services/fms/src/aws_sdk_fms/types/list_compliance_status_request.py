@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListComplianceStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.policy_id
 
 
-class ListComplianceStatusRequest(TypedDict):
+class ListComplianceStatusRequest(TypedDict, closed=True):
     policy_id: "aws_sdk_fms.types.policy_id.PolicyId"
     """<p>The ID of the Firewall Manager policy that you want the details for.</p>"""
     next_token: NotRequired["aws_sdk_fms.types.pagination_token.PaginationToken"]

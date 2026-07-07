@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#Group``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_groups.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.owner
 
 
-class Group(TypedDict):
+class Group(TypedDict, closed=True):
     group_arn: "aws_sdk_resource_groups.types.group_arn_v2.GroupArnV2"
     """<p>The Amazon resource name (ARN) of the resource group.</p>"""
     name: "aws_sdk_resource_groups.types.group_name.GroupName"

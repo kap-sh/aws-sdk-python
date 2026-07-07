@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ListExperimentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.experiment_template_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.next_token
 
 
-class ListExperimentsRequest(TypedDict):
+class ListExperimentsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_fis.types.list_experiments_max_results.ListExperimentsMaxResults"
     ]

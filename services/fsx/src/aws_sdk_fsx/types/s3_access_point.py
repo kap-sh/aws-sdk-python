@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#S3AccessPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.general_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.s3_access_point_vpc_configuration
 
 
-class S3AccessPoint(TypedDict):
+class S3AccessPoint(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_fsx.types.general_arn.GeneralARN"]
     """<p>he S3 access point's ARN.</p>"""
     alias: NotRequired["aws_sdk_fsx.types.s3_access_point_alias.S3AccessPointAlias"]

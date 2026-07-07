@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#FrameMetricDatum``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.frame_metric_values
 
 
-class FrameMetricDatum(TypedDict):
+class FrameMetricDatum(TypedDict, closed=True):
     frame_metric: "aws_sdk_codeguruprofiler.types.frame_metric.FrameMetric"
     values: "aws_sdk_codeguruprofiler.types.frame_metric_values.FrameMetricValues"
     """<p> A list of values that are associated with a frame metric. </p>"""

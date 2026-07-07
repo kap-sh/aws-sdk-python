@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#SendMessageBatchRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class SendMessageBatchRequest(TypedDict):
+class SendMessageBatchRequest(TypedDict, closed=True):
     queue_url: "aws_sdk_sqs.types.string.String"
     """<p>The URL of the Amazon SQS queue to which batched messages are sent.</p> <p>Queue URLs and names are case-sensitive.</p>"""
     entries: "aws_sdk_sqs.types.send_message_batch_request_entry_list.SendMessageBatchRequestEntryList"

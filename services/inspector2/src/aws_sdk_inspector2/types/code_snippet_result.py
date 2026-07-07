@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CodeSnippetResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.code_line_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.suggested_fixes
 
 
-class CodeSnippetResult(TypedDict):
+class CodeSnippetResult(TypedDict, closed=True):
     finding_arn: NotRequired["aws_sdk_inspector2.types.finding_arn.FindingArn"]
     """<p>The ARN of a finding that the code snippet is associated with.</p>"""
     start_line: NotRequired["int"]

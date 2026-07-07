@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#PutKMSEncryptionKeyResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutKMSEncryptionKeyResult(TypedDict):
+class PutKMSEncryptionKeyResult(TypedDict, closed=True):
     pass
 
 

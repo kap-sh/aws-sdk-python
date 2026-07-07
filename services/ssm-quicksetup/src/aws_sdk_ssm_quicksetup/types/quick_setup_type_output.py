@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#QuickSetupTypeOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class QuickSetupTypeOutput(TypedDict):
+class QuickSetupTypeOutput(TypedDict, closed=True):
     type: NotRequired["str"]
     """<p>The type of the Quick Setup configuration.</p>"""
     latest_version: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#CreateKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.boolean_type
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.xks_key_id_type
 
 
-class CreateKeyRequest(TypedDict):
+class CreateKeyRequest(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_kms.types.policy_type.PolicyType"]
     r"""<p>The key policy to attach to the KMS key.</p> <p>If you provide a key policy, it must meet the following criteria:</p> <ul> <li> <p>The key policy must allow the calling principal to make a subsequent <code>PutKeyPolicy</code> request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key\">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p> </li> <li> <p>Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services principal, you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to KMS. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency\">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p> </li> </ul> <note> <p>If either of the required <code>Resource</code> or <code>Action</code> elements are missing from a key policy statement, the policy statement has no effect. When a key policy statement is missing one of these elements, the KMS console correctly reports an error, but the <code>CreateKey</code> and <code>PutKeyPolicy</code> API requests succeed, even though the policy statement is ineffective.</p> <p>For more information on required key policy elements, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html#key-policy-elements\">Elements in a key policy</a> in the <i>Key Management Service Developer Guide</i>.</p> </note> <p>If you do not provide a key policy, KMS attaches a default key policy to the KMS key. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html\">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. </p> <note> <p>If the key policy exceeds the length constraint, KMS returns a <code>LimitExceededException</code>.</p> </note> <p>For help writing and formatting a JSON policy document, see the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html\">IAM JSON Policy Reference</a> in the <i> <i>Identity and Access Management User Guide</i> </i>.</p>"""
     description: NotRequired["aws_sdk_kms.types.description_type.DescriptionType"]

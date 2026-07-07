@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#DeleteServicePrincipalNameRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.connector_arn
     import aws_sdk_pca_connector_ad.types.directory_registration_arn
 
 
-class DeleteServicePrincipalNameRequest(TypedDict):
+class DeleteServicePrincipalNameRequest(TypedDict, closed=True):
     directory_registration_arn: "aws_sdk_pca_connector_ad.types.directory_registration_arn.DirectoryRegistrationArn"
     r"""<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html\">CreateDirectoryRegistration</a>.</p>"""
     connector_arn: "aws_sdk_pca_connector_ad.types.connector_arn.ConnectorArn"

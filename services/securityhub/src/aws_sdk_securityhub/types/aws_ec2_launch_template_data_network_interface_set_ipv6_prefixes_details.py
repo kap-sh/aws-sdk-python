@@ -1,14 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails(TypedDict):
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails(
+    TypedDict, closed=True
+):
     ipv6_prefix: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

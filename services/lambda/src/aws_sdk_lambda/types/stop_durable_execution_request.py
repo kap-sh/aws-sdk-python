@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#StopDurableExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.durable_execution_arn
     import aws_sdk_lambda.types.error_object
 
 
-class StopDurableExecutionRequest(TypedDict):
+class StopDurableExecutionRequest(TypedDict, closed=True):
     durable_execution_arn: (
         "aws_sdk_lambda.types.durable_execution_arn.DurableExecutionArn"
     )

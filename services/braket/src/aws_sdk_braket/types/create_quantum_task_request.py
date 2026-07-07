@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#CreateQuantumTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.tags_map
 
 
-class CreateQuantumTaskRequest(TypedDict):
+class CreateQuantumTaskRequest(TypedDict, closed=True):
     client_token: "aws_sdk_braket.types.string64.String64"
     """<p>The client token associated with the request.</p>"""
     device_arn: "aws_sdk_braket.types.device_arn.DeviceArn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GpuInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.total_gpu_memory
 
 
-class GpuInfo(TypedDict):
+class GpuInfo(TypedDict, closed=True):
     gpus: NotRequired["aws_sdk_ec2.types.gpu_device_info_list.GpuDeviceInfoList"]
     """<p>Describes the GPU accelerators for the instance type.</p>"""
     total_gpu_memory_in_mi_b: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetWorkflowVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.accelerators
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.workflow_version_name
 
 
-class GetWorkflowVersionResponse(TypedDict):
+class GetWorkflowVersionResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_omics.types.workflow_version_arn.WorkflowVersionArn"]
     """<p>ARN of the workflow version.</p>"""
     workflow_id: NotRequired["aws_sdk_omics.types.workflow_id.WorkflowId"]

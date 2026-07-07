@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ServiceSoftwareOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.string
 
 
-class ServiceSoftwareOptions(TypedDict):
+class ServiceSoftwareOptions(TypedDict, closed=True):
     current_version: NotRequired["aws_sdk_elasticsearch_service.types.string.String"]
     """<p>The current service software version that is present on the domain.</p>"""
     new_version: NotRequired["aws_sdk_elasticsearch_service.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#KafkaStreamingSourceOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boxed_boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.iso8601_date_time
 
 
-class KafkaStreamingSourceOptions(TypedDict):
+class KafkaStreamingSourceOptions(TypedDict, closed=True):
     bootstrap_servers: NotRequired[
         "aws_sdk_glue.types.enclosed_in_string_property.EnclosedInStringProperty"
     ]

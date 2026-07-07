@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#HttpEndpointCommonAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.http_endpoint_attribute_value
 
 
-class HttpEndpointCommonAttribute(TypedDict):
+class HttpEndpointCommonAttribute(TypedDict, closed=True):
     attribute_name: (
         "aws_sdk_firehose.types.http_endpoint_attribute_name.HttpEndpointAttributeName"
     )

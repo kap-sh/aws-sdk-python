@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListAccountsInAccountPoolOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.account_info_list
     import aws_sdk_datazone.types.pagination_token
 
 
-class ListAccountsInAccountPoolOutput(TypedDict):
+class ListAccountsInAccountPoolOutput(TypedDict, closed=True):
     items: NotRequired["aws_sdk_datazone.types.account_info_list.AccountInfoList"]
     """<p>The results of the ListAccountsInAccountPool operation.</p>"""
     next_token: NotRequired["aws_sdk_datazone.types.pagination_token.PaginationToken"]

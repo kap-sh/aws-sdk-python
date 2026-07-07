@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#CachePointBlock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.cache_ttl
 
 
-class CachePointBlock(TypedDict):
+class CachePointBlock(TypedDict, closed=True):
     type: "aws_sdk_bedrock_runtime.types.cache_point_type.CachePointType"
     """<p>Specifies the type of cache point within the CachePointBlock.</p>"""
     ttl: NotRequired["aws_sdk_bedrock_runtime.types.cache_ttl.CacheTTL"]

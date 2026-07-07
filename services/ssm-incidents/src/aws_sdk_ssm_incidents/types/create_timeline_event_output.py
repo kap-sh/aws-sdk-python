@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#CreateTimelineEventOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.uuid
 
 
-class CreateTimelineEventOutput(TypedDict):
+class CreateTimelineEventOutput(TypedDict, closed=True):
     incident_record_arn: "aws_sdk_ssm_incidents.types.arn.Arn"
     """<p>The ARN of the incident record that you added the event to.</p>"""
     event_id: "aws_sdk_ssm_incidents.types.uuid.UUID"

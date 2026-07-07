@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ListObjectivesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.max_list_objectives_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.pagination_token
 
 
-class ListObjectivesRequest(TypedDict):
+class ListObjectivesRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_controlcatalog.types.max_list_objectives_results.MaxListObjectivesResults"
     ]

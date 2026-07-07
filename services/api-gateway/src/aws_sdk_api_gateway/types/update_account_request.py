@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#UpdateAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_patch_operation
 
 
-class UpdateAccountRequest(TypedDict):
+class UpdateAccountRequest(TypedDict, closed=True):
     patch_operations: NotRequired[
         "aws_sdk_api_gateway.types.list_of_patch_operation.ListOfPatchOperation"
     ]

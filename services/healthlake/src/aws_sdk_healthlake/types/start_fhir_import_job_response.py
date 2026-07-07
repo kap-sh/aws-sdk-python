@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#StartFHIRImportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.job_status
 
 
-class StartFHIRImportJobResponse(TypedDict):
+class StartFHIRImportJobResponse(TypedDict, closed=True):
     job_id: "aws_sdk_healthlake.types.job_id.JobId"
     """<p>The import job identifier.</p>"""
     job_status: "aws_sdk_healthlake.types.job_status.JobStatus"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.freetier#GetAccountActivityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_freetier.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_freetier.types.generic_string
 
 
-class GetAccountActivityResponse(TypedDict):
+class GetAccountActivityResponse(TypedDict, closed=True):
     activity_id: "aws_sdk_freetier.types.activity_id.ActivityId"
     """<p> A unique identifier that identifies the activity. </p>"""
     title: "aws_sdk_freetier.types.generic_string.GenericString"

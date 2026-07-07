@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#BrowserNetworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.browser_network_mode
     import aws_sdk_bedrock_agentcore_control.types.vpc_config
 
 
-class BrowserNetworkConfiguration(TypedDict):
+class BrowserNetworkConfiguration(TypedDict, closed=True):
     network_mode: "aws_sdk_bedrock_agentcore_control.types.browser_network_mode.BrowserNetworkMode"
     """<p>The network mode for the browser. This field specifies how the browser connects to the network.</p>"""
     vpc_config: NotRequired[

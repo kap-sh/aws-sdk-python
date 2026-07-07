@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#TimeSeriesIdentifiers``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.data_source
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.schema
 
 
-class TimeSeriesIdentifiers(TypedDict):
+class TimeSeriesIdentifiers(TypedDict, closed=True):
     data_source: NotRequired["aws_sdk_forecast.types.data_source.DataSource"]
     schema: NotRequired["aws_sdk_forecast.types.schema.Schema"]
     format: NotRequired["aws_sdk_forecast.types.format.Format"]

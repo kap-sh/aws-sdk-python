@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListCapabilitiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.list_capabilities_request_max_results
     import aws_sdk_eks.types.string
 
 
-class ListCapabilitiesRequest(TypedDict):
+class ListCapabilitiesRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.string.String"
     """<p>The name of the Amazon EKS cluster for which you want to list capabilities.</p>"""
     next_token: NotRequired["aws_sdk_eks.types.string.String"]

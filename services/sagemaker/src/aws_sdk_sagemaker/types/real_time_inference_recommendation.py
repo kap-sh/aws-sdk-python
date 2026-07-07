@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RealTimeInferenceRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.environment_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class RealTimeInferenceRecommendation(TypedDict):
+class RealTimeInferenceRecommendation(TypedDict, closed=True):
     recommendation_id: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>The recommendation ID which uniquely identifies each recommendation.</p>"""
     instance_type: NotRequired[

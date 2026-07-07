@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ECSServiceProjectedMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.ecs_service_metric_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.timestamps
 
 
-class ECSServiceProjectedMetric(TypedDict):
+class ECSServiceProjectedMetric(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_compute_optimizer.types.ecs_service_metric_name.ECSServiceMetricName"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#FileSystemSize``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.file_system_nullable_size_value
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.timestamp
 
 
-class FileSystemSize(TypedDict):
+class FileSystemSize(TypedDict, closed=True):
     value: "aws_sdk_efs.types.file_system_size_value.FileSystemSizeValue"
     """<p>The latest known metered size (in bytes) of data stored in the file system.</p>"""
     timestamp: NotRequired["aws_sdk_efs.types.timestamp.Timestamp"]

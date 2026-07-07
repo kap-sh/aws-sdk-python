@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#CreateServiceEnvironmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class CreateServiceEnvironmentResponse(TypedDict):
+class CreateServiceEnvironmentResponse(TypedDict, closed=True):
     service_environment_name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name of the service environment.</p>"""
     service_environment_arn: NotRequired["aws_sdk_batch.types.string.String"]

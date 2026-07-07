@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#KubernetesMetadata``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class KubernetesMetadata(TypedDict):
+class KubernetesMetadata(TypedDict, closed=True):
     local_service_name: NotRequired["str"]
     """<p>The service name for a local resource.</p>"""
     local_pod_name: NotRequired["str"]

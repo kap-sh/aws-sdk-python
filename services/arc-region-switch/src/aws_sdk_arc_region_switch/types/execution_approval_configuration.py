@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#ExecutionApprovalConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.role_arn
 
 
-class ExecutionApprovalConfiguration(TypedDict):
+class ExecutionApprovalConfiguration(TypedDict, closed=True):
     timeout_minutes: "int"
     """<p>The timeout value specified for the configuration.</p>"""
     approval_role: "aws_sdk_arc_region_switch.types.role_arn.RoleArn"

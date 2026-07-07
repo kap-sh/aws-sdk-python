@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ListEngagementByAcceptingInvitationTasksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.list_engagement_by_accepting_invitation_task_summaries
 
 
-class ListEngagementByAcceptingInvitationTasksResponse(TypedDict):
+class ListEngagementByAcceptingInvitationTasksResponse(TypedDict, closed=True):
     task_summaries: NotRequired[
         "aws_sdk_partnercentral_selling.types.list_engagement_by_accepting_invitation_task_summaries.ListEngagementByAcceptingInvitationTaskSummaries"
     ]

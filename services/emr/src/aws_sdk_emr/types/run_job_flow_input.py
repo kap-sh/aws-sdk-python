@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#RunJobFlowInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.application_list
@@ -28,7 +28,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class RunJobFlowInput(TypedDict):
+class RunJobFlowInput(TypedDict, closed=True):
     name: NotRequired["aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"]
     """<p>The name of the job flow.</p>"""
     log_uri: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]

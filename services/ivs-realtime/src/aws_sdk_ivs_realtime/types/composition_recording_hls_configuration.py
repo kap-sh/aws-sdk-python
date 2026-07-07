@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#CompositionRecordingHlsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.composition_recording_target_segment_duration_seconds
 
 
-class CompositionRecordingHlsConfiguration(TypedDict):
+class CompositionRecordingHlsConfiguration(TypedDict, closed=True):
     target_segment_duration_seconds: NotRequired[
         "aws_sdk_ivs_realtime.types.composition_recording_target_segment_duration_seconds.CompositionRecordingTargetSegmentDurationSeconds"
     ]

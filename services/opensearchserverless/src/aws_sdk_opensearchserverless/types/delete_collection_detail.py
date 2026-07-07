@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#DeleteCollectionDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.collection_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.deletion_protection
 
 
-class DeleteCollectionDetail(TypedDict):
+class DeleteCollectionDetail(TypedDict, closed=True):
     id: NotRequired["aws_sdk_opensearchserverless.types.collection_id.CollectionId"]
     """<p>The unique identifier of the collection.</p>"""
     name: NotRequired[

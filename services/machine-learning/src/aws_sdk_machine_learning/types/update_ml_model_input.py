@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#UpdateMLModelInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.score_threshold
 
 
-class UpdateMLModelInput(TypedDict):
+class UpdateMLModelInput(TypedDict, closed=True):
     ml_model_id: "aws_sdk_machine_learning.types.entity_id.EntityId"
     """<p>The ID assigned to the <code>MLModel</code> during creation.</p>"""
     ml_model_name: NotRequired["aws_sdk_machine_learning.types.entity_name.EntityName"]

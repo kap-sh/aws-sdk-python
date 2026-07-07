@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListComputationModelDataBindingUsagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class ListComputationModelDataBindingUsagesRequest(TypedDict):
+class ListComputationModelDataBindingUsagesRequest(TypedDict, closed=True):
     data_binding_value_filter: (
         "aws_sdk_iotsitewise.types.data_binding_value_filter.DataBindingValueFilter"
     )

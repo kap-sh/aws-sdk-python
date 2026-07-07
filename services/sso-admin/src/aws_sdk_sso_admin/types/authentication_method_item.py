@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#AuthenticationMethodItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.authentication_method
     import aws_sdk_sso_admin.types.authentication_method_type
 
 
-class AuthenticationMethodItem(TypedDict):
+class AuthenticationMethodItem(TypedDict, closed=True):
     authentication_method_type: NotRequired[
         "aws_sdk_sso_admin.types.authentication_method_type.AuthenticationMethodType"
     ]

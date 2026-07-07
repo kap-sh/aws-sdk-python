@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#InstanceTypeCapacity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_outposts.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.instance_type_name
 
 
-class InstanceTypeCapacity(TypedDict):
+class InstanceTypeCapacity(TypedDict, closed=True):
     instance_type: "aws_sdk_outposts.types.instance_type_name.InstanceTypeName"
     """<p>The instance type of the hosts.</p>"""
     count: "aws_sdk_outposts.types.instance_type_count.InstanceTypeCount"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#ListFraudsterRegistrationJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.fraudster_registration_job_summaries
     import aws_sdk_voice_id.types.string
 
 
-class ListFraudsterRegistrationJobsResponse(TypedDict):
+class ListFraudsterRegistrationJobsResponse(TypedDict, closed=True):
     job_summaries: NotRequired[
         "aws_sdk_voice_id.types.fraudster_registration_job_summaries.FraudsterRegistrationJobSummaries"
     ]

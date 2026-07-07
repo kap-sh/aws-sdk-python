@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.drs#InitializeServiceRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class InitializeServiceRequest(TypedDict):
+class InitializeServiceRequest(TypedDict, closed=True):
     pass
 
 

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RoutingCriteria``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
 
-class RoutingCriteria(TypedDict):
+class RoutingCriteria(TypedDict, closed=True):
     response_quality_difference: "float"
     """<p>The criteria's response quality difference.</p>"""
 

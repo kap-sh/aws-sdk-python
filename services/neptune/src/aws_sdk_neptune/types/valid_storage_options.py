@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#ValidStorageOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.string
 
 
-class ValidStorageOptions(TypedDict):
+class ValidStorageOptions(TypedDict, closed=True):
     storage_type: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>Not applicable. In Neptune the storage type is managed at the DB Cluster level.</p>"""
     storage_size: NotRequired["aws_sdk_neptune.types.range_list.RangeList"]

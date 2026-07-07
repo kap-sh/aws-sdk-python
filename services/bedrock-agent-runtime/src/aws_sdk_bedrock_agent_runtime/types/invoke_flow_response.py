@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#InvokeFlowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.flow_execution_id
     import aws_sdk_bedrock_agent_runtime.types.flow_response_stream
 
 
-class InvokeFlowResponse(TypedDict):
+class InvokeFlowResponse(TypedDict, closed=True):
     response_stream: (
         "aws_sdk_bedrock_agent_runtime.types.flow_response_stream.FlowResponseStream"
     )

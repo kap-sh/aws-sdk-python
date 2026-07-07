@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#GatewayInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.deprecation_date
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.string
 
 
-class GatewayInfo(TypedDict):
+class GatewayInfo(TypedDict, closed=True):
     gateway_id: NotRequired["aws_sdk_storage_gateway.types.gateway_id.GatewayId"]
     """<p>The unique identifier assigned to your gateway during activation. This ID becomes part of the gateway Amazon Resource Name (ARN), which you use as input for other operations.</p>"""
     gateway_arn: NotRequired["aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"]

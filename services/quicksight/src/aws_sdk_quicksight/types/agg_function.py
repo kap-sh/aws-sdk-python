@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AggFunction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.agg_function_param_map
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_time_granularity
 
 
-class AggFunction(TypedDict):
+class AggFunction(TypedDict, closed=True):
     aggregation: NotRequired["aws_sdk_quicksight.types.agg_type.AggType"]
     """<p>The aggregation of an Agg function.</p>"""
     aggregation_function_parameters: NotRequired[

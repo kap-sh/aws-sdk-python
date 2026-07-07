@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#VpcEndpointSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.domain_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.vpc_endpoint_status
 
 
-class VpcEndpointSummary(TypedDict):
+class VpcEndpointSummary(TypedDict, closed=True):
     vpc_endpoint_id: NotRequired[
         "aws_sdk_elasticsearch_service.types.vpc_endpoint_id.VpcEndpointId"
     ]

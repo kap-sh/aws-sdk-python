@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#UpdateEncryptionKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.scan_type
 
 
-class UpdateEncryptionKeyRequest(TypedDict):
+class UpdateEncryptionKeyRequest(TypedDict, closed=True):
     kms_key_id: "aws_sdk_inspector2.types.kms_key_arn.KmsKeyArn"
     """<p>A KMS key ID for the encryption key.</p>"""
     scan_type: "aws_sdk_inspector2.types.scan_type.ScanType"

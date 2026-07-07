@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CreateAccountAssociationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.o_auth_authorization_url_output
 
 
-class CreateAccountAssociationResponse(TypedDict):
+class CreateAccountAssociationResponse(TypedDict, closed=True):
     o_auth_authorization_url: "aws_sdk_iot_managed_integrations.types.o_auth_authorization_url_output.OAuthAuthorizationUrlOutput"
     """<p>Third-party IoT platform OAuth authorization server URL backed with all the required parameters to perform end-user authentication. This field will be empty when using General Authorization flows that do not require OAuth.</p>"""
     account_association_id: "aws_sdk_iot_managed_integrations.types.account_association_id.AccountAssociationId"

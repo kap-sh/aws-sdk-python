@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#AttributeMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.certificate_field
     import aws_sdk_rolesanywhere.types.mapping_rules
 
 
-class AttributeMapping(TypedDict):
+class AttributeMapping(TypedDict, closed=True):
     certificate_field: NotRequired[
         "aws_sdk_rolesanywhere.types.certificate_field.CertificateField"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#RetrievedService``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.links_list
     import aws_sdk_xray.types.service
 
 
-class RetrievedService(TypedDict):
+class RetrievedService(TypedDict, closed=True):
     service: NotRequired["aws_sdk_xray.types.service.Service"]
     links: NotRequired["aws_sdk_xray.types.links_list.LinksList"]
     """<p> Relation between two 2 services. </p>"""

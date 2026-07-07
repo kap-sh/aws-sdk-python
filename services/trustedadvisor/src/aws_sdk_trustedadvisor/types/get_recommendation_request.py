@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.trustedadvisor#GetRecommendationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_trustedadvisor.types.account_recommendation_identifier
     import aws_sdk_trustedadvisor.types.recommendation_language
 
 
-class GetRecommendationRequest(TypedDict):
+class GetRecommendationRequest(TypedDict, closed=True):
     recommendation_identifier: "aws_sdk_trustedadvisor.types.account_recommendation_identifier.AccountRecommendationIdentifier"
     """<p>The Recommendation identifier</p>"""
     language: NotRequired[

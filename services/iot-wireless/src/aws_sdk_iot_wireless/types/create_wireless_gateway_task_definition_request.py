@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CreateWirelessGatewayTaskDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.auto_create_tasks
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_gateway_task_name
 
 
-class CreateWirelessGatewayTaskDefinitionRequest(TypedDict):
+class CreateWirelessGatewayTaskDefinitionRequest(TypedDict, closed=True):
     auto_create_tasks: "aws_sdk_iot_wireless.types.auto_create_tasks.AutoCreateTasks"
     """<p>Whether to automatically create tasks using this task definition for all gateways with the specified current version. If <code>false</code>, the task must me created by calling <code>CreateWirelessGatewayTask</code>.</p>"""
     name: NotRequired[

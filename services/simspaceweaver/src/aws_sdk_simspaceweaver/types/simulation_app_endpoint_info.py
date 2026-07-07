@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#SimulationAppEndpointInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.app_port_mappings
     import aws_sdk_simspaceweaver.types.non_empty_string
 
 
-class SimulationAppEndpointInfo(TypedDict):
+class SimulationAppEndpointInfo(TypedDict, closed=True):
     address: NotRequired["aws_sdk_simspaceweaver.types.non_empty_string.NonEmptyString"]
     """<p>The IP address of the app. SimSpace Weaver dynamically assigns this IP address when the app starts.</p>"""
     ingress_port_mappings: NotRequired[

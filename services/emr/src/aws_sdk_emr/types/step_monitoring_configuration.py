@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#StepMonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.s3_monitoring_configuration
 
 
-class StepMonitoringConfiguration(TypedDict):
+class StepMonitoringConfiguration(TypedDict, closed=True):
     s3_monitoring_configuration: NotRequired[
         "aws_sdk_emr.types.s3_monitoring_configuration.S3MonitoringConfiguration"
     ]

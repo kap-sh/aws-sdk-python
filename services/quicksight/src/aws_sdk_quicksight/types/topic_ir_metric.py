@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicIRMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.agg_function
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_ir_comparison_method
 
 
-class TopicIRMetric(TypedDict):
+class TopicIRMetric(TypedDict, closed=True):
     metric_id: NotRequired["aws_sdk_quicksight.types.identifier.Identifier"]
     """<p>The metric ID for the <code>TopicIRMetric</code>.</p>"""
     function: NotRequired["aws_sdk_quicksight.types.agg_function.AggFunction"]

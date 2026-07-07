@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#PhysicalNetworkInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.ip_address_assignment
     import aws_sdk_snow_device_management.types.physical_connector_type
 
 
-class PhysicalNetworkInterface(TypedDict):
+class PhysicalNetworkInterface(TypedDict, closed=True):
     physical_network_interface_id: NotRequired["str"]
     """<p>The physical network interface ID.</p>"""
     physical_connector_type: NotRequired[

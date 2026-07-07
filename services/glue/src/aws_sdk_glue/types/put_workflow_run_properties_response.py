@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PutWorkflowRunPropertiesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutWorkflowRunPropertiesResponse(TypedDict):
+class PutWorkflowRunPropertiesResponse(TypedDict, closed=True):
     pass
 
 

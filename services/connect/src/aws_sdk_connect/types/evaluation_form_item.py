@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormItem``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_form_section
 
 
-class _EvaluationFormItem_Section(TypedDict):
+class _EvaluationFormItem_Section(TypedDict, closed=True):
     Section: "aws_sdk_connect.types.evaluation_form_section.EvaluationFormSection"
 
 
-class _EvaluationFormItem_Question(TypedDict):
+class _EvaluationFormItem_Question(TypedDict, closed=True):
     Question: "aws_sdk_connect.types.evaluation_form_question.EvaluationFormQuestion"
 
 

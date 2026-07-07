@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#StartSavingsPlansPurchaseRecommendationGenerationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartSavingsPlansPurchaseRecommendationGenerationRequest(TypedDict):
+class StartSavingsPlansPurchaseRecommendationGenerationRequest(TypedDict, closed=True):
     pass
 
 

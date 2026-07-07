@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetMetricDataV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.metric_results_v2
     import aws_sdk_connect.types.next_token2500
 
 
-class GetMetricDataV2Response(TypedDict):
+class GetMetricDataV2Response(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_connect.types.next_token2500.NextToken2500"]
     """<p>If there are additional results, this is the token for the next set of results.</p>"""
     metric_results: NotRequired[

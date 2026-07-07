@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodbstreams#KeySchemaElement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dynamodb_streams.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.key_type
 
 
-class KeySchemaElement(TypedDict):
+class KeySchemaElement(TypedDict, closed=True):
     attribute_name: "aws_sdk_dynamodb_streams.types.key_schema_attribute_name.KeySchemaAttributeName"
     """<p>The name of a key attribute.</p>"""
     key_type: "aws_sdk_dynamodb_streams.types.key_type.KeyType"

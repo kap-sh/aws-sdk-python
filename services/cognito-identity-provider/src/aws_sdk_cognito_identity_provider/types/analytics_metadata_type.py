@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#AnalyticsMetadataType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.string_type
 
 
-class AnalyticsMetadataType(TypedDict):
+class AnalyticsMetadataType(TypedDict, closed=True):
     analytics_endpoint_id: NotRequired[
         "aws_sdk_cognito_identity_provider.types.string_type.StringType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacemetering#UsageAllocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_metering.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_metering.types.tag_list
 
 
-class UsageAllocation(TypedDict):
+class UsageAllocation(TypedDict, closed=True):
     allocated_usage_quantity: "aws_sdk_marketplace_metering.types.allocated_usage_quantity.AllocatedUsageQuantity"
     """<p>The total quantity allocated to this bucket of usage.</p>"""
     tags: NotRequired["aws_sdk_marketplace_metering.types.tag_list.TagList"]

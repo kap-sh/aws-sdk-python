@@ -2,9 +2,9 @@
 
 import warnings
 from collections.abc import Iterator
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_rds._auth._signers
@@ -454,7 +454,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.vpc_security_group_id_list
 
 
-class RDSClientConfig(TypedDict, total=False):
+class RDSClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

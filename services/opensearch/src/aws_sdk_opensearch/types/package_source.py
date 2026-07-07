@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#PackageSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.s3_bucket_name
     import aws_sdk_opensearch.types.s3_key
 
 
-class PackageSource(TypedDict):
+class PackageSource(TypedDict, closed=True):
     s3_bucket_name: NotRequired["aws_sdk_opensearch.types.s3_bucket_name.S3BucketName"]
     """<p>The name of the Amazon S3 bucket containing the package.</p>"""
     s3_key: NotRequired["aws_sdk_opensearch.types.s3_key.S3Key"]

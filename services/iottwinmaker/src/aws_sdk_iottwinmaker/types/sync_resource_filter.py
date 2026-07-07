@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#SyncResourceFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError, SerializationError
 
@@ -10,19 +12,19 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.sync_resource_type
 
 
-class _SyncResourceFilter_state(TypedDict):
+class _SyncResourceFilter_state(TypedDict, closed=True):
     state: "aws_sdk_iottwinmaker.types.sync_resource_state.SyncResourceState"
 
 
-class _SyncResourceFilter_resourceType(TypedDict):
+class _SyncResourceFilter_resourceType(TypedDict, closed=True):
     resourceType: "aws_sdk_iottwinmaker.types.sync_resource_type.SyncResourceType"
 
 
-class _SyncResourceFilter_resourceId(TypedDict):
+class _SyncResourceFilter_resourceId(TypedDict, closed=True):
     resourceId: "aws_sdk_iottwinmaker.types.id.Id"
 
 
-class _SyncResourceFilter_externalId(TypedDict):
+class _SyncResourceFilter_externalId(TypedDict, closed=True):
     externalId: "aws_sdk_iottwinmaker.types.id.Id"
 
 

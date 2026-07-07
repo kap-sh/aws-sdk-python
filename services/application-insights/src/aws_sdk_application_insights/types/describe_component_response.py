@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#DescribeComponentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.application_component
     import aws_sdk_application_insights.types.resource_list
 
 
-class DescribeComponentResponse(TypedDict):
+class DescribeComponentResponse(TypedDict, closed=True):
     application_component: NotRequired[
         "aws_sdk_application_insights.types.application_component.ApplicationComponent"
     ]

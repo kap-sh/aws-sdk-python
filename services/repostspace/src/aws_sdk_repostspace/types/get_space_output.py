@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#GetSpaceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_repostspace.errors import DeserializationError
 
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_repostspace.types.vanity_domain_status
 
 
-class GetSpaceOutput(TypedDict):
+class GetSpaceOutput(TypedDict, closed=True):
     space_id: "aws_sdk_repostspace.types.space_id.SpaceId"
     """<p>The unique ID of the private re:Post.</p>"""
     arn: "aws_sdk_repostspace.types.arn.Arn"

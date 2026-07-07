@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListEdgePackagingJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.edge_packaging_job_summaries
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListEdgePackagingJobsResponse(TypedDict):
+class ListEdgePackagingJobsResponse(TypedDict, closed=True):
     edge_packaging_job_summaries: NotRequired[
         "aws_sdk_sagemaker.types.edge_packaging_job_summaries.EdgePackagingJobSummaries"
     ]

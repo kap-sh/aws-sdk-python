@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#AuthorizeVpcEndpointAccessRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.domain_name
 
 
-class AuthorizeVpcEndpointAccessRequest(TypedDict):
+class AuthorizeVpcEndpointAccessRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_elasticsearch_service.types.domain_name.DomainName"
     """<p>The name of the OpenSearch Service domain to provide access to.</p>"""
     account: "aws_sdk_elasticsearch_service.types.aws_account.AWSAccount"

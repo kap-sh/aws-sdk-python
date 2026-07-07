@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ChimeMessagingService``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_chime_sdk_messaging._auth._signers
@@ -156,7 +156,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.update_channel_response
 
 
-class ChimeSDKMessagingClientConfig(TypedDict, total=False):
+class ChimeSDKMessagingClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

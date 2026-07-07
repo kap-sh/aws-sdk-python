@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#UpdateBrowserStreamResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.date_timestamp
 
 
-class UpdateBrowserStreamResponse(TypedDict):
+class UpdateBrowserStreamResponse(TypedDict, closed=True):
     browser_identifier: "str"
     """<p>The identifier of the browser.</p>"""
     session_id: "aws_sdk_bedrock_agentcore.types.browser_session_id.BrowserSessionId"

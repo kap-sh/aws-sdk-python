@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#IdentityCenterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.instance_arn
 
 
-class IdentityCenterConfiguration(TypedDict):
+class IdentityCenterConfiguration(TypedDict, closed=True):
     instance_arn: "aws_sdk_workmail.types.instance_arn.InstanceArn"
     """<p> The Amazon Resource Name (ARN) of the of IAM Identity Center instance. Must be in the same AWS account and region as WorkMail organization.</p>"""
     application_arn: "aws_sdk_workmail.types.application_arn.ApplicationArn"

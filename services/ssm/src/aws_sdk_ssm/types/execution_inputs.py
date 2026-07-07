@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ExecutionInputs``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.automation_execution_inputs
 
 
-class _ExecutionInputs_Automation(TypedDict):
+class _ExecutionInputs_Automation(TypedDict, closed=True):
     Automation: (
         "aws_sdk_ssm.types.automation_execution_inputs.AutomationExecutionInputs"
     )

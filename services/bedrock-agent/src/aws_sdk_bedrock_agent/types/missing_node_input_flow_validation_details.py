@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#MissingNodeInputFlowValidationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_node_name
 
 
-class MissingNodeInputFlowValidationDetails(TypedDict):
+class MissingNodeInputFlowValidationDetails(TypedDict, closed=True):
     node: "aws_sdk_bedrock_agent.types.flow_node_name.FlowNodeName"
     """<p>The name of the node missing the required input.</p>"""
     input: "aws_sdk_bedrock_agent.types.flow_node_input_name.FlowNodeInputName"

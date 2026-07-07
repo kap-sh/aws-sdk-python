@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#ImportFirewallDomainsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_name
 
 
-class ImportFirewallDomainsOutput(TypedDict):
+class ImportFirewallDomainsOutput(TypedDict, closed=True):
     id: "aws_sdk_route53globalresolver.types.resource_id.ResourceId"
     """<p>ID of the DNS Firewall domain list that you imported the domain list to.</p>"""
     name: "aws_sdk_route53globalresolver.types.resource_name.ResourceName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#StartAssetBundleExportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.short_restrictive_resource_id
 
 
-class StartAssetBundleExportJobRequest(TypedDict):
+class StartAssetBundleExportJobRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account to export assets from.</p>"""
     asset_bundle_export_job_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"

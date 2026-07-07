@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailConverseContentBlock``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_converse_text_block
 
 
-class _GuardrailConverseContentBlock_text(TypedDict):
+class _GuardrailConverseContentBlock_text(TypedDict, closed=True):
     text: "aws_sdk_bedrock_runtime.types.guardrail_converse_text_block.GuardrailConverseTextBlock"
 
 
-class _GuardrailConverseContentBlock_image(TypedDict):
+class _GuardrailConverseContentBlock_image(TypedDict, closed=True):
     image: "aws_sdk_bedrock_runtime.types.guardrail_converse_image_block.GuardrailConverseImageBlock"
 
 

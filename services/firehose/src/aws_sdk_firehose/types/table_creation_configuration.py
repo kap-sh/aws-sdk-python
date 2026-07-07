@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#TableCreationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.boolean_object
 
 
-class TableCreationConfiguration(TypedDict):
+class TableCreationConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_firehose.types.boolean_object.BooleanObject"
     """<p> Specify whether you want to enable automatic table creation. </p> <p>Amazon Data Firehose is in preview release and is subject to change.</p>"""
 

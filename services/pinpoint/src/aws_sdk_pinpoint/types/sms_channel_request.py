@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SMSChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
     import aws_sdk_pinpoint.types.__string
 
 
-class SMSChannelRequest(TypedDict):
+class SMSChannelRequest(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_pinpoint.types.__boolean.__boolean"]
     """<p>Specifies whether to enable the SMS channel for the application.</p>"""
     sender_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

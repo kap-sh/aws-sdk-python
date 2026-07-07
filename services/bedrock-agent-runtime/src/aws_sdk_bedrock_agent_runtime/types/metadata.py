@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Metadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.date_timestamp
     import aws_sdk_bedrock_agent_runtime.types.usage
 
 
-class Metadata(TypedDict):
+class Metadata(TypedDict, closed=True):
     start_time: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.date_timestamp.DateTimestamp"
     ]

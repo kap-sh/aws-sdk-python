@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#GetInstancesHealthStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.instance_health_status_map
     import aws_sdk_servicediscovery.types.next_token
 
 
-class GetInstancesHealthStatusResponse(TypedDict):
+class GetInstancesHealthStatusResponse(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_servicediscovery.types.instance_health_status_map.InstanceHealthStatusMap"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AvcIntraUhdSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.avc_intra_uhd_quality_tuning_level
 
 
-class AvcIntraUhdSettings(TypedDict):
+class AvcIntraUhdSettings(TypedDict, closed=True):
     quality_tuning_level: NotRequired[
         "aws_sdk_mediaconvert.types.avc_intra_uhd_quality_tuning_level.AvcIntraUhdQualityTuningLevel"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#StopActivityStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class StopActivityStreamRequest(TypedDict):
+class StopActivityStreamRequest(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the DB cluster for the database activity stream. For example, <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</p>"""
     apply_immediately: NotRequired["aws_sdk_rds.types.boolean_optional.BooleanOptional"]

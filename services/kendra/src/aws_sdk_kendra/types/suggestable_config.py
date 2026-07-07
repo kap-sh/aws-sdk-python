@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SuggestableConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.document_attribute_key
     import aws_sdk_kendra.types.object_boolean
 
 
-class SuggestableConfig(TypedDict):
+class SuggestableConfig(TypedDict, closed=True):
     attribute_name: NotRequired[
         "aws_sdk_kendra.types.document_attribute_key.DocumentAttributeKey"
     ]

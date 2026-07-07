@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#ListLongTermPricingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.list_limit
     import aws_sdk_snowball.types.string
 
 
-class ListLongTermPricingRequest(TypedDict):
+class ListLongTermPricingRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_snowball.types.list_limit.ListLimit"]
     """<p>The maximum number of <code>ListLongTermPricing</code> objects to return.</p>"""
     next_token: NotRequired["aws_sdk_snowball.types.string.String"]

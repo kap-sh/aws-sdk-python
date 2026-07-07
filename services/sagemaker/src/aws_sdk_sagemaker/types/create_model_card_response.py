@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateModelCardResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_card_arn
 
 
-class CreateModelCardResponse(TypedDict):
+class CreateModelCardResponse(TypedDict, closed=True):
     model_card_arn: NotRequired["aws_sdk_sagemaker.types.model_card_arn.ModelCardArn"]
     """<p>The Amazon Resource Name (ARN) of the successfully created model card.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SpotInstanceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class SpotInstanceStatus(TypedDict):
+class SpotInstanceStatus(TypedDict, closed=True):
     code: NotRequired["aws_sdk_ec2.types.string.String"]
     r"""<p>The status code. For a list of status codes, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html#spot-instance-request-status-understand\">Spot request status codes</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     message: NotRequired["aws_sdk_ec2.types.string.String"]

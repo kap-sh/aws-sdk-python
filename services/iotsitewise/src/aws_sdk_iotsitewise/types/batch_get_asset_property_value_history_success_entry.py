@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#BatchGetAssetPropertyValueHistorySuccessEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.entry_id
 
 
-class BatchGetAssetPropertyValueHistorySuccessEntry(TypedDict):
+class BatchGetAssetPropertyValueHistorySuccessEntry(TypedDict, closed=True):
     entry_id: "aws_sdk_iotsitewise.types.entry_id.EntryId"
     """<p>The ID of the entry.</p>"""
     asset_property_value_history: "aws_sdk_iotsitewise.types.asset_property_value_history.AssetPropertyValueHistory"

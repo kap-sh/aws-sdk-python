@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ConnectorDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.application_type
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.supported_data_transfer_type_list
 
 
-class ConnectorDetail(TypedDict):
+class ConnectorDetail(TypedDict, closed=True):
     connector_description: NotRequired[
         "aws_sdk_appflow.types.connector_description.ConnectorDescription"
     ]

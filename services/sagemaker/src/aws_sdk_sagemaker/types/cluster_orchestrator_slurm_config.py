@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterOrchestratorSlurmConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_slurm_config_strategy
 
 
-class ClusterOrchestratorSlurmConfig(TypedDict):
+class ClusterOrchestratorSlurmConfig(TypedDict, closed=True):
     slurm_config_strategy: NotRequired[
         "aws_sdk_sagemaker.types.cluster_slurm_config_strategy.ClusterSlurmConfigStrategy"
     ]

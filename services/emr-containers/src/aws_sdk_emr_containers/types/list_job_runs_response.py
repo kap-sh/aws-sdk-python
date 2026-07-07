@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#ListJobRunsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.job_runs
     import aws_sdk_emr_containers.types.next_token
 
 
-class ListJobRunsResponse(TypedDict):
+class ListJobRunsResponse(TypedDict, closed=True):
     job_runs: NotRequired["aws_sdk_emr_containers.types.job_runs.JobRuns"]
     """<p>This output lists information about the specified job runs.</p>"""
     next_token: NotRequired["aws_sdk_emr_containers.types.next_token.NextToken"]

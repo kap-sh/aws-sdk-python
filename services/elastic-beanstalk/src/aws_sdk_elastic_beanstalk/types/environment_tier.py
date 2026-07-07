@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#EnvironmentTier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.string
 
 
-class EnvironmentTier(TypedDict):
+class EnvironmentTier(TypedDict, closed=True):
     name: NotRequired["aws_sdk_elastic_beanstalk.types.string.String"]
     """<p>The name of this environment tier.</p> <p>Valid values:</p> <ul> <li> <p>For <i>Web server tier</i> – <code>WebServer</code> </p> </li> <li> <p>For <i>Worker tier</i> – <code>Worker</code> </p> </li> </ul>"""
     type: NotRequired["aws_sdk_elastic_beanstalk.types.string.String"]

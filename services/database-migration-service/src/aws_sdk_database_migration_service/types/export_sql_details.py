@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ExportSqlDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class ExportSqlDetails(TypedDict):
+class ExportSqlDetails(TypedDict, closed=True):
     s3_object_key: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The Amazon S3 object key for the object containing the exported metadata model assessment.</p>"""
     object_url: NotRequired["aws_sdk_database_migration_service.types.string.String"]

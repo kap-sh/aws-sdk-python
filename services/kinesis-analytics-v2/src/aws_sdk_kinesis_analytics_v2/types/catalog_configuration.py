@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#CatalogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.glue_data_catalog_configuration
 
 
-class CatalogConfiguration(TypedDict):
+class CatalogConfiguration(TypedDict, closed=True):
     glue_data_catalog_configuration: "aws_sdk_kinesis_analytics_v2.types.glue_data_catalog_configuration.GlueDataCatalogConfiguration"
     """<p>The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Managed Service for Apache Flink Studio notebook.</p>"""
 

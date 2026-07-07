@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#ProcurementPortalPreference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.test_env_preference
 
 
-class ProcurementPortalPreference(TypedDict):
+class ProcurementPortalPreference(TypedDict, closed=True):
     aws_account_id: "aws_sdk_invoicing.types.account_id_string.AccountIdString"
     """<p>The Amazon Web Services account ID associated with this procurement portal preference.</p>"""
     procurement_portal_preference_arn: "aws_sdk_invoicing.types.procurement_portal_preference_arn_string.ProcurementPortalPreferenceArnString"

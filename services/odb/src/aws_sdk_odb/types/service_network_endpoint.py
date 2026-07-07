@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ServiceNetworkEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.vpc_endpoint_type
 
 
-class ServiceNetworkEndpoint(TypedDict):
+class ServiceNetworkEndpoint(TypedDict, closed=True):
     vpc_endpoint_id: NotRequired["str"]
     """<p>The identifier of the VPC endpoint.</p>"""
     vpc_endpoint_type: NotRequired[

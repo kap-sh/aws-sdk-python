@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AnchorDateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.anchor_option
     import aws_sdk_quicksight.types.parameter_name
 
 
-class AnchorDateConfiguration(TypedDict):
+class AnchorDateConfiguration(TypedDict, closed=True):
     anchor_option: NotRequired["aws_sdk_quicksight.types.anchor_option.AnchorOption"]
     """<p>The options for the date configuration. Choose one of the options below:</p> <ul> <li> <p> <code>NOW</code> </p> </li> </ul>"""
     parameter_name: NotRequired["aws_sdk_quicksight.types.parameter_name.ParameterName"]

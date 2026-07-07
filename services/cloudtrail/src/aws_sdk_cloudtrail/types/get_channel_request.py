@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#GetChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.channel_arn
 
 
-class GetChannelRequest(TypedDict):
+class GetChannelRequest(TypedDict, closed=True):
     channel: "aws_sdk_cloudtrail.types.channel_arn.ChannelArn"
     """<p>The ARN or <code>UUID</code> of a channel.</p>"""
 

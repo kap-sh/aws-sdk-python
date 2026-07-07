@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#HostPropertiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.host_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string
 
 
-class HostPropertiesResponse(TypedDict):
+class HostPropertiesResponse(TypedDict, closed=True):
     ip_addresses: NotRequired["aws_sdk_deadline.types.ip_addresses.IpAddresses"]
     """<p>The IP address of the host.</p>"""
     host_name: NotRequired["aws_sdk_deadline.types.host_name.HostName"]

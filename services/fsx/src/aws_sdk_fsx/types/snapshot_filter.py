@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#SnapshotFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.snapshot_filter_name
     import aws_sdk_fsx.types.snapshot_filter_values
 
 
-class SnapshotFilter(TypedDict):
+class SnapshotFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_fsx.types.snapshot_filter_name.SnapshotFilterName"]
     """<p>The name of the filter to use. You can filter by the <code>file-system-id</code> or by <code>volume-id</code>.</p>"""
     values: NotRequired["aws_sdk_fsx.types.snapshot_filter_values.SnapshotFilterValues"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#QuotaShareCapacityLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
     import aws_sdk_batch.types.string
 
 
-class QuotaShareCapacityLimit(TypedDict):
+class QuotaShareCapacityLimit(TypedDict, closed=True):
     max_capacity: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.</p>"""
     capacity_unit: NotRequired["aws_sdk_batch.types.string.String"]

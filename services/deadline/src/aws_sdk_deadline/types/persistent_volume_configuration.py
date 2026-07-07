@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#PersistentVolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.persistent_volume_ttl_hours
 
 
-class PersistentVolumeConfiguration(TypedDict):
+class PersistentVolumeConfiguration(TypedDict, closed=True):
     size_gi_b: (
         "aws_sdk_deadline.types.persistent_volume_size_gi_b.PersistentVolumeSizeGiB"
     )

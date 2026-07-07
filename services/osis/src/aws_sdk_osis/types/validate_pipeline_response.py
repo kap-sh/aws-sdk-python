@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.osis#ValidatePipelineResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.boolean
     import aws_sdk_osis.types.validation_message_list
 
 
-class ValidatePipelineResponse(TypedDict):
+class ValidatePipelineResponse(TypedDict, closed=True):
     is_valid: NotRequired["aws_sdk_osis.types.boolean.Boolean"]
     """<p>A boolean indicating whether or not the pipeline configuration is valid.</p>"""
     errors: NotRequired[

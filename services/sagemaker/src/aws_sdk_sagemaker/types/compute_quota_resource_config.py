@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ComputeQuotaResourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.accelerator_partition_config
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.v_cpu_amount
 
 
-class ComputeQuotaResourceConfig(TypedDict):
+class ComputeQuotaResourceConfig(TypedDict, closed=True):
     instance_type: NotRequired[
         "aws_sdk_sagemaker.types.cluster_instance_type.ClusterInstanceType"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ListTagsForResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.venice_global_arn
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_entityresolution.types.venice_global_arn.VeniceGlobalArn"
     """<p>The ARN of the resource for which you want to view tags.</p>"""
 

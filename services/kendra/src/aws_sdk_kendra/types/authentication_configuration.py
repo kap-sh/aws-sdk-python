@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#AuthenticationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.basic_authentication_configuration_list
 
 
-class AuthenticationConfiguration(TypedDict):
+class AuthenticationConfiguration(TypedDict, closed=True):
     basic_authentication: NotRequired[
         "aws_sdk_kendra.types.basic_authentication_configuration_list.BasicAuthenticationConfigurationList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#UsageAmount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class UsageAmount(TypedDict):
+class UsageAmount(TypedDict, closed=True):
     start_hour: "datetime.datetime"
     """<p> The start hour of the usage period. </p>"""
     amount: "float"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#CreateAccessTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.timestamp
 
 
-class CreateAccessTokenResponse(TypedDict):
+class CreateAccessTokenResponse(TypedDict, closed=True):
     secret: "aws_sdk_codecatalyst.types.access_token_secret.AccessTokenSecret"
     """<p>The secret value of the personal access token.</p>"""
     name: "aws_sdk_codecatalyst.types.access_token_name.AccessTokenName"

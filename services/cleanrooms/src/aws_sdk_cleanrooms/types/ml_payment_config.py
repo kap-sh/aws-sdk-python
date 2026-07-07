@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#MLPaymentConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.model_inference_payment_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.synthetic_data_generation_payment_config
 
 
-class MLPaymentConfig(TypedDict):
+class MLPaymentConfig(TypedDict, closed=True):
     model_training: NotRequired[
         "aws_sdk_cleanrooms.types.model_training_payment_config.ModelTrainingPaymentConfig"
     ]

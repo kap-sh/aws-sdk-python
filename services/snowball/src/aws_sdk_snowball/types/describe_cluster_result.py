@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#DescribeClusterResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.cluster_metadata
 
 
-class DescribeClusterResult(TypedDict):
+class DescribeClusterResult(TypedDict, closed=True):
     cluster_metadata: NotRequired[
         "aws_sdk_snowball.types.cluster_metadata.ClusterMetadata"
     ]

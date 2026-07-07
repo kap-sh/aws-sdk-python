@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableInlineVisualization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_bars_options
     import aws_sdk_quicksight.types.sparklines_options
 
 
-class TableInlineVisualization(TypedDict):
+class TableInlineVisualization(TypedDict, closed=True):
     data_bars: NotRequired["aws_sdk_quicksight.types.data_bars_options.DataBarsOptions"]
     """<p>The configuration of the inline visualization of the data bars within a chart.</p>"""
     sparklines: NotRequired[

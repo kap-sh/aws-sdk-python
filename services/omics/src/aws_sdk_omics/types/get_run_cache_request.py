@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetRunCacheRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.run_cache_id
 
 
-class GetRunCacheRequest(TypedDict):
+class GetRunCacheRequest(TypedDict, closed=True):
     id: "aws_sdk_omics.types.run_cache_id.RunCacheId"
     """<p>The identifier of the run cache to retrieve.</p>"""
 

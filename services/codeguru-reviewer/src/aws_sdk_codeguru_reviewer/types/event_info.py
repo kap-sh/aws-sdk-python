@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#EventInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.event_name
     import aws_sdk_codeguru_reviewer.types.event_state
 
 
-class EventInfo(TypedDict):
+class EventInfo(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codeguru_reviewer.types.event_name.EventName"]
     """<p>The name of the event. The possible names are <code>pull_request</code>, <code>workflow_dispatch</code>, <code>schedule</code>, and <code>push</code> </p>"""
     state: NotRequired["aws_sdk_codeguru_reviewer.types.event_state.EventState"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#SendAutomationSignalResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SendAutomationSignalResult(TypedDict):
+class SendAutomationSignalResult(TypedDict, closed=True):
     pass
 
 

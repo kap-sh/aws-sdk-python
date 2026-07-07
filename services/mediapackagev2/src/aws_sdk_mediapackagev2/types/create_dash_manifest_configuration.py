@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#CreateDashManifestConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.uri_path_type
 
 
-class CreateDashManifestConfiguration(TypedDict):
+class CreateDashManifestConfiguration(TypedDict, closed=True):
     manifest_name: "aws_sdk_mediapackagev2.types.manifest_name.ManifestName"
     """<p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint.</p>"""
     manifest_window_seconds: NotRequired["int"]

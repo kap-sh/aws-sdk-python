@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#EvaluationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
     import aws_sdk_forecast.types.test_windows
 
 
-class EvaluationResult(TypedDict):
+class EvaluationResult(TypedDict, closed=True):
     algorithm_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the algorithm that was evaluated.</p>"""
     test_windows: NotRequired["aws_sdk_forecast.types.test_windows.TestWindows"]

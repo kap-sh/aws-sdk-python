@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListRestoreJobsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.restore_jobs_list
     import aws_sdk_backup.types.string
 
 
-class ListRestoreJobsOutput(TypedDict):
+class ListRestoreJobsOutput(TypedDict, closed=True):
     restore_jobs: NotRequired["aws_sdk_backup.types.restore_jobs_list.RestoreJobsList"]
     """<p>An array of objects that contain detailed information about jobs to restore saved resources.</p>"""
     next_token: NotRequired["aws_sdk_backup.types.string.string"]

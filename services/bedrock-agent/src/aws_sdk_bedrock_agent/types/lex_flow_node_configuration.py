@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#LexFlowNodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_lex_bot_alias_arn
     import aws_sdk_bedrock_agent.types.flow_lex_bot_locale_id
 
 
-class LexFlowNodeConfiguration(TypedDict):
+class LexFlowNodeConfiguration(TypedDict, closed=True):
     bot_alias_arn: (
         "aws_sdk_bedrock_agent.types.flow_lex_bot_alias_arn.FlowLexBotAliasArn"
     )

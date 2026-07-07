@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#UpdateWebAppCustomizationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.web_app_title
 
 
-class UpdateWebAppCustomizationRequest(TypedDict):
+class UpdateWebAppCustomizationRequest(TypedDict, closed=True):
     web_app_id: "aws_sdk_transfer.types.web_app_id.WebAppId"
     """<p>Provide the identifier of the web app that you are updating.</p>"""
     title: NotRequired["aws_sdk_transfer.types.web_app_title.WebAppTitle"]

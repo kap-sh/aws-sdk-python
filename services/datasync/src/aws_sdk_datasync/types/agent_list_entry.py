@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#AgentListEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.agent_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.tag_value
 
 
-class AgentListEntry(TypedDict):
+class AgentListEntry(TypedDict, closed=True):
     agent_arn: NotRequired["aws_sdk_datasync.types.agent_arn.AgentArn"]
     """<p>The Amazon Resource Name (ARN) of a DataSync agent.</p>"""
     name: NotRequired["aws_sdk_datasync.types.tag_value.TagValue"]

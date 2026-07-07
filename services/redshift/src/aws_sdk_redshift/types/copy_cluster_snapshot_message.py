@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#CopyClusterSnapshotMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class CopyClusterSnapshotMessage(TypedDict):
+class CopyClusterSnapshotMessage(TypedDict, closed=True):
     source_snapshot_identifier: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The identifier for the source snapshot.</p> <p>Constraints:</p> <ul> <li> <p>Must be the identifier for a valid automated snapshot whose state is <code>available</code>.</p> </li> </ul>"""
     source_snapshot_cluster_identifier: NotRequired[

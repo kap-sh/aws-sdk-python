@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#PlacementStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.percentage
 
 
-class PlacementStatistics(TypedDict):
+class PlacementStatistics(TypedDict, closed=True):
     inbox_percentage: NotRequired["aws_sdk_pinpoint_email.types.percentage.Percentage"]
     """<p>The percentage of emails that arrived in recipients' inboxes during the predictive inbox placement test.</p>"""
     spam_percentage: NotRequired["aws_sdk_pinpoint_email.types.percentage.Percentage"]

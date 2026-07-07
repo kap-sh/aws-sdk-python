@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ExternalBedrockKnowledgeBaseConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.bedrock_knowledge_base_arn
 
 
-class ExternalBedrockKnowledgeBaseConfig(TypedDict):
+class ExternalBedrockKnowledgeBaseConfig(TypedDict, closed=True):
     bedrock_knowledge_base_arn: (
         "aws_sdk_qconnect.types.bedrock_knowledge_base_arn.BedrockKnowledgeBaseArn"
     )

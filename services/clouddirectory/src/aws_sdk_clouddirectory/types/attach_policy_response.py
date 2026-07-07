@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#AttachPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AttachPolicyResponse(TypedDict):
+class AttachPolicyResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ReservedCapacitySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.availability_zone
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ultra_server_type
 
 
-class ReservedCapacitySummary(TypedDict):
+class ReservedCapacitySummary(TypedDict, closed=True):
     reserved_capacity_arn: NotRequired[
         "aws_sdk_sagemaker.types.reserved_capacity_arn.ReservedCapacityArn"
     ]

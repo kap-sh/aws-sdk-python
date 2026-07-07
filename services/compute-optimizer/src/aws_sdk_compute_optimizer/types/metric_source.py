@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#MetricSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.metric_provider_arn
     import aws_sdk_compute_optimizer.types.metric_source_provider
 
 
-class MetricSource(TypedDict):
+class MetricSource(TypedDict, closed=True):
     provider: NotRequired[
         "aws_sdk_compute_optimizer.types.metric_source_provider.MetricSourceProvider"
     ]

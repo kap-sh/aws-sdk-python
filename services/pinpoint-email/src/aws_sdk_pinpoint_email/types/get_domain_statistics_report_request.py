@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#GetDomainStatisticsReportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.identity
     import aws_sdk_pinpoint_email.types.timestamp
 
 
-class GetDomainStatisticsReportRequest(TypedDict):
+class GetDomainStatisticsReportRequest(TypedDict, closed=True):
     domain: "aws_sdk_pinpoint_email.types.identity.Identity"
     """<p>The domain that you want to obtain deliverability metrics for.</p>"""
     start_date: "aws_sdk_pinpoint_email.types.timestamp.Timestamp"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#EnabledControlSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.target_identifier
 
 
-class EnabledControlSummary(TypedDict):
+class EnabledControlSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_controltower.types.arn.Arn"]
     """<p>The ARN of the enabled control.</p>"""
     control_identifier: NotRequired[

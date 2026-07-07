@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#CancelTimerFailedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.timer_id
 
 
-class CancelTimerFailedEventAttributes(TypedDict):
+class CancelTimerFailedEventAttributes(TypedDict, closed=True):
     timer_id: "aws_sdk_swf.types.timer_id.TimerId"
     """<p>The timerId provided in the <code>CancelTimer</code> decision that failed.</p>"""
     cause: "aws_sdk_swf.types.cancel_timer_failed_cause.CancelTimerFailedCause"

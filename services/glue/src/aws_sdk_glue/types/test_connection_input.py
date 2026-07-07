@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TestConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.connection_type
 
 
-class TestConnectionInput(TypedDict):
+class TestConnectionInput(TypedDict, closed=True):
     connection_type: "aws_sdk_glue.types.connection_type.ConnectionType"
     """<p>The type of connection to test. This operation is only available for the <code>JDBC</code> or <code>SALESFORCE</code> connection types.</p>"""
     connection_properties: (

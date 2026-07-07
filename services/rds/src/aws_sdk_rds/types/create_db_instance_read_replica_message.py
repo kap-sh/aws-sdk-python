@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CreateDBInstanceReadReplicaMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.vpc_security_group_id_list
 
 
-class CreateDBInstanceReadReplicaMessage(TypedDict):
+class CreateDBInstanceReadReplicaMessage(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The DB instance identifier of the read replica. This identifier is the unique key that identifies a DB instance. This parameter is stored as a lowercase string.</p>"""
     source_db_instance_identifier: NotRequired["aws_sdk_rds.types.string.String"]

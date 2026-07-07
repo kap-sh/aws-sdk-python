@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#InvokeAsyncRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.blob_stream
     import aws_sdk_lambda.types.namespaced_function_name
 
 
-class InvokeAsyncRequest(TypedDict):
+class InvokeAsyncRequest(TypedDict, closed=True):
     function_name: (
         "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName"
     )

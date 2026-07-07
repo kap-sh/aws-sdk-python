@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateVpnGatewayRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CreateVpnGatewayRequest(TypedDict):
+class CreateVpnGatewayRequest(TypedDict, closed=True):
     availability_zone: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Availability Zone for the virtual private gateway.</p>"""
     type: NotRequired["aws_sdk_ec2.types.gateway_type.GatewayType"]

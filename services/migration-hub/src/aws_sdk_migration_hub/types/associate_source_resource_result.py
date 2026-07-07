@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#AssociateSourceResourceResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateSourceResourceResult(TypedDict):
+class AssociateSourceResourceResult(TypedDict, closed=True):
     pass
 
 

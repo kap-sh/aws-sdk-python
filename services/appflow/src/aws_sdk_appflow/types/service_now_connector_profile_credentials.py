@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ServiceNowConnectorProfileCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.o_auth2_credentials
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.username
 
 
-class ServiceNowConnectorProfileCredentials(TypedDict):
+class ServiceNowConnectorProfileCredentials(TypedDict, closed=True):
     username: NotRequired["aws_sdk_appflow.types.username.Username"]
     """<p> The name of the user. </p>"""
     password: NotRequired["aws_sdk_appflow.types.password.Password"]

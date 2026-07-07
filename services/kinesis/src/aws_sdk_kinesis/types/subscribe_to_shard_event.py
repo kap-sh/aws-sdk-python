@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#SubscribeToShardEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis._protocol.eventstream import HeaderValue, Message
 from aws_sdk_kinesis.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.sequence_number
 
 
-class SubscribeToShardEvent(TypedDict):
+class SubscribeToShardEvent(TypedDict, closed=True):
     records: "aws_sdk_kinesis.types.record_list.RecordList"
     """<p></p>"""
     continuation_sequence_number: "aws_sdk_kinesis.types.sequence_number.SequenceNumber"

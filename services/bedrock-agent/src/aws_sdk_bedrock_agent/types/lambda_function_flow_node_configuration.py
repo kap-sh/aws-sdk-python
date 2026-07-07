@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#LambdaFunctionFlowNodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_lambda_arn
 
 
-class LambdaFunctionFlowNodeConfiguration(TypedDict):
+class LambdaFunctionFlowNodeConfiguration(TypedDict, closed=True):
     lambda_arn: "aws_sdk_bedrock_agent.types.flow_lambda_arn.FlowLambdaArn"
     """<p>The Amazon Resource Name (ARN) of the Lambda function to invoke.</p>"""
 

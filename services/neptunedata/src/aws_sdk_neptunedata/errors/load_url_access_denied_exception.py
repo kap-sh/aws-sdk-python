@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#LoadUrlAccessDeniedException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError, ServiceError
 
 
-class LoadUrlAccessDeniedException_(TypedDict):
+class LoadUrlAccessDeniedException_(TypedDict, closed=True):
     detailed_message: "str"
     """<p>A detailed message describing the problem.</p>"""
     request_id: "str"

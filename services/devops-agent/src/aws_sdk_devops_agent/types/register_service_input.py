@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#RegisterServiceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.tags
 
 
-class RegisterServiceInput(TypedDict):
+class RegisterServiceInput(TypedDict, closed=True):
     service: "aws_sdk_devops_agent.types.post_register_service_supported_service.PostRegisterServiceSupportedService"
     service_details: "aws_sdk_devops_agent.types.service_details.ServiceDetails"
     """<p>Service-specific authorization configuration parameters</p>"""

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#ChannelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of_channel_response
 
 
-class ChannelsResponse(TypedDict):
+class ChannelsResponse(TypedDict, closed=True):
     channels: NotRequired[
         "aws_sdk_pinpoint.types.map_of_channel_response.MapOfChannelResponse"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#ListSessionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.approval_team_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.token
 
 
-class ListSessionsRequest(TypedDict):
+class ListSessionsRequest(TypedDict, closed=True):
     approval_team_arn: "aws_sdk_mpa.types.approval_team_arn.ApprovalTeamArn"
     """<p>Amazon Resource Name (ARN) for the approval team.</p>"""
     max_results: "aws_sdk_mpa.types.max_results.MaxResults"

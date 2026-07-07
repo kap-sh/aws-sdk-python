@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#Value``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rds_data.errors import DeserializationError, SerializationError
 
@@ -16,43 +18,43 @@ if TYPE_CHECKING:
     import aws_sdk_rds_data.types.struct_value
 
 
-class _Value_isNull(TypedDict):
+class _Value_isNull(TypedDict, closed=True):
     isNull: "aws_sdk_rds_data.types.boxed_boolean.BoxedBoolean"
 
 
-class _Value_bitValue(TypedDict):
+class _Value_bitValue(TypedDict, closed=True):
     bitValue: "aws_sdk_rds_data.types.boxed_boolean.BoxedBoolean"
 
 
-class _Value_bigIntValue(TypedDict):
+class _Value_bigIntValue(TypedDict, closed=True):
     bigIntValue: "aws_sdk_rds_data.types.boxed_long.BoxedLong"
 
 
-class _Value_intValue(TypedDict):
+class _Value_intValue(TypedDict, closed=True):
     intValue: "aws_sdk_rds_data.types.boxed_integer.BoxedInteger"
 
 
-class _Value_doubleValue(TypedDict):
+class _Value_doubleValue(TypedDict, closed=True):
     doubleValue: "aws_sdk_rds_data.types.boxed_double.BoxedDouble"
 
 
-class _Value_realValue(TypedDict):
+class _Value_realValue(TypedDict, closed=True):
     realValue: "aws_sdk_rds_data.types.boxed_float.BoxedFloat"
 
 
-class _Value_stringValue(TypedDict):
+class _Value_stringValue(TypedDict, closed=True):
     stringValue: "aws_sdk_rds_data.types.string.String"
 
 
-class _Value_blobValue(TypedDict):
+class _Value_blobValue(TypedDict, closed=True):
     blobValue: "aws_sdk_rds_data.types.blob.Blob"
 
 
-class _Value_arrayValues(TypedDict):
+class _Value_arrayValues(TypedDict, closed=True):
     arrayValues: "aws_sdk_rds_data.types.array_value_list.ArrayValueList"
 
 
-class _Value_structValue(TypedDict):
+class _Value_structValue(TypedDict, closed=True):
     structValue: "aws_sdk_rds_data.types.struct_value.StructValue"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#AppflowIntegration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.flow_definition
 
 
-class AppflowIntegration(TypedDict):
+class AppflowIntegration(TypedDict, closed=True):
     flow_definition: "aws_sdk_customer_profiles.types.flow_definition.FlowDefinition"
     batches: NotRequired["aws_sdk_customer_profiles.types.batches.Batches"]
     """<p>Batches in workflow of type <code>APPFLOW_INTEGRATION</code>.</p>"""

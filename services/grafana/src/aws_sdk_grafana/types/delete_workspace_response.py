@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#DeleteWorkspaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_description
 
 
-class DeleteWorkspaceResponse(TypedDict):
+class DeleteWorkspaceResponse(TypedDict, closed=True):
     workspace: "aws_sdk_grafana.types.workspace_description.WorkspaceDescription"
     """<p>A structure containing information about the workspace that was deleted.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#PackageOriginConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_origin_restrictions
 
 
-class PackageOriginConfiguration(TypedDict):
+class PackageOriginConfiguration(TypedDict, closed=True):
     restrictions: NotRequired[
         "aws_sdk_codeartifact.types.package_origin_restrictions.PackageOriginRestrictions"
     ]

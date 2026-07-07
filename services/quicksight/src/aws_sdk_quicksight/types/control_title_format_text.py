@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ControlTitleFormatText``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.control_title_plain_text
     import aws_sdk_quicksight.types.control_title_rich_text
 
 
-class ControlTitleFormatText(TypedDict):
+class ControlTitleFormatText(TypedDict, closed=True):
     plain_text: NotRequired[
         "aws_sdk_quicksight.types.control_title_plain_text.ControlTitlePlainText"
     ]

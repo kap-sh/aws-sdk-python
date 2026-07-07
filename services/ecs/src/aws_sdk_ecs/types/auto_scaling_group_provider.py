@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#AutoScalingGroupProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class AutoScalingGroupProvider(TypedDict):
+class AutoScalingGroupProvider(TypedDict, closed=True):
     auto_scaling_group_arn: "aws_sdk_ecs.types.string.String"
     """<p>The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.</p>"""
     managed_scaling: NotRequired["aws_sdk_ecs.types.managed_scaling.ManagedScaling"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.local_gateway_route_table_virtual_interface_group_association
 
 
-class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult(TypedDict):
+class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult(
+    TypedDict, closed=True
+):
     local_gateway_route_table_virtual_interface_group_association: NotRequired[
         "aws_sdk_ec2.types.local_gateway_route_table_virtual_interface_group_association.LocalGatewayRouteTableVirtualInterfaceGroupAssociation"
     ]

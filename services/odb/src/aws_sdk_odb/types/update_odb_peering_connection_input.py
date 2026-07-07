@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#UpdateOdbPeeringConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.peered_cidr_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id_or_arn
 
 
-class UpdateOdbPeeringConnectionInput(TypedDict):
+class UpdateOdbPeeringConnectionInput(TypedDict, closed=True):
     odb_peering_connection_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
     """<p>The identifier of the Oracle Database@Amazon Web Services peering connection to update.</p>"""
     display_name: NotRequired[

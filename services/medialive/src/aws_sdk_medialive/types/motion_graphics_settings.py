@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MotionGraphicsSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.html_motion_graphics_settings
 
 
-class MotionGraphicsSettings(TypedDict):
+class MotionGraphicsSettings(TypedDict, closed=True):
     html_motion_graphics_settings: NotRequired[
         "aws_sdk_medialive.types.html_motion_graphics_settings.HtmlMotionGraphicsSettings"
     ]

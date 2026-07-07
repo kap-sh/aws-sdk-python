@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeBillingGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.billing_group_name
 
 
-class DescribeBillingGroupRequest(TypedDict):
+class DescribeBillingGroupRequest(TypedDict, closed=True):
     billing_group_name: "aws_sdk_iot.types.billing_group_name.BillingGroupName"
     """<p>The name of the billing group.</p>"""
 

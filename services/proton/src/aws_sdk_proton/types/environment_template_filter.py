@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#EnvironmentTemplateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.template_version_part
 
 
-class EnvironmentTemplateFilter(TypedDict):
+class EnvironmentTemplateFilter(TypedDict, closed=True):
     template_name: "aws_sdk_proton.types.resource_name.ResourceName"
     """<p>Include <code>templateName</code> to filter search for a template name.</p>"""
     major_version: "aws_sdk_proton.types.template_version_part.TemplateVersionPart"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#AddReservedInstanceAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.reserved_instance_instance_count
     import aws_sdk_bcm_pricing_calculator.types.uuid
 
 
-class AddReservedInstanceAction(TypedDict):
+class AddReservedInstanceAction(TypedDict, closed=True):
     reserved_instances_offering_id: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.uuid.Uuid"
     ]

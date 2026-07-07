@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#SsmExternalParameter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.jmes_path_string
 
 
-class _SsmExternalParameter_dynamicPath(TypedDict):
+class _SsmExternalParameter_dynamicPath(TypedDict, closed=True):
     dynamicPath: "aws_sdk_mgn.types.jmes_path_string.JmesPathString"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#UpdateTagOptionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.tag_option_value
 
 
-class UpdateTagOptionInput(TypedDict):
+class UpdateTagOptionInput(TypedDict, closed=True):
     id: "aws_sdk_service_catalog.types.tag_option_id.TagOptionId"
     """<p>The TagOption identifier.</p>"""
     value: NotRequired["aws_sdk_service_catalog.types.tag_option_value.TagOptionValue"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#DataUnavailableException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError, ServiceError
 
 
-class DataUnavailableException_(TypedDict):
+class DataUnavailableException_(TypedDict, closed=True):
     message: "str"
 
 

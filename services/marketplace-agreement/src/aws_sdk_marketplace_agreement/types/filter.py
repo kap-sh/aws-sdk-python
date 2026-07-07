@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.filter_name
     import aws_sdk_marketplace_agreement.types.filter_value_list
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_marketplace_agreement.types.filter_name.FilterName"]
     """<p>The name of the filter.</p>"""
     values: NotRequired[

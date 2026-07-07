@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#ListMembershipsRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListMembershipsRequest(TypedDict):
+class ListMembershipsRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>An optional string that, if supplied, must be copied from the output of a previous call to ListMemberships. When provided in this manner, the API fetches the next page of results. </p>"""
     max_results: NotRequired["int"]

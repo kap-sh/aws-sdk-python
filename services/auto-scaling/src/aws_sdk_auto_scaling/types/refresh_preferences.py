@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#RefreshPreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.standby_instances
 
 
-class RefreshPreferences(TypedDict):
+class RefreshPreferences(TypedDict, closed=True):
     min_healthy_percentage: NotRequired[
         "aws_sdk_auto_scaling.types.int_percent.IntPercent"
     ]

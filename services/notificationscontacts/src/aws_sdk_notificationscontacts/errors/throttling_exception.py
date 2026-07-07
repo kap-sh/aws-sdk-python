@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notificationscontacts#ThrottlingException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notificationscontacts.errors import DeserializationError, ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_notificationscontacts.types.service_code
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "aws_sdk_notificationscontacts.types.error_message.ErrorMessage"
     service_code: NotRequired[
         "aws_sdk_notificationscontacts.types.service_code.ServiceCode"

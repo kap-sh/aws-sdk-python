@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EndpointConfigSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_config_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class EndpointConfigSummary(TypedDict):
+class EndpointConfigSummary(TypedDict, closed=True):
     endpoint_config_name: NotRequired[
         "aws_sdk_sagemaker.types.endpoint_config_name.EndpointConfigName"
     ]

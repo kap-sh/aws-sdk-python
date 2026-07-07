@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#EC2InstanceError``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EC2InstanceError(TypedDict):
+class EC2InstanceError(TypedDict, closed=True):
     ec2_error_code: NotRequired["str"]
     """<p>Unique error code identifying the specific EC2 instance error.</p>"""
     ec2_exception_type: NotRequired["str"]

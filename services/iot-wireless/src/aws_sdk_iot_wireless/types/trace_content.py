@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#TraceContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.log_level
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_device_frame_info
 
 
-class TraceContent(TypedDict):
+class TraceContent(TypedDict, closed=True):
     wireless_device_frame_info: NotRequired[
         "aws_sdk_iot_wireless.types.wireless_device_frame_info.WirelessDeviceFrameInfo"
     ]

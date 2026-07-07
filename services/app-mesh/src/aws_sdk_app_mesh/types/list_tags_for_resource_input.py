@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ListTagsForResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.arn
     import aws_sdk_app_mesh.types.tags_limit
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_app_mesh.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.</p>"""
     next_token: NotRequired["str"]

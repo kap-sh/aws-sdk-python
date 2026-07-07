@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#EksResourceScalingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.kubernetes_scaling_apps
 
 
-class EksResourceScalingConfiguration(TypedDict):
+class EksResourceScalingConfiguration(TypedDict, closed=True):
     timeout_minutes: "int"
     """<p>The timeout value specified for the configuration.</p>"""
     kubernetes_resource_type: "aws_sdk_arc_region_switch.types.kubernetes_resource_type.KubernetesResourceType"

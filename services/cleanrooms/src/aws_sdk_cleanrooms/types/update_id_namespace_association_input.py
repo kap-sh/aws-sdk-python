@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#UpdateIdNamespaceAssociationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.generic_resource_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.resource_description
 
 
-class UpdateIdNamespaceAssociationInput(TypedDict):
+class UpdateIdNamespaceAssociationInput(TypedDict, closed=True):
     id_namespace_association_identifier: "aws_sdk_cleanrooms.types.id_namespace_association_identifier.IdNamespaceAssociationIdentifier"
     """<p>The unique identifier of the ID namespace association that you want to update.</p>"""
     membership_identifier: (

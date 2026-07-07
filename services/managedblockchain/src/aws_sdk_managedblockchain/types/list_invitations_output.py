@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#ListInvitationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.invitation_list
     import aws_sdk_managedblockchain.types.pagination_token
 
 
-class ListInvitationsOutput(TypedDict):
+class ListInvitationsOutput(TypedDict, closed=True):
     invitations: NotRequired[
         "aws_sdk_managedblockchain.types.invitation_list.InvitationList"
     ]

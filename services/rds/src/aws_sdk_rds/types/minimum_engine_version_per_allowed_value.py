@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#MinimumEngineVersionPerAllowedValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class MinimumEngineVersionPerAllowedValue(TypedDict):
+class MinimumEngineVersionPerAllowedValue(TypedDict, closed=True):
     allowed_value: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The allowed value for an option setting.</p>"""
     minimum_engine_version: NotRequired["aws_sdk_rds.types.string.String"]

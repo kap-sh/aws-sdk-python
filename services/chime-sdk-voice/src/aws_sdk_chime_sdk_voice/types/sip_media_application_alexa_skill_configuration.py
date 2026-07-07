@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#SipMediaApplicationAlexaSkillConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.alexa_skill_status
 
 
-class SipMediaApplicationAlexaSkillConfiguration(TypedDict):
+class SipMediaApplicationAlexaSkillConfiguration(TypedDict, closed=True):
     alexa_skill_status: (
         "aws_sdk_chime_sdk_voice.types.alexa_skill_status.AlexaSkillStatus"
     )

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DeleteConfiguredTableAnalysisRuleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.configured_table_analysis_rule_type
     import aws_sdk_cleanrooms.types.configured_table_identifier
 
 
-class DeleteConfiguredTableAnalysisRuleInput(TypedDict):
+class DeleteConfiguredTableAnalysisRuleInput(TypedDict, closed=True):
     configured_table_identifier: (
         "aws_sdk_cleanrooms.types.configured_table_identifier.ConfiguredTableIdentifier"
     )

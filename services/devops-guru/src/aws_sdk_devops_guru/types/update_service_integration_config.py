@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#UpdateServiceIntegrationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.kms_server_side_encryption_integration_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.ops_center_integration_config
 
 
-class UpdateServiceIntegrationConfig(TypedDict):
+class UpdateServiceIntegrationConfig(TypedDict, closed=True):
     ops_center: NotRequired[
         "aws_sdk_devops_guru.types.ops_center_integration_config.OpsCenterIntegrationConfig"
     ]

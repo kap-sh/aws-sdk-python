@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UntagContactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id
 
 
-class UntagContactRequest(TypedDict):
+class UntagContactRequest(TypedDict, closed=True):
     contact_id: "aws_sdk_connect.types.contact_id.ContactId"
     """<p>The identifier of the contact in this instance of Connect Customer. </p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"

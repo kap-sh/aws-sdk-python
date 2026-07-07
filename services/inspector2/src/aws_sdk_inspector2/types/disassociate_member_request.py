@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#DisassociateMemberRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.account_id
 
 
-class DisassociateMemberRequest(TypedDict):
+class DisassociateMemberRequest(TypedDict, closed=True):
     account_id: "aws_sdk_inspector2.types.account_id.AccountId"
     """<p>The Amazon Web Services account ID of the member account to disassociate.</p>"""
 

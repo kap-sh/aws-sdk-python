@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GluePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.hash_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class GluePolicy(TypedDict):
+class GluePolicy(TypedDict, closed=True):
     policy_in_json: NotRequired[
         "aws_sdk_glue.types.policy_json_string.PolicyJsonString"
     ]

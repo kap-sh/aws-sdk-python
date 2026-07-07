@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sustainability#Emissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sustainability.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sustainability.types.emissions_unit
 
 
-class Emissions(TypedDict):
+class Emissions(TypedDict, closed=True):
     value: "float"
     """<p>The numeric value of the emissions quantity.</p>"""
     unit: "aws_sdk_sustainability.types.emissions_unit.EmissionsUnit"

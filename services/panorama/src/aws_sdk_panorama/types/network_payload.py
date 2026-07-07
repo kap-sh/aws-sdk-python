@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#NetworkPayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.ethernet_payload
     import aws_sdk_panorama.types.ntp_payload
 
 
-class NetworkPayload(TypedDict):
+class NetworkPayload(TypedDict, closed=True):
     ethernet0: NotRequired["aws_sdk_panorama.types.ethernet_payload.EthernetPayload"]
     """<p>Settings for Ethernet port 0.</p>"""
     ethernet1: NotRequired["aws_sdk_panorama.types.ethernet_payload.EthernetPayload"]

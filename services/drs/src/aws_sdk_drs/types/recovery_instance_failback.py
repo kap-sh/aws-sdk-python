@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstanceFailback``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.job_id
 
 
-class RecoveryInstanceFailback(TypedDict):
+class RecoveryInstanceFailback(TypedDict, closed=True):
     failback_client_id: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]
     """<p>The ID of the failback client that this Recovery Instance is associated with.</p>"""
     failback_job_id: NotRequired["aws_sdk_drs.types.job_id.JobID"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#GetCurrentUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.user
 
 
-class GetCurrentUserResponse(TypedDict):
+class GetCurrentUserResponse(TypedDict, closed=True):
     user: NotRequired["aws_sdk_workdocs.types.user.User"]
     """<p>Metadata of the user.</p>"""
 

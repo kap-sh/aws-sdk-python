@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#GetMemberOfAddressListResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.address
 
 
-class GetMemberOfAddressListResponse(TypedDict):
+class GetMemberOfAddressListResponse(TypedDict, closed=True):
     address: "aws_sdk_mailmanager.types.address.Address"
     """<p>The address retrieved from the address list.</p>"""
     created_timestamp: "datetime.datetime"

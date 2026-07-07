@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#CognitoUserPoolConfigurationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.user_pool_arn
 
 
-class CognitoUserPoolConfigurationDetail(TypedDict):
+class CognitoUserPoolConfigurationDetail(TypedDict, closed=True):
     user_pool_arn: "aws_sdk_verifiedpermissions.types.user_pool_arn.UserPoolArn"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities to be authorized.</p> <p>Example: <code>\"userPoolArn\": \"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5\"</code> </p>"""
     client_ids: "aws_sdk_verifiedpermissions.types.client_ids.ClientIds"

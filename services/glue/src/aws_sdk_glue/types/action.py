@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Action``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_map
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timeout
 
 
-class Action(TypedDict):
+class Action(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of a job to be run.</p>"""
     arguments: NotRequired["aws_sdk_glue.types.generic_map.GenericMap"]

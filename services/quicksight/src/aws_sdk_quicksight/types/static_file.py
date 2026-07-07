@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#StaticFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.image_static_file
     import aws_sdk_quicksight.types.spatial_static_file
 
 
-class StaticFile(TypedDict):
+class StaticFile(TypedDict, closed=True):
     image_static_file: NotRequired[
         "aws_sdk_quicksight.types.image_static_file.ImageStaticFile"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#ImageTagDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.creation_timestamp
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.referenced_image_detail
 
 
-class ImageTagDetail(TypedDict):
+class ImageTagDetail(TypedDict, closed=True):
     image_tag: NotRequired["aws_sdk_ecr_public.types.image_tag.ImageTag"]
     """<p>The tag that's associated with the image.</p>"""
     created_at: NotRequired[

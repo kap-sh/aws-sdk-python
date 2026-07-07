@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DisassociateCertificateResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateCertificateResponse(TypedDict):
+class DisassociateCertificateResponse(TypedDict, closed=True):
     pass
 
 

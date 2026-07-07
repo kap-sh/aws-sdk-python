@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteRentalLegDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_web_link_list
 
 
-class RouteRentalLegDetails(TypedDict):
+class RouteRentalLegDetails(TypedDict, closed=True):
     after_travel_steps: "aws_sdk_geo_routes.types.route_rental_after_travel_step_list.RouteRentalAfterTravelStepList"
     """<p>Steps of a leg that must be performed after the travel portion of the leg.</p>"""
     agency: "aws_sdk_geo_routes.types.route_rental_agency.RouteRentalAgency"

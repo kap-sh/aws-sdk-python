@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#CreateJobResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.job_id
 
 
-class CreateJobResult(TypedDict):
+class CreateJobResult(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_snowball.types.job_id.JobId"]
     """<p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>"""
 

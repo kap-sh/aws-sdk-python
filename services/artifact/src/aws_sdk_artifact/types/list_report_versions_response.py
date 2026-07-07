@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#ListReportVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_artifact.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_artifact.types.reports_list
 
 
-class ListReportVersionsResponse(TypedDict):
+class ListReportVersionsResponse(TypedDict, closed=True):
     reports: "aws_sdk_artifact.types.reports_list.ReportsList"
     """<p>List of report resources.</p>"""
     next_token: NotRequired[

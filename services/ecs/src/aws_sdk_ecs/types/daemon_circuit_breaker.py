@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DaemonCircuitBreaker``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.daemon_deployment_rollback_monitors_status
     import aws_sdk_ecs.types.integer
 
 
-class DaemonCircuitBreaker(TypedDict):
+class DaemonCircuitBreaker(TypedDict, closed=True):
     failure_count: "aws_sdk_ecs.types.integer.Integer"
     """<p>The number of times the circuit breaker detected a daemon deployment failure.</p>"""
     status: NotRequired[

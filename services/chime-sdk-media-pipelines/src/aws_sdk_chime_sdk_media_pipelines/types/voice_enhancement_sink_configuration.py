@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#VoiceEnhancementSinkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.boolean
 
 
-class VoiceEnhancementSinkConfiguration(TypedDict):
+class VoiceEnhancementSinkConfiguration(TypedDict, closed=True):
     disabled: "aws_sdk_chime_sdk_media_pipelines.types.boolean.Boolean"
     """<p>Disables the <code>VoiceEnhancementSinkConfiguration</code> element.</p>"""
 

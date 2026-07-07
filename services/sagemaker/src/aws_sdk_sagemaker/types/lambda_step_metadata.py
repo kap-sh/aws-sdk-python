@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#LambdaStepMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.output_parameter_list
     import aws_sdk_sagemaker.types.string256
 
 
-class LambdaStepMetadata(TypedDict):
+class LambdaStepMetadata(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.string256.String256"]
     """<p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution.</p>"""
     output_parameters: NotRequired[

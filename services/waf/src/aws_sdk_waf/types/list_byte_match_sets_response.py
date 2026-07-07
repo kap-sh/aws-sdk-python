@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.waf#ListByteMatchSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.byte_match_set_summaries
     import aws_sdk_waf.types.next_marker
 
 
-class ListByteMatchSetsResponse(TypedDict):
+class ListByteMatchSetsResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_waf.types.next_marker.NextMarker"]
     """<p>If you have more <code>ByteMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>ByteMatchSet</code> objects, submit another <code>ListByteMatchSets</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>"""
     byte_match_sets: NotRequired[

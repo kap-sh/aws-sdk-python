@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#IamUserProfileDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class IamUserProfileDetails(TypedDict):
+class IamUserProfileDetails(TypedDict, closed=True):
     arn: NotRequired["str"]
     """<p>The ARN of the IAM user.</p>"""
     principal_id: NotRequired["str"]

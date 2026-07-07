@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#AttachmentIdNotFound``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_support.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.error_message
 
 
-class AttachmentIdNotFound_(TypedDict):
+class AttachmentIdNotFound_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_support.types.error_message.ErrorMessage"]
     """<p>An attachment with the specified ID could not be found.</p>"""
 

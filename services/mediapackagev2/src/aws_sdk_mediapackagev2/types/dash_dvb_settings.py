@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#DashDvbSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.dash_dvb_error_metrics
     import aws_sdk_mediapackagev2.types.dash_dvb_font_download
 
 
-class DashDvbSettings(TypedDict):
+class DashDvbSettings(TypedDict, closed=True):
     font_download: NotRequired[
         "aws_sdk_mediapackagev2.types.dash_dvb_font_download.DashDvbFontDownload"
     ]

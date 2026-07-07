@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotTableAggregatedFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pivot_measure_field_list
     import aws_sdk_quicksight.types.pivot_table_dimension_list
 
 
-class PivotTableAggregatedFieldWells(TypedDict):
+class PivotTableAggregatedFieldWells(TypedDict, closed=True):
     rows: NotRequired[
         "aws_sdk_quicksight.types.pivot_table_dimension_list.PivotTableDimensionList"
     ]

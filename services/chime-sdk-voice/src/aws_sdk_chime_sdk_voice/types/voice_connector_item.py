@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#VoiceConnectorItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.voice_connector_item_priority
 
 
-class VoiceConnectorItem(TypedDict):
+class VoiceConnectorItem(TypedDict, closed=True):
     voice_connector_id: "aws_sdk_chime_sdk_voice.types.non_empty_string.NonEmptyString"
     """<p>The Voice Connector ID.</p>"""
     priority: "aws_sdk_chime_sdk_voice.types.voice_connector_item_priority.VoiceConnectorItemPriority"

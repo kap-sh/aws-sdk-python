@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#TestRoleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_transcoder.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.sns_topics
 
 
-class TestRoleRequest(TypedDict):
+class TestRoleRequest(TypedDict, closed=True):
     role: "aws_sdk_elastic_transcoder.types.role.Role"
     """<p>The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to test.</p>"""
     input_bucket: "aws_sdk_elastic_transcoder.types.bucket_name.BucketName"

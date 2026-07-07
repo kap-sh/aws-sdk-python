@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#PutIdentityProviderConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutIdentityProviderConfigurationResponse(TypedDict):
+class PutIdentityProviderConfigurationResponse(TypedDict, closed=True):
     pass
 
 

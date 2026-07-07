@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#UpdateServiceNetworkVpcAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_network_vpc_association_identifier
 
 
-class UpdateServiceNetworkVpcAssociationRequest(TypedDict):
+class UpdateServiceNetworkVpcAssociationRequest(TypedDict, closed=True):
     service_network_vpc_association_identifier: "aws_sdk_vpc_lattice.types.service_network_vpc_association_identifier.ServiceNetworkVpcAssociationIdentifier"
     """<p>The ID or ARN of the association.</p>"""
     security_group_ids: (

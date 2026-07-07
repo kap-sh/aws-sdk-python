@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateJobTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.job_template_arn
     import aws_sdk_iot.types.job_template_id
 
 
-class CreateJobTemplateResponse(TypedDict):
+class CreateJobTemplateResponse(TypedDict, closed=True):
     job_template_arn: NotRequired["aws_sdk_iot.types.job_template_arn.JobTemplateArn"]
     """<p>The ARN of the job template.</p>"""
     job_template_id: NotRequired["aws_sdk_iot.types.job_template_id.JobTemplateId"]

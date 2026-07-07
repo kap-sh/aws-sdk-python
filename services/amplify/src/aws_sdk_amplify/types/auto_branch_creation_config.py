@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#AutoBranchCreationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplify.types.basic_auth_credentials
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.stage
 
 
-class AutoBranchCreationConfig(TypedDict):
+class AutoBranchCreationConfig(TypedDict, closed=True):
     stage: NotRequired["aws_sdk_amplify.types.stage.Stage"]
     """<p>Describes the current stage for the autocreated branch. </p>"""
     framework: NotRequired["aws_sdk_amplify.types.framework.Framework"]

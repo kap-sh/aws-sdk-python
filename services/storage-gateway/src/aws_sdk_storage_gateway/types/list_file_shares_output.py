@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ListFileSharesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.file_share_info_list
     import aws_sdk_storage_gateway.types.marker
 
 
-class ListFileSharesOutput(TypedDict):
+class ListFileSharesOutput(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_storage_gateway.types.marker.Marker"]
     """<p>If the request includes <code>Marker</code>, the response returns that value in this field.</p>"""
     next_marker: NotRequired["aws_sdk_storage_gateway.types.marker.Marker"]

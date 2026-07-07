@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#Detection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.data_identifier_type
 
 
-class Detection(TypedDict):
+class Detection(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>If the sensitive data was detected by a custom data identifier, the Amazon Resource Name (ARN) of the custom data identifier that detected the data. Otherwise, this value is null.</p>"""
     count: NotRequired["aws_sdk_macie2.types.__long.__long"]

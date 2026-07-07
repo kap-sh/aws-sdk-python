@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListChatResponseConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.chat_response_configurations
     import aws_sdk_qbusiness.types.next_token
 
 
-class ListChatResponseConfigurationsResponse(TypedDict):
+class ListChatResponseConfigurationsResponse(TypedDict, closed=True):
     chat_response_configurations: NotRequired[
         "aws_sdk_qbusiness.types.chat_response_configurations.ChatResponseConfigurations"
     ]

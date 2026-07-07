@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIRecommendationModelDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_inference_specification_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_package_arn
 
 
-class AIRecommendationModelDetails(TypedDict):
+class AIRecommendationModelDetails(TypedDict, closed=True):
     model_package_arn: NotRequired[
         "aws_sdk_sagemaker.types.model_package_arn.ModelPackageArn"
     ]

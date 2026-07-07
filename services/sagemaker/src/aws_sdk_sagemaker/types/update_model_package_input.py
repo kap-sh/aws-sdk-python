@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateModelPackageInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.additional_inference_specifications
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_package_source_uri
 
 
-class UpdateModelPackageInput(TypedDict):
+class UpdateModelPackageInput(TypedDict, closed=True):
     model_package_arn: NotRequired[
         "aws_sdk_sagemaker.types.model_package_arn.ModelPackageArn"
     ]

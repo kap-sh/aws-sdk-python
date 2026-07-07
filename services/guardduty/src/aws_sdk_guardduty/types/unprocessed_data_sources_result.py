@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#UnprocessedDataSourcesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.malware_protection_configuration_result
 
 
-class UnprocessedDataSourcesResult(TypedDict):
+class UnprocessedDataSourcesResult(TypedDict, closed=True):
     malware_protection: NotRequired[
         "aws_sdk_guardduty.types.malware_protection_configuration_result.MalwareProtectionConfigurationResult"
     ]

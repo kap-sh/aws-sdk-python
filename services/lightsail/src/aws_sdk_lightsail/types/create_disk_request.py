@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CreateDiskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.tag_list
 
 
-class CreateDiskRequest(TypedDict):
+class CreateDiskRequest(TypedDict, closed=True):
     disk_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The unique Lightsail disk name (<code>my-disk</code>).</p>"""
     availability_zone: "aws_sdk_lightsail.types.non_empty_string.NonEmptyString"

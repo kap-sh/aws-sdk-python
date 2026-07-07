@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#AnalyzerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.unused_access_configuration
 
 
-class _AnalyzerConfiguration_unusedAccess(TypedDict):
+class _AnalyzerConfiguration_unusedAccess(TypedDict, closed=True):
     unusedAccess: "aws_sdk_accessanalyzer.types.unused_access_configuration.UnusedAccessConfiguration"
 
 
-class _AnalyzerConfiguration_internalAccess(TypedDict):
+class _AnalyzerConfiguration_internalAccess(TypedDict, closed=True):
     internalAccess: "aws_sdk_accessanalyzer.types.internal_access_configuration.InternalAccessConfiguration"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#RestoreTableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.timestamp
 
 
-class RestoreTableRequest(TypedDict):
+class RestoreTableRequest(TypedDict, closed=True):
     source_keyspace_name: "aws_sdk_keyspaces.types.keyspace_name.KeyspaceName"
     """<p>The keyspace name of the source table.</p>"""
     source_table_name: "aws_sdk_keyspaces.types.table_name.TableName"

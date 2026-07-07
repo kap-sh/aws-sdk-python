@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AnswerMachineDetectionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
 
 
-class AnswerMachineDetectionConfig(TypedDict):
+class AnswerMachineDetectionConfig(TypedDict, closed=True):
     enable_answer_machine_detection: "aws_sdk_connect.types.boolean.Boolean"
     """<p>The flag to indicate if answer machine detection analysis needs to be performed for a voice call. If set to <code>true</code>, <code>TrafficType</code> must be set as <code>CAMPAIGN</code>. </p>"""
     await_answer_machine_prompt: "aws_sdk_connect.types.boolean.Boolean"

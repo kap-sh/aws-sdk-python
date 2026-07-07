@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DeleteCloudAutonomousVmClusterOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCloudAutonomousVmClusterOutput(TypedDict):
+class DeleteCloudAutonomousVmClusterOutput(TypedDict, closed=True):
     pass
 
 

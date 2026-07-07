@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#DoubleRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -15,6 +15,7 @@ DoubleRange = TypedDict(
         "from": NotRequired["aws_sdk_neptune.types.double.Double"],
         "to": NotRequired["aws_sdk_neptune.types.double.Double"],
     },
+    closed=True,
 )
 
 

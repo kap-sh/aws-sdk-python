@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#GetClusterSessionCredentialsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.credentials
     import aws_sdk_emr.types.date
 
 
-class GetClusterSessionCredentialsOutput(TypedDict):
+class GetClusterSessionCredentialsOutput(TypedDict, closed=True):
     credentials: NotRequired["aws_sdk_emr.types.credentials.Credentials"]
     """<p>The credentials that you can use to connect to cluster endpoints that support username and password authentication.</p>"""
     expires_at: NotRequired["aws_sdk_emr.types.date.Date"]

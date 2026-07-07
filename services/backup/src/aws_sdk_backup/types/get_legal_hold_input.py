@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetLegalHoldInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class GetLegalHoldInput(TypedDict):
+class GetLegalHoldInput(TypedDict, closed=True):
     legal_hold_id: "aws_sdk_backup.types.string.string"
     """<p>The ID of the legal hold.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyDefaultCreditSpecificationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.instance_family_credit_specification
 
 
-class ModifyDefaultCreditSpecificationResult(TypedDict):
+class ModifyDefaultCreditSpecificationResult(TypedDict, closed=True):
     instance_family_credit_specification: NotRequired[
         "aws_sdk_ec2.types.instance_family_credit_specification.InstanceFamilyCreditSpecification"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateColumnStatisticsTaskSettingsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateColumnStatisticsTaskSettingsResponse(TypedDict):
+class CreateColumnStatisticsTaskSettingsResponse(TypedDict, closed=True):
     pass
 
 

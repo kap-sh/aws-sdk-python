@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#GetServiceLevelObjectiveOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.service_level_objective
 
 
-class GetServiceLevelObjectiveOutput(TypedDict):
+class GetServiceLevelObjectiveOutput(TypedDict, closed=True):
     slo: "aws_sdk_application_signals.types.service_level_objective.ServiceLevelObjective"
     """<p>A structure containing the information about the SLO.</p>"""
 

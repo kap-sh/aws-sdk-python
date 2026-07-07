@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotRecommendationResults``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_recommendation_result_statistics
     import aws_sdk_lex_models_v2.types.presigned_s3_url
 
 
-class BotRecommendationResults(TypedDict):
+class BotRecommendationResults(TypedDict, closed=True):
     bot_locale_export_url: NotRequired[
         "aws_sdk_lex_models_v2.types.presigned_s3_url.PresignedS3Url"
     ]

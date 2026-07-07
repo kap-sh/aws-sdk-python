@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#StartTrainedModelExportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.uuid
 
 
-class StartTrainedModelExportJobRequest(TypedDict):
+class StartTrainedModelExportJobRequest(TypedDict, closed=True):
     name: "aws_sdk_cleanroomsml.types.name_string.NameString"
     """<p>The name of the trained model export job.</p>"""
     trained_model_arn: "aws_sdk_cleanroomsml.types.trained_model_arn.TrainedModelArn"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#LoopFlowNodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_definition
 
 
-class LoopFlowNodeConfiguration(TypedDict):
+class LoopFlowNodeConfiguration(TypedDict, closed=True):
     definition: "aws_sdk_bedrock_agent.types.flow_definition.FlowDefinition"
     """<p>The definition of the DoWhile loop nodes and connections between nodes in the flow.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#StartCopyJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class StartCopyJobInput(TypedDict):
+class StartCopyJobInput(TypedDict, closed=True):
     recovery_point_arn: "aws_sdk_backup.types.arn.ARN"
     """<p>An ARN that uniquely identifies a recovery point to use for the copy job; for example, arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45. </p>"""
     source_backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"

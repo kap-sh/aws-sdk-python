@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#GenerateCardValidationDataOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.validation_data_type
 
 
-class GenerateCardValidationDataOutput(TypedDict):
+class GenerateCardValidationDataOutput(TypedDict, closed=True):
     key_arn: "aws_sdk_payment_cryptography_data.types.key_arn.KeyArn"
     """<p>The <code>keyARN</code> of the CVK encryption key that Amazon Web Services Payment Cryptography uses to generate CVV or CSC.</p>"""
     key_check_value: (

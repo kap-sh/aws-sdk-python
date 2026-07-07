@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ServiceProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.service_profile_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.service_profile_name
 
 
-class ServiceProfile(TypedDict):
+class ServiceProfile(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_iot_wireless.types.service_profile_arn.ServiceProfileArn"]
     """<p>The Amazon Resource Name of the resource.</p>"""
     name: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#CreatePullThroughCacheRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.url
 
 
-class CreatePullThroughCacheRuleRequest(TypedDict):
+class CreatePullThroughCacheRuleRequest(TypedDict, closed=True):
     ecr_repository_prefix: "aws_sdk_ecr.types.pull_through_cache_rule_repository_prefix.PullThroughCacheRuleRepositoryPrefix"
     """<p>The repository name prefix to use when caching images from the source registry.</p> <important> <p>There is always an assumed <code>/</code> applied to the end of the prefix. If you specify <code>ecr-public</code> as the prefix, Amazon ECR treats that as <code>ecr-public/</code>.</p> </important>"""
     upstream_registry_url: "aws_sdk_ecr.types.url.Url"

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#DeleteCustomPluginRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__string
 
 
-class DeleteCustomPluginRequest(TypedDict):
+class DeleteCustomPluginRequest(TypedDict, closed=True):
     custom_plugin_arn: "aws_sdk_kafkaconnect.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) of the custom plugin that you want to delete.</p>"""
 

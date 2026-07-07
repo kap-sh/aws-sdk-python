@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#OAuth2CustomParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.o_auth2_custom_prop_type
 
 
-class OAuth2CustomParameter(TypedDict):
+class OAuth2CustomParameter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_appflow.types.key.Key"]
     """<p>The key of the custom parameter required for OAuth 2.0 authentication.</p>"""
     is_required: "aws_sdk_appflow.types.boolean.Boolean"

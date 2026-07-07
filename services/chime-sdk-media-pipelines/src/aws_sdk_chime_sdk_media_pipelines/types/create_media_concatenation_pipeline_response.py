@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#CreateMediaConcatenationPipelineResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.media_concatenation_pipeline
 
 
-class CreateMediaConcatenationPipelineResponse(TypedDict):
+class CreateMediaConcatenationPipelineResponse(TypedDict, closed=True):
     media_concatenation_pipeline: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.media_concatenation_pipeline.MediaConcatenationPipeline"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ListAIPromptsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.next_token
 
 
-class ListAIPromptsResponse(TypedDict):
+class ListAIPromptsResponse(TypedDict, closed=True):
     ai_prompt_summaries: (
         "aws_sdk_qconnect.types.ai_prompt_summary_list.AIPromptSummaryList"
     )

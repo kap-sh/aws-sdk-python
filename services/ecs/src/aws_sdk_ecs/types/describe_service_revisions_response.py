@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DescribeServiceRevisionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.failures
     import aws_sdk_ecs.types.service_revisions
 
 
-class DescribeServiceRevisionsResponse(TypedDict):
+class DescribeServiceRevisionsResponse(TypedDict, closed=True):
     service_revisions: NotRequired[
         "aws_sdk_ecs.types.service_revisions.ServiceRevisions"
     ]

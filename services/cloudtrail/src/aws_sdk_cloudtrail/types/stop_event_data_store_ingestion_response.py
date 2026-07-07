@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#StopEventDataStoreIngestionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopEventDataStoreIngestionResponse(TypedDict):
+class StopEventDataStoreIngestionResponse(TypedDict, closed=True):
     pass
 
 

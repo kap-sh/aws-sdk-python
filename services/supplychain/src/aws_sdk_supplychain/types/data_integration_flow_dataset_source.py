@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationFlowDatasetSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_dataset_arn
 
 
-class DataIntegrationFlowDatasetSource(TypedDict):
+class DataIntegrationFlowDatasetSource(TypedDict, closed=True):
     dataset_identifier: "aws_sdk_supplychain.types.data_integration_dataset_arn.DataIntegrationDatasetArn"
     """<p>The ARN of the dataset source.</p>"""
 

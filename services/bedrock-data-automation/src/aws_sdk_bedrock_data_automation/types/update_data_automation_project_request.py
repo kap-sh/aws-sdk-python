@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#UpdateDataAutomationProjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.standard_output_configuration
 
 
-class UpdateDataAutomationProjectRequest(TypedDict):
+class UpdateDataAutomationProjectRequest(TypedDict, closed=True):
     project_arn: "aws_sdk_bedrock_data_automation.types.data_automation_project_arn.DataAutomationProjectArn"
     """ARN generated at the server side when a DataAutomationProject is created"""
     project_stage: NotRequired[

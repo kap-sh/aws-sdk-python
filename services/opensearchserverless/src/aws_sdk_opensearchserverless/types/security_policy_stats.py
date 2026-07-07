@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#SecurityPolicyStats``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SecurityPolicyStats(TypedDict):
+class SecurityPolicyStats(TypedDict, closed=True):
     encryption_policy_count: NotRequired["int"]
     """<p>The number of encryption policies in the current account.</p>"""
     network_policy_count: NotRequired["int"]

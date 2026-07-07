@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ListEngagementByAcceptingInvitationTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.task_statuses
 
 
-class ListEngagementByAcceptingInvitationTasksRequest(TypedDict):
+class ListEngagementByAcceptingInvitationTasksRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p> Use this parameter to control the number of items returned in each request, which can be useful for performance tuning and managing large result sets. </p>"""
     next_token: NotRequired["str"]

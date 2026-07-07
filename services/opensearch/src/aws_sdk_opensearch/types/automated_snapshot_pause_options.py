@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AutomatedSnapshotPauseOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.timestamp
 
 
-class AutomatedSnapshotPauseOptions(TypedDict):
+class AutomatedSnapshotPauseOptions(TypedDict, closed=True):
     enabled: "aws_sdk_opensearch.types.boolean.Boolean"
     """<p>Whether automated snapshot pause is enabled for the domain.</p>"""
     start_time: NotRequired["aws_sdk_opensearch.types.timestamp.Timestamp"]

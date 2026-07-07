@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeUploadBufferOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.disk_ids
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.long
 
 
-class DescribeUploadBufferOutput(TypedDict):
+class DescribeUploadBufferOutput(TypedDict, closed=True):
     gateway_arn: NotRequired["aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"]
     disk_ids: NotRequired["aws_sdk_storage_gateway.types.disk_ids.DiskIds"]
     """<p>An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.</p>"""

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#UserIdentifier``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.user_token_type
 
 
-class _UserIdentifier_userToken(TypedDict):
+class _UserIdentifier_userToken(TypedDict, closed=True):
     userToken: "aws_sdk_bedrock_agentcore.types.user_token_type.UserTokenType"
 
 
-class _UserIdentifier_userId(TypedDict):
+class _UserIdentifier_userId(TypedDict, closed=True):
     userId: "aws_sdk_bedrock_agentcore.types.user_id_type.UserIdType"
 
 

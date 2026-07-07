@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#BrowserSigningConfigOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class BrowserSigningConfigOutput(TypedDict):
+class BrowserSigningConfigOutput(TypedDict, closed=True):
     enabled: "bool"
     """<p>Indicates whether browser signing is currently enabled for cryptographic agent identification using HTTP message signatures.</p>"""
 

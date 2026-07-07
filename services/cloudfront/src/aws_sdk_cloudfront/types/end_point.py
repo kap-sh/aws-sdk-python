@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#EndPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class EndPoint(TypedDict):
+class EndPoint(TypedDict, closed=True):
     stream_type: "aws_sdk_cloudfront.types.string.string"
     """<p>The type of data stream where you are sending real-time log data. The only valid value is <code>Kinesis</code>.</p>"""
     kinesis_stream_config: NotRequired[

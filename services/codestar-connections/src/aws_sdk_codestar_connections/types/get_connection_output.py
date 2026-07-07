@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#GetConnectionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.connection
 
 
-class GetConnectionOutput(TypedDict):
+class GetConnectionOutput(TypedDict, closed=True):
     connection: NotRequired["aws_sdk_codestar_connections.types.connection.Connection"]
     """<p>The connection details, such as status, owner, and provider type.</p>"""
 

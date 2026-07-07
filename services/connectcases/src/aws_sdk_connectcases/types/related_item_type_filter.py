@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#RelatedItemTypeFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -13,27 +15,27 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.sla_filter
 
 
-class _RelatedItemTypeFilter_contact(TypedDict):
+class _RelatedItemTypeFilter_contact(TypedDict, closed=True):
     contact: "aws_sdk_connectcases.types.contact_filter.ContactFilter"
 
 
-class _RelatedItemTypeFilter_comment(TypedDict):
+class _RelatedItemTypeFilter_comment(TypedDict, closed=True):
     comment: "aws_sdk_connectcases.types.comment_filter.CommentFilter"
 
 
-class _RelatedItemTypeFilter_file(TypedDict):
+class _RelatedItemTypeFilter_file(TypedDict, closed=True):
     file: "aws_sdk_connectcases.types.file_filter.FileFilter"
 
 
-class _RelatedItemTypeFilter_sla(TypedDict):
+class _RelatedItemTypeFilter_sla(TypedDict, closed=True):
     sla: "aws_sdk_connectcases.types.sla_filter.SlaFilter"
 
 
-class _RelatedItemTypeFilter_connectCase(TypedDict):
+class _RelatedItemTypeFilter_connectCase(TypedDict, closed=True):
     connectCase: "aws_sdk_connectcases.types.connect_case_filter.ConnectCaseFilter"
 
 
-class _RelatedItemTypeFilter_custom(TypedDict):
+class _RelatedItemTypeFilter_custom(TypedDict, closed=True):
     custom: "aws_sdk_connectcases.types.custom_filter.CustomFilter"
 
 

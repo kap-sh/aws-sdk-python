@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#GlobalTableWitnessDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.region_name
     import aws_sdk_dynamodb.types.witness_status
 
 
-class GlobalTableWitnessDescription(TypedDict):
+class GlobalTableWitnessDescription(TypedDict, closed=True):
     region_name: NotRequired["aws_sdk_dynamodb.types.region_name.RegionName"]
     """<p>The name of the Amazon Web Services Region that serves as a witness for the MRSC global table.</p>"""
     witness_status: NotRequired["aws_sdk_dynamodb.types.witness_status.WitnessStatus"]

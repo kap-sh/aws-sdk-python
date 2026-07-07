@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#DependencyException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import ServiceError
 
 
-class DependencyException_(TypedDict):
+class DependencyException_(TypedDict, closed=True):
     message: NotRequired["str"]
     parameter_name: NotRequired["str"]
     """<p>Name of the parameter that caused the exception.</p>"""

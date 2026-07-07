@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#DeleteSchemaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.arn
 
 
-class DeleteSchemaResponse(TypedDict):
+class DeleteSchemaResponse(TypedDict, closed=True):
     schema_arn: NotRequired["aws_sdk_clouddirectory.types.arn.Arn"]
     """<p>The input ARN that is returned as part of the response. For more information, see <a>arns</a>.</p>"""
 

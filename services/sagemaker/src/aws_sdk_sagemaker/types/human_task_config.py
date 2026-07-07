@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HumanTaskConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.annotation_consolidation_config
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workteam_arn
 
 
-class HumanTaskConfig(TypedDict):
+class HumanTaskConfig(TypedDict, closed=True):
     workteam_arn: NotRequired["aws_sdk_sagemaker.types.workteam_arn.WorkteamArn"]
     """<p>The Amazon Resource Name (ARN) of the work team assigned to complete the tasks.</p>"""
     ui_config: NotRequired["aws_sdk_sagemaker.types.ui_config.UiConfig"]

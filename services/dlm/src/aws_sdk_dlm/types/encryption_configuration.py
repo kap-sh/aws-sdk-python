@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#EncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.cmk_arn
     import aws_sdk_dlm.types.encrypted
 
 
-class EncryptionConfiguration(TypedDict):
+class EncryptionConfiguration(TypedDict, closed=True):
     encrypted: NotRequired["aws_sdk_dlm.types.encrypted.Encrypted"]
     """<p>To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or when encryption by default is not enabled.</p>"""
     cmk_arn: NotRequired["aws_sdk_dlm.types.cmk_arn.CmkArn"]

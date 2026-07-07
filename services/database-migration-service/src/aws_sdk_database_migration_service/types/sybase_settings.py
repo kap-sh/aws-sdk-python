@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#SybaseSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.integer_optional
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class SybaseSettings(TypedDict):
+class SybaseSettings(TypedDict, closed=True):
     database_name: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>Database name for the endpoint.</p>"""
     password: NotRequired[

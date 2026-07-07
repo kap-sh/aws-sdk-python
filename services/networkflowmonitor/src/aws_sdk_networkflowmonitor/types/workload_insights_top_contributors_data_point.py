@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#WorkloadInsightsTopContributorsDataPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_networkflowmonitor.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.workload_insights_top_contributors_values_list
 
 
-class WorkloadInsightsTopContributorsDataPoint(TypedDict):
+class WorkloadInsightsTopContributorsDataPoint(TypedDict, closed=True):
     timestamps: "aws_sdk_networkflowmonitor.types.workload_insights_top_contributors_timestamps_list.WorkloadInsightsTopContributorsTimestampsList"
     """<p>An array of the timestamps for the data point.</p>"""
     values: "aws_sdk_networkflowmonitor.types.workload_insights_top_contributors_values_list.WorkloadInsightsTopContributorsValuesList"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DaemonRevision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class DaemonRevision(TypedDict):
+class DaemonRevision(TypedDict, closed=True):
     daemon_revision_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the daemon revision.</p>"""
     cluster_arn: NotRequired["aws_sdk_ecs.types.string.String"]

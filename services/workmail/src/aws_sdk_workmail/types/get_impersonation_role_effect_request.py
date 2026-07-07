@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#GetImpersonationRoleEffectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class GetImpersonationRoleEffectRequest(TypedDict):
+class GetImpersonationRoleEffectRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The WorkMail organization where the impersonation role is defined.</p>"""
     impersonation_role_id: (

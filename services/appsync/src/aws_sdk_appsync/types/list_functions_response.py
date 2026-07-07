@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ListFunctionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.functions
     import aws_sdk_appsync.types.pagination_token
 
 
-class ListFunctionsResponse(TypedDict):
+class ListFunctionsResponse(TypedDict, closed=True):
     functions: NotRequired["aws_sdk_appsync.types.functions.Functions"]
     """<p>A list of <code>Function</code> objects.</p>"""
     next_token: NotRequired["aws_sdk_appsync.types.pagination_token.PaginationToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#ListMicrosoftTeamsUserIdentitiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chatbot.types.chat_configuration_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chatbot.types.pagination_token
 
 
-class ListMicrosoftTeamsUserIdentitiesRequest(TypedDict):
+class ListMicrosoftTeamsUserIdentitiesRequest(TypedDict, closed=True):
     chat_configuration_arn: NotRequired[
         "aws_sdk_chatbot.types.chat_configuration_arn.ChatConfigurationArn"
     ]

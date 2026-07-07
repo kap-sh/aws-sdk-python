@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#PutBotAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.version
 
 
-class PutBotAliasRequest(TypedDict):
+class PutBotAliasRequest(TypedDict, closed=True):
     name: "aws_sdk_lex_model_building_service.types.alias_name.AliasName"
     """<p>The name of the alias. The name is <i>not</i> case sensitive.</p>"""
     description: NotRequired[

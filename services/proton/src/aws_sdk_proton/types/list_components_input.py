@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListComponentsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.max_page_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.resource_name
 
 
-class ListComponentsInput(TypedDict):
+class ListComponentsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_proton.types.next_token.NextToken"]
     """<p>A token that indicates the location of the next component in the array of components, after the list of components that was previously requested.</p>"""
     environment_name: NotRequired["aws_sdk_proton.types.resource_name.ResourceName"]

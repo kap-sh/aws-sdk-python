@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#Deployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.applied_extensions
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.version_label
 
 
-class Deployment(TypedDict):
+class Deployment(TypedDict, closed=True):
     application_id: NotRequired["aws_sdk_appconfig.types.id.Id"]
     """<p>The ID of the application that was deployed.</p>"""
     environment_id: NotRequired["aws_sdk_appconfig.types.id.Id"]

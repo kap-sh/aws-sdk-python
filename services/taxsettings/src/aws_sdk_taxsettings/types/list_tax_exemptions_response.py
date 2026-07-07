@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#ListTaxExemptionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.pagination_token_string
     import aws_sdk_taxsettings.types.tax_exemption_details_map
 
 
-class ListTaxExemptionsResponse(TypedDict):
+class ListTaxExemptionsResponse(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_taxsettings.types.pagination_token_string.PaginationTokenString"
     ]

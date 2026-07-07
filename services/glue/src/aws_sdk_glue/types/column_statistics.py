@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ColumnStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.type_string
 
 
-class ColumnStatistics(TypedDict):
+class ColumnStatistics(TypedDict, closed=True):
     column_name: "aws_sdk_glue.types.name_string.NameString"
     """<p>Name of column which statistics belong to.</p>"""
     column_type: "aws_sdk_glue.types.type_string.TypeString"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateBillingGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.billing_group_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.tag_list
 
 
-class CreateBillingGroupRequest(TypedDict):
+class CreateBillingGroupRequest(TypedDict, closed=True):
     billing_group_name: "aws_sdk_iot.types.billing_group_name.BillingGroupName"
     """<p>The name you wish to give to the billing group.</p>"""
     billing_group_properties: NotRequired[

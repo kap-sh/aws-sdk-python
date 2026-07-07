@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#UpsolverMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpsolverMetadata(TypedDict):
+class UpsolverMetadata(TypedDict, closed=True):
     pass
 
 

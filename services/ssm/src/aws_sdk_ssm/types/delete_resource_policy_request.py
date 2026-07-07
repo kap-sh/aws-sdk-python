@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeleteResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_arn_string
 
 
-class DeleteResourcePolicyRequest(TypedDict):
+class DeleteResourcePolicyRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_ssm.types.resource_arn_string.ResourceArnString"
     """<p>Amazon Resource Name (ARN) of the resource to which the policies are attached.</p>"""
     policy_id: "aws_sdk_ssm.types.policy_id.PolicyId"

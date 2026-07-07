@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#InforNexusMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class InforNexusMetadata(TypedDict):
+class InforNexusMetadata(TypedDict, closed=True):
     pass
 
 

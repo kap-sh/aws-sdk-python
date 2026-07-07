@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeRegionSettingsInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeRegionSettingsInput(TypedDict):
+class DescribeRegionSettingsInput(TypedDict, closed=True):
     pass
 
 

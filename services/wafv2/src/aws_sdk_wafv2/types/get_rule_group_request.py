@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GetRuleGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.entity_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.scope
 
 
-class GetRuleGroupRequest(TypedDict):
+class GetRuleGroupRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_wafv2.types.entity_name.EntityName"]
     """<p>The name of the rule group. You cannot change the name of a rule group after you create it.</p>"""
     scope: NotRequired["aws_sdk_wafv2.types.scope.Scope"]

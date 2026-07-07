@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#AssistantMessageBlock``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
 
-class _AssistantMessageBlock_text(TypedDict):
+class _AssistantMessageBlock_text(TypedDict, closed=True):
     text: "str"
 
 
-class _AssistantMessageBlock_toolUse(TypedDict):
+class _AssistantMessageBlock_toolUse(TypedDict, closed=True):
     toolUse: "object"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#TransitGatewayAttachmentBgpConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class TransitGatewayAttachmentBgpConfiguration(TypedDict):
+class TransitGatewayAttachmentBgpConfiguration(TypedDict, closed=True):
     transit_gateway_asn: NotRequired["aws_sdk_ec2.types.long.Long"]
     """<p>The transit gateway Autonomous System Number (ASN).</p>"""
     peer_asn: NotRequired["aws_sdk_ec2.types.long.Long"]

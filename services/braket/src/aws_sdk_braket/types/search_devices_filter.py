@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#SearchDevicesFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.string256_list
 
 
-class SearchDevicesFilter(TypedDict):
+class SearchDevicesFilter(TypedDict, closed=True):
     name: "str"
     """<p>The name of the device parameter to filter based on. Only <code>deviceArn</code> filter name is currently supported.</p>"""
     values: "aws_sdk_braket.types.string256_list.String256List"

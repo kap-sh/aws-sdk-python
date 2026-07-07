@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fis#GetTargetAccountConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.experiment_template_id
     import aws_sdk_fis.types.target_account_id
 
 
-class GetTargetAccountConfigurationRequest(TypedDict):
+class GetTargetAccountConfigurationRequest(TypedDict, closed=True):
     experiment_template_id: (
         "aws_sdk_fis.types.experiment_template_id.ExperimentTemplateId"
     )

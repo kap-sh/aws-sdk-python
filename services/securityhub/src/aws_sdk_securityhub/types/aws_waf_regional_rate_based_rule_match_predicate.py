@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafRegionalRateBasedRuleMatchPredicate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsWafRegionalRateBasedRuleMatchPredicate(TypedDict):
+class AwsWafRegionalRateBasedRuleMatchPredicate(TypedDict, closed=True):
     data_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The unique identifier for the predicate.</p>"""
     negated: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

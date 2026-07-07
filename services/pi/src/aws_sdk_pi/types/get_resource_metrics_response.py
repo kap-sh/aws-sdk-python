@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pi#GetResourceMetricsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.iso_timestamp
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pi.types.string
 
 
-class GetResourceMetricsResponse(TypedDict):
+class GetResourceMetricsResponse(TypedDict, closed=True):
     aligned_start_time: NotRequired["aws_sdk_pi.types.iso_timestamp.ISOTimestamp"]
     """<p>The start time for the returned metrics, after alignment to a granular boundary (as specified by <code>PeriodInSeconds</code>). <code>AlignedStartTime</code> will be less than or equal to the value of the user-specified <code>StartTime</code>.</p>"""
     aligned_end_time: NotRequired["aws_sdk_pi.types.iso_timestamp.ISOTimestamp"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SendOTPMessageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.message_response
 
 
-class SendOTPMessageResponse(TypedDict):
+class SendOTPMessageResponse(TypedDict, closed=True):
     message_response: NotRequired[
         "aws_sdk_pinpoint.types.message_response.MessageResponse"
     ]

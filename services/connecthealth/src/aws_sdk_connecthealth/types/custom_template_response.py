@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#CustomTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.custom_template_base
 
 
-class CustomTemplateResponse(TypedDict):
+class CustomTemplateResponse(TypedDict, closed=True):
     template_type: NotRequired[
         "aws_sdk_connecthealth.types.custom_template_base.CustomTemplateBase"
     ]

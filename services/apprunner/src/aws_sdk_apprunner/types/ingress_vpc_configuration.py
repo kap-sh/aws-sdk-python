@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#IngressVpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.string
 
 
-class IngressVpcConfiguration(TypedDict):
+class IngressVpcConfiguration(TypedDict, closed=True):
     vpc_id: NotRequired["aws_sdk_apprunner.types.string.String"]
     """<p>The ID of the VPC that is used for the VPC endpoint.</p>"""
     vpc_endpoint_id: NotRequired["aws_sdk_apprunner.types.string.String"]

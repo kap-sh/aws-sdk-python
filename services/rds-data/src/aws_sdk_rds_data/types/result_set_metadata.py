@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#ResultSetMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.long
     import aws_sdk_rds_data.types.metadata
 
 
-class ResultSetMetadata(TypedDict):
+class ResultSetMetadata(TypedDict, closed=True):
     column_count: "aws_sdk_rds_data.types.long.Long"
     """<p>The number of columns in the result set.</p>"""
     column_metadata: NotRequired["aws_sdk_rds_data.types.metadata.Metadata"]

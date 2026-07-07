@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#BatchDisableAlarmRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events_data.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.disable_alarm_action_requests
 
 
-class BatchDisableAlarmRequest(TypedDict):
+class BatchDisableAlarmRequest(TypedDict, closed=True):
     disable_action_requests: "aws_sdk_iot_events_data.types.disable_alarm_action_requests.DisableAlarmActionRequests"
     """<p>The list of disable action requests. You can specify up to 10 requests per operation.</p>"""
 

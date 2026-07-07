@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#InvalidInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53_domains.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.error_message
 
 
-class InvalidInput_(TypedDict):
+class InvalidInput_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_route_53_domains.types.error_message.ErrorMessage"]
     """<p>The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation that is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.</p>"""
 

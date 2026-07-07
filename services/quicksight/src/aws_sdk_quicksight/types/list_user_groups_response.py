@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListUserGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.group_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class ListUserGroupsResponse(TypedDict):
+class ListUserGroupsResponse(TypedDict, closed=True):
     group_list: NotRequired["aws_sdk_quicksight.types.group_list.GroupList"]
     """<p>The list of groups the user is a member of.</p>"""
     next_token: NotRequired["aws_sdk_quicksight.types.string.String"]

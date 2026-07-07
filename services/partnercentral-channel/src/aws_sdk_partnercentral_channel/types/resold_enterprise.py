@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ResoldEnterprise``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_channel.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.coverage
 
 
-class ResoldEnterprise(TypedDict):
+class ResoldEnterprise(TypedDict, closed=True):
     coverage: "aws_sdk_partnercentral_channel.types.coverage.Coverage"
     """<p>The coverage level for resold enterprise support.</p>"""
     tam_location: "str"

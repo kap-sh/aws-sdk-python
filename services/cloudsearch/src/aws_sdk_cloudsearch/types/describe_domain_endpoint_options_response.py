@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#DescribeDomainEndpointOptionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.domain_endpoint_options_status
 
 
-class DescribeDomainEndpointOptionsResponse(TypedDict):
+class DescribeDomainEndpointOptionsResponse(TypedDict, closed=True):
     domain_endpoint_options: NotRequired[
         "aws_sdk_cloudsearch.types.domain_endpoint_options_status.DomainEndpointOptionsStatus"
     ]

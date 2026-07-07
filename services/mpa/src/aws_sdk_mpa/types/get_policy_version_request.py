@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#GetPolicyVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.qualified_policy_arn
 
 
-class GetPolicyVersionRequest(TypedDict):
+class GetPolicyVersionRequest(TypedDict, closed=True):
     policy_version_arn: "aws_sdk_mpa.types.qualified_policy_arn.QualifiedPolicyArn"
     """<p>Amazon Resource Name (ARN) for the policy.</p>"""
 

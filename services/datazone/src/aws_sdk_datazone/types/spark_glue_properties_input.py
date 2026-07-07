@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SparkGluePropertiesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.glue_connection_names
     import aws_sdk_datazone.types.spark_glue_args
 
 
-class SparkGluePropertiesInput(TypedDict):
+class SparkGluePropertiesInput(TypedDict, closed=True):
     additional_args: NotRequired["aws_sdk_datazone.types.spark_glue_args.SparkGlueArgs"]
     """<p>The additional args in the Spark Amazon Web Services Glue properties.</p>"""
     glue_connection_name: NotRequired["str"]

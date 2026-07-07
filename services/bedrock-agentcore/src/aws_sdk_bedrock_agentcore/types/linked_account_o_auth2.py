@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#LinkedAccountOAuth2``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,27 +10,27 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.o_auth2_authentication
 
 
-class _LinkedAccountOAuth2_google(TypedDict):
+class _LinkedAccountOAuth2_google(TypedDict, closed=True):
     google: (
         "aws_sdk_bedrock_agentcore.types.o_auth2_authentication.OAuth2Authentication"
     )
 
 
-class _LinkedAccountOAuth2_apple(TypedDict):
+class _LinkedAccountOAuth2_apple(TypedDict, closed=True):
     apple: "aws_sdk_bedrock_agentcore.types.o_auth2_authentication.OAuth2Authentication"
 
 
-class _LinkedAccountOAuth2_x(TypedDict):
+class _LinkedAccountOAuth2_x(TypedDict, closed=True):
     x: "aws_sdk_bedrock_agentcore.types.o_auth2_authentication.OAuth2Authentication"
 
 
-class _LinkedAccountOAuth2_telegram(TypedDict):
+class _LinkedAccountOAuth2_telegram(TypedDict, closed=True):
     telegram: (
         "aws_sdk_bedrock_agentcore.types.o_auth2_authentication.OAuth2Authentication"
     )
 
 
-class _LinkedAccountOAuth2_github(TypedDict):
+class _LinkedAccountOAuth2_github(TypedDict, closed=True):
     github: (
         "aws_sdk_bedrock_agentcore.types.o_auth2_authentication.OAuth2Authentication"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ApplicationDPUSizes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.name_string
     import aws_sdk_athena.types.supported_dpu_size_list
 
 
-class ApplicationDPUSizes(TypedDict):
+class ApplicationDPUSizes(TypedDict, closed=True):
     application_runtime_id: NotRequired["aws_sdk_athena.types.name_string.NameString"]
     """<p>The name of the supported application runtime (for example, <code>Athena notebook version 1</code>).</p>"""
     supported_dpu_sizes: NotRequired[

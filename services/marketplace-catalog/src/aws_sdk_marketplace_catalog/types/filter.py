@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.filter_name
     import aws_sdk_marketplace_catalog.types.value_list
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_marketplace_catalog.types.filter_name.FilterName"]
     """<p>For <code>ListEntities</code>, the supported value for this is an <code>EntityId</code>.</p> <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>"""
     value_list: NotRequired["aws_sdk_marketplace_catalog.types.value_list.ValueList"]

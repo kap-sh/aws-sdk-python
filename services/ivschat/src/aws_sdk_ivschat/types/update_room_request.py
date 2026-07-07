@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#UpdateRoomRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivschat.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.room_name
 
 
-class UpdateRoomRequest(TypedDict):
+class UpdateRoomRequest(TypedDict, closed=True):
     identifier: "aws_sdk_ivschat.types.room_identifier.RoomIdentifier"
     """<p>Identifier of the room to be updated. Currently this must be an ARN.</p>"""
     name: NotRequired["aws_sdk_ivschat.types.room_name.RoomName"]

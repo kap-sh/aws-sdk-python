@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListInsightsMetricDataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.error_code
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.timestamps
 
 
-class ListInsightsMetricDataResponse(TypedDict):
+class ListInsightsMetricDataResponse(TypedDict, closed=True):
     trail_arn: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>Specifies the ARN of the trail. This is only returned when Insights is enabled on a trail logging data events. </p>"""
     event_source: NotRequired["aws_sdk_cloudtrail.types.event_source.EventSource"]

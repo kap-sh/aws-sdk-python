@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#ListTransactionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.query_network
 
 
-class ListTransactionsInput(TypedDict):
+class ListTransactionsInput(TypedDict, closed=True):
     address: "aws_sdk_managedblockchain_query.types.chain_address.ChainAddress"
     """<p>The address (either a contract or wallet), whose transactions are being requested.</p>"""
     network: "aws_sdk_managedblockchain_query.types.query_network.QueryNetwork"

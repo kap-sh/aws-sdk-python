@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AuthChallengeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.authorization_response_map
 
 
-class AuthChallengeResponse(TypedDict):
+class AuthChallengeResponse(TypedDict, closed=True):
     response_map: (
         "aws_sdk_qbusiness.types.authorization_response_map.AuthorizationResponseMap"
     )

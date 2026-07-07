@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#UpdateAnswerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.answer_reason
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_id
 
 
-class UpdateAnswerInput(TypedDict):
+class UpdateAnswerInput(TypedDict, closed=True):
     workload_id: "aws_sdk_wellarchitected.types.workload_id.WorkloadId"
     lens_alias: "aws_sdk_wellarchitected.types.lens_alias.LensAlias"
     question_id: "aws_sdk_wellarchitected.types.question_id.QuestionId"

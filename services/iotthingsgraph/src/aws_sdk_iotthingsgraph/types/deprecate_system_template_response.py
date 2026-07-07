@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#DeprecateSystemTemplateResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeprecateSystemTemplateResponse(TypedDict):
+class DeprecateSystemTemplateResponse(TypedDict, closed=True):
     pass
 
 

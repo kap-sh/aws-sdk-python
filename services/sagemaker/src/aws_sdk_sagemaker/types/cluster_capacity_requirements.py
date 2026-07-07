@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterCapacityRequirements``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_on_demand_options
     import aws_sdk_sagemaker.types.cluster_spot_options
 
 
-class ClusterCapacityRequirements(TypedDict):
+class ClusterCapacityRequirements(TypedDict, closed=True):
     spot: NotRequired["aws_sdk_sagemaker.types.cluster_spot_options.ClusterSpotOptions"]
     """<p>Configuration options specific to Spot instances.</p>"""
     on_demand: NotRequired[

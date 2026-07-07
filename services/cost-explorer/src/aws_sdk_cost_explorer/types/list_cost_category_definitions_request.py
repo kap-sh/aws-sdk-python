@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ListCostCategoryDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.cost_category_max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.zoned_date_time
 
 
-class ListCostCategoryDefinitionsRequest(TypedDict):
+class ListCostCategoryDefinitionsRequest(TypedDict, closed=True):
     effective_on: NotRequired[
         "aws_sdk_cost_explorer.types.zoned_date_time.ZonedDateTime"
     ]

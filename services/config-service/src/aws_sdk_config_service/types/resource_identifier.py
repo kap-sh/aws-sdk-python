@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ResourceIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.resource_deletion_time
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.resource_type
 
 
-class ResourceIdentifier(TypedDict):
+class ResourceIdentifier(TypedDict, closed=True):
     resource_type: NotRequired[
         "aws_sdk_config_service.types.resource_type.ResourceType"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#UsersAndGroups``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.user_groups
     import aws_sdk_qbusiness.types.user_ids
 
 
-class UsersAndGroups(TypedDict):
+class UsersAndGroups(TypedDict, closed=True):
     user_ids: NotRequired["aws_sdk_qbusiness.types.user_ids.UserIds"]
     """<p>The user ids associated with a topic control rule.</p>"""
     user_groups: NotRequired["aws_sdk_qbusiness.types.user_groups.UserGroups"]

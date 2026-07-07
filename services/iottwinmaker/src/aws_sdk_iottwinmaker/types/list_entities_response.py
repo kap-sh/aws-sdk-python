@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ListEntitiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.entity_summaries
     import aws_sdk_iottwinmaker.types.next_token
 
 
-class ListEntitiesResponse(TypedDict):
+class ListEntitiesResponse(TypedDict, closed=True):
     entity_summaries: NotRequired[
         "aws_sdk_iottwinmaker.types.entity_summaries.EntitySummaries"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#Delivery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.tags
 
 
-class Delivery(TypedDict):
+class Delivery(TypedDict, closed=True):
     id: NotRequired["aws_sdk_cloudwatch_logs.types.delivery_id.DeliveryId"]
     """<p>The unique ID that identifies this delivery in your account.</p>"""
     arn: NotRequired["aws_sdk_cloudwatch_logs.types.arn.Arn"]

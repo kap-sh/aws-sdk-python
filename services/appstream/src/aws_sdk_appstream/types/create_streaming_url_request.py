@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateStreamingURLRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
 
 
-class CreateStreamingURLRequest(TypedDict):
+class CreateStreamingURLRequest(TypedDict, closed=True):
     stack_name: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>The name of the stack.</p>"""
     fleet_name: NotRequired["aws_sdk_appstream.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.acm#ExtendedKeyUsage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.extended_key_usage_name
     import aws_sdk_acm.types.string
 
 
-class ExtendedKeyUsage(TypedDict):
+class ExtendedKeyUsage(TypedDict, closed=True):
     name: NotRequired["aws_sdk_acm.types.extended_key_usage_name.ExtendedKeyUsageName"]
     """<p>The name of an Extended Key Usage value.</p>"""
     oid: NotRequired["aws_sdk_acm.types.string.String"]

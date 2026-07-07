@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#CreateSecurityConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.security_config_type
 
 
-class CreateSecurityConfigRequest(TypedDict):
+class CreateSecurityConfigRequest(TypedDict, closed=True):
     type: "aws_sdk_opensearchserverless.types.security_config_type.SecurityConfigType"
     """<p>The type of security configuration.</p>"""
     name: "aws_sdk_opensearchserverless.types.config_name.ConfigName"

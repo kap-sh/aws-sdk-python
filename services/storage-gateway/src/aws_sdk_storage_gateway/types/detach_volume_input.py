@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DetachVolumeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.volume_arn
 
 
-class DetachVolumeInput(TypedDict):
+class DetachVolumeInput(TypedDict, closed=True):
     volume_arn: "aws_sdk_storage_gateway.types.volume_arn.VolumeARN"
     """<p>The Amazon Resource Name (ARN) of the volume to detach from the gateway.</p>"""
     force_detach: NotRequired["aws_sdk_storage_gateway.types.boolean.Boolean"]

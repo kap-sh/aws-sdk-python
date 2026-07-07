@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#MetricsFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError, SerializationError
@@ -12,19 +14,19 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.tag
 
 
-class _MetricsFilter_Prefix(TypedDict):
+class _MetricsFilter_Prefix(TypedDict, closed=True):
     Prefix: "aws_sdk_s3.types.prefix.Prefix"
 
 
-class _MetricsFilter_Tag(TypedDict):
+class _MetricsFilter_Tag(TypedDict, closed=True):
     Tag: "aws_sdk_s3.types.tag.Tag"
 
 
-class _MetricsFilter_AccessPointArn(TypedDict):
+class _MetricsFilter_AccessPointArn(TypedDict, closed=True):
     AccessPointArn: "aws_sdk_s3.types.access_point_arn.AccessPointArn"
 
 
-class _MetricsFilter_And(TypedDict):
+class _MetricsFilter_And(TypedDict, closed=True):
     And: "aws_sdk_s3.types.metrics_and_operator.MetricsAndOperator"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#Nameserver``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53_domains.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.host_name
 
 
-class Nameserver(TypedDict):
+class Nameserver(TypedDict, closed=True):
     name: "aws_sdk_route_53_domains.types.host_name.HostName"
     """<p>The fully qualified host name of the name server.</p> <p>Constraint: Maximum 255 characters</p>"""
     glue_ips: NotRequired["aws_sdk_route_53_domains.types.glue_ip_list.GlueIpList"]

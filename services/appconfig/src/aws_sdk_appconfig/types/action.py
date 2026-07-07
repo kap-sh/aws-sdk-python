@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#Action``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.uri
 
 
-class Action(TypedDict):
+class Action(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appconfig.types.name.Name"]
     """<p>The action name.</p>"""
     description: NotRequired["aws_sdk_appconfig.types.description.Description"]

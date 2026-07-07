@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#IcebergUnreferencedFileRemovalSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.positive_integer
 
 
-class IcebergUnreferencedFileRemovalSettings(TypedDict):
+class IcebergUnreferencedFileRemovalSettings(TypedDict, closed=True):
     unreferenced_days: NotRequired[
         "aws_sdk_s3tables.types.positive_integer.PositiveInteger"
     ]

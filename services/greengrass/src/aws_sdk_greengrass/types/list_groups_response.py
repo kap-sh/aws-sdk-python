@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ListGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__list_of_group_information
     import aws_sdk_greengrass.types.__string
 
 
-class ListGroupsResponse(TypedDict):
+class ListGroupsResponse(TypedDict, closed=True):
     groups: NotRequired[
         "aws_sdk_greengrass.types.__list_of_group_information.__listOfGroupInformation"
     ]

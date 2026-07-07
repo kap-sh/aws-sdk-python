@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListServiceFunctionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.service_function_list
 
 
-class ListServiceFunctionsResponse(TypedDict):
+class ListServiceFunctionsResponse(TypedDict, closed=True):
     service_functions: (
         "aws_sdk_resiliencehubv2.types.service_function_list.ServiceFunctionList"
     )

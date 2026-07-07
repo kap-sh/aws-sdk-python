@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#TextWithHighlights``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.highlight_list
     import aws_sdk_kendra.types.string
 
 
-class TextWithHighlights(TypedDict):
+class TextWithHighlights(TypedDict, closed=True):
     text: NotRequired["aws_sdk_kendra.types.string.String"]
     """<p>The text to display to the user.</p>"""
     highlights: NotRequired["aws_sdk_kendra.types.highlight_list.HighlightList"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ServerlessV2FeaturesSupport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.double_optional
 
 
-class ServerlessV2FeaturesSupport(TypedDict):
+class ServerlessV2FeaturesSupport(TypedDict, closed=True):
     min_capacity: NotRequired["aws_sdk_rds.types.double_optional.DoubleOptional"]
     """<p>If the minimum capacity is 0 ACUs, the engine version or platform version supports the automatic pause/resume feature of Aurora Serverless v2.</p>"""
     max_capacity: NotRequired["aws_sdk_rds.types.double_optional.DoubleOptional"]

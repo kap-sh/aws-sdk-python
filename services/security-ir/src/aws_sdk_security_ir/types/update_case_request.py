@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#UpdateCaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.watchers
 
 
-class UpdateCaseRequest(TypedDict):
+class UpdateCaseRequest(TypedDict, closed=True):
     case_id: "aws_sdk_security_ir.types.case_id.CaseId"
     """<p>Required element for UpdateCase to identify the case ID for updates.</p>"""
     title: NotRequired["aws_sdk_security_ir.types.case_title.CaseTitle"]

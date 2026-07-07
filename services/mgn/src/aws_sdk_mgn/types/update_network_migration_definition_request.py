@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#UpdateNetworkMigrationDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.target_s3_configuration_update
 
 
-class UpdateNetworkMigrationDefinitionRequest(TypedDict):
+class UpdateNetworkMigrationDefinitionRequest(TypedDict, closed=True):
     network_migration_definition_id: (
         "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntimehttp2#RequestPayloadPart``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_runtime_http2._protocol.eventstream import HeaderValue, Message
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime_http2.types.sensitive_blob
 
 
-class RequestPayloadPart(TypedDict):
+class RequestPayloadPart(TypedDict, closed=True):
     bytes: NotRequired[
         "aws_sdk_sagemaker_runtime_http2.types.sensitive_blob.SensitiveBlob"
     ]
@@ -52,11 +52,11 @@ def deserialize_event_json(message: Message) -> RequestPayloadPart:
     payload = message.payload  # noqa: F841
     out: RequestPayloadPart = {}  # type: ignore[typeddict-item]
     if "DataType" in headers:
-        out["data_type"] = headers["DataType"]  # type: ignore[assignment]
+        out["data_type"] = headers["DataType"]  # ty: ignore[invalid-assignment]
     if "CompletionState" in headers:
-        out["completion_state"] = headers["CompletionState"]  # type: ignore[assignment]
+        out["completion_state"] = headers["CompletionState"]  # ty: ignore[invalid-assignment]
     if "P" in headers:
-        out["p"] = headers["P"]  # type: ignore[assignment]
+        out["p"] = headers["P"]  # ty: ignore[invalid-assignment]
     if payload:
         out["bytes"] = payload
     return out

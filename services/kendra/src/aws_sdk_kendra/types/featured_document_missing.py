@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#FeaturedDocumentMissing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.document_id
 
 
-class FeaturedDocumentMissing(TypedDict):
+class FeaturedDocumentMissing(TypedDict, closed=True):
     id: NotRequired["aws_sdk_kendra.types.document_id.DocumentId"]
     """<p>The identifier of the document that doesn't exist but you have specified as a featured document.</p>"""
 

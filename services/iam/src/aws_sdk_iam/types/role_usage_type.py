@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#RoleUsageType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.region_name_type
 
 
-class RoleUsageType(TypedDict):
+class RoleUsageType(TypedDict, closed=True):
     region: NotRequired["aws_sdk_iam.types.region_name_type.RegionNameType"]
     """<p>The name of the Region where the service-linked role is being used.</p>"""
     resources: NotRequired["aws_sdk_iam.types.arn_list_type.ArnListType"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetRDSDatabaseRecommendationProjectedMetricsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.rds_database_recommended_option_projected_metrics
 
 
-class GetRDSDatabaseRecommendationProjectedMetricsResponse(TypedDict):
+class GetRDSDatabaseRecommendationProjectedMetricsResponse(TypedDict, closed=True):
     recommended_option_projected_metrics: NotRequired[
         "aws_sdk_compute_optimizer.types.rds_database_recommended_option_projected_metrics.RDSDatabaseRecommendedOptionProjectedMetrics"
     ]

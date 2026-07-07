@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SessionTag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.session_tag_value
 
 
-class SessionTag(TypedDict):
+class SessionTag(TypedDict, closed=True):
     key: "aws_sdk_quicksight.types.session_tag_key.SessionTagKey"
     """<p>The key for the tag.</p>"""
     value: "aws_sdk_quicksight.types.session_tag_value.SessionTagValue"

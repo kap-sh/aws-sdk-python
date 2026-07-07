@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#UpdateSolNetworkInstanceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.ns_lcm_op_occ_id
     import aws_sdk_tnb.types.tag_map
 
 
-class UpdateSolNetworkInstanceOutput(TypedDict):
+class UpdateSolNetworkInstanceOutput(TypedDict, closed=True):
     ns_lcm_op_occ_id: NotRequired["aws_sdk_tnb.types.ns_lcm_op_occ_id.NsLcmOpOccId"]
     """<p>The identifier of the network operation.</p>"""
     tags: NotRequired["aws_sdk_tnb.types.tag_map.TagMap"]

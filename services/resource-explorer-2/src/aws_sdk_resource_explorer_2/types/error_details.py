@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ErrorDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ErrorDetails(TypedDict):
+class ErrorDetails(TypedDict, closed=True):
     code: NotRequired["str"]
     """<p>The error code that identifies the type of error that occurred.</p>"""
     message: NotRequired["str"]

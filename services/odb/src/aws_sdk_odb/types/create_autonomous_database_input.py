@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#CreateAutonomousDatabaseInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.autonomous_maintenance_schedule_type
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.transportable_tablespace
 
 
-class CreateAutonomousDatabaseInput(TypedDict):
+class CreateAutonomousDatabaseInput(TypedDict, closed=True):
     odb_network_id: NotRequired["aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"]
     """<p>The unique identifier of the ODB network to be used for the Autonomous Database.</p>"""
     display_name: NotRequired[

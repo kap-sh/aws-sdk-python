@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#DataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.aws_user_arn
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.s3_url
 
 
-class DataSource(TypedDict):
+class DataSource(TypedDict, closed=True):
     data_source_id: NotRequired["aws_sdk_machine_learning.types.entity_id.EntityId"]
     """<p>The ID that is assigned to the <code>DataSource</code> during creation.</p>"""
     data_location_s3: NotRequired["aws_sdk_machine_learning.types.s3_url.S3Url"]

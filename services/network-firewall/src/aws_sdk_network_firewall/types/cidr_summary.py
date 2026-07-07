@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#CIDRSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.cidr_count
     import aws_sdk_network_firewall.types.ip_set_metadata_map
 
 
-class CIDRSummary(TypedDict):
+class CIDRSummary(TypedDict, closed=True):
     available_cidr_count: NotRequired[
         "aws_sdk_network_firewall.types.cidr_count.CIDRCount"
     ]

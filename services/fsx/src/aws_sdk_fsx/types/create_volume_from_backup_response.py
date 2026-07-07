@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateVolumeFromBackupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume
 
 
-class CreateVolumeFromBackupResponse(TypedDict):
+class CreateVolumeFromBackupResponse(TypedDict, closed=True):
     volume: NotRequired["aws_sdk_fsx.types.volume.Volume"]
     """<p>Returned after a successful <code>CreateVolumeFromBackup</code> API operation, describing the volume just created.</p>"""
 

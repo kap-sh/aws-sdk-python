@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#IngestedEventsTimeWindow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.time
 
 
-class IngestedEventsTimeWindow(TypedDict):
+class IngestedEventsTimeWindow(TypedDict, closed=True):
     start_time: "aws_sdk_frauddetector.types.time.time"
     """<p>Timestamp of the first ingensted event.</p>"""
     end_time: "aws_sdk_frauddetector.types.time.time"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#HttpRoute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.http_timeout
 
 
-class HttpRoute(TypedDict):
+class HttpRoute(TypedDict, closed=True):
     match: "aws_sdk_app_mesh.types.http_route_match.HttpRouteMatch"
     """<p>An object that represents the criteria for determining a request match.</p>"""
     action: "aws_sdk_app_mesh.types.http_route_action.HttpRouteAction"

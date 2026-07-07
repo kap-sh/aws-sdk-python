@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#ListDeliverabilityTestReportsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.next_token
 
 
-class ListDeliverabilityTestReportsResponse(TypedDict):
+class ListDeliverabilityTestReportsResponse(TypedDict, closed=True):
     deliverability_test_reports: "aws_sdk_pinpoint_email.types.deliverability_test_reports.DeliverabilityTestReports"
     """<p>An object that contains a lists of predictive inbox placement tests that you've performed.</p>"""
     next_token: NotRequired["aws_sdk_pinpoint_email.types.next_token.NextToken"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#MetricValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.metric_amount
     import aws_sdk_cost_explorer.types.metric_unit
 
 
-class MetricValue(TypedDict):
+class MetricValue(TypedDict, closed=True):
     amount: NotRequired["aws_sdk_cost_explorer.types.metric_amount.MetricAmount"]
     """<p>The actual number that represents the metric.</p>"""
     unit: NotRequired["aws_sdk_cost_explorer.types.metric_unit.MetricUnit"]

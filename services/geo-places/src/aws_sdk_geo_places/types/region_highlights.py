@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#RegionHighlights``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.highlight_list
 
 
-class RegionHighlights(TypedDict):
+class RegionHighlights(TypedDict, closed=True):
     code: NotRequired["aws_sdk_geo_places.types.highlight_list.HighlightList"]
     """<p>Indicates the starting and ending index of the region in the text query that match the found title. </p>"""
     name: NotRequired["aws_sdk_geo_places.types.highlight_list.HighlightList"]

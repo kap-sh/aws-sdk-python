@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RateLimitCookie``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.text_transformations
 
 
-class RateLimitCookie(TypedDict):
+class RateLimitCookie(TypedDict, closed=True):
     name: "aws_sdk_wafv2.types.field_to_match_data.FieldToMatchData"
     """<p>The name of the cookie to use. </p>"""
     text_transformations: "aws_sdk_wafv2.types.text_transformations.TextTransformations"

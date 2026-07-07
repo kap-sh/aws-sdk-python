@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#GeneratedReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.report_output
 
 
-class GeneratedReport(TypedDict):
+class GeneratedReport(TypedDict, closed=True):
     report_generation_time: NotRequired["datetime.datetime"]
     """<p>The timestamp when the report was generated.</p>"""
     report_output: NotRequired[

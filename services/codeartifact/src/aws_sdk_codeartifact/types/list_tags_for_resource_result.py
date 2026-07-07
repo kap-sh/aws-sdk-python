@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#ListTagsForResourceResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.tag_list
 
 
-class ListTagsForResourceResult(TypedDict):
+class ListTagsForResourceResult(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_codeartifact.types.tag_list.TagList"]
     """<p>A list of tag key and value pairs associated with the specified resource.</p>"""
 

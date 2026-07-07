@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#CoverageTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.hand_off_time
 
 
-class CoverageTime(TypedDict):
+class CoverageTime(TypedDict, closed=True):
     start: NotRequired["aws_sdk_ssm_contacts.types.hand_off_time.HandOffTime"]
     """<p>Information about when the on-call rotation shift begins.</p>"""
     end: NotRequired["aws_sdk_ssm_contacts.types.hand_off_time.HandOffTime"]

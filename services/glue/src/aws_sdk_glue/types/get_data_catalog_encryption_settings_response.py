@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetDataCatalogEncryptionSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_catalog_encryption_settings
 
 
-class GetDataCatalogEncryptionSettingsResponse(TypedDict):
+class GetDataCatalogEncryptionSettingsResponse(TypedDict, closed=True):
     data_catalog_encryption_settings: NotRequired[
         "aws_sdk_glue.types.data_catalog_encryption_settings.DataCatalogEncryptionSettings"
     ]

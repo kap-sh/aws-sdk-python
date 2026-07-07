@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#TrendmicroConnectorProfileProperties``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class TrendmicroConnectorProfileProperties(TypedDict):
+class TrendmicroConnectorProfileProperties(TypedDict, closed=True):
     pass
 
 

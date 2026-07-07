@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#SuperuserParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_finspace.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.name_string
 
 
-class SuperuserParameters(TypedDict):
+class SuperuserParameters(TypedDict, closed=True):
     email_address: "aws_sdk_finspace.types.email_id.EmailId"
     """<p>The email address of the superuser.</p>"""
     first_name: "aws_sdk_finspace.types.name_string.NameString"

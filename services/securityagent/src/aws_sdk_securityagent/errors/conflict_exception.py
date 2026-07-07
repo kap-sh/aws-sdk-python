@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     """<p>Error description.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#FunctionCode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.blob
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class FunctionCode(TypedDict):
+class FunctionCode(TypedDict, closed=True):
     zip_file: NotRequired["aws_sdk_lambda.types.blob.Blob"]
     """<p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and CLI clients handle the encoding for you.</p>"""
     s3_bucket: NotRequired["aws_sdk_lambda.types.s3_bucket.S3Bucket"]

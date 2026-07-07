@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.signer#Permission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.profile_version
     import aws_sdk_signer.types.string
 
 
-class Permission(TypedDict):
+class Permission(TypedDict, closed=True):
     action: NotRequired["aws_sdk_signer.types.string.String"]
     """<p>An AWS Signer action permitted as part of cross-account permissions.</p>"""
     principal: NotRequired["aws_sdk_signer.types.string.String"]

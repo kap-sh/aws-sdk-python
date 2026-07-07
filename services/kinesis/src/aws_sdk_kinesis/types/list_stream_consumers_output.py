@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#ListStreamConsumersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.types.consumer_list
     import aws_sdk_kinesis.types.next_token
 
 
-class ListStreamConsumersOutput(TypedDict):
+class ListStreamConsumersOutput(TypedDict, closed=True):
     consumers: NotRequired["aws_sdk_kinesis.types.consumer_list.ConsumerList"]
     """<p>An array of JSON objects. Each object represents one registered consumer.</p>"""
     next_token: NotRequired["aws_sdk_kinesis.types.next_token.NextToken"]

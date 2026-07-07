@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#TimeoutConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.duration
 
 
-class TimeoutConfiguration(TypedDict):
+class TimeoutConfiguration(TypedDict, closed=True):
     idle_timeout_seconds: NotRequired["aws_sdk_ecs.types.duration.Duration"]
     """<p>The amount of time in seconds a connection will stay active while idle. A value of <code>0</code> can be set to disable <code>idleTimeout</code>.</p> <p>The <code>idleTimeout</code> default for <code>HTTP</code>/<code>HTTP2</code>/<code>GRPC</code> is 5 minutes.</p> <p>The <code>idleTimeout</code> default for <code>TCP</code> is 1 hour.</p>"""
     per_request_timeout_seconds: NotRequired["aws_sdk_ecs.types.duration.Duration"]

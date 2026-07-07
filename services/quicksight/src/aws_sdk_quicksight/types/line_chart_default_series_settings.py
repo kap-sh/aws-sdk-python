@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#LineChartDefaultSeriesSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.axis_binding
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.line_chart_marker_style_settings
 
 
-class LineChartDefaultSeriesSettings(TypedDict):
+class LineChartDefaultSeriesSettings(TypedDict, closed=True):
     axis_binding: NotRequired["aws_sdk_quicksight.types.axis_binding.AxisBinding"]
     """<p>The axis to which you are binding all line series to.</p>"""
     line_style_settings: NotRequired[

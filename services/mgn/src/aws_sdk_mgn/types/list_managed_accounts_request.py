@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListManagedAccountsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.max_results_type
     import aws_sdk_mgn.types.pagination_token
 
 
-class ListManagedAccountsRequest(TypedDict):
+class ListManagedAccountsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_mgn.types.max_results_type.MaxResultsType"]
     """<p>List managed accounts request max results.</p>"""
     next_token: NotRequired["aws_sdk_mgn.types.pagination_token.PaginationToken"]

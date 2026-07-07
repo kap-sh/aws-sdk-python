@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#MxfSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.mxf_afd_signaling
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.mxf_xavc_profile_settings
 
 
-class MxfSettings(TypedDict):
+class MxfSettings(TypedDict, closed=True):
     afd_signaling: NotRequired[
         "aws_sdk_mediaconvert.types.mxf_afd_signaling.MxfAfdSignaling"
     ]

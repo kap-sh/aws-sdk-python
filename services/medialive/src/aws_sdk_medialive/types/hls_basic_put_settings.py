@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#HlsBasicPutSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0_max600
 
 
-class HlsBasicPutSettings(TypedDict):
+class HlsBasicPutSettings(TypedDict, closed=True):
     connection_retry_interval: NotRequired[
         "aws_sdk_medialive.types.__integer_min0.__integerMin0"
     ]

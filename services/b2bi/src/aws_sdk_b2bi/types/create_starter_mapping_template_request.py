@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#CreateStarterMappingTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.template_details
 
 
-class CreateStarterMappingTemplateRequest(TypedDict):
+class CreateStarterMappingTemplateRequest(TypedDict, closed=True):
     output_sample_location: NotRequired["aws_sdk_b2bi.types.s3_location.S3Location"]
     """<p>Specify the location of the sample EDI file that is used to generate the mapping template.</p>"""
     mapping_type: "aws_sdk_b2bi.types.mapping_type.MappingType"

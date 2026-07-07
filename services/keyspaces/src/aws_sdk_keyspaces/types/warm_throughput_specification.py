@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#WarmThroughputSpecification``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class WarmThroughputSpecification(TypedDict):
+class WarmThroughputSpecification(TypedDict, closed=True):
     read_units_per_second: NotRequired["int"]
     """<p>The number of read capacity units per second to pre-warm the table for read capacity throughput. The minimum value is 1.</p>"""
     write_units_per_second: NotRequired["int"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#BillingAdjustmentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -16,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.timestamp
 
 
-class BillingAdjustmentSummary(TypedDict):
+class BillingAdjustmentSummary(TypedDict, closed=True):
     billing_adjustment_request_id: "aws_sdk_marketplace_agreement.types.billing_adjustment_request_id.BillingAdjustmentRequestId"
     """<p>The unique identifier of the billing adjustment request.</p>"""
     original_invoice_id: "aws_sdk_marketplace_agreement.types.invoice_id.InvoiceId"

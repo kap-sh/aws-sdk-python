@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#TextAttributes``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
 
-class TextAttributes(TypedDict):
+class TextAttributes(TypedDict, closed=True):
     is_multiline: "bool"
     """<p>Attribute that defines rendering component and validation.</p>"""
 

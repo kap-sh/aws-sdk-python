@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssooidc#RegisterClientResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_oidc.types.client_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_oidc.types.uri
 
 
-class RegisterClientResponse(TypedDict):
+class RegisterClientResponse(TypedDict, closed=True):
     client_id: NotRequired["aws_sdk_sso_oidc.types.client_id.ClientId"]
     """<p>The unique identifier string for each client. This client uses this identifier to get authenticated by the service in subsequent calls.</p>"""
     client_secret: NotRequired["aws_sdk_sso_oidc.types.client_secret.ClientSecret"]

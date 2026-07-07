@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#BatchGetFindingsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.finding_id_list
 
 
-class BatchGetFindingsInput(TypedDict):
+class BatchGetFindingsInput(TypedDict, closed=True):
     finding_ids: "aws_sdk_securityagent.types.finding_id_list.FindingIdList"
     """<p>The list of finding identifiers to retrieve.</p>"""
     agent_space_id: "str"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#ListBillingGroupsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.billing_group_list
     import aws_sdk_billingconductor.types.token
 
 
-class ListBillingGroupsOutput(TypedDict):
+class ListBillingGroupsOutput(TypedDict, closed=True):
     billing_groups: NotRequired[
         "aws_sdk_billingconductor.types.billing_group_list.BillingGroupList"
     ]

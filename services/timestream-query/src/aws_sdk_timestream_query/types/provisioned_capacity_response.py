@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#ProvisionedCapacityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.account_settings_notification_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.query_tcu
 
 
-class ProvisionedCapacityResponse(TypedDict):
+class ProvisionedCapacityResponse(TypedDict, closed=True):
     active_query_tcu: NotRequired["aws_sdk_timestream_query.types.query_tcu.QueryTCU"]
     """<p>The number of Timestream Compute Units (TCUs) provisioned in the account. This field is only visible when the compute mode is <code>PROVISIONED</code>.</p>"""
     notification_configuration: NotRequired[

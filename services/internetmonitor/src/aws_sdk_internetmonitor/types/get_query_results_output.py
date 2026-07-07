@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#GetQueryResultsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_internetmonitor.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.query_fields
 
 
-class GetQueryResultsOutput(TypedDict):
+class GetQueryResultsOutput(TypedDict, closed=True):
     fields: "aws_sdk_internetmonitor.types.query_fields.QueryFields"
     """<p>The fields that the query returns data for. Fields are name-data type pairs, such as <code>availability_score</code>-<code>float</code>.</p>"""
     data: "aws_sdk_internetmonitor.types.query_data.QueryData"

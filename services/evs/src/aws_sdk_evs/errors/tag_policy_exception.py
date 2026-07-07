@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.evs#TagPolicyException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_evs.errors import DeserializationError, ServiceError
 
 
-class TagPolicyException_(TypedDict):
+class TagPolicyException_(TypedDict, closed=True):
     message: "str"
     """<p>Describes the error encountered</p>"""
 

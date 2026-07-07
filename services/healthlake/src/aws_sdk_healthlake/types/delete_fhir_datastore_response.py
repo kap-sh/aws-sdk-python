@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#DeleteFHIRDatastoreResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.datastore_status
 
 
-class DeleteFHIRDatastoreResponse(TypedDict):
+class DeleteFHIRDatastoreResponse(TypedDict, closed=True):
     datastore_id: "aws_sdk_healthlake.types.datastore_id.DatastoreId"
     """<p>The AWS-generated ID for the deleted data store.</p>"""
     datastore_arn: "aws_sdk_healthlake.types.datastore_arn.DatastoreArn"

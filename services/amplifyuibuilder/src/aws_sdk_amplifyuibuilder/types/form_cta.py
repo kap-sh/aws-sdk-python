@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FormCTA``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.form_button
     import aws_sdk_amplifyuibuilder.types.form_buttons_position
 
 
-class FormCTA(TypedDict):
+class FormCTA(TypedDict, closed=True):
     position: NotRequired[
         "aws_sdk_amplifyuibuilder.types.form_buttons_position.FormButtonsPosition"
     ]

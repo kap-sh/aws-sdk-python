@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#TagValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.search_tag_key
     import aws_sdk_connectcases.types.tag_value_string
 
 
-class TagValue(TypedDict):
+class TagValue(TypedDict, closed=True):
     key: NotRequired["aws_sdk_connectcases.types.search_tag_key.SearchTagKey"]
     """<p>The tag key in the tag filter value.</p>"""
     value: NotRequired["aws_sdk_connectcases.types.tag_value_string.TagValueString"]

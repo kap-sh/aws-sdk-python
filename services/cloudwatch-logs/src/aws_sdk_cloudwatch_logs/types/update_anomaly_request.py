@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#UpdateAnomalyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.suppression_type
 
 
-class UpdateAnomalyRequest(TypedDict):
+class UpdateAnomalyRequest(TypedDict, closed=True):
     anomaly_id: NotRequired["aws_sdk_cloudwatch_logs.types.anomaly_id.AnomalyId"]
     r"""<p>If you are suppressing or unsuppressing an anomaly, specify its unique ID here. You can find anomaly IDs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html\">ListAnomalies</a> operation.</p>"""
     pattern_id: NotRequired["aws_sdk_cloudwatch_logs.types.pattern_id.PatternId"]

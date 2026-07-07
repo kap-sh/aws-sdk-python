@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#CustomDecodingInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.custom_decoding_signal_interface_name
 
 
-class CustomDecodingInterface(TypedDict):
+class CustomDecodingInterface(TypedDict, closed=True):
     name: "aws_sdk_iotfleetwise.types.custom_decoding_signal_interface_name.CustomDecodingSignalInterfaceName"
     """<p>The name of the interface.</p>"""
 

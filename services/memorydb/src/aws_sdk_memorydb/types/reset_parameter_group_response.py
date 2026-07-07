@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ResetParameterGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.parameter_group
 
 
-class ResetParameterGroupResponse(TypedDict):
+class ResetParameterGroupResponse(TypedDict, closed=True):
     parameter_group: NotRequired[
         "aws_sdk_memorydb.types.parameter_group.ParameterGroup"
     ]

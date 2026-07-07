@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#PersonalAccessTokenConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.personal_access_token_lifetime_in_days
 
 
-class PersonalAccessTokenConfiguration(TypedDict):
+class PersonalAccessTokenConfiguration(TypedDict, closed=True):
     status: "aws_sdk_workmail.types.personal_access_token_configuration_status.PersonalAccessTokenConfigurationStatus"
     """<p> The status of the Personal Access Token allowed for the organization. </p> <ul> <li> <p> <i>Active</i> - Mailbox users can login to the web application and choose <i>Settings</i> to see the new <i>Personal Access Tokens</i> page to create and delete the Personal Access Tokens. Mailbox users can use the Personal Access Tokens to set up mailbox connection from desktop or mobile email clients.</p> </li> <li> <p> <i>Inactive</i> - Personal Access Tokens are disabled for your organization. Mailbox users can’t create, list, or delete Personal Access Tokens and can’t use them to connect to their mailboxes from desktop or mobile email clients.</p> </li> </ul>"""
     lifetime_in_days: NotRequired[

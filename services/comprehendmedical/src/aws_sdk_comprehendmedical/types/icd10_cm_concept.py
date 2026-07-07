@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#ICD10CMConcept``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.float
     import aws_sdk_comprehendmedical.types.string
 
 
-class ICD10CMConcept(TypedDict):
+class ICD10CMConcept(TypedDict, closed=True):
     description: NotRequired["aws_sdk_comprehendmedical.types.string.String"]
     """<p>The long description of the ICD-10-CM code in the ontology.</p>"""
     code: NotRequired["aws_sdk_comprehendmedical.types.string.String"]

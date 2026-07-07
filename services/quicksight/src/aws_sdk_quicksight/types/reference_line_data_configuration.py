@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ReferenceLineDataConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.axis_binding
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.reference_line_static_data_configuration
 
 
-class ReferenceLineDataConfiguration(TypedDict):
+class ReferenceLineDataConfiguration(TypedDict, closed=True):
     static_configuration: NotRequired[
         "aws_sdk_quicksight.types.reference_line_static_data_configuration.ReferenceLineStaticDataConfiguration"
     ]

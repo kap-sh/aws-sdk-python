@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#SuiteDefinitionInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.device_under_test_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.uuid
 
 
-class SuiteDefinitionInformation(TypedDict):
+class SuiteDefinitionInformation(TypedDict, closed=True):
     suite_definition_id: NotRequired["aws_sdk_iotdeviceadvisor.types.uuid.UUID"]
     """<p>Suite definition ID of the test suite.</p>"""
     suite_definition_name: NotRequired[

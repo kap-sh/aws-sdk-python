@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeMultiplexProgramResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_multiplex_program_pipeline_detail
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.multiplex_program_settings
 
 
-class DescribeMultiplexProgramResponse(TypedDict):
+class DescribeMultiplexProgramResponse(TypedDict, closed=True):
     channel_id: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The MediaLive channel associated with the program."""
     multiplex_program_settings: NotRequired[

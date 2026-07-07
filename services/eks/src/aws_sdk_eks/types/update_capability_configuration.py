@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateCapabilityConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.update_argo_cd_config
 
 
-class UpdateCapabilityConfiguration(TypedDict):
+class UpdateCapabilityConfiguration(TypedDict, closed=True):
     argo_cd: NotRequired["aws_sdk_eks.types.update_argo_cd_config.UpdateArgoCdConfig"]
     """<p>Configuration updates specific to Argo CD capabilities.</p>"""
 

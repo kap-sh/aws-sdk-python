@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pi#DimensionGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pi.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pi.types.sanitized_string_list
 
 
-class DimensionGroup(TypedDict):
+class DimensionGroup(TypedDict, closed=True):
     group: "aws_sdk_pi.types.sanitized_string.SanitizedString"
     """<p>The name of the dimension group. Valid values are as follows:</p> <ul> <li> <p> <code>db</code> - The name of the database to which the client is connected. The following values are permitted:</p> <ul> <li> <p>Aurora PostgreSQL</p> </li> <li> <p>Amazon RDS PostgreSQL</p> </li> <li> <p>Aurora MySQL</p> </li> <li> <p>Amazon RDS MySQL</p> </li> <li> <p>Amazon RDS MariaDB</p> </li> <li> <p>Amazon DocumentDB</p> </li> </ul> </li> <li> <p> <code>db.application</code> - The name of the application that is connected to the database. The following values are permitted:</p> <ul> <li> <p>Aurora PostgreSQL</p> </li> <li> <p>Amazon RDS PostgreSQL</p> </li> <li> <p>Amazon DocumentDB</p> </li> </ul> </li> <li> <p> <code>db.blocking_sql</code> - The SQL queries blocking the most DB load.</p> </li> <li> <p> <code>db.blocking_session</code> - The sessions blocking the most DB load.</p> </li> <li> <p> <code>db.blocking_object</code> - The object resources acquired by other sessions that are blocking the most DB load.</p> </li> <li> <p> <code>db.host</code> - The host name of the connected client (all engines).</p> </li> <li> <p> <code>db.plans</code> - The execution plans for the query (only Aurora PostgreSQL).</p> </li> <li> <p> <code>db.query</code> - The query that is currently running (only Amazon DocumentDB).</p> </li> <li> <p> <code>db.query_tokenized</code> - The digest query (only Amazon DocumentDB).</p> </li> <li> <p> <code>db.session_type</code> - The type of the current session (only Aurora PostgreSQL and RDS PostgreSQL).</p> </li> <li> <p> <code>db.sql</code> - The text of the SQL statement that is currently running (all engines except Amazon DocumentDB).</p> </li> <li> <p> <code>db.sql_tokenized</code> - The SQL digest (all engines except Amazon DocumentDB).</p> </li> <li> <p> <code>db.user</code> - The user logged in to the database (all engines except Amazon DocumentDB).</p> </li> <li> <p> <code>db.wait_event</code> - The event for which the database backend is waiting (all engines except Amazon DocumentDB).</p> </li> <li> <p> <code>db.wait_event_type</code> - The type of event for which the database backend is waiting (all engines except Amazon DocumentDB).</p> </li> <li> <p> <code>db.wait_state</code> - The event for which the database backend is waiting (only Amazon DocumentDB).</p> </li> </ul>"""
     dimensions: NotRequired[

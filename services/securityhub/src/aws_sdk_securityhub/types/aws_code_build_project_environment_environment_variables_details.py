@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails(TypedDict):
+class AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The name of the environment variable.</p>"""
     type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

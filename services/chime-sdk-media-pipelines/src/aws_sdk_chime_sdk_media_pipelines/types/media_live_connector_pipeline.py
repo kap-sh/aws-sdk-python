@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#MediaLiveConnectorPipeline``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.amazon_resource_name
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.media_pipeline_status
 
 
-class MediaLiveConnectorPipeline(TypedDict):
+class MediaLiveConnectorPipeline(TypedDict, closed=True):
     sources: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.live_connector_source_list.LiveConnectorSourceList"
     ]

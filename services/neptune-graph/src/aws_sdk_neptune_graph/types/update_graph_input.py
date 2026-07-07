@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#UpdateGraphInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.graph_identifier
     import aws_sdk_neptune_graph.types.provisioned_memory
 
 
-class UpdateGraphInput(TypedDict):
+class UpdateGraphInput(TypedDict, closed=True):
     graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"
     """<p>The unique identifier of the Neptune Analytics graph.</p>"""
     public_connectivity: NotRequired["bool"]

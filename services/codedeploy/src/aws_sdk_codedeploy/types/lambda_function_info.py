@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#LambdaFunctionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.lambda_function_alias
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.version
 
 
-class LambdaFunctionInfo(TypedDict):
+class LambdaFunctionInfo(TypedDict, closed=True):
     function_name: NotRequired[
         "aws_sdk_codedeploy.types.lambda_function_name.LambdaFunctionName"
     ]

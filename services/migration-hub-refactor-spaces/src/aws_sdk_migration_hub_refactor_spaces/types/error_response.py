@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#ErrorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.resource_identifier
 
 
-class ErrorResponse(TypedDict):
+class ErrorResponse(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_migration_hub_refactor_spaces.types.error_code.ErrorCode"
     ]

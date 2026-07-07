@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#Statement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.position
 
 
-class Statement(TypedDict):
+class Statement(TypedDict, closed=True):
     source_policy_id: NotRequired[
         "aws_sdk_iam.types.policy_identifier_type.PolicyIdentifierType"
     ]

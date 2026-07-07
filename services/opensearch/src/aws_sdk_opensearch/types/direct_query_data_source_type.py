@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DirectQueryDataSourceType``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.security_lake_direct_query_data_source
 
 
-class _DirectQueryDataSourceType_CloudWatchLog(TypedDict):
+class _DirectQueryDataSourceType_CloudWatchLog(TypedDict, closed=True):
     CloudWatchLog: "aws_sdk_opensearch.types.cloud_watch_direct_query_data_source.CloudWatchDirectQueryDataSource"
 
 
-class _DirectQueryDataSourceType_SecurityLake(TypedDict):
+class _DirectQueryDataSourceType_SecurityLake(TypedDict, closed=True):
     SecurityLake: "aws_sdk_opensearch.types.security_lake_direct_query_data_source.SecurityLakeDirectQueryDataSource"
 
 
-class _DirectQueryDataSourceType_Prometheus(TypedDict):
+class _DirectQueryDataSourceType_Prometheus(TypedDict, closed=True):
     Prometheus: "aws_sdk_opensearch.types.prometheus_direct_query_data_source.PrometheusDirectQueryDataSource"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BatchGetSandboxesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.sandbox_ids
     import aws_sdk_codebuild.types.sandboxes
 
 
-class BatchGetSandboxesOutput(TypedDict):
+class BatchGetSandboxesOutput(TypedDict, closed=True):
     sandboxes: NotRequired["aws_sdk_codebuild.types.sandboxes.Sandboxes"]
     """<p>Information about the requested sandboxes.</p>"""
     sandboxes_not_found: NotRequired["aws_sdk_codebuild.types.sandbox_ids.SandboxIds"]

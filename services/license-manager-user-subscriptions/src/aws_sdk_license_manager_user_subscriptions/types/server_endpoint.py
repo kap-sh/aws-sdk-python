@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#ServerEndpoint``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ServerEndpoint(TypedDict):
+class ServerEndpoint(TypedDict, closed=True):
     endpoint: NotRequired["str"]
     """<p>The network address of the endpoint.</p>"""
 

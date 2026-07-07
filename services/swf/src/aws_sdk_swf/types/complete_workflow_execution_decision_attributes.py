@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.swf#CompleteWorkflowExecutionDecisionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.data
 
 
-class CompleteWorkflowExecutionDecisionAttributes(TypedDict):
+class CompleteWorkflowExecutionDecisionAttributes(TypedDict, closed=True):
     result: NotRequired["aws_sdk_swf.types.data.Data"]
     """<p>The result of the workflow execution. The form of the result is implementation defined.</p>"""
 

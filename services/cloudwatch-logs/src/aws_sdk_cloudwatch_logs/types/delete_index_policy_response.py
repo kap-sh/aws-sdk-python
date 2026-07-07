@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DeleteIndexPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteIndexPolicyResponse(TypedDict):
+class DeleteIndexPolicyResponse(TypedDict, closed=True):
     pass
 
 

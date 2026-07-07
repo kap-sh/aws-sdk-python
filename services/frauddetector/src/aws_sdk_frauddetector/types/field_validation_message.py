@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#FieldValidationMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.string
 
 
-class FieldValidationMessage(TypedDict):
+class FieldValidationMessage(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_frauddetector.types.string.string"]
     """<p>The field name.</p>"""
     identifier: NotRequired["aws_sdk_frauddetector.types.string.string"]

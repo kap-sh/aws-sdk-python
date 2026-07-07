@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UnprocessedAutomationRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class UnprocessedAutomationRule(TypedDict):
+class UnprocessedAutomationRule(TypedDict, closed=True):
     rule_arn: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The Amazon Resource Name (ARN) for the unprocessed automation rule. </p>"""
     error_code: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

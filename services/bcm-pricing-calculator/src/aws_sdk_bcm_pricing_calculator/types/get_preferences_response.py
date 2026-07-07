@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#GetPreferencesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.rate_types
 
 
-class GetPreferencesResponse(TypedDict):
+class GetPreferencesResponse(TypedDict, closed=True):
     management_account_rate_type_selections: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.rate_types.RateTypes"
     ]

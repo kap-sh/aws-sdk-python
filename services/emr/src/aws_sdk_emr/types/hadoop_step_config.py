@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#HadoopStepConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.string_map
 
 
-class HadoopStepConfig(TypedDict):
+class HadoopStepConfig(TypedDict, closed=True):
     jar: NotRequired["aws_sdk_emr.types.string.String"]
     """<p>The path to the JAR file that runs during the step.</p>"""
     properties: NotRequired["aws_sdk_emr.types.string_map.StringMap"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DescribeKeywordsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.keyword_information_list
     import aws_sdk_pinpoint_sms_voice_v2.types.next_token
 
 
-class DescribeKeywordsResult(TypedDict):
+class DescribeKeywordsResult(TypedDict, closed=True):
     origination_identity_arn: NotRequired["str"]
     """<p>The PhoneNumberArn or PoolArn that is associated with the OriginationIdentity. </p>"""
     origination_identity: NotRequired["str"]

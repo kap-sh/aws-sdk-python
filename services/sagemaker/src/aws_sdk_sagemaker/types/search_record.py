@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#SearchRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.trial_component
 
 
-class SearchRecord(TypedDict):
+class SearchRecord(TypedDict, closed=True):
     training_job: NotRequired["aws_sdk_sagemaker.types.training_job.TrainingJob"]
     """<p>The properties of a training job.</p>"""
     experiment: NotRequired["aws_sdk_sagemaker.types.experiment.Experiment"]

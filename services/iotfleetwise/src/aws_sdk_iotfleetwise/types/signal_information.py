@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#SignalInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.wildcard_signal_name
 
 
-class SignalInformation(TypedDict):
+class SignalInformation(TypedDict, closed=True):
     name: "aws_sdk_iotfleetwise.types.wildcard_signal_name.wildcardSignalName"
     """<p>The name of the signal.</p>"""
     max_sample_count: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#ReplicationDestinationStatusModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_bucket_arn
 
 
-class ReplicationDestinationStatusModel(TypedDict):
+class ReplicationDestinationStatusModel(TypedDict, closed=True):
     replication_status: "aws_sdk_s3tables.types.replication_status.ReplicationStatus"
     """<p>The current status of replication to this destination.</p>"""
     destination_table_bucket_arn: (

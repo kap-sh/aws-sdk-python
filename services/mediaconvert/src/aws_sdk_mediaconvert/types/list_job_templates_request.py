@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ListJobTemplatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max20
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.order
 
 
-class ListJobTemplatesRequest(TypedDict):
+class ListJobTemplatesRequest(TypedDict, closed=True):
     category: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """Optionally, specify a job template category to limit responses to only job templates from that category."""
     list_by: NotRequired[

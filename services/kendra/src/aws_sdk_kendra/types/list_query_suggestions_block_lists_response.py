@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListQuerySuggestionsBlockListsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.next_token
     import aws_sdk_kendra.types.query_suggestions_block_list_summary_items
 
 
-class ListQuerySuggestionsBlockListsResponse(TypedDict):
+class ListQuerySuggestionsBlockListsResponse(TypedDict, closed=True):
     block_list_summary_items: NotRequired[
         "aws_sdk_kendra.types.query_suggestions_block_list_summary_items.QuerySuggestionsBlockListSummaryItems"
     ]

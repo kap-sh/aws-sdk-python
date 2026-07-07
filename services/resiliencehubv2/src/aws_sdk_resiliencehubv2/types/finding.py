@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#Finding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.uuid
 
 
-class Finding(TypedDict):
+class Finding(TypedDict, closed=True):
     finding_id: NotRequired["aws_sdk_resiliencehubv2.types.uuid.Uuid"]
     """<p>The unique identifier of the finding.</p>"""
     name: NotRequired["str"]

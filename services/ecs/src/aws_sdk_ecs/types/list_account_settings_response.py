@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ListAccountSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.settings
     import aws_sdk_ecs.types.string
 
 
-class ListAccountSettingsResponse(TypedDict):
+class ListAccountSettingsResponse(TypedDict, closed=True):
     settings: NotRequired["aws_sdk_ecs.types.settings.Settings"]
     """<p>The account settings for the resource.</p>"""
     next_token: NotRequired["aws_sdk_ecs.types.string.String"]

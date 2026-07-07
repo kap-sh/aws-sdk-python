@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ActionLocalIpDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class ActionLocalIpDetails(TypedDict):
+class ActionLocalIpDetails(TypedDict, closed=True):
     ip_address_v4: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

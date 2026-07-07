@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#ListTopicsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.topics_list
 
 
-class ListTopicsResponse(TypedDict):
+class ListTopicsResponse(TypedDict, closed=True):
     topics: NotRequired["aws_sdk_sns.types.topics_list.TopicsList"]
     """<p>A list of topic ARNs.</p>"""
     next_token: NotRequired["aws_sdk_sns.types.next_token.nextToken"]

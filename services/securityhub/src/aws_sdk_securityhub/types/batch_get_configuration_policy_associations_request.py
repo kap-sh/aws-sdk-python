@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#BatchGetConfigurationPolicyAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.configuration_policy_associations_list
 
 
-class BatchGetConfigurationPolicyAssociationsRequest(TypedDict):
+class BatchGetConfigurationPolicyAssociationsRequest(TypedDict, closed=True):
     configuration_policy_association_identifiers: NotRequired[
         "aws_sdk_securityhub.types.configuration_policy_associations_list.ConfigurationPolicyAssociationsList"
     ]

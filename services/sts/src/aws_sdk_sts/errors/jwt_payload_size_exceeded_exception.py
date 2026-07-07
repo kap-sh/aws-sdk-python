@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#JWTPayloadSizeExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 from aws_sdk_sts.errors import ServiceError
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.jwt_payload_size_exceeded_exception2
 
 
-class JWTPayloadSizeExceededException_(TypedDict):
+class JWTPayloadSizeExceededException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_sts.types.jwt_payload_size_exceeded_exception2.JWTPayloadSizeExceededException2"
     ]

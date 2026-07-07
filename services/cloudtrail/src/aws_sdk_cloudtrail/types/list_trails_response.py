@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListTrailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.string
     import aws_sdk_cloudtrail.types.trails
 
 
-class ListTrailsResponse(TypedDict):
+class ListTrailsResponse(TypedDict, closed=True):
     trails: NotRequired["aws_sdk_cloudtrail.types.trails.Trails"]
     """<p>Returns the name, ARN, and home Region of trails in the current account.</p>"""
     next_token: NotRequired["aws_sdk_cloudtrail.types.string.String"]

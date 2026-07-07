@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListSecurityPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.max_results
     import aws_sdk_transfer.types.next_token
 
 
-class ListSecurityPoliciesRequest(TypedDict):
+class ListSecurityPoliciesRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_transfer.types.max_results.MaxResults"]
     """<p>Specifies the number of security policies to return as a response to the <code>ListSecurityPolicies</code> query.</p>"""
     next_token: NotRequired["aws_sdk_transfer.types.next_token.NextToken"]

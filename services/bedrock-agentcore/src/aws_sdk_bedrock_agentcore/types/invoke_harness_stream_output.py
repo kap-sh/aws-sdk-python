@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#InvokeHarnessStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore._iter import AnyIterator
 from aws_sdk_bedrock_agentcore._protocol.eventstream import Message
@@ -17,43 +19,43 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_metadata_event
 
 
-class _InvokeHarnessStreamOutput_messageStart(TypedDict):
+class _InvokeHarnessStreamOutput_messageStart(TypedDict, closed=True):
     messageStart: "aws_sdk_bedrock_agentcore.types.harness_message_start_event.HarnessMessageStartEvent"
 
 
-class _InvokeHarnessStreamOutput_contentBlockStart(TypedDict):
+class _InvokeHarnessStreamOutput_contentBlockStart(TypedDict, closed=True):
     contentBlockStart: "aws_sdk_bedrock_agentcore.types.harness_content_block_start_event.HarnessContentBlockStartEvent"
 
 
-class _InvokeHarnessStreamOutput_contentBlockDelta(TypedDict):
+class _InvokeHarnessStreamOutput_contentBlockDelta(TypedDict, closed=True):
     contentBlockDelta: "aws_sdk_bedrock_agentcore.types.harness_content_block_delta_event.HarnessContentBlockDeltaEvent"
 
 
-class _InvokeHarnessStreamOutput_contentBlockStop(TypedDict):
+class _InvokeHarnessStreamOutput_contentBlockStop(TypedDict, closed=True):
     contentBlockStop: "aws_sdk_bedrock_agentcore.types.harness_content_block_stop_event.HarnessContentBlockStopEvent"
 
 
-class _InvokeHarnessStreamOutput_messageStop(TypedDict):
+class _InvokeHarnessStreamOutput_messageStop(TypedDict, closed=True):
     messageStop: "aws_sdk_bedrock_agentcore.types.harness_message_stop_event.HarnessMessageStopEvent"
 
 
-class _InvokeHarnessStreamOutput_metadata(TypedDict):
+class _InvokeHarnessStreamOutput_metadata(TypedDict, closed=True):
     metadata: (
         "aws_sdk_bedrock_agentcore.types.harness_metadata_event.HarnessMetadataEvent"
     )
 
 
-class _InvokeHarnessStreamOutput_internalServerException(TypedDict):
+class _InvokeHarnessStreamOutput_internalServerException(TypedDict, closed=True):
     internalServerException: "aws_sdk_bedrock_agentcore.errors.internal_server_exception.InternalServerException_"
 
 
-class _InvokeHarnessStreamOutput_validationException(TypedDict):
+class _InvokeHarnessStreamOutput_validationException(TypedDict, closed=True):
     validationException: (
         "aws_sdk_bedrock_agentcore.errors.validation_exception.ValidationException_"
     )
 
 
-class _InvokeHarnessStreamOutput_runtimeClientError(TypedDict):
+class _InvokeHarnessStreamOutput_runtimeClientError(TypedDict, closed=True):
     runtimeClientError: (
         "aws_sdk_bedrock_agentcore.errors.runtime_client_error.RuntimeClientError_"
     )

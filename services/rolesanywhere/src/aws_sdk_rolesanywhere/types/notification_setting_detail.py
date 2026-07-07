@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#NotificationSettingDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rolesanywhere.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.notification_event
 
 
-class NotificationSettingDetail(TypedDict):
+class NotificationSettingDetail(TypedDict, closed=True):
     enabled: "bool"
     """<p>Indicates whether the notification setting is enabled.</p>"""
     event: "aws_sdk_rolesanywhere.types.notification_event.NotificationEvent"

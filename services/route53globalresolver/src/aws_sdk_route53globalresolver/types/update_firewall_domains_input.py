@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#UpdateFirewallDomainsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_id
 
 
-class UpdateFirewallDomainsInput(TypedDict):
+class UpdateFirewallDomainsInput(TypedDict, closed=True):
     domains: "aws_sdk_route53globalresolver.types.domains.Domains"
     """<p>A list of the domains. You can add up to 1000 domains per request.</p>"""
     firewall_domain_list_id: (

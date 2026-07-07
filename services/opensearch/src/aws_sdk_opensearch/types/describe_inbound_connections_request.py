@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeInboundConnectionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.filter_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.next_token
 
 
-class DescribeInboundConnectionsRequest(TypedDict):
+class DescribeInboundConnectionsRequest(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_opensearch.types.filter_list.FilterList"]
     """<p> A list of filters used to match properties for inbound cross-cluster connections.</p>"""
     max_results: "aws_sdk_opensearch.types.max_results.MaxResults"

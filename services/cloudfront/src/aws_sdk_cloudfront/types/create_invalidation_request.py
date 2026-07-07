@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CreateInvalidationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class CreateInvalidationRequest(TypedDict):
+class CreateInvalidationRequest(TypedDict, closed=True):
     distribution_id: "aws_sdk_cloudfront.types.string.string"
     """<p>The distribution's id.</p>"""
     invalidation_batch: "aws_sdk_cloudfront.types.invalidation_batch.InvalidationBatch"

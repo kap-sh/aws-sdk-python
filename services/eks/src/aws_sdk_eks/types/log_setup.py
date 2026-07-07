@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#LogSetup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boxed_boolean
     import aws_sdk_eks.types.log_types
 
 
-class LogSetup(TypedDict):
+class LogSetup(TypedDict, closed=True):
     types: NotRequired["aws_sdk_eks.types.log_types.LogTypes"]
     """<p>The available cluster control plane log types.</p>"""
     enabled: NotRequired["aws_sdk_eks.types.boxed_boolean.BoxedBoolean"]

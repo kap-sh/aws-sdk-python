@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#ListTagsForResourceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class ListTagsForResourceMessage(TypedDict):
+class ListTagsForResourceMessage(TypedDict, closed=True):
     resource_name: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The Amazon DocumentDB resource with tags to be listed. This value is an Amazon Resource Name (ARN).</p>"""
     filters: NotRequired["aws_sdk_docdb.types.filter_list.FilterList"]

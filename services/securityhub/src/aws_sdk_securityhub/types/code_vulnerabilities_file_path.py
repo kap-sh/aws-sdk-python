@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#CodeVulnerabilitiesFilePath``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class CodeVulnerabilitiesFilePath(TypedDict):
+class CodeVulnerabilitiesFilePath(TypedDict, closed=True):
     end_line: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p> The line number of the last line of code in which the vulnerability is located. </p>"""
     file_name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#GetInfrastructureConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.infrastructure_configuration
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class GetInfrastructureConfigurationResponse(TypedDict):
+class GetInfrastructureConfigurationResponse(TypedDict, closed=True):
     request_id: NotRequired[
         "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
     ]

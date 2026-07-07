@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetEventPredictionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.list_of_external_model_outputs
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.list_of_rule_results
 
 
-class GetEventPredictionResult(TypedDict):
+class GetEventPredictionResult(TypedDict, closed=True):
     model_scores: NotRequired[
         "aws_sdk_frauddetector.types.list_of_model_scores.ListOfModelScores"
     ]

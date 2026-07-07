@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ListClusterOperationsV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
     import aws_sdk_kafka.types.max_results
 
 
-class ListClusterOperationsV2Request(TypedDict):
+class ListClusterOperationsV2Request(TypedDict, closed=True):
     cluster_arn: "aws_sdk_kafka.types.__string.__string"
     """The arn of the cluster whose operations are being requested."""
     max_results: NotRequired["aws_sdk_kafka.types.max_results.MaxResults"]

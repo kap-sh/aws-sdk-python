@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VolumeStatusItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.volume_status_info
 
 
-class VolumeStatusItem(TypedDict):
+class VolumeStatusItem(TypedDict, closed=True):
     actions: NotRequired[
         "aws_sdk_ec2.types.volume_status_actions_list.VolumeStatusActionsList"
     ]

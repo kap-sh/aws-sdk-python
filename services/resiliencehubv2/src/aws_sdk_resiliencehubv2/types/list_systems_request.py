@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListSystemsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.ou_id
 
 
-class ListSystemsRequest(TypedDict):
+class ListSystemsRequest(TypedDict, closed=True):
     ou_id: NotRequired["aws_sdk_resiliencehubv2.types.ou_id.OuId"]
     """<p>Filter systems by organizational unit (OU) identifier.</p>"""
     max_results: "aws_sdk_resiliencehubv2.types.max_results.MaxResults"

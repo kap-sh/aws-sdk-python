@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#ServiceQuotaExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_polly._protocol.eventstream import HeaderValue, Message
 from aws_sdk_polly.errors import DeserializationError, ServiceError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.service_code
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "aws_sdk_polly.types.error_message.ErrorMessage"
     quota_code: "aws_sdk_polly.types.quota_code.QuotaCode"
     """<p>The quota code identifying the specific quota.</p>"""

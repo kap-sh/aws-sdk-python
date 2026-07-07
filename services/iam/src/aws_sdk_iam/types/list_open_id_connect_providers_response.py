@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListOpenIDConnectProvidersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.open_id_connect_provider_list_type
 
 
-class ListOpenIDConnectProvidersResponse(TypedDict):
+class ListOpenIDConnectProvidersResponse(TypedDict, closed=True):
     open_id_connect_provider_list: NotRequired[
         "aws_sdk_iam.types.open_id_connect_provider_list_type.OpenIDConnectProviderListType"
     ]

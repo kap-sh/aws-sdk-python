@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#GetSolNetworkInstanceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_tnb.types.tag_map
 
 
-class GetSolNetworkInstanceOutput(TypedDict):
+class GetSolNetworkInstanceOutput(TypedDict, closed=True):
     id: "aws_sdk_tnb.types.ns_instance_id.NsInstanceId"
     """<p>Network instance ID.</p>"""
     arn: "aws_sdk_tnb.types.ns_instance_arn.NsInstanceArn"

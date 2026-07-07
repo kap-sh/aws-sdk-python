@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#UpdateMonitoringRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.open_monitoring_info
 
 
-class UpdateMonitoringRequest(TypedDict):
+class UpdateMonitoringRequest(TypedDict, closed=True):
     cluster_arn: "aws_sdk_kafka.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"""
     current_version: NotRequired["aws_sdk_kafka.types.__string.__string"]

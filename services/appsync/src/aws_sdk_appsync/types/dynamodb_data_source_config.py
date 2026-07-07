@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#DynamodbDataSourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class DynamodbDataSourceConfig(TypedDict):
+class DynamodbDataSourceConfig(TypedDict, closed=True):
     table_name: "aws_sdk_appsync.types.string.String"
     """<p>The table name.</p>"""
     aws_region: "aws_sdk_appsync.types.string.String"

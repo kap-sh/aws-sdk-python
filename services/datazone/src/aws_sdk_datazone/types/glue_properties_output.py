@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GluePropertiesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.connection_status
 
 
-class GluePropertiesOutput(TypedDict):
+class GluePropertiesOutput(TypedDict, closed=True):
     status: NotRequired["aws_sdk_datazone.types.connection_status.ConnectionStatus"]
     """<p>The status of a connection.</p>"""
     error_message: NotRequired["str"]

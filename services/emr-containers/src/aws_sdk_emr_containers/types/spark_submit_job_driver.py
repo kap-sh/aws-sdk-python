@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#SparkSubmitJobDriver``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_containers.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.spark_submit_parameters
 
 
-class SparkSubmitJobDriver(TypedDict):
+class SparkSubmitJobDriver(TypedDict, closed=True):
     entry_point: "aws_sdk_emr_containers.types.entry_point_path.EntryPointPath"
     """<p>The entry point of job application.</p>"""
     entry_point_arguments: NotRequired[

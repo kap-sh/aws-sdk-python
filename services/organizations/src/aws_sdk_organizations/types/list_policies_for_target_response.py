@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ListPoliciesForTargetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.next_token
     import aws_sdk_organizations.types.policies
 
 
-class ListPoliciesForTargetResponse(TypedDict):
+class ListPoliciesForTargetResponse(TypedDict, closed=True):
     policies: NotRequired["aws_sdk_organizations.types.policies.Policies"]
     """<p>The list of policies that match the criteria in the request.</p>"""
     next_token: NotRequired["aws_sdk_organizations.types.next_token.NextToken"]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#UntagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.arn
     import aws_sdk_neptune_graph.types.tag_key_list
 
 
-class UntagResourceInput(TypedDict):
+class UntagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_neptune_graph.types.arn.Arn"
     """<p>ARN of the resource whose tag needs to be removed.</p>"""
     tag_keys: "aws_sdk_neptune_graph.types.tag_key_list.TagKeyList"

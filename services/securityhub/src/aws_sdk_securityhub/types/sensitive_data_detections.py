@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#SensitiveDataDetections``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.occurrences
 
 
-class SensitiveDataDetections(TypedDict):
+class SensitiveDataDetections(TypedDict, closed=True):
     count: NotRequired["aws_sdk_securityhub.types.long.Long"]
     """<p>The total number of occurrences of sensitive data that were detected.</p>"""
     type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

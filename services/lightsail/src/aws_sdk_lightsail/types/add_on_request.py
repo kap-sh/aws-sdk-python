@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#AddOnRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.stop_instance_on_idle_request
 
 
-class AddOnRequest(TypedDict):
+class AddOnRequest(TypedDict, closed=True):
     add_on_type: "aws_sdk_lightsail.types.add_on_type.AddOnType"
     """<p>The add-on type.</p>"""
     auto_snapshot_add_on_request: NotRequired[

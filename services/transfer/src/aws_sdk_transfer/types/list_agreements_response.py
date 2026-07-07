@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListAgreementsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.next_token
 
 
-class ListAgreementsResponse(TypedDict):
+class ListAgreementsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_transfer.types.next_token.NextToken"]
     """<p>Returns a token that you can use to call <code>ListAgreements</code> again and receive additional results, if there are any.</p>"""
     agreements: "aws_sdk_transfer.types.listed_agreements.ListedAgreements"

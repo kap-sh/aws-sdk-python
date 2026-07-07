@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetWirelessDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.identifier
     import aws_sdk_iot_wireless.types.wireless_device_id_type
 
 
-class GetWirelessDeviceRequest(TypedDict):
+class GetWirelessDeviceRequest(TypedDict, closed=True):
     identifier: "aws_sdk_iot_wireless.types.identifier.Identifier"
     """<p>The identifier of the wireless device to get.</p>"""
     identifier_type: (

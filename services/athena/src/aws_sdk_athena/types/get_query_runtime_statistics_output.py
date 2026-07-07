@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetQueryRuntimeStatisticsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.query_runtime_statistics
 
 
-class GetQueryRuntimeStatisticsOutput(TypedDict):
+class GetQueryRuntimeStatisticsOutput(TypedDict, closed=True):
     query_runtime_statistics: NotRequired[
         "aws_sdk_athena.types.query_runtime_statistics.QueryRuntimeStatistics"
     ]

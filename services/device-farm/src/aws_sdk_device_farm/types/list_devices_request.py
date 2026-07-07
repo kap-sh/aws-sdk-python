@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListDevicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.amazon_resource_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.pagination_token
 
 
-class ListDevicesRequest(TypedDict):
+class ListDevicesRequest(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_device_farm.types.amazon_resource_name.AmazonResourceName"
     ]

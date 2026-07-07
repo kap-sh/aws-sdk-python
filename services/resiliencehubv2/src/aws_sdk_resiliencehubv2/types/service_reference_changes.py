@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ServiceReferenceChanges``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.service_reference_list
 
 
-class ServiceReferenceChanges(TypedDict):
+class ServiceReferenceChanges(TypedDict, closed=True):
     added: NotRequired[
         "aws_sdk_resiliencehubv2.types.service_reference_list.ServiceReferenceList"
     ]

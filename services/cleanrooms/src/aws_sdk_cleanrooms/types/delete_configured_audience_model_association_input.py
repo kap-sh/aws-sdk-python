@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DeleteConfiguredAudienceModelAssociationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.configured_audience_model_association_identifier
     import aws_sdk_cleanrooms.types.membership_identifier
 
 
-class DeleteConfiguredAudienceModelAssociationInput(TypedDict):
+class DeleteConfiguredAudienceModelAssociationInput(TypedDict, closed=True):
     configured_audience_model_association_identifier: "aws_sdk_cleanrooms.types.configured_audience_model_association_identifier.ConfiguredAudienceModelAssociationIdentifier"
     """<p>A unique identifier of the configured audience model association that you want to delete.</p>"""
     membership_identifier: (

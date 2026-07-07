@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#ResumeBatchLoadTaskResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ResumeBatchLoadTaskResponse(TypedDict):
+class ResumeBatchLoadTaskResponse(TypedDict, closed=True):
     pass
 
 

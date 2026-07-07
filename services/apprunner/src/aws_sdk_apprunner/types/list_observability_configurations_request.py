@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ListObservabilityConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.observability_configuration_name
 
 
-class ListObservabilityConfigurationsRequest(TypedDict):
+class ListObservabilityConfigurationsRequest(TypedDict, closed=True):
     observability_configuration_name: NotRequired[
         "aws_sdk_apprunner.types.observability_configuration_name.ObservabilityConfigurationName"
     ]

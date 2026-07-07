@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#IcebergPartitionSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.iceberg_partition_field_list
 
 
-class IcebergPartitionSpec(TypedDict):
+class IcebergPartitionSpec(TypedDict, closed=True):
     fields: (
         "aws_sdk_s3tables.types.iceberg_partition_field_list.IcebergPartitionFieldList"
     )

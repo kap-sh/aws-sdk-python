@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#GetGroupConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group_configuration
 
 
-class GetGroupConfigurationOutput(TypedDict):
+class GetGroupConfigurationOutput(TypedDict, closed=True):
     group_configuration: NotRequired[
         "aws_sdk_resource_groups.types.group_configuration.GroupConfiguration"
     ]

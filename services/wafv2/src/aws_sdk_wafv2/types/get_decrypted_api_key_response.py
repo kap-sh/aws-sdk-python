@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GetDecryptedAPIKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.timestamp
     import aws_sdk_wafv2.types.token_domains
 
 
-class GetDecryptedAPIKeyResponse(TypedDict):
+class GetDecryptedAPIKeyResponse(TypedDict, closed=True):
     token_domains: NotRequired["aws_sdk_wafv2.types.token_domains.TokenDomains"]
     """<p>The token domains that are defined in this API key. </p>"""
     creation_timestamp: NotRequired["aws_sdk_wafv2.types.timestamp.Timestamp"]

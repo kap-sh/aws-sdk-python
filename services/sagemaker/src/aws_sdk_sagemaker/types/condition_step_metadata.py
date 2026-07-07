@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ConditionStepMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.condition_outcome
 
 
-class ConditionStepMetadata(TypedDict):
+class ConditionStepMetadata(TypedDict, closed=True):
     outcome: NotRequired["aws_sdk_sagemaker.types.condition_outcome.ConditionOutcome"]
     """<p>The outcome of the Condition step evaluation.</p>"""
 

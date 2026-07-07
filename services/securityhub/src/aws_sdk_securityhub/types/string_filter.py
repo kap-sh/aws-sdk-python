@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#StringFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.string_filter_comparison
 
 
-class StringFilter(TypedDict):
+class StringFilter(TypedDict, closed=True):
     value: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is <code>Security Hub CSPM</code>. If you provide <code>security hub</code> as the filter value, there's no match.</p>"""
     comparison: NotRequired[

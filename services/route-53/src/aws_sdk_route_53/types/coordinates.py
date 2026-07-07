@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#Coordinates``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.longitude
 
 
-class Coordinates(TypedDict):
+class Coordinates(TypedDict, closed=True):
     latitude: "aws_sdk_route_53.types.latitude.Latitude"
     """<p> Specifies a coordinate of the north–south position of a geographic point on the surface of the Earth (-90 - 90). </p>"""
     longitude: "aws_sdk_route_53.types.longitude.Longitude"

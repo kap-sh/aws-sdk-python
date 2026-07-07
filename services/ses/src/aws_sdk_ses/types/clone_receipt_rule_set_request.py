@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#CloneReceiptRuleSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.receipt_rule_set_name
 
 
-class CloneReceiptRuleSetRequest(TypedDict):
+class CloneReceiptRuleSetRequest(TypedDict, closed=True):
     rule_set_name: "aws_sdk_ses.types.receipt_rule_set_name.ReceiptRuleSetName"
     """<p>The name of the rule set to create. The name must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li> <li> <p>Contain 64 characters or fewer.</p> </li> </ul>"""
     original_rule_set_name: "aws_sdk_ses.types.receipt_rule_set_name.ReceiptRuleSetName"

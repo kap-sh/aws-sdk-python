@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TermsAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.max_buckets
 
 
-class TermsAggregation(TypedDict):
+class TermsAggregation(TypedDict, closed=True):
     max_buckets: NotRequired["aws_sdk_iot.types.max_buckets.MaxBuckets"]
     """<p>The number of buckets to return in the response. Default to 10.</p>"""
 

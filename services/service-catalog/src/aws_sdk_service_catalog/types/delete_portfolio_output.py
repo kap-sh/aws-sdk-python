@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#DeletePortfolioOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePortfolioOutput(TypedDict):
+class DeletePortfolioOutput(TypedDict, closed=True):
     pass
 
 

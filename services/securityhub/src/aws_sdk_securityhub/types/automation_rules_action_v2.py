@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AutomationRulesActionV2``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.automation_rules_action_type_v2
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.external_integration_configuration
 
 
-class AutomationRulesActionV2(TypedDict):
+class AutomationRulesActionV2(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_securityhub.types.automation_rules_action_type_v2.AutomationRulesActionTypeV2"
     ]

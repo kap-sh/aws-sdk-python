@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideoarchivedmedia#GetImagesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.images
     import aws_sdk_kinesis_video_archived_media.types.next_token
 
 
-class GetImagesOutput(TypedDict):
+class GetImagesOutput(TypedDict, closed=True):
     images: NotRequired["aws_sdk_kinesis_video_archived_media.types.images.Images"]
     """<p>The list of images generated from the video stream. If there is no media available for the given timestamp, the <code>NO_MEDIA</code> error will be listed in the output. If an error occurs while the image is being generated, the <code>MEDIA_ERROR</code> will be listed in the output as the cause of the missing image. </p>"""
     next_token: NotRequired[

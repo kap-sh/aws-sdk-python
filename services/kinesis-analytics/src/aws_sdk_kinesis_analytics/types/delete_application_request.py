@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#DeleteApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.timestamp
 
 
-class DeleteApplicationRequest(TypedDict):
+class DeleteApplicationRequest(TypedDict, closed=True):
     application_name: "aws_sdk_kinesis_analytics.types.application_name.ApplicationName"
     """<p>Name of the Amazon Kinesis Analytics application to delete.</p>"""
     create_timestamp: "aws_sdk_kinesis_analytics.types.timestamp.Timestamp"

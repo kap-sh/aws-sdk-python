@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#BatchCreateCategoryInputCategory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.uuid
 
 
-class BatchCreateCategoryInputCategory(TypedDict):
+class BatchCreateCategoryInputCategory(TypedDict, closed=True):
     id: NotRequired["aws_sdk_qapps.types.uuid.UUID"]
     """<p>The unique identifier to be associated with a category. If you don't include a value, the category is automatically assigned a unique identifier.</p>"""
     title: "str"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#UpdateUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.user_aliases
 
 
-class UpdateUserResponse(TypedDict):
+class UpdateUserResponse(TypedDict, closed=True):
     user_aliases_added: NotRequired["aws_sdk_qbusiness.types.user_aliases.UserAliases"]
     """<p>The user aliases that have been to be added to a user id.</p>"""
     user_aliases_updated: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelPackageValidationProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.entity_name
     import aws_sdk_sagemaker.types.transform_job_definition
 
 
-class ModelPackageValidationProfile(TypedDict):
+class ModelPackageValidationProfile(TypedDict, closed=True):
     profile_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>The name of the profile for the model package.</p>"""
     transform_job_definition: NotRequired[

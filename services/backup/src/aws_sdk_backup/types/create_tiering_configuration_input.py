@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CreateTieringConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.tiering_configuration_input_for_create
 
 
-class CreateTieringConfigurationInput(TypedDict):
+class CreateTieringConfigurationInput(TypedDict, closed=True):
     tiering_configuration: "aws_sdk_backup.types.tiering_configuration_input_for_create.TieringConfigurationInputForCreate"
     """<p>A tiering configuration must contain a unique <code>TieringConfigurationName</code> string you create and must contain a <code>BackupVaultName</code> and <code>ResourceSelection</code>. You may optionally include a <code>CreatorRequestId</code> string.</p> <p>The <code>TieringConfigurationName</code> is a unique string that is the name of the tiering configuration. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.</p>"""
     tiering_configuration_tags: NotRequired["aws_sdk_backup.types.tags.Tags"]

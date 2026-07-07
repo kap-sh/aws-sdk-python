@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#ListKeyRotationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.boolean_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.rotations_list
 
 
-class ListKeyRotationsResponse(TypedDict):
+class ListKeyRotationsResponse(TypedDict, closed=True):
     rotations: NotRequired["aws_sdk_kms.types.rotations_list.RotationsList"]
     """<p>A list of completed key material rotations. When the optional input parameter <code>IncludeKeyMaterial</code> is specified with a value of <code>ALL_KEY_MATERIAL</code>, this list includes the first key material and any imported key material pending rotation.</p>"""
     next_marker: NotRequired["aws_sdk_kms.types.marker_type.MarkerType"]

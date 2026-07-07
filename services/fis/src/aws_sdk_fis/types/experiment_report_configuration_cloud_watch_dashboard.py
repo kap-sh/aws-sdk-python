@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentReportConfigurationCloudWatchDashboard``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.report_configuration_cloud_watch_dashboard_identifier
 
 
-class ExperimentReportConfigurationCloudWatchDashboard(TypedDict):
+class ExperimentReportConfigurationCloudWatchDashboard(TypedDict, closed=True):
     dashboard_identifier: NotRequired[
         "aws_sdk_fis.types.report_configuration_cloud_watch_dashboard_identifier.ReportConfigurationCloudWatchDashboardIdentifier"
     ]

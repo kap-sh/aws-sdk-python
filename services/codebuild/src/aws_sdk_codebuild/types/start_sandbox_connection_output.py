@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#StartSandboxConnectionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.ssm_session
 
 
-class StartSandboxConnectionOutput(TypedDict):
+class StartSandboxConnectionOutput(TypedDict, closed=True):
     ssm_session: NotRequired["aws_sdk_codebuild.types.ssm_session.SSMSession"]
     """<p>Information about the Session Manager session.</p>"""
 

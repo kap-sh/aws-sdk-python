@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendraranking#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra_ranking.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra_ranking.types.tag_list
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_kendra_ranking.types.amazon_resource_name.AmazonResourceName"
     """<p>The Amazon Resource Name (ARN) of the rescore execution plan to tag.</p>"""
     tags: "aws_sdk_kendra_ranking.types.tag_list.TagList"

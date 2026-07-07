@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#GetChannelNamespaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.channel_namespace
 
 
-class GetChannelNamespaceResponse(TypedDict):
+class GetChannelNamespaceResponse(TypedDict, closed=True):
     channel_namespace: NotRequired[
         "aws_sdk_appsync.types.channel_namespace.ChannelNamespace"
     ]

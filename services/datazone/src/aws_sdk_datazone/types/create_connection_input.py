@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.environment_id
 
 
-class CreateConnectionInput(TypedDict):
+class CreateConnectionInput(TypedDict, closed=True):
     aws_location: NotRequired["aws_sdk_datazone.types.aws_location.AwsLocation"]
     """<p>The location where the connection is created.</p>"""
     client_token: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ListModelVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.timestamp
 
 
-class ListModelVersionsRequest(TypedDict):
+class ListModelVersionsRequest(TypedDict, closed=True):
     model_name: "aws_sdk_lookoutequipment.types.model_name.ModelName"
     """<p>Then name of the machine learning model for which the model versions are to be listed.</p>"""
     next_token: NotRequired["aws_sdk_lookoutequipment.types.next_token.NextToken"]

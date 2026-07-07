@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ErrorDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.string_type
 
 
-class ErrorDetails(TypedDict):
+class ErrorDetails(TypedDict, closed=True):
     message: "aws_sdk_iam.types.string_type.stringType"
     """<p>Detailed information about the reason that the operation failed.</p>"""
     code: "aws_sdk_iam.types.string_type.stringType"

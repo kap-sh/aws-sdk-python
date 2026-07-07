@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#DeleteVPCAssociationAuthorizationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.vpc
 
 
-class DeleteVPCAssociationAuthorizationRequest(TypedDict):
+class DeleteVPCAssociationAuthorizationRequest(TypedDict, closed=True):
     hosted_zone_id: "aws_sdk_route_53.types.resource_id.ResourceId"
     """<p>When removing authorization to associate a VPC that was created by one Amazon Web Services account with a hosted zone that was created with a different Amazon Web Services account, the ID of the hosted zone.</p>"""
     vpc: "aws_sdk_route_53.types.vpc.VPC"

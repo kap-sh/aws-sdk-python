@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#VpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.subnets
     import aws_sdk_sagemaker.types.vpc_security_group_ids
 
 
-class VpcConfig(TypedDict):
+class VpcConfig(TypedDict, closed=True):
     security_group_ids: NotRequired[
         "aws_sdk_sagemaker.types.vpc_security_group_ids.VpcSecurityGroupIds"
     ]

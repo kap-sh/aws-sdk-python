@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetFunctionCodeSigningConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.namespaced_function_name
 
 
-class GetFunctionCodeSigningConfigRequest(TypedDict):
+class GetFunctionCodeSigningConfigRequest(TypedDict, closed=True):
     function_name: (
         "aws_sdk_lambda.types.namespaced_function_name.NamespacedFunctionName"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#Scope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.scope_permission_list
 
 
-class Scope(TypedDict):
+class Scope(TypedDict, closed=True):
     prefixes: NotRequired["aws_sdk_s3_control.types.prefixes_list.PrefixesList"]
     """<p>You can specify any amount of prefixes, but the total length of characters of all prefixes must be less than 256 bytes in size.</p>"""
     permissions: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#OutputFormatStructure``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.json_schema_definition
 
 
-class _OutputFormatStructure_jsonSchema(TypedDict):
+class _OutputFormatStructure_jsonSchema(TypedDict, closed=True):
     jsonSchema: (
         "aws_sdk_bedrock_runtime.types.json_schema_definition.JsonSchemaDefinition"
     )

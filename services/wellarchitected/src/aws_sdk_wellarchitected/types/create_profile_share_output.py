@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#CreateProfileShareOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.profile_arn
     import aws_sdk_wellarchitected.types.share_id
 
 
-class CreateProfileShareOutput(TypedDict):
+class CreateProfileShareOutput(TypedDict, closed=True):
     share_id: NotRequired["aws_sdk_wellarchitected.types.share_id.ShareId"]
     profile_arn: NotRequired["aws_sdk_wellarchitected.types.profile_arn.ProfileArn"]
     """<p>The profile ARN.</p>"""

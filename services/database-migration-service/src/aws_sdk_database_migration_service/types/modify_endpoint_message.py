@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ModifyEndpointMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -34,7 +34,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.timestream_settings
 
 
-class ModifyEndpointMessage(TypedDict):
+class ModifyEndpointMessage(TypedDict, closed=True):
     endpoint_arn: "aws_sdk_database_migration_service.types.string.String"
     """<p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>"""
     endpoint_identifier: NotRequired[

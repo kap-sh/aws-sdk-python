@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#SendProjectSessionActionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.client_session_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.view_frame
 
 
-class SendProjectSessionActionRequest(TypedDict):
+class SendProjectSessionActionRequest(TypedDict, closed=True):
     preview: "aws_sdk_databrew.types.preview.Preview"
     """<p>If true, the result of the recipe step will be returned, but not applied.</p>"""
     name: "aws_sdk_databrew.types.project_name.ProjectName"

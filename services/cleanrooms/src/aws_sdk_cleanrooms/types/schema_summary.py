@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#SchemaSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.uuid
 
 
-class SchemaSummary(TypedDict):
+class SchemaSummary(TypedDict, closed=True):
     name: "aws_sdk_cleanrooms.types.table_alias.TableAlias"
     """<p>The name for the schema object.</p>"""
     type: "aws_sdk_cleanrooms.types.schema_type.SchemaType"

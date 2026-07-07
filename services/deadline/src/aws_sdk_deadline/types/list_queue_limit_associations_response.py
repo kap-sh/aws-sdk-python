@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ListQueueLimitAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.queue_limit_association_summaries
 
 
-class ListQueueLimitAssociationsResponse(TypedDict):
+class ListQueueLimitAssociationsResponse(TypedDict, closed=True):
     queue_limit_associations: "aws_sdk_deadline.types.queue_limit_association_summaries.QueueLimitAssociationSummaries"
     """<p>A list of associations between limits and queues in the farm specified in the request.</p>"""
     next_token: NotRequired["aws_sdk_deadline.types.next_token.NextToken"]

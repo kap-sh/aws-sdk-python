@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#RunListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.batch_id
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.workflow_version_name
 
 
-class RunListItem(TypedDict):
+class RunListItem(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_omics.types.run_arn.RunArn"]
     """<p>The run's ARN.</p>"""
     id: NotRequired["aws_sdk_omics.types.run_id.RunId"]

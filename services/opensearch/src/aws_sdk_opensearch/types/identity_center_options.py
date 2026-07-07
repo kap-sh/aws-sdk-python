@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#IdentityCenterOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.subject_key_id_c_option
 
 
-class IdentityCenterOptions(TypedDict):
+class IdentityCenterOptions(TypedDict, closed=True):
     enabled_api_access: NotRequired["aws_sdk_opensearch.types.boolean.Boolean"]
     """<p>Indicates whether IAM Identity Center is enabled for the application.</p>"""
     identity_center_instance_arn: NotRequired[

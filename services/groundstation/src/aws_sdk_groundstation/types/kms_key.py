@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#KmsKey``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.key_arn
 
 
-class _KmsKey_kmsKeyArn(TypedDict):
+class _KmsKey_kmsKeyArn(TypedDict, closed=True):
     kmsKeyArn: "aws_sdk_groundstation.types.key_arn.KeyArn"
 
 
-class _KmsKey_kmsAliasArn(TypedDict):
+class _KmsKey_kmsAliasArn(TypedDict, closed=True):
     kmsAliasArn: "aws_sdk_groundstation.types.key_alias_arn.KeyAliasArn"
 
 
-class _KmsKey_kmsAliasName(TypedDict):
+class _KmsKey_kmsAliasName(TypedDict, closed=True):
     kmsAliasName: "aws_sdk_groundstation.types.key_alias_name.KeyAliasName"
 
 

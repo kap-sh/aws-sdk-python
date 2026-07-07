@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#KnowledgeBaseLookupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.knowledge_base_lookup_input_string
     import aws_sdk_bedrock_agent_runtime.types.trace_knowledge_base_id
 
 
-class KnowledgeBaseLookupInput(TypedDict):
+class KnowledgeBaseLookupInput(TypedDict, closed=True):
     text: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.knowledge_base_lookup_input_string.KnowledgeBaseLookupInputString"
     ]

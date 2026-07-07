@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#ListSecurityGroupUsersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.users
 
 
-class ListSecurityGroupUsersResponse(TypedDict):
+class ListSecurityGroupUsersResponse(TypedDict, closed=True):
     users: "aws_sdk_wickr.types.users.Users"
     """<p>A list of user objects belonging to the security group within the current page.</p>"""
     next_token: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#CreateAssessmentTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.user_attribute_list
 
 
-class CreateAssessmentTemplateRequest(TypedDict):
+class CreateAssessmentTemplateRequest(TypedDict, closed=True):
     assessment_target_arn: "aws_sdk_inspector.types.arn.Arn"
     """<p>The ARN that specifies the assessment target for which you want to create the assessment template.</p>"""
     assessment_template_name: (

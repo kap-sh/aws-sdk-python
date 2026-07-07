@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdateGatewayRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.role_arn
 
 
-class UpdateGatewayRequest(TypedDict):
+class UpdateGatewayRequest(TypedDict, closed=True):
     gateway_identifier: (
         "aws_sdk_bedrock_agentcore_control.types.gateway_identifier.GatewayIdentifier"
     )

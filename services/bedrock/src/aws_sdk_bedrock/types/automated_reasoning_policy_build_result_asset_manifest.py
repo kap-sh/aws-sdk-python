@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyBuildResultAssetManifest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_build_result_asset_manifest_list
 
 
-class AutomatedReasoningPolicyBuildResultAssetManifest(TypedDict):
+class AutomatedReasoningPolicyBuildResultAssetManifest(TypedDict, closed=True):
     entries: "aws_sdk_bedrock.types.automated_reasoning_policy_build_result_asset_manifest_list.AutomatedReasoningPolicyBuildResultAssetManifestList"
     """<p>The list of asset entries in the manifest, each describing an available artifact that can be retrieved.</p>"""
 

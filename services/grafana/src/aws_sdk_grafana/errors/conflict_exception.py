@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     """<p>A description of the error.</p>"""
     resource_id: "str"

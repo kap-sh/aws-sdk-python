@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#JournalTableConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.s3_tables_name
 
 
-class JournalTableConfigurationResult(TypedDict):
+class JournalTableConfigurationResult(TypedDict, closed=True):
     table_status: "aws_sdk_s3.types.metadata_table_status.MetadataTableStatus"
     """<p> The status of the journal table. The status values are: </p> <ul> <li> <p> <code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p> </li> <li> <p> <code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table. </p> </li> <li> <p> <code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p> </li> </ul>"""
     error: NotRequired["aws_sdk_s3.types.error_details.ErrorDetails"]

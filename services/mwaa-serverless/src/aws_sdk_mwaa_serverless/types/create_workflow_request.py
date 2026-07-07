@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#CreateWorkflowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mwaa_serverless.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.tags
 
 
-class CreateWorkflowRequest(TypedDict):
+class CreateWorkflowRequest(TypedDict, closed=True):
     name: "aws_sdk_mwaa_serverless.types.name_string.NameString"
     """<p>The name of the workflow. You must use unique workflow names within your Amazon Web Services account. The service generates a unique identifier that is appended to ensure temporal uniqueness across the account lifecycle.</p>"""
     client_token: NotRequired[

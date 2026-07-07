@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#Urls``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.seed_url_configuration
     import aws_sdk_kendra.types.site_maps_configuration
 
 
-class Urls(TypedDict):
+class Urls(TypedDict, closed=True):
     seed_url_configuration: NotRequired[
         "aws_sdk_kendra.types.seed_url_configuration.SeedUrlConfiguration"
     ]

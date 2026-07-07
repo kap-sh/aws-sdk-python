@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#ListHapgsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.pagination_token
 
 
-class ListHapgsRequest(TypedDict):
+class ListHapgsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cloudhsm.types.pagination_token.PaginationToken"]
     """<p>The <code>NextToken</code> value from a previous call to <code>ListHapgs</code>. Pass null if this is the first call.</p>"""
 

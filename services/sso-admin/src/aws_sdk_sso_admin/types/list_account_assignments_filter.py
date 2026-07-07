@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ListAccountAssignmentsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.account_id
 
 
-class ListAccountAssignmentsFilter(TypedDict):
+class ListAccountAssignmentsFilter(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_sso_admin.types.account_id.AccountId"]
     """<p>The ID number of an Amazon Web Services account that filters the results in the response.</p>"""
 

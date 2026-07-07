@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#MultiViewSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.multi_view_input
 
 
-class MultiViewSettings(TypedDict):
+class MultiViewSettings(TypedDict, closed=True):
     input: NotRequired["aws_sdk_mediaconvert.types.multi_view_input.MultiViewInput"]
     """Input settings for MultiView Settings. You can include exactly one input as enhancement layer."""
 

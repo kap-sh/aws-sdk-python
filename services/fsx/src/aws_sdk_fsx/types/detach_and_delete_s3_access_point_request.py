@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DetachAndDeleteS3AccessPointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.client_request_token
     import aws_sdk_fsx.types.s3_access_point_attachment_name
 
 
-class DetachAndDeleteS3AccessPointRequest(TypedDict):
+class DetachAndDeleteS3AccessPointRequest(TypedDict, closed=True):
     client_request_token: NotRequired[
         "aws_sdk_fsx.types.client_request_token.ClientRequestToken"
     ]

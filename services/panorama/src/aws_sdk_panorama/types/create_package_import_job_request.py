@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#CreatePackageImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.package_import_job_type
 
 
-class CreatePackageImportJobRequest(TypedDict):
+class CreatePackageImportJobRequest(TypedDict, closed=True):
     job_type: "aws_sdk_panorama.types.package_import_job_type.PackageImportJobType"
     """<p>A job type for the package import job.</p>"""
     input_config: "aws_sdk_panorama.types.package_import_job_input_config.PackageImportJobInputConfig"

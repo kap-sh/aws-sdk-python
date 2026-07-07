@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#Subnet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.availability_zone
     import aws_sdk_database_migration_service.types.string
 
 
-class Subnet(TypedDict):
+class Subnet(TypedDict, closed=True):
     subnet_identifier: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_securitylake.types.tag_key.TagKey"
     """<p>The name of the tag. This is a general label that acts as a category for a more specific tag value (<code>value</code>).</p>"""
     value: "aws_sdk_securitylake.types.tag_value.TagValue"

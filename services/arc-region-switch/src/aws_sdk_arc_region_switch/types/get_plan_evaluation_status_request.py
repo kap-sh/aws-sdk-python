@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#GetPlanEvaluationStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.plan_arn
 
 
-class GetPlanEvaluationStatusRequest(TypedDict):
+class GetPlanEvaluationStatusRequest(TypedDict, closed=True):
     plan_arn: "aws_sdk_arc_region_switch.types.plan_arn.PlanArn"
     """<p>The Amazon Resource Name (ARN) of the Region switch plan to retrieve evaluation status for.</p>"""
     max_results: NotRequired["aws_sdk_arc_region_switch.types.max_results.MaxResults"]

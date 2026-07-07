@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ListBlockingInstancesForCapacityTaskOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.blocking_instances_list
     import aws_sdk_outposts.types.token
 
 
-class ListBlockingInstancesForCapacityTaskOutput(TypedDict):
+class ListBlockingInstancesForCapacityTaskOutput(TypedDict, closed=True):
     blocking_instances: NotRequired[
         "aws_sdk_outposts.types.blocking_instances_list.BlockingInstancesList"
     ]

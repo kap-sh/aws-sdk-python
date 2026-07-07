@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetMessageInsightsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_insights_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.outbound_message_id
 
 
-class GetMessageInsightsResponse(TypedDict):
+class GetMessageInsightsResponse(TypedDict, closed=True):
     message_id: NotRequired["aws_sdk_sesv2.types.outbound_message_id.OutboundMessageId"]
     """<p>A unique identifier for the message.</p>"""
     from_email_address: NotRequired[

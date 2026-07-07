@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SearchFlowsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.search_filter_operator
 
 
-class SearchFlowsFilter(TypedDict):
+class SearchFlowsFilter(TypedDict, closed=True):
     name: "aws_sdk_quicksight.types.field_name.FieldName"
     r"""<p>The name of the value that you want to use as a filter, for example <code>\"Name\": \"DIRECT_QUICKSIGHT_SOLE_OWNER\"</code>.</p> <p>Valid values are defined as follows:</p> <ul> <li> <p> <code>assetName</code>: Any flows whose names have a substring match to this value will be returned.</p> </li> <li> <p> <code>assetDescription</code>: Any flows whose descriptions have a substring match to this value will be returned.</p> </li> <li> <p> <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as the only owner of the analysis are returned. Implicit permissions from folders or groups are not considered.</p> </li> <li> <p> <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners of the analyses are returned. Implicit permissions from folders or groups are not considered.</p> </li> <li> <p> <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners or viewers of the analyses are returned. Implicit permissions from folders or groups are not considered. </p> </li> </ul>"""
     operator: "aws_sdk_quicksight.types.search_filter_operator.SearchFilterOperator"

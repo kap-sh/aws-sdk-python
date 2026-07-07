@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#PendingCreateStandbyWorkspacesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.directory_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_state
 
 
-class PendingCreateStandbyWorkspacesRequest(TypedDict):
+class PendingCreateStandbyWorkspacesRequest(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_workspaces.types.user_name.UserName"]
     r"""<p>Describes the standby WorkSpace that was created.</p> <p>Because this operation is asynchronous, the identifier returned is not immediately available for use with other operations. For example, if you call <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html\"> DescribeWorkspaces</a> before the WorkSpace is created, the information returned can be incomplete. </p>"""
     directory_id: NotRequired["aws_sdk_workspaces.types.directory_id.DirectoryId"]

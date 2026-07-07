@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ToxicContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.float
     import aws_sdk_comprehend.types.toxic_content_type
 
 
-class ToxicContent(TypedDict):
+class ToxicContent(TypedDict, closed=True):
     name: NotRequired["aws_sdk_comprehend.types.toxic_content_type.ToxicContentType"]
     """<p>The name of the toxic content type.</p>"""
     score: NotRequired["aws_sdk_comprehend.types.float.Float"]

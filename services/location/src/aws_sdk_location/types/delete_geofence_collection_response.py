@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.location#DeleteGeofenceCollectionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteGeofenceCollectionResponse(TypedDict):
+class DeleteGeofenceCollectionResponse(TypedDict, closed=True):
     pass
 
 

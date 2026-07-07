@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#IamRegistrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.registration_status
 
 
-class IamRegistrationResponse(TypedDict):
+class IamRegistrationResponse(TypedDict, closed=True):
     role_arn: "aws_sdk_iotfleetwise.types.arn.arn"
     """<p>The Amazon Resource Name (ARN) of the IAM role to register.</p>"""
     registration_status: (

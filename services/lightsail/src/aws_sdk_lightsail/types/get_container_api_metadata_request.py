@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetContainerAPIMetadataRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetContainerAPIMetadataRequest(TypedDict):
+class GetContainerAPIMetadataRequest(TypedDict, closed=True):
     pass
 
 

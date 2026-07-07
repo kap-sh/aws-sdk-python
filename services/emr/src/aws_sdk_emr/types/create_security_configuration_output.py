@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#CreateSecurityConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.date
     import aws_sdk_emr.types.xml_string
 
 
-class CreateSecurityConfigurationOutput(TypedDict):
+class CreateSecurityConfigurationOutput(TypedDict, closed=True):
     name: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]
     """<p>The name of the security configuration.</p>"""
     creation_date_time: NotRequired["aws_sdk_emr.types.date.Date"]

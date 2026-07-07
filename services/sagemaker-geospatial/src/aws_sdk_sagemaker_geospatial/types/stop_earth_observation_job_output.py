@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#StopEarthObservationJobOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopEarthObservationJobOutput(TypedDict):
+class StopEarthObservationJobOutput(TypedDict, closed=True):
     pass
 
 

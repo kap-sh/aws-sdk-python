@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#UpdateDataLakeExceptionSubscriptionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateDataLakeExceptionSubscriptionResponse(TypedDict):
+class UpdateDataLakeExceptionSubscriptionResponse(TypedDict, closed=True):
     pass
 
 

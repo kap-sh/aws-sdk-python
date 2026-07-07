@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#GetJobQueueSnapshotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class GetJobQueueSnapshotRequest(TypedDict):
+class GetJobQueueSnapshotRequest(TypedDict, closed=True):
     job_queue: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The job queue’s name or full queue Amazon Resource Name (ARN).</p>"""
 

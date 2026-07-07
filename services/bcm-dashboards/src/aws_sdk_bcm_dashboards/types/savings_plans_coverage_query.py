@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#SavingsPlansCoverageQuery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.metric_names
 
 
-class SavingsPlansCoverageQuery(TypedDict):
+class SavingsPlansCoverageQuery(TypedDict, closed=True):
     time_range: "aws_sdk_bcm_dashboards.types.date_time_range.DateTimeRange"
     metrics: NotRequired["aws_sdk_bcm_dashboards.types.metric_names.MetricNames"]
     """<p>The coverage metrics to include in the results.</p> <note> <p>Valid value for SavingsPlansCoverageQuery metrics is <code>SpendCoveredBySavingsPlans</code>.</p> </note>"""

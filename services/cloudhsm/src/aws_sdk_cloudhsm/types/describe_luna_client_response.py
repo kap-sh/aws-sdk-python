@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#DescribeLunaClientResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.certificate
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.timestamp
 
 
-class DescribeLunaClientResponse(TypedDict):
+class DescribeLunaClientResponse(TypedDict, closed=True):
     client_arn: NotRequired["aws_sdk_cloudhsm.types.client_arn.ClientArn"]
     """<p>The ARN of the client.</p>"""
     certificate: NotRequired["aws_sdk_cloudhsm.types.certificate.Certificate"]

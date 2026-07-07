@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ReloadReplicationTablesMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.table_list_to_reload
 
 
-class ReloadReplicationTablesMessage(TypedDict):
+class ReloadReplicationTablesMessage(TypedDict, closed=True):
     replication_config_arn: "aws_sdk_database_migration_service.types.string.String"
     """<p>The Amazon Resource Name of the replication config for which to reload tables.</p>"""
     tables_to_reload: "aws_sdk_database_migration_service.types.table_list_to_reload.TableListToReload"

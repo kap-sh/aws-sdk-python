@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#ValidationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.id
     import aws_sdk_data_pipeline.types.validation_messages
 
 
-class ValidationError(TypedDict):
+class ValidationError(TypedDict, closed=True):
     id: NotRequired["aws_sdk_data_pipeline.types.id.id"]
     """<p>The identifier of the object that contains the validation error.</p>"""
     errors: NotRequired[

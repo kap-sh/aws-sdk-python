@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsServicePlacementStrategiesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsServicePlacementStrategiesDetails(TypedDict):
+class AwsEcsServicePlacementStrategiesDetails(TypedDict, closed=True):
     field: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The field to apply the placement strategy against.</p> <p>For the <code>spread</code> placement strategy, valid values are <code>instanceId</code> (or <code>host</code>, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as <code>attribute:ecs.availability-zone</code>.</p> <p>For the <code>binpack</code> placement strategy, valid values are <code>cpu</code> and <code>memory</code>.</p> <p>For the <code>random</code> placement strategy, this attribute is not used.</p>"""
     type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

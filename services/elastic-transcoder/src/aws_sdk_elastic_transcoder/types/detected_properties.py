@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#DetectedProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.float_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.nullable_long
 
 
-class DetectedProperties(TypedDict):
+class DetectedProperties(TypedDict, closed=True):
     width: NotRequired[
         "aws_sdk_elastic_transcoder.types.nullable_integer.NullableInteger"
     ]

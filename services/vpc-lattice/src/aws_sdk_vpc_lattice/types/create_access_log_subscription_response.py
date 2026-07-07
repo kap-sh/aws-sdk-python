@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#CreateAccessLogSubscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_network_log_type
 
 
-class CreateAccessLogSubscriptionResponse(TypedDict):
+class CreateAccessLogSubscriptionResponse(TypedDict, closed=True):
     id: "aws_sdk_vpc_lattice.types.access_log_subscription_id.AccessLogSubscriptionId"
     """<p>The ID of the access log subscription.</p>"""
     arn: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#Schema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.uuid
 
 
-class Schema(TypedDict):
+class Schema(TypedDict, closed=True):
     columns: "aws_sdk_cleanrooms.types.column_list.ColumnList"
     """<p>The columns for the relation that this schema represents.</p>"""
     partition_keys: "aws_sdk_cleanrooms.types.column_list.ColumnList"

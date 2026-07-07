@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#UpdateLocationNfsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.server_hostname
 
 
-class UpdateLocationNfsRequest(TypedDict):
+class UpdateLocationNfsRequest(TypedDict, closed=True):
     location_arn: "aws_sdk_datasync.types.location_arn.LocationArn"
     """<p>Specifies the Amazon Resource Name (ARN) of the NFS transfer location that you want to update.</p>"""
     subdirectory: NotRequired["aws_sdk_datasync.types.nfs_subdirectory.NfsSubdirectory"]

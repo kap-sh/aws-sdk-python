@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#DescribeTextTranslationJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.job_id
 
 
-class DescribeTextTranslationJobRequest(TypedDict):
+class DescribeTextTranslationJobRequest(TypedDict, closed=True):
     job_id: "aws_sdk_translate.types.job_id.JobId"
     """<p>The identifier that Amazon Translate generated for the job. The <a>StartTextTranslationJob</a> operation returns this identifier in its response.</p>"""
 

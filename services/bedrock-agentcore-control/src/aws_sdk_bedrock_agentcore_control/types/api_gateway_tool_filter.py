@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ApiGatewayToolFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.rest_api_methods
 
 
-class ApiGatewayToolFilter(TypedDict):
+class ApiGatewayToolFilter(TypedDict, closed=True):
     filter_path: "str"
     """<p>Resource path to match in the REST API. Supports exact paths (for example, <code>/pets</code>) or wildcard paths (for example, <code>/pets/*</code> to match all paths under <code>/pets</code>). Must match existing paths in the REST API.</p>"""
     methods: "aws_sdk_bedrock_agentcore_control.types.rest_api_methods.RestApiMethods"

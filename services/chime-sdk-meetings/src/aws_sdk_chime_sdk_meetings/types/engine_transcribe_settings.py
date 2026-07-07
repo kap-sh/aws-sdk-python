@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#EngineTranscribeSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.boolean
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.transcribe_vocabulary_names_or_filter_names_string
 
 
-class EngineTranscribeSettings(TypedDict):
+class EngineTranscribeSettings(TypedDict, closed=True):
     language_code: NotRequired[
         "aws_sdk_chime_sdk_meetings.types.transcribe_language_code.TranscribeLanguageCode"
     ]

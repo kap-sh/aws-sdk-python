@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CodeSecurityResource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.project_id
 
 
-class _CodeSecurityResource_projectId(TypedDict):
+class _CodeSecurityResource_projectId(TypedDict, closed=True):
     projectId: "aws_sdk_inspector2.types.project_id.ProjectId"
 
 

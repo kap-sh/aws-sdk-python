@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#FailedRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.failure_reason_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.string
 
 
-class FailedRequest(TypedDict):
+class FailedRequest(TypedDict, closed=True):
     request_identifier: NotRequired[
         "aws_sdk_connect.types.request_identifier.RequestIdentifier"
     ]

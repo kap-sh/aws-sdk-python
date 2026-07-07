@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#ExplainabilityInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
     import aws_sdk_forecast.types.status
 
 
-class ExplainabilityInfo(TypedDict):
+class ExplainabilityInfo(TypedDict, closed=True):
     explainability_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the Explainability.</p>"""
     status: NotRequired["aws_sdk_forecast.types.status.Status"]

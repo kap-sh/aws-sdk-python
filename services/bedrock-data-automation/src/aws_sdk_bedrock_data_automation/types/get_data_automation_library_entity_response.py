@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#GetDataAutomationLibraryEntityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.entity_details
 
 
-class GetDataAutomationLibraryEntityResponse(TypedDict):
+class GetDataAutomationLibraryEntityResponse(TypedDict, closed=True):
     entity: NotRequired[
         "aws_sdk_bedrock_data_automation.types.entity_details.EntityDetails"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListResourceCatalogsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListResourceCatalogsRequest(TypedDict):
+class ListResourceCatalogsRequest(TypedDict, closed=True):
     name_contains: NotRequired[
         "aws_sdk_sagemaker.types.resource_catalog_name.ResourceCatalogName"
     ]

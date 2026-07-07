@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#Statement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.and_statement
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.xss_match_statement
 
 
-class Statement(TypedDict):
+class Statement(TypedDict, closed=True):
     byte_match_statement: NotRequired[
         "aws_sdk_wafv2.types.byte_match_statement.ByteMatchStatement"
     ]

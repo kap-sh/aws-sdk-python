@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsTaskDefinitionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ecs_task_definition_container_definitions_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsEcsTaskDefinitionDetails(TypedDict):
+class AwsEcsTaskDefinitionDetails(TypedDict, closed=True):
     container_definitions: NotRequired[
         "aws_sdk_securityhub.types.aws_ecs_task_definition_container_definitions_list.AwsEcsTaskDefinitionContainerDefinitionsList"
     ]

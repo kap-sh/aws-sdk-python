@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#LoopControllerFlowNodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_condition
 
 
-class LoopControllerFlowNodeConfiguration(TypedDict):
+class LoopControllerFlowNodeConfiguration(TypedDict, closed=True):
     continue_condition: "aws_sdk_bedrock_agent.types.flow_condition.FlowCondition"
     """<p>Specifies the condition that determines when the flow exits the DoWhile loop. The loop executes until this condition evaluates to true.</p>"""
     max_iterations: "int"

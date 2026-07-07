@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#ScriptModeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.s3_path
 
 
-class ScriptModeConfig(TypedDict):
+class ScriptModeConfig(TypedDict, closed=True):
     entry_point: "str"
     """<p>The entry point in the algorithm scripts from where the execution begins in the hybrid job.</p>"""
     s3_uri: "aws_sdk_braket.types.s3_path.S3Path"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#ListProfilesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.profile_list
 
 
-class ListProfilesResponse(TypedDict):
+class ListProfilesResponse(TypedDict, closed=True):
     profiles: "aws_sdk_b2bi.types.profile_list.ProfileList"
     """<p>Returns an array of <code>ProfileSummary</code> objects.</p>"""
     next_token: NotRequired["aws_sdk_b2bi.types.page_token.PageToken"]

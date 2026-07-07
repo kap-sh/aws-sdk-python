@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#StartNetworkMigrationMappingUpdateSegment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.segment_id
 
 
-class StartNetworkMigrationMappingUpdateSegment(TypedDict):
+class StartNetworkMigrationMappingUpdateSegment(TypedDict, closed=True):
     segment_id: "aws_sdk_mgn.types.segment_id.SegmentID"
     """<p>The ID of the segment to update.</p>"""
     target_account: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]

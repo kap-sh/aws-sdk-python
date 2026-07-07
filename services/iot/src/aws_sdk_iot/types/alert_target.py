@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AlertTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.role_arn
 
 
-class AlertTarget(TypedDict):
+class AlertTarget(TypedDict, closed=True):
     alert_target_arn: "aws_sdk_iot.types.alert_target_arn.AlertTargetArn"
     """<p>The Amazon Resource Name (ARN) of the notification target to which alerts are sent.</p>"""
     role_arn: "aws_sdk_iot.types.role_arn.RoleArn"

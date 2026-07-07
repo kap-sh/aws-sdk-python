@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ListVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.next_token
     import aws_sdk_opensearch.types.version_list
 
 
-class ListVersionsResponse(TypedDict):
+class ListVersionsResponse(TypedDict, closed=True):
     versions: NotRequired["aws_sdk_opensearch.types.version_list.VersionList"]
     """<p>A list of all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service supports.</p>"""
     next_token: NotRequired["aws_sdk_opensearch.types.next_token.NextToken"]

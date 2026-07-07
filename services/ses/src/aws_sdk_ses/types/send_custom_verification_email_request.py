@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#SendCustomVerificationEmailRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.template_name
 
 
-class SendCustomVerificationEmailRequest(TypedDict):
+class SendCustomVerificationEmailRequest(TypedDict, closed=True):
     email_address: "aws_sdk_ses.types.address.Address"
     """<p>The email address to verify.</p>"""
     template_name: "aws_sdk_ses.types.template_name.TemplateName"

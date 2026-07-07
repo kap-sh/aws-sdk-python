@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#ControlOperationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.timestamp
 
 
-class ControlOperationSummary(TypedDict):
+class ControlOperationSummary(TypedDict, closed=True):
     operation_type: NotRequired[
         "aws_sdk_controltower.types.control_operation_type.ControlOperationType"
     ]

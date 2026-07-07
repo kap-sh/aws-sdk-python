@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetUserProfileOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.user_profile_type
 
 
-class GetUserProfileOutput(TypedDict):
+class GetUserProfileOutput(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_datazone.types.domain_id.DomainId"]
     """<p>the identifier of the Amazon DataZone domain of which you want to get the user profile.</p>"""
     id: NotRequired["aws_sdk_datazone.types.user_profile_id.UserProfileId"]

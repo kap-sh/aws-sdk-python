@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrieveAndGenerateSessionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.kms_key_arn
 
 
-class RetrieveAndGenerateSessionConfiguration(TypedDict):
+class RetrieveAndGenerateSessionConfiguration(TypedDict, closed=True):
     kms_key_arn: "aws_sdk_bedrock_agent_runtime.types.kms_key_arn.KmsKeyArn"
     """<p>The ARN of the KMS key encrypting the session.</p>"""
 

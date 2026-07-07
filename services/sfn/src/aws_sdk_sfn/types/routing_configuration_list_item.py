@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#RoutingConfigurationListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.version_weight
 
 
-class RoutingConfigurationListItem(TypedDict):
+class RoutingConfigurationListItem(TypedDict, closed=True):
     state_machine_version_arn: "aws_sdk_sfn.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.</p> <p>If you specify the ARN of a second version, it must belong to the same state machine as the first version.</p>"""
     weight: "aws_sdk_sfn.types.version_weight.VersionWeight"

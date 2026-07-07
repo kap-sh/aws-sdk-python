@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StartChatContactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.supported_messaging_content_types
 
 
-class StartChatContactRequest(TypedDict):
+class StartChatContactRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     contact_flow_id: "aws_sdk_connect.types.contact_flow_id.ContactFlowId"

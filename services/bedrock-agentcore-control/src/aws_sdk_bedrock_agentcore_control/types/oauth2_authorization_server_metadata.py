@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#Oauth2AuthorizationServerMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.token_endpoint_type
 
 
-class Oauth2AuthorizationServerMetadata(TypedDict):
+class Oauth2AuthorizationServerMetadata(TypedDict, closed=True):
     issuer: "aws_sdk_bedrock_agentcore_control.types.issuer_url_type.IssuerUrlType"
     """<p>The issuer URL for the OAuth2 authorization server.</p>"""
     authorization_endpoint: "aws_sdk_bedrock_agentcore_control.types.authorization_endpoint_type.AuthorizationEndpointType"

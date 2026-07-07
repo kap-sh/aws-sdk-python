@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#SessionConfigurationOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.configuration_list
 
 
-class SessionConfigurationOverrides(TypedDict):
+class SessionConfigurationOverrides(TypedDict, closed=True):
     runtime_configuration: NotRequired[
         "aws_sdk_emr_serverless.types.configuration_list.ConfigurationList"
     ]

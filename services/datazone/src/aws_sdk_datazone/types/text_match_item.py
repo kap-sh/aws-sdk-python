@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#TextMatchItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.attribute
     import aws_sdk_datazone.types.match_offsets
 
 
-class TextMatchItem(TypedDict):
+class TextMatchItem(TypedDict, closed=True):
     attribute: NotRequired["aws_sdk_datazone.types.attribute.Attribute"]
     """<p>The name of the attribute.</p>"""
     text: NotRequired["str"]

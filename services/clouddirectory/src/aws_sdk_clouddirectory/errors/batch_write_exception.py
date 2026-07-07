@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchWriteException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_clouddirectory.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.exception_message
 
 
-class BatchWriteException_(TypedDict):
+class BatchWriteException_(TypedDict, closed=True):
     index: "aws_sdk_clouddirectory.types.batch_operation_index.BatchOperationIndex"
     type: NotRequired[
         "aws_sdk_clouddirectory.types.batch_write_exception_type.BatchWriteExceptionType"

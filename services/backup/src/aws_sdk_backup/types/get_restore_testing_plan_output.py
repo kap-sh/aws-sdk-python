@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetRestoreTestingPlanOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.restore_testing_plan_for_get
 
 
-class GetRestoreTestingPlanOutput(TypedDict):
+class GetRestoreTestingPlanOutput(TypedDict, closed=True):
     restore_testing_plan: (
         "aws_sdk_backup.types.restore_testing_plan_for_get.RestoreTestingPlanForGet"
     )

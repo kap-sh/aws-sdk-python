@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#InstanceRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.account_id
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.utilization_metrics
 
 
-class InstanceRecommendation(TypedDict):
+class InstanceRecommendation(TypedDict, closed=True):
     instance_arn: NotRequired[
         "aws_sdk_compute_optimizer.types.instance_arn.InstanceArn"
     ]

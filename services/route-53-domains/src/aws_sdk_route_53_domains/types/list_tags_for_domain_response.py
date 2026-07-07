@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#ListTagsForDomainResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.tag_list
 
 
-class ListTagsForDomainResponse(TypedDict):
+class ListTagsForDomainResponse(TypedDict, closed=True):
     tag_list: NotRequired["aws_sdk_route_53_domains.types.tag_list.TagList"]
     """<p>A list of the tags that are associated with the specified domain.</p>"""
 

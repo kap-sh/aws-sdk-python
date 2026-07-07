@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#CreateConfiguredAudienceModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.tag_on_create_policy
 
 
-class CreateConfiguredAudienceModelRequest(TypedDict):
+class CreateConfiguredAudienceModelRequest(TypedDict, closed=True):
     name: "aws_sdk_cleanroomsml.types.name_string.NameString"
     """<p>The name of the configured audience model.</p>"""
     audience_model_arn: "aws_sdk_cleanroomsml.types.audience_model_arn.AudienceModelArn"

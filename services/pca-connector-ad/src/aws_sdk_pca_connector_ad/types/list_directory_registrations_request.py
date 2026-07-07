@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#ListDirectoryRegistrationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.max_results
     import aws_sdk_pca_connector_ad.types.next_token
 
 
-class ListDirectoryRegistrationsRequest(TypedDict):
+class ListDirectoryRegistrationsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_pca_connector_ad.types.max_results.MaxResults"]
     """<p>Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code> value in a subsequent request to retrieve additional items.</p>"""
     next_token: NotRequired["aws_sdk_pca_connector_ad.types.next_token.NextToken"]

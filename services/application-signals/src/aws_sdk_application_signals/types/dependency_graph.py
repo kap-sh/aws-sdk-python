@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#DependencyGraph``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_signals.types.edges
     import aws_sdk_application_signals.types.nodes
 
 
-class DependencyGraph(TypedDict):
+class DependencyGraph(TypedDict, closed=True):
     nodes: NotRequired["aws_sdk_application_signals.types.nodes.Nodes"]
     """<p>An array of nodes representing the services, resources, or other entities in the dependency graph.</p>"""
     edges: NotRequired["aws_sdk_application_signals.types.edges.Edges"]

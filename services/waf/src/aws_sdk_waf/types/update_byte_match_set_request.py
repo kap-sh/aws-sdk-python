@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#UpdateByteMatchSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_id
 
 
-class UpdateByteMatchSetRequest(TypedDict):
+class UpdateByteMatchSetRequest(TypedDict, closed=True):
     byte_match_set_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to update. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</p>"""
     change_token: "aws_sdk_waf.types.change_token.ChangeToken"

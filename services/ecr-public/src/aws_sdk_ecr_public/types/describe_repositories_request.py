@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#DescribeRepositoriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.repository_name_list
 
 
-class DescribeRepositoriesRequest(TypedDict):
+class DescribeRepositoriesRequest(TypedDict, closed=True):
     registry_id: NotRequired["aws_sdk_ecr_public.types.registry_id.RegistryId"]
     """<p>The Amazon Web Services account ID that's associated with the registry that contains the repositories to be described. If you do not specify a registry, the default public registry is assumed.</p>"""
     repository_names: NotRequired[

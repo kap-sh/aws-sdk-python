@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessMessageStartEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_conversation_role
 
 
-class HarnessMessageStartEvent(TypedDict):
+class HarnessMessageStartEvent(TypedDict, closed=True):
     role: "aws_sdk_bedrock_agentcore.types.harness_conversation_role.HarnessConversationRole"
     """<p>The role of the message sender.</p>"""
 

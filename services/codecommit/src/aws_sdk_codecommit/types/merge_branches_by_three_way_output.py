@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#MergeBranchesByThreeWayOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.object_id
 
 
-class MergeBranchesByThreeWayOutput(TypedDict):
+class MergeBranchesByThreeWayOutput(TypedDict, closed=True):
     commit_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]
     """<p>The commit ID of the merge in the destination or target branch.</p>"""
     tree_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]

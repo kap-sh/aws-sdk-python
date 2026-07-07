@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#DescribeNotificationConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.notification_configuration
 
 
-class DescribeNotificationConfigurationOutput(TypedDict):
+class DescribeNotificationConfigurationOutput(TypedDict, closed=True):
     notification_configuration: NotRequired[
         "aws_sdk_kinesis_video.types.notification_configuration.NotificationConfiguration"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#GetQueryResultsWorkloadInsightsTopContributorsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.workload_insights_top_contributors_row_list
 
 
-class GetQueryResultsWorkloadInsightsTopContributorsOutput(TypedDict):
+class GetQueryResultsWorkloadInsightsTopContributorsOutput(TypedDict, closed=True):
     top_contributors: NotRequired[
         "aws_sdk_networkflowmonitor.types.workload_insights_top_contributors_row_list.WorkloadInsightsTopContributorsRowList"
     ]

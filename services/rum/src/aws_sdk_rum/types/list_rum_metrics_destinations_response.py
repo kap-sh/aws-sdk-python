@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rum#ListRumMetricsDestinationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.metric_destination_summary_list
 
 
-class ListRumMetricsDestinationsResponse(TypedDict):
+class ListRumMetricsDestinationsResponse(TypedDict, closed=True):
     destinations: NotRequired[
         "aws_sdk_rum.types.metric_destination_summary_list.MetricDestinationSummaryList"
     ]

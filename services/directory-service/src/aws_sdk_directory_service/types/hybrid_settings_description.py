@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#HybridSettingsDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.assessment_instance_ids
     import aws_sdk_directory_service.types.ip_addrs
 
 
-class HybridSettingsDescription(TypedDict):
+class HybridSettingsDescription(TypedDict, closed=True):
     self_managed_dns_ip_addrs: NotRequired[
         "aws_sdk_directory_service.types.ip_addrs.IpAddrs"
     ]

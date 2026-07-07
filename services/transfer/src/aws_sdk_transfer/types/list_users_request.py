@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListUsersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.server_id
 
 
-class ListUsersRequest(TypedDict):
+class ListUsersRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_transfer.types.max_results.MaxResults"]
     """<p>Specifies the number of users to return as a response to the <code>ListUsers</code> request.</p>"""
     next_token: NotRequired["aws_sdk_transfer.types.next_token.NextToken"]

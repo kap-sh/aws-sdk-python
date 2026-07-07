@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sustainability#GetEstimatedCarbonEmissionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sustainability.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sustainability.types.next_token
 
 
-class GetEstimatedCarbonEmissionsResponse(TypedDict):
+class GetEstimatedCarbonEmissionsResponse(TypedDict, closed=True):
     results: "aws_sdk_sustainability.types.estimated_carbon_emissions_list.EstimatedCarbonEmissionsList"
     """<p>The result of the requested inputs.</p>"""
     next_token: NotRequired["aws_sdk_sustainability.types.next_token.NextToken"]

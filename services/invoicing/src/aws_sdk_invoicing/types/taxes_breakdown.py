@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#TaxesBreakdown``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.basic_string
     import aws_sdk_invoicing.types.taxes_breakdown_amount_list
 
 
-class TaxesBreakdown(TypedDict):
+class TaxesBreakdown(TypedDict, closed=True):
     breakdown: NotRequired[
         "aws_sdk_invoicing.types.taxes_breakdown_amount_list.TaxesBreakdownAmountList"
     ]

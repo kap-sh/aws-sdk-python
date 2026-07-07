@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#MultiConditionalBranch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.simple_condition
 
 
-class MultiConditionalBranch(TypedDict):
+class MultiConditionalBranch(TypedDict, closed=True):
     condition: NotRequired["aws_sdk_pinpoint.types.simple_condition.SimpleCondition"]
     """<p>The condition to evaluate for the activity path.</p>"""
     next_activity: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

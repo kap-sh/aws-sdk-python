@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#CreateDeliverabilityTestReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.report_id
 
 
-class CreateDeliverabilityTestReportResponse(TypedDict):
+class CreateDeliverabilityTestReportResponse(TypedDict, closed=True):
     report_id: "aws_sdk_pinpoint_email.types.report_id.ReportId"
     """<p>A unique string that identifies the predictive inbox placement test.</p>"""
     deliverability_test_status: "aws_sdk_pinpoint_email.types.deliverability_test_status.DeliverabilityTestStatus"

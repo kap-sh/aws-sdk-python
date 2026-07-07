@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#IntegrationDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.open_search_integration_details
 
 
-class _IntegrationDetails_openSearchIntegrationDetails(TypedDict):
+class _IntegrationDetails_openSearchIntegrationDetails(TypedDict, closed=True):
     openSearchIntegrationDetails: "aws_sdk_cloudwatch_logs.types.open_search_integration_details.OpenSearchIntegrationDetails"
 
 

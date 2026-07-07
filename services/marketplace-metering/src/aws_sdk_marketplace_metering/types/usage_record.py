@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacemetering#UsageRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_metering.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_metering.types.usage_quantity
 
 
-class UsageRecord(TypedDict):
+class UsageRecord(TypedDict, closed=True):
     timestamp: "aws_sdk_marketplace_metering.types.timestamp.Timestamp"
     """<p>Timestamp, in UTC, for which the usage is being reported.</p> <p>Your application can meter usage for up to six hours in the past. Make sure the <code>timestamp</code> value is not before the start of the software usage.</p>"""
     customer_identifier: (

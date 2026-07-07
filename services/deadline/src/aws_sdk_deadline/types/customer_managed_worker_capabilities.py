@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#CustomerManagedWorkerCapabilities``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.v_cpu_count_range
 
 
-class CustomerManagedWorkerCapabilities(TypedDict):
+class CustomerManagedWorkerCapabilities(TypedDict, closed=True):
     v_cpu_count: "aws_sdk_deadline.types.v_cpu_count_range.VCpuCountRange"
     """<p>The vCPU count for the customer manged worker capabilities.</p>"""
     memory_mi_b: "aws_sdk_deadline.types.memory_mi_b_range.MemoryMiBRange"

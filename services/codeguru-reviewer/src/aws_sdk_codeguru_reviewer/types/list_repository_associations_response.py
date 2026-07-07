@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#ListRepositoryAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.next_token
     import aws_sdk_codeguru_reviewer.types.repository_association_summaries
 
 
-class ListRepositoryAssociationsResponse(TypedDict):
+class ListRepositoryAssociationsResponse(TypedDict, closed=True):
     repository_association_summaries: NotRequired[
         "aws_sdk_codeguru_reviewer.types.repository_association_summaries.RepositoryAssociationSummaries"
     ]

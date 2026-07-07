@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetRestoreTestingInferredMetadataOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string_map
 
 
-class GetRestoreTestingInferredMetadataOutput(TypedDict):
+class GetRestoreTestingInferredMetadataOutput(TypedDict, closed=True):
     inferred_metadata: "aws_sdk_backup.types.string_map.stringMap"
     """<p>This is a string map of the metadata inferred from the request.</p>"""
 
